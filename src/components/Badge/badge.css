@@ -5,119 +5,119 @@
 }
 
 :host([variant="accent"]) .badge {
-  background-color: var(--sgds-accent-surface-default);
+  background-color: var(--sit-accent-surface-default);
 }
 
 :host([variant="success"]) .badge {
-  background-color: var(--sgds-success-surface-default);
+  background-color: var(--sit-success-surface-default);
 }
 
 :host([variant="danger"]) .badge {
-  background-color: var(--sgds-danger-surface-default);
+  background-color: var(--sit-danger-surface-default);
 }
 
 :host([variant="warning"]) .badge {
-  color: var(--sgds-color-fixed-dark);
-  background-color: var(--sgds-warning-surface-default);
+  color: var(--sit-color-fixed-dark);
+  background-color: var(--sit-warning-surface-default);
 }
 
 :host([variant="cyan"]) .badge {
-  background-color: var(--sgds-cyan-surface-default);
+  background-color: var(--sit-cyan-surface-default);
 }
 
 :host([variant="purple"]) .badge {
-  background-color: var(--sgds-purple-surface-default);
+  background-color: var(--sit-purple-surface-default);
 }
 
 :host([variant="neutral"]) .badge {
-  background-color: var(--sgds-neutral-surface-default);
+  background-color: var(--sit-neutral-surface-default);
 }
 
 :host([variant="white"]) .badge {
-  color: var(--sgds-color-fixed-dark);
-  background-color: var(--sgds-surface-fixed-light);
+  color: var(--sit-color-fixed-dark);
+  background-color: var(--sit-surface-fixed-light);
 }
 
 :host([variant="accent"][outlined]) .badge {
-  color: var(--sgds-accent-color-fixed-dark);
-  background-color: var(--sgds-accent-surface-muted);
-  border: var(--sgds-border-width-1) solid var(--sgds-accent-border-color-muted);
+  color: var(--sit-accent-color-fixed-dark);
+  background-color: var(--sit-accent-surface-muted);
+  border: var(--sit-border-width-1) solid var(--sit-accent-border-color-muted);
 }
 
 :host([variant="success"][outlined]) .badge {
-  color: var(--sgds-success-color-fixed-dark);
-  background-color: var(--sgds-success-surface-muted);
-  border: var(--sgds-border-width-1) solid var(--sgds-success-border-color-muted);
+  color: var(--sit-success-color-fixed-dark);
+  background-color: var(--sit-success-surface-muted);
+  border: var(--sit-border-width-1) solid var(--sit-success-border-color-muted);
 }
 
 :host([variant="danger"][outlined]) .badge {
-  color: var(--sgds-danger-color-fixed-dark);
-  background-color: var(--sgds-danger-surface-muted);
-  border: var(--sgds-border-width-1) solid var(--sgds-danger-border-color-muted);
+  color: var(--sit-danger-color-fixed-dark);
+  background-color: var(--sit-danger-surface-muted);
+  border: var(--sit-border-width-1) solid var(--sit-danger-border-color-muted);
 }
 
 :host([variant="warning"][outlined]) .badge {
-  color: var(--sgds-warning-color-fixed-dark);
-  background-color: var(--sgds-warning-surface-muted);
-  border: var(--sgds-border-width-1) solid var(--sgds-warning-border-color-muted);
+  color: var(--sit-warning-color-fixed-dark);
+  background-color: var(--sit-warning-surface-muted);
+  border: var(--sit-border-width-1) solid var(--sit-warning-border-color-muted);
 }
 
 :host([variant="cyan"][outlined]) .badge {
-  color: var(--sgds-cyan-color-fixed-dark);
-  background-color: var(--sgds-cyan-surface-muted);
-  border: var(--sgds-border-width-1) solid var(--sgds-cyan-border-color-muted);
+  color: var(--sit-cyan-color-fixed-dark);
+  background-color: var(--sit-cyan-surface-muted);
+  border: var(--sit-border-width-1) solid var(--sit-cyan-border-color-muted);
 }
 
 :host([variant="purple"][outlined]) .badge {
-  color: var(--sgds-purple-color-fixed-dark);
-  background-color: var(--sgds-purple-surface-muted);
-  border: var(--sgds-border-width-1) solid var(--sgds-purple-border-color-muted);
+  color: var(--sit-purple-color-fixed-dark);
+  background-color: var(--sit-purple-surface-muted);
+  border: var(--sit-border-width-1) solid var(--sit-purple-border-color-muted);
 }
 
 :host([variant="neutral"][outlined]) .badge {
-  color: var(--sgds-color-fixed-dark);
-  background-color: var(--sgds-neutral-surface-muted);
-  border: var(--sgds-border-width-1) solid var(--sgds-neutral-border-color-muted);
+  color: var(--sit-color-fixed-dark);
+  background-color: var(--sit-neutral-surface-muted);
+  border: var(--sit-border-width-1) solid var(--sit-neutral-border-color-muted);
 }
 
 :host([variant="white"][outlined]) .badge {
-  color: var(--sgds-color-fixed-dark);
-  background-color: var(--sgds-surface-fixed-light);
-  border: var(--sgds-border-width-1) solid var(--sgds-border-color-muted);
+  color: var(--sit-color-fixed-dark);
+  background-color: var(--sit-surface-fixed-light);
+  border: var(--sit-border-width-1) solid var(--sit-border-color-muted);
 }
 
-sgds-tooltip {
+sit-tooltip {
   display: block;
   max-width: 100%;
 }
 
 .badge {
-  background-color: var(--sgds-primary-surface-default);
-  color: var(--sgds-color-fixed-light);
-  border: var(--sgds-border-width-1) solid var(--sgds-border-color-transparent);
-  border-radius: var(--sgds-border-radius-sm);
-  font-size: var(--sgds-font-size-label-xs);
-  line-height: var(--sgds-line-height-3-xs);
-  height: var(--sgds-dimension-24, 24px);
-  min-width: var(--sgds-dimension-24);
-  max-width: var(--sgds-dimension-192, 192px);
+  background-color: var(--sit-primary-surface-default);
+  color: var(--sit-color-fixed-light);
+  border: var(--sit-border-width-1) solid var(--sit-border-color-transparent);
+  border-radius: var(--sit-border-radius-sm);
+  font-size: var(--sit-font-size-label-xs);
+  line-height: var(--sit-line-height-3-xs);
+  height: var(--sit-dimension-24, 24px);
+  min-width: var(--sit-dimension-24);
+  max-width: var(--sit-dimension-192, 192px);
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: var(--sgds-padding-none) var(--sgds-padding-xs);
+  padding: var(--sit-padding-none) var(--sit-padding-xs);
 }
 
 .badge.outlined {
-  color: var(--sgds-primary-color-fixed-dark);
-  background-color: var(--sgds-primary-surface-muted);
-  border: var(--sgds-border-width-1) solid var(--sgds-primary-border-color-muted);
+  color: var(--sit-primary-color-fixed-dark);
+  background-color: var(--sit-primary-surface-muted);
+  border: var(--sit-border-width-1) solid var(--sit-primary-border-color-muted);
 }
 .badge.full-width {
   max-width: 100%;
 }
 
 .badge-label {
-  padding: var(--sgds-padding-none) var(--sgds-padding-3-xs);
+  padding: var(--sit-padding-none) var(--sit-padding-3-xs);
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -127,8 +127,8 @@ sgds-tooltip {
   padding-right: 0;
 }
 
-.badge-dimissible sgds-close-button {
-  --sgds-close-btn-border-radius: var(--sgds-border-radius-sm);
+.badge-dimissible sit-close-button {
+  --sit-close-btn-border-radius: var(--sit-border-radius-sm);
 }
 
 slot::slotted(*) {

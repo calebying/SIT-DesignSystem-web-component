@@ -1,6 +1,6 @@
 :host([density="compact"]) .tab {
-  padding: var(--sgds-spacer-3) var(--sgds-spacer-5);
-  font-size: var(--sgds-font-size-label-sm);
+  padding: var(--sit-spacer-3) var(--sit-spacer-5);
+  font-size: var(--sit-font-size-label-sm);
 }
 
 :host(:not([active])) .tab {
@@ -8,36 +8,36 @@
 }
 
 :host([variant="solid"]) .tab {
-  background-color: var(--sgds-bg-translucent-subtle);
-  border-radius: var(--sgds-border-radius-md);
+  background-color: var(--sit-bg-translucent-subtle);
+  border-radius: var(--sit-border-radius-md);
 }
 
 :host([variant="solid"][active]) .tab {
-  background-color: var(--sgds-primary-surface-default);
-  color: var(--sgds-color-fixed-light);
+  background-color: var(--sit-primary-surface-default);
+  color: var(--sit-color-fixed-light);
 }
 
 :host([variant="solid"]:not([active]):not([disabled])) .tab:focus,
 :host([variant="solid"]:not([active]):not([disabled])) .tab:focus-visible {
-  background-color: var(--sgds-bg-translucent);
+  background-color: var(--sit-bg-translucent);
 }
 
 :host([variant="solid"]:not([active]):not([disabled])) .tab:focus-visible {
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }
 
 :host([variant="solid"]:not([active]):not([disabled])) .tab:hover {
-  background-color: var(--sgds-bg-translucent);
+  background-color: var(--sit-bg-translucent);
 }
 
 :host([disabled]) .tab {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
   cursor: not-allowed;
 }
 
 :host([variant="underlined"][active]) .tab {
-  color: var(--sgds-primary-color-default);
+  color: var(--sit-primary-color-default);
 }
 
 :host([variant="underlined"][orientation="vertical"][active]) .tab::after {
@@ -45,9 +45,9 @@
   position: absolute;
   bottom: 0;
   right: -1px;
-  width: var(--sgds-border-width-4);
+  width: var(--sit-border-width-4);
   height: 100%;
-  background-color: var(--sgds-primary-surface-default);
+  background-color: var(--sit-primary-surface-default);
 }
 
 :host([variant="underlined"][orientation="horizontal"][active]) .tab::after {
@@ -55,36 +55,36 @@
   position: absolute;
   bottom: -1px;
   left: 0;
-  height: var(--sgds-border-width-4);
+  height: var(--sit-border-width-4);
   width: 100%;
-  background-color: var(--sgds-primary-surface-default);
+  background-color: var(--sit-primary-surface-default);
 }
 
 :host([variant="underlined"]:not([active]):not([disabled])) .tab:focus,
 :host([variant="underlined"]:not([active]):not([disabled])) .tab:focus-visible {
   outline: 0;
-  background-color: var(--sgds-bg-translucent-subtle);
+  background-color: var(--sit-bg-translucent-subtle);
 }
 
 :host([variant="underlined"]:not([active]):not([disabled])) .tab:focus-visible {
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }
 
 :host([variant="underlined"]:not([active]):not([disabled])) .tab:hover {
-  background-color: var(--sgds-bg-translucent-subtle);
+  background-color: var(--sit-bg-translucent-subtle);
 }
 
 .tab {
   display: flex;
   align-items: center;
-  gap: var(--sgds-spacer-3);
-  padding: var(--sgds-spacer-4) var(--sgds-spacer-5);
-  color: var(--sgds-color-default);
+  gap: var(--sit-spacer-3);
+  padding: var(--sit-spacer-4) var(--sit-spacer-5);
+  color: var(--sit-color-default);
   position: relative;
 }
 
 .tab:focus-visible {
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }

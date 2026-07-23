@@ -1,9 +1,9 @@
-import { SitProgressBar } from "./sgds-progress-bar";
+import { SitProgressBar } from "./sit-progress-bar";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-progress-bar", SitProgressBar);
+register("sit-progress-bar", SitProgressBar);
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-progress-bar": SitProgressBar;
+    "sit-progress-bar": SitProgressBar;
   }
 }

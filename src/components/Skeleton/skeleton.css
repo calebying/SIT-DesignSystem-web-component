@@ -1,10 +1,10 @@
 .skeleton {
-  --bg: var(--sgds-bg-translucent-subtle);
+  --bg: var(--sit-bg-translucent-subtle);
   background-color: var(--bg);
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-xs);
-  border-radius: var(--sgds-border-radius-sm);
+  gap: var(--sit-gap-xs);
+  border-radius: var(--sit-border-radius-sm);
   max-width: 100%;
 }
 .skeleton.skeleton-paragraph {
@@ -13,12 +13,12 @@
 
 .skeleton.skeleton-paragraph.auto-size-rows > div[class*="skeleton-row"] {
   height: -webkit-fill-available;
-  background-color: var(--sgds-bg-translucent);
-  border-radius: var(--sgds-border-radius-sm);
+  background-color: var(--sit-bg-translucent);
+  border-radius: var(--sit-border-radius-sm);
 }
 
 .sheen {
-  --sheen-color: var(--sgds-bg-translucent);
+  --sheen-color: var(--sit-bg-translucent);
   background: linear-gradient(270deg, var(--bg) 0%, var(--sheen-color) 33.33%, var(--sheen-color) 66.67%, var(--bg) 100%);
   background-size: 400% 100%;
   animation: sheen 8s ease-in-out infinite;

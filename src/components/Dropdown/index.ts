@@ -1,13 +1,13 @@
-import { SitDropdown } from "./sgds-dropdown";
-import { SitDropdownItem } from "./sgds-dropdown-item";
+import { SitDropdown } from "./sit-dropdown";
+import { SitDropdownItem } from "./sit-dropdown-item";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-dropdown", SitDropdown);
-register("sgds-dropdown-item", SitDropdownItem);
+register("sit-dropdown", SitDropdown);
+register("sit-dropdown-item", SitDropdownItem);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-dropdown": SitDropdown;
-    "sgds-dropdown-item": SitDropdownItem;
+    "sit-dropdown": SitDropdown;
+    "sit-dropdown-item": SitDropdownItem;
   }
 }

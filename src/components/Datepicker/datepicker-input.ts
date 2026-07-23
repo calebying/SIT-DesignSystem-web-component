@@ -4,7 +4,7 @@ import { html, PropertyValueMap } from "lit";
 import { property, queryAsync } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { DATE_PATTERNS, setTimeToNoon } from "../../utils/time";
-import { SitInput } from "../Input/sgds-input";
+import { SitInput } from "../Input/sit-input";
 import datepickerInputStyles from "./datepicker-input.css";
 export type DateFormat = "MM/DD/YYYY" | "DD/MM/YYYY" | "YYYY/MM/DD";
 

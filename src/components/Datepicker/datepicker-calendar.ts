@@ -2,7 +2,7 @@ import { format, isAfter, isEqual } from "date-fns";
 import { HTMLTemplateResult, html } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SitElement from "../../base/sgds-element";
+import SitElement from "../../base/sit-element";
 import { createYearViewArray, setTimeToNoon } from "../../utils/time";
 import { watch } from "../../utils/watch";
 import { ViewEnum } from "./types";
@@ -459,7 +459,7 @@ export class DatepickerCalendar extends SitElement {
     const yearArray = createYearViewArray(this.displayDate, CURRENT_YEAR);
 
     const yearView = html`
-      <div class="sgds yearpicker" role="grid">
+      <div class="sit yearpicker" role="grid">
         ${[0, 1, 2, 3].map(
           row => html`
             <div role="row">

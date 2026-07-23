@@ -1,13 +1,13 @@
-import { SitCheckbox } from "./sgds-checkbox";
-import { SitCheckboxGroup } from "./sgds-checkbox-group";
+import { SitCheckbox } from "./sit-checkbox";
+import { SitCheckboxGroup } from "./sit-checkbox-group";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-checkbox", SitCheckbox);
-register("sgds-checkbox-group", SitCheckboxGroup);
+register("sit-checkbox", SitCheckbox);
+register("sit-checkbox-group", SitCheckboxGroup);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-checkbox": SitCheckbox;
-    "sgds-checkbox-group": SitCheckboxGroup;
+    "sit-checkbox": SitCheckbox;
+    "sit-checkbox-group": SitCheckboxGroup;
   }
 }

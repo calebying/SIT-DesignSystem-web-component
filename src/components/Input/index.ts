@@ -1,10 +1,10 @@
-import { SitInput } from "./sgds-input";
+import { SitInput } from "./sit-input";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-input", SitInput);
+register("sit-input", SitInput);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-input": SitInput;
+    "sit-input": SitInput;
   }
 }

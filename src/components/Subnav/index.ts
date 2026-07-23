@@ -1,13 +1,13 @@
-import { SitSubnav } from "./sgds-subnav";
-import { SitSubnavItem } from "./sgds-subnav-item";
+import { SitSubnav } from "./sit-subnav";
+import { SitSubnavItem } from "./sit-subnav-item";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-subnav", SitSubnav);
-register("sgds-subnav-item", SitSubnavItem);
+register("sit-subnav", SitSubnav);
+register("sit-subnav-item", SitSubnavItem);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-subnav": SitSubnav;
-    "sgds-subnav-item": SitSubnavItem;
+    "sit-subnav": SitSubnav;
+    "sit-subnav-item": SitSubnavItem;
   }
 }

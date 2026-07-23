@@ -1,0 +1,46 @@
+import { property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import { html } from "lit/static-html.js";
+import SitElement from "../../base/sit-element";
+import toastContainerStyle from "./toast-container.css";
+/**
+ * @summary ToastContainer is the container component to position `sit-toast` in screen. When there is multiple toasts in the container, the toast components are stacked vertically.
+ *
+ * @slot default - The slot for `sit-toast` elements
+ *
+ */
+export class SitToastContainer extends SitElement {
+  static styles = [toastContainerStyle];
+
+  /**
+   * Controls the position of `sit-toast` within itself.
+   * Since 3.7.1, the positions "top-start", "middle-start", "middle-center", and "middle-end" are deprecated.
+   */
+  @property({ type: String, reflect: true }) position: ToastPosition;
+
+  render() {
+    return html`
+      <div
+        class=${classMap({
+          "toast-container": true,
+          [this.position]: this.position
+        })}
+      >
+        <slot></slot>
+      </div>
+    `;
+  }
+}
+
+export type ToastPosition =
+  | "top-start"
+  | "top-center"
+  | "top-end"
+  | "middle-start"
+  | "middle-center"
+  | "middle-end"
+  | "bottom-start"
+  | "bottom-center"
+  | "bottom-end";
+
+export default SitToastContainer;

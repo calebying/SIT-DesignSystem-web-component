@@ -1,29 +1,29 @@
 :host(:not([size="fullscreen"])) .modal-panel {
-  background-color: var(--sgds-surface-default);
-  padding: var(--sgds-padding-xl);
-  max-width: var(--sgds-dimension-640);
+  background-color: var(--sit-surface-default);
+  padding: var(--sit-padding-xl);
+  max-width: var(--sit-dimension-640);
 }
 :host([size="sm"]) .modal-panel {
-  max-width: var(--sgds-dimension-480);
+  max-width: var(--sit-dimension-480);
 }
 
 :host([size="md"]) .modal-panel {
-  max-width: var(--sgds-dimension-640);
+  max-width: var(--sit-dimension-640);
 }
 
 :host([size="lg"]) .modal-panel {
-  max-width: var(--sgds-dimension-800);
+  max-width: var(--sit-dimension-800);
 }
 :host([size="xl"]) .modal-panel {
-  max-width: var(--sgds-dimension-1280);
+  max-width: var(--sit-dimension-1280);
 }
 
 :host([size="fullscreen"]) .modal-overlay {
-  background-color: var(--sgds-surface-default);
+  background-color: var(--sit-surface-default);
 }
 
 :host([size="fullscreen"]) .modal-panel {
-  margin: var(--sgds-margin-xl) var(--sgds-margin-lg);
+  margin: var(--sit-margin-xl) var(--sit-margin-lg);
 }
 
 .modal {
@@ -35,19 +35,19 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: var(--sgds-z-index-modal);
-  font-family: var(--sgds-body-font-family);
+  z-index: var(--sit-z-index-modal);
+  font-family: var(--sit-body-font-family);
 }
 
 .modal-panel {
   width: 100%;
-  border-radius: var(--sgds-border-radius-md);
+  border-radius: var(--sit-border-radius-md);
   z-index: 2; /* shift above overlay  */
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-2-xl);
+  gap: var(--sit-gap-2-xl);
   margin: auto;
-  max-height: calc(100% - var(--sgds-margin-xl) - var(--sgds-margin-xl));
+  max-height: calc(100% - var(--sit-margin-xl) - var(--sit-margin-xl));
 }
 
 .modal-panel:focus {
@@ -58,47 +58,47 @@
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-2-xl);
+  gap: var(--sit-gap-2-xl);
   min-height: 0;
   position: relative;
 }
 
 .modal-header__close {
   position: absolute;
-  top: calc(-1 * var(--sgds-padding-md));
-  right: calc(-1 * var(--sgds-padding-md));
+  top: calc(-1 * var(--sit-padding-md));
+  right: calc(-1 * var(--sit-padding-md));
 }
 
 @media screen and (min-width: 512px) {
   :host([size="fullscreen"]) .modal-panel {
-    margin: var(--sgds-margin-xl);
+    margin: var(--sit-margin-xl);
   }
 }
 
 @media screen and (min-width: 768px) {
   :host([size="fullscreen"]) .modal-panel {
-    margin: var(--sgds-margin-2-xl);
-    max-height: calc(100% - var(--sgds-margin-2-xl) - var(--sgds-margin-2-xl));
+    margin: var(--sit-margin-2-xl);
+    max-height: calc(100% - var(--sit-margin-2-xl) - var(--sit-margin-2-xl));
   }
 }
 
 @media screen and (min-width: 1024px) {
   :host([size="fullscreen"]) .modal-panel {
-    margin: var(--sgds-margin-4-xl) var(--sgds-margin-lg);
-    max-height: calc(100% - var(--sgds-margin-4-xl) - var(--sgds-margin-4-xl));
-    max-width: var(--sgds-dimension-888);
+    margin: var(--sit-margin-4-xl) var(--sit-margin-lg);
+    max-height: calc(100% - var(--sit-margin-4-xl) - var(--sit-margin-4-xl));
+    max-width: var(--sit-dimension-888);
   }
 }
 
 @media screen and (min-width: 1280px) {
   :host([size="fullscreen"]) .modal-panel {
-    max-width: var(--sgds-dimension-1168);
+    max-width: var(--sit-dimension-1168);
   }
 }
 
 @media screen and (min-width: 1440px) {
   :host([size="fullscreen"]) .modal-panel {
-    max-width: var(--sgds-dimension-1312);
+    max-width: var(--sit-dimension-1312);
   }
 }
 
@@ -112,17 +112,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  max-width: var(--sgds-dimension-872);
+  max-width: var(--sit-dimension-872);
 }
 
 .modal-header__title-description {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-sm);
+  gap: var(--sit-gap-sm);
 }
 
 :host([size="fullscreen"]) .modal-header__title-description {
-  gap: var(--sgds-gap-md);
+  gap: var(--sit-gap-md);
 }
 
 slot[name="title"]::slotted(*) {
@@ -130,15 +130,15 @@ slot[name="title"]::slotted(*) {
   flex: 1 1 auto;
   align-items: center;
   gap: 1rem;
-  margin: var(--sgds-margin-none) !important;
-  line-height: var(--sgds-line-height-lg) !important;
-  font-size: var(--sgds-font-size-heading-sm) !important;
+  margin: var(--sit-margin-none) !important;
+  line-height: var(--sit-line-height-lg) !important;
+  font-size: var(--sit-font-size-heading-sm) !important;
 }
 
 slot[name="description"]::slotted(*) {
-  margin: var(--sgds-margin-none) !important;
-  color: var(--sgds-color-subtle);
-  line-height: var(--sgds-line-height-xs);
+  margin: var(--sit-margin-none) !important;
+  color: var(--sit-color-subtle);
+  line-height: var(--sit-line-height-xs);
 }
 
 .modal-body {
@@ -148,7 +148,7 @@ slot[name="description"]::slotted(*) {
 }
 
 .modal-body slot::slotted(*) {
-  --sgds-paragraph-spacing-xl: var(--sgds-margin-none);
+  --sit-paragraph-spacing-xl: var(--sit-margin-none);
 }
 
 .modal-footer {
@@ -156,8 +156,8 @@ slot[name="description"]::slotted(*) {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: var(--sgds-gap-md);
-  padding-top: var(--sgds-padding-md);
+  gap: var(--sit-gap-md);
+  padding-top: var(--sit-padding-md);
 }
 
 .modal:not(.has-footer) .modal-footer {
@@ -170,7 +170,7 @@ slot[name="description"]::slotted(*) {
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: var(--sgds-bg-overlay);
+  background-color: var(--sit-bg-overlay);
 }
 
 [hidden] {

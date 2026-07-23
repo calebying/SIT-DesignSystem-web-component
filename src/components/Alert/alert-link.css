@@ -5,14 +5,14 @@
 
 .alert-link,
 .alert-link:hover {
-  color: var(--sgds-alert-color);
+  color: var(--sit-alert-color);
   text-decoration-line: underline;
-  font-size: var(--sgds-font-size-label-sm);
-  font-weight: var(--sgds-font-weight-regular);
-  line-height: var(--sgds-line-height-2-xs);
+  font-size: var(--sit-font-size-label-sm);
+  font-weight: var(--sit-font-weight-regular);
+  line-height: var(--sit-line-height-2-xs);
 }
 
 .alert-link:focus-visible {
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }

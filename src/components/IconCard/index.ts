@@ -1,10 +1,10 @@
-import { SitIconCard } from "./sgds-icon-card";
+import { SitIconCard } from "./sit-icon-card";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-icon-card", SitIconCard);
+register("sit-icon-card", SitIconCard);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-icon-card": SitIconCard;
+    "sit-icon-card": SitIconCard;
   }
 }

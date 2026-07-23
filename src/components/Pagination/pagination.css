@@ -10,16 +10,16 @@ svg {
 
 .pagination {
   display: inline-flex;
-  gap: var(--sgds-gap-2-xs);
+  gap: var(--sit-gap-2-xs);
   list-style: none;
   padding-left: 0;
 }
 
 .page-link {
-  width: var(--sgds-dimension-48);
-  height: var(--sgds-dimension-48);
-  background-color: var(--sgds-bg-transparent);
-  border-radius: var(--sgds-border-radius-md);
+  width: var(--sit-dimension-48);
+  height: var(--sit-dimension-48);
+  background-color: var(--sit-bg-transparent);
+  border-radius: var(--sit-border-radius-md);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,13 +33,13 @@ svg {
 
 .page-link:not(.ellipsis):hover,
 .page-link:not(.ellipsis):focus-visible {
-  color: var(--sgds-primary-color-default);
-  background-color: var(--sgds-primary-surface-translucent);
+  color: var(--sit-primary-color-default);
+  background-color: var(--sit-primary-surface-translucent);
 }
 
 .page-link:not(.ellipsis):focus-visible {
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }
 
 .page-item > .page-link:not(.ellipsis) {
@@ -47,24 +47,24 @@ svg {
 }
 
 .page-item.active .page-link {
-  color: var(--sgds-color-fixed-light);
-  background-color: var(--sgds-primary-surface-default);
+  color: var(--sit-color-fixed-light);
+  background-color: var(--sit-primary-surface-default);
 }
 
 .page-item.disabled .page-link {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
 }
 
 .ellipsis-disabled {
   cursor: not-allowed;
   pointer-events: none;
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
 }
 
 .pagination-sm .page-link {
-  font-size: var(--sgds-font-size-label-sm);
-  width: var(--sgds-dimension-40);
-  height: var(--sgds-dimension-40);
+  font-size: var(--sit-font-size-label-sm);
+  width: var(--sit-dimension-40);
+  height: var(--sit-dimension-40);
 }
 
 .sr-only {
@@ -85,5 +85,5 @@ svg {
 }
 
 .pagination-sm .pagination-description {
-  font-size: var(--sgds-font-size-label-sm);
+  font-size: var(--sit-font-size-label-sm);
 }

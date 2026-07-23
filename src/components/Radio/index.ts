@@ -1,13 +1,13 @@
-import { SitRadio } from "./sgds-radio";
-import { SitRadioGroup } from "./sgds-radio-group";
+import { SitRadio } from "./sit-radio";
+import { SitRadioGroup } from "./sit-radio-group";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-radio", SitRadio);
-register("sgds-radio-group", SitRadioGroup);
+register("sit-radio", SitRadio);
+register("sit-radio-group", SitRadioGroup);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-radio": SitRadio;
-    "sgds-radio-group": SitRadioGroup;
+    "sit-radio": SitRadio;
+    "sit-radio-group": SitRadioGroup;
   }
 }

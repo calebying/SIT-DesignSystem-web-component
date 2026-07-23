@@ -1,0 +1,89 @@
+import { nothing } from "lit";
+import { property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import { html } from "lit/static-html.js";
+import SitElement from "../../base/sit-element";
+import { watch } from "../../utils/watch";
+import SitCloseButton from "../CloseButton/sit-close-button";
+import SitIcon from "../Icon/sit-icon";
+import alertStyle from "./alert.css";
+
+export type AlertVariant = "info" | "success" | "danger" | "warning" | "neutral";
+/**
+ * @summary Alerts provide short, timely, and relevant information for your users. It can be a simple text message or customised HTML content with paragraphs, headings and links.
+ *
+ * @slot default - The alert's main content.
+ * @slot icon - An icon to show in the alert. Pass in sit-icon size="md" elements.
+ * @slot action - An action button or link to show in the alert.
+ *
+ * @event sit-show - Emitted when the alert appears.
+ * @event sit-hide - Emitted after the alert closes.
+ *
+ */
+export class SitAlert extends SitElement {
+  static styles = [...SitElement.styles, alertStyle];
+  /**@internal */
+  static dependencies = {
+    "sit-close-button": SitCloseButton,
+    "sit-icon": SitIcon
+  };
+  /** Controls the appearance of the alert  */
+  @property({ type: Boolean, reflect: true }) show = false;
+
+  /** Enables a close button that allows the user to dismiss the alert. */
+  @property({ type: Boolean, reflect: true }) dismissible = false;
+
+  /** The alert's theme variant. */
+  @property({ type: String, reflect: true }) variant: AlertVariant = "info";
+
+  /** Controls the alert visual between a lighter outline and a solid darker variant. */
+  @property({ type: Boolean, reflect: true }) outlined = false;
+
+  /** The title of the alert. Only text is allowed */
+  @property({ type: String, reflect: true }) title = "";
+
+  /** Closes the alert  */
+  public close() {
+    this.show = false;
+  }
+  /**@internal */
+  @watch("show")
+  _handleShowChange() {
+    this.show ? this.emit("sit-show") : this.emit("sit-hide");
+  }
+
+  render() {
+    return (this.dismissible && this.show) || !this.dismissible
+      ? html`
+          <div
+            class="${classMap({
+              alert: true,
+              show: this.show,
+              [`alert-dismissible`]: this.dismissible,
+              outlined: this.outlined
+            })}"
+            role="alert"
+            aria-hidden=${this.show ? "false" : "true"}
+          >
+            <slot name="icon" class=${classMap({ "alert-icon__outlined": this.outlined })}></slot>
+            <div class="alert-content">
+              <div class="alert-content__upper">
+                ${this.title ? html`<div class="alert-title">${this.title}</div>` : nothing}
+                <slot class="alert-content__description"></slot>
+              </div>
+              <slot class="alert-content__action" name="action"></slot>
+            </div>
+            ${this.dismissible
+              ? html`<sit-close-button
+                  aria-label="close the alert"
+                  @click=${this.close}
+                  tone=${this.outlined || this.variant === "warning" ? "fixed-dark" : "fixed-light"}
+                ></sit-close-button>`
+              : nothing}
+          </div>
+        `
+      : nothing;
+  }
+}
+
+export default SitAlert;

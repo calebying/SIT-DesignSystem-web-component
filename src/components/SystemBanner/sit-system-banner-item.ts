@@ -1,0 +1,99 @@
+import { html, nothing } from "lit";
+import { property, state } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import SitElement from "../../base/sit-element";
+import alertBannerItemStyles from "./system-banner-item.css";
+import { HasSlotController } from "../../utils/slot";
+import { SystemBannerChildCountContext, NoClampActionContext } from "./system-banner-context";
+import { consume } from "@lit/context";
+
+/**
+ * @slot icon - The slot to pass in an icon element. Either use a badge or a icon, but not both, to avoid layout issues.
+ * @slot action - The slot to pass in an action element such as a button or link
+ * @slot default - The slot to pass in the message content of the banner item. Text will be clamped at 2 lines in desktop view and 5 lines in mobile view
+ * @slot badge - The slot to pass in a badge element. Either use a badge or a icon, but not both, to avoid layout issues.
+ *
+ * @event sit-show-more - The event emitted when user clicks on "show more" in the banner text message
+ */
+export class SitSystemBannerItem extends SitElement {
+  static styles = [...SitElement.styles, alertBannerItemStyles];
+  /** Used only for SSR to indicate the presence of the `action` slot. */
+  @property({ type: Boolean }) hasActionSlot = false;
+
+  /** Disables the action link that appears when text content is clamped */
+  @consume({ context: NoClampActionContext, subscribe: true })
+
+  /** When true, message text will be truncated with ellipsis only */
+  @property({ type: Boolean })
+  noClampAction = false;
+
+  @state() private clamped = false;
+
+  @consume({ context: SystemBannerChildCountContext, subscribe: true })
+  @state()
+  private siblingsCount = 0;
+
+  private readonly hasSlotController = new HasSlotController(this, "action", "icon", "badge");
+
+  private _resizeObserver: ResizeObserver;
+  async firstUpdated(_changedProperties) {
+    super.firstUpdated(_changedProperties);
+    await this.updateComplete;
+    this._clampCheck();
+
+    // Watch resizing for dynamic layout changes
+    this._resizeObserver = new ResizeObserver(() => this._clampCheck());
+    this._resizeObserver.observe(this.shadowRoot.querySelector(".message"));
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    if (this._resizeObserver) this._resizeObserver.disconnect();
+  }
+  updated() {
+    if (!this.hasActionSlot) this.hasActionSlot = this.hasSlotController.test("action");
+    if (this.hasSlotController.test("icon") && this.hasSlotController.test("badge")) {
+      console.error(
+        "Both icon and badge slot are used in the same banner item. This is not recommended as it may cause layout issues."
+      );
+    }
+  }
+  private _clampCheck() {
+    const textEl = this.shadowRoot.querySelector(".message");
+    requestAnimationFrame(() => {
+      this.clamped = textEl.scrollHeight > textEl.clientHeight;
+    });
+  }
+
+  private _handleShowMoreClick() {
+    this.emit("sit-show-more");
+  }
+  render() {
+    return html`
+      <div class="banner-item">
+        <slot name="icon"></slot>
+        <div class="banner-item__message_and__action">
+          <slot name="badge"></slot>
+          <div class="clamped-container">
+            <div class=${classMap({ message: true, truncated: this.clamped && !this.noClampAction })}>
+              <slot></slot>
+            </div>
+            ${this.clamped && !this.noClampAction
+              ? html`<span class="show-more"
+                  >...<a class="show-more__link" @click="${this._handleShowMoreClick}">show more</a></span
+                >`
+              : nothing}
+          </div>
+          ${this.hasActionSlot || this.siblingsCount > 1
+            ? html`
+                <div class="action">
+                  <slot name="action"></slot>
+                </div>
+              `
+            : nothing}
+        </div>
+      </div>
+    `;
+  }
+}
+export default SitSystemBannerItem;

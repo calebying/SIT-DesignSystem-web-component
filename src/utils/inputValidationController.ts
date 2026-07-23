@@ -7,7 +7,7 @@ interface HostWithInternals extends ReactiveControllerHost, HTMLElement {
 }
 
 /**
- * SGDS custom form validation methods and behaviours
+ * Canvas custom form validation methods and behaviours
  */
 export class InputValidationController implements ReactiveController {
   host: ReactiveControllerHost & HTMLElement;

@@ -5,7 +5,7 @@
 }
 
 .dropdown-menu {
-  max-width: var(--sgds-dimension-320);
+  max-width: var(--sit-dimension-320);
 }
 
 .toggler-container {

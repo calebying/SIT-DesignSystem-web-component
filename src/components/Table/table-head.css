@@ -1,17 +1,17 @@
 :host {
   vertical-align: middle;
   display: table-cell;
-  border-bottom: var(--sgds-border-width-1) solid var(--sgds-border-color-muted);
+  border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted);
 }
 
 :host([headerBackground]) {
-  background-color: var(--sgds-surface-raised);
+  background-color: var(--sit-surface-raised);
 }
 
 .table-head {
-  font-weight: var(--sgds-font-weight-semibold);
+  font-weight: var(--sit-font-weight-semibold);
   display: flex;
   align-items: center;
-  padding: var(--sgds-padding-sm) var(--sgds-padding-md);
-  min-height: var(--sgds-dimension-56);
+  padding: var(--sit-padding-sm) var(--sit-padding-md);
+  min-height: var(--sit-dimension-56);
 }

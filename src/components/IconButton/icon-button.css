@@ -4,8 +4,8 @@
 
 .btn.btn-icon {
   display: flex;
-  width: var(--sgds-dimension-48, 56px);
-  height: var(--sgds-dimension-48, 56px);
+  width: var(--sit-dimension-48, 56px);
+  height: var(--sit-dimension-48, 56px);
   min-width: unset;
   padding: 0;
 }
@@ -13,20 +13,20 @@
 .btn.btn-icon.btn-lg {
   padding: 0;
   min-width: unset;
-  height: var(--sgds-dimension-56);
-  width: var(--sgds-dimension-56);
+  height: var(--sit-dimension-56);
+  width: var(--sit-dimension-56);
 }
 
 .btn.btn-icon.btn-sm {
   padding: 0;
   min-width: unset;
-  height: var(--sgds-dimension-40);
-  width: var(--sgds-dimension-40);
+  height: var(--sit-dimension-40);
+  width: var(--sit-dimension-40);
 }
 
 .btn.btn-icon.btn-xs {
   padding: 0;
   min-width: unset;
-  height: var(--sgds-dimension-32);
-  width: var(--sgds-dimension-32);
+  height: var(--sit-dimension-32);
+  width: var(--sit-dimension-32);
 }

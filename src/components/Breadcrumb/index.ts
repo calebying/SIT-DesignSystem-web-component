@@ -1,13 +1,13 @@
-import { SitBreadcrumb } from "./sgds-breadcrumb";
-import { SitBreadcrumbItem } from "./sgds-breadcrumb-item";
+import { SitBreadcrumb } from "./sit-breadcrumb";
+import { SitBreadcrumbItem } from "./sit-breadcrumb-item";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-breadcrumb", SitBreadcrumb);
-register("sgds-breadcrumb-item", SitBreadcrumbItem);
+register("sit-breadcrumb", SitBreadcrumb);
+register("sit-breadcrumb-item", SitBreadcrumbItem);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-breadcrumb-item": SitBreadcrumbItem;
-    "sgds-breadcrumb": SitBreadcrumb;
+    "sit-breadcrumb-item": SitBreadcrumbItem;
+    "sit-breadcrumb": SitBreadcrumb;
   }
 }

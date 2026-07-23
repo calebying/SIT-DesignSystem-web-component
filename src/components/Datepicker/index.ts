@@ -1,9 +1,9 @@
-import { SitDatepicker } from "./sgds-datepicker";
+import { SitDatepicker } from "./sit-datepicker";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-datepicker", SitDatepicker);
+register("sit-datepicker", SitDatepicker);
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-datepicker": SitDatepicker;
+    "sit-datepicker": SitDatepicker;
   }
 }

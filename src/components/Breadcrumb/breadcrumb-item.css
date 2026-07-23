@@ -1,9 +1,9 @@
 :host {
   display: flex;
-  gap: var(--sgds-gap-xs);
+  gap: var(--sit-gap-xs);
   align-items: center;
   min-width: 0;
-  font-size: var(--sgds-font-size-link-md);
+  font-size: var(--sit-font-size-link-md);
 }
 
 :host .nav-link::slotted(*) {
@@ -14,8 +14,8 @@
 }
 
 :host([active]) .nav-link::slotted(*) {
-  --sgds-link-color-default: var(--sgds-color-default);
-  color: var(--sgds-link-color-default, --sgds-color-default);
+  --sit-link-color-default: var(--sit-color-default);
+  color: var(--sit-link-color-default, --sit-color-default);
   pointer-events: none;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -25,22 +25,22 @@
 :host([active]) .nav-link::slotted(*:hover),
 :host([active]) .nav-link::slotted(*:focus),
 :host([active]) .nav-link::slotted(*:focus-visible){
-  --sgds-link-color-emphasis: var(--sgds-color-default);
-  color: var(--sgds-link-color-emphasis, --sgds-color-default);
+  --sit-link-color-emphasis: var(--sit-color-default);
+  color: var(--sit-link-color-emphasis, --sit-color-default);
 }
 
 :host(.overflow-menu) {
   flex-shrink: 0;
 }
 
-sgds-link {
+sit-link {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .separator {
-  color: var(--sgds-color-subtle);
+  color: var(--sit-color-subtle);
   display: flex;
 }
 

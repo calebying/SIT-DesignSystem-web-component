@@ -1,6 +1,6 @@
-import type SitButton from "../components/Button/sgds-button";
+import type SitButton from "../components/Button/sit-button";
 import type { ReactiveController, ReactiveControllerHost } from "lit";
-import SitElement from "../base/sgds-element";
+import SitElement from "../base/sit-element";
 import { SitInput } from "../components";
 
 /**

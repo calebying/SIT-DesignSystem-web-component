@@ -1,0 +1,244 @@
+import { html, nothing, PropertyValueMap } from "lit";
+import { property, queryAssignedElements } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import { ifDefined } from "lit/directives/if-defined.js";
+import { ref } from "lit/directives/ref.js";
+import { SelectElement } from "../../base/select-element";
+import formTextControlStyles from "../../styles/form-text-control.css";
+import { watch } from "../../utils/watch";
+import SitIcon from "../Icon/sit-icon";
+import selectStyle from "./select.css";
+import SitSelectOption from "./sit-select-option";
+import SitSpinner from "../Spinner/sit-spinner";
+/**
+ * @summary Select is used to make one selection from a list through keyboard or mouse actions
+ *
+ * @event sit-select - Emitted when an option is selected.
+ * @event sit-change - Emitted when the select value changes.
+ * @event sit-focus -  Emitted when user input is focused.
+ * @event sit-blur -  Emitted when user input is blurred.
+ * @event sit-invalid - Emitted when the select's invalid state is set to true.
+ * @event sit-valid - Emitted when the select's invalid state is set to false.
+ *
+ * @slot default - slot for sit-select-option passed into select's menu
+ */
+export class SitSelect extends SelectElement {
+  static styles = [...SelectElement.styles, formTextControlStyles, selectStyle];
+  static childName = "sit-select-option";
+  /** @internal */
+  static dependencies = {
+    "sit-icon": SitIcon,
+    "sit-spinner": SitSpinner,
+    [SitSelect.childName]: SitSelectOption
+  };
+  /** Disables native and sit validation for the select. */
+  @property({ type: Boolean, reflect: true }) noValidate = false;
+
+  connectedCallback(): void {
+    super.connectedCallback();
+    this.addEventListener("sit-hide", async () => {
+      const sitInput = await this._input;
+      sitInput.focus();
+    });
+  }
+  @queryAssignedElements({ flatten: true, selector: "sit-select-option" })
+  protected options: SitSelectOption[];
+
+  async firstUpdated(changedProperties: PropertyValueMap<this>) {
+    super.firstUpdated(changedProperties);
+    this._updateDisplayValue();
+    this.input = await this._input;
+    this._mixinValidate(this.input);
+    if (this.menuIsOpen) {
+      await this.updateFloatingPosition();
+    }
+  }
+
+  private async _handleSlotChange(e: Event) {
+    const assignedElements = (e.target as HTMLSlotElement).assignedElements({ flatten: true });
+
+    assignedElements.forEach(el =>
+      el.addEventListener("click", (e: Event) => {
+        const option = e.target as SitSelectOption;
+        if (option.disabled) return;
+        this._handleItemSelected(e);
+      })
+    );
+    assignedElements.forEach(el =>
+      el.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Enter") {
+          this._handleItemSelected(e);
+        }
+      })
+    );
+    this.menuList = await this._getMenuListFromOptions(assignedElements);
+    this._updateDisplayValue();
+    this.input = await this._input;
+    this._mixinValidate(this.input);
+  }
+  private _updateDisplayValue() {
+    if (this.value && this.menuList.length > 0) {
+      const initialSelectedItem = this.menuList.filter(({ value }) => value === this.value);
+      this.displayValue = initialSelectedItem[0].label;
+
+      this._setActiveToOption();
+    }
+  }
+  private _setActiveToOption() {
+    const activeIndex = this.menuList.findIndex(item => item.value.toString() === this.value);
+    this.options.forEach((option, index) => {
+      option.active = index === activeIndex;
+    });
+  }
+
+  @watch("value", { waitUntilFirstUpdate: true })
+  async _handleValueChange() {
+    this._setActiveToOption();
+
+    // when value change, always emit a change event
+    this.emit("sit-change");
+
+    if (this.value) {
+      this.emit("sit-select");
+    }
+    const sitInput = await this._input;
+    this._mixinSetFormValue();
+    this._mixinValidate(sitInput);
+
+    this._updateDisplayValue();
+    if (!this._isTouched && this.value === "") return;
+    if (this._mixinShouldSkipSitValidation()) return;
+
+    this.invalid = !this._mixinReportValidity();
+  }
+
+  protected async _handleItemSelected(e: Event) {
+    const itemEl = e.target as SitSelectOption;
+    const itemLabel = itemEl.textContent?.trim() ?? "";
+    const itemValueAttr = itemEl.getAttribute("value") ?? itemLabel;
+    const foundItem = {
+      label: itemLabel,
+      value: itemValueAttr
+    };
+    this.value = foundItem.value.toString();
+    this.displayValue = foundItem.label;
+    this.hideMenu();
+  }
+
+  protected _handleFocus() {
+    this.emit("sit-focus");
+  }
+
+  protected async _handleInputBlur(e: Event) {
+    e.preventDefault();
+    this.emit("sit-blur");
+  }
+
+  /** For form reset  */
+  protected async _mixinResetFormControl() {
+    this.value = this.defaultValue;
+    const initialItem = this.menuList.filter(({ value }) => value === this.value);
+    if (initialItem.length <= 0) {
+      this.displayValue = "";
+    } else {
+      this.displayValue = initialItem[0].label;
+    }
+    this._mixinResetValidity(await this._input);
+  }
+  private _blockInputKeydown = (e: KeyboardEvent) => {
+    if (e.key !== "Tab") {
+      e.preventDefault();
+    }
+  };
+  /** Applicable for menuList prop only */
+  protected _renderMenu() {
+    const menu = this.menuList.map(item => {
+      const isActive = item.value === this.value;
+      return html`
+        <sit-select-option
+          ?active=${isActive}
+          value=${item.value}
+          ?disabled=${item.disabled}
+          @click=${item.disabled ? null : this._handleItemSelected}
+          @keydown=${(e: KeyboardEvent) => {
+            if (e.key === "Enter") {
+              this._handleItemSelected(e);
+            }
+          }}
+        >
+          ${item.label}
+        </sit-select-option>
+      `;
+    });
+    return this.menuList.length === 0 ? this._renderEmptyMenu() : menu;
+  }
+  protected _renderInput() {
+    const wantFeedbackStyle = this.hasFeedback;
+    return html`
+      <div
+        ${ref(this.myDropdown)}
+        class="form-control-group ${classMap({
+          disabled: this.disabled,
+          readonly: this.readonly,
+          "is-invalid": this.invalid && wantFeedbackStyle
+        })}"
+        @click=${this._handleClick}
+      >
+        <input
+          class="form-control"
+          type="text"
+          id=${this._controlId}
+          name=${ifDefined(this.name)}
+          placeholder=${ifDefined(this.placeholder)}
+          aria-invalid=${this.invalid ? "true" : "false"}
+          ?autofocus=${this.autofocus}
+          ?disabled=${this.disabled}
+          ?readonly=${this.readonly}
+          ?required=${this.required}
+          .value=${this.displayValue}
+          @blur=${this._handleInputBlur}
+          @focus=${this._handleFocus}
+          aria-describedby=${ifDefined(this.invalid && this.hasFeedback ? `${this._controlId}-invalid` : undefined)}
+          aria-labelledby="${this._labelId} ${this._controlId}Help ${this.invalid && this.hasFeedback
+            ? `${this._controlId}-invalid`
+            : ""}"
+          @keydown=${this._blockInputKeydown}
+        />
+        <sit-icon name="chevron-down" size="md"></sit-icon>
+      </div>
+    `;
+  }
+
+  render() {
+    return html`
+      <div
+        class=${classMap({
+          disabled: this.disabled,
+          select: true,
+          "form-control-container": true,
+          "m-width-160": true
+        })}
+      >
+        ${this._renderLabel()}
+        <!-- The input -->
+        ${this._renderInput()} ${this._renderFeedback()}
+        <div
+          id=${this.dropdownMenuId}
+          class="dropdown-menu"
+          part="menu"
+          tabindex="-1"
+          role="menu"
+          aria-label=${this.label || "Options"}
+          ${ref(this.menuRef)}
+        >
+          <slot id="default" class=${classMap({ "is-loading": this.loading })} @slotchange=${this._handleSlotChange}
+            >${this._renderMenu()}</slot
+          >
+          ${this.loading ? this._renderLoadingMenu() : nothing}
+        </div>
+      </div>
+    `;
+  }
+}
+
+export default SitSelect;

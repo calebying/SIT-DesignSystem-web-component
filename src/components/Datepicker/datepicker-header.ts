@@ -2,22 +2,22 @@ import { isBefore, isEqual } from "date-fns";
 import { html } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SitElement from "../../base/sgds-element";
+import SitElement from "../../base/sit-element";
 import { sanitizedNextMonth, sanitizedPreviousMonth } from "../../utils/time";
 import { watch } from "../../utils/watch";
-import SitButton from "../Button/sgds-button";
-import SitIconButton from "../IconButton/sgds-icon-button";
+import SitButton from "../Button/sit-button";
+import SitIconButton from "../IconButton/sit-icon-button";
 import datepickerHeaderStyle from "./datepicker-header.css";
 import { ViewEnum } from "./types";
-import SitIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sit-icon";
 
 export class DatepickerHeader extends SitElement {
   static styles = [datepickerHeaderStyle];
   /** @internal */
   static dependencies = {
-    "sgds-icon": SitIcon,
-    "sgds-icon-button": SitIconButton,
-    "sgds-button": SitButton
+    "sit-icon": SitIcon,
+    "sit-icon-button": SitIconButton,
+    "sit-button": SitButton
   };
 
   /** @internal */
@@ -42,13 +42,13 @@ export class DatepickerHeader extends SitElement {
     let buttonToFocus: SitButton | SitIconButton;
     switch (this.focusedTabIndex) {
       case 0:
-        buttonToFocus = this.shadowRoot.querySelector("sgds-icon-button[name='arrow-left']");
+        buttonToFocus = this.shadowRoot.querySelector("sit-icon-button[name='arrow-left']");
         break;
       case 1:
-        buttonToFocus = this.shadowRoot.querySelector("sgds-button");
+        buttonToFocus = this.shadowRoot.querySelector("sit-button");
         break;
       case 2:
-        buttonToFocus = this.shadowRoot.querySelector("sgds-icon-button[name='arrow-right']");
+        buttonToFocus = this.shadowRoot.querySelector("sit-icon-button[name='arrow-right']");
         break;
       default:
         return;
@@ -180,7 +180,7 @@ export class DatepickerHeader extends SitElement {
   render() {
     return html`
       <div class="datepicker-header dropdown-header">
-        <sgds-icon-button
+        <sit-icon-button
           name="arrow-left"
           size="sm"
           variant="ghost"
@@ -188,8 +188,8 @@ export class DatepickerHeader extends SitElement {
           class=${classMap({ invisible: this._removeCaret() })}
           .ariaLabel=${this._ariaLabelForPrevBtn()}
         >
-        </sgds-icon-button>
-        <sgds-button
+        </sit-icon-button>
+        <sit-button
           fullWidth
           variant="ghost"
           size="sm"
@@ -200,15 +200,15 @@ export class DatepickerHeader extends SitElement {
           aria-live="polite"
         >
           ${this._renderHeaderTemplate()}
-        </sgds-button>
-        <sgds-icon-button
+        </sit-button>
+        <sit-icon-button
           name="arrow-right"
           size="sm"
           variant="ghost"
           @click="${this._handleClickNext}"
           .ariaLabel=${this._ariaLabelForNextBtn()}
         >
-        </sgds-icon-button>
+        </sit-icon-button>
       </div>
     `;
   }

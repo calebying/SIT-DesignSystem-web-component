@@ -1,12 +1,12 @@
-import { SitStepper } from "./sgds-stepper";
-import { SitStep } from "./sgds-step";
+import { SitStepper } from "./sit-stepper";
+import { SitStep } from "./sit-step";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-stepper", SitStepper);
-register("sgds-step", SitStep);
+register("sit-stepper", SitStepper);
+register("sit-step", SitStep);
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-stepper": SitStepper;
-    "sgds-step": SitStep;
+    "sit-stepper": SitStepper;
+    "sit-step": SitStep;
   }
 }

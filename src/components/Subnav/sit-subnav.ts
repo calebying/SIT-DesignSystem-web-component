@@ -1,0 +1,303 @@
+import SitElement from "../../base/sit-element";
+import { html, PropertyValueMap } from "lit";
+import { property, query, state } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import { watch } from "../../utils/watch";
+import { waitForEvent } from "../../utils/event";
+import { animateTo, shimKeyframesHeightAuto, stopAnimations } from "../../utils/animate";
+import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry";
+import { LG_BREAKPOINT, MD_BREAKPOINT } from "../../utils/breakpoints";
+import SitIcon from "../Icon/sit-icon";
+import subnavStyle from "./subnav.css";
+import gridStyle from "../../css/grid.css";
+import { HasSlotController } from "../../utils/slot";
+
+const VALID_KEYS = ["Enter", " "];
+
+/**
+ * @summary This component provides secondary navigation within a specific section or page. It typically appears below the main navigation and offers context-specific links or actions to help users explore related content.
+ *
+ * @event sit-show - Emitted on show. Only for collapsed menu.
+ * @event sit-after-show - Emitted on show after animation has completed. Only for collapsed menu.
+ * @event sit-hide - Emitted on hide. Only for collapsed menu.
+ * @event sit-after-hide - Emitted on hide after animation has completed. Only for collapsed menu.
+ *
+ * @slot default - Default slot of SitSubnav. Pass in SitSubnavItem elements here.
+ * @slot header - Slot for rendering the sub-navigation header or section title.
+ * @slot actions - Slot for inserting contextual action elements such as buttons, filters, or other controls aligned with the sub-navigation.
+ *
+ */
+
+export class SitSubnav extends SitElement {
+  static styles = [...SitElement.styles, subnavStyle, gridStyle];
+  /** @internal */
+  static dependencies = {
+    "sit-icon": SitIcon
+  };
+
+  /** Used only for SSR to indicate the presence of the `actions` slot. */
+  @property({ type: Boolean }) hasActionsSlot = false;
+
+  @query("nav")
+  private nav: HTMLElement;
+
+  @query(".subnav-nav")
+  private mobileNav: HTMLElement;
+
+  @query(".header-container")
+  private headerContainer: HTMLElement;
+
+  @query(".subnav-toggler")
+  private toggler: HTMLElement;
+
+  @query(".subnav-nav-group")
+  private navGroup: HTMLElement;
+
+  @query(".subnav-actions")
+  private mobileActions: HTMLElement;
+
+  @state()
+  private isCollapsed = false;
+
+  @state()
+  private isMenuOpen = false;
+
+  private readonly hasSlotController = new HasSlotController(this, "actions");
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    // this._handleResize();
+    window.addEventListener("resize", this._handleResize);
+    window.addEventListener("click", (event: MouseEvent) => this._handleClickOutOfElement(event, this.navGroup));
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+
+    window.removeEventListener("resize", this._handleResize);
+    window.removeEventListener("click", (event: MouseEvent) => this._handleClickOutOfElement(event, this.navGroup));
+  }
+
+  firstUpdated(changedProperties: PropertyValueMap<this>) {
+    super.firstUpdated(changedProperties);
+
+    this._handleResize();
+  }
+
+  updated() {
+    if (!this.hasActionsSlot) this.hasActionsSlot = this.hasSlotController.test("actions");
+  }
+
+  private _handleResize = async () => {
+    this.isCollapsed = window.innerWidth < LG_BREAKPOINT;
+
+    await this.updateComplete;
+
+    if (!this.isCollapsed) {
+      this.isMenuOpen = false;
+    }
+
+    this._updateMobileLayout();
+  };
+
+  private _updateMobileLayout = () => {
+    if (!this.nav || !this.headerContainer || !this.mobileActions || !this.mobileNav) return;
+
+    if (this.isCollapsed) {
+      const { top: subnavTop } = this.nav.getBoundingClientRect();
+      const headerHeight = this.headerContainer.clientHeight;
+      const actionsButtonHeight = this.mobileActions.clientHeight;
+      const offset =
+        window.innerWidth >= MD_BREAKPOINT && window.innerWidth < LG_BREAKPOINT
+          ? subnavTop + headerHeight
+          : subnavTop + headerHeight + actionsButtonHeight;
+
+      this.mobileNav.style.maxHeight = `calc(100dvh - ${offset}px)`;
+      this.style.minHeight = `${this.nav.clientHeight}px`;
+      this.nav.style.position = "absolute";
+    } else {
+      this.mobileNav.style.maxHeight = "none";
+      this.style.minHeight = "auto";
+      this.nav.style.position = "relative";
+    }
+  };
+
+  private _handleClickOutOfElement(e: MouseEvent, self: HTMLElement) {
+    if (!e.composedPath().includes(self) && !e.composedPath().includes(this.toggler)) {
+      this.hide();
+    }
+  }
+
+  private _toggleMenu = () => {
+    if (this.isMenuOpen) {
+      this.hide();
+    } else {
+      this._lockBodyScroll();
+      this.show();
+    }
+
+    this.toggler?.focus();
+  };
+
+  private async _onKeyboardToggle(event: KeyboardEvent) {
+    if (!VALID_KEYS.includes(event.key)) return;
+
+    event.preventDefault();
+    this._toggleMenu();
+  }
+
+  /** Shows the menu. For when subnav is in the collapsed form */
+  public async show() {
+    if (this.isMenuOpen) {
+      return;
+    }
+
+    this.isMenuOpen = true;
+    return waitForEvent(this, "sit-after-show");
+  }
+
+  /** Hide the menu. For when subnav is in the collapsed form */
+  public async hide() {
+    if (!this.isMenuOpen) {
+      return;
+    }
+
+    this.isMenuOpen = false;
+    this._unlockBodyScroll();
+
+    return waitForEvent(this, "sit-after-hide");
+  }
+
+  private _lockBodyScroll() {
+    if (typeof window === "undefined") return;
+
+    const scrollY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+  }
+
+  private _unlockBodyScroll() {
+    if (typeof window === "undefined") return;
+
+    const scrollY = parseInt(document.body.style.top || "0") * -1;
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.width = "";
+    window.scrollTo(0, scrollY);
+  }
+
+  private async _animateToShow() {
+    const sitShow = this.emit("sit-show", { cancelable: true });
+    if (sitShow.defaultPrevented) {
+      this.isMenuOpen = false;
+      return;
+    }
+
+    await stopAnimations(this.mobileNav);
+    if (this.isCollapsed) {
+      this.mobileNav.style.display = "flex";
+    }
+
+    const { keyframes, options } = getAnimation(this, "subnav.show");
+    await animateTo(this.mobileNav, shimKeyframesHeightAuto(keyframes, this.mobileNav.scrollHeight), options);
+
+    this.emit("sit-after-show");
+  }
+
+  private async _animateToHide() {
+    const slHide = this.emit("sit-hide", { cancelable: true });
+    if (slHide.defaultPrevented) {
+      this.isMenuOpen = true;
+      return;
+    }
+
+    await stopAnimations(this.mobileNav);
+
+    const { keyframes, options } = getAnimation(this, "subnav.hide");
+    await animateTo(this.mobileNav, shimKeyframesHeightAuto(keyframes, this.mobileNav.scrollHeight), options);
+    if (this.isCollapsed) {
+      this.mobileNav.style.display = "none";
+    }
+
+    this.emit("sit-after-hide");
+  }
+
+  @watch("isMenuOpen", { waitUntilFirstUpdate: true })
+  async handleOpenChange() {
+    if (this.isMenuOpen) {
+      // Show
+      this._animateToShow();
+    } else {
+      // Hide
+      this._animateToHide();
+    }
+  }
+
+  @watch("isCollapsed", { waitUntilFirstUpdate: true })
+  async handleCollapsedChange() {
+    await this.updateComplete;
+    this.mobileNav.style.display = this.isCollapsed ? "none" : "flex";
+  }
+
+  render() {
+    return html`
+      <nav aria-label="Sub navigation">
+        <div
+          class=${classMap({
+            "sit-container": true,
+            subnav: true,
+            collapsed: !this.isMenuOpen
+          })}
+        >
+          <div class="header-container">
+            <slot name="header"></slot>
+            <sit-icon
+              class="subnav-toggler"
+              name="chevron-down"
+              size="lg"
+              role="button"
+              tabindex="0"
+              @click=${this._toggleMenu}
+              @keydown=${this._onKeyboardToggle}
+              aria-label="Toggle sub navigation"
+              aria-expanded=${this.isMenuOpen}
+            ></sit-icon>
+          </div>
+          <div class="subnav-nav-group">
+            <div class="subnav-nav">
+              <slot></slot>
+            </div>
+            <div
+              class="${classMap({
+                "subnav-actions": true,
+                "no-actions": !this.hasActionsSlot
+              })}"
+            >
+              <slot name="actions"></slot>
+            </div>
+          </div>
+        </div>
+      </nav>
+    `;
+  }
+}
+
+setDefaultAnimation("subnav.show", {
+  keyframes: [
+    { height: "0", opacity: "0" },
+    { height: "auto", opacity: "1" }
+  ],
+  options: { duration: 200, easing: "ease-in-out" }
+});
+
+setDefaultAnimation("subnav.hide", {
+  keyframes: [
+    { height: "auto", opacity: "1" },
+    { height: "0", opacity: "0" }
+  ],
+  options: { duration: 200, easing: "ease-in-out" }
+});
+
+export default SitSubnav;

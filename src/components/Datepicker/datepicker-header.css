@@ -1,8 +1,8 @@
 .datepicker-header {
   display: flex;
-  gap: var(--sgds-form-gap-md);
+  gap: var(--sit-form-gap-md);
 }
 
-sgds-button {
-  --btn-font-weight: var(--sgds-font-weight-semibold);
+sit-button {
+  --btn-font-weight: var(--sit-font-weight-semibold);
 }

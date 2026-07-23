@@ -1,45 +1,45 @@
 :host([class^="third-level"]) ::slotted(a) {
-  padding-left: calc(var(--sgds-padding-xl) + var(--sgds-padding-3-xl));
+  padding-left: calc(var(--sit-padding-xl) + var(--sit-padding-3-xl));
 }
 
 ::slotted(a) {
   display: block;
-  --sgds-link-color-default: var(--sgds-color-default);
-  color: var(--sgds-color-default, var(--sgds-link-color-default));
-  padding-top: var(--sgds-padding-sm);
-  padding-bottom: var(--sgds-padding-sm);
-  padding-left: var(--sgds-padding-3-xl);
-  padding-right: var(--sgds-padding-sm);
-  border-radius: var(--sgds-border-radius-md);
+  --sit-link-color-default: var(--sit-color-default);
+  color: var(--sit-color-default, var(--sit-link-color-default));
+  padding-top: var(--sit-padding-sm);
+  padding-bottom: var(--sit-padding-sm);
+  padding-left: var(--sit-padding-3-xl);
+  padding-right: var(--sit-padding-sm);
+  border-radius: var(--sit-border-radius-md);
   text-decoration: none !important;
 }
 
 :host([active]) ::slotted(a) {
-  --sgds-link-color-default: var(--sgds-primary-color-emphasis);
-  color: var(--sgds-primary-color-emphasis, var(--sgds-link-color-default));
-  background-color: var(--sgds-primary-surface-translucent);
+  --sit-link-color-default: var(--sit-primary-color-emphasis);
+  color: var(--sit-primary-color-emphasis, var(--sit-link-color-default));
+  background-color: var(--sit-primary-surface-translucent);
 }
 
 :host(:not([disabled]):not([active])) ::slotted(a:hover) {
-  background-color: var(--sgds-bg-translucent-subtle);
+  background-color: var(--sit-bg-translucent-subtle);
 }
 
 ::slotted(a:hover),
 ::slotted(a:focus),
 ::slotted(a:focus-visible) {
-  --sgds-link-color-emphasis: var(--sgds-color-default);
-  color: var(--sgds-color-default, var(--sgds-link-color-emphasis));
+  --sit-link-color-emphasis: var(--sit-color-default);
+  color: var(--sit-color-default, var(--sit-link-color-emphasis));
 }
 
 :host([active]) ::slotted(a:hover),
 :host([active]) ::slotted(a:focus),
 :host([active]) ::slotted(a:focus-visible) {
-  --sgds-link-color-emphasis: var(--sgds-primary-color-emphasis);
-  color: var(--sgds-primary-color-emphasis, var(--sgds-link-color-emphasis));
+  --sit-link-color-emphasis: var(--sit-primary-color-emphasis);
+  color: var(--sit-primary-color-emphasis, var(--sit-link-color-emphasis));
 }
 
 :host([disabled]) ::slotted(a) {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
   pointer-events: none;
 }
 :host([disabled]) ::slotted(a:focus-visible) {
@@ -47,13 +47,13 @@
 }
 
 ::slotted(a:focus-visible) {
-  background-color: var(--sgds-bg-translucent-subtle);
+  background-color: var(--sit-bg-translucent-subtle);
 }
 ::slotted(a:focus-visible) {
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }
 
 :host([active]) ::slotted(a:focus-visible) {
-  background-color: var(--sgds-primary-bg-translucent);
+  background-color: var(--sit-primary-bg-translucent);
 }

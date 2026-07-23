@@ -3,7 +3,7 @@ import feedbackStyles from "../styles/feedback.css";
 import formHintStyles from "../styles/form-hint.css";
 import formLabelStyles from "../styles/form-label.css";
 import formPlaceholderStyles from "../styles/form-placeholder.css";
-import SitElement from "./sgds-element";
+import SitElement from "./sit-element";
 import generateId from "../utils/generateId";
 
 export default class FormControlElement extends SitElement {

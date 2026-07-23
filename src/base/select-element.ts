@@ -139,7 +139,7 @@ export class SelectElement
 
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
+   * Note that the native error popup is prevented for Canvas form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -173,7 +173,7 @@ export class SelectElement
     return this.invalid && this.hasFeedback
       ? html` <div class="invalid-feedback-container">
           <slot name="invalidIcon">
-            <sgds-icon name="exclamation-circle-fill" size="md"></sgds-icon>
+            <sit-icon name="exclamation-circle-fill" size="md"></sit-icon>
           </slot>
           <div id="${this._controlId}-invalid" class="invalid-feedback">
             ${this.invalidFeedback ? this.invalidFeedback : this.validationMessage}
@@ -228,7 +228,7 @@ export class SelectElement
     return html` <div class="empty-menu">No options</div> `;
   }
   protected _renderLoadingMenu() {
-    return html`<div class="loading-menu"><sgds-spinner size="xs" tone="brand"></sgds-spinner>Loading...</div>`;
+    return html`<div class="loading-menu"><sit-spinner size="xs" tone="brand"></sit-spinner>Loading...</div>`;
   }
   protected declare options: OptionElement[];
   declare static childName: string;

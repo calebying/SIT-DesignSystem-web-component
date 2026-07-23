@@ -1,15 +1,15 @@
-import { SitMainnav } from "./sgds-mainnav";
-import { SitMainnavDropdown } from "./sgds-mainnav-dropdown";
-import { SitMainnavItem } from "./sgds-mainnav-item";
+import { SitMainnav } from "./sit-mainnav";
+import { SitMainnavDropdown } from "./sit-mainnav-dropdown";
+import { SitMainnavItem } from "./sit-mainnav-item";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-mainnav", SitMainnav);
-register("sgds-mainnav-dropdown", SitMainnavDropdown);
-register("sgds-mainnav-item", SitMainnavItem);
+register("sit-mainnav", SitMainnav);
+register("sit-mainnav-dropdown", SitMainnavDropdown);
+register("sit-mainnav-item", SitMainnavItem);
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-mainnav": SitMainnav;
-    "sgds-mainnav-dropdown": SitMainnavDropdown;
-    "sgds-mainnav-item": SitMainnavItem;
+    "sit-mainnav": SitMainnav;
+    "sit-mainnav-dropdown": SitMainnavDropdown;
+    "sit-mainnav-item": SitMainnavItem;
   }
 }

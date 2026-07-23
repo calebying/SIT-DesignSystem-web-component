@@ -1,21 +1,21 @@
 slot {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-xs);
+  gap: var(--sit-gap-xs);
 }
 
 slot::slotted(*){
   display: flex;
-  gap: var(--sgds-gap-xs);
+  gap: var(--sit-gap-xs);
   align-items: flex-start;
 }
 
 .sm {
-  font-size: var(--sgds-font-size-label-sm);
-  line-height: var(--sgds-line-height-2-xs);
+  font-size: var(--sit-font-size-label-sm);
+  line-height: var(--sit-line-height-2-xs);
 }
 
 .lg {
-  font-size : var(--sgds-font-size-label-lg);
-  line-height: var(--sgds-line-height-md);
+  font-size : var(--sit-font-size-label-lg);
+  line-height: var(--sit-line-height-md);
 }

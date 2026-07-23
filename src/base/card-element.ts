@@ -1,7 +1,7 @@
 import { property, query } from "lit/decorators.js";
-import { SitLink } from "../components/Link/sgds-link";
+import { SitLink } from "../components/Link/sit-link";
 import { CardOrientation } from "../components/Card/types";
-import SitElement from "./sgds-element";
+import SitElement from "./sit-element";
 import cardStyle from "./card.css";
 import textStyles from "../styles/text-variants.css";
 import bgStyles from "../styles/bg-variants.css";

@@ -1,10 +1,10 @@
-import { SitModal } from "./sgds-modal";
+import { SitModal } from "./sit-modal";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-modal", SitModal);
+register("sit-modal", SitModal);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-modal": SitModal;
+    "sit-modal": SitModal;
   }
 }

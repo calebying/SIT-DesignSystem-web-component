@@ -12,12 +12,12 @@ const noDash = string => string.replace(/^\s?-/, '').trim();
 const typesByAliasMap = new Map()
 
 export default {
-  globs: ['src/**/sgds-*.ts', 'src/**/*-element.ts'],
+  globs: ['src/**/sit-*.ts', 'src/**/*-element.ts'],
   exclude: ['**/*.scss', 'src/utils/'],
   plugins: [
     // Append package data
     {
-      name: 'sgds-package-data',
+      name: 'sit-package-data',
       packageLinkPhase({ customElementsManifest }) {
         customElementsManifest.package = { name, description, version, author, homepage, license };
       }
@@ -26,7 +26,7 @@ export default {
     resolveTypeAliasPlugin(typesByAliasMap),
     // Add custom element tagname,
     {
-      name: 'sgds-custom-element-tag-name',
+      name: 'sit-custom-element-tag-name',
       analyzePhase({ ts, node, moduleDoc }) {
         switch (node.kind) {
           case ts.SyntaxKind.ClassDeclaration: {
@@ -41,7 +41,7 @@ export default {
       }
     },
     {
-      name: 'sgds-custom-tags',
+      name: 'sit-custom-tags',
       analyzePhase({ ts, node, moduleDoc }) {
         switch (node.kind) {
           case ts.SyntaxKind.ClassDeclaration: {
@@ -107,7 +107,7 @@ export default {
     },
         cemInheritancePlugin(),
     {
-      name: 'sgds-event-detail-types',
+      name: 'sit-event-detail-types',
       analyzePhase({ ts, node, moduleDoc }) {
         if (node.kind !== ts.SyntaxKind.ClassDeclaration) return;
         const className = node.name.getText();
@@ -133,7 +133,7 @@ export default {
       }
     },
     {
-      name: 'sgds-react-event-names',
+      name: 'sit-react-event-names',
       analyzePhase({ ts, node, moduleDoc }) {
         switch (node.kind) {
           case ts.SyntaxKind.ClassDeclaration: {

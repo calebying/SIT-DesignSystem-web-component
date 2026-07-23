@@ -1,21 +1,21 @@
 :host([size="md"]) .drawer-end .drawer-panel,
 :host([size="md"]) .drawer-start .drawer-panel {
-  max-width: var(--sgds-dimension-768);
+  max-width: var(--sit-dimension-768);
 }
 
 :host([size="md"]) .drawer-top .drawer-panel,
 :host([size="md"]) .drawer-bottom .drawer-panel {
-  max-height: var(--sgds-dimension-768);
+  max-height: var(--sit-dimension-768);
 }
 
 :host([size="lg"]) .drawer-end .drawer-panel,
 :host([size="lg"]) .drawer-start .drawer-panel {
-  max-width: var(--sgds-dimension-1024);
+  max-width: var(--sit-dimension-1024);
 }
 
 :host([size="lg"]) .drawer-top .drawer-panel,
 :host([size="lg"]) .drawer-bottom .drawer-panel {
-  max-height: var(--sgds-dimension-1024);
+  max-height: var(--sit-dimension-1024);
 }
 
 .drawer {
@@ -29,14 +29,14 @@
 
 .drawer-fixed {
   position: fixed;
-  z-index: var(--sgds-z-index-modal);
+  z-index: var(--sit-z-index-modal);
 }
 .drawer-panel {
   display: flex;
   flex-direction: column;
   position: absolute;
   z-index: 2;
-  background-color: var(--sgds-surface-default);
+  background-color: var(--sit-surface-default);
   overflow: auto;
   pointer-events: all;
 }
@@ -52,7 +52,7 @@
   inset-inline-start: 0;
   width: 100%;
   height: 80%;
-  max-height: var(--sgds-dimension-512);
+  max-height: var(--sit-dimension-512);
 }
 
 .drawer-end .drawer-panel {
@@ -62,7 +62,7 @@
   inset-inline-start: auto;
   width: 80%;
   height: 100%;
-  max-width: var(--sgds-dimension-512);
+  max-width: var(--sit-dimension-512);
 }
 
 .drawer-bottom .drawer-panel {
@@ -72,7 +72,7 @@
   inset-inline-start: 0;
   width: 100%;
   height: 80%;
-  max-height: var(--sgds-dimension-512);
+  max-height: var(--sit-dimension-512);
 }
 
 .drawer-start .drawer-panel {
@@ -82,7 +82,7 @@
   inset-inline-start: 0;
   width: 80%;
   height: 100%;
-  max-width: var(--sgds-dimension-512);
+  max-width: var(--sit-dimension-512);
 }
 
 .drawer-close-wrapper {
@@ -90,7 +90,7 @@
   top: 0;
 }
 
-sgds-close-button.drawer-close {
+sit-close-button.drawer-close {
   position: absolute;
   top: 8px;
   inset-inline-end: 8px;
@@ -99,25 +99,25 @@ sgds-close-button.drawer-close {
 .drawer-header {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-xs);
-  padding: var(--sgds-padding-lg) var(--sgds-padding-lg) var(--sgds-padding-none);
+  gap: var(--sit-gap-xs);
+  padding: var(--sit-padding-lg) var(--sit-padding-lg) var(--sit-padding-none);
 }
 
 slot[name="title"]::slotted(*) {
-  margin-bottom: var(--sgds-margin-none) !important;
-  font-size: var(--sgds-font-size-heading-sm) !important;
-  color: var(--sgds-color-default) !important;
+  margin-bottom: var(--sit-margin-none) !important;
+  font-size: var(--sit-font-size-heading-sm) !important;
+  color: var(--sit-color-default) !important;
 }
 
 slot[name="description"]::slotted(*) {
-  margin-bottom: var(--sgds-margin-none) !important;
-  color: var(--sgds-color-subtle);
+  margin-bottom: var(--sit-margin-none) !important;
+  color: var(--sit-color-subtle);
 }
 
 slot[name="footer"]::slotted(*) {
-  padding: var(--sgds-padding-lg);
+  padding: var(--sit-padding-lg);
   position: sticky;
-  background-color: var(--sgds-surface-default);
+  background-color: var(--sit-surface-default);
   bottom: 0;
 }
 
@@ -125,7 +125,7 @@ slot[name="footer"]::slotted(*) {
   flex: 1 1 auto;
   display: block;
   -webkit-overflow-scrolling: touch;
-  padding: var(--sgds-padding-lg);
+  padding: var(--sit-padding-lg);
   overflow: hidden;
 }
 
@@ -133,7 +133,7 @@ slot[name="footer"]::slotted(*) {
   display: block;
   position: fixed;
   inset: 0;
-  background-color: var(--sgds-bg-overlay);
+  background-color: var(--sit-bg-overlay);
   pointer-events: all;
 }
 
@@ -146,12 +146,12 @@ slot[name="footer"]::slotted(*) {
 }
 @media screen and (min-width: 512px) {
   .drawer-body {
-     padding: var(--sgds-padding-2-xl);
+     padding: var(--sit-padding-2-xl);
   } 
   .drawer-header {
-    padding: var(--sgds-padding-2-xl) var(--sgds-padding-2-xl) var(--sgds-padding-none);
+    padding: var(--sit-padding-2-xl) var(--sit-padding-2-xl) var(--sit-padding-none);
   }
   slot[name="footer"]::slotted(*) {
-    padding: var(--sgds-padding-2-xl);
+    padding: var(--sit-padding-2-xl);
   }
 }

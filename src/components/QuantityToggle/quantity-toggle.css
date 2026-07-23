@@ -1,32 +1,32 @@
-sgds-input {
-  --input-min-width: var(--sgds-dimension-0);
+sit-input {
+  --input-min-width: var(--sit-dimension-0);
 }
 .input-group {
   align-items: stretch;
   display: flex;
-  gap: var(--sgds-gap-none);
+  gap: var(--sit-gap-none);
 }
-.input-group > sgds-input {
+.input-group > sit-input {
   flex: 1 1 auto;
   min-width: 0;
   position: relative;
   z-index: 1;
   --input-border-radius: 0;
-  margin-inline: calc(-1 * var(--sgds-form-border-width-default));
+  margin-inline: calc(-1 * var(--sit-form-border-width-default));
 }
-.input-group > sgds-input:focus-within {
+.input-group > sit-input:focus-within {
   z-index: 3;
 }
 
-.input-group > sgds-icon-button.minus-btn {
-  --btn-border-radius: var(--sgds-form-border-radius-md) 0 0 var(--sgds-form-border-radius-md);
+.input-group > sit-icon-button.minus-btn {
+  --btn-border-radius: var(--sit-form-border-radius-md) 0 0 var(--sit-form-border-radius-md);
 }
 
-.input-group > sgds-icon-button.plus-btn {
-  --btn-border-radius: 0 var(--sgds-form-border-radius-md) var(--sgds-form-border-radius-md) 0;
+.input-group > sit-icon-button.plus-btn {
+  --btn-border-radius: 0 var(--sit-form-border-radius-md) var(--sit-form-border-radius-md) 0;
 }
 
-.input-group sgds-button:focus {
+.input-group sit-button:focus {
   z-index: 3;
 }
 .visually-hidden {

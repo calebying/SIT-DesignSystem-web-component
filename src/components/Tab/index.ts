@@ -1,16 +1,16 @@
-import { SitTab } from "./sgds-tab";
-import { SitTabGroup } from "./sgds-tab-group";
-import { SitTabPanel } from "./sgds-tab-panel";
+import { SitTab } from "./sit-tab";
+import { SitTabGroup } from "./sit-tab-group";
+import { SitTabPanel } from "./sit-tab-panel";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-tab", SitTab);
-register("sgds-tab-group", SitTabGroup);
-register("sgds-tab-panel", SitTabPanel);
+register("sit-tab", SitTab);
+register("sit-tab-group", SitTabGroup);
+register("sit-tab-panel", SitTabPanel);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-tab": SitTab;
-    "sgds-tab-group": SitTabGroup;
-    "sgds-tab-panel": SitTabPanel;
+    "sit-tab": SitTab;
+    "sit-tab-group": SitTabGroup;
+    "sit-tab-panel": SitTabPanel;
   }
 }

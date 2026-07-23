@@ -3,49 +3,49 @@
 }
 
 :host([density="compact"]) .accordion-btn {
-  padding: var(--sgds-padding-md);
-  font-size: var(--sgds-font-size-subtitle-sm);
-  line-height: var(--sgds-line-height-2-xs);
+  padding: var(--sit-padding-md);
+  font-size: var(--sit-font-size-subtitle-sm);
+  line-height: var(--sit-line-height-2-xs);
 }
 
 :host([density="compact"]) .accordion-body {
-  font-size: var(--sgds-font-size-label-sm);
-  line-height: var(--sgds-line-height-2-xs);
+  font-size: var(--sit-font-size-label-sm);
+  line-height: var(--sit-line-height-2-xs);
 }
 
 :host([density="compact"]) .content {
-  padding: var(--sgds-padding-xs) var(--sgds-padding-md) var(--sgds-padding-md);
+  padding: var(--sit-padding-xs) var(--sit-padding-md) var(--sit-padding-md);
 }
 
 :host([density="spacious"]) .accordion-btn {
-  padding: var(--sgds-padding-xl);
-  font-size: var(--sgds-font-size-heading-sm);
-  line-height: var(--sgds-line-height-sm);
-  letter-spacing: var(--sgds-letter-spacing-tight);
+  padding: var(--sit-padding-xl);
+  font-size: var(--sit-font-size-heading-sm);
+  line-height: var(--sit-line-height-sm);
+  letter-spacing: var(--sit-letter-spacing-tight);
 }
 
 :host([density="spacious"]) .content {
-  padding: var(--sgds-padding-xs) var(--sgds-padding-xl) var(--sgds-padding-xl);
+  padding: var(--sit-padding-xs) var(--sit-padding-xl) var(--sit-padding-xl);
 }
 
 .accordion-item {
-  border-bottom: var(--sgds-border-width-1) solid var(--sgds-border-color-muted);
+  border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted);
 }
 
 .accordion-btn {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: var(--sgds-gap-md);
-  padding: var(--sgds-padding-lg);
-  background-color: var(--sgds-bg-transparent);
+  gap: var(--sit-gap-md);
+  padding: var(--sit-padding-lg);
+  background-color: var(--sit-bg-transparent);
   text-align: left;
   border: 0;
-  color: var(--sgds-color-default);
-  line-height: var(--sgds-line-height-xs);
-  font-size: var(--sgds-font-size-subtitle-md);
+  color: var(--sit-color-default);
+  line-height: var(--sit-line-height-xs);
+  font-size: var(--sit-font-size-subtitle-md);
   overflow-anchor: none;
-  font-weight: var(--sgds-font-weight-semibold);
+  font-weight: var(--sit-font-weight-semibold);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -58,20 +58,20 @@
 .accordion-btn:not(.disabled):hover,
 .accordion-btn:not(:disabled):hover {
   z-index: 2;
-  background-color: var(--sgds-bg-translucent-subtle);
+  background-color: var(--sit-bg-translucent-subtle);
 }
 
 .accordion-btn:not(.disabled):focus-visible,
 .accordion-btn:not(:disabled):focus-visible {
   z-index: 3;
-  background-color: var(--sgds-bg-translucent-subtle);
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  background-color: var(--sit-bg-translucent-subtle);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }
 
 .accordion-btn.disabled,
 .accordion-btn:disabled {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
   cursor: not-allowed;
 }
 
@@ -82,31 +82,31 @@ slot[name="badge"]::slotted(*) {
 .accordion-header__trailing {
   margin-left: auto;
   display: flex;
-  gap: var(--sgds-gap-md);
+  gap: var(--sit-gap-md);
 }
 
 slot[name="caret"]::slotted(*),
-slot[name="caret"] sgds-icon {
+slot[name="caret"] sit-icon {
   transition: transform 0.2s ease-in-out;
-  color: var(--sgds-color-subtle);
+  color: var(--sit-color-subtle);
 }
 
 .accordion-btn:not(.collapsed) slot[name="caret"]::slotted(*),
-.accordion-btn:not(.collapsed) slot[name="caret"] sgds-icon {
+.accordion-btn:not(.collapsed) slot[name="caret"] sit-icon {
   transform: rotate(-180deg);
 }
 
 .accordion-body {
   padding: 0;
   overflow: hidden;
-  font-size: var(--sgds-font-size-label-md);
-  line-height: var(--sgds-line-height-xs);
-  color: var(--sgds-body-color-subtle);
+  font-size: var(--sit-font-size-label-md);
+  line-height: var(--sit-line-height-xs);
+  color: var(--sit-body-color-subtle);
 }
 
 .content {
   display: block;
-  padding: var(--sgds-padding-xs) var(--sgds-padding-lg) var(--sgds-padding-lg);
+  padding: var(--sit-padding-xs) var(--sit-padding-lg) var(--sit-padding-lg);
 }
 
 .hidden {

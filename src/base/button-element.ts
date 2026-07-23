@@ -1,5 +1,5 @@
 import { property, query } from "lit/decorators.js";
-import SitElement from "./sgds-element";
+import SitElement from "./sit-element";
 import buttonStyles from "./button.css";
 import { SpinnerTone } from "../components";
 

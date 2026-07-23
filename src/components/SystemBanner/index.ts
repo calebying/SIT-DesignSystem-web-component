@@ -1,11 +1,11 @@
-import { SitSystemBanner } from "./sgds-system-banner";
-import SitSystemBannerItem from "./sgds-system-banner-item";
+import { SitSystemBanner } from "./sit-system-banner";
+import SitSystemBannerItem from "./sit-system-banner-item";
 
-customElements.define("sgds-system-banner", SitSystemBanner);
-customElements.define("sgds-system-banner-item", SitSystemBannerItem);
+customElements.define("sit-system-banner", SitSystemBanner);
+customElements.define("sit-system-banner-item", SitSystemBannerItem);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-system-banner": SitSystemBanner;
+    "sit-system-banner": SitSystemBanner;
   }
 }

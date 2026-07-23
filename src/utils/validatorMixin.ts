@@ -18,8 +18,8 @@ export const SitFormValidatorMixin = <T extends Constructor<LitElement>>(superCl
     input: HTMLInputElement | SitInput | HTMLTextAreaElement;
     private _isTouched = false;
     private _internals: ElementInternals;
-    @queryAsync("sgds-input") sgdsInput: Promise<SitInput>;
-    @queryAsync("sgds-datepicker-input") sgdsDatepickerInput: Promise<SitInput>;
+    @queryAsync("sit-input") sitInput: Promise<SitInput>;
+    @queryAsync("sit-datepicker-input") sitDatepickerInput: Promise<SitInput>;
 
     // TypeScript requires mixin constructors to have rest parameter of type any[]
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,12 +37,12 @@ export const SitFormValidatorMixin = <T extends Constructor<LitElement>>(superCl
     async firstUpdated(changedProperties: PropertyValueMap<this>) {
       super.firstUpdated(changedProperties);
 
-      /* Either input or sgds-input. For example, quantity-toggle uses sgds-input */
+      /* Either input or sit-input. For example, quantity-toggle uses sit-input */
       this.input =
         this.shadowRoot.querySelector("input") ||
-        (await this.sgdsInput) ||
+        (await this.sitInput) ||
         this.shadowRoot.querySelector("textarea") ||
-        (await this.sgdsDatepickerInput);
+        (await this.sitDatepickerInput);
 
       this._mixinSetFormValue();
 

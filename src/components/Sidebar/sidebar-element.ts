@@ -1,7 +1,7 @@
 import { property, queryAssignedElements, state } from "lit/decorators.js";
 import { DropdownElement } from "../../base/dropdown-element";
 import { PropertyValueMap } from "lit";
-import SitElement from "../../base/sgds-element";
+import SitElement from "../../base/sit-element";
 import { consume } from "@lit/context";
 import {
   SidebarActiveGroup,
@@ -58,7 +58,7 @@ export class SidebarElement extends SitElement {
 
   /**
    * The unique name identifier for the sidebar element.
-   * Used to identify selections in sgds-select events and manage active states.
+   * Used to identify selections in sit-select events and manage active states.
    * Should be unique among siblings in the same navigation level.
    * @attribute name
    * @type {string}
@@ -269,7 +269,7 @@ export class SidebarElement extends SitElement {
   }
 
   /**
-   * Calculates the nesting depth by counting sgds-sidebar-group ancestors.
+   * Calculates the nesting depth by counting sit-sidebar-group ancestors.
    * Level 1 = root items, Level 2+ = nested within groups.
    * Accounts for items positioned in drawer overlays.
    * @internal
@@ -279,7 +279,7 @@ export class SidebarElement extends SitElement {
     let currentEle = this.parentElement;
     let level = 1;
 
-    while (currentEle?.tagName.toLowerCase() === "sgds-sidebar-group") {
+    while (currentEle?.tagName.toLowerCase() === "sit-sidebar-group") {
       level += 1;
       currentEle = currentEle.parentElement;
     }

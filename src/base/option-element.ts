@@ -2,7 +2,7 @@ import { html, TemplateResult } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import optionStyles from "./option.css";
-import SitElement from "./sgds-element";
+import SitElement from "./sit-element";
 
 export class OptionElement extends SitElement {
   static styles = [optionStyles];

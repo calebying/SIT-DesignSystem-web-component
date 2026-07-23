@@ -1,37 +1,37 @@
 :host([noPadding]) .card {
-  border: var(--sgds-border-width-1) solid var(--sgds-border-color-transparent);
+  border: var(--sit-border-width-1) solid var(--sit-border-color-transparent);
   background-color: inherit;
 }
 
 :host([orientation="vertical"][noPadding]) .card-body {
-  padding: var(--sgds-padding-xl) var(--sgds-padding-none) var(--sgds-padding-none) var(--sgds-padding-none);
+  padding: var(--sit-padding-xl) var(--sit-padding-none) var(--sit-padding-none) var(--sit-padding-none);
 }
 
 :host([orientation="vertical"][imagePosition="after"][noPadding]) .card-body {
-  padding: var(--sgds-padding-none) var(--sgds-padding-none) var(--sgds-padding-xl) var(--sgds-padding-none);
+  padding: var(--sit-padding-none) var(--sit-padding-none) var(--sit-padding-xl) var(--sit-padding-none);
 }
 
 :host([orientation="horizontal"][noPadding]) .card-body {
-  padding: var(--sgds-padding-none) var(--sgds-padding-none) var(--sgds-padding-none) var(--sgds-padding-xl);
+  padding: var(--sit-padding-none) var(--sit-padding-none) var(--sit-padding-none) var(--sit-padding-xl);
 }
 
 :host([orientation="horizontal"][imagePosition="after"][noPadding]) .card-body {
-  padding: var(--sgds-padding-none) var(--sgds-padding-xl) var(--sgds-padding-none) var(--sgds-padding-none);
+  padding: var(--sit-padding-none) var(--sit-padding-xl) var(--sit-padding-none) var(--sit-padding-none);
 }
 
 :host([tinted]:not([noPadding])) .card-tinted-bg {
-  background-color: var(--sgds-bg-translucent-subtle);
-  opacity: var(--sgds-opacity-50);
+  background-color: var(--sit-bg-translucent-subtle);
+  opacity: var(--sit-opacity-50);
 }
 
 :host([orientation][noPadding]) .card-media {
-  padding: var(--sgds-padding-none);
+  padding: var(--sit-padding-none);
 }
 
 slot[name="thumbnail"]::slotted(*) {
-  min-width: var(--sgds-dimension-64) !important;
-  max-width: var(--sgds-dimension-128) !important;
-  height: var(--sgds-dimension-64) !important;
+  min-width: var(--sit-dimension-64) !important;
+  max-width: var(--sit-dimension-128) !important;
+  height: var(--sit-dimension-64) !important;
   width: 100%;
   object-fit: contain;
   object-position: left;

@@ -1,10 +1,10 @@
-import { SitFileUpload } from "./sgds-file-upload";
+import { SitFileUpload } from "./sit-file-upload";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-file-upload", SitFileUpload);
+register("sit-file-upload", SitFileUpload);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-file-upload": SitFileUpload;
+    "sit-file-upload": SitFileUpload;
   }
 }

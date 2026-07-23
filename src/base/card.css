@@ -9,9 +9,9 @@
   box-shadow: 0px 0px 1px 0px rgba(14, 14, 14, 0.12), 0px 8px 16px 0px rgba(14, 14, 14, 0.12);
 }
 
-:host([stretchedLink]) slot[name="footer"]::slotted(sgds-link),
+:host([stretchedLink]) slot[name="footer"]::slotted(sit-link),
 :host([stretchedLink]) slot[name="footer"]::slotted(a),
-:host([stretchedLink]) slot[name="link"]::slotted(sgds-link),
+:host([stretchedLink]) slot[name="link"]::slotted(sit-link),
 :host([stretchedLink]) slot[name="link"]::slotted(a) {
   display: none;
 }
@@ -25,7 +25,7 @@
 }
 
 :host(:not([hideBorder])) .card {
-  border: var(--sgds-border-width-1) solid var(--sgds-border-color-muted);
+  border: var(--sit-border-width-1) solid var(--sit-border-color-muted);
 }
 
 :host([orientation="horizontal"]) .card-body {
@@ -33,7 +33,7 @@
 }
 
 :host([orientation="horizontal"]) .card-media {
-  padding: var(--sgds-padding-xl) var(--sgds-padding-none) var(--sgds-padding-xl) var(--sgds-padding-xl);
+  padding: var(--sit-padding-xl) var(--sit-padding-none) var(--sit-padding-xl) var(--sit-padding-xl);
 }
 
 :host([orientation="horizontal"]) .card-image {
@@ -45,42 +45,42 @@
 }
 
 :host([orientation="vertical"][imagePosition="after"]) slot[name="image"]::slotted(img) {
-  border-radius: calc(var(--sgds-border-radius-md) - var(--sgds-border-width-1));
-  border-top-right-radius: var(--sgds-border-radius-none);
-  border-top-left-radius: var(--sgds-border-radius-none);
+  border-radius: calc(var(--sit-border-radius-md) - var(--sit-border-width-1));
+  border-top-right-radius: var(--sit-border-radius-none);
+  border-top-left-radius: var(--sit-border-radius-none);
 }
 
 :host([orientation="horizontal"][imagePosition="after"]) slot[name="image"]::slotted(img) {
-  border-radius: calc(var(--sgds-border-radius-md) - var(--sgds-border-width-1));
-  border-top-left-radius: var(--sgds-border-radius-none);
-  border-bottom-left-radius: var(--sgds-border-radius-none);
+  border-radius: calc(var(--sit-border-radius-md) - var(--sit-border-width-1));
+  border-top-left-radius: var(--sit-border-radius-none);
+  border-bottom-left-radius: var(--sit-border-radius-none);
 }
 
 :host([orientation="horizontal"]) slot[name="image"]::slotted(img) {
   height: 100%;
   object-fit: cover;
-  border-top-right-radius: var(--sgds-border-radius-none);
-  border-bottom-left-radius: calc(var(--sgds-border-radius-md) - var(--sgds-border-width-1));
+  border-top-right-radius: var(--sit-border-radius-none);
+  border-bottom-left-radius: calc(var(--sit-border-radius-md) - var(--sit-border-width-1));
 }
 
 :host([orientation="vertical"][imageAdjustment="padding around"]) .card-image {
-  margin: var(--sgds-margin-xl) var(--sgds-margin-xl) var(--sgds-padding-none);
+  margin: var(--sit-margin-xl) var(--sit-margin-xl) var(--sit-padding-none);
 }
 
 :host([orientation="vertical"][imageAdjustment="padding around"][imagePosition="after"]) .card-image {
-  margin: var(--sgds-margin-none) var(--sgds-margin-xl) var(--sgds-margin-xl);
+  margin: var(--sit-margin-none) var(--sit-margin-xl) var(--sit-margin-xl);
 }
 
 :host([orientation="horizontal"][imageAdjustment="padding around"]) .card-image {
-  margin: var(--sgds-margin-xl) var(--sgds-margin-none) var(--sgds-margin-xl) var(--sgds-margin-xl);
+  margin: var(--sit-margin-xl) var(--sit-margin-none) var(--sit-margin-xl) var(--sit-margin-xl);
 }
 
 :host([orientation="horizontal"][imageAdjustment="padding around"][imagePosition="after"]) .card-image {
-  margin: var(--sgds-margin-xl) var(--sgds-margin-xl) var(--sgds-margin-xl) var(--sgds-margin-none);
+  margin: var(--sit-margin-xl) var(--sit-margin-xl) var(--sit-margin-xl) var(--sit-margin-none);
 }
 
 :host([orientation][imageAdjustment="padding around"]) slot[name="image"]::slotted(img) {
-  border-radius: calc(var(--sgds-border-radius-md) - var(--sgds-border-width-1));
+  border-radius: calc(var(--sit-border-radius-md) - var(--sit-border-width-1));
 }
 
 :host([orientation="vertical"]:not([imageAdjustment="aspect ratio"])) slot[name="image"]::slotted(img) {
@@ -94,9 +94,9 @@
 .card {
   word-wrap: break-word;
   background-clip: border-box;
-  background-color: var(--sgds-surface-default);
-  border: var(--sgds-border-width-1) solid var(--sgds-border-color-transparent);
-  border-radius: var(--sgds-border-radius-md);
+  background-color: var(--sit-surface-default);
+  border: var(--sit-border-width-1) solid var(--sit-border-color-transparent);
+  border-radius: var(--sit-border-radius-md);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -118,14 +118,14 @@ a.card {
 }
 
 .card.disabled {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
   pointer-events: none;
 }
 
 a.card:not(.disabled):focus-visible {
-  --sgds-outline-offset-focus: -1px;
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  --sit-outline-offset-focus: -1px;
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }
 
 .card-tinted-bg {
@@ -134,8 +134,8 @@ a.card:not(.disabled):focus-visible {
   right: 0;
   bottom: 0;
   left: 0;
-  opacity: var(--sgds-opacity-0);
-  border-radius: var(--sgds-border-radius-md);
+  opacity: var(--sit-opacity-0);
+  border-radius: var(--sit-border-radius-md);
 }
 
 .card-image {
@@ -147,79 +147,79 @@ a.card:not(.disabled):focus-visible {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: var(--sgds-padding-xl) var(--sgds-padding-xl) var(--sgds-padding-none);
+  padding: var(--sit-padding-xl) var(--sit-padding-xl) var(--sit-padding-none);
   line-height: 0;
 }
 
 .card-body {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-lg);
+  gap: var(--sit-gap-lg);
   flex: 1 1 auto;
-  color: var(--sgds-body-color-default);
-  padding: var(--sgds-padding-xl);
+  color: var(--sit-body-color-default);
+  padding: var(--sit-padding-xl);
   z-index: 1;
 }
 
 .card-header-container {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-xs);
+  gap: var(--sit-gap-xs);
 }
 
 .card-header {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-2-xs);
+  gap: var(--sit-gap-2-xs);
 }
 
 .card-title,
 slot[name="title"]::slotted(*) {
-  color: var(--sgds-color-default);
-  font-size: var(--sgds-font-size-heading-sm) !important;
-  font-weight: var(--sgds-font-weight-semibold) !important;
-  line-height: var(--sgds-line-height-sm) !important;
-  letter-spacing: var(--sgds-letter-spacing-tight) !important;
-  margin-bottom: var(--sgds-margin-none) !important;
+  color: var(--sit-color-default);
+  font-size: var(--sit-font-size-heading-sm) !important;
+  font-weight: var(--sit-font-weight-semibold) !important;
+  line-height: var(--sit-line-height-sm) !important;
+  letter-spacing: var(--sit-letter-spacing-tight) !important;
+  margin-bottom: var(--sit-margin-none) !important;
 }
 
 slot[name="subtitle"]::slotted(*) {
-  color: var(--sgds-color-subtle);
-  font-size: var(--sgds-font-size-overline-md) !important;
-  font-weight: var(--sgds-font-weight-semibold) !important;
-  letter-spacing: var(--sgds-letter-spacing-wide) !important;
+  color: var(--sit-color-subtle);
+  font-size: var(--sit-font-size-overline-md) !important;
+  font-weight: var(--sit-font-weight-semibold) !important;
+  letter-spacing: var(--sit-letter-spacing-wide) !important;
   text-transform: uppercase;
-  line-height: var(--sgds-line-height-2-xs) !important;
-  margin: var(--sgds-margin-none) !important;
+  line-height: var(--sit-line-height-2-xs) !important;
+  margin: var(--sit-margin-none) !important;
 }
 
 slot[name="title"]::slotted(a) {
-  color: var(--sgds-link-color-default);
+  color: var(--sit-link-color-default);
   text-decoration: none !important;
 }
 
 slot[name="description"]::slotted(*) {
-  color: var(--sgds-color-subtle);
-  margin-bottom: var(--sgds-margin-none) !important;
+  color: var(--sit-color-subtle);
+  margin-bottom: var(--sit-margin-none) !important;
 }
 
 slot[name="image"]::slotted(img) {
   width: 100%;
   display: block;
-  border-top-left-radius: calc(var(--sgds-border-radius-md) - var(--sgds-border-width-1));
-  border-top-right-radius: calc(var(--sgds-border-radius-md) - var(--sgds-border-width-1));
+  border-top-left-radius: calc(var(--sit-border-radius-md) - var(--sit-border-width-1));
+  border-top-right-radius: calc(var(--sit-border-radius-md) - var(--sit-border-width-1));
 }
 
 slot[name="footer"]::slotted(*),
 slot[name="link"]::slotted(*) {
   margin-top: auto;
-  padding-top: var(--sgds-padding-2-xs);
+  padding-top: var(--sit-padding-2-xs);
   width: fit-content;
 }
 
 slot[name="footer"]::slotted(a),
 slot[name="link"]::slotted(a) {
-  color: var(--sgds-link-color-default);
+  color: var(--sit-link-color-default);
   text-decoration: none !important;
   height: auto !important;
 }
@@ -230,12 +230,12 @@ slot[name="footer"]::slotted(a:hover),
 slot[name="footer"]::slotted(a:focus),
 slot[name="link"]::slotted(a:hover),
 slot[name="link"]::slotted(a:focus) {
-  color: var(--sgds-link-color-emphasis);
+  color: var(--sit-link-color-emphasis);
 }
 
 slot[name="title"]::slotted(a:focus-visible),
 slot[name="footer"]::slotted(a:focus-visible),
 slot[name="link"]::slotted(a:focus-visible) {
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }

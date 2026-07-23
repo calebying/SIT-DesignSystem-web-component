@@ -1,7 +1,7 @@
 import { property } from "lit/decorators.js";
 import { Ref, createRef } from "lit/directives/ref.js";
 import { computePosition, flip, shift, offset, Placement, Middleware, autoUpdate, Strategy } from "@floating-ui/dom";
-import SitElement from "./sgds-element";
+import SitElement from "./sit-element";
 import generateId from "../utils/generateId";
 import { PropertyValueMap } from "lit";
 

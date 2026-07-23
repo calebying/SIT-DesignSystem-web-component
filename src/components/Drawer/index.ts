@@ -1,10 +1,10 @@
-import { SitDrawer } from "./sgds-drawer";
+import { SitDrawer } from "./sit-drawer";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-drawer", SitDrawer);
+register("sit-drawer", SitDrawer);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-drawer": SitDrawer;
+    "sit-drawer": SitDrawer;
   }
 }

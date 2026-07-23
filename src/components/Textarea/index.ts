@@ -1,10 +1,10 @@
-import { SitTextarea } from "./sgds-textarea";
+import { SitTextarea } from "./sit-textarea";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-textarea", SitTextarea);
+register("sit-textarea", SitTextarea);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-textarea": SitTextarea;
+    "sit-textarea": SitTextarea;
   }
 }

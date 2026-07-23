@@ -1,13 +1,13 @@
-import SitDescriptionListGroup from "./sgds-description-list-group";
-import { SitDescriptionList } from "./sgds-description-list";
+import SitDescriptionListGroup from "./sit-description-list-group";
+import { SitDescriptionList } from "./sit-description-list";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-description-list", SitDescriptionList);
-register("sgds-description-list-group", SitDescriptionListGroup);
+register("sit-description-list", SitDescriptionList);
+register("sit-description-list-group", SitDescriptionListGroup);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-description-list": SitDescriptionList;
-    "sgds-description-list-group": SitDescriptionListGroup;
+    "sit-description-list": SitDescriptionList;
+    "sit-description-list-group": SitDescriptionListGroup;
   }
 }

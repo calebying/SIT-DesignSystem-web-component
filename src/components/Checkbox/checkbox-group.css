@@ -1,5 +1,5 @@
 :host {
-  --sgds-checkbox-group-gap: var(--sgds-spacer-2);
+  --sit-checkbox-group-gap: var(--sit-spacer-2);
 }
 
 fieldset {
@@ -9,25 +9,25 @@ fieldset {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-form-gap-md);
+  gap: var(--sit-form-gap-md);
 }
 .label-hint-container {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-form-gap-sm);
+  gap: var(--sit-form-gap-sm);
 }
 
 .label-hint-container .form-label {
-  color: var(--sgds-form-color-default);
-  font-size: var(--sgds-font-size-label-md);
-  font-weight: var(--sgds-font-weight-semibold);
+  color: var(--sit-form-color-default);
+  font-size: var(--sit-font-size-label-md);
+  font-weight: var(--sit-font-weight-semibold);
 }
 
 .checkbox-container {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-form-gap-md);
-  padding: var(--sgds-form-padding-inline-sm) 0px;
+  gap: var(--sit-form-gap-md);
+  padding: var(--sit-form-padding-inline-sm) 0px;
 }
 
 .checkbox-group-validation-input {
@@ -35,6 +35,6 @@ fieldset {
 }
 
 :host([disabled]) .label-hint-container {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
   cursor: not-allowed;
 }

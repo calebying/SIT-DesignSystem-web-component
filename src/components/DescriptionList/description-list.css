@@ -7,9 +7,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: var(--sgds-gap-2-xs);
-  padding: var(--sgds-padding-lg) var(--sgds-padding-xl);
-  border-bottom: var(--sgds-border-width-1) solid var(--sgds-border-color-muted);
+  gap: var(--sit-gap-2-xs);
+  padding: var(--sit-padding-lg) var(--sit-padding-xl);
+  border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted);
 }
 
 .label-container,
@@ -18,25 +18,25 @@
 }
 
 .label-container {
-  max-width: var(--sgds-dimension-280);
+  max-width: var(--sit-dimension-280);
 }
 
 .label {
-  color: var(--sgds-color-default);
-  font-weight: var(--sgds-font-weight-semibold);
-  font-size: var(--sgds-font-size-label-md);
+  color: var(--sit-color-default);
+  font-weight: var(--sit-font-weight-semibold);
+  font-size: var(--sit-font-size-label-md);
 }
 
 .data {
-  color: var(--sgds-color-subtle);
-  font-size: var(--sgds-font-size-label-md);
-  font-weight: var(--sgds-font-weight-regular);
+  color: var(--sit-color-subtle);
+  font-size: var(--sit-font-size-label-md);
+  font-weight: var(--sit-font-weight-regular);
   margin: 0;
 }
 
 @media (min-width: 512px) {
   :host(:not([stacked])) .container {
     flex-direction: row;
-    gap: var(--sgds-gap-2-xl);
+    gap: var(--sit-gap-2-xl);
   }
 }

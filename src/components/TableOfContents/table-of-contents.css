@@ -1,25 +1,25 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-md);
+  gap: var(--sit-gap-md);
 }
 
 slot:not([name])::slotted(*) {
-  margin-bottom: var(--sgds-margin-none) !important;
-  font-size: var(--sgds-font-size-subtitle-md) !important;
-  font-weight: var(--sgds-font-weight-semibold) !important;
-  line-height: var(--sgds-line-height-xs) !important;
+  margin-bottom: var(--sit-margin-none) !important;
+  font-size: var(--sit-font-size-subtitle-md) !important;
+  font-weight: var(--sit-font-weight-semibold) !important;
+  line-height: var(--sit-line-height-xs) !important;
 }
 
 .contents {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-md);
+  gap: var(--sit-gap-md);
   list-style: none;
-  margin: var(--sgds-margin-none);
-  padding: var(--sgds-padding-none);
+  margin: var(--sit-margin-none);
+  padding: var(--sit-padding-none);
 }
 
 slot[name="contents"]::slotted(li) {
-  margin-top: var(--sgds-margin-none) !important;
+  margin-top: var(--sit-margin-none) !important;
 }

@@ -1,13 +1,13 @@
 :host([size="sm"]) .overflow-btn {
-  width: var(--sgds-dimension-24);
-  height: var(--sgds-dimension-24);
+  width: var(--sit-dimension-24);
+  height: var(--sit-dimension-24);
 }
 
 .overflow-btn {
-  width: var(--sgds-dimension-32);
-  height: var(--sgds-dimension-32);
-  background-color: var(--sgds-bg-transparent);
-  border-radius: var(--sgds-border-radius-sm);
+  width: var(--sit-dimension-32);
+  height: var(--sit-dimension-32);
+  background-color: var(--sit-bg-transparent);
+  border-radius: var(--sit-border-radius-sm);
   border: 0;
   padding: 0;
   position: relative;
@@ -18,11 +18,11 @@
 }
 
 .overflow-btn:hover {
-  background-color: var(--sgds-bg-translucent-subtle);
+  background-color: var(--sit-bg-translucent-subtle);
 }
 
 .overflow-btn:focus-visible {
-  outline: var(--sgds-outline-focus);
-  outline-offset: var(--sgds-outline-offset-focus);
-  background-color: var(--sgds-bg-translucent-subtle);
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
+  background-color: var(--sit-bg-translucent-subtle);
 }

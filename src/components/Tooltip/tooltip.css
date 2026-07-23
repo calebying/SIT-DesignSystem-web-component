@@ -8,12 +8,12 @@
 }
 
 .tooltip {
-  background-color: var(--sgds-surface-fixed-dark);
-  border-radius: var(--sgds-border-radius-md);
-  color: var(--sgds-color-fixed-light);
-  font-size: var(--sgds-font-size-label-sm);
-  max-width: var(--sgds-dimension-320);
-  padding: var(--sgds-padding-xs) var(--sgds-padding-sm);
+  background-color: var(--sit-surface-fixed-dark);
+  border-radius: var(--sit-border-radius-md);
+  color: var(--sit-color-fixed-light);
+  font-size: var(--sit-font-size-label-sm);
+  max-width: var(--sit-dimension-320);
+  padding: var(--sit-padding-xs) var(--sit-padding-sm);
   box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 8px 16px 0px rgba(0, 0, 0, 0.14);
   word-wrap: break-word;
   display: block;
@@ -26,7 +26,7 @@
   word-break: normal;
   word-spacing: normal;
   /* takes effect when floating ui adds inline-styles via javascript */
-  z-index: var(--sgds-z-index-overlay);
+  z-index: var(--sit-z-index-overlay);
 }
 
 div {

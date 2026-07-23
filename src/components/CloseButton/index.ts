@@ -1,10 +1,10 @@
-import { SitCloseButton } from "./sgds-close-button";
+import { SitCloseButton } from "./sit-close-button";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-close-button", SitCloseButton);
+register("sit-close-button", SitCloseButton);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-close-button": SitCloseButton;
+    "sit-close-button": SitCloseButton;
   }
 }

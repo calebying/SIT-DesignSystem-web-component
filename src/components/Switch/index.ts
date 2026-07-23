@@ -1,10 +1,10 @@
-import { SitSwitch } from "./sgds-switch";
+import { SitSwitch } from "./sit-switch";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-switch", SitSwitch);
+register("sit-switch", SitSwitch);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-switch": SitSwitch;
+    "sit-switch": SitSwitch;
   }
 }

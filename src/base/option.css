@@ -1,13 +1,13 @@
 :host([active]) .dropdown-item {
-  background-color: var(--sgds-bg-translucent-subtle);
+  background-color: var(--sit-bg-translucent-subtle);
 }
 
 .dropdown-item {
-  background-color: var(--sgds-bg-transparent);
-  padding: var(--sgds-padding-sm) var(--sgds-padding-md);
+  background-color: var(--sit-bg-transparent);
+  padding: var(--sit-padding-sm) var(--sit-padding-md);
   clear: both;
-  color: var(--sgds-form-color-default);
-  font-size: var(--sgds-font-size-label-md);
+  color: var(--sit-form-color-default);
+  font-size: var(--sit-font-size-label-md);
   text-align: inherit;
   cursor: pointer;
   height: 100%;
@@ -15,7 +15,7 @@
   overflow-wrap: anywhere;
 }
 .dropdown-item.disabled {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
   pointer-events: none;
 }
 .dropdown-item .normal-item-content {
@@ -25,15 +25,15 @@
 }
 
 :host([active]) .dropdown-item .normal-item-content {
-  color: var(--sgds-form-primary-color-default);
+  color: var(--sit-form-primary-color-default);
 }
 
 .dropdown-item:hover {
-  background: var(--sgds-bg-translucent-subtle);
+  background: var(--sit-bg-translucent-subtle);
 }
 
 .dropdown-item:focus-visible {
-  background: var(--sgds-bg-translucent-subtle);
-  outline: var(--sgds-form-outline-focus);
-  outline-offset: var(--sgds-form-outline-offset-focus);
+  background: var(--sit-bg-translucent-subtle);
+  outline: var(--sit-form-outline-focus);
+  outline-offset: var(--sit-form-outline-offset-focus);
 }

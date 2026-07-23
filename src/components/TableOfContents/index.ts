@@ -1,10 +1,10 @@
-import { SitTableOfContents } from "./sgds-table-of-contents";
+import { SitTableOfContents } from "./sit-table-of-contents";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-table-of-contents", SitTableOfContents);
+register("sit-table-of-contents", SitTableOfContents);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-table-of-contents": SitTableOfContents;
+    "sit-table-of-contents": SitTableOfContents;
   }
 }

@@ -1,4 +1,4 @@
-import SitElement from "../base/sgds-element";
+import SitElement from "../base/sit-element";
 
 /**
  *

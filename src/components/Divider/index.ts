@@ -1,10 +1,10 @@
-import { SitDivider } from "./sgds-divider";
+import { SitDivider } from "./sit-divider";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-divider", SitDivider);
+register("sit-divider", SitDivider);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-divider": SitDivider;
+    "sit-divider": SitDivider;
   }
 }

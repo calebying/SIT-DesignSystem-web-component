@@ -3,12 +3,12 @@ td,
 th,
 thead,
 tr {
-  border: var(--sgds-border-width-0) solid;
+  border: var(--sit-border-width-0) solid;
   border-color: inherit;
 }
 
 th {
-  font-weight: var(--sgds-font-weight-semibold);
+  font-weight: var(--sit-font-weight-semibold);
   text-align: -webkit-match-parent;
 }
 
@@ -21,7 +21,7 @@ table {
   display: table;
   width: 100%;
   table-layout: auto;
-  font-size: var(--sgds-font-size-label-sm);
+  font-size: var(--sit-font-size-label-sm);
 }
 
 :host([layout="fixed"]) .table {
@@ -34,15 +34,15 @@ table {
 
 .table > :not(caption) th,
 .table > :not(caption) td {
-  border-bottom: var(--sgds-border-width-1) solid var(--sgds-border-color-muted);
+  border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted);
 }
 
 .table > :not(caption) th > div,
 .table > :not(caption) td > div {
   display: flex;
   align-items: center;
-  padding: var(--sgds-padding-sm) var(--sgds-padding-md);
-  min-height: var(--sgds-dimension-56);
+  padding: var(--sit-padding-sm) var(--sit-padding-md);
+  min-height: var(--sit-dimension-56);
 }
 
 .table > tbody {
@@ -54,7 +54,7 @@ table {
 }
 
 .table > :not(:first-child) {
-  border-top: var(--sgds-border-width-1) solid var(--sgds-border-color-emphasis);
+  border-top: var(--sit-border-width-1) solid var(--sit-border-color-emphasis);
 }
 
 .table-responsive {
@@ -63,8 +63,8 @@ table {
 }
 
 :host([tableBorder]) .table {
-  border: var(--sgds-border-width-1) solid;
-  border-color: var(--sgds-border-color-muted);
+  border: var(--sit-border-width-1) solid;
+  border-color: var(--sit-border-color-muted);
   border-bottom: 0;
 }
 
@@ -73,7 +73,7 @@ table {
 }
 
 :host([headerBackground]) th {
-  background-color: var(--sgds-surface-raised);
+  background-color: var(--sit-surface-raised);
 }
 
 @media (max-width: 575.98px) {

@@ -1,10 +1,10 @@
-import { SitCard } from "./sgds-card";
+import { SitCard } from "./sit-card";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-card", SitCard);
+register("sit-card", SitCard);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-card": SitCard;
+    "sit-card": SitCard;
   }
 }
