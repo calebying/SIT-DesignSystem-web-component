@@ -6,8 +6,9 @@ export default create({
   fontBase: '"Inter", sans-serif',
   fontCode: "monospace",
 
-  brandTitle: "SGDS Web Component Storybook",
-  brandUrl: "https://www.webcomponent.designsystem.tech.gov.sg",
+  brandTitle: "Canvas Web Component Storybook",
+  // TODO: replace with the real hosted Storybook URL once deployed
+  brandUrl: "https://design.singaporetech.edu.sg",
   brandImage: logo,
   brandTarget: "_self",
 

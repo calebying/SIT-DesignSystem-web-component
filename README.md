@@ -2,7 +2,11 @@
 <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" /> &nbsp;
 <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />&nbsp;
 
-# sgds-web-component
+# canvas-web-component
+
+Canvas Web Component — Singapore Institute of Technology's design system component library, adapted from [GovTechSG/sgds-web-component](https://github.com/GovTechSG/sgds-web-component) (MIT licensed).
+
+This shallow rebranding pass keeps the underlying `sgds-*` custom element tag names, `sgds:` Tailwind prefix, and `@govtechsg/sgds-web-component` package references intact for now — a full component/tag rename to `sit-*` is planned as a separate, larger phase. See `REBRAND-PLAYBOOK.md` in the parent `SIT-DesignSystem` folder for details.
 
 # Installation Guide
 
@@ -728,7 +732,9 @@ export class MyNavbar extends ScopedElementsMixin(LitElement) {
 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
 </svg><small>we are live and stable now! Please re-read the documentation on how to import the components if you were previously using our unstable version (i.e. package version less than 1.0.0)</small></sgds-alert>
 
-# @govtechsg/sgds-web-component
+# canvas-web-component
+
+Adapted from [@govtechsg/sgds-web-component](https://github.com/GovTechSG/sgds-web-component) — the upstream badges below still reference the original package until this library is independently published.
 
 [![npm](https://img.shields.io/npm/dw/@govtechsg/sgds-web-component?label=npm&style=flat-square)](https://www.npmjs.com/package/@govtechsg/sgds-web-component)
 [![jsDelivr](https://data.jsdelivr.com/v1/package/npm/@govtechsg/sgds-web-component/badge)](https://www.jsdelivr.com/package/npm/@govtechsg/sgds-web-component)

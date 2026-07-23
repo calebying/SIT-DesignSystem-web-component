@@ -1,13 +1,13 @@
 {
-  "name": "@govtechsg/sgds-web-component",
+  "name": "@sit-canvas/canvas-web-component",
   "version": "3.25.0",
-  "description": "",
+  "description": "Canvas Web Component — Singapore Institute of Technology's design system components, written in Lit 3. Adapted from GovTechSG/sgds-web-component.",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GovTechSG/sgds-web-component.git"
+    "url": "git+https://github.com/calebying/SIT-DesignSystem-web-component.git"
   },
   "scripts": {
     "dev": "VITE_ENV=development vite --open",
@@ -39,7 +39,7 @@
     "test:a11y": "tsx scripts/oobee-a11y-scan/index.ts",
     "test:a11y:setup": "cd node_modules/@govtechsg/oobee && npm install && npm run build"
   },
-  "author": "GovTechSG",
+  "author": "Singapore Institute of Technology",
   "contributors": [
     {
       "name": "rav3",
