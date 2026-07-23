@@ -1,7 +1,7 @@
 import { html, nothing } from "lit";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import sidebarOptionStyle from "./sidebar-item.css";
 
 import { SidebarElement } from "./sidebar-element";
@@ -15,10 +15,10 @@ import { SidebarElement } from "./sidebar-element";
  * @slot icon - Icon to display before the label text (required for level 1 and level 2)
  * @slot indicator - Display after the label text (optional). Typically used for badges or status indicators.
  *
- * See SgdsSidebar for parent component usage and selection events.
+ * See SitSidebar for parent component usage and selection events.
  */
-export class SgdsSidebarItem extends SidebarElement {
-  static styles = [...SgdsElement.styles, sidebarOptionStyle];
+export class SitSidebarItem extends SidebarElement {
+  static styles = [...SitElement.styles, sidebarOptionStyle];
 
   render() {
     return html`
@@ -60,4 +60,4 @@ export class SgdsSidebarItem extends SidebarElement {
   }
 }
 
-export default SgdsSidebarItem;
+export default SitSidebarItem;

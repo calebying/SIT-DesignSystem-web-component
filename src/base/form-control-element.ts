@@ -3,11 +3,11 @@ import feedbackStyles from "../styles/feedback.css";
 import formHintStyles from "../styles/form-hint.css";
 import formLabelStyles from "../styles/form-label.css";
 import formPlaceholderStyles from "../styles/form-placeholder.css";
-import SgdsElement from "./sgds-element";
+import SitElement from "./sgds-element";
 import generateId from "../utils/generateId";
 
-export default class FormControlElement extends SgdsElement {
-  static styles = [...SgdsElement.styles, feedbackStyles, formHintStyles, formLabelStyles, formPlaceholderStyles];
+export default class FormControlElement extends SitElement {
+  static styles = [...SitElement.styles, feedbackStyles, formHintStyles, formLabelStyles, formPlaceholderStyles];
 
   /** The input's label  */
   @property({ reflect: true }) label = "";
@@ -31,9 +31,9 @@ export default class FormControlElement extends SgdsElement {
   public setInvalid(bool: boolean) {
     this.invalid = bool;
     if (bool) {
-      this.emit("sgds-invalid");
+      this.emit("sit-invalid");
     } else {
-      this.emit("sgds-valid");
+      this.emit("sit-valid");
     }
   }
 }

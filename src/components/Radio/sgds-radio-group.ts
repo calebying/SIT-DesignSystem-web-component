@@ -3,12 +3,12 @@ import { property, query, queryAssignedElements, state } from "lit/decorators.js
 import { classMap } from "lit/directives/class-map.js";
 import { live } from "lit/directives/live.js";
 import FormControlElement from "../../base/form-control-element";
-import { SgdsFormValidatorMixin } from "../../utils/validatorMixin";
+import { SitFormValidatorMixin } from "../../utils/validatorMixin";
 import { watch } from "../../utils/watch";
 import radioGroupStyles from "./radio-group.css";
-import SgdsRadio from "./sgds-radio";
-import type { ISgdsRadioGroupChangeEventDetail } from "./types";
-export type { ISgdsRadioGroupChangeEventDetail };
+import SitRadio from "./sgds-radio";
+import type { ISitRadioGroupChangeEventDetail } from "./types";
+export type { ISitRadioGroupChangeEventDetail };
 
 /**
  * @summary RadioGroup group multiple radios so they function as a single form control.
@@ -16,13 +16,13 @@ export type { ISgdsRadioGroupChangeEventDetail };
  * @slot default - The default slot where sgds-radio are placed.
  * @slot invalidIcon - The slot for invalid icon
  *
- * @event sgds-change - Emitted when the radio group's selected value changes.
- * @eventDetail {ISgdsRadioGroupChangeEventDetail} sgds-change
- * @event sgds-invalid - Emitted when the radio group's invalid state is set to true.
- * @event sgds-valid - Emitted when the radio group's invalid state is set to false.
+ * @event sit-change - Emitted when the radio group's selected value changes.
+ * @eventDetail {ISitRadioGroupChangeEventDetail} sgds-change
+ * @event sit-invalid - Emitted when the radio group's invalid state is set to true.
+ * @event sit-valid - Emitted when the radio group's invalid state is set to false.
  *
  */
-export class SgdsRadioGroup extends SgdsFormValidatorMixin(FormControlElement) {
+export class SitRadioGroup extends SitFormValidatorMixin(FormControlElement) {
   static styles = [...FormControlElement.styles, radioGroupStyles];
 
   /**@internal */
@@ -72,7 +72,7 @@ export class SgdsRadioGroup extends SgdsFormValidatorMixin(FormControlElement) {
   connectedCallback() {
     super.connectedCallback();
     this.defaultValue = this.value;
-    this.addEventListener("sgds-blur", () => {
+    this.addEventListener("sit-blur", () => {
       this._isTouched = true;
     });
   }
@@ -102,18 +102,18 @@ export class SgdsRadioGroup extends SgdsFormValidatorMixin(FormControlElement) {
   }
 
   @queryAssignedElements()
-  private _radios!: Array<SgdsRadio>;
+  private _radios!: Array<SitRadio>;
 
   private _handleRadioClick(event: MouseEvent) {
     event.preventDefault();
-    const target = event.target as SgdsRadio;
+    const target = event.target as SitRadio;
 
     if (target.disabled) {
       return;
     }
 
     this.value = target.value;
-    this.emit<ISgdsRadioGroupChangeEventDetail>("sgds-change", { detail: { value: this.value } });
+    this.emit<ISitRadioGroupChangeEventDetail>("sgds-change", { detail: { value: this.value } });
 
     this._updateInputValue();
 
@@ -155,7 +155,7 @@ export class SgdsRadioGroup extends SgdsFormValidatorMixin(FormControlElement) {
     });
 
     this.value = radios[index].value;
-    this.emit<ISgdsRadioGroupChangeEventDetail>("sgds-change", { detail: { value: this.value } });
+    this.emit<ISitRadioGroupChangeEventDetail>("sgds-change", { detail: { value: this.value } });
     this._updateInputValue();
     radios[index].checked = true;
     radios[index].tabIndex = 0;
@@ -189,7 +189,7 @@ export class SgdsRadioGroup extends SgdsFormValidatorMixin(FormControlElement) {
   }
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -216,7 +216,7 @@ export class SgdsRadioGroup extends SgdsFormValidatorMixin(FormControlElement) {
 
   @watch("_isTouched", { waitUntilFirstUpdate: true })
   _handleIsTouched() {
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
     if (this._isTouched) {
       this.invalid = !this.input.checkValidity();
     }
@@ -293,4 +293,4 @@ export class SgdsRadioGroup extends SgdsFormValidatorMixin(FormControlElement) {
   }
 }
 
-export default SgdsRadioGroup;
+export default SitRadioGroup;

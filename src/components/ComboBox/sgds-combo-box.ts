@@ -5,50 +5,50 @@ import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 
 import { ref } from "lit/directives/ref.js";
-import { SelectElement, SgdsOptionData } from "../../base/select-element";
+import { SelectElement, SitOptionData } from "../../base/select-element";
 import { watch } from "../../utils/watch";
-import { SgdsBadge } from "../Badge/sgds-badge";
-import SgdsIcon from "../Icon/sgds-icon";
+import { SitBadge } from "../Badge/sgds-badge";
+import SitIcon from "../Icon/sgds-icon";
 import comboBoxStyle from "./combo-box.css";
 import formTextControlStyle from "../../styles/form-text-control.css";
-import { SgdsComboBoxOption } from "./sgds-combo-box-option";
+import { SitComboBoxOption } from "./sgds-combo-box-option";
 
 import { repeat } from "lit/directives/repeat.js";
-import SgdsSpinner from "../Spinner/sgds-spinner";
-import { ISgdsComboBoxInputEventDetail } from "./types";
+import SitSpinner from "../Spinner/sgds-spinner";
+import { ISitComboBoxInputEventDetail } from "./types";
 
 /**
  * Each item in the ComboBox has a label to display
  * and a value (the actual data / ID).
  */
-type SgdsComboBoxOptionData = SgdsOptionData;
+type SitComboBoxOptionData = SitOptionData;
 
-export type { ISgdsComboBoxInputEventDetail };
+export type { ISitComboBoxInputEventDetail };
 
 /**
  * @summary ComboBox component is used for users to make one or more selections from a list through user input, keyboard or mouse actions
  *
  * @slot default - default slot to pass in sgds-combo-box-option
  *
- * @event sgds-select - Emitted when the combo box's selected value changes.
- * @event sgds-change - Emitted when the combo box's value changes.
- * @event sgds-input -  Emitted when user input is received and its value changes. `event.detail = { displayValue }`
- * @eventDetail {ISgdsComboBoxInputEventDetail} sgds-input
- * @event sgds-focus -  Emitted when user input is focused.
- * @event sgds-blur -  Emitted when user input is blurred.
- * @event sgds-invalid - Emitted when the combo box's invalid state is set to true.
- * @event sgds-valid - Emitted when the combo box's invalid state is set to false.
- * @event sgds-scroll-end - Emitted once when the menu is scrolled to within `scrollBottomOffset` pixels of the bottom. Resets when the user scrolls back up.
+ * @event sit-select - Emitted when the combo box's selected value changes.
+ * @event sit-change - Emitted when the combo box's value changes.
+ * @event sit-input -  Emitted when user input is received and its value changes. `event.detail = { displayValue }`
+ * @eventDetail {ISitComboBoxInputEventDetail} sgds-input
+ * @event sit-focus -  Emitted when user input is focused.
+ * @event sit-blur -  Emitted when user input is blurred.
+ * @event sit-invalid - Emitted when the combo box's invalid state is set to true.
+ * @event sit-valid - Emitted when the combo box's invalid state is set to false.
+ * @event sit-scroll-end - Emitted once when the menu is scrolled to within `scrollBottomOffset` pixels of the bottom. Resets when the user scrolls back up.
  */
-export class SgdsComboBox extends SelectElement {
+export class SitComboBox extends SelectElement {
   static styles = [...SelectElement.styles, formTextControlStyle, comboBoxStyle];
   static childName = "sgds-combo-box-option";
   /** @internal */
   static dependencies = {
-    [SgdsComboBox.childName]: SgdsComboBoxOption,
-    "sgds-icon": SgdsIcon,
-    "sgds-badge": SgdsBadge,
-    "sgds-spinner": SgdsSpinner
+    [SitComboBox.childName]: SitComboBoxOption,
+    "sgds-icon": SitIcon,
+    "sgds-badge": SitBadge,
+    "sgds-spinner": SitSpinner
   };
 
   /** If true, renders multiple checkbox selection items. If false, single-select. */
@@ -74,16 +74,16 @@ export class SgdsComboBox extends SelectElement {
 
   /** The function used to filter the menu list, given the user's input value. */
   @property()
-  filterFunction: (inputValue: string, item: SgdsComboBoxOptionData) => boolean = (inputValue, item) => {
+  filterFunction: (inputValue: string, item: SitComboBoxOptionData) => boolean = (inputValue, item) => {
     return item.label.toLowerCase().startsWith(inputValue.toLowerCase());
   };
 
   @queryAsync("input#multi-select-input-tracker") private _multiSelectInput: Promise<HTMLInputElement>;
 
   @queryAssignedElements({ flatten: true, selector: "sgds-combo-box-option" })
-  protected options: SgdsComboBoxOption[];
+  protected options: SitComboBoxOption[];
 
-  @state() private optionList: SgdsComboBoxOptionData[] = [];
+  @state() private optionList: SitComboBoxOptionData[] = [];
   @state() private emptyMenuAfterFiltering = false;
 
   // Used to show and hide the clear button
@@ -112,7 +112,7 @@ export class SgdsComboBox extends SelectElement {
       }
     });
 
-    this.addEventListener("sgds-hide", async (e: CustomEvent) => {
+    this.addEventListener("sit-hide", async (e: CustomEvent) => {
       if (!e.detail.isOutside) {
         const sgdsInput = await this._input;
         sgdsInput.focus();
@@ -128,7 +128,7 @@ export class SgdsComboBox extends SelectElement {
     super.firstUpdated(changedProperties);
     if (this.async) this.filterFunction = () => true;
     this.menuList.forEach(o => {
-      const comboBoxOption = document.createElement("sgds-combo-box-option") as SgdsComboBoxOption;
+      const comboBoxOption = document.createElement("sgds-combo-box-option") as SitComboBoxOption;
       comboBoxOption.innerText = o.label;
       comboBoxOption.value = o.value;
       comboBoxOption.checkbox = this.multiSelect;
@@ -152,7 +152,7 @@ export class SgdsComboBox extends SelectElement {
       if (option.clickEventAdded) return false;
       option.addEventListener("click", (evt: PointerEvent) => {
         evt.preventDefault();
-        const optionTarget = evt.target as SgdsComboBoxOption;
+        const optionTarget = evt.target as SitComboBoxOption;
 
         if (this.multiSelect) {
           optionTarget.active ? this._handleItemUnselect(evt) : this._handleItemSelected(evt);
@@ -166,7 +166,7 @@ export class SgdsComboBox extends SelectElement {
       option.addEventListener("keydown", (evt: KeyboardEvent) => {
         if (evt.key === "Enter") {
           this.close = "outside";
-          const optionTarget = evt.target as SgdsComboBoxOption;
+          const optionTarget = evt.target as SitComboBoxOption;
           optionTarget.click();
         }
       });
@@ -178,7 +178,7 @@ export class SgdsComboBox extends SelectElement {
     this._setupValidation(this.optionList);
   }
 
-  private async _setupValidation(list: SgdsComboBoxOptionData[]) {
+  private async _setupValidation(list: SitComboBoxOptionData[]) {
     if (this.value && list.length > 0) {
       const valueArray = this.value.split(";");
       const initialSelectedItem = list.filter(({ value }) => valueArray.includes(value));
@@ -213,16 +213,16 @@ export class SgdsComboBox extends SelectElement {
     }
 
     if (!this._isTouched && this.value === "") return;
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
     this.invalid = !this._mixinReportValidity();
   }
 
   /** Emits sgds-change and sgds-select events. Call after setting this.value from user interaction. */
   private _emitChangeEvents() {
     this._mixinSetFormValue();
-    this.emit("sgds-change");
+    this.emit("sit-change");
     if (this.value) {
-      this.emit("sgds-select");
+      this.emit("sit-select");
     }
   }
 
@@ -234,7 +234,7 @@ export class SgdsComboBox extends SelectElement {
   @watch("menuList", { waitUntilFirstUpdate: true })
   _handleMenuListChange() {
     const newMenu = this.menuList.map(o => {
-      const comboBoxOption = document.createElement("sgds-combo-box-option") as SgdsComboBoxOption;
+      const comboBoxOption = document.createElement("sgds-combo-box-option") as SitComboBoxOption;
       comboBoxOption.innerText = o.label;
       comboBoxOption.value = o.value;
       comboBoxOption.checkbox = this.multiSelect;
@@ -245,7 +245,7 @@ export class SgdsComboBox extends SelectElement {
     this.replaceChildren(...newMenu);
   }
 
-  private _updateValueAndDisplayValue(list: SgdsComboBoxOptionData[]) {
+  private _updateValueAndDisplayValue(list: SitComboBoxOptionData[]) {
     const valueArray = this.value.split(";");
     const initialSelectedItem = list.filter(({ value }) => valueArray.includes(value));
     this.selectedItems = [...initialSelectedItem];
@@ -266,7 +266,7 @@ export class SgdsComboBox extends SelectElement {
   protected async _handleInputChange(e: CustomEvent) {
     const input = e.target as HTMLInputElement;
     this.displayValue = input.value;
-    this.emit<ISgdsComboBoxInputEventDetail>("sgds-input", { detail: { displayValue: this.displayValue } });
+    this.emit<ISitComboBoxInputEventDetail>("sgds-input", { detail: { displayValue: this.displayValue } });
     this.invalid = false;
     this.showMenu();
     // reset menu list when displayValue is cleared
@@ -298,7 +298,7 @@ export class SgdsComboBox extends SelectElement {
    * Called whenever an <sgds-combo-box-option> dispatches sgds-select"
    */
   protected async _handleItemSelected(e: Event) {
-    const itemEl = e.target as SgdsComboBoxOption;
+    const itemEl = e.target as SitComboBoxOption;
     if (itemEl.disabled) return;
 
     const itemLabel = itemEl.textContent?.trim() ?? "";
@@ -333,7 +333,7 @@ export class SgdsComboBox extends SelectElement {
   }
 
   private _handleItemUnselect(e: Event) {
-    const itemEl = e.target as SgdsComboBoxOption;
+    const itemEl = e.target as SitComboBoxOption;
     if (itemEl.disabled) return;
 
     itemEl.removeAttribute("active");
@@ -349,7 +349,7 @@ export class SgdsComboBox extends SelectElement {
     this._emitChangeEvents();
   }
 
-  private async _handleBadgeDismissed(e: CustomEvent, item: SgdsComboBoxOptionData) {
+  private async _handleBadgeDismissed(e: CustomEvent, item: SitComboBoxOptionData) {
     e.preventDefault();
     const removedValue = item.value;
     this.options?.forEach(o => (o.value === removedValue ? (o.active = false) : null));
@@ -376,13 +376,13 @@ export class SgdsComboBox extends SelectElement {
   }
 
   protected _handleFocus() {
-    this.emit("sgds-focus");
+    this.emit("sit-focus");
   }
 
   protected async _handleInputBlur(e: Event) {
     e.preventDefault();
 
-    this.emit("sgds-blur");
+    this.emit("sit-blur");
 
     if (this.multiSelect) {
       const displayValueMatchedSelectedItems = this.selectedItems.filter(({ label }) => this.displayValue === label);
@@ -451,7 +451,7 @@ export class SgdsComboBox extends SelectElement {
 
       if (ele.scrollTop >= endOfScroll - offset) {
         if (!this.isScrollEnd) {
-          this.emit("sgds-scroll-end");
+          this.emit("sit-scroll-end");
         }
         this.isScrollEnd = true;
       } else {
@@ -618,11 +618,11 @@ export class SgdsComboBox extends SelectElement {
   }
 }
 
-interface ComboBoxOptionWithFlag extends SgdsComboBoxOption {
+interface ComboBoxOptionWithFlag extends SitComboBoxOption {
   clickEventAdded?: boolean;
 }
 
-export default SgdsComboBox;
+export default SitComboBox;
 
 //TODO:
 // Replace this.optionList ?

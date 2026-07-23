@@ -1,6 +1,6 @@
 import { html } from "lit";
 
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import tableHeadStyle from "./table-head.css";
 
 import { consume } from "@lit/context";
@@ -15,8 +15,8 @@ import { watch } from "../../utils/watch";
  * @slot default - Place any elements inside to display as the header content.
  */
 
-export class SgdsTableHead extends SgdsElement {
-  static styles = [...SgdsElement.styles, tableHeadStyle];
+export class SitTableHead extends SitElement {
+  static styles = [...SitElement.styles, tableHeadStyle];
 
   @consume({ context: TableHeaderBackgroundContext, subscribe: true })
   @state()
@@ -45,4 +45,4 @@ export class SgdsTableHead extends SgdsElement {
   }
 }
 
-export default SgdsTableHead;
+export default SitTableHead;

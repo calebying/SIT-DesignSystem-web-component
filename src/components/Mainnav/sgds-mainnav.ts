@@ -2,18 +2,18 @@ import { provide } from "@lit/context";
 import { html, PropertyValueMap } from "lit";
 import { property, query, queryAssignedElements, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { animateTo, shimKeyframesHeightAuto, stopAnimations } from "../../utils/animate";
 import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry";
 import { LG_BREAKPOINT, MD_BREAKPOINT, SM_BREAKPOINT, XL_BREAKPOINT, XXL_BREAKPOINT } from "../../utils/breakpoints";
 import { waitForEvent } from "../../utils/event";
 import genId from "../../utils/generateId";
 import { watch } from "../../utils/watch";
-import SgdsIconButton from "../IconButton/sgds-icon-button";
+import SitIconButton from "../IconButton/sgds-icon-button";
 import { MainnavBreakpointContext, MainnavExpandedContext } from "./mainnav-context";
 import mainnavStyle from "./mainnav.css";
-import SgdsMainnavDropdown from "./sgds-mainnav-dropdown";
-import SgdsMainnavItem from "./sgds-mainnav-item";
+import SitMainnavDropdown from "./sgds-mainnav-dropdown";
+import SitMainnavItem from "./sgds-mainnav-item";
 import { HasSlotController } from "../../utils/slot";
 export type MainnavExpandSize = "sm" | "md" | "lg" | "xl" | "xxl" | "always" | "never";
 
@@ -30,22 +30,22 @@ const SIZES = {
 /**
  * @summary This component is the primary means that your users will use to navigate through your portal. It includes horizontal navigation and branding to identify your site.
  *
- * @event sgds-show - Emitted on show. Only for collapsed menu.
- * @event sgds-after-show - Emitted on show after animation has completed. Only for collapsed menu.
- * @event sgds-hide - Emitted on hide. Only for collapsed menu.
- * @event sgds-after-hide - Emitted on hide after animation has completed. Only for collapsed menu.
+ * @event sit-show - Emitted on show. Only for collapsed menu.
+ * @event sit-after-show - Emitted on show after animation has completed. Only for collapsed menu.
+ * @event sit-hide - Emitted on hide. Only for collapsed menu.
+ * @event sit-after-hide - Emitted on hide after animation has completed. Only for collapsed menu.
  *
- * @slot default - Default slot of SgdsMainnav. Pass in SgdsMainnavItem elements here.
+ * @slot default - Default slot of SitMainnav. Pass in SitMainnavItem elements here.
  * @slot end - Elements in this slot will be positioned to the right end of .navbar-nav. Elements in this slot will also be included in collapsed menu.
- * @slot brand - Brand slot of SgdsMainnav. Pass in brand logo img here
+ * @slot brand - Brand slot of SitMainnav. Pass in brand logo img here
  * @slot non-collapsible - Elements in this slot will not be collapsed
  *
  */
-export class SgdsMainnav extends SgdsElement {
-  static styles = [...SgdsElement.styles, mainnavStyle];
+export class SitMainnav extends SitElement {
+  static styles = [...SitElement.styles, mainnavStyle];
   /** @internal */
   static dependencies = {
-    "sgds-icon-button": SgdsIconButton
+    "sgds-icon-button": SitIconButton
   };
 
   @provide({ context: MainnavBreakpointContext })
@@ -94,23 +94,23 @@ export class SgdsMainnav extends SgdsElement {
   breakpointReached = false;
 
   /** @internal */
-  @queryAssignedElements() private defaultNodes!: SgdsMainnavItem[] | SgdsMainnavDropdown[];
+  @queryAssignedElements() private defaultNodes!: SitMainnavItem[] | SitMainnavDropdown[];
 
   /** @internal */
-  @queryAssignedElements({ slot: "end" }) private endNodes!: SgdsMainnavItem[] | SgdsMainnavDropdown[];
+  @queryAssignedElements({ slot: "end" }) private endNodes!: SitMainnavItem[] | SitMainnavDropdown[];
 
   /** @internal */
-  get defaultSlotItems(): SgdsMainnavItem[] | SgdsMainnavDropdown[] {
+  get defaultSlotItems(): SitMainnavItem[] | SitMainnavDropdown[] {
     return [...(this.defaultNodes || [])].filter((node: HTMLElement) => typeof node.tagName !== "undefined") as
-      | SgdsMainnavItem[]
-      | SgdsMainnavDropdown[];
+      | SitMainnavItem[]
+      | SitMainnavDropdown[];
   }
 
   /** @internal */
-  get endSlotItems(): SgdsMainnavItem[] | SgdsMainnavDropdown[] {
+  get endSlotItems(): SitMainnavItem[] | SitMainnavDropdown[] {
     return [...(this.endNodes || [])].filter((node: HTMLElement) => typeof node.tagName !== "undefined") as
-      | SgdsMainnavItem[]
-      | SgdsMainnavDropdown[];
+      | SitMainnavItem[]
+      | SitMainnavDropdown[];
   }
 
   private readonly hasSlotController = new HasSlotController(this, "non-collapsible");
@@ -206,7 +206,7 @@ export class SgdsMainnav extends SgdsElement {
   }
 
   private async _animateToShow() {
-    const sgdsShow = this.emit("sgds-show", { cancelable: true });
+    const sgdsShow = this.emit("sit-show", { cancelable: true });
     if (sgdsShow.defaultPrevented) {
       this.expanding = false;
       this.expanded = false;
@@ -220,11 +220,11 @@ export class SgdsMainnav extends SgdsElement {
     await animateTo(this.body, shimKeyframesHeightAuto(keyframes, this.body.scrollHeight), options);
     this.body.style.height = "auto";
 
-    this.emit("sgds-after-show");
+    this.emit("sit-after-show");
   }
 
   private async _animateToHide() {
-    const slHide = this.emit("sgds-hide", { cancelable: true });
+    const slHide = this.emit("sit-hide", { cancelable: true });
     if (slHide.defaultPrevented) {
       this.expanding = false;
       this.expanded = true;
@@ -237,7 +237,7 @@ export class SgdsMainnav extends SgdsElement {
     await animateTo(this.body, shimKeyframesHeightAuto(keyframes, this.body.scrollHeight), options);
     this.body.hidden = true;
     this.body.style.height = "auto";
-    this.emit("sgds-after-hide");
+    this.emit("sit-after-hide");
   }
   /** @internal */
   @watch("expanding", { waitUntilFirstUpdate: true })
@@ -261,7 +261,7 @@ export class SgdsMainnav extends SgdsElement {
     }
 
     this.expanding = true;
-    return waitForEvent(this, "sgds-after-show");
+    return waitForEvent(this, "sit-after-show");
   }
 
   /** Hide the menu. For when mainnav is in the collapsed form */
@@ -273,7 +273,7 @@ export class SgdsMainnav extends SgdsElement {
     this.expanding = false;
     document.body.style.removeProperty("overflow");
 
-    return waitForEvent(this, "sgds-after-hide");
+    return waitForEvent(this, "sit-after-hide");
   }
 
   private _handleDefaultSlotChange(e: Event) {
@@ -357,4 +357,4 @@ setDefaultAnimation("mainnav.hide", {
   options: { duration: 200, easing: "ease-in-out" }
 });
 
-export default SgdsMainnav;
+export default SitMainnav;

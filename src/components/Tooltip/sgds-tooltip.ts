@@ -2,21 +2,21 @@ import { html, PropertyValueMap } from "lit";
 import { property, queryAssignedElements, state } from "lit/decorators.js";
 import { Ref, createRef, ref } from "lit/directives/ref.js";
 import { computePosition, offset, flip, shift, hide, autoUpdate, Strategy } from "@floating-ui/dom";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import tooltipStyle from "./tooltip.css";
 
 /**
  * @summary Tooltips display more information when users hover over, focus on, or interact with an element.
  * @slot default - The element to target the tooltip to.
  *
- * @event sgds-show - Emitted event when show instance is called
- * @event sgds-after-show - Emitted event when tooltip has been made visible to the user and CSS transitions have completed
- * @event sgds-hide - Emitted event when hide instance is called
- * @event sgds-after-hide - Emitted event when tooltip has hidden to the user and CSS transitions have completed
+ * @event sit-show - Emitted event when show instance is called
+ * @event sit-after-show - Emitted event when tooltip has been made visible to the user and CSS transitions have completed
+ * @event sit-hide - Emitted event when hide instance is called
+ * @event sit-after-hide - Emitted event when tooltip has hidden to the user and CSS transitions have completed
  *
  */
-export class SgdsTooltip extends SgdsElement {
-  static styles = [...SgdsElement.styles, tooltipStyle];
+export class SitTooltip extends SitElement {
+  static styles = [...SitElement.styles, tooltipStyle];
 
   /** Internal ref to the tooltip container */
   private _myTooltip: Ref<HTMLElement> = createRef();
@@ -123,7 +123,7 @@ export class SgdsTooltip extends SgdsElement {
   public async show() {
     if (this.open) return;
     this.open = true;
-    this.emit("sgds-show");
+    this.emit("sit-show");
 
     await this.updateComplete;
     await this.updateFloatingPosition();
@@ -134,13 +134,13 @@ export class SgdsTooltip extends SgdsElement {
       );
     }
 
-    this.emit("sgds-after-show");
+    this.emit("sit-after-show");
   }
 
   /** Hide tooltip */
   public hide() {
     if (!this.open) return;
-    this.emit("sgds-hide");
+    this.emit("sit-hide");
     this.open = false;
 
     if (this._cleanupAutoUpdate) {
@@ -148,7 +148,7 @@ export class SgdsTooltip extends SgdsElement {
       this._cleanupAutoUpdate = undefined;
     }
 
-    setTimeout(() => this.emit("sgds-after-hide"), 0);
+    setTimeout(() => this.emit("sit-after-hide"), 0);
   }
 
   /** Toggle tooltip */
@@ -168,4 +168,4 @@ export class SgdsTooltip extends SgdsElement {
   }
 }
 
-export default SgdsTooltip;
+export default SitTooltip;

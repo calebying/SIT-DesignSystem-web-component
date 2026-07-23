@@ -5,7 +5,7 @@ import { html, literal } from "lit/static-html.js";
 import { CardElement } from "../../base/card-element";
 import { HasSlotController } from "../../utils/slot";
 import { CardImageAdjustment, CardImagePosition } from "./types";
-import type SgdsLink from "../Link/sgds-link";
+import type SitLink from "../Link/sgds-link";
 import cardStyle from "./card.css";
 
 /**
@@ -23,13 +23,13 @@ import cardStyle from "./card.css";
  * @slot link - (@deprecated) Deprecated since 3.3.2 in favour of `footer` slot.
  *  Legacy slot for anchor elements. Use `footer` instead.
  */
-export class SgdsCard extends CardElement {
+export class SitCard extends CardElement {
   static styles = [...CardElement.styles, cardStyle];
 
   @queryAssignedElements({ slot: "footer" })
   private footerNode!: HTMLElement[];
   @queryAssignedElements({ slot: "link" })
-  private linkNode!: HTMLAnchorElement[] | SgdsLink[];
+  private linkNode!: HTMLAnchorElement[] | SitLink[];
 
   /** Sets the image position of the card. Available options: `before`, `after` */
   @property({ type: String, reflect: true }) imagePosition: CardImagePosition = "before";
@@ -94,11 +94,11 @@ export class SgdsCard extends CardElement {
     const childNodes = (e.target as HTMLSlotElement).assignedNodes({ flatten: true }) as Array<HTMLOrSVGImageElement>;
 
     if (childNodes.length > 1) {
-      console.error("Multiple elements passed into SgdsCard's image slot");
+      console.error("Multiple elements passed into SitCard's image slot");
     }
 
     if (this.hasSlotController.test("image") && this.hasSlotController.test("icon")) {
-      console.error("Both image and icon slots cannot be used together in SgdsCard");
+      console.error("Both image and icon slots cannot be used together in SitCard");
     }
   }
 
@@ -144,4 +144,4 @@ export class SgdsCard extends CardElement {
   }
 }
 
-export default SgdsCard;
+export default SitCard;

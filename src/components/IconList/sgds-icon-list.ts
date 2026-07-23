@@ -1,15 +1,15 @@
 import { html } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import iconListStyles from "./icon-list.css";
 /**
  * @summary A IconList can be used to display content related to the same topic. Each list item begins an icon.
  *
  * @slot default - The list items of IconList. Each list items should have aria attribute role="listitem" added
  */
-export class SgdsIconList extends SgdsElement {
-  static styles = [...SgdsElement.styles, iconListStyles];
+export class SitIconList extends SitElement {
+  static styles = [...SitElement.styles, iconListStyles];
 
   /** Sets the aria-role of the sgds-icon-list */
   @property({ type: String, reflect: true }) role = "list";
@@ -25,4 +25,4 @@ export class SgdsIconList extends SgdsElement {
   }
 }
 
-export default SgdsIconList;
+export default SitIconList;

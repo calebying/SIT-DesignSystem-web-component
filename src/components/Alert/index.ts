@@ -1,13 +1,13 @@
-import { SgdsAlert } from "./sgds-alert";
-import { SgdsAlertLink } from "./sgds-alert-link";
+import { SitAlert } from "./sgds-alert";
+import { SitAlertLink } from "./sgds-alert-link";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-alert", SgdsAlert);
-register("sgds-alert-link", SgdsAlertLink);
+register("sgds-alert", SitAlert);
+register("sgds-alert-link", SitAlertLink);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-alert-link": SgdsAlertLink;
-    "sgds-alert": SgdsAlert;
+    "sgds-alert-link": SitAlertLink;
+    "sgds-alert": SitAlert;
   }
 }

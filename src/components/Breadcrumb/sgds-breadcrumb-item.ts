@@ -1,21 +1,21 @@
 import { html, PropertyValueMap } from "lit";
 import { property } from "lit/decorators.js";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsLink from "../Link/sgds-link";
+import SitIcon from "../Icon/sgds-icon";
+import SitLink from "../Link/sgds-link";
 import breadcrumbItemStyle from "./breadcrumb-item.css";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 /**
  * @summary Breadcrumb Item are navigational links used in Breadcrumb component
  *
  * @slot default - The link of the item. Pass in anchor tags into this slot
  */
-export class SgdsBreadcrumbItem extends SgdsElement {
+export class SitBreadcrumbItem extends SitElement {
   static styles = [breadcrumbItemStyle];
-  static dependencies: Record<string, typeof SgdsElement> = {
-    "sgds-link": SgdsLink,
-    "sgds-icon": SgdsIcon
+  static dependencies: Record<string, typeof SitElement> = {
+    "sgds-link": SitLink,
+    "sgds-icon": SitIcon
   };
-  /** Indicates the link matches the current location of the page. Programmatically handled by SgdsBreadcrumb to set this prop to true for the last breadcrumb item  */
+  /** Indicates the link matches the current location of the page. Programmatically handled by SitBreadcrumb to set this prop to true for the last breadcrumb item  */
   @property({ type: Boolean, reflect: true }) active = false;
 
   private _preventNavigation = (e: MouseEvent) => e.preventDefault();
@@ -45,4 +45,4 @@ export class SgdsBreadcrumbItem extends SgdsElement {
   }
 }
 
-export default SgdsBreadcrumbItem;
+export default SitBreadcrumbItem;

@@ -1,9 +1,9 @@
 import { register } from "../../utils/ce-registry";
-import { SgdsSpinner } from "./sgds-spinner";
+import { SitSpinner } from "./sgds-spinner";
 
-register("sgds-spinner", SgdsSpinner);
+register("sgds-spinner", SitSpinner);
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-spinner": SgdsSpinner;
+    "sgds-spinner": SitSpinner;
   }
 }

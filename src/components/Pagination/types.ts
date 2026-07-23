@@ -1,3 +1,3 @@
-export interface ISgdsPaginationPageChangeEventDetail {
+export interface ISitPaginationPageChangeEventDetail {
   currentPage: number;
 }

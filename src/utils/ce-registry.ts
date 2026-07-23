@@ -1,4 +1,4 @@
-import SgdsElement from "../base/sgds-element";
+import SitElement from "../base/sgds-element";
 
 /**
  *
@@ -9,7 +9,7 @@ export function isRegistered(name: string): boolean {
   return !!customElements.get(name);
 }
 
-export function register(name: string, constructor: typeof SgdsElement) {
+export function register(name: string, constructor: typeof SitElement) {
   if (!customElements.get(name)) {
     customElements.define(name, constructor);
   }

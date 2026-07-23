@@ -1,6 +1,6 @@
 import { LitElement, PropertyValueMap } from "lit";
 import { queryAsync } from "lit/decorators.js";
-import { SgdsInput } from "../components";
+import { SitInput } from "../components";
 import { InputValidationController } from "./inputValidationController";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,15 +11,15 @@ type Constructor<T> = new (...args: any[]) => T;
  * @param superClass
  * @returns
  */
-export const SgdsFormValidatorMixin = <T extends Constructor<LitElement>>(superClass: T) => {
+export const SitFormValidatorMixin = <T extends Constructor<LitElement>>(superClass: T) => {
   class ToBeValidatedElement extends superClass {
     static formAssociated = true;
     inputValidationController: InputValidationController;
-    input: HTMLInputElement | SgdsInput | HTMLTextAreaElement;
+    input: HTMLInputElement | SitInput | HTMLTextAreaElement;
     private _isTouched = false;
     private _internals: ElementInternals;
-    @queryAsync("sgds-input") sgdsInput: Promise<SgdsInput>;
-    @queryAsync("sgds-datepicker-input") sgdsDatepickerInput: Promise<SgdsInput>;
+    @queryAsync("sgds-input") sgdsInput: Promise<SitInput>;
+    @queryAsync("sgds-datepicker-input") sgdsDatepickerInput: Promise<SitInput>;
 
     // TypeScript requires mixin constructors to have rest parameter of type any[]
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,7 +46,7 @@ export const SgdsFormValidatorMixin = <T extends Constructor<LitElement>>(superC
 
       this._mixinSetFormValue();
 
-      if (this._mixinShouldSkipSgdsValidation()) return;
+      if (this._mixinShouldSkipSitValidation()) return;
 
       this._mixinValidate(this.input);
     }
@@ -75,7 +75,7 @@ export const SgdsFormValidatorMixin = <T extends Constructor<LitElement>>(superC
      */
     _mixinHandleChange(e: Event): void {
       this._mixinSetFormValue();
-      if (this._mixinShouldSkipSgdsValidation()) return;
+      if (this._mixinShouldSkipSitValidation()) return;
       this.inputValidationController.handleChange(e);
     }
     /**
@@ -85,7 +85,7 @@ export const SgdsFormValidatorMixin = <T extends Constructor<LitElement>>(superC
      */
     _mixinHandleInputChange(e: Event): void {
       this._mixinSetFormValue();
-      if (this._mixinShouldSkipSgdsValidation()) return;
+      if (this._mixinShouldSkipSitValidation()) return;
       this.inputValidationController.handleInput(e);
     }
     /**
@@ -96,16 +96,16 @@ export const SgdsFormValidatorMixin = <T extends Constructor<LitElement>>(superC
      * 4. Revalidates the ValidityState (but do not update invalid prop)
      * to prepare for the next validity check (skipped when noValidate)
      */
-    _mixinResetValidity(input: HTMLInputElement | SgdsInput | HTMLTextAreaElement) {
+    _mixinResetValidity(input: HTMLInputElement | SitInput | HTMLTextAreaElement) {
       this.inputValidationController.resetValidity();
       this.inputValidationController.updateInvalidState();
       this._isTouched ? (this._isTouched = false) : null;
-      if (this._mixinShouldSkipSgdsValidation()) return;
+      if (this._mixinShouldSkipSitValidation()) return;
       this.inputValidationController.validateInput(input);
     }
 
-    _mixinValidate(input: HTMLInputElement | SgdsInput | HTMLTextAreaElement) {
-      if (this._mixinShouldSkipSgdsValidation()) return;
+    _mixinValidate(input: HTMLInputElement | SitInput | HTMLTextAreaElement) {
+      if (this._mixinShouldSkipSitValidation()) return;
       this.inputValidationController.validateInput(input);
     }
     _mixinSetFormValue() {
@@ -113,11 +113,11 @@ export const SgdsFormValidatorMixin = <T extends Constructor<LitElement>>(superC
       this._internals.setFormValue(value);
     }
     _mixinCheckValidity(): boolean {
-      if (this._mixinShouldSkipSgdsValidation()) return true;
+      if (this._mixinShouldSkipSitValidation()) return true;
       return this.inputValidationController.checkValidity();
     }
     _mixinReportValidity(): boolean {
-      if (this._mixinShouldSkipSgdsValidation()) return true;
+      if (this._mixinShouldSkipSitValidation()) return true;
       return this.inputValidationController.reportValidity();
     }
     _mixinGetValidity(): ValidityState {
@@ -127,11 +127,11 @@ export const SgdsFormValidatorMixin = <T extends Constructor<LitElement>>(superC
       return this._internals.validationMessage;
     }
     _mixinSetValidity(flags?: ValidityStateFlags, message?: string, anchor?: HTMLElement): void {
-      if (this._mixinShouldSkipSgdsValidation()) return;
+      if (this._mixinShouldSkipSitValidation()) return;
       return this.inputValidationController.setValidity(flags, message, anchor);
     }
     // Only check for noValidate prop
-    _mixinShouldSkipSgdsValidation() {
+    _mixinShouldSkipSitValidation() {
       const form = this.closest("form");
 
       return form?.noValidate || this.noValidate;
@@ -157,13 +157,13 @@ export declare class ToBeValidatedElementInterface {
   input: HTMLInputElement;
   _mixinHandleChange(e: Event): void;
   _mixinHandleInputChange(e: Event): void;
-  _mixinResetValidity(input: HTMLInputElement | SgdsInput): void;
-  _mixinValidate(input: HTMLInputElement | SgdsInput): void;
+  _mixinResetValidity(input: HTMLInputElement | SitInput): void;
+  _mixinValidate(input: HTMLInputElement | SitInput): void;
   _mixinSetFormValue(): void;
   _mixinCheckValidity(): boolean;
   _mixinReportValidity(): boolean;
   _mixinSetValidity(flags?: ValidityStateFlags, message?: string, anchor?: HTMLElement): void;
   _mixinGetValidity(): ValidityState;
   _mixinGetValidationMessage(): string;
-  _mixinShouldSkipSgdsValidation(): boolean;
+  _mixinShouldSkipSitValidation(): boolean;
 }

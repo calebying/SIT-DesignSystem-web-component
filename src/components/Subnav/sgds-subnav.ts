@@ -1,4 +1,4 @@
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { html, PropertyValueMap } from "lit";
 import { property, query, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
@@ -7,7 +7,7 @@ import { waitForEvent } from "../../utils/event";
 import { animateTo, shimKeyframesHeightAuto, stopAnimations } from "../../utils/animate";
 import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry";
 import { LG_BREAKPOINT, MD_BREAKPOINT } from "../../utils/breakpoints";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sgds-icon";
 import subnavStyle from "./subnav.css";
 import gridStyle from "../../css/grid.css";
 import { HasSlotController } from "../../utils/slot";
@@ -17,22 +17,22 @@ const VALID_KEYS = ["Enter", " "];
 /**
  * @summary This component provides secondary navigation within a specific section or page. It typically appears below the main navigation and offers context-specific links or actions to help users explore related content.
  *
- * @event sgds-show - Emitted on show. Only for collapsed menu.
- * @event sgds-after-show - Emitted on show after animation has completed. Only for collapsed menu.
- * @event sgds-hide - Emitted on hide. Only for collapsed menu.
- * @event sgds-after-hide - Emitted on hide after animation has completed. Only for collapsed menu.
+ * @event sit-show - Emitted on show. Only for collapsed menu.
+ * @event sit-after-show - Emitted on show after animation has completed. Only for collapsed menu.
+ * @event sit-hide - Emitted on hide. Only for collapsed menu.
+ * @event sit-after-hide - Emitted on hide after animation has completed. Only for collapsed menu.
  *
- * @slot default - Default slot of SgdsSubnav. Pass in SgdsSubnavItem elements here.
+ * @slot default - Default slot of SitSubnav. Pass in SitSubnavItem elements here.
  * @slot header - Slot for rendering the sub-navigation header or section title.
  * @slot actions - Slot for inserting contextual action elements such as buttons, filters, or other controls aligned with the sub-navigation.
  *
  */
 
-export class SgdsSubnav extends SgdsElement {
-  static styles = [...SgdsElement.styles, subnavStyle, gridStyle];
+export class SitSubnav extends SitElement {
+  static styles = [...SitElement.styles, subnavStyle, gridStyle];
   /** @internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon
+    "sgds-icon": SitIcon
   };
 
   /** Used only for SSR to indicate the presence of the `actions` slot. */
@@ -154,7 +154,7 @@ export class SgdsSubnav extends SgdsElement {
     }
 
     this.isMenuOpen = true;
-    return waitForEvent(this, "sgds-after-show");
+    return waitForEvent(this, "sit-after-show");
   }
 
   /** Hide the menu. For when subnav is in the collapsed form */
@@ -166,7 +166,7 @@ export class SgdsSubnav extends SgdsElement {
     this.isMenuOpen = false;
     this._unlockBodyScroll();
 
-    return waitForEvent(this, "sgds-after-hide");
+    return waitForEvent(this, "sit-after-hide");
   }
 
   private _lockBodyScroll() {
@@ -189,7 +189,7 @@ export class SgdsSubnav extends SgdsElement {
   }
 
   private async _animateToShow() {
-    const sgdsShow = this.emit("sgds-show", { cancelable: true });
+    const sgdsShow = this.emit("sit-show", { cancelable: true });
     if (sgdsShow.defaultPrevented) {
       this.isMenuOpen = false;
       return;
@@ -203,11 +203,11 @@ export class SgdsSubnav extends SgdsElement {
     const { keyframes, options } = getAnimation(this, "subnav.show");
     await animateTo(this.mobileNav, shimKeyframesHeightAuto(keyframes, this.mobileNav.scrollHeight), options);
 
-    this.emit("sgds-after-show");
+    this.emit("sit-after-show");
   }
 
   private async _animateToHide() {
-    const slHide = this.emit("sgds-hide", { cancelable: true });
+    const slHide = this.emit("sit-hide", { cancelable: true });
     if (slHide.defaultPrevented) {
       this.isMenuOpen = true;
       return;
@@ -221,7 +221,7 @@ export class SgdsSubnav extends SgdsElement {
       this.mobileNav.style.display = "none";
     }
 
-    this.emit("sgds-after-hide");
+    this.emit("sit-after-hide");
   }
 
   @watch("isMenuOpen", { waitUntilFirstUpdate: true })
@@ -300,4 +300,4 @@ setDefaultAnimation("subnav.hide", {
   options: { duration: 200, easing: "ease-in-out" }
 });
 
-export default SgdsSubnav;
+export default SitSubnav;

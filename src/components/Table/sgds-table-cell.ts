@@ -1,6 +1,6 @@
 import { html } from "lit";
 
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import tableCellStyle from "./table-cell.css";
 
 /**
@@ -8,8 +8,8 @@ import tableCellStyle from "./table-cell.css";
  *
  * @slot default - Insert any elements to be rendered as the cell’s content.
  */
-export class SgdsTableCell extends SgdsElement {
-  static styles = [...SgdsElement.styles, tableCellStyle];
+export class SitTableCell extends SitElement {
+  static styles = [...SitElement.styles, tableCellStyle];
 
   connectedCallback() {
     super.connectedCallback();
@@ -21,4 +21,4 @@ export class SgdsTableCell extends SgdsElement {
   }
 }
 
-export default SgdsTableCell;
+export default SitTableCell;

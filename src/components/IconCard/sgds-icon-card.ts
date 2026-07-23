@@ -3,7 +3,7 @@ import { html, literal } from "lit/static-html.js";
 import { property, queryAssignedElements, queryAssignedNodes } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { CardElement } from "../../base/card-element";
-import type SgdsLink from "../Link/sgds-link";
+import type SitLink from "../Link/sgds-link";
 import IconCardStyle from "./icon-card.css";
 
 /**
@@ -19,7 +19,7 @@ import IconCardStyle from "./icon-card.css";
  * @slot link - (@deprecated) Deprecated since 3.3.2 in favour of `footer` slot.
  *  Legacy slot for anchor elements. Use `footer` instead.
  */
-export class SgdsIconCard extends CardElement {
+export class SitIconCard extends CardElement {
   static styles = [...CardElement.styles, IconCardStyle];
 
   /** @internal */
@@ -31,7 +31,7 @@ export class SgdsIconCard extends CardElement {
   @queryAssignedElements({ slot: "footer" })
   private footerNode!: HTMLElement[];
   @queryAssignedElements({ slot: "link" })
-  private linkNode!: HTMLAnchorElement[] | SgdsLink[];
+  private linkNode!: HTMLAnchorElement[] | SitLink[];
 
   /** Removes the card's internal padding when set to true.  */
   @property({ type: Boolean, reflect: true }) noPadding = false;
@@ -105,4 +105,4 @@ export class SgdsIconCard extends CardElement {
   }
 }
 
-export default SgdsIconCard;
+export default SitIconCard;

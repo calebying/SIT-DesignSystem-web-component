@@ -1,15 +1,15 @@
 import { html, PropertyValueMap } from "lit";
 import { property } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import linkStyles from "./link.css";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sgds-icon";
 /**
  * @summary Link allows users to click and navigate their way from page to page
  *
  * @slot default - Pass in a single anchor tag here
  */
-export class SgdsLink extends SgdsElement {
-  static styles = [...SgdsElement.styles, linkStyles];
+export class SitLink extends SitElement {
+  static styles = [...SitElement.styles, linkStyles];
   /** Determines the size of the link */
   @property({ type: String, reflect: true })
   size: "xs" | "sm" | "md" | "lg" = "md";
@@ -45,7 +45,7 @@ export class SgdsLink extends SgdsElement {
       md: "lg",
       lg: "xl"
     };
-    const icons = anchor.querySelectorAll<SgdsIcon>("sgds-icon");
+    const icons = anchor.querySelectorAll<SitIcon>("sgds-icon");
 
     icons.forEach(icon => {
       // icon.size = linkToIconSizeMapping[this.size]
@@ -89,4 +89,4 @@ export class SgdsLink extends SgdsElement {
   }
 }
 
-export default SgdsLink;
+export default SitLink;

@@ -1,12 +1,12 @@
 import { register } from "../../utils/ce-registry";
-import { SgdsSelect } from "./sgds-select";
-import { SgdsSelectOption } from "./sgds-select-option";
+import { SitSelect } from "./sgds-select";
+import { SitSelectOption } from "./sgds-select-option";
 
-register("sgds-select", SgdsSelect);
-register("sgds-select-option", SgdsSelectOption);
+register("sgds-select", SitSelect);
+register("sgds-select-option", SitSelectOption);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-select": SgdsSelect;
+    "sgds-select": SitSelect;
   }
 }

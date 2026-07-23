@@ -3,22 +3,22 @@ import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { html, literal } from "lit/static-html.js";
 import ButtonElement from "../../base/button-element";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsSpinner from "../Spinner/sgds-spinner";
+import SitIcon from "../Icon/sgds-icon";
+import SitSpinner from "../Spinner/sgds-spinner";
 import iconButtonStyles from "./icon-button.css";
 
 /**
  * @summary An icon button is a user interface element that combines an icon and a button, serving as a clickable or tabbable component.
  *
- * @event sgds-blur - Emitted when the button is blurred.
- * @event sgds-focus - Emitted when the button is focused.
+ * @event sit-blur - Emitted when the button is blurred.
+ * @event sit-focus - Emitted when the button is focused.
  */
-export class SgdsIconButton extends ButtonElement {
+export class SitIconButton extends ButtonElement {
   static styles = [...ButtonElement.styles, iconButtonStyles];
   /** @internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon,
-    "sgds-spinner": SgdsSpinner
+    "sgds-icon": SitIcon,
+    "sgds-spinner": SitSpinner
   };
 
   /** The name of the icon from sgds icon library */
@@ -73,4 +73,4 @@ export class SgdsIconButton extends ButtonElement {
   }
 }
 
-export default SgdsIconButton;
+export default SitIconButton;

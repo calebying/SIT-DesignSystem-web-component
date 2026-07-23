@@ -1,7 +1,7 @@
 import { property } from "lit/decorators.js";
 import { html } from "lit/static-html.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import spinnerStyle from "./spinner.css";
 import textStyles from "../../styles/text-variants.css";
 import { nothing } from "lit";
@@ -9,8 +9,8 @@ import { nothing } from "lit";
  * @summary Spinners notify the users that their request is being processed.
  *
  */
-export class SgdsSpinner extends SgdsElement {
-  static styles = [...SgdsElement.styles, textStyles, spinnerStyle];
+export class SitSpinner extends SitElement {
+  static styles = [...SitElement.styles, textStyles, spinnerStyle];
   /** The variant of spinner. Deprecated in favor of `tone` @deprecated */
   @property({ type: String, reflect: true }) variant: SpinnerVariant = "primary";
   /** The color tones of spinner, replaces variant prop */
@@ -45,4 +45,4 @@ export class SgdsSpinner extends SgdsElement {
 export type SpinnerTone = "brand" | "neutral" | "inverse" | "fixed-light" | "fixed-dark";
 export type SpinnerVariant = "primary" | "neutral";
 
-export default SgdsSpinner;
+export default SitSpinner;

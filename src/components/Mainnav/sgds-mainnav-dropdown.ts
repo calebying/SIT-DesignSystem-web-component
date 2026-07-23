@@ -1,7 +1,7 @@
 import { html } from "lit";
 import { consume } from "@lit/context";
 import { property, query, queryAssignedElements, state } from "lit/decorators.js";
-import { SgdsMainnav } from "./sgds-mainnav";
+import { SitMainnav } from "./sgds-mainnav";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { offset } from "@floating-ui/dom";
@@ -9,11 +9,11 @@ import genId from "../../utils/generateId";
 import dropdownStyle from "../Dropdown/dropdown.css";
 import dropdownMenuStyle from "../Dropdown/dropdown-menu.css";
 import mainnavDropdownStyle from "./mainnav-dropdown.css";
-import SgdsDropdown from "../Dropdown/sgds-dropdown";
-import SgdsDropdownItem from "../Dropdown/sgds-dropdown-item";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitDropdown from "../Dropdown/sgds-dropdown";
+import SitDropdownItem from "../Dropdown/sgds-dropdown-item";
+import SitIcon from "../Icon/sgds-icon";
 import { MainnavBreakpointContext, MainnavExpandedContext } from "./mainnav-context";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 
 const TAB = "Tab";
 const ENTER = "Enter";
@@ -23,13 +23,13 @@ const SPACE = " ";
  * @slot default - The menu items. Pass in sgds-dropdown-item as the menu items
  * @slot toggler - The content of the toggler to pass in html content.
  */
-export class SgdsMainnavDropdown extends SgdsElement {
-  static styles = [...SgdsElement.styles, dropdownStyle, dropdownMenuStyle, mainnavDropdownStyle];
+export class SitMainnavDropdown extends SitElement {
+  static styles = [...SitElement.styles, dropdownStyle, dropdownMenuStyle, mainnavDropdownStyle];
   /** @internal */
   static dependencies = {
-    "sgds-dropdown": SgdsDropdown,
-    "sgds-dropdown-item": SgdsDropdownItem,
-    "sgds-icon": SgdsIcon
+    "sgds-dropdown": SitDropdown,
+    "sgds-dropdown-item": SitDropdownItem,
+    "sgds-icon": SitIcon
   };
 
   @consume({ context: MainnavBreakpointContext, subscribe: true })
@@ -73,13 +73,13 @@ export class SgdsMainnavDropdown extends SgdsElement {
   @queryAssignedElements({ slot: "toggler" }) private togglerNodes!: HTMLElement[];
 
   /** @internal */
-  @queryAssignedElements() private defaultNodes!: SgdsDropdownItem[];
+  @queryAssignedElements() private defaultNodes!: SitDropdownItem[];
 
   /** @internal */
-  get defaultSlotItems(): SgdsDropdownItem[] {
+  get defaultSlotItems(): SitDropdownItem[] {
     return [...(this.defaultNodes || [])].filter(
       (node: HTMLElement) => typeof node.tagName !== "undefined"
-    ) as SgdsDropdownItem[];
+    ) as SitDropdownItem[];
   }
 
   updated() {
@@ -91,7 +91,7 @@ export class SgdsMainnavDropdown extends SgdsElement {
   }
 
   private _handleSlotChange(e: Event) {
-    const items = (e.target as HTMLSlotElement).assignedElements({ flatten: true }) as SgdsDropdownItem[];
+    const items = (e.target as HTMLSlotElement).assignedElements({ flatten: true }) as SitDropdownItem[];
     items.forEach(item => {
       item.addEventListener("keydown", this._handleKeyboardMenuItemsEvent.bind(this));
 
@@ -106,7 +106,7 @@ export class SgdsMainnavDropdown extends SgdsElement {
       } else {
         link.addEventListener("click", (e: Event) => {
           const target = e.target as HTMLElement;
-          const mainnav = target.closest("sgds-mainnav") as SgdsMainnav;
+          const mainnav = target.closest("sgds-mainnav") as SitMainnav;
           mainnav.hide();
         });
       }
@@ -114,7 +114,7 @@ export class SgdsMainnavDropdown extends SgdsElement {
   }
 
   private _handleDesktopSlotChange(e: Event) {
-    const items = (e.target as HTMLSlotElement).assignedElements({ flatten: true }) as SgdsDropdownItem[];
+    const items = (e.target as HTMLSlotElement).assignedElements({ flatten: true }) as SitDropdownItem[];
     items.forEach(item => {
       const dropdownItem = item.shadowRoot.querySelector(".dropdown-item") as HTMLElement;
       dropdownItem.classList.remove("mainnav-dropdown-link");
@@ -325,4 +325,4 @@ export class SgdsMainnavDropdown extends SgdsElement {
   }
 }
 
-export default SgdsMainnavDropdown;
+export default SitMainnavDropdown;

@@ -1,6 +1,6 @@
 import { html } from "lit";
 import { property, state } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import mastheadStyle from "./masthead.css";
 import svgStyles from "../../styles/svg.css";
 import anchorStyles from "../../styles/anchor.css";
@@ -8,8 +8,8 @@ import anchorStyles from "../../styles/anchor.css";
 /**
  * @summary All .gov.sg digital services shall adopt The Official Government Banner for every page in the digital service and be placed at the top of the page.
  */
-export class SgdsMasthead extends SgdsElement {
-  static styles = [...SgdsElement.styles, svgStyles, anchorStyles, mastheadStyle];
+export class SitMasthead extends SitElement {
+  static styles = [...SitElement.styles, svgStyles, anchorStyles, mastheadStyle];
 
   /** When true, removes max-width constraint to allow content to stretch full screen width */
   @property({ type: Boolean, reflect: true })
@@ -189,4 +189,4 @@ export class SgdsMasthead extends SgdsElement {
   }
 }
 
-export default SgdsMasthead;
+export default SitMasthead;

@@ -2,14 +2,14 @@ import { html, PropertyValueMap } from "lit";
 import { property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { animateTo, stopAnimations } from "../../utils/animate.js";
 import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry.js";
 import { waitForEvent } from "../../utils/event.js";
 import { lockBodyScrolling, unlockBodyScrolling } from "../../utils/scroll.js";
 import { watch } from "../../utils/watch.js";
 import drawerStyles from "./drawer.css";
-import SgdsCloseButton from "../CloseButton/sgds-close-button";
+import SitCloseButton from "../CloseButton/sgds-close-button";
 
 /**
  * @summary Drawers slide in from a container to expose additional options and information.
@@ -19,11 +19,11 @@ import SgdsCloseButton from "../CloseButton/sgds-close-button";
  * @slot description - The description of the drawer
  * @slot footer - The footer of the drawer
  *
- * @event sgds-show - Emitted when the drawer opens.
- * @event sgds-after-show - Emitted after the drawer opens and all animations are complete.
- * @event sgds-hide - Emitted when the drawer closes.
- * @event sgds-after-hide - Emitted after the drawer closes and all animations are complete.
- * @event sgds-initial-focus - Emitted when the drawer opens and is ready to receive focus. Calling
+ * @event sit-show - Emitted when the drawer opens.
+ * @event sit-after-show - Emitted after the drawer opens and all animations are complete.
+ * @event sit-hide - Emitted when the drawer closes.
+ * @event sit-after-hide - Emitted after the drawer closes and all animations are complete.
+ * @event sit-initial-focus - Emitted when the drawer opens and is ready to receive focus. Calling
  *   `event.preventDefault()` will prevent focusing and allow you to set it on a different element, such as an input.
  * @event {{ source: 'close-button' | 'keyboard' | 'overlay' }} sgds-request-close - Emitted when the user attempts to
  *   close the drawer by clicking the close button, clicking the overlay, or pressing escape. Calling
@@ -31,11 +31,11 @@ import SgdsCloseButton from "../CloseButton/sgds-close-button";
  *   destructive behavior such as data loss.
  *
  */
-export class SgdsDrawer extends SgdsElement {
-  static styles = [...SgdsElement.styles, drawerStyles];
+export class SitDrawer extends SitElement {
+  static styles = [...SitElement.styles, drawerStyles];
   /**@internal */
   static dependencies = {
-    "sgds-close-button": SgdsCloseButton
+    "sgds-close-button": SitCloseButton
   };
 
   /** @internal */
@@ -98,7 +98,7 @@ export class SgdsDrawer extends SgdsElement {
   }
 
   private requestClose(source: "close-button" | "keyboard" | "overlay") {
-    const slRequestClose = this.emit("sgds-request-close", {
+    const slRequestClose = this.emit("sit-request-close", {
       cancelable: true,
       detail: { source }
     });
@@ -131,7 +131,7 @@ export class SgdsDrawer extends SgdsElement {
   async handleOpenChange() {
     if (this.open) {
       // Show
-      this.emit("sgds-show");
+      this.emit("sit-show");
       this.addOpenListeners();
       this.originalTrigger = document.activeElement as HTMLElement;
 
@@ -156,7 +156,7 @@ export class SgdsDrawer extends SgdsElement {
 
       // Set initial focus
       requestAnimationFrame(() => {
-        const slInitialFocus = this.emit("sgds-initial-focus", { cancelable: true });
+        const slInitialFocus = this.emit("sit-initial-focus", { cancelable: true });
 
         if (!slInitialFocus.defaultPrevented) {
           // Set focus to the autofocus target and restore the attribute
@@ -180,10 +180,10 @@ export class SgdsDrawer extends SgdsElement {
         animateTo(this.overlay, overlayAnimation.keyframes, overlayAnimation.options)
       ]);
 
-      this.emit("sgds-after-show");
+      this.emit("sit-after-show");
     } else {
       // Hide
-      this.emit("sgds-hide");
+      this.emit("sit-hide");
       this.removeOpenListeners();
 
       if (!this.contained) {
@@ -218,7 +218,7 @@ export class SgdsDrawer extends SgdsElement {
         setTimeout(() => trigger.focus());
       }
 
-      this.emit("sgds-after-hide");
+      this.emit("sit-after-hide");
     }
   }
 
@@ -240,7 +240,7 @@ export class SgdsDrawer extends SgdsElement {
     }
 
     this.open = true;
-    return waitForEvent(this, "sgds-after-show");
+    return waitForEvent(this, "sit-after-show");
   }
 
   /** Hides the drawer */
@@ -250,7 +250,7 @@ export class SgdsDrawer extends SgdsElement {
     }
 
     this.open = false;
-    return waitForEvent(this, "sgds-after-hide");
+    return waitForEvent(this, "sit-after-hide");
   }
 
   render() {
@@ -404,4 +404,4 @@ setDefaultAnimation("drawer.overlay.hide", {
   options: { duration: 250 }
 });
 
-export default SgdsDrawer;
+export default SitDrawer;

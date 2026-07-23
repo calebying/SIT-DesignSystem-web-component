@@ -5,9 +5,9 @@ import { classMap } from "lit/directives/class-map.js";
 import { watch } from "../../utils/watch";
 import badgeStyle from "./badge.css";
 
-import SgdsElement from "../../base/sgds-element";
-import SgdsTooltip from "../Tooltip/sgds-tooltip";
-import SgdsCloseButton from "../CloseButton/sgds-close-button";
+import SitElement from "../../base/sgds-element";
+import SitTooltip from "../Tooltip/sgds-tooltip";
+import SitCloseButton from "../CloseButton/sgds-close-button";
 
 import { getTextContent } from "../../utils/slot";
 
@@ -30,18 +30,18 @@ export type BadgeVariant =
  * @slot default - slot for badge
  * @slot icon - The slot for icon to the left of the badge text
  *
- * @event sgds-show - Emitted when the badge appears.
- * @event sgds-hide - Emitted when the badge is starting to close but has not closed.
- * @event sgds-after-show - Emitted after the badge has appeared
- * @event sgds-after-hide - Emitted after the badge has closed
+ * @event sit-show - Emitted when the badge appears.
+ * @event sit-hide - Emitted when the badge is starting to close but has not closed.
+ * @event sit-after-show - Emitted after the badge has appeared
+ * @event sit-after-hide - Emitted after the badge has closed
  */
-export class SgdsBadge extends SgdsElement {
-  static styles = [...SgdsElement.styles, badgeStyle];
+export class SitBadge extends SitElement {
+  static styles = [...SitElement.styles, badgeStyle];
 
   /**@internal */
   static dependencies = {
-    "sgds-close-button": SgdsCloseButton,
-    "sgds-tooltip": SgdsTooltip
+    "sgds-close-button": SitCloseButton,
+    "sgds-tooltip": SitTooltip
   };
 
   /** Controls the appearance of the dismissible badge. This prop only applies when dismissible is true  */
@@ -76,23 +76,23 @@ export class SgdsBadge extends SgdsElement {
   @watch("show")
   _handleShowChange() {
     if (this.show) {
-      const sgdsShow = this.emit("sgds-show", { cancelable: true });
+      const sgdsShow = this.emit("sit-show", { cancelable: true });
       if (sgdsShow.defaultPrevented) {
         this.show = false;
         return;
       }
       // animations if any go here
 
-      this.emit("sgds-after-show");
+      this.emit("sit-after-show");
     } else {
-      const sgdsHide = this.emit("sgds-hide", { cancelable: true });
+      const sgdsHide = this.emit("sit-hide", { cancelable: true });
       if (sgdsHide.defaultPrevented) {
         this.show = true;
         return;
       }
       // animations if any go here
 
-      this.emit("sgds-after-hide");
+      this.emit("sit-after-hide");
     }
   }
 
@@ -152,4 +152,4 @@ export class SgdsBadge extends SgdsElement {
   }
 }
 
-export default SgdsBadge;
+export default SitBadge;

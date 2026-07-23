@@ -7,10 +7,10 @@ import FormControlElement from "../../base/form-control-element";
 import formPlaceholderStyles from "../../styles/form-placeholder.css";
 import svgStyles from "../../styles/svg.css";
 import { defaultValue } from "../../utils/defaultvalue";
-import { SgdsFormControl } from "../../utils/formSubmitController";
-import { SgdsFormValidatorMixin } from "../../utils/validatorMixin";
-import SgdsIconButton from "../IconButton/sgds-icon-button";
-import SgdsInput from "../Input/sgds-input";
+import { SitFormControl } from "../../utils/formSubmitController";
+import { SitFormValidatorMixin } from "../../utils/validatorMixin";
+import SitIconButton from "../IconButton/sgds-icon-button";
+import SitInput from "../Input/sgds-input";
 import quantityToggleStyle from "./quantity-toggle.css";
 import formControlStyle from "../../styles/form-text-control.css";
 /**
@@ -18,11 +18,11 @@ import formControlStyle from "../../styles/form-text-control.css";
  *
  * @slot invalidIcon - The slot for invalid icon
  *
- * @event sgds-change - Emitted when an alteration to the control's value is committed by the user.
- * @event sgds-input - Emitted when the control receives input and its value changes.
+ * @event sit-change - Emitted when an alteration to the control's value is committed by the user.
+ * @event sit-input - Emitted when the control receives input and its value changes.
  *
  */
-export class SgdsQuantityToggle extends SgdsFormValidatorMixin(FormControlElement) implements SgdsFormControl {
+export class SitQuantityToggle extends SitFormValidatorMixin(FormControlElement) implements SitFormControl {
   static styles = [
     ...FormControlElement.styles,
     formPlaceholderStyles,
@@ -33,8 +33,8 @@ export class SgdsQuantityToggle extends SgdsFormValidatorMixin(FormControlElemen
 
   /** @internal */
   static dependencies = {
-    "sgds-input": SgdsInput,
-    "sgds-icon-button": SgdsIconButton
+    "sgds-input": SitInput,
+    "sgds-icon-button": SitIconButton
   };
   /** @internal */
   @query("sgds-icon-button[ariaLabel^='increase by']") private plusBtn: HTMLButtonElement;
@@ -64,11 +64,11 @@ export class SgdsQuantityToggle extends SgdsFormValidatorMixin(FormControlElemen
   @defaultValue()
   defaultValue = 0;
 
-  @queryAsync("sgds-input") private _sgdsInput: Promise<SgdsInput>;
+  @queryAsync("sgds-input") private _sgdsInput: Promise<SitInput>;
 
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -285,4 +285,4 @@ export class SgdsQuantityToggle extends SgdsFormValidatorMixin(FormControlElemen
   }
 }
 
-export default SgdsQuantityToggle;
+export default SitQuantityToggle;

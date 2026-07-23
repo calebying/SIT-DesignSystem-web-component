@@ -1,6 +1,6 @@
 import { html } from "lit";
 import { property } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import descriptionListStyle from "./description-list.css";
 
 let id = 0;
@@ -13,8 +13,8 @@ let id = 0;
  * @slot data - The slot for the data
  */
 
-export class SgdsDescriptionList extends SgdsElement {
-  static styles = [...SgdsElement.styles, descriptionListStyle];
+export class SitDescriptionList extends SitElement {
+  static styles = [...SitElement.styles, descriptionListStyle];
   private readonly attrId = ++id;
   private readonly componentId = `sgds-description-list-${this.attrId}`;
 
@@ -50,4 +50,4 @@ export class SgdsDescriptionList extends SgdsElement {
   }
 }
 
-export default SgdsDescriptionList;
+export default SitDescriptionList;

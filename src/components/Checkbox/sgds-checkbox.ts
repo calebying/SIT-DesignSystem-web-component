@@ -3,11 +3,11 @@ import { property, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { live } from "lit/directives/live.js";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sgds-icon";
 import FormControlElement from "../../base/form-control-element";
 import { defaultValue } from "../../utils/defaultvalue";
-import { SgdsFormControl } from "../../utils/formSubmitController";
-import { SgdsFormValidatorMixin } from "../../utils/validatorMixin";
+import { SitFormControl } from "../../utils/formSubmitController";
+import { SitFormValidatorMixin } from "../../utils/validatorMixin";
 import { watch } from "../../utils/watch";
 import checkboxStyle from "./checkbox.css";
 import formCheckStyles from "../../styles/form-check.css";
@@ -17,20 +17,20 @@ import formCheckStyles from "../../styles/form-check.css";
  *
  * @slot default - The label of checkbox.
  *
- * @event sgds-change - Emitted when the checked state changes.
- * @event sgds-blur - Emitted when input is not in focus.
- * @event sgds-focus - Emitted when input is in focus.
- * @event sgds-check - Emitted when checkbox is checked
- * @event sgds-uncheck - Emitted when checkbox is unchecked
- * @event sgds-invalid - Emitted when the checkbox's invalid state is set to true.
- * @event sgds-valid - Emitted when the checkbox's invalid state is set to false.
+ * @event sit-change - Emitted when the checked state changes.
+ * @event sit-blur - Emitted when input is not in focus.
+ * @event sit-focus - Emitted when input is in focus.
+ * @event sit-check - Emitted when checkbox is checked
+ * @event sit-uncheck - Emitted when checkbox is unchecked
+ * @event sit-invalid - Emitted when the checkbox's invalid state is set to true.
+ * @event sit-valid - Emitted when the checkbox's invalid state is set to false.
  */
-export class SgdsCheckbox extends SgdsFormValidatorMixin(FormControlElement) implements SgdsFormControl {
+export class SitCheckbox extends SitFormValidatorMixin(FormControlElement) implements SitFormControl {
   static styles = [...FormControlElement.styles, formCheckStyles, checkboxStyle];
 
   /**@internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon
+    "sgds-icon": SitIcon
   };
 
   /** Value of the HTML form control. Primarily used to differentiate a list of related checkboxes that have the same name. */
@@ -81,11 +81,11 @@ export class SgdsCheckbox extends SgdsFormValidatorMixin(FormControlElement) imp
 
     this.checked = !this.checked;
     super._mixinHandleChange(e);
-    this.emit("sgds-change", { detail: { checked: this.checked, value: this.value } });
+    this.emit("sit-change", { detail: { checked: this.checked, value: this.value } });
 
     this.checked
-      ? this.emit("sgds-check", { detail: { value: this.value } })
-      : this.emit("sgds-uncheck", { detail: { value: this.value } });
+      ? this.emit("sit-check", { detail: { value: this.value } })
+      : this.emit("sit-uncheck", { detail: { value: this.value } });
   }
 
   private _handleKeyDown(event: KeyboardEvent) {
@@ -97,11 +97,11 @@ export class SgdsCheckbox extends SgdsFormValidatorMixin(FormControlElement) imp
 
   private _handleBlur() {
     this._isTouched = true;
-    this.emit("sgds-blur");
+    this.emit("sit-blur");
   }
 
   private _handleFocus() {
-    this.emit("sgds-focus");
+    this.emit("sit-focus");
   }
 
   private _handleInvalid(e: Event) {
@@ -118,7 +118,7 @@ export class SgdsCheckbox extends SgdsFormValidatorMixin(FormControlElement) imp
 
   @watch("_isTouched", { waitUntilFirstUpdate: true })
   _handleIsTouched() {
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
     if (this._isTouched) {
       this.invalid = !this.input.checkValidity();
     }
@@ -132,7 +132,7 @@ export class SgdsCheckbox extends SgdsFormValidatorMixin(FormControlElement) imp
   }
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -158,7 +158,7 @@ export class SgdsCheckbox extends SgdsFormValidatorMixin(FormControlElement) imp
 
   firstUpdated(_changedProperties) {
     super.firstUpdated(_changedProperties);
-    this.checked && this.emit("sgds-check", { detail: { value: this.value } });
+    this.checked && this.emit("sit-check", { detail: { value: this.value } });
   }
 
   connectedCallback(): void {
@@ -226,4 +226,4 @@ export class SgdsCheckbox extends SgdsFormValidatorMixin(FormControlElement) imp
   }
 }
 
-export default SgdsCheckbox;
+export default SitCheckbox;

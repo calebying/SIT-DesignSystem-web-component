@@ -2,10 +2,10 @@ import { nothing } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { html } from "lit/static-html.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { watch } from "../../utils/watch";
-import SgdsCloseButton from "../CloseButton/sgds-close-button";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitCloseButton from "../CloseButton/sgds-close-button";
+import SitIcon from "../Icon/sgds-icon";
 import alertStyle from "./alert.css";
 
 export type AlertVariant = "info" | "success" | "danger" | "warning" | "neutral";
@@ -16,16 +16,16 @@ export type AlertVariant = "info" | "success" | "danger" | "warning" | "neutral"
  * @slot icon - An icon to show in the alert. Pass in sgds-icon size="md" elements.
  * @slot action - An action button or link to show in the alert.
  *
- * @event sgds-show - Emitted when the alert appears.
- * @event sgds-hide - Emitted after the alert closes.
+ * @event sit-show - Emitted when the alert appears.
+ * @event sit-hide - Emitted after the alert closes.
  *
  */
-export class SgdsAlert extends SgdsElement {
-  static styles = [...SgdsElement.styles, alertStyle];
+export class SitAlert extends SitElement {
+  static styles = [...SitElement.styles, alertStyle];
   /**@internal */
   static dependencies = {
-    "sgds-close-button": SgdsCloseButton,
-    "sgds-icon": SgdsIcon
+    "sgds-close-button": SitCloseButton,
+    "sgds-icon": SitIcon
   };
   /** Controls the appearance of the alert  */
   @property({ type: Boolean, reflect: true }) show = false;
@@ -49,7 +49,7 @@ export class SgdsAlert extends SgdsElement {
   /**@internal */
   @watch("show")
   _handleShowChange() {
-    this.show ? this.emit("sgds-show") : this.emit("sgds-hide");
+    this.show ? this.emit("sit-show") : this.emit("sit-hide");
   }
 
   render() {
@@ -86,4 +86,4 @@ export class SgdsAlert extends SgdsElement {
   }
 }
 
-export default SgdsAlert;
+export default SitAlert;

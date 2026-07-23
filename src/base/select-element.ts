@@ -7,9 +7,9 @@ import feedbackStyles from "../styles/feedback.css";
 import hintTextStyles from "../styles/form-hint.css";
 import formControlStyles from "../styles/form-text-control.css";
 import { defaultValue } from "../utils/defaultvalue";
-import { SgdsFormControl } from "../utils/formSubmitController";
+import { SitFormControl } from "../utils/formSubmitController";
 import generateId from "../utils/generateId";
-import { SgdsFormValidatorMixin } from "../utils/validatorMixin";
+import { SitFormValidatorMixin } from "../utils/validatorMixin";
 import { DropdownListElement } from "./dropdown-list-element";
 import { OptionElement } from "./option-element";
 import selectStyles from "./select.css";
@@ -20,8 +20,8 @@ abstract class AbstractSelectBase {
 }
 
 export class SelectElement
-  extends SgdsFormValidatorMixin(DropdownListElement)
-  implements SgdsFormControl, AbstractSelectBase
+  extends SitFormValidatorMixin(DropdownListElement)
+  implements SitFormControl, AbstractSelectBase
 {
   static styles = [
     ...DropdownListElement.styles,
@@ -86,27 +86,27 @@ export class SelectElement
   public setInvalid(bool: boolean) {
     this.invalid = bool;
     if (bool) {
-      this.emit("sgds-invalid");
+      this.emit("sit-invalid");
     } else {
-      this.emit("sgds-valid");
+      this.emit("sit-valid");
     }
   }
 
   /** The list of items to display in the dropdown.
-   * `interface SgdsComboBoxItemData {
+   * `interface SitComboBoxItemData {
    * label: string;
    * value: string;
    * }`
    * @deprecated
    * Deprecated in favour of slots
    */
-  @property({ type: Array }) menuList: SgdsOptionData[] = [];
+  @property({ type: Array }) menuList: SitOptionData[] = [];
   /** Track selected items (even for single-select, but it will have at most one). */
   @state()
-  protected selectedItems: SgdsOptionData[] = [];
+  protected selectedItems: SitOptionData[] = [];
   /** @internal Managed filtered menu on the fly with input change*/
   @state()
-  protected filteredList: SgdsOptionData[] = [];
+  protected filteredList: SitOptionData[] = [];
 
   protected _isTouched = false;
 
@@ -129,7 +129,7 @@ export class SelectElement
   connectedCallback(): void {
     super.connectedCallback();
     this.addEventListener("blur", async e => {
-      if (this._mixinShouldSkipSgdsValidation()) return;
+      if (this._mixinShouldSkipSitValidation()) return;
       const childName = (this.constructor as typeof SelectElement).childName;
       /** If user clicks the menu, we want to keep the input valid */
       const isSelf = (e.relatedTarget as HTMLElement)?.tagName.toLowerCase() === childName;
@@ -139,7 +139,7 @@ export class SelectElement
 
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -212,7 +212,7 @@ export class SelectElement
       this.hideMenu();
     }
   }
-  protected async _getMenuListFromOptions(assignedElements: Element[]): Promise<SgdsOptionData[]> {
+  protected async _getMenuListFromOptions(assignedElements: Element[]): Promise<SitOptionData[]> {
     const readyOptions = assignedElements.map(async (e: OptionElement) => {
       await e.updateComplete;
       return e;
@@ -234,7 +234,7 @@ export class SelectElement
   declare static childName: string;
 }
 
-export interface SgdsOptionData {
+export interface SitOptionData {
   label: string;
   value: string;
   disabled?: boolean;

@@ -1,13 +1,13 @@
 import { html, nothing } from "lit";
 import { property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import skeletonStyles from "./skeleton.css";
 /**
  * @summary A skeleton is a low-fidelity visual placeholder that represents the loading of interface elements
  * before they have displayed on the page.
  */
-export class SgdsSkeleton extends SgdsElement {
+export class SitSkeleton extends SitElement {
   static styles = [skeletonStyles];
 
   @query(".skeleton") private skeleton: HTMLDivElement;
@@ -61,7 +61,7 @@ export class SgdsSkeleton extends SgdsElement {
   }
 }
 
-export default SgdsSkeleton;
+export default SitSkeleton;
 
 // Accessibility to add to Documentation:
 // When user use a template of sgds-skeletons, add one visually hidden span to indicate Loading...

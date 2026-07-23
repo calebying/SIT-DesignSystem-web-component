@@ -2,7 +2,7 @@ import { format, isAfter, isEqual } from "date-fns";
 import { HTMLTemplateResult, html } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { createYearViewArray, setTimeToNoon } from "../../utils/time";
 import { watch } from "../../utils/watch";
 import { ViewEnum } from "./types";
@@ -33,7 +33,7 @@ const keyPressAction = {
     years: -1
   }
 };
-export class DatepickerCalendar extends SgdsElement {
+export class DatepickerCalendar extends SitElement {
   static styles = [datepickerCalendarStyle];
 
   /** @internal */
@@ -228,7 +228,7 @@ export class DatepickerCalendar extends SgdsElement {
       this.selectedDate = [displayDateClone];
 
       // Emit event with selected date
-      this.emit("sgds-selectdates", { detail: this.selectedDate });
+      this.emit("sit-selectdates", { detail: this.selectedDate });
     } else if (this.mode === "range") {
       // Range mode: Select a range of dates
       const selectedDates = [...this.selectedDate];
@@ -246,7 +246,7 @@ export class DatepickerCalendar extends SgdsElement {
       this.selectedDate = selectedDates;
 
       // Emit event with the range of selected dates
-      this.emit("sgds-selectdates", { detail: this.selectedDate });
+      this.emit("sit-selectdates", { detail: this.selectedDate });
     }
 
     // Check if the selected date is before minDate or after maxDate
@@ -266,9 +266,9 @@ export class DatepickerCalendar extends SgdsElement {
     displayDateClone.setMonth(month);
     displayDateClone.setFullYear(year);
     this.displayDate = displayDateClone;
-    this.emit("sgds-view", { detail: this.view });
+    this.emit("sit-view", { detail: this.view });
     //once clicked, should change view to days, and hold value and change view
-    this.emit("sgds-selectmonth", { detail: this.displayDate });
+    this.emit("sit-selectmonth", { detail: this.displayDate });
   }
 
   private _onClickYear(year: number) {
@@ -276,9 +276,9 @@ export class DatepickerCalendar extends SgdsElement {
     displayDateClone.setFullYear(year);
     this.displayDate = displayDateClone;
     this.view = "months";
-    this.emit("sgds-view", { detail: this.view });
+    this.emit("sit-view", { detail: this.view });
 
-    this.emit("sgds-selectyear", { detail: this.displayDate });
+    this.emit("sit-selectyear", { detail: this.displayDate });
   }
 
   private _getFocusedTarget(): HTMLElement {
@@ -301,10 +301,10 @@ export class DatepickerCalendar extends SgdsElement {
     if (targetEl) {
       targetEl.setAttribute("tabindex", "0");
       targetEl.focus();
-      this.emit("sgds-update-focus", { detail: this.focusedDate });
+      this.emit("sit-update-focus", { detail: this.focusedDate });
     } else {
       /** Change month view */
-      this.emit("sgds-change-calendar", { detail: this.focusedDate });
+      this.emit("sit-change-calendar", { detail: this.focusedDate });
     }
   }
   private _generateDays() {

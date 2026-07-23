@@ -1,4 +1,4 @@
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { html } from "lit";
 import tableOfContentsStyle from "./table-of-contents.css";
 
@@ -10,8 +10,8 @@ import tableOfContentsStyle from "./table-of-contents.css";
  * @slot contents - The slot for the contents
  */
 
-export class SgdsTableOfContents extends SgdsElement {
-  static styles = [...SgdsElement.styles, tableOfContentsStyle];
+export class SitTableOfContents extends SitElement {
+  static styles = [...SitElement.styles, tableOfContentsStyle];
 
   render() {
     return html`<div class="container">
@@ -23,4 +23,4 @@ export class SgdsTableOfContents extends SgdsElement {
   }
 }
 
-export default SgdsTableOfContents;
+export default SitTableOfContents;

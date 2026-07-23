@@ -1,7 +1,7 @@
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { html } from "lit/static-html.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import toastContainerStyle from "./toast-container.css";
 /**
  * @summary ToastContainer is the container component to position `sgds-toast` in screen. When there is multiple toasts in the container, the toast components are stacked vertically.
@@ -9,7 +9,7 @@ import toastContainerStyle from "./toast-container.css";
  * @slot default - The slot for `sgds-toast` elements
  *
  */
-export class SgdsToastContainer extends SgdsElement {
+export class SitToastContainer extends SitElement {
   static styles = [toastContainerStyle];
 
   /**
@@ -43,4 +43,4 @@ export type ToastPosition =
   | "bottom-center"
   | "bottom-end";
 
-export default SgdsToastContainer;
+export default SitToastContainer;

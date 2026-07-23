@@ -1,12 +1,12 @@
 import { html, nothing } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import sidebarSectionStyle from "./sidebar-section.css";
 
 import { SidebarElement } from "./sidebar-element";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsDivider from "../Divider/sgds-divider";
+import SitIcon from "../Icon/sgds-icon";
+import SitDivider from "../Divider/sgds-divider";
 
 /**
  * @summary Sidebar section is a container component that groups related sidebar items into organized sections.
@@ -15,13 +15,13 @@ import SgdsDivider from "../Divider/sgds-divider";
  *
  * @slot - Insert sgds-sidebar-item and sgds-sidebar-group elements to be grouped within this section
  */
-export class SgdsSidebarSection extends SidebarElement {
-  static styles = [...SgdsElement.styles, sidebarSectionStyle];
+export class SitSidebarSection extends SidebarElement {
+  static styles = [...SitElement.styles, sidebarSectionStyle];
 
   /** @internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon,
-    "sgds-divider": SgdsDivider
+    "sgds-icon": SitIcon,
+    "sgds-divider": SitDivider
   };
 
   /**
@@ -130,4 +130,4 @@ export class SgdsSidebarSection extends SidebarElement {
   }
 }
 
-export default SgdsSidebarSection;
+export default SitSidebarSection;

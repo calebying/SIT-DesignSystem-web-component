@@ -2,9 +2,9 @@ import { html, TemplateResult } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import optionStyles from "./option.css";
-import SgdsElement from "./sgds-element";
+import SitElement from "./sgds-element";
 
-export class OptionElement extends SgdsElement {
+export class OptionElement extends SitElement {
   static styles = [optionStyles];
   /**
    * @internal when true, sets the active stylings.

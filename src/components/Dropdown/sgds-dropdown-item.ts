@@ -2,18 +2,18 @@ import { html } from "lit";
 import { property, queryAssignedElements } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import SgdsElement from "../../base/sgds-element";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitElement from "../../base/sgds-element";
+import SitIcon from "../Icon/sgds-icon";
 import dropdownItemStyle from "./dropdown-item.css";
 import dropdownStyle from "./dropdown.css";
 /**
- * @summary `SgdsDropdownItem` are navigation links built with `HTMLAnchorElement`. It should be used in the default slot of `SgdsDropdown`
- * @slot default - The default slot for SgdsDropdownItem. Pass in a single anchor tag per dropdown item directly for navigation items.
+ * @summary `SitDropdownItem` are navigation links built with `HTMLAnchorElement`. It should be used in the default slot of `SitDropdown`
+ * @slot default - The default slot for SitDropdownItem. Pass in a single anchor tag per dropdown item directly for navigation items.
  */
-export class SgdsDropdownItem extends SgdsElement {
+export class SitDropdownItem extends SitElement {
   static styles = [dropdownStyle, dropdownItemStyle];
   static dependencies = {
-    "sgds-icon": SgdsIcon
+    "sgds-icon": SitIcon
   };
 
   /** @internal */
@@ -23,7 +23,7 @@ export class SgdsDropdownItem extends SgdsElement {
   @property({ type: Boolean })
   active = false;
 
-  /** Disables the SgdsMainnavItem */
+  /** Disables the SitMainnavItem */
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
@@ -58,4 +58,4 @@ export class SgdsDropdownItem extends SgdsElement {
   }
 }
 
-export default SgdsDropdownItem;
+export default SitDropdownItem;

@@ -1,32 +1,32 @@
 import { html, nothing } from "lit";
 import { property, queryAssignedElements } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { defaultValue } from "../../utils/defaultvalue";
 import { watch } from "../../utils/watch";
 import stepperStyle from "./stepper.css";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sgds-icon";
 import { IStepMetaData } from "./types";
-import type SgdsStep from "./sgds-step";
+import type SitStep from "./sgds-step";
 import { HasSlotController } from "../../utils/slot";
 export type { IStepMetaData };
 
 /**
  * @summary Steppers are used to inform users which step they are at in a form or a process
  *
- * @event sgds-next-step - Emitted right before the next step is reached. Event is fired when nextStep method is called.
- * @event sgds-previous-step - Emitted right before the previous step is reached. Event is fired when previousStep method is called.
- * @event sgds-last-step - Emitted right before the last step is reached. Event is fired when lastStep method is called.
- * @event sgds-first-step - Emitted right before the first step is reached. Event is fired when firstStep method is called.
- * @event sgds-arrived - Emitted right after the activeStep has updated its state, when upcoming step has arrived. Call `getComponent()` on the stepper to get the current step's component.
- * @event sgds-reset - Emitted right before the step is reset to its defaultActiveStep. Event is fired when reset method is called.
+ * @event sit-next-step - Emitted right before the next step is reached. Event is fired when nextStep method is called.
+ * @event sit-previous-step - Emitted right before the previous step is reached. Event is fired when previousStep method is called.
+ * @event sit-last-step - Emitted right before the last step is reached. Event is fired when lastStep method is called.
+ * @event sit-first-step - Emitted right before the first step is reached. Event is fired when firstStep method is called.
+ * @event sit-arrived - Emitted right after the activeStep has updated its state, when upcoming step has arrived. Call `getComponent()` on the stepper to get the current step's component.
+ * @event sit-reset - Emitted right before the step is reset to its defaultActiveStep. Event is fired when reset method is called.
  * @slot default - slot for sgds-step children
  *
  */
-export class SgdsStepper extends SgdsElement {
-  static styles = [...SgdsElement.styles, stepperStyle];
+export class SitStepper extends SitElement {
+  static styles = [...SitElement.styles, stepperStyle];
   /** @internal */
-  static dependencies = { "sgds-icon": SgdsIcon };
+  static dependencies = { "sgds-icon": SitIcon };
   /** The metadata of stepper, type `IStepMetaData`. Deprecated: use sgds-step child components instead.
    * @deprecated Use sgds-step child components instead of the steps property
    */
@@ -51,13 +51,13 @@ export class SgdsStepper extends SgdsElement {
   defaultActiveStep = 0;
 
   /** @internal */
-  @queryAssignedElements() private _slotNodes!: SgdsStep[];
+  @queryAssignedElements() private _slotNodes!: SitStep[];
 
   /** @internal */
-  private _items: SgdsStep[] = [];
+  private _items: SitStep[] = [];
   private _totalSteps = 0;
 
-  /** @internal Bound i-sgds-click handler for proper event listener removal */
+  /** @internal Bound i-sit-click handler for proper event listener removal */
   private _boundHandleItemClick = this._handleStepClick.bind(this);
 
   /**
@@ -74,7 +74,7 @@ export class SgdsStepper extends SgdsElement {
     super.connectedCallback();
 
     this._totalSteps = this.steps.length;
-    this.addEventListener("i-sgds-click", this._boundHandleItemClick);
+    this.addEventListener("i-sit-click", this._boundHandleItemClick);
   }
 
   /** @internal */
@@ -121,7 +121,7 @@ export class SgdsStepper extends SgdsElement {
 
   /** Moves the active step forward one step */
   public nextStep() {
-    this.emit("sgds-next-step");
+    this.emit("sit-next-step");
     if (this.activeStep < this._totalSteps - 1) {
       if (!this._slotNodes[this.activeStep + 1]?.disabled) {
         this.activeStep++;
@@ -131,7 +131,7 @@ export class SgdsStepper extends SgdsElement {
 
   /** Moves the active step back one step */
   public previousStep() {
-    this.emit("sgds-previous-step");
+    this.emit("sit-previous-step");
 
     if (this.activeStep > 0) {
       if (!this._slotNodes[this.activeStep - 1]?.disabled) {
@@ -142,7 +142,7 @@ export class SgdsStepper extends SgdsElement {
 
   /** Changes the active step to the last step */
   public lastStep() {
-    this.emit("sgds-last-step");
+    this.emit("sit-last-step");
     if (this.activeStep !== this._totalSteps - 1) {
       this.activeStep = this._totalSteps - 1;
     }
@@ -150,7 +150,7 @@ export class SgdsStepper extends SgdsElement {
 
   /** Changes active step to the first step */
   public firstStep() {
-    this.emit("sgds-first-step");
+    this.emit("sit-first-step");
     if (this.activeStep > 0) {
       this.activeStep = 0;
     }
@@ -158,7 +158,7 @@ export class SgdsStepper extends SgdsElement {
 
   /** Resets the Stepper to its initial active step state */
   public reset() {
-    this.emit("sgds-reset");
+    this.emit("sit-reset");
     this.activeStep = this.defaultActiveStep;
   }
 
@@ -171,7 +171,7 @@ export class SgdsStepper extends SgdsElement {
   @watch("activeStep", { waitUntilFirstUpdate: true })
   _handleActiveStepChange() {
     this._updateStepItems();
-    this.emit("sgds-arrived");
+    this.emit("sit-arrived");
   }
 
   /**@internal */
@@ -244,4 +244,4 @@ export class SgdsStepper extends SgdsElement {
 
 export type StepperOrientation = "horizontal" | "vertical";
 
-export default SgdsStepper;
+export default SitStepper;

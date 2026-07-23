@@ -1,8 +1,8 @@
 import { html } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitElement from "../../base/sgds-element";
+import SitIcon from "../Icon/sgds-icon";
 import stepStyle from "./step.css";
 
 /**
@@ -10,10 +10,10 @@ import stepStyle from "./step.css";
  *
  * @slot default - Optional content displayed below the step header label
  */
-export class SgdsStep extends SgdsElement {
-  static styles = [...SgdsElement.styles, stepStyle];
+export class SitStep extends SitElement {
+  static styles = [...SitElement.styles, stepStyle];
   /** @internal */
-  static dependencies = { "sgds-icon": SgdsIcon };
+  static dependencies = { "sgds-icon": SitIcon };
 
   /** The header text for the step */
   @property({ type: String, reflect: true })
@@ -93,12 +93,12 @@ export class SgdsStep extends SgdsElement {
     if (e) {
       const ele = e.target as HTMLElement;
 
-      // Allow user to have custom slotted item with attribute 'data-clickable' to skip i-sgds-click
+      // Allow user to have custom slotted item with attribute 'data-clickable' to skip i-sit-click
       // To handle if there are clickable objects within the slot
       if (ele.hasAttribute("data-clickable")) return;
     }
 
-    this.emit("i-sgds-click", { detail: { stepIndex: this.stepIndex } });
+    this.emit("i-sit-click", { detail: { stepIndex: this.stepIndex } });
   }
 
   /**@internal */
@@ -109,4 +109,4 @@ export class SgdsStep extends SgdsElement {
   }
 }
 
-export default SgdsStep;
+export default SitStep;

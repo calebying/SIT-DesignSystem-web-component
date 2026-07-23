@@ -1,7 +1,7 @@
 import { property } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { html } from "lit/static-html.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import alertLinkStyle from "./alert-link.css";
 import anchorStyles from "../../styles/anchor.css";
 /**
@@ -10,8 +10,8 @@ import anchorStyles from "../../styles/anchor.css";
  *
  * @slot default - The text content of the anchor element
  */
-export class SgdsAlertLink extends SgdsElement {
-  static styles = [...SgdsElement.styles, anchorStyles, alertLinkStyle];
+export class SitAlertLink extends SitElement {
+  static styles = [...SitElement.styles, anchorStyles, alertLinkStyle];
   /** Forwards to href attribute of anchor element */
   @property({ type: String, reflect: true }) href: string;
   /** Tells the browser where to open the link */
@@ -24,4 +24,4 @@ export class SgdsAlertLink extends SgdsElement {
   }
 }
 
-export default SgdsAlertLink;
+export default SitAlertLink;

@@ -1,7 +1,7 @@
 import { property, query } from "lit/decorators.js";
-import { SgdsLink } from "../components/Link/sgds-link";
+import { SitLink } from "../components/Link/sgds-link";
 import { CardOrientation } from "../components/Card/types";
-import SgdsElement from "./sgds-element";
+import SitElement from "./sgds-element";
 import cardStyle from "./card.css";
 import textStyles from "../styles/text-variants.css";
 import bgStyles from "../styles/bg-variants.css";
@@ -9,8 +9,8 @@ import borderStyles from "../styles/border-variants.css";
 import headerStyles from "../styles/header-class.css";
 import paragraphStyles from "../styles/paragraph.css";
 
-export class CardElement extends SgdsElement {
-  static styles = [...SgdsElement.styles, textStyles, bgStyles, borderStyles, headerStyles, paragraphStyles, cardStyle];
+export class CardElement extends SitElement {
+  static styles = [...SitElement.styles, textStyles, bgStyles, borderStyles, headerStyles, paragraphStyles, cardStyle];
 
   /** @internal */
   @query("a.card") card: HTMLAnchorElement;
@@ -63,10 +63,10 @@ export class CardElement extends SgdsElement {
     const childNodes = (e.target as HTMLSlotElement).assignedNodes({ flatten: true }) as
       | Array<HTMLLinkElement>
       | Array<HTMLAnchorElement>
-      | Array<SgdsLink>;
+      | Array<SitLink>;
 
     if (childNodes.length > 1) {
-      return console.error("Multiple elements passed into SgdsCard's link slot");
+      return console.error("Multiple elements passed into SitCard's link slot");
     }
   }
 }

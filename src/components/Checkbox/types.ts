@@ -1,3 +1,3 @@
-export interface ISgdsCheckboxGroupChangeEventDetail {
+export interface ISitCheckboxGroupChangeEventDetail {
   value: string;
 }

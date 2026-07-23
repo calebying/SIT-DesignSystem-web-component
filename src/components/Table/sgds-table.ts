@@ -1,7 +1,7 @@
 import { html } from "lit";
 import { property, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 
 import tableStyle from "./table.css";
 import { HasSlotController } from "../../utils/slot";
@@ -17,8 +17,8 @@ export type HeaderPosition = "horizontal" | "vertical" | "both";
  * @slot - Insert custom table elements (such as rows, headers, or cells) to define the table structure manually.
  */
 
-export class SgdsTable extends SgdsElement {
-  static styles = [...SgdsElement.styles, tableStyle];
+export class SitTable extends SitElement {
+  static styles = [...SitElement.styles, tableStyle];
 
   /**
    * Specifies the responsive breakpoint for the table.
@@ -191,4 +191,4 @@ export class SgdsTable extends SgdsElement {
   }
 }
 
-export default SgdsTable;
+export default SitTable;

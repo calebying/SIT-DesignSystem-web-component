@@ -9,12 +9,12 @@ import dropdownStyle from "./dropdown.css";
 export type DropDirection = "left" | "right" | "up" | "down";
 
 /**
- * @summary `SgdsDropdown` toggles contextual overlays for displaying lists of links.
+ * @summary `SitDropdown` toggles contextual overlays for displaying lists of links.
  * @slot default - slot for sgds-dropdown-item passed into dropdown's menu
  * @slot toggler - slot for the toggler that triggers the open and closing of menu, typically a button. Only pass in a single element into this slot
  *
  */
-export class SgdsDropdown extends DropdownListElement {
+export class SitDropdown extends DropdownListElement {
   static styles = [...DropdownListElement.styles, dropdownStyle, dropdownMenuStyle];
 
   constructor() {
@@ -34,7 +34,7 @@ export class SgdsDropdown extends DropdownListElement {
   @property({ type: String, reflect: true, state: false })
   drop: DropDirection = "down";
 
-  /** Controls the close behaviour of dropdown menu. By default menu auto-closes when SgdsDropdownItem or area outside dropdown is clicked */
+  /** Controls the close behaviour of dropdown menu. By default menu auto-closes when SitDropdownItem or area outside dropdown is clicked */
   @property({ type: String, reflect: true, state: false })
   close: "outside" | "default" | "inside" = "default";
 
@@ -72,11 +72,11 @@ export class SgdsDropdown extends DropdownListElement {
 
   async connectedCallback() {
     super.connectedCallback();
-    this.addEventListener("sgds-hide", this._handleCloseMenu);
+    this.addEventListener("sit-hide", this._handleCloseMenu);
   }
 
   async disconnectedCallback() {
-    this.removeEventListener("sgds-hide", this._handleCloseMenu);
+    this.removeEventListener("sit-hide", this._handleCloseMenu);
   }
 
   async firstUpdated(changedProperties: PropertyValueMap<this>) {
@@ -131,4 +131,4 @@ export class SgdsDropdown extends DropdownListElement {
   }
 }
 
-export default SgdsDropdown;
+export default SitDropdown;

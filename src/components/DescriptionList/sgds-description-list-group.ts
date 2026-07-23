@@ -1,7 +1,7 @@
 import { html, PropertyValues } from "lit";
 import { classMap } from "lit/directives/class-map.js";
 import { property, queryAssignedElements } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { HasSlotController } from "../../utils/slot";
 import descriptionListGroupStyle from "./description-list-group.css";
 
@@ -13,8 +13,8 @@ import descriptionListGroupStyle from "./description-list-group.css";
  * @slot description - Slot for the description content
  *
  */
-export class SgdsDescriptionListGroup extends SgdsElement {
-  static styles = [...SgdsElement.styles, descriptionListGroupStyle];
+export class SitDescriptionListGroup extends SitElement {
+  static styles = [...SitElement.styles, descriptionListGroupStyle];
 
   /** When true, adds a border around the entire group. */
   @property({ type: Boolean, reflect: true }) bordered = false;
@@ -94,4 +94,4 @@ export class SgdsDescriptionListGroup extends SgdsElement {
   }
 }
 
-export default SgdsDescriptionListGroup;
+export default SitDescriptionListGroup;

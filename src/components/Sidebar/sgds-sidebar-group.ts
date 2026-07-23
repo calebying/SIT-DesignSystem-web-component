@@ -1,9 +1,9 @@
 import { html } from "lit";
 import { state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import sidebarOptionStyle from "./sidebar-item.css";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sgds-icon";
 import { watch } from "../../utils/watch";
 
 import { SidebarElement } from "./sidebar-element";
@@ -21,12 +21,12 @@ import { SidebarElement } from "./sidebar-element";
  * @slot indicator - Display after the label text. A chevron is auto-appended. Typically used to show badges or other indicators for the group.
  *
  */
-export class SgdsSidebarGroup extends SidebarElement {
-  static styles = [...SgdsElement.styles, sidebarOptionStyle];
+export class SitSidebarGroup extends SidebarElement {
+  static styles = [...SitElement.styles, sidebarOptionStyle];
 
   /** @internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon
+    "sgds-icon": SitIcon
   };
 
   /**
@@ -129,4 +129,4 @@ export class SgdsSidebarGroup extends SidebarElement {
   }
 }
 
-export default SgdsSidebarGroup;
+export default SitSidebarGroup;

@@ -1,21 +1,21 @@
 import { html } from "lit";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import overflowMenuStyles from "./overflow-menu.css";
 import { property } from "lit/decorators.js";
-import SgdsDropdown from "../Dropdown/sgds-dropdown";
-import SgdsDropdownItem from "../Dropdown/sgds-dropdown-item";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitDropdown from "../Dropdown/sgds-dropdown";
+import SitDropdownItem from "../Dropdown/sgds-dropdown-item";
+import SitIcon from "../Icon/sgds-icon";
 /**
  * @summary An overflow menu is a UI element, often represented by three dots (⋮ or …), that opens a menu with additional actions or options.
  * @slot default - The overflow menu items. Pass in sgds-dropdown-items in this slot
  */
-export class SgdsOverflowMenu extends SgdsElement {
-  static styles = [...SgdsElement.styles, overflowMenuStyles];
+export class SitOverflowMenu extends SitElement {
+  static styles = [...SitElement.styles, overflowMenuStyles];
   /** @internal */
   static dependencies = {
-    "sgds-dropdown": SgdsDropdown,
-    "sgds-dropdown-item": SgdsDropdownItem,
-    "sgds-icon": SgdsIcon
+    "sgds-dropdown": SitDropdown,
+    "sgds-dropdown-item": SitDropdownItem,
+    "sgds-icon": SitIcon
   };
   /** Specifies a large or small button */
   @property({ type: String, reflect: true }) size: "sm" | "md" = "md";
@@ -32,4 +32,4 @@ export class SgdsOverflowMenu extends SgdsElement {
   }
 }
 
-export default SgdsOverflowMenu;
+export default SitOverflowMenu;

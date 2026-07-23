@@ -18,7 +18,7 @@ import thumbnailCardStyle from "./thumbnail-card.css";
  * @slot link - (@deprecated) Deprecated since 3.3.2 in favour of `footer` slot.
  *  Legacy slot for anchor elements. Use `footer` instead.
  */
-export class SgdsThumbnailCard extends CardElement {
+export class SitThumbnailCard extends CardElement {
   static styles = [...CardElement.styles, thumbnailCardStyle];
 
   /** @internal */
@@ -94,4 +94,4 @@ export class SgdsThumbnailCard extends CardElement {
   }
 }
 
-export default SgdsThumbnailCard;
+export default SitThumbnailCard;

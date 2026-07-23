@@ -1,10 +1,10 @@
-import { SgdsBadge } from "./sgds-badge";
+import { SitBadge } from "./sgds-badge";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-badge", SgdsBadge);
+register("sgds-badge", SitBadge);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-badge": SgdsBadge;
+    "sgds-badge": SitBadge;
   }
 }

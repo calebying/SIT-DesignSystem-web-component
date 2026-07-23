@@ -1,12 +1,12 @@
-import { SgdsComboBox } from "./sgds-combo-box";
-import { SgdsComboBoxOption } from "./sgds-combo-box-option";
+import { SitComboBox } from "./sgds-combo-box";
+import { SitComboBoxOption } from "./sgds-combo-box-option";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-combo-box", SgdsComboBox);
-register("sgds-combo-box-option", SgdsComboBoxOption);
+register("sgds-combo-box", SitComboBox);
+register("sgds-combo-box-option", SitComboBoxOption);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-combo-box": SgdsComboBox;
+    "sgds-combo-box": SitComboBox;
   }
 }

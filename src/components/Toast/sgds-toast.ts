@@ -1,7 +1,7 @@
 import { html, nothing, PropertyValueMap } from "lit";
 import { property, query, queryAssignedNodes } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
-import SgdsCloseButton from "../CloseButton/sgds-close-button";
+import SitElement from "../../base/sgds-element";
+import SitCloseButton from "../CloseButton/sgds-close-button";
 import { animateTo } from "../../utils/animate";
 import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry";
 import { waitForEvent } from "../../utils/event";
@@ -14,17 +14,17 @@ import toastStyle from "./toast.css";
  * @slot action - The content to pass into toast's action
  * @slot icon - The icon in toast.
  *
- * @event sgds-show - Emitted on show.
- * @event sgds-after-show - Emitted on show after animation has completed.
- * @event sgds-hide - Emitted on hide.
- * @event sgds-after-hide - Emitted on hide after animation has completed.
+ * @event sit-show - Emitted on show.
+ * @event sit-after-show - Emitted on show after animation has completed.
+ * @event sit-hide - Emitted on hide.
+ * @event sit-after-hide - Emitted on hide after animation has completed.
  *
  */
-export class SgdsToast extends SgdsElement {
-  static styles = [...SgdsElement.styles, toastStyle];
+export class SitToast extends SitElement {
+  static styles = [...SitElement.styles, toastStyle];
   /**@internal */
   static dependencies = {
-    "sgds-close-button": SgdsCloseButton
+    "sgds-close-button": SitCloseButton
   };
   /**@internal */
   @query("div.toast") toast: HTMLElement;
@@ -50,7 +50,7 @@ export class SgdsToast extends SgdsElement {
     }
 
     this.show = true;
-    return waitForEvent(this, "sgds-after-show");
+    return waitForEvent(this, "sit-after-show");
   }
 
   /** Hide the toast */
@@ -59,19 +59,19 @@ export class SgdsToast extends SgdsElement {
       return;
     }
     this.show = false;
-    return waitForEvent(this, "sgds-after-hide");
+    return waitForEvent(this, "sit-after-hide");
   }
 
   /** @internal */
   handleCloseClick() {
     this.show = false;
-    this.emit("sgds-close");
+    this.emit("sit-close");
   }
   /**@internal */
   @watch("show", { waitUntilFirstUpdate: true })
   async handleShowChange() {
     if (this.show) {
-      this.emit("sgds-show");
+      this.emit("sit-show");
       this.toast.classList.remove("d-none");
       const toastAnimation = getAnimation(this, "toast.show");
 
@@ -79,9 +79,9 @@ export class SgdsToast extends SgdsElement {
         await animateTo(this.toast, toastAnimation.keyframes, toastAnimation.options);
       }
 
-      this.emit("sgds-after-show");
+      this.emit("sit-after-show");
     } else {
-      this.emit("sgds-hide");
+      this.emit("sit-hide");
 
       const toastAnimation = getAnimation(this, "toast.hide");
       if (!this.noAnimation) {
@@ -89,7 +89,7 @@ export class SgdsToast extends SgdsElement {
       }
       this.toast.classList.add("d-none");
 
-      this.emit("sgds-after-hide");
+      this.emit("sit-after-hide");
     }
   }
 
@@ -142,7 +142,7 @@ export class SgdsToast extends SgdsElement {
   }
 }
 
-export default SgdsToast;
+export default SitToast;
 
 setDefaultAnimation("toast.show", {
   keyframes: [{ opacity: 0 }, { opacity: 1 }],

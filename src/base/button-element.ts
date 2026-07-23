@@ -1,5 +1,5 @@
 import { property, query } from "lit/decorators.js";
-import SgdsElement from "./sgds-element";
+import SitElement from "./sgds-element";
 import buttonStyles from "./button.css";
 import { SpinnerTone } from "../components";
 
@@ -11,8 +11,8 @@ export type ButtonVariant =
   /** @deprecated since v3.5.6 */
   | "danger";
 
-export default class ButtonElement extends SgdsElement {
-  static styles = [...SgdsElement.styles, buttonStyles];
+export default class ButtonElement extends SitElement {
+  static styles = [...SitElement.styles, buttonStyles];
   /** @internal */
   @query(".btn") protected button: HTMLButtonElement | HTMLLinkElement;
 
@@ -61,11 +61,11 @@ export default class ButtonElement extends SgdsElement {
     this.button.blur();
   }
   protected _handleBlur() {
-    this.emit("sgds-blur");
+    this.emit("sit-blur");
   }
 
   protected _handleFocus() {
-    this.emit("sgds-focus");
+    this.emit("sit-focus");
   }
   protected _handleClick(event: MouseEvent) {
     if (this.disabled || this.loading) {

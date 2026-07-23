@@ -2,7 +2,7 @@ import { html } from "lit";
 import { property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import formLabelStyles from "../../styles/form-label.css";
 import formCheckStyles from "../../styles/form-check.css";
 import genId from "../../utils/generateId";
@@ -13,13 +13,13 @@ import radioStyles from "./radio.css";
  *
  * @slot default - The label of the radio input
  *
- * @event sgds-focus - Emitted when the control gains focus.
- * @event sgds-blur - Emitted when the control loses focus.
+ * @event sit-focus - Emitted when the control gains focus.
+ * @event sit-blur - Emitted when the control loses focus.
  */
-export class SgdsRadio extends SgdsElement {
-  static styles = [...SgdsElement.styles, formCheckStyles, formLabelStyles, radioStyles];
+export class SitRadio extends SitElement {
+  static styles = [...SitElement.styles, formCheckStyles, formLabelStyles, radioStyles];
   /**
-   * Draws the radio in a checked state. When used with SgdsRadioGroup, the value prop of SgdsRadioGroup overrides the checked prop
+   * Draws the radio in a checked state. When used with SitRadioGroup, the value prop of SitRadioGroup overrides the checked prop
    */
   @property({ type: Boolean, reflect: true }) checked = false;
 
@@ -60,7 +60,7 @@ export class SgdsRadio extends SgdsElement {
   }
 
   private handleBlur() {
-    this.emit("sgds-blur");
+    this.emit("sit-blur");
   }
 
   private handleClick() {
@@ -70,7 +70,7 @@ export class SgdsRadio extends SgdsElement {
   }
 
   private handleFocus() {
-    this.emit("sgds-focus");
+    this.emit("sit-focus");
   }
 
   private addEventListeners() {
@@ -109,4 +109,4 @@ export class SgdsRadio extends SgdsElement {
   }
 }
 
-export default SgdsRadio;
+export default SitRadio;

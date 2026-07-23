@@ -1,7 +1,7 @@
 import { html, nothing } from "lit";
 import { property, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import alertBannerItemStyles from "./system-banner-item.css";
 import { HasSlotController } from "../../utils/slot";
 import { SystemBannerChildCountContext, NoClampActionContext } from "./system-banner-context";
@@ -13,10 +13,10 @@ import { consume } from "@lit/context";
  * @slot default - The slot to pass in the message content of the banner item. Text will be clamped at 2 lines in desktop view and 5 lines in mobile view
  * @slot badge - The slot to pass in a badge element. Either use a badge or a icon, but not both, to avoid layout issues.
  *
- * @event sgds-show-more - The event emitted when user clicks on "show more" in the banner text message
+ * @event sit-show-more - The event emitted when user clicks on "show more" in the banner text message
  */
-export class SgdsSystemBannerItem extends SgdsElement {
-  static styles = [...SgdsElement.styles, alertBannerItemStyles];
+export class SitSystemBannerItem extends SitElement {
+  static styles = [...SitElement.styles, alertBannerItemStyles];
   /** Used only for SSR to indicate the presence of the `action` slot. */
   @property({ type: Boolean }) hasActionSlot = false;
 
@@ -66,7 +66,7 @@ export class SgdsSystemBannerItem extends SgdsElement {
   }
 
   private _handleShowMoreClick() {
-    this.emit("sgds-show-more");
+    this.emit("sit-show-more");
   }
   render() {
     return html`
@@ -96,4 +96,4 @@ export class SgdsSystemBannerItem extends SgdsElement {
     `;
   }
 }
-export default SgdsSystemBannerItem;
+export default SitSystemBannerItem;

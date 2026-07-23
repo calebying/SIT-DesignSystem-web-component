@@ -2,37 +2,37 @@ import { html, PropertyValueMap } from "lit";
 import { property, query, queryAssignedElements, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { animateTo, shimKeyframesHeightAuto, stopAnimations } from "../../utils/animate";
 import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry";
 import { waitForEvent } from "../../utils/event";
 import genId from "../../utils/generateId";
 import { watch } from "../../utils/watch";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsSidenavLink from "./sgds-sidenav-link";
+import SitIcon from "../Icon/sgds-icon";
+import SitSidenavLink from "./sgds-sidenav-link";
 import sidenavItemStyle from "./sidenav-item.css";
 
 /**
- * @description SgdsSidenavItem can function as either a menu type or a link type. Its type is determined by the children slotted into the default slot.
- * A single anchor tag element passed into the default slot converts SgdsSidenavItem to a link type while passing in SgdsSidenavLink components into the default slots makes it a menu type.
+ * @description SitSidenavItem can function as either a menu type or a link type. Its type is determined by the children slotted into the default slot.
+ * A single anchor tag element passed into the default slot converts SitSidenavItem to a link type while passing in SitSidenavLink components into the default slots makes it a menu type.
  *
- * @event sgds-toggle - Emitted when the sidenav item's button is clicked. Only applicable to menu type.
- * @event sgds-show - Emitted on show. Only applicable to menu type.
- * @event sgds-after-show - Emitted on show after animation has completed. Only applicable to menu type.
- * @event sgds-hide - Emitted on hide. Only applicable to menu type.
- * @event sgds-after-hide - Emitted on hide after animation has completed. Only applicable to menu type.
+ * @event sit-toggle - Emitted when the sidenav item's button is clicked. Only applicable to menu type.
+ * @event sit-show - Emitted on show. Only applicable to menu type.
+ * @event sit-after-show - Emitted on show after animation has completed. Only applicable to menu type.
+ * @event sit-hide - Emitted on hide. Only applicable to menu type.
+ * @event sit-after-hide - Emitted on hide after animation has completed. Only applicable to menu type.
  *
- * @slot default - default slot for SgdsSidenavLink and second level SgdsSidenavItem. For link type SgdsSidenavItem, pass in a single anchor tag to the default slot. For menu type, pass in SgdsSidenavLink to the default slot
- * @slot title - title slot for the content of SgdsSidenavItem's menu button element. Only applicable to menu type
- * @slot icon - icon slot for the content of SgdsSidenavItem's menu button element. Only applicable to menu type
- * @slot caret-icon - The slot for the caret arrow icon of SgdsSidenavItem. Only applicable to menu type.
+ * @slot default - default slot for SitSidenavLink and second level SitSidenavItem. For link type SitSidenavItem, pass in a single anchor tag to the default slot. For menu type, pass in SitSidenavLink to the default slot
+ * @slot title - title slot for the content of SitSidenavItem's menu button element. Only applicable to menu type
+ * @slot icon - icon slot for the content of SitSidenavItem's menu button element. Only applicable to menu type
+ * @slot caret-icon - The slot for the caret arrow icon of SitSidenavItem. Only applicable to menu type.
  */
 
-export class SgdsSidenavItem extends SgdsElement {
-  static styles = [...SgdsElement.styles, sidenavItemStyle];
+export class SitSidenavItem extends SitElement {
+  static styles = [...SitElement.styles, sidenavItemStyle];
   /** @internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon
+    "sgds-icon": SitIcon
   };
 
   @query(".sidenav-body") body: HTMLElement;
@@ -45,7 +45,7 @@ export class SgdsSidenavItem extends SgdsElement {
   active = false;
 
   /**
-   * Disables the SgdsSidenavItem
+   * Disables the SitSidenavItem
    */
   @property({ type: Boolean, reflect: true })
   disabled = false;
@@ -59,13 +59,13 @@ export class SgdsSidenavItem extends SgdsElement {
   @state() private isLink = false;
 
   /**
-   * @internal Forwards to id attribute of div.collapse and aria-controls attribute of button in SgdsSidenavItem. By default, SgdsSidenavItem auto-generates a unique id. Override the default id by specifiying your own
+   * @internal Forwards to id attribute of div.collapse and aria-controls attribute of button in SitSidenavItem. By default, SitSidenavItem auto-generates a unique id. Override the default id by specifiying your own
    */
 
   private _collapseId: string = genId("sidenav", "collapse");
 
   /**
-   * @internal Forwards to id attribute of button and aria-labelledby attribute of ul.sidenav-list in SgdsSidenavItem. By default, SgdsSidenavItem auto-generates a unique id. Override the default id by specifiying your own
+   * @internal Forwards to id attribute of button and aria-labelledby attribute of ul.sidenav-list in SitSidenavItem. By default, SitSidenavItem auto-generates a unique id. Override the default id by specifiying your own
    */
   private _buttonId: string = genId("sidenav", "button");
 
@@ -78,7 +78,7 @@ export class SgdsSidenavItem extends SgdsElement {
   private index = "-1";
 
   private _onToggle() {
-    this.emit("sgds-toggle", { detail: { index: this.index } });
+    this.emit("sit-toggle", { detail: { index: this.index } });
   }
 
   /** Shows the sidenav item. Only applicable to sgds-sidenav-item that are of menu types */
@@ -89,7 +89,7 @@ export class SgdsSidenavItem extends SgdsElement {
     }
 
     this.active = true;
-    return waitForEvent(this, "sgds-after-show");
+    return waitForEvent(this, "sit-after-show");
   }
 
   /** Hide the sidenav item.  Only applicable to sgds-sidenav-item that are of menu types */
@@ -99,7 +99,7 @@ export class SgdsSidenavItem extends SgdsElement {
       return;
     }
     this.active = false;
-    return waitForEvent(this, "sgds-after-hide");
+    return waitForEvent(this, "sit-after-hide");
   }
 
   connectedCallback(): void {
@@ -124,7 +124,7 @@ export class SgdsSidenavItem extends SgdsElement {
    */
   private _handleOpenMenu() {
     if (!this.active) {
-      this.active = this._items.some((i: SgdsSidenavItem | SgdsSidenavLink) => i.active);
+      this.active = this._items.some((i: SitSidenavItem | SitSidenavLink) => i.active);
     }
   }
   private _handleSummaryClick() {
@@ -164,7 +164,7 @@ export class SgdsSidenavItem extends SgdsElement {
     if (this.isLink) return;
     if (this.active) {
       // Show
-      const sgdsShow = this.emit("sgds-show", { cancelable: true });
+      const sgdsShow = this.emit("sit-show", { cancelable: true });
       if (sgdsShow.defaultPrevented) {
         this.active = false;
         return;
@@ -177,10 +177,10 @@ export class SgdsSidenavItem extends SgdsElement {
       await animateTo(this.body, shimKeyframesHeightAuto(keyframes, this.body.scrollHeight), options);
       this.body.style.height = "auto";
 
-      this.emit("sgds-after-show");
+      this.emit("sit-after-show");
     } else {
       // Hide
-      const sgdsHide = this.emit("sgds-hide", { cancelable: true });
+      const sgdsHide = this.emit("sit-hide", { cancelable: true });
       if (sgdsHide.defaultPrevented) {
         this.active = true;
         return;
@@ -193,10 +193,10 @@ export class SgdsSidenavItem extends SgdsElement {
       this.body.hidden = true;
       this.body.style.height = "auto";
 
-      this.emit("sgds-after-hide");
+      this.emit("sit-after-hide");
     }
   }
-  @queryAssignedElements() private _items: SgdsSidenavLink[];
+  @queryAssignedElements() private _items: SitSidenavLink[];
   private _handleSlotChange(e: Event) {
     const anchorItems = (e.target as HTMLSlotElement)
       .assignedElements({ flatten: true })
@@ -222,7 +222,7 @@ export class SgdsSidenavItem extends SgdsElement {
     });
     /** All second level sgds-sidenav-item should only have third level sgds-sidenav-links */
     if (Array.from(this.classList).some(c => c.startsWith("second-level"))) {
-      this._items.forEach((i: SgdsSidenavLink) => i.classList.add(this._thirdLevelId));
+      this._items.forEach((i: SitSidenavLink) => i.classList.add(this._thirdLevelId));
     }
 
     this._handleOpenMenu();
@@ -279,4 +279,4 @@ setDefaultAnimation("sidenav.hide", {
   ],
   options: { duration: 200, easing: "ease-in-out" }
 });
-export default SgdsSidenavItem;
+export default SitSidenavItem;

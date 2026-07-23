@@ -2,7 +2,7 @@ import { html } from "lit";
 import { property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { animateTo, shimKeyframesHeightAuto, stopAnimations } from "../../utils/animate";
 import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry";
 import { waitForEvent } from "../../utils/event";
@@ -12,10 +12,10 @@ import { AccordionDensity } from "./sgds-accordion";
 
 /**
  *
- * @event sgds-show - Emitted on show.
- * @event sgds-after-show - Emitted on show after animation has completed.
- * @event sgds-hide - Emitted on hide.
- * @event sgds-after-hide - Emitted on hide after animation has completed.
+ * @event sit-show - Emitted on show.
+ * @event sit-after-show - Emitted on show after animation has completed.
+ * @event sit-hide - Emitted on hide.
+ * @event sit-after-hide - Emitted on hide after animation has completed.
  *
  * @slot icon - An icon placed before the header text, typically used to provide visual context for the accordion item.
  * @slot header - The accordion-item button header slot.
@@ -24,8 +24,8 @@ import { AccordionDensity } from "./sgds-accordion";
  * @slot caret - The caret icon of accordion-item. Defaults to a chevron-down icon.
  *
  */
-export class SgdsAccordionItem extends SgdsElement {
-  static styles = [...SgdsElement.styles, accordionItemStyle];
+export class SitAccordionItem extends SitElement {
+  static styles = [...SitElement.styles, accordionItemStyle];
   /** @internal */
   @query(".accordion-item") accordion: HTMLElement;
   /** @internal */
@@ -81,7 +81,7 @@ export class SgdsAccordionItem extends SgdsElement {
   async handleOpenChange() {
     if (this.open) {
       // Show
-      const sgdsShow = this.emit("sgds-show", { cancelable: true });
+      const sgdsShow = this.emit("sit-show", { cancelable: true });
       if (sgdsShow.defaultPrevented) {
         this.open = false;
         return;
@@ -92,10 +92,10 @@ export class SgdsAccordionItem extends SgdsElement {
 
       const { keyframes, options } = getAnimation(this, "accordion.show");
       await animateTo(this.body, shimKeyframesHeightAuto(keyframes, this.body.scrollHeight), options);
-      this.emit("sgds-after-show");
+      this.emit("sit-after-show");
     } else {
       // Hide
-      const slHide = this.emit("sgds-hide", { cancelable: true });
+      const slHide = this.emit("sit-hide", { cancelable: true });
       if (slHide.defaultPrevented) {
         this.open = true;
         return;
@@ -112,7 +112,7 @@ export class SgdsAccordionItem extends SgdsElement {
       }, animationDuration - 20);
 
       await animateTo(this.body, shimKeyframesHeightAuto(keyframes, this.body.scrollHeight), options);
-      this.emit("sgds-after-hide");
+      this.emit("sit-after-hide");
     }
   }
 
@@ -123,7 +123,7 @@ export class SgdsAccordionItem extends SgdsElement {
     }
 
     this.open = true;
-    return waitForEvent(this, "sgds-after-show");
+    return waitForEvent(this, "sit-after-show");
   }
 
   /** Hide the accordion */
@@ -132,7 +132,7 @@ export class SgdsAccordionItem extends SgdsElement {
       return;
     }
     this.open = false;
-    return waitForEvent(this, "sgds-after-hide");
+    return waitForEvent(this, "sit-after-hide");
   }
   firstUpdated() {
     if (!this.open) this.body.classList.add("hidden");
@@ -192,4 +192,4 @@ setDefaultAnimation("accordion.hide", {
   options: { duration: 350, easing: "ease-in-out" }
 });
 
-export default SgdsAccordionItem;
+export default SitAccordionItem;

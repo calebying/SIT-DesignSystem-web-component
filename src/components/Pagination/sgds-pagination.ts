@@ -1,30 +1,30 @@
 import { TemplateResult, html, nothing } from "lit";
 import { property, state } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { watch } from "../../utils/watch";
-import SgdsButton from "../Button/sgds-button";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsIconButton from "../IconButton/sgds-icon-button";
+import SitButton from "../Button/sgds-button";
+import SitIcon from "../Icon/sgds-icon";
+import SitIconButton from "../IconButton/sgds-icon-button";
 import paginationStyle from "./pagination.css";
-import type { ISgdsPaginationPageChangeEventDetail } from "./types";
-export type { ISgdsPaginationPageChangeEventDetail };
+import type { ISitPaginationPageChangeEventDetail } from "./types";
+export type { ISitPaginationPageChangeEventDetail };
 
 export type Navigation = "button" | "icon-button";
 
 /**
  * @summary The Pagination component enables the user to select a specific page from a range of pages
  *
- * @event sgds-page-change - Event is emitted when `handleNextButton`, `handlePrevButton`, `handleNextEllipsisButton` and `handlePrevEllipsisButton` was called.
- * @eventDetail {ISgdsPaginationPageChangeEventDetail} sgds-page-change
+ * @event sit-page-change - Event is emitted when `handleNextButton`, `handlePrevButton`, `handleNextEllipsisButton` and `handlePrevEllipsisButton` was called.
+ * @eventDetail {ISitPaginationPageChangeEventDetail} sgds-page-change
  *
  **/
-export class SgdsPagination extends SgdsElement {
-  static styles = [...SgdsElement.styles, paginationStyle];
+export class SitPagination extends SitElement {
+  static styles = [...SitElement.styles, paginationStyle];
   /**@internal */
   static dependencies = {
-    "sgds-icon-button": SgdsIconButton,
-    "sgds-button": SgdsButton,
-    "sgds-icon": SgdsIcon
+    "sgds-icon-button": SitIconButton,
+    "sgds-button": SitButton,
+    "sgds-icon": SitIcon
   };
 
   /** Inserts the length value from a given sets of data objects*/
@@ -53,7 +53,7 @@ export class SgdsPagination extends SgdsElement {
   /**@internal */
   @watch("currentPage", { waitUntilFirstUpdate: false })
   _handleValueChange() {
-    this.emit<ISgdsPaginationPageChangeEventDetail>("sgds-page-change", { detail: { currentPage: this.currentPage } });
+    this.emit<ISitPaginationPageChangeEventDetail>("sgds-page-change", { detail: { currentPage: this.currentPage } });
     /**
      * Always showing 7 li at a time.
      * The case when both ellipsis is not needed
@@ -349,4 +349,4 @@ export class SgdsPagination extends SgdsElement {
   }
 }
 
-export default SgdsPagination;
+export default SitPagination;

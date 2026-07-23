@@ -1,13 +1,13 @@
 import { html, nothing } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsLink from "../Link/sgds-link";
-import SgdsElement from "../../base/sgds-element";
+import SitLink from "../Link/sgds-link";
+import SitElement from "../../base/sgds-element";
 import { HasSlotController } from "../../utils/slot";
 import { watch } from "../../utils/watch";
 import footerStyle from "./footer.css";
 import gridStyle from "../../css/grid.css";
-import type { SgdsFooterItem } from "./sgds-footer-item";
+import type { SitFooterItem } from "./sgds-footer-item";
 
 /**
  * @summary The footer contains supporting information for your service at the bottom of your website. All .gov.sg digital services shall contain a Global Footer Bar across all pages. The Global Footer Bar should include the name of the digital service, contact information, a privacy statement and the terms of use.
@@ -17,15 +17,15 @@ import type { SgdsFooterItem } from "./sgds-footer-item";
  * @slot description - The slot for description
  * @slot items - the slot for the list of footer items, styled automatically with `.footer-items`. For custom layouts or styles, use the `default` slot instead.
  */
-export class SgdsFooter extends SgdsElement {
-  static styles = [...SgdsElement.styles, gridStyle, footerStyle];
+export class SitFooter extends SitElement {
+  static styles = [...SitElement.styles, gridStyle, footerStyle];
 
   /** @internal */
   static dependencies = {
-    "sgds-link": SgdsLink
+    "sgds-link": SitLink
   };
 
-  /** Sets copyrightLiner of SgdsFooter */
+  /** Sets copyrightLiner of SitFooter */
   @property({ type: String })
   copyrightLiner = "Government of Singapore";
 
@@ -76,7 +76,7 @@ export class SgdsFooter extends SgdsElement {
   private _handleItemsSlotChange(e: Event) {
     const assignedElements = (e.target as HTMLSlotElement).assignedElements();
     assignedElements.forEach(el => {
-      (el as SgdsFooterItem).tone = this.tone;
+      (el as SitFooterItem).tone = this.tone;
     });
   }
 
@@ -84,7 +84,7 @@ export class SgdsFooter extends SgdsElement {
   _handleToneChange() {
     const itemsSlot = this.shadowRoot?.querySelector('slot[name="items"]') as HTMLSlotElement | null;
     itemsSlot?.assignedElements().forEach(el => {
-      (el as SgdsFooterItem).tone = this.tone;
+      (el as SitFooterItem).tone = this.tone;
     });
   }
 
@@ -173,4 +173,4 @@ export class SgdsFooter extends SgdsElement {
   }
 }
 
-export default SgdsFooter;
+export default SitFooter;

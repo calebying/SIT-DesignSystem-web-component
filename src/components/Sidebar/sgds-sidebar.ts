@@ -1,7 +1,7 @@
 import { html, nothing } from "lit";
 import { property, queryAssignedElements, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import sidebarStyle from "./sidebar.css";
 
 import { provide } from "@lit/context";
@@ -15,8 +15,8 @@ import {
 } from "./sidebar-context";
 import { watch } from "../../utils/watch";
 import { SidebarElement } from "./sidebar-element";
-import SgdsSidebarGroup from "./sgds-sidebar-group";
-import SgdsIconButton from "../IconButton/sgds-icon-button";
+import SitSidebarGroup from "./sgds-sidebar-group";
+import SitIconButton from "../IconButton/sgds-icon-button";
 import { XL_BREAKPOINT, MD_BREAKPOINT } from "../../utils/breakpoints";
 
 /**
@@ -47,11 +47,11 @@ import { XL_BREAKPOINT, MD_BREAKPOINT } from "../../utils/breakpoints";
  */
 
 type SidebarVariant = "persistent" | "overlay" | "collapsible";
-export class SgdsSidebar extends SgdsElement {
-  static styles = [...SgdsElement.styles, sidebarStyle];
+export class SitSidebar extends SitElement {
+  static styles = [...SitElement.styles, sidebarStyle];
 
   static dependencies = {
-    "sgds-icon-button": SgdsIconButton
+    "sgds-icon-button": SitIconButton
   };
   /**
    * Controls whether the sidebar is collapsed or expanded to save screen space.
@@ -110,7 +110,7 @@ export class SgdsSidebar extends SgdsElement {
   /** @internal Tracks the currently active group and provides it via context to all child elements */
   @provide({ context: SidebarActiveGroup })
   @state()
-  private _sidebarActiveGroup: SgdsSidebarGroup | null = null;
+  private _sidebarActiveGroup: SitSidebarGroup | null = null;
 
   /** @internal Syncs collapsed state to all descendants via context */
   @provide({ context: SidebarCollapsed })
@@ -148,7 +148,7 @@ export class SgdsSidebar extends SgdsElement {
   /** @internal Bound resize handler for proper event listener removal */
   private _boundHandleResize = this._handleResize.bind(this);
 
-  /** @internal Bound i-sgds-click handler for proper event listener removal */
+  /** @internal Bound i-sit-click handler for proper event listener removal */
   private _boundHandleItemClick = this._handleItemClick.bind(this);
 
   connectedCallback() {
@@ -159,14 +159,14 @@ export class SgdsSidebar extends SgdsElement {
 
     window?.addEventListener("resize", this._boundHandleResize);
     this._handleResize();
-    this.addEventListener("i-sgds-click", this._boundHandleItemClick);
+    this.addEventListener("i-sit-click", this._boundHandleItemClick);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     document?.removeEventListener("click", this._handleClickOutOfElement);
     window?.removeEventListener("resize", this._boundHandleResize);
-    this.removeEventListener("i-sgds-click", this._boundHandleItemClick);
+    this.removeEventListener("i-sit-click", this._boundHandleItemClick);
   }
 
   firstUpdated() {
@@ -213,15 +213,15 @@ export class SgdsSidebar extends SgdsElement {
     if (childLevel === 1) {
       // First level of navigation, check if need to open drawer or not.
       if (this._sidebarActiveItem._childElements.length > 0) {
-        this._setNodesToDrawer(this._sidebarActiveItem as SgdsSidebarGroup);
+        this._setNodesToDrawer(this._sidebarActiveItem as SitSidebarGroup);
       } else {
         this._revertNodesToParent();
       }
     } else {
       // when nested, we will find the top level of parent
-      let parentEle = this._sidebarActiveItem.parentElement as SgdsSidebarGroup;
+      let parentEle = this._sidebarActiveItem.parentElement as SitSidebarGroup;
 
-      while (parentEle instanceof SgdsSidebarGroup && parentEle._childLevel >= 1) {
+      while (parentEle instanceof SitSidebarGroup && parentEle._childLevel >= 1) {
         if (parentEle._childLevel === 1) {
           // when active item not in drawer, set nodes into drawer.
           if (!parentEle.classList.contains("sidebar-nested-overlay")) {
@@ -231,7 +231,7 @@ export class SgdsSidebar extends SgdsElement {
 
         parentEle._selected = true;
 
-        parentEle = parentEle.parentElement as SgdsSidebarGroup;
+        parentEle = parentEle.parentElement as SitSidebarGroup;
       }
 
       if (this._sidebarActiveGroup) {
@@ -317,10 +317,10 @@ export class SgdsSidebar extends SgdsElement {
    * Populates drawer overlay with children of the specified parent group.
    * Clears previous drawer content before adding new items. Reverts previous group's items to parent.
    * @internal
-   * @param {SgdsSidebarGroup} element - The parent group whose children to display in drawer
+   * @param {SitSidebarGroup} element - The parent group whose children to display in drawer
    * @returns {void}
    */
-  private _setNodesToDrawer(element: SgdsSidebarGroup) {
+  private _setNodesToDrawer(element: SitSidebarGroup) {
     if (!element) return;
 
     // when there is element, we will revert the nodes of the previous active group before setting new value into the active group
@@ -376,7 +376,7 @@ export class SgdsSidebar extends SgdsElement {
    * Handles item click events via delegation on the sidebar root.
    * Manages selection state, drawer visibility, anchor navigation, and sgds-select emission.
    * @internal
-   * @param {Event} e - The bubbled i-sgds-click event
+   * @param {Event} e - The bubbled i-sit-click event
    * @returns {void}
    */
   private _handleItemClick(e: Event) {
@@ -403,7 +403,7 @@ export class SgdsSidebar extends SgdsElement {
       }
 
       // Emit sgds-select event when an item is selected
-      this.emit("sgds-select", { detail: { activeItem: element.name } });
+      this.emit("sit-select", { detail: { activeItem: element.name } });
     }
   }
 
@@ -504,4 +504,4 @@ export class SgdsSidebar extends SgdsElement {
   }
 }
 
-export default SgdsSidebar;
+export default SitSidebar;

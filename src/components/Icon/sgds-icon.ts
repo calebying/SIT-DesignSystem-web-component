@@ -2,16 +2,16 @@ import { nothing } from "lit";
 import { property, state } from "lit/decorators.js";
 import type { TemplateResult } from "lit";
 import { iconRegistry } from "./icon-registry";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import iconStyles from "./icon.css";
 
 const iconCache = new Map<string, TemplateResult>();
 
 /**
- * @summary Icons offer a form of visual shorthand that we are all familiar with. They can label, inform and aid navigation quickly and effectively in minimal space. Icons must first and foremost communicate meaning. By default, the icon component renders icons from `SgdsIcon` library set
+ * @summary Icons offer a form of visual shorthand that we are all familiar with. They can label, inform and aid navigation quickly and effectively in minimal space. Icons must first and foremost communicate meaning. By default, the icon component renders icons from `SitIcon` library set
  */
-export class SgdsIcon extends SgdsElement {
-  static styles = [...SgdsElement.styles, iconStyles];
+export class SitIcon extends SitElement {
+  static styles = [...SitElement.styles, iconStyles];
 
   /** The name of the icon from sgds icon library */
   @property({ type: String, reflect: true }) name: string;
@@ -76,4 +76,4 @@ export class SgdsIcon extends SgdsElement {
   }
 }
 
-export default SgdsIcon;
+export default SitIcon;

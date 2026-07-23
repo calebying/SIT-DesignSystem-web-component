@@ -1,9 +1,9 @@
 import { html } from "lit";
 import { property } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { watch } from "../../utils/watch";
 import footerLinkStyle from "./footer-item.css";
-import type SgdsLink from "../Link/sgds-link";
+import type SitLink from "../Link/sgds-link";
 
 /**
  * @summary The footer item component organizes links under a clear, descriptive title within the footer. It helps users easily navigate to related resources or information, ensuring clarity and accessibility.
@@ -12,8 +12,8 @@ import type SgdsLink from "../Link/sgds-link";
  * @slot title - The slot for the title of the list of items
  *
  */
-export class SgdsFooterItem extends SgdsElement {
-  static styles = [...SgdsElement.styles, footerLinkStyle];
+export class SitFooterItem extends SitElement {
+  static styles = [...SitElement.styles, footerLinkStyle];
 
   /** Sets the color tone of the footer item. Inherited from the parent sgds-footer. */
   @property({ type: String, reflect: true }) tone: "fixed-dark" | "neutral" = "fixed-dark";
@@ -24,7 +24,7 @@ export class SgdsFooterItem extends SgdsElement {
     const defaultSlot = this.shadowRoot?.querySelector("slot:not([name])") as HTMLSlotElement | null;
     defaultSlot?.assignedElements().forEach(el => {
       if (el.tagName === "SGDS-LINK") {
-        (el as SgdsLink).tone = this.tone === "neutral" ? "neutral" : "fixed-light";
+        (el as SitLink).tone = this.tone === "neutral" ? "neutral" : "fixed-light";
       }
     });
   }
@@ -34,7 +34,7 @@ export class SgdsFooterItem extends SgdsElement {
     const assignedElements = (e.target as HTMLSlotElement).assignedElements();
     assignedElements.forEach(el => {
       if (el.tagName === "SGDS-LINK") {
-        const sgdsLink = el as SgdsLink;
+        const sgdsLink = el as SitLink;
         sgdsLink.tone = linkTone;
         sgdsLink.size = "sm";
       }
@@ -52,4 +52,4 @@ export class SgdsFooterItem extends SgdsElement {
   }
 }
 
-export default SgdsFooterItem;
+export default SitFooterItem;

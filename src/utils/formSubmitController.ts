@@ -1,7 +1,7 @@
-import type SgdsButton from "../components/Button/sgds-button";
+import type SitButton from "../components/Button/sgds-button";
 import type { ReactiveController, ReactiveControllerHost } from "lit";
-import SgdsElement from "../base/sgds-element";
-import { SgdsInput } from "../components";
+import SitElement from "../base/sgds-element";
+import { SitInput } from "../components";
 
 /**
  * A controller to help with form submission
@@ -34,7 +34,7 @@ export class FormSubmitController implements ReactiveController {
    * Creates a temporary native HTML button that can participate in form and invoke form submits and reset
    * Button is removed once action is performed
    */
-  doAction(type: "submit" | "reset", invoker?: HTMLInputElement | SgdsButton) {
+  doAction(type: "submit" | "reset", invoker?: HTMLInputElement | SitButton) {
     if (this.form) {
       const button = document.createElement("button");
       button.type = type;
@@ -67,12 +67,12 @@ export class FormSubmitController implements ReactiveController {
   }
 
   /** Resets the form, restoring all the control to their default value */
-  reset(invoker?: HTMLInputElement | SgdsButton) {
+  reset(invoker?: HTMLInputElement | SitButton) {
     this.doAction("reset", invoker);
   }
 
   /** Submits the form, triggering validation and form data injection. */
-  submit(invoker?: HTMLInputElement | SgdsButton) {
+  submit(invoker?: HTMLInputElement | SitButton) {
     // Calling form.submit() bypasses the submit event and constraint validation. To prevent this, we can inject a
     // native submit button into the form, "click" it, then remove it to simulate a standard form submission.
     this.doAction("submit", invoker);
@@ -84,7 +84,7 @@ export interface FormSubmitControllerOptions {
   form: (input: unknown) => HTMLFormElement | null;
 }
 
-export interface SgdsFormControl extends SgdsElement {
+export interface SitFormControl extends SitElement {
   // Form attributes
   name: string;
   value: unknown;
@@ -104,5 +104,5 @@ export interface SgdsFormControl extends SgdsElement {
   minlength?: number;
   maxlength?: number;
 
-  input?: HTMLInputElement | SgdsInput;
+  input?: HTMLInputElement | SitInput;
 }

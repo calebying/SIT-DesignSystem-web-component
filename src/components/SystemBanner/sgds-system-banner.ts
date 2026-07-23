@@ -1,15 +1,15 @@
 import { html, nothing, PropertyValueMap } from "lit";
 import { property, query, queryAssignedElements, state } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
-import SgdsCloseButton from "../CloseButton/sgds-close-button";
+import SitElement from "../../base/sgds-element";
+import SitCloseButton from "../CloseButton/sgds-close-button";
 import { animateTo } from "../../utils/animate";
 import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry";
 import { watch } from "../../utils/watch";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsIconButton from "../IconButton/sgds-icon-button";
+import SitIcon from "../Icon/sgds-icon";
+import SitIconButton from "../IconButton/sgds-icon-button";
 import alertBannerStyles from "./system-banner.css";
-import SgdsSystemBannerItem from "./sgds-system-banner-item";
+import SitSystemBannerItem from "./sgds-system-banner-item";
 import { SystemBannerChildCountContext, NoClampActionContext } from "./system-banner-context";
 import { provide } from "@lit/context";
 
@@ -20,16 +20,16 @@ import { provide } from "@lit/context";
  *
  * @slot default - The slot to pass in `sgds-system-banner-item`
  *
- * @event sgds-show - Emitted when the banner has start to appear on screen
- * @event sgds-hide - Emitted when the banner is disappearing from the screen
+ * @event sit-show - Emitted when the banner has start to appear on screen
+ * @event sit-hide - Emitted when the banner is disappearing from the screen
  */
-export class SgdsSystemBanner extends SgdsElement {
-  static styles = [...SgdsElement.styles, alertBannerStyles];
+export class SitSystemBanner extends SitElement {
+  static styles = [...SitElement.styles, alertBannerStyles];
   /**@internal */
   static dependencies = {
-    "sgds-close-button": SgdsCloseButton,
-    "sgds-icon": SgdsIcon,
-    "sgds-icon-button": SgdsIconButton
+    "sgds-close-button": SitCloseButton,
+    "sgds-icon": SitIcon,
+    "sgds-icon-button": SitIconButton
   };
   /** Controls the appearance of the alert  */
   @property({ type: Boolean, reflect: true }) show = false;
@@ -39,7 +39,7 @@ export class SgdsSystemBanner extends SgdsElement {
 
   /** Disables the action link that appears when text content is clamped */
   @provide({ context: NoClampActionContext })
-  /** When true, all its children SgdsSystemBannerItem's message will be truncated with ellipsis only */
+  /** When true, all its children SitSystemBannerItem's message will be truncated with ellipsis only */
   @property({ type: Boolean })
   noClampAction = false;
 
@@ -51,7 +51,7 @@ export class SgdsSystemBanner extends SgdsElement {
     this.show = false;
   }
   @queryAssignedElements({ flatten: true })
-  private bannerItem: SgdsSystemBannerItem[];
+  private bannerItem: SitSystemBannerItem[];
 
   @query(".banner")
   private banner: HTMLDivElement;
@@ -95,11 +95,11 @@ export class SgdsSystemBanner extends SgdsElement {
   async _handleShowChange() {
     if (this.show) {
       this.childCount > 1 && this._startAutoCycle();
-      this.emit("sgds-show");
+      this.emit("sit-show");
       this.banner.classList.remove("d-none");
     } else {
       this._stopAutoCycle();
-      this.emit("sgds-hide");
+      this.emit("sit-hide");
       this.banner.classList.add("d-none");
     }
   }
@@ -129,7 +129,7 @@ export class SgdsSystemBanner extends SgdsElement {
     this._animateItem(items[this._currentIndex], "prev");
     this._resetAutoCycle();
   }
-  private async _animateItem(item: SgdsSystemBannerItem, direction: "next" | "prev") {
+  private async _animateItem(item: SitSystemBannerItem, direction: "next" | "prev") {
     // Cancel any existing animations before starting a new one
     item.getAnimations().forEach(a => a.cancel());
     // Start the slide-down animation
@@ -207,7 +207,7 @@ export class SgdsSystemBanner extends SgdsElement {
   }
 }
 
-export default SgdsSystemBanner;
+export default SitSystemBanner;
 
 setDefaultAnimation("banner.item.next", {
   keyframes: [

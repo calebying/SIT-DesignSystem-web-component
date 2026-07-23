@@ -1,32 +1,32 @@
 import { html, nothing, PropertyValueMap } from "lit";
 import { property, queryAssignedElements, state } from "lit/decorators.js";
 import { live } from "lit/directives/live.js";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsCheckbox from "./sgds-checkbox";
+import SitIcon from "../Icon/sgds-icon";
+import SitCheckbox from "./sgds-checkbox";
 import FormControlElement from "../../base/form-control-element";
 import { defaultValue } from "../../utils/defaultvalue";
-import { SgdsFormValidatorMixin } from "../../utils/validatorMixin";
+import { SitFormValidatorMixin } from "../../utils/validatorMixin";
 import { watch } from "../../utils/watch";
 import checkboxGroupStyles from "./checkbox-group.css";
-import type { ISgdsCheckboxGroupChangeEventDetail } from "./types";
-export type { ISgdsCheckboxGroupChangeEventDetail };
+import type { ISitCheckboxGroupChangeEventDetail } from "./types";
+export type { ISitCheckboxGroupChangeEventDetail };
 /**
  * @summary CheckboxGroup is a form component for multiselection of checkboxes.
  *
- * @event sgds-change - Emitted when the value of the CheckboxGroup changes. This happens when checkboxes are checked or unchecked.
- * @event sgds-invalid - Emitted when the checkbox group's invalid state is set to true.
- * @event sgds-valid - Emitted when the checkbox group's invalid state is set to false.
+ * @event sit-change - Emitted when the value of the CheckboxGroup changes. This happens when checkboxes are checked or unchecked.
+ * @event sit-invalid - Emitted when the checkbox group's invalid state is set to true.
+ * @event sit-valid - Emitted when the checkbox group's invalid state is set to false.
  *
  * @slot default - Pass in `sgds-checkbox` into the default slot
  * @slot invalidIcon - The slot for invalid icon
  *
  */
-export class SgdsCheckboxGroup extends SgdsFormValidatorMixin(FormControlElement) {
+export class SitCheckboxGroup extends SitFormValidatorMixin(FormControlElement) {
   static styles = [...FormControlElement.styles, checkboxGroupStyles];
 
   /**@internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon
+    "sgds-icon": SitIcon
   };
 
   /** The checkbox group's label  */
@@ -35,7 +35,7 @@ export class SgdsCheckboxGroup extends SgdsFormValidatorMixin(FormControlElement
   /**Feedback text for error state when validated */
   @property({ type: String, reflect: true }) invalidFeedback = "Please tick at least one box if you want to proceed";
 
-  /** Allows invalidFeedback, invalid styles to be visible. When SgdsCheckboxGroup is used, it overrides the value of hasFeedback on SgdsCheckbox with its own value. */
+  /** Allows invalidFeedback, invalid styles to be visible. When SitCheckboxGroup is used, it overrides the value of hasFeedback on SitCheckbox with its own value. */
   @property({ type: Boolean, reflect: true }) hasFeedback = false;
 
   /** The checkbox group's hint text */
@@ -57,21 +57,21 @@ export class SgdsCheckboxGroup extends SgdsFormValidatorMixin(FormControlElement
   defaultValue = "";
 
   @state()
-  private _blurredCheckboxes = new Set<SgdsCheckbox>();
+  private _blurredCheckboxes = new Set<SitCheckbox>();
 
   connectedCallback() {
     super.connectedCallback();
-    this.addEventListener("sgds-check", (e: CustomEvent) => {
+    this.addEventListener("sit-check", (e: CustomEvent) => {
       const { value } = e.detail;
       !this.value.includes(value) && this._addValue(value);
     });
-    this.addEventListener("sgds-uncheck", (e: CustomEvent) => {
+    this.addEventListener("sit-uncheck", (e: CustomEvent) => {
       const { value } = e.detail;
       this._removeValue(value);
     });
     /** Blurring when all checkboxes are blurred */
-    this.addEventListener("sgds-blur", e => {
-      const checkbox = e.target as SgdsCheckbox;
+    this.addEventListener("sit-blur", e => {
+      const checkbox = e.target as SitCheckbox;
       this._blurredCheckboxes.add(checkbox);
       if (Array.from(this._blurredCheckboxes).length === this._checkboxes.length) {
         this._isTouched = true;
@@ -96,21 +96,21 @@ export class SgdsCheckboxGroup extends SgdsFormValidatorMixin(FormControlElement
   }
 
   @queryAssignedElements()
-  private _checkboxes!: Array<SgdsCheckbox>;
+  private _checkboxes!: Array<SitCheckbox>;
 
   private _addValue(newValue: string) {
     const valueArray = this.value ? this.value.split(";") : [];
     valueArray.push(newValue);
     this.value = valueArray.join(";");
     this._updateInputValue();
-    this.emit<ISgdsCheckboxGroupChangeEventDetail>("sgds-change", { detail: { value: this.value } });
+    this.emit<ISitCheckboxGroupChangeEventDetail>("sgds-change", { detail: { value: this.value } });
   }
   private _removeValue(oldValue: string) {
     const valueArray = this.value ? this.value.split(";") : [];
     const newValueArray = valueArray.filter(v => v !== oldValue);
     this.value = newValueArray.join(";");
     this._updateInputValue();
-    this.emit<ISgdsCheckboxGroupChangeEventDetail>("sgds-change", { detail: { value: this.value } });
+    this.emit<ISitCheckboxGroupChangeEventDetail>("sgds-change", { detail: { value: this.value } });
   }
 
   private _sanitizeSlot() {
@@ -146,7 +146,7 @@ export class SgdsCheckboxGroup extends SgdsFormValidatorMixin(FormControlElement
 
   @watch("_isTouched", { waitUntilFirstUpdate: true })
   _handleIsTouched() {
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
     if (this._isTouched) {
       this.invalid = !this.input.checkValidity();
       this._updateInvalid();
@@ -160,7 +160,7 @@ export class SgdsCheckboxGroup extends SgdsFormValidatorMixin(FormControlElement
 
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -240,4 +240,4 @@ export class SgdsCheckboxGroup extends SgdsFormValidatorMixin(FormControlElement
   }
 }
 
-export default SgdsCheckboxGroup;
+export default SitCheckboxGroup;

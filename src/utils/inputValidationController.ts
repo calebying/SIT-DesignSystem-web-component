@@ -1,6 +1,6 @@
 import { ReactiveController, ReactiveControllerHost } from "lit";
-import { SgdsFormControl } from "./formSubmitController";
-import { SgdsCheckbox, SgdsInput } from "../components";
+import { SitFormControl } from "./formSubmitController";
+import { SitCheckbox, SitInput } from "../components";
 
 interface HostWithInternals extends ReactiveControllerHost, HTMLElement {
   _internals?: ElementInternals;
@@ -20,13 +20,13 @@ export class InputValidationController implements ReactiveController {
     // Use the internals from the host if it implements the mixin
     this._internals = (host as HostWithInternals)._internals || this.host.attachInternals();
     this.options = {
-      setInvalid: (host: SgdsFormControl, value: boolean) => {
+      setInvalid: (host: SitFormControl, value: boolean) => {
         host.invalid = value;
       },
-      value: (host: SgdsFormControl) => {
+      value: (host: SitFormControl) => {
         return host.value;
       },
-      input: (host: SgdsFormControl) => host.input,
+      input: (host: SitFormControl) => host.input,
       ...options
     };
   }
@@ -155,5 +155,5 @@ export interface InputValidationControllerOptions {
   /** A function that gets the value of host value reactive prop */
   value: (host: ReactiveControllerHost & HTMLElement) => unknown;
   /** A function that gets the input control of host value reactive prop */
-  input: (host: ReactiveController & HTMLElement) => HTMLInputElement | SgdsInput | SgdsCheckbox;
+  input: (host: ReactiveController & HTMLElement) => HTMLInputElement | SitInput | SitCheckbox;
 }

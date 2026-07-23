@@ -1,14 +1,14 @@
 import { html, PropertyValueMap } from "lit";
 import { property } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import closeButtonStyles from "./close-button.css";
 import { warnUnregisteredElements } from "../../utils/ce-registry";
 /**
  * @summary Close button for closing actions. Used in Modal, Drawer, Alert and Toast.
  *
  */
-export class SgdsCloseButton extends SgdsElement {
-  static styles = [...SgdsElement.styles, closeButtonStyles];
+export class SitCloseButton extends SitElement {
+  static styles = [...SitElement.styles, closeButtonStyles];
 
   /** Specifies a large or small button */
   @property({ type: String, reflect: true }) size: "sm" | "md" = "md";
@@ -46,4 +46,4 @@ export class SgdsCloseButton extends SgdsElement {
   }
 }
 
-export default SgdsCloseButton;
+export default SitCloseButton;

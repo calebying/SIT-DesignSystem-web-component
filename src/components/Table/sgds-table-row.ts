@@ -1,5 +1,5 @@
 import { html } from "lit";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import tableRowStyle from "./table-row.css";
 
 /**
@@ -7,8 +7,8 @@ import tableRowStyle from "./table-row.css";
  *
  * @slot default - Insert any table cell or header elements to be displayed as part of this row.
  */
-export class SgdsTableRow extends SgdsElement {
-  static styles = [...SgdsElement.styles, tableRowStyle];
+export class SitTableRow extends SitElement {
+  static styles = [...SitElement.styles, tableRowStyle];
 
   connectedCallback() {
     super.connectedCallback();
@@ -20,4 +20,4 @@ export class SgdsTableRow extends SgdsElement {
   }
 }
 
-export default SgdsTableRow;
+export default SitTableRow;

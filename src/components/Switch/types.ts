@@ -1,3 +1,3 @@
-export interface ISgdsSwitchChangeEventDetail {
+export interface ISitSwitchChangeEventDetail {
   checked: boolean;
 }

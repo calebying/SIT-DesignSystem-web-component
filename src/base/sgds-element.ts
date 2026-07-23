@@ -2,7 +2,7 @@ import { isServer, LitElement, type CSSResult } from "lit";
 import style from "./sgds-element.css";
 import { property } from "lit/decorators.js";
 
-export default class SgdsElement extends LitElement {
+export default class SitElement extends LitElement {
   static styles: CSSResult[] = [style];
   /**@internal Set to true in SSR environment */
   @property({ type: Boolean, reflect: true }) ssr = isServer || Boolean(this.shadowRoot);
@@ -23,12 +23,12 @@ export default class SgdsElement extends LitElement {
     return event;
   }
   static define(name: string, elementConstructor = this, options: ElementDefinitionOptions = {}) {
-    const currentlyRegisteredConstructor = customElements.get(name) as CustomElementConstructor | typeof SgdsElement;
+    const currentlyRegisteredConstructor = customElements.get(name) as CustomElementConstructor | typeof SitElement;
 
     if (!currentlyRegisteredConstructor) {
       // We try to register as the actual class first. If for some reason that fails, we fall back to anonymous classes.
       // customElements can only have 1 class of the same "object id" per registry, so that is why the try {} catch {} exists.
-      // Some tools like Jest Snapshots and if you import the constructor and call `new SgdsButton()` they will fail with
+      // Some tools like Jest Snapshots and if you import the constructor and call `new SitButton()` they will fail with
       //   the anonymous class version.
       try {
         customElements.define(name, elementConstructor, options);
@@ -39,12 +39,12 @@ export default class SgdsElement extends LitElement {
     }
   }
   /** @internal */
-  static dependencies: Record<string, typeof SgdsElement> = {};
+  static dependencies: Record<string, typeof SitElement> = {};
 
   constructor() {
     super();
-    Object.entries((this.constructor as typeof SgdsElement).dependencies).forEach(([name, component]) => {
-      (this.constructor as typeof SgdsElement).define(name, component);
+    Object.entries((this.constructor as typeof SitElement).dependencies).forEach(([name, component]) => {
+      (this.constructor as typeof SitElement).define(name, component);
     });
   }
 

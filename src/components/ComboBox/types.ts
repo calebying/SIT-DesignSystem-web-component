@@ -1,3 +1,3 @@
-export interface ISgdsComboBoxInputEventDetail {
+export interface ISitComboBoxInputEventDetail {
   displayValue: string;
 }

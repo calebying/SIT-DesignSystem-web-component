@@ -2,22 +2,22 @@ import { isBefore, isEqual } from "date-fns";
 import { html } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { sanitizedNextMonth, sanitizedPreviousMonth } from "../../utils/time";
 import { watch } from "../../utils/watch";
-import SgdsButton from "../Button/sgds-button";
-import SgdsIconButton from "../IconButton/sgds-icon-button";
+import SitButton from "../Button/sgds-button";
+import SitIconButton from "../IconButton/sgds-icon-button";
 import datepickerHeaderStyle from "./datepicker-header.css";
 import { ViewEnum } from "./types";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sgds-icon";
 
-export class DatepickerHeader extends SgdsElement {
+export class DatepickerHeader extends SitElement {
   static styles = [datepickerHeaderStyle];
   /** @internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon,
-    "sgds-icon-button": SgdsIconButton,
-    "sgds-button": SgdsButton
+    "sgds-icon": SitIcon,
+    "sgds-icon-button": SitIconButton,
+    "sgds-button": SitButton
   };
 
   /** @internal */
@@ -39,7 +39,7 @@ export class DatepickerHeader extends SgdsElement {
 
   @watch("focusedTabIndex", { waitUntilFirstUpdate: true })
   _handleFocusedTabIndexChange() {
-    let buttonToFocus: SgdsButton | SgdsIconButton;
+    let buttonToFocus: SitButton | SitIconButton;
     switch (this.focusedTabIndex) {
       case 0:
         buttonToFocus = this.shadowRoot.querySelector("sgds-icon-button[name='arrow-left']");
@@ -67,7 +67,7 @@ export class DatepickerHeader extends SgdsElement {
       case "years":
         break;
     }
-    this.emit("sgds-view", { detail: this.view }); // emit event to render the correct view
+    this.emit("sit-view", { detail: this.view }); // emit event to render the correct view
   }
 
   public renderHeader(displayDate = this.displayDate, view = this.view) {
@@ -113,7 +113,7 @@ export class DatepickerHeader extends SgdsElement {
     }
     this.displayDate = newDisplayDate; // Update the displayDate property
     // emit event to render correct view
-    this.emit("sgds-change-calendar", { detail: this.displayDate });
+    this.emit("sit-change-calendar", { detail: this.displayDate });
   }
 
   /** @internal */
@@ -136,7 +136,7 @@ export class DatepickerHeader extends SgdsElement {
     this.displayDate = newDisplayDate; // Update the displayDate property
 
     //emit event to render correct view
-    this.emit("sgds-change-calendar", { detail: this.displayDate });
+    this.emit("sit-change-calendar", { detail: this.displayDate });
   }
   private _removeCaret(): boolean {
     const displayYear = this.displayDate.getFullYear();

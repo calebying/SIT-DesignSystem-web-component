@@ -1,10 +1,10 @@
-import { SgdsOverflowMenu } from "./sgds-overflow-menu";
+import { SitOverflowMenu } from "./sgds-overflow-menu";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-overflow-menu", SgdsOverflowMenu);
+register("sgds-overflow-menu", SitOverflowMenu);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-overflow-menu": SgdsOverflowMenu;
+    "sgds-overflow-menu": SitOverflowMenu;
   }
 }

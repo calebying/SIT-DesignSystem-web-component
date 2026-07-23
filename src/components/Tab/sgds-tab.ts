@@ -1,7 +1,7 @@
 import { html } from "lit";
 import { property, query } from "lit/decorators.js";
 import { ifDefined } from "lit/directives/if-defined.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import tabStyle from "./tab.css";
 import { watch } from "../../utils/watch";
 
@@ -13,7 +13,7 @@ let id = 0;
  * @slot icon - The slot to place leading icon.
  *
  */
-export class SgdsTab extends SgdsElement {
+export class SitTab extends SitElement {
   static styles = [tabStyle];
   @query(".tab") private tab: HTMLElement;
   private readonly attrId = ++id;
@@ -75,4 +75,4 @@ export class SgdsTab extends SgdsElement {
   }
 }
 
-export default SgdsTab;
+export default SitTab;

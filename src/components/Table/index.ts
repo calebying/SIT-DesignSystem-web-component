@@ -1,19 +1,19 @@
-import SgdsTable from "./sgds-table";
+import SitTable from "./sgds-table";
 import { register } from "../../utils/ce-registry";
-import SgdsTableHead from "./sgds-table-head";
-import SgdsTableRow from "./sgds-table-row";
-import SgdsTableCell from "./sgds-table-cell";
+import SitTableHead from "./sgds-table-head";
+import SitTableRow from "./sgds-table-row";
+import SitTableCell from "./sgds-table-cell";
 
-register("sgds-table", SgdsTable);
-register("sgds-table-head", SgdsTableHead);
-register("sgds-table-row", SgdsTableRow);
-register("sgds-table-cell", SgdsTableCell);
+register("sgds-table", SitTable);
+register("sgds-table-head", SitTableHead);
+register("sgds-table-row", SitTableRow);
+register("sgds-table-cell", SitTableCell);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-table": SgdsTable;
-    "sgds-table-head": SgdsTableHead;
-    "sgds-table-row": SgdsTableRow;
-    "sgds-table-cell": SgdsTableCell;
+    "sgds-table": SitTable;
+    "sgds-table-head": SitTableHead;
+    "sgds-table-row": SitTableRow;
+    "sgds-table-cell": SitTableCell;
   }
 }

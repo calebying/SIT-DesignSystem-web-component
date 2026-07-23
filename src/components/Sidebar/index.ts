@@ -1,23 +1,23 @@
-import { SgdsSidebar } from "./sgds-sidebar";
-import { SgdsSidebarGroup } from "./sgds-sidebar-group";
-import { SgdsSidebarItem } from "./sgds-sidebar-item";
-import { SgdsSidebarSection } from "./sgds-sidebar-section";
+import { SitSidebar } from "./sgds-sidebar";
+import { SitSidebarGroup } from "./sgds-sidebar-group";
+import { SitSidebarItem } from "./sgds-sidebar-item";
+import { SitSidebarSection } from "./sgds-sidebar-section";
 
-customElements.define("sgds-sidebar", SgdsSidebar);
-customElements.define("sgds-sidebar-item", SgdsSidebarItem);
-customElements.define("sgds-sidebar-section", SgdsSidebarSection);
-customElements.define("sgds-sidebar-group", SgdsSidebarGroup);
+customElements.define("sgds-sidebar", SitSidebar);
+customElements.define("sgds-sidebar-item", SitSidebarItem);
+customElements.define("sgds-sidebar-section", SitSidebarSection);
+customElements.define("sgds-sidebar-group", SitSidebarGroup);
 
-export type { SgdsSidebar } from "./sgds-sidebar";
-export type { SgdsSidebarGroup } from "./sgds-sidebar-group";
-export type { SgdsSidebarItem } from "./sgds-sidebar-item";
-export type { SgdsSidebarSection } from "./sgds-sidebar-section";
+export type { SitSidebar } from "./sgds-sidebar";
+export type { SitSidebarGroup } from "./sgds-sidebar-group";
+export type { SitSidebarItem } from "./sgds-sidebar-item";
+export type { SitSidebarSection } from "./sgds-sidebar-section";
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-sidebar": SgdsSidebar;
-    "sgds-sidebar-item": SgdsSidebarItem;
-    "sgds-sidebar-section": SgdsSidebarSection;
-    "sgds-sidebar-group": SgdsSidebarGroup;
+    "sgds-sidebar": SitSidebar;
+    "sgds-sidebar-item": SitSidebarItem;
+    "sgds-sidebar-section": SitSidebarSection;
+    "sgds-sidebar-group": SitSidebarGroup;
   }
 }

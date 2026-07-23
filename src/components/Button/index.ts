@@ -1,10 +1,10 @@
-import { SgdsButton } from "./sgds-button";
+import { SitButton } from "./sgds-button";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-button", SgdsButton);
+register("sgds-button", SitButton);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-button": SgdsButton;
+    "sgds-button": SitButton;
   }
 }

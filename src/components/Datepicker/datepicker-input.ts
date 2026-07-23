@@ -4,12 +4,12 @@ import { html, PropertyValueMap } from "lit";
 import { property, queryAsync } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import { DATE_PATTERNS, setTimeToNoon } from "../../utils/time";
-import { SgdsInput } from "../Input/sgds-input";
+import { SitInput } from "../Input/sgds-input";
 import datepickerInputStyles from "./datepicker-input.css";
 export type DateFormat = "MM/DD/YYYY" | "DD/MM/YYYY" | "YYYY/MM/DD";
 
-export class DatepickerInput extends SgdsInput {
-  static styles = [...SgdsInput.styles, datepickerInputStyles];
+export class DatepickerInput extends SitInput {
+  static styles = [...SitInput.styles, datepickerInputStyles];
   /** Date format reflected on input  */
   private dateFormat = "DD/MM/YYYY";
 
@@ -54,12 +54,12 @@ export class DatepickerInput extends SgdsInput {
       this.setInvalid(false);
     }
 
-    this.emit("sgds-blur");
+    this.emit("sit-blur");
   }
 
   protected override async _handleChange(e: Event) {
     this.value = this.input.value;
-    this.emit("sgds-change");
+    this.emit("sit-change");
     super._mixinHandleChange(e);
     await this._validateInput();
   }
@@ -112,7 +112,7 @@ export class DatepickerInput extends SgdsInput {
     this.mask = IMask(shadowInput, maskOptions);
     this.mask.on("accept", () => {
       this.value = this.mask.masked.value;
-      this.emit("i-sgds-mask-input-change", { detail: this.value });
+      this.emit("i-sit-mask-input-change", { detail: this.value });
     });
     /**
      * Validation after date is complete
@@ -138,19 +138,19 @@ export class DatepickerInput extends SgdsInput {
 
     if (invalidDates.length > 0) {
       this.setInvalid(true);
-      return this.emit("i-sgds-invalid-input");
+      return this.emit("i-sit-invalid-input");
     }
     if (this.mode === "range" && dateArray.length === 1) {
       this.setInvalid(true);
-      return this.emit("i-sgds-invalid-input");
+      return this.emit("i-sit-invalid-input");
     }
     if (invalidDates.length === 0 && dateArray.length > 0) {
       this.setInvalid(false);
-      return this.emit("i-sgds-selectdates-input", { detail: dateArray });
+      return this.emit("i-sit-selectdates-input", { detail: dateArray });
     }
     if (dateArray.length === 0 && invalidDates.length === 0) {
       this.setInvalid(false);
-      return this.emit("i-sgds-empty-input");
+      return this.emit("i-sit-empty-input");
     }
   };
 

@@ -1,19 +1,19 @@
 import { html } from "lit";
 import { property, queryAssignedElements } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { watch } from "../../utils/watch";
 import sidenavLinkStyle from "./sidenav-link.css";
 
 /**
  * @slot default - slot for label of anchor tag.
  */
-export class SgdsSidenavLink extends SgdsElement {
-  static styles = [...SgdsElement.styles, sidenavLinkStyle];
+export class SitSidenavLink extends SitElement {
+  static styles = [...SitElement.styles, sidenavLinkStyle];
   /** when true, sets the active stylings of .nav-link */
   @property({ type: Boolean, reflect: true })
   active = false;
 
-  /** Disables the SgdsMainnavItem */
+  /** Disables the SitMainnavItem */
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
@@ -50,4 +50,4 @@ export class SgdsSidenavLink extends SgdsElement {
   }
 }
 
-export default SgdsSidenavLink;
+export default SitSidenavLink;

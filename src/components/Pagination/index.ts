@@ -1,9 +1,9 @@
-import { SgdsPagination } from "./sgds-pagination";
+import { SitPagination } from "./sgds-pagination";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-pagination", SgdsPagination);
+register("sgds-pagination", SitPagination);
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-pagination": SgdsPagination;
+    "sgds-pagination": SitPagination;
   }
 }

@@ -1,6 +1,6 @@
 import { property, query, state } from "lit/decorators.js";
 import { DropdownElement } from "./dropdown-element";
-import { SgdsDropdownItem } from "../components";
+import { SitDropdownItem } from "../components";
 import { PropertyValueMap } from "lit";
 
 const TAB = "Tab";
@@ -9,7 +9,7 @@ const ARROW_UP = "ArrowUp";
 const ENTER = "Enter";
 
 /**
- * @event sgds-select - Emitted when a dropdown item is selected. `event.detail.item` is the clicked `SgdsDropdownItem` element.
+ * @event sit-select - Emitted when a dropdown item is selected. `event.detail.item` is the clicked `SitDropdownItem` element.
  */
 export class DropdownListElement extends DropdownElement {
   static styles = DropdownElement.styles;
@@ -31,12 +31,12 @@ export class DropdownListElement extends DropdownElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.addEventListener("sgds-hide", this._resetMenu);
+    this.addEventListener("sit-hide", this._resetMenu);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this.removeEventListener("sgds-hide", this._resetMenu);
+    this.removeEventListener("sit-hide", this._resetMenu);
   }
 
   firstUpdated(changedProperties: PropertyValueMap<this>) {
@@ -54,9 +54,9 @@ export class DropdownListElement extends DropdownElement {
     this.nextDropdownItemNo = currentItemNo + 1;
     this.prevDropdownItemNo = currentItemNo <= 0 ? items.length - 1 : currentItemNo - 1;
 
-    /** Emitted event from SgdsDropdown element when a slot item is selected */
+    /** Emitted event from SitDropdown element when a slot item is selected */
     if (!selectedItem.disabled) {
-      this.emit("sgds-select", { detail: { item: selectedItem } });
+      this.emit("sit-select", { detail: { item: selectedItem } });
       if (this.close !== "outside") {
         this.hideMenu(); // <-- Use new API
       }
@@ -108,7 +108,7 @@ export class DropdownListElement extends DropdownElement {
     }
   }
 
-  private _getMenuItems(): SgdsDropdownItem[] {
+  private _getMenuItems(): SitDropdownItem[] {
     const defaultSlot = this.shadowRoot.querySelector("slot#default");
     // for case when default slot is used e.g. dropdown, mainnavdropdown
     if (defaultSlot) {
@@ -116,19 +116,19 @@ export class DropdownListElement extends DropdownElement {
         ?.assignedElements({
           flatten: true
         })
-        .filter(el => !el.classList.contains("empty-menu") && !el.hasAttribute("hidden")) as SgdsDropdownItem[];
+        .filter(el => !el.classList.contains("empty-menu") && !el.hasAttribute("hidden")) as SitDropdownItem[];
       return defaultSlotItems;
     }
     // for case when there is no slot e.g. combobox
     if (this.menu?.hasChildNodes()) {
       const menuItems = Array.from(this.menu.children);
-      return [...menuItems] as SgdsDropdownItem[];
+      return [...menuItems] as SitDropdownItem[];
     }
 
     return [];
   }
 
-  private _getActiveMenuItems(): SgdsDropdownItem[] {
+  private _getActiveMenuItems(): SitDropdownItem[] {
     return this._getMenuItems().filter(item => !item.disabled && !item.hidden);
   }
   private _setMenuItem(currentItemIdx: number) {
@@ -138,7 +138,7 @@ export class DropdownListElement extends DropdownElement {
     // Use modulo for looping
     const idx = ((currentItemIdx % items.length) + items.length) % items.length;
     const activeItem = items[idx];
-    this.emit("i-sgds-option-focus", { detail: { option: activeItem } });
+    this.emit("i-sit-option-focus", { detail: { option: activeItem } });
     this.nextDropdownItemNo = (idx + 1) % items.length;
     this.prevDropdownItemNo = (idx - 1 + items.length) % items.length;
 
@@ -151,5 +151,5 @@ export class DropdownListElement extends DropdownElement {
 }
 
 export interface IDropdownListElement {
-  item: SgdsDropdownItem;
+  item: SitDropdownItem;
 }

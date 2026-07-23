@@ -1,7 +1,7 @@
-export type ISgdsFileUploadAddFilesEventDetail = FileList;
-export type ISgdsFileUploadChangeEventDetail = FileList;
-export type ISgdsFileUploadFilesSelectedEventDetail = FileList;
-export interface ISgdsFileUploadRemoveFileEventDetail {
+export type ISitFileUploadAddFilesEventDetail = FileList;
+export type ISitFileUploadChangeEventDetail = FileList;
+export type ISitFileUploadFilesSelectedEventDetail = FileList;
+export interface ISitFileUploadRemoveFileEventDetail {
   file: File;
   files: FileList;
 }

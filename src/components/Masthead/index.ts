@@ -1,10 +1,10 @@
-import { SgdsMasthead } from "./sgds-masthead";
+import { SitMasthead } from "./sgds-masthead";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-masthead", SgdsMasthead);
+register("sgds-masthead", SitMasthead);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-masthead": SgdsMasthead;
+    "sgds-masthead": SitMasthead;
   }
 }

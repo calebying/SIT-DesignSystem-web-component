@@ -1,10 +1,10 @@
-import { SgdsIcon } from "./sgds-icon";
+import { SitIcon } from "./sgds-icon";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-icon", SgdsIcon);
+register("sgds-icon", SitIcon);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-icon": SgdsIcon;
+    "sgds-icon": SitIcon;
   }
 }

@@ -1,7 +1,7 @@
 import { property } from "lit/decorators.js";
 import { Ref, createRef } from "lit/directives/ref.js";
 import { computePosition, flip, shift, offset, Placement, Middleware, autoUpdate, Strategy } from "@floating-ui/dom";
-import SgdsElement from "./sgds-element";
+import SitElement from "./sgds-element";
 import generateId from "../utils/generateId";
 import { PropertyValueMap } from "lit";
 
@@ -12,14 +12,14 @@ const ESC = "Escape";
 export type DropDirection = "left" | "right" | "up" | "down";
 
 /**
- * @event sgds-show - Emitted event when show instance is called
- * @event sgds-after-show - Emitted event when dropdown has been made visible to the user and CSS transitions have completed
- * @event sgds-hide - Emitted event when hide instance is called
- * @event sgds-after-hide - Emitted event when dropdown has hidden to the user and CSS transitions have completed
+ * @event sit-show - Emitted event when show instance is called
+ * @event sit-after-show - Emitted event when dropdown has been made visible to the user and CSS transitions have completed
+ * @event sit-hide - Emitted event when hide instance is called
+ * @event sit-after-hide - Emitted event when dropdown has hidden to the user and CSS transitions have completed
  */
 
-export class DropdownElement extends SgdsElement {
-  // static styles = SgdsElement.styles;
+export class DropdownElement extends SitElement {
+  // static styles = SitElement.styles;
 
   /** @internal */
   protected myDropdown: Ref<HTMLElement> = createRef();
@@ -47,7 +47,7 @@ export class DropdownElement extends SgdsElement {
   @property({ type: Boolean, reflect: true })
   menuIsOpen = false;
 
-  /** Controls the close behaviour of dropdown menu. By default menu auto-closes when SgdsDropdownItem or area outside dropdown is clicked */
+  /** Controls the close behaviour of dropdown menu. By default menu auto-closes when SitDropdownItem or area outside dropdown is clicked */
   protected close: "outside" | "default" | "inside" = "default";
 
   /** Disables the dropdown toggle */
@@ -95,9 +95,9 @@ export class DropdownElement extends SgdsElement {
   public async showMenu() {
     if (this.disabled || this.menuIsOpen) return;
     this.menuIsOpen = true;
-    this.emit("sgds-show");
+    this.emit("sit-show");
     await this.updateFloatingPosition();
-    this.emit("sgds-after-show");
+    this.emit("sit-after-show");
     this._startAutoUpdate();
   }
 
@@ -113,10 +113,10 @@ export class DropdownElement extends SgdsElement {
   /** When invoked, hides the dropdown menu */
   public hideMenu(isOutside?: boolean) {
     if (!this.menuIsOpen) return;
-    this.emit("sgds-hide", { detail: { isOutside } });
+    this.emit("sit-hide", { detail: { isOutside } });
 
     this.menuIsOpen = false;
-    setTimeout(() => this.emit("sgds-after-hide"), 0);
+    setTimeout(() => this.emit("sit-after-hide"), 0);
 
     if (this._cleanupAutoUpdate) {
       this._cleanupAutoUpdate();

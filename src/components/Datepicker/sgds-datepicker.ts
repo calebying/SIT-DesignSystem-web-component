@@ -4,18 +4,18 @@ import { property, query, queryAsync, state } from "lit/decorators.js";
 import { live } from "lit/directives/live.js";
 import { ref } from "lit/directives/ref.js";
 import { DropdownElement } from "../../base/dropdown-element";
-import { type SgdsFormControl } from "../../utils/formSubmitController";
+import { type SitFormControl } from "../../utils/formSubmitController";
 import { DATE_PATTERNS, setTimeToNoon } from "../../utils/time";
 import { watch } from "../../utils/watch";
-import { SgdsButton } from "../Button/sgds-button";
+import { SitButton } from "../Button/sgds-button";
 import dropdownMenuStyle from "../Dropdown/dropdown-menu.css";
 import { DatepickerCalendar } from "./datepicker-calendar";
 import { DatepickerHeader } from "./datepicker-header";
 import DatepickerInput from "./datepicker-input";
 import datepickerStyle from "./datepicker.css";
 import { ViewEnum } from "./types";
-import SgdsIconButton from "../IconButton/sgds-icon-button";
-import { SgdsFormValidatorMixin } from "../../utils/validatorMixin";
+import SitIconButton from "../IconButton/sgds-icon-button";
+import { SitFormValidatorMixin } from "../../utils/validatorMixin";
 import { ifDefined } from "lit/directives/if-defined.js";
 import { classMap } from "lit/directives/class-map.js";
 import { defaultValue } from "../../utils/defaultvalue";
@@ -25,23 +25,23 @@ export type DateFormat = "MM/DD/YYYY" | "DD/MM/YYYY" | "YYYY/MM/DD";
 /**
  * @summary The `DatePicker` Component is built using `Dropdown`, `Input` and `Button` components. By default, the Calendar points to today's date and input has no value. Users can either pick dates from the calendar or type dates through the input
  *
- * @event sgds-change-date - Emitted when the state of datepicker's input changes during first load, close button reset click & date click. Date values can be accessed via event.target.value
- * @event sgds-invalid - Emitted when the combo box's invalid state is set to true.
- * @event sgds-valid - Emitted when the combo box's invalid state is set to false.
+ * @event sit-change-date - Emitted when the state of datepicker's input changes during first load, close button reset click & date click. Date values can be accessed via event.target.value
+ * @event sit-invalid - Emitted when the combo box's invalid state is set to true.
+ * @event sit-valid - Emitted when the combo box's invalid state is set to false.
  *
  * @description displayDate sets the month, year views of the calendar while focusedDate follows the focus which also directly changes
  * displayDate on certain occasions. Example, when keyboard moves up to the next month, it updates displayDate which then affect the current
  * date view of the calendar
  */
-export class SgdsDatepicker extends SgdsFormValidatorMixin(DropdownElement) implements SgdsFormControl {
+export class SitDatepicker extends SitFormValidatorMixin(DropdownElement) implements SitFormControl {
   static styles = [...DropdownElement.styles, dropdownMenuStyle, datepickerStyle];
   /**@internal */
   static dependencies = {
     "sgds-datepicker-input": DatepickerInput,
     "sgds-datepicker-calendar": DatepickerCalendar,
     "sgds-datepicker-header": DatepickerHeader,
-    "sgds-button": SgdsButton,
-    "sgds-icon-button": SgdsIconButton
+    "sgds-button": SitButton,
+    "sgds-icon-button": SitIconButton
   };
 
   constructor() {
@@ -141,7 +141,7 @@ export class SgdsDatepicker extends SgdsFormValidatorMixin(DropdownElement) impl
   private datepickerInput: DatepickerInput;
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -187,17 +187,17 @@ export class SgdsDatepicker extends SgdsFormValidatorMixin(DropdownElement) impl
 
   async connectedCallback() {
     super.connectedCallback();
-    this.addEventListener("sgds-view", this._handleViewChanged);
-    this.addEventListener("sgds-change-calendar", this._handleDateChanged);
-    this.addEventListener("sgds-update-focus", this._handleFocusDateChanged);
-    this.addEventListener("sgds-selectmonth", this._handleSelectMonth);
-    this.addEventListener("sgds-selectyear", this._handleSelectYear);
-    this.addEventListener("sgds-selectdates", this._handleSelectDatesAndClose);
-    this.addEventListener("i-sgds-selectdates-input", this._handleSelectDatesInput);
-    this.addEventListener("i-sgds-empty-input", this._handleEmptyInput);
+    this.addEventListener("sit-view", this._handleViewChanged);
+    this.addEventListener("sit-change-calendar", this._handleDateChanged);
+    this.addEventListener("sit-update-focus", this._handleFocusDateChanged);
+    this.addEventListener("sit-selectmonth", this._handleSelectMonth);
+    this.addEventListener("sit-selectyear", this._handleSelectYear);
+    this.addEventListener("sit-selectdates", this._handleSelectDatesAndClose);
+    this.addEventListener("i-sit-selectdates-input", this._handleSelectDatesInput);
+    this.addEventListener("i-sit-empty-input", this._handleEmptyInput);
     this.addEventListener("keydown", this._handleTab);
-    this.addEventListener("sgds-hide", this._handleCloseMenu);
-    this.addEventListener("sgds-show", this._handleOpenMenu);
+    this.addEventListener("sit-hide", this._handleCloseMenu);
+    this.addEventListener("sit-show", this._handleOpenMenu);
     this.addEventListener("blur", this._mixinCheckValidity);
 
     this.initialValue = this.value ? this.value.split(" - ").map(v => v.trim()) : this.initialValue;
@@ -266,7 +266,7 @@ export class SgdsDatepicker extends SgdsFormValidatorMixin(DropdownElement) impl
 
   @watch("value", { waitUntilFirstUpdate: true })
   _handleValueChange() {
-    this.emit("sgds-change-date");
+    this.emit("sit-change-date");
   }
 
   private async _handleCloseMenu() {
@@ -365,7 +365,7 @@ export class SgdsDatepicker extends SgdsFormValidatorMixin(DropdownElement) impl
   private async _handleInvalidInput() {
     this.selectedDateRange = [];
     this.displayDate = this.initialDisplayDate;
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
 
     this.invalid = true;
     this._manageInternalsBadInput();
@@ -424,7 +424,7 @@ export class SgdsDatepicker extends SgdsFormValidatorMixin(DropdownElement) impl
    */
   private _manageInternalsValid() {
     this._mixinSetFormValue();
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
 
     this._mixinSetValidity({});
 
@@ -460,8 +460,8 @@ export class SgdsDatepicker extends SgdsFormValidatorMixin(DropdownElement) impl
           placeholder=${this.mode === "single" ? "DD/MM/YYYY" : "DD/MM/YYYY - DD/MM/YYYY"}
           mode=${this.mode}
           invalidFeedback=${ifDefined(this.invalidFeedback ? this.invalidFeedback : this._mixinGetValidationMessage())}
-          @i-sgds-mask-input-change=${this._handleInputMaskChange}
-          @i-sgds-invalid-input=${this._handleInvalidInput}
+          @i-sit-mask-input-change=${this._handleInputMaskChange}
+          @i-sit-invalid-input=${this._handleInvalidInput}
           minDate=${this.minDate}
           maxDate=${this.maxDate}
           label=${this.label}
@@ -523,4 +523,4 @@ export class SgdsDatepicker extends SgdsFormValidatorMixin(DropdownElement) impl
   }
 }
 
-export default SgdsDatepicker;
+export default SitDatepicker;

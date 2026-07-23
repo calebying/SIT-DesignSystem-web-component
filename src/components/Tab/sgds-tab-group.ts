@@ -1,8 +1,8 @@
 import { html, PropertyValues } from "lit";
 import { property, query, queryAssignedElements } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
-import { SgdsTab } from "./sgds-tab";
-import { SgdsTabPanel } from "./sgds-tab-panel";
+import SitElement from "../../base/sgds-element";
+import { SitTab } from "./sgds-tab";
+import { SitTabPanel } from "./sgds-tab-panel";
 import tabGroupStyle from "./tab-group.css";
 /**
  * @summary Tab Group organizes content into a container with the syncing of tab and their corresponding panels.
@@ -11,12 +11,12 @@ import tabGroupStyle from "./tab-group.css";
  * @slot default - The slot for `sgds-tab-panel`
  * @slot nav - The slot for `sgds-tab`
  *
- * @event sgds-tab-show - Emitted when a tab and its panels are shown. `event.detail.name` contains the active tab's panel name.
- * @event sgds-tab-hide - Emitted when a tab and its panels are hidden. `event.detail.name` contains the hidden tab's panel name.
+ * @event sit-tab-show - Emitted when a tab and its panels are shown. `event.detail.name` contains the active tab's panel name.
+ * @event sit-tab-hide - Emitted when a tab and its panels are hidden. `event.detail.name` contains the hidden tab's panel name.
  *
  */
-export class SgdsTabGroup extends SgdsElement {
-  static styles = [...SgdsElement.styles, tabGroupStyle];
+export class SitTabGroup extends SitElement {
+  static styles = [...SitElement.styles, tabGroupStyle];
 
   @query(".tab-group") private _tabGroup: HTMLElement;
 
@@ -24,15 +24,15 @@ export class SgdsTabGroup extends SgdsElement {
 
   @query(".tab-group__nav") private _nav: HTMLElement;
 
-  private _activeTab?: SgdsTab;
+  private _activeTab?: SitTab;
 
   private _mutationObserver: MutationObserver;
 
   private _resizeObserver: ResizeObserver;
 
-  private _tabs: SgdsTab[] = [];
+  private _tabs: SitTab[] = [];
 
-  private _panels: SgdsTabPanel[] = [];
+  private _panels: SitTabPanel[] = [];
   /** The variant of tabs. Controls the visual styles of all `sgds-tabs` in its slot. It also sets the variant atttribute of `sgds-tab` */
   @property({ type: String, reflect: true }) variant: "underlined" | "solid" = "underlined";
   /** The orientation of tabs. Controls the orientation of all `sgds-tabs` in its slot. It also sets the orientation attribute of `sgds-tab` */
@@ -97,7 +97,7 @@ export class SgdsTabGroup extends SgdsElement {
   private _getAllTabs(options: { includeDisabled: boolean } = { includeDisabled: true }) {
     const slot = this.shadowRoot.querySelector<HTMLSlotElement>('slot[name="nav"]');
 
-    return [...(slot.assignedElements() as SgdsTab[])].filter(el => {
+    return [...(slot.assignedElements() as SitTab[])].filter(el => {
       return options.includeDisabled
         ? el.tagName.toLowerCase() === "sgds-tab"
         : el.tagName.toLowerCase() === "sgds-tab" && !el.disabled;
@@ -105,7 +105,7 @@ export class SgdsTabGroup extends SgdsElement {
   }
   private _getAllPanels() {
     return [...this._body.assignedElements()].filter(el => el.tagName.toLowerCase() === "sgds-tab-panel") as [
-      SgdsTabPanel
+      SitTabPanel
     ];
   }
   private _getActiveTab() {
@@ -113,7 +113,7 @@ export class SgdsTabGroup extends SgdsElement {
   }
   private _handleClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
-    const tab = target.closest("sgds-tab") as SgdsTab;
+    const tab = target.closest("sgds-tab") as SitTab;
     const tabGroup = tab?.closest("sgds-tab-group");
 
     // Ensure the target tab is in this tab group
@@ -127,7 +127,7 @@ export class SgdsTabGroup extends SgdsElement {
   }
   private _handleKeyDown(event: KeyboardEvent) {
     const target = event.target as HTMLElement;
-    const tab = target.closest("sgds-tab") as SgdsTab;
+    const tab = target.closest("sgds-tab") as SitTab;
     const tabGroup = tab?.closest("sgds-tab-group");
 
     // Ensure the target tab is in this tab group
@@ -176,7 +176,7 @@ export class SgdsTabGroup extends SgdsElement {
       }
     }
   }
-  private _setActiveTab(tab: SgdsTab, options?: { emitEvents?: boolean }) {
+  private _setActiveTab(tab: SitTab, options?: { emitEvents?: boolean }) {
     options = {
       emitEvents: true,
       ...options
@@ -196,10 +196,10 @@ export class SgdsTabGroup extends SgdsElement {
       // Emit events
       if (options.emitEvents) {
         if (previousTab) {
-          this.emit("sgds-tab-hide", { detail: { name: previousTab.panel } });
+          this.emit("sit-tab-hide", { detail: { name: previousTab.panel } });
         }
 
-        this.emit("sgds-tab-show", { detail: { name: this._activeTab.panel } });
+        this.emit("sit-tab-show", { detail: { name: this._activeTab.panel } });
       }
     }
   }
@@ -221,7 +221,7 @@ export class SgdsTabGroup extends SgdsElement {
   }
 
   @queryAssignedElements({ slot: "nav", flatten: true })
-  private _navSlot: SgdsTab[];
+  private _navSlot: SitTab[];
 
   private _updateTabsAttribute(name: string) {
     if (!this._navSlot) return;
@@ -266,4 +266,4 @@ export class SgdsTabGroup extends SgdsElement {
   }
 }
 
-export default SgdsTabGroup;
+export default SitTabGroup;

@@ -2,27 +2,27 @@ import { html } from "lit";
 import { property, state } from "lit/decorators.js";
 import { createRef, ref } from "lit/directives/ref.js";
 import { repeat } from "lit/directives/repeat.js";
-import { SgdsButton } from "../Button/sgds-button";
-import SgdsCloseButton from "../CloseButton/sgds-close-button";
+import { SitButton } from "../Button/sgds-button";
+import SitCloseButton from "../CloseButton/sgds-close-button";
 import fileUploadStyles from "./file-upload.css";
 
 import FormControlElement from "../../base/form-control-element";
 import { formatFileSize } from "../../utils/file";
-import { SgdsFormValidatorMixin } from "../../utils/validatorMixin";
+import { SitFormValidatorMixin } from "../../utils/validatorMixin";
 import { watch } from "../../utils/watch";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsSpinner from "../Spinner/sgds-spinner";
+import SitIcon from "../Icon/sgds-icon";
+import SitSpinner from "../Spinner/sgds-spinner";
 import type {
-  ISgdsFileUploadAddFilesEventDetail,
-  ISgdsFileUploadChangeEventDetail,
-  ISgdsFileUploadFilesSelectedEventDetail,
-  ISgdsFileUploadRemoveFileEventDetail
+  ISitFileUploadAddFilesEventDetail,
+  ISitFileUploadChangeEventDetail,
+  ISitFileUploadFilesSelectedEventDetail,
+  ISitFileUploadRemoveFileEventDetail
 } from "./types";
 export type {
-  ISgdsFileUploadAddFilesEventDetail,
-  ISgdsFileUploadChangeEventDetail,
-  ISgdsFileUploadFilesSelectedEventDetail,
-  ISgdsFileUploadRemoveFileEventDetail
+  ISitFileUploadAddFilesEventDetail,
+  ISitFileUploadChangeEventDetail,
+  ISitFileUploadFilesSelectedEventDetail,
+  ISitFileUploadRemoveFileEventDetail
 };
 
 /**
@@ -30,24 +30,24 @@ export type {
  *
  * @slot default - Label for file upload button (used in default variant)
  *
- * @event sgds-files-selected - (@deprecated) Deprecated since 3.19.0 in favour of sgds-change. Emitted whenever the file set changes (files added or removed). Access the files with event.detail.
- * @eventDetail {ISgdsFileUploadFilesSelectedEventDetail} sgds-files-selected
- * @event sgds-add-files - Emitted when files are added to the upload. Access the files with event.detail
- * @eventDetail {ISgdsFileUploadAddFilesEventDetail} sgds-add-files
- * @event sgds-remove-file - Emitted when files are removed from the upload. Access the remaining files with event.detail
- * @eventDetail {ISgdsFileUploadRemoveFileEventDetail} sgds-remove-file
- * @event sgds-change - Emitted whenever the file set changes (files added or removed). Access the current files with event.detail
- * @eventDetail {ISgdsFileUploadChangeEventDetail} sgds-change
+ * @event sit-files-selected - (@deprecated) Deprecated since 3.19.0 in favour of sgds-change. Emitted whenever the file set changes (files added or removed). Access the files with event.detail.
+ * @eventDetail {ISitFileUploadFilesSelectedEventDetail} sgds-files-selected
+ * @event sit-add-files - Emitted when files are added to the upload. Access the files with event.detail
+ * @eventDetail {ISitFileUploadAddFilesEventDetail} sgds-add-files
+ * @event sit-remove-file - Emitted when files are removed from the upload. Access the remaining files with event.detail
+ * @eventDetail {ISitFileUploadRemoveFileEventDetail} sgds-remove-file
+ * @event sit-change - Emitted whenever the file set changes (files added or removed). Access the current files with event.detail
+ * @eventDetail {ISitFileUploadChangeEventDetail} sgds-change
  */
 
-export class SgdsFileUpload extends SgdsFormValidatorMixin(FormControlElement) {
+export class SitFileUpload extends SitFormValidatorMixin(FormControlElement) {
   static styles = [...FormControlElement.styles, fileUploadStyles];
   /**@internal */
   static dependencies = {
-    "sgds-button": SgdsButton,
-    "sgds-close-button": SgdsCloseButton,
-    "sgds-icon": SgdsIcon,
-    "sgds-spinner": SgdsSpinner
+    "sgds-button": SitButton,
+    "sgds-close-button": SitCloseButton,
+    "sgds-icon": SitIcon,
+    "sgds-spinner": SitSpinner
   };
 
   /** Allows multiple files to be listed for uploading */
@@ -101,7 +101,7 @@ export class SgdsFileUpload extends SgdsFormValidatorMixin(FormControlElement) {
 
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -147,10 +147,10 @@ export class SgdsFileUpload extends SgdsFormValidatorMixin(FormControlElement) {
 
   private _setFileList(files: FileList, previousCount = 0, deletedFile?: File) {
     // Always emit sgds-change event (fires on any file set change)
-    this.emit<ISgdsFileUploadChangeEventDetail>("sgds-change", { detail: files });
+    this.emit<ISitFileUploadChangeEventDetail>("sgds-change", { detail: files });
 
     // Always emit sgds-files-selected for backwards compatibility (deprecated)
-    this.emit<ISgdsFileUploadFilesSelectedEventDetail>("sgds-files-selected", { detail: files });
+    this.emit<ISitFileUploadFilesSelectedEventDetail>("sgds-files-selected", { detail: files });
 
     // Emit sgds-add-files when files are ADDED (count increased or file set changed while maintaining same count)
     if (files.length > previousCount) {
@@ -162,18 +162,18 @@ export class SgdsFileUpload extends SgdsFormValidatorMixin(FormControlElement) {
       const dt = new DataTransfer();
       newFilesArray.forEach(file => dt.items.add(file));
 
-      this.emit<ISgdsFileUploadAddFilesEventDetail>("sgds-add-files", { detail: dt.files });
+      this.emit<ISitFileUploadAddFilesEventDetail>("sgds-add-files", { detail: dt.files });
     } else if (files.length === previousCount && previousCount > 0 && !deletedFile) {
       // Handle single-file replacement case (e.g., when multiple=false and user selects a different file)
       // In this case, all files are "new" (different from before)
       const dt = new DataTransfer();
       Array.from(files).forEach(file => dt.items.add(file));
-      this.emit<ISgdsFileUploadAddFilesEventDetail>("sgds-add-files", { detail: dt.files });
+      this.emit<ISitFileUploadAddFilesEventDetail>("sgds-add-files", { detail: dt.files });
     }
 
     // Emit sgds-remove-file when files are REMOVED (count decreased)
     if (files.length < previousCount && deletedFile) {
-      this.emit<ISgdsFileUploadRemoveFileEventDetail>("sgds-remove-file", { detail: { file: deletedFile, files } });
+      this.emit<ISitFileUploadRemoveFileEventDetail>("sgds-remove-file", { detail: { file: deletedFile, files } });
     }
   }
 
@@ -196,7 +196,7 @@ export class SgdsFileUpload extends SgdsFormValidatorMixin(FormControlElement) {
   private _handleCancel() {
     this._isDialogOpen = false;
     this._isTouched = true;
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
     this.setInvalid(!this._mixinCheckValidity());
   }
 
@@ -309,8 +309,8 @@ export class SgdsFileUpload extends SgdsFormValidatorMixin(FormControlElement) {
   }
 
   protected _handleBlur() {
-    const sgdsBlur = this.emit("sgds-blur", { cancelable: true });
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    const sgdsBlur = this.emit("sit-blur", { cancelable: true });
+    if (this._mixinShouldSkipSitValidation()) return;
     if (sgdsBlur.defaultPrevented) return;
     if (this._isDialogOpen) return;
 
@@ -320,7 +320,7 @@ export class SgdsFileUpload extends SgdsFormValidatorMixin(FormControlElement) {
 
   @watch("_isTouched", { waitUntilFirstUpdate: true })
   _handleIsTouched() {
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
     if (this._isTouched) {
       this.setInvalid(!this._mixinCheckValidity());
     }
@@ -497,4 +497,4 @@ export class SgdsFileUpload extends SgdsFormValidatorMixin(FormControlElement) {
   }
 }
 
-export default SgdsFileUpload;
+export default SitFileUpload;

@@ -1,12 +1,12 @@
-import { SgdsToast } from "./sgds-toast";
-import { SgdsToastContainer } from "./sgds-toast-container";
+import { SitToast } from "./sgds-toast";
+import { SitToastContainer } from "./sgds-toast-container";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-toast", SgdsToast);
-register("sgds-toast-container", SgdsToastContainer);
+register("sgds-toast", SitToast);
+register("sgds-toast-container", SitToastContainer);
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-toast-container": SgdsToastContainer;
-    "sgds-toast": SgdsToast;
+    "sgds-toast-container": SitToastContainer;
+    "sgds-toast": SitToast;
   }
 }

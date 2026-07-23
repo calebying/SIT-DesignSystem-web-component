@@ -6,43 +6,43 @@ import { ref } from "lit/directives/ref.js";
 import { SelectElement } from "../../base/select-element";
 import formTextControlStyles from "../../styles/form-text-control.css";
 import { watch } from "../../utils/watch";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sgds-icon";
 import selectStyle from "./select.css";
-import SgdsSelectOption from "./sgds-select-option";
-import SgdsSpinner from "../Spinner/sgds-spinner";
+import SitSelectOption from "./sgds-select-option";
+import SitSpinner from "../Spinner/sgds-spinner";
 /**
  * @summary Select is used to make one selection from a list through keyboard or mouse actions
  *
- * @event sgds-select - Emitted when an option is selected.
- * @event sgds-change - Emitted when the select value changes.
- * @event sgds-focus -  Emitted when user input is focused.
- * @event sgds-blur -  Emitted when user input is blurred.
- * @event sgds-invalid - Emitted when the select's invalid state is set to true.
- * @event sgds-valid - Emitted when the select's invalid state is set to false.
+ * @event sit-select - Emitted when an option is selected.
+ * @event sit-change - Emitted when the select value changes.
+ * @event sit-focus -  Emitted when user input is focused.
+ * @event sit-blur -  Emitted when user input is blurred.
+ * @event sit-invalid - Emitted when the select's invalid state is set to true.
+ * @event sit-valid - Emitted when the select's invalid state is set to false.
  *
  * @slot default - slot for sgds-select-option passed into select's menu
  */
-export class SgdsSelect extends SelectElement {
+export class SitSelect extends SelectElement {
   static styles = [...SelectElement.styles, formTextControlStyles, selectStyle];
   static childName = "sgds-select-option";
   /** @internal */
   static dependencies = {
-    "sgds-icon": SgdsIcon,
-    "sgds-spinner": SgdsSpinner,
-    [SgdsSelect.childName]: SgdsSelectOption
+    "sgds-icon": SitIcon,
+    "sgds-spinner": SitSpinner,
+    [SitSelect.childName]: SitSelectOption
   };
   /** Disables native and sgds validation for the select. */
   @property({ type: Boolean, reflect: true }) noValidate = false;
 
   connectedCallback(): void {
     super.connectedCallback();
-    this.addEventListener("sgds-hide", async () => {
+    this.addEventListener("sit-hide", async () => {
       const sgdsInput = await this._input;
       sgdsInput.focus();
     });
   }
   @queryAssignedElements({ flatten: true, selector: "sgds-select-option" })
-  protected options: SgdsSelectOption[];
+  protected options: SitSelectOption[];
 
   async firstUpdated(changedProperties: PropertyValueMap<this>) {
     super.firstUpdated(changedProperties);
@@ -59,7 +59,7 @@ export class SgdsSelect extends SelectElement {
 
     assignedElements.forEach(el =>
       el.addEventListener("click", (e: Event) => {
-        const option = e.target as SgdsSelectOption;
+        const option = e.target as SitSelectOption;
         if (option.disabled) return;
         this._handleItemSelected(e);
       })
@@ -96,10 +96,10 @@ export class SgdsSelect extends SelectElement {
     this._setActiveToOption();
 
     // when value change, always emit a change event
-    this.emit("sgds-change");
+    this.emit("sit-change");
 
     if (this.value) {
-      this.emit("sgds-select");
+      this.emit("sit-select");
     }
     const sgdsInput = await this._input;
     this._mixinSetFormValue();
@@ -107,13 +107,13 @@ export class SgdsSelect extends SelectElement {
 
     this._updateDisplayValue();
     if (!this._isTouched && this.value === "") return;
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
 
     this.invalid = !this._mixinReportValidity();
   }
 
   protected async _handleItemSelected(e: Event) {
-    const itemEl = e.target as SgdsSelectOption;
+    const itemEl = e.target as SitSelectOption;
     const itemLabel = itemEl.textContent?.trim() ?? "";
     const itemValueAttr = itemEl.getAttribute("value") ?? itemLabel;
     const foundItem = {
@@ -126,12 +126,12 @@ export class SgdsSelect extends SelectElement {
   }
 
   protected _handleFocus() {
-    this.emit("sgds-focus");
+    this.emit("sit-focus");
   }
 
   protected async _handleInputBlur(e: Event) {
     e.preventDefault();
-    this.emit("sgds-blur");
+    this.emit("sit-blur");
   }
 
   /** For form reset  */
@@ -241,4 +241,4 @@ export class SgdsSelect extends SelectElement {
   }
 }
 
-export default SgdsSelect;
+export default SitSelect;

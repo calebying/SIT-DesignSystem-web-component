@@ -1,20 +1,20 @@
 import { html, nothing, PropertyValueMap } from "lit";
 import { property } from "lit/decorators.js";
 import { OptionElement } from "../../base/option-element";
-import SgdsCheckbox from "../Checkbox/sgds-checkbox";
-import SgdsIcon from "../Icon/sgds-icon";
-import SgdsComboBox from "./sgds-combo-box";
+import SitCheckbox from "../Checkbox/sgds-checkbox";
+import SitIcon from "../Icon/sgds-icon";
+import SitComboBox from "./sgds-combo-box";
 
 /**
  * @summary ComboBoxOption is the option of the Combobox
  *
  * @slot default - The label of the option
  */
-export class SgdsComboBoxOption extends OptionElement {
+export class SitComboBoxOption extends OptionElement {
   /** @internal */
   static override dependencies = {
-    "sgds-icon": SgdsIcon,
-    "sgds-checkbox": SgdsCheckbox
+    "sgds-icon": SitIcon,
+    "sgds-checkbox": SitCheckbox
   };
 
   /**
@@ -29,7 +29,7 @@ export class SgdsComboBoxOption extends OptionElement {
 
   firstUpdated(changedProperties: PropertyValueMap<this>) {
     super.firstUpdated(changedProperties);
-    const parent = this.parentElement as SgdsComboBox;
+    const parent = this.parentElement as SitComboBox;
     if (parent?.multiSelect) {
       this.checkbox = true;
     }
@@ -51,4 +51,4 @@ export class SgdsComboBoxOption extends OptionElement {
   };
 }
 
-export default SgdsComboBoxOption;
+export default SitComboBoxOption;

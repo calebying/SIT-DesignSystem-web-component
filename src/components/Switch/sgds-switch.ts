@@ -1,15 +1,15 @@
 import { html } from "lit";
 import { property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { defaultValue } from "../../utils/defaultvalue";
 import genId from "../../utils/generateId";
 import { watch } from "../../utils/watch";
 import { HasSlotController } from "../../utils/slot";
 import formLabelStyles from "../../styles/form-label.css";
 import switchStyle from "./switch.css";
-import type { ISgdsSwitchChangeEventDetail } from "./types";
-export type { ISgdsSwitchChangeEventDetail };
+import type { ISitSwitchChangeEventDetail } from "./types";
+export type { ISitSwitchChangeEventDetail };
 
 /**
  * @summary Switch component is used to toggle on and off or yes or no action.
@@ -17,12 +17,12 @@ export type { ISgdsSwitchChangeEventDetail };
  * @slot default - The default label of switch on the right side of the switch
  * @slot leftLabel - The label on the left side of the switch
  *
- * @event sgds-change - Emitted when the checked state changes.
- * @eventDetail {ISgdsSwitchChangeEventDetail} sgds-change
+ * @event sit-change - Emitted when the checked state changes.
+ * @eventDetail {ISitSwitchChangeEventDetail} sgds-change
  *
  */
-export class SgdsSwitch extends SgdsElement {
-  static styles = [...SgdsElement.styles, formLabelStyles, switchStyle];
+export class SitSwitch extends SitElement {
+  static styles = [...SitElement.styles, formLabelStyles, switchStyle];
 
   /** The size of the switch. By default, it is small size */
   @property({ reflect: true, type: String }) size: "sm" | "md" | "lg" = "md";
@@ -73,7 +73,7 @@ export class SgdsSwitch extends SgdsElement {
 
   private _handleChange() {
     this.checked = !this.checked;
-    this.emit<ISgdsSwitchChangeEventDetail>("sgds-change", { detail: { checked: this.checked } });
+    this.emit<ISitSwitchChangeEventDetail>("sgds-change", { detail: { checked: this.checked } });
   }
 
   private _handleKeyDown(event: KeyboardEvent) {
@@ -135,4 +135,4 @@ export class SgdsSwitch extends SgdsElement {
   }
 }
 
-export default SgdsSwitch;
+export default SitSwitch;

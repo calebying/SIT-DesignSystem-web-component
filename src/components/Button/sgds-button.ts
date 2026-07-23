@@ -17,12 +17,12 @@ export type ButtonVariant = "primary" | "outline" | "ghost" | "danger";
  * @slot leftIcon - The slot for icon to the left of the button text
  * @slot rightIcon - The slot for icon to the right of the button text
  *
- * @event sgds-blur - Emitted when the button is blurred.
- * @event sgds-focus - Emitted when the button is focused.
+ * @event sit-blur - Emitted when the button is blurred.
+ * @event sit-focus - Emitted when the button is focused.
  *
  *
  */
-export class SgdsButton extends ButtonElement {
+export class SitButton extends ButtonElement {
   static styles = [...ButtonElement.styles, anchorStyles, buttonStyles];
 
   /** @internal */
@@ -155,4 +155,4 @@ export class SgdsButton extends ButtonElement {
   }
 }
 
-export default SgdsButton;
+export default SitButton;

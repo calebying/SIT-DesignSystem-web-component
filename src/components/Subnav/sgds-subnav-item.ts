@@ -1,21 +1,21 @@
 import { html } from "lit";
 import { property } from "lit/decorators.js";
 import { watch } from "../../utils/watch";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import subnavItemStyle from "./subnav-item.css";
 
 /**
- * @slot default - slot for SgdsSubnavItem element.
+ * @slot default - slot for SitSubnavItem element.
  *
  *  */
-export class SgdsSubnavItem extends SgdsElement {
-  static styles = [...SgdsElement.styles, subnavItemStyle];
+export class SitSubnavItem extends SitElement {
+  static styles = [...SitElement.styles, subnavItemStyle];
 
   /** when true, sets the active stylings of the navigation item */
   @property({ type: Boolean, reflect: true })
   active = false;
 
-  /** Disables the SgdsSubnavItem */
+  /** Disables the SitSubnavItem */
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
@@ -66,4 +66,4 @@ export class SgdsSubnavItem extends SgdsElement {
   }
 }
 
-export default SgdsSubnavItem;
+export default SitSubnavItem;

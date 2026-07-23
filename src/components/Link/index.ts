@@ -1,10 +1,10 @@
-import { SgdsLink } from "./sgds-link";
+import { SitLink } from "./sgds-link";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-link", SgdsLink);
+register("sgds-link", SitLink);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-link": SgdsLink;
+    "sgds-link": SitLink;
   }
 }

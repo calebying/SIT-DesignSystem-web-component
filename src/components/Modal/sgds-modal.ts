@@ -1,7 +1,7 @@
 import { html, nothing, PropertyValueMap } from "lit";
 import { property, query } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { watch } from "../../utils/watch";
 import { animateTo, stopAnimations } from "../../utils/animate";
 import { getAnimation, setDefaultAnimation } from "../../utils/animation-registry";
@@ -10,8 +10,8 @@ import Modal from "../../utils/modal";
 import { HasSlotController } from "../../utils/slot";
 import { lockBodyScrolling, unlockBodyScrolling } from "../../utils/scroll";
 import { SM_BREAKPOINT, MD_BREAKPOINT } from "../../utils/breakpoints";
-import SgdsButton from "../Button/sgds-button";
-import SgdsCloseButton from "../CloseButton/sgds-close-button";
+import SitButton from "../Button/sgds-button";
+import SitCloseButton from "../CloseButton/sgds-close-button";
 import modalStyle from "./modal.css";
 import headerStyles from "../../styles/header-class.css";
 import svgStyles from "../../styles/svg.css";
@@ -23,18 +23,18 @@ import svgStyles from "../../styles/svg.css";
  * @slot description - The description of the Modal.
  * @slot footer - The content of the Modal's footer, typically used to pass in buttons for call to action.
  *
- * @event sgds-close - Emitted when the modal is called to close via mouseclick of close button, overlay or via keyboard esc key. This event is cancelable; use `event.preventDefault()` to prevent the modal from closing. `event.detail.source` indicates the trigger source: 'close-button', 'overlay', or 'keyboard'.
- * @event sgds-show - Emitted when the modal opens
- * @event sgds-hide - Emitted when the modal closes
- * @event sgds-after-show - Emitted after modal opens and the animations has completed
- * @event sgds-after-hide - Emitted after modal closes and the animations has completed
+ * @event sit-close - Emitted when the modal is called to close via mouseclick of close button, overlay or via keyboard esc key. This event is cancelable; use `event.preventDefault()` to prevent the modal from closing. `event.detail.source` indicates the trigger source: 'close-button', 'overlay', or 'keyboard'.
+ * @event sit-show - Emitted when the modal opens
+ * @event sit-hide - Emitted when the modal closes
+ * @event sit-after-show - Emitted after modal opens and the animations has completed
+ * @event sit-after-hide - Emitted after modal closes and the animations has completed
  *
  */
-export class SgdsModal extends SgdsElement {
-  static styles = [...SgdsElement.styles, headerStyles, svgStyles, modalStyle];
+export class SitModal extends SitElement {
+  static styles = [...SitElement.styles, headerStyles, svgStyles, modalStyle];
   /**@internal */
   static dependencies = {
-    "sgds-close-button": SgdsCloseButton
+    "sgds-close-button": SitCloseButton
   };
   /**@internal */
   @query(".modal") dialog: HTMLElement;
@@ -116,12 +116,12 @@ export class SgdsModal extends SgdsElement {
 
     if (panelWidth < SM_BREAKPOINT || (this.size === "fullscreen" && panelWidth < MD_BREAKPOINT)) {
       buttonElements.forEach(buttonElement => {
-        const button = buttonElement as SgdsButton;
+        const button = buttonElement as SitButton;
         button.fullWidth = true;
       });
     } else {
       buttonElements.forEach(buttonElement => {
-        const button = buttonElement as SgdsButton;
+        const button = buttonElement as SitButton;
         button.fullWidth = false;
       });
     }
@@ -144,7 +144,7 @@ export class SgdsModal extends SgdsElement {
     }
 
     this.open = true;
-    return waitForEvent(this, "sgds-after-show");
+    return waitForEvent(this, "sit-after-show");
   }
 
   /** Hides the dialog */
@@ -154,11 +154,11 @@ export class SgdsModal extends SgdsElement {
     }
 
     this.open = false;
-    return waitForEvent(this, "sgds-after-hide");
+    return waitForEvent(this, "sit-after-hide");
   }
 
   private requestClose(source: "close-button" | "keyboard" | "overlay") {
-    const sgdsRequestClose = this.emit("sgds-close", {
+    const sgdsRequestClose = this.emit("sit-close", {
       cancelable: true,
       detail: { source }
     });
@@ -199,7 +199,7 @@ export class SgdsModal extends SgdsElement {
   async handleOpenChange() {
     if (this.open) {
       // Show
-      this.emit("sgds-show");
+      this.emit("sit-show");
       this.addOpenListeners();
       this.originalTrigger = document.activeElement as HTMLElement;
       this.modal.activate();
@@ -217,7 +217,7 @@ export class SgdsModal extends SgdsElement {
           animateTo(this.overlay, overlayAnimation.keyframes, overlayAnimation.options)
         ]));
 
-      this.emit("sgds-after-show");
+      this.emit("sit-after-show");
 
       // Add focus on modal heading after opening it
       this.heading.focus();
@@ -226,7 +226,7 @@ export class SgdsModal extends SgdsElement {
       this._addResizeListener();
     } else {
       // Hide
-      this.emit("sgds-hide");
+      this.emit("sit-hide");
       this.removeOpenListeners();
       this.modal.deactivate();
 
@@ -261,7 +261,7 @@ export class SgdsModal extends SgdsElement {
         setTimeout(() => trigger.focus());
       }
 
-      this.emit("sgds-after-hide");
+      this.emit("sit-after-hide");
 
       // Remove resize listener when the modal is hidden
       this._removeResizeListener();
@@ -347,4 +347,4 @@ setDefaultAnimation("modal.overlay.hide", {
   options: { duration: 400 }
 });
 
-export default SgdsModal;
+export default SitModal;

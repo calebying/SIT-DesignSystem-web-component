@@ -1,7 +1,7 @@
 import { property, queryAssignedElements, state } from "lit/decorators.js";
 import { DropdownElement } from "../../base/dropdown-element";
 import { PropertyValueMap } from "lit";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import { consume } from "@lit/context";
 import {
   SidebarActiveGroup,
@@ -30,7 +30,7 @@ const SPACE = " ";
  * - Active state management via Lit context subscription
  * - Support for nested hierarchies up to 3 levels deep
  * - Focus management and full ARIA attribute support
- * - Event emission for sidebar coordination (i-sgds-click)
+ * - Event emission for sidebar coordination (i-sit-click)
  * - Automatic child element tracking and nesting level detection
  *
  * Keyboard Navigation:
@@ -44,7 +44,7 @@ const SPACE = " ";
  *
  * @internal
  */
-export class SidebarElement extends SgdsElement {
+export class SidebarElement extends SitElement {
   static styles = DropdownElement.styles;
 
   /**
@@ -166,7 +166,7 @@ export class SidebarElement extends SgdsElement {
    * @returns {void}
    */
   protected _handleClick() {
-    this.emit("i-sgds-click", { detail: { element: this, level: this._childLevel } });
+    this.emit("i-sit-click", { detail: { element: this, level: this._childLevel } });
   }
 
   /**

@@ -1,10 +1,10 @@
-import { SgdsSkeleton } from "./sgds-skeleton";
+import { SitSkeleton } from "./sgds-skeleton";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-skeleton", SgdsSkeleton);
+register("sgds-skeleton", SitSkeleton);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-skeleton": SgdsSkeleton;
+    "sgds-skeleton": SitSkeleton;
   }
 }

@@ -1,22 +1,22 @@
 import { html } from "lit";
 import { property } from "lit/decorators.js";
-import { SgdsMainnav } from "./sgds-mainnav";
+import { SitMainnav } from "./sgds-mainnav";
 import { watch } from "../../utils/watch";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import mainnavItemStyle from "./mainnav-item.css";
 
 /**
- * @slot default - slot for SgdsMainnavItem element.
+ * @slot default - slot for SitMainnavItem element.
  *
  *  */
-export class SgdsMainnavItem extends SgdsElement {
-  static styles = [...SgdsElement.styles, mainnavItemStyle];
+export class SitMainnavItem extends SitElement {
+  static styles = [...SitElement.styles, mainnavItemStyle];
 
   /** when true, sets the active stylings of the navigation item */
   @property({ type: Boolean, reflect: true })
   active = false;
 
-  /** Disables the SgdsMainnavItem */
+  /** Disables the SitMainnavItem */
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
@@ -63,7 +63,7 @@ export class SgdsMainnavItem extends SgdsElement {
 
       anchor.addEventListener("click", (e: Event) => {
         const target = e.target as HTMLElement;
-        const mainnav = target.closest("sgds-mainnav") as SgdsMainnav;
+        const mainnav = target.closest("sgds-mainnav") as SitMainnav;
         mainnav.hide();
       });
     }
@@ -74,4 +74,4 @@ export class SgdsMainnavItem extends SgdsElement {
   }
 }
 
-export default SgdsMainnavItem;
+export default SitMainnavItem;

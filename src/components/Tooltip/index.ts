@@ -1,10 +1,10 @@
-import { SgdsTooltip } from "./sgds-tooltip";
+import { SitTooltip } from "./sgds-tooltip";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-tooltip", SgdsTooltip);
+register("sgds-tooltip", SitTooltip);
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-tooltip": SgdsTooltip;
+    "sgds-tooltip": SitTooltip;
   }
 }

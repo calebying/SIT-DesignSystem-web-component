@@ -8,32 +8,32 @@ import FormControlElement from "../../base/form-control-element";
 import formPlaceholderStyles from "../../styles/form-placeholder.css";
 import formTextControlStyles from "../../styles/form-text-control.css";
 import { defaultValue } from "../../utils/defaultvalue";
-import type { SgdsFormControl } from "../../utils/formSubmitController";
-import { SgdsFormValidatorMixin } from "../../utils/validatorMixin";
+import type { SitFormControl } from "../../utils/formSubmitController";
+import { SitFormValidatorMixin } from "../../utils/validatorMixin";
 import { watch } from "../../utils/watch";
-import { SgdsSpinner } from "../Spinner/sgds-spinner";
+import { SitSpinner } from "../Spinner/sgds-spinner";
 import inputStyle from "./input.css";
-import SgdsIcon from "../Icon/sgds-icon";
+import SitIcon from "../Icon/sgds-icon";
 /**
  * @summary Text inputs allow your users to enter letters, numbers and symbols on a single line.
  *
  * @slot icon - The slot for leading icon of text input
  * @slot trailing-icon - The slot for trailing icon of text input. When present, it overrides valid icon and loading spinner rendered when valid prop or loading prop are true
  * @slot action - The slot for call to action of the text input. It is recommended to use sgds-icon-button within this slot
- * @event sgds-change - Emitted when an alteration to the control's value is committed by the user.
- * @event sgds-input - Emitted when the control receives input and its value changes.
- * @event sgds-focus - Emitted when input is in focus.
- * @event sgds-blur - Emitted when input is not in focus.
- * @event sgds-invalid - Emitted when input is invalid
- * @event sgds-valid - Emitted when input is valid
+ * @event sit-change - Emitted when an alteration to the control's value is committed by the user.
+ * @event sit-input - Emitted when the control receives input and its value changes.
+ * @event sit-focus - Emitted when input is in focus.
+ * @event sit-blur - Emitted when input is not in focus.
+ * @event sit-invalid - Emitted when input is invalid
+ * @event sit-valid - Emitted when input is valid
  *
  */
-export class SgdsInput extends SgdsFormValidatorMixin(FormControlElement) implements SgdsFormControl {
+export class SitInput extends SitFormValidatorMixin(FormControlElement) implements SitFormControl {
   static styles = [...FormControlElement.styles, formTextControlStyles, formPlaceholderStyles, inputStyle];
   /** @internal */
   static dependencies = {
-    "sgds-spinner": SgdsSpinner,
-    "sgds-icon": SgdsIcon
+    "sgds-spinner": SitSpinner,
+    "sgds-icon": SitIcon
   };
 
   @property({ reflect: true }) type:
@@ -126,7 +126,7 @@ export class SgdsInput extends SgdsFormValidatorMixin(FormControlElement) implem
 
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -158,12 +158,12 @@ export class SgdsInput extends SgdsFormValidatorMixin(FormControlElement) implem
   }
 
   protected _handleFocus() {
-    this.emit("sgds-focus");
+    this.emit("sit-focus");
   }
 
   protected _handleBlur() {
-    const sgdsBlur = this.emit("sgds-blur", { cancelable: true });
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    const sgdsBlur = this.emit("sit-blur", { cancelable: true });
+    if (this._mixinShouldSkipSitValidation()) return;
     if (sgdsBlur.defaultPrevented) return;
 
     this.setInvalid(!this._mixinCheckValidity());
@@ -175,7 +175,7 @@ export class SgdsInput extends SgdsFormValidatorMixin(FormControlElement) implem
 
   protected _handleChange(e: Event) {
     this.value = this.input.value;
-    const sgdsChange = this.emit("sgds-change", { cancelable: true });
+    const sgdsChange = this.emit("sit-change", { cancelable: true });
 
     if (sgdsChange.defaultPrevented) return;
 
@@ -183,7 +183,7 @@ export class SgdsInput extends SgdsFormValidatorMixin(FormControlElement) implem
   }
   protected _handleInputChange(e: Event) {
     this.value = this.input.value;
-    const sgdsInput = this.emit("sgds-input", { cancelable: true });
+    const sgdsInput = this.emit("sit-input", { cancelable: true });
 
     if (sgdsInput.defaultPrevented) return;
 
@@ -192,7 +192,7 @@ export class SgdsInput extends SgdsFormValidatorMixin(FormControlElement) implem
   /** @internal */
   @watch("_isTouched", { waitUntilFirstUpdate: true })
   _handleIsTouched() {
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
     if (this._isTouched) {
       this.setInvalid(!this._mixinCheckValidity());
     }
@@ -321,4 +321,4 @@ export class SgdsInput extends SgdsFormValidatorMixin(FormControlElement) implem
   }
 }
 
-export default SgdsInput;
+export default SitInput;

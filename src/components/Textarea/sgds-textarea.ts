@@ -6,8 +6,8 @@ import { live } from "lit/directives/live.js";
 import { html } from "lit/static-html.js";
 import FormControlElement from "../../base/form-control-element";
 import { defaultValue } from "../../utils/defaultvalue";
-import { SgdsFormControl } from "../../utils/formSubmitController";
-import { SgdsFormValidatorMixin } from "../../utils/validatorMixin";
+import { SitFormControl } from "../../utils/formSubmitController";
+import { SitFormValidatorMixin } from "../../utils/validatorMixin";
 import { watch } from "../../utils/watch";
 import textareaStyle from "./textarea.css";
 import formTextControlStyles from "../../styles/form-text-control.css";
@@ -17,14 +17,14 @@ import formTextControlStyles from "../../styles/form-text-control.css";
  *
  * @slot invalidIcon - The slot for invalid icon
  *
- * @event sgds-change - Emitted when an alteration to the control's value is committed by the user.
- * @event sgds-input - Emitted when the control receives input and its value changes.
- * @event sgds-focus - Emitted when textarea is in focus.
- * @event sgds-blur - Emitted when textarea loses focus.
- * @event sgds-invalid - Emitted when the textarea's invalid state is set to true.
- * @event sgds-valid - Emitted when the textarea's invalid state is set to false.
+ * @event sit-change - Emitted when an alteration to the control's value is committed by the user.
+ * @event sit-input - Emitted when the control receives input and its value changes.
+ * @event sit-focus - Emitted when textarea is in focus.
+ * @event sit-blur - Emitted when textarea loses focus.
+ * @event sit-invalid - Emitted when the textarea's invalid state is set to true.
+ * @event sit-valid - Emitted when the textarea's invalid state is set to false.
  */
-export class SgdsTextarea extends SgdsFormValidatorMixin(FormControlElement) implements SgdsFormControl {
+export class SitTextarea extends SitFormValidatorMixin(FormControlElement) implements SitFormControl {
   static styles = [...FormControlElement.styles, formTextControlStyles, textareaStyle];
   /**@internal */
   @query("textarea.form-control-group") textarea: HTMLTextAreaElement;
@@ -92,7 +92,7 @@ export class SgdsTextarea extends SgdsFormValidatorMixin(FormControlElement) imp
 
   /**
    * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
-   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SgdsInput
+   * Note that the native error popup is prevented for SGDS form components by default. Instead the validation message shows up in the feedback container of SitInput
    */
   public reportValidity(): boolean {
     return this._mixinReportValidity();
@@ -127,22 +127,22 @@ export class SgdsTextarea extends SgdsFormValidatorMixin(FormControlElement) imp
 
   protected _handleChange(e: Event) {
     this.value = this.input.value;
-    this.emit("sgds-change");
+    this.emit("sit-change");
     super._mixinHandleChange(e);
   }
   private _handleInputChange(e: Event) {
     this.value = this.input.value;
-    this.emit("sgds-input");
+    this.emit("sit-input");
     super._mixinHandleInputChange(e);
   }
 
   private _handleFocus() {
-    this.emit("sgds-focus");
+    this.emit("sit-focus");
   }
 
   private _handleBlur() {
-    const sgdsBlur = this.emit("sgds-blur", { cancelable: true });
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    const sgdsBlur = this.emit("sit-blur", { cancelable: true });
+    if (this._mixinShouldSkipSitValidation()) return;
     if (sgdsBlur.defaultPrevented) return;
 
     this.setInvalid(!this._mixinCheckValidity());
@@ -166,7 +166,7 @@ export class SgdsTextarea extends SgdsFormValidatorMixin(FormControlElement) imp
   /** @internal */
   @watch("_isTouched", { waitUntilFirstUpdate: true })
   _handleIsTouched() {
-    if (this._mixinShouldSkipSgdsValidation()) return;
+    if (this._mixinShouldSkipSitValidation()) return;
     if (this._isTouched) {
       this.setInvalid(!this._mixinCheckValidity());
     }
@@ -259,4 +259,4 @@ export class SgdsTextarea extends SgdsFormValidatorMixin(FormControlElement) imp
   }
 }
 
-export default SgdsTextarea;
+export default SitTextarea;

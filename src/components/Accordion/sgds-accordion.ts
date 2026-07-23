@@ -1,7 +1,7 @@
 import { html } from "lit";
 import { property, queryAssignedElements } from "lit/decorators.js";
-import SgdsElement from "../../base/sgds-element";
-import type SgdsAccordionItem from "./sgds-accordion-item";
+import SitElement from "../../base/sgds-element";
+import type SitAccordionItem from "./sgds-accordion-item";
 import accordionStyle from "./accordion.css";
 
 export type AccordionDensity = "default" | "compact" | "spacious";
@@ -10,13 +10,13 @@ export type AccordionVariant = "default" | "border";
 const VALID_KEYS = ["Enter", "ArrowUp", "ArrowLeft", "ArrowDown", "ArrowRight"];
 
 /**
- * @summary A dropdown mechanism that allow users to either show or hide related content. `SgdsAccordion` is a wrapper to manage the behaviour for multiple `SgdsAccordionItems`
+ * @summary A dropdown mechanism that allow users to either show or hide related content. `SitAccordion` is a wrapper to manage the behaviour for multiple `SitAccordionItems`
  * @slot default - slot for accordion-item
  *
  */
 
-export class SgdsAccordion extends SgdsElement {
-  static styles = [...SgdsElement.styles, accordionStyle];
+export class SitAccordion extends SitElement {
+  static styles = [...SitElement.styles, accordionStyle];
 
   /** Allows multiple accordion items to be opened at the same time */
   @property({ type: Boolean, reflect: true }) allowMultiple = false;
@@ -28,17 +28,17 @@ export class SgdsAccordion extends SgdsElement {
   @property({ type: String, reflect: true }) density: AccordionDensity = "default";
 
   /** @internal */
-  @queryAssignedElements() private defaultNodes!: SgdsAccordionItem[];
+  @queryAssignedElements() private defaultNodes!: SitAccordionItem[];
 
   /** @internal */
-  get items(): SgdsAccordionItem[] {
+  get items(): SitAccordionItem[] {
     return [...(this.defaultNodes || [])].filter(
       (node: HTMLElement) => typeof node.tagName !== "undefined"
-    ) as SgdsAccordionItem[];
+    ) as SitAccordionItem[];
   }
 
   private _handleSlotChange() {
-    const items = [...this.items] as SgdsAccordionItem[];
+    const items = [...this.items] as SitAccordionItem[];
     items.forEach((item, index) => {
       if (items.length > 1) {
         switch (index) {
@@ -65,7 +65,7 @@ export class SgdsAccordion extends SgdsElement {
       // No toggling when `allowMultiple` or the user prevents it.
       return;
     }
-    const items = [...this.items] as SgdsAccordionItem[];
+    const items = [...this.items] as SitAccordionItem[];
     if (items && !items.length) {
       // no toggling when there aren't items.
       return;
@@ -93,4 +93,4 @@ export class SgdsAccordion extends SgdsElement {
   }
 }
 
-export default SgdsAccordion;
+export default SitAccordion;

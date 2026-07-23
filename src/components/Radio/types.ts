@@ -1,3 +1,3 @@
-export interface ISgdsRadioGroupChangeEventDetail {
+export interface ISitRadioGroupChangeEventDetail {
   value: string;
 }

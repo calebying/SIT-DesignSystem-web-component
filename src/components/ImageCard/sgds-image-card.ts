@@ -4,7 +4,7 @@ import { property, queryAssignedElements, queryAssignedNodes } from "lit/decorat
 import { classMap } from "lit/directives/class-map.js";
 import { CardElement } from "../../base/card-element";
 import { CardImageAdjustment, CardImagePosition } from "../Card/types";
-import type SgdsLink from "../Link/sgds-link";
+import type SitLink from "../Link/sgds-link";
 import imageCardStyle from "./image-card.css";
 
 /**
@@ -22,7 +22,7 @@ import imageCardStyle from "./image-card.css";
  * @slot link - (@deprecated) Deprecated since 3.3.2 in favour of `footer` slot.
  *  Legacy slot for anchor elements. Use `footer` instead.
  */
-export class SgdsImageCard extends CardElement {
+export class SitImageCard extends CardElement {
   static styles = [...CardElement.styles, imageCardStyle];
 
   /** @internal */
@@ -31,7 +31,7 @@ export class SgdsImageCard extends CardElement {
   @queryAssignedElements({ slot: "footer" })
   private footerNode!: HTMLElement[];
   @queryAssignedElements({ slot: "link" })
-  private linkNode!: HTMLAnchorElement[] | SgdsLink[];
+  private linkNode!: HTMLAnchorElement[] | SitLink[];
 
   /** Removes the card's internal padding when set to true.  */
   @property({ type: Boolean, reflect: true }) noPadding = false;
@@ -75,7 +75,7 @@ export class SgdsImageCard extends CardElement {
     const childNodes = (e.target as HTMLSlotElement).assignedNodes({ flatten: true }) as Array<HTMLOrSVGImageElement>;
 
     if (childNodes.length > 1) {
-      return console.error("Multiple elements passed into SgdsCard's image slot");
+      return console.error("Multiple elements passed into SitCard's image slot");
     }
   }
 
@@ -116,4 +116,4 @@ export class SgdsImageCard extends CardElement {
   }
 }
 
-export default SgdsImageCard;
+export default SitImageCard;

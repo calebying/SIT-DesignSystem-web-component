@@ -1,14 +1,14 @@
 import { html, nothing } from "lit";
 import { property } from "lit/decorators.js";
 import { styleMap } from "lit/directives/style-map.js";
-import SgdsElement from "../../base/sgds-element";
+import SitElement from "../../base/sgds-element";
 import progressBarStyle from "./progress-bar.css";
 export type ProgressBarVariant = "primary" | "neutral";
 /**
  * @summary Provide up-to-date feedback on the progress of a workflow or action with simple yet flexible progress bars.
  */
-export class SgdsProgressBar extends SgdsElement {
-  static styles = [...SgdsElement.styles, progressBarStyle];
+export class SitProgressBar extends SitElement {
+  static styles = [...SitElement.styles, progressBarStyle];
 
   /** The background color of the progress bar. Available options: `primary`, `neutral` */
   @property({ type: String, reflect: true }) variant: ProgressBarVariant = "primary";
@@ -62,4 +62,4 @@ export class SgdsProgressBar extends SgdsElement {
   }
 }
 
-export default SgdsProgressBar;
+export default SitProgressBar;

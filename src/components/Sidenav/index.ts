@@ -1,15 +1,15 @@
-import { SgdsSidenav } from "./sgds-sidenav";
-import { SgdsSidenavItem } from "./sgds-sidenav-item";
-import { SgdsSidenavLink } from "./sgds-sidenav-link";
+import { SitSidenav } from "./sgds-sidenav";
+import { SitSidenavItem } from "./sgds-sidenav-item";
+import { SitSidenavLink } from "./sgds-sidenav-link";
 import { register } from "../../utils/ce-registry";
 
-register("sgds-sidenav", SgdsSidenav);
-register("sgds-sidenav-item", SgdsSidenavItem);
-register("sgds-sidenav-link", SgdsSidenavLink);
+register("sgds-sidenav", SitSidenav);
+register("sgds-sidenav-item", SitSidenavItem);
+register("sgds-sidenav-link", SitSidenavLink);
 declare global {
   interface HTMLElementTagNameMap {
-    "sgds-sidenav": SgdsSidenav;
-    "sgds-sidenav-item": SgdsSidenavItem;
-    "sgds-sidenav-link": SgdsSidenavLink;
+    "sgds-sidenav": SitSidenav;
+    "sgds-sidenav-item": SitSidenavItem;
+    "sgds-sidenav-link": SitSidenavLink;
   }
 }
