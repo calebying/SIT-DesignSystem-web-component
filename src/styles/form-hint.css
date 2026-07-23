@@ -1,9 +1,9 @@
 .form-text {
-  color: var(--sgds-form-color-subtle);
-  font-size: var(--sgds-font-size-label-sm);
-  line-height: var(--sgds-line-height-2-xs);
+  color: var(--sit-form-color-subtle);
+  font-size: var(--sit-font-size-label-sm);
+  line-height: var(--sit-line-height-2-xs);
 }
 
 .form-text.disabled {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
 }

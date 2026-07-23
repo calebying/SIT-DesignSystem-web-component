@@ -1,18 +1,18 @@
 .form-label {
   margin-bottom: 0;
-  color: var(--sgds-form-color-default);
-  font-weight: var(--sgds-font-weight-semibold);
+  color: var(--sit-form-color-default);
+  font-weight: var(--sit-font-weight-semibold);
 }
 
 .form-label.disabled {
-  opacity: var(--sgds-opacity-40);
+  opacity: var(--sit-opacity-40);
 }
 
 .form-check-label {
-  color: var(--sgds-form-color-default);
+  color: var(--sit-form-color-default);
 }
 .form-check-input:disabled ~ .form-check-label,
 .form-check-input[disabled] ~ .form-check-label {
-  /* opacity: var(--sgds-disabled-opacity); */
+  /* opacity: var(--sit-disabled-opacity); */
   cursor: not-allowed;
 }

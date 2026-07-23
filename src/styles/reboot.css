@@ -13,14 +13,14 @@
 body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background-color: var(--sgds-body-bg);
-  color: var(--sgds-body-color-default);
-  font-family: var(--sgds-body-font-family);
-  font-size: var(--sgds-body-font-size);
-  font-weight: var(--sgds-body-font-weight);
-  line-height: var(--sgds-body-line-height);
+  background-color: var(--sit-body-bg);
+  color: var(--sit-body-color-default);
+  font-family: var(--sit-body-font-family);
+  font-size: var(--sit-body-font-size);
+  font-weight: var(--sit-body-font-weight);
+  line-height: var(--sit-body-line-height);
   margin: 0;
-  text-align: var(--sgds-body-text-align);
+  text-align: var(--sit-body-text-align);
 }
 hr {
   background-color: currentColor;
@@ -156,7 +156,7 @@ kbd,
 pre,
 samp {
   direction: ltr;
-  font-family: var(--sgds-font-monospace);
+  font-family: var(--sit-font-monospace);
   font-size: 1em;
   unicode-bidi: bidi-override;
 }

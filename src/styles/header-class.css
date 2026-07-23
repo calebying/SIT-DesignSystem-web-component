@@ -15,7 +15,7 @@ h5,
 ::slotted(h5),
 h6,
 .h6 ::slotted(h6) {
-  color: var(--sgds-heading-color);
+  color: var(--sit-heading-color);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 0.5rem;

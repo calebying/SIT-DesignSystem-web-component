@@ -1,18 +1,18 @@
 .invalid-feedback-container {
   display: flex;
-  gap: var(--sgds-form-gap-sm);
-  color: var(--sgds-form-danger-color-default);
-  line-height: var(--sgds-line-height-20);
+  gap: var(--sit-form-gap-sm);
+  color: var(--sit-form-danger-color-default);
+  line-height: var(--sit-line-height-20);
 
 }
 
 .invalid-feedback {
-  color: var(--sgds-form-danger-color-default);
-  font-size: var(--sgds-font-size-label-sm);
-  font-weight: var(--sgds-font-weight-regular);
-  line-height: var(--sgds-line-height-20);
+  color: var(--sit-form-danger-color-default);
+  font-size: var(--sit-font-size-label-sm);
+  font-weight: var(--sit-font-weight-regular);
+  line-height: var(--sit-line-height-20);
 }
 
 .valid-icon{
-  color: var(--sgds-form-success-color-default);
+  color: var(--sit-form-success-color-default);
 }
