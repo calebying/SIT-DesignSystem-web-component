@@ -1,15 +1,15 @@
-import "./sgds-web-component";
-import type { SgdsMasthead } from "../src/components";
+import "./sit-web-component";
+import type { SitMasthead } from "../src/components";
 import { fixture, assert, expect, elementUpdated } from "@open-wc/testing";
 import { html } from "lit";
 
-describe("sgds-masthead", () => {
+describe("SIT-masthead", () => {
   it("renders with default values", async () => {
-    const el = await fixture(html`<sgds-masthead></sgds-masthead>`);
+    const el = await fixture(html`<sit-masthead></sit-masthead>`);
     assert.shadowDom.equal(
       el,
       ` 
-    <div id="sgds-masthead" class="sgds-masthead">
+    <div id="SIT-masthead" class="SIT-masthead">
         <div class="banner">
           <div class="container">
             <div class="masthead-layout">
@@ -49,12 +49,12 @@ describe("sgds-masthead", () => {
               <div class="masthead-text-layout">
                 <span>A Singapore Government Agency Website</span>
                 <div
-                  class="sgds-masthead-button"
-                  id="sgds-masthead-identify"
+                  class="SIT-masthead-button"
+                  id="SIT-masthead-identify"
                   role="button"
                   tabindex="0"
                   aria-expanded="false"
-                  aria-controls="sgds-masthead-content"
+                  aria-controls="SIT-masthead-content"
                 >
                   <span>How to identify</span>
                   <svg
@@ -63,7 +63,7 @@ describe("sgds-masthead", () => {
                     height="20"
                     viewBox="0 0 20 20"
                     fill="currentColor"
-                    class="sgds-masthead-identify-icon"
+                    class="SIT-masthead-identify-icon"
                   >
                     <path
                       fill-rule="evenodd"
@@ -80,8 +80,8 @@ describe("sgds-masthead", () => {
 
         <div class="panel">
           <div
-            id="sgds-masthead-content"
-            class="container sgds-masthead-content"
+            id="SIT-masthead-content"
+            class="container sit-masthead-content"
           >
             <div class="content-grid">
               <div class="wrapper">
@@ -162,17 +162,17 @@ describe("sgds-masthead", () => {
     );
   });
 
-  it("when clicked on #sgds-masthead-identify, shows #sgds-masthead-content", async () => {
-    const el = await fixture<SgdsMasthead>(html`<sgds-masthead></sgds-masthead>`);
-    expect(el.shadowRoot?.getElementById("sgds-masthead-content")?.classList.value).not.to.contain("show");
-    el.shadowRoot?.getElementById("sgds-masthead-identify")?.click();
+  it("when clicked on #sit-masthead-identify, shows #sit-masthead-content", async () => {
+    const el = await fixture<SitMasthead>(html`<sit-masthead></sit-masthead>`);
+    expect(el.shadowRoot?.getElementById("SIT-masthead-content")?.classList.value).not.to.contain("show");
+    el.shadowRoot?.getElementById("SIT-masthead-identify")?.click();
     await elementUpdated(el);
-    expect(el.shadowRoot?.getElementById("sgds-masthead-content")).to.have.class("show");
+    expect(el.shadowRoot?.getElementById("SIT-masthead-content")).to.have.class("show");
   });
 
   it("toggles panel with keyboard (Enter)", async () => {
-    const el = await fixture<SgdsMasthead>(html`<sgds-masthead></sgds-masthead>`);
-    const button = el.shadowRoot!.querySelector(".sgds-masthead-button")!;
+    const el = await fixture<SitMasthead>(html`<sit-masthead></sit-masthead>`);
+    const button = el.shadowRoot!.querySelector(".sit-masthead-button")!;
 
     button.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter", bubbles: true }));
     await el.updateComplete;
@@ -184,8 +184,8 @@ describe("sgds-masthead", () => {
   });
 
   it("toggles panel with keyboard (Space)", async () => {
-    const el = await fixture<SgdsMasthead>(html`<sgds-masthead></sgds-masthead>`);
-    const button = el.shadowRoot!.querySelector(".sgds-masthead-button")!;
+    const el = await fixture<SitMasthead>(html`<sit-masthead></sit-masthead>`);
+    const button = el.shadowRoot!.querySelector(".sit-masthead-button")!;
 
     button.dispatchEvent(new KeyboardEvent("keydown", { key: " ", bubbles: true }));
     await el.updateComplete;
@@ -194,17 +194,20 @@ describe("sgds-masthead", () => {
 
   describe("fluid property", () => {
     it("when fluid is false (default), .container has max-width constraint", async () => {
-      const el = await fixture<SgdsMasthead>(html`<sgds-masthead></sgds-masthead>`);
+      const el = await fixture<SitMasthead>(html`<sit-masthead></sit-masthead>`);
       const container = el.shadowRoot?.querySelector(".container") as HTMLElement;
       const styles = getComputedStyle(container);
       expect(styles.maxWidth).to.equal("1440px");
     });
 
     it("when fluid is true, .container has no max-width constraint", async () => {
-      const el = await fixture<SgdsMasthead>(html`<sgds-masthead fluid></sgds-masthead>`);
+      const el = await fixture<SitMasthead>(html`<sit-masthead fluid></sit-masthead>`);
       const container = el.shadowRoot?.querySelector(".container") as HTMLElement;
       const styles = getComputedStyle(container);
       expect(styles.maxWidth).to.equal("none");
     });
   });
 });
+
+
+

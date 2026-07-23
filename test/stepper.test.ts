@@ -1,8 +1,8 @@
 import { assert, elementUpdated, expect, fixture, html, waitUntil } from "@open-wc/testing";
 import { sendKeys } from "@web/test-runner-commands";
 import sinon from "sinon";
-import { SgdsButton, SgdsStepper } from "../src/components";
-import "./sgds-web-component";
+import { SitButton, SitStepper } from "../src/components";
+import "./sit-web-component";
 
 const stepMetaData = [
   {
@@ -35,42 +35,42 @@ const iconStepMetaData = [
     iconName: "placeholder"
   }
 ];
-describe("sgds-stepper", () => {
+describe("SIT-stepper", () => {
   it("is defined", () => {
-    const el = document.createElement("sgds-stepper");
-    assert.instanceOf(el, SgdsStepper);
+    const el = document.createElement("SIT-stepper");
+    assert.instanceOf(el, SitStepper);
   });
   it("by default should render 3 steps within component", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData}></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData}></sit-stepper> `);
     const stepperItems = el.shadowRoot?.querySelectorAll(".stepper-item");
     expect(stepperItems?.length).to.equal(3);
   });
   it("should render the correct number of steps when passed in steps prop", async () => {
     const fourSteps = [...stepMetaData, { stepHeader: "Submitted", component: "4 test" }];
-    const el = await fixture(html` <sgds-stepper .steps=${fourSteps}></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${fourSteps}></sit-stepper> `);
     const stepperItems = el.shadowRoot?.querySelectorAll(".stepper-item");
     expect(stepperItems?.length).to.equal(4);
   });
   it("should have default activeStep=0", async () => {
-    const el = await fixture<SgdsStepper>(html` <sgds-stepper .steps=${stepMetaData}></sgds-stepper> `);
+    const el = await fixture<SitStepper>(html` <sit-stepper .steps=${stepMetaData}></sit-stepper> `);
     expect(el.activeStep).to.equal(0);
   });
 
   it("should have the is-active class on step 1 when activeStep set to 0", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData} activeStep="0"></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData} activeStep="0"></sit-stepper> `);
 
     expect(el.shadowRoot?.children[0].querySelector(".stepper-item")?.classList.value).to.contain("is-active");
   });
 
   it("when activeStep set to 2 and clickable set to false, should not update the `is-active` to the previous step when clicked", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData} activeStep="2"></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData} activeStep="2"></sit-stepper> `);
 
     const stepperItemTwo = el.shadowRoot
       ?.querySelectorAll(".stepper-item-container")[1]
-      .querySelector(".stepper-item") as SgdsStepper;
+      .querySelector(".stepper-item") as SitStepper;
     const stepperItemThree = el.shadowRoot
       ?.querySelectorAll(".stepper-item-container")[2]
-      .querySelector(".stepper-item") as SgdsStepper;
+      .querySelector(".stepper-item") as SitStepper;
 
     stepperItemTwo.click();
     await elementUpdated(el);
@@ -79,13 +79,13 @@ describe("sgds-stepper", () => {
   });
 
   it("when activeStep set to 2 and clickable set to true, should update the `is-active` to the previous step when clicked", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData} activeStep="2" clickable></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData} activeStep="2" clickable></sit-stepper> `);
     const stepperItemTwo = el.shadowRoot
       ?.querySelectorAll(".stepper-item-container")[1]
-      .querySelector(".stepper-item") as SgdsStepper;
+      .querySelector(".stepper-item") as SitStepper;
     const stepperItemThree = el.shadowRoot
       ?.querySelectorAll(".stepper-item-container")[2]
-      .querySelector(".stepper-item") as SgdsStepper;
+      .querySelector(".stepper-item") as SitStepper;
 
     stepperItemTwo.click();
     await elementUpdated(el);
@@ -94,7 +94,7 @@ describe("sgds-stepper", () => {
   });
 
   it("getComponent method returns the component of current active step by default", async () => {
-    const el = await fixture<SgdsStepper>(html` <sgds-stepper .steps=${stepMetaData} activeStep="2"></sgds-stepper> `);
+    const el = await fixture<SitStepper>(html` <sit-stepper .steps=${stepMetaData} activeStep="2"></sit-stepper> `);
     expect(el.getComponent()).to.equal(stepMetaData[2].component);
     el.previousStep();
     await el.updateComplete;
@@ -102,39 +102,39 @@ describe("sgds-stepper", () => {
   });
 
   it("getComponent method returns the component of step passed in", async () => {
-    const el = await fixture<SgdsStepper>(html` <sgds-stepper .steps=${stepMetaData} activeStep="2"></sgds-stepper> `);
+    const el = await fixture<SitStepper>(html` <sit-stepper .steps=${stepMetaData} activeStep="2"></sit-stepper> `);
     expect(el.getComponent(0)).to.equal(stepMetaData[0].component);
   });
 
   it("when orientation is not set, the orientation is horizontal by default", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData}></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData}></sit-stepper> `);
 
-    const stepper = el.shadowRoot?.querySelector(".stepper") as SgdsStepper;
+    const stepper = el.shadowRoot?.querySelector(".stepper") as SitStepper;
     expect(stepper.classList.contains("horizontal")).to.be.true;
   });
 
   it("when orientation set to vertical, the stepper will be in vertical orientation", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData} orientation="vertical"></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData} orientation="vertical"></sit-stepper> `);
 
-    const stepper = el.shadowRoot?.querySelector(".stepper") as SgdsStepper;
+    const stepper = el.shadowRoot?.querySelector(".stepper") as SitStepper;
     expect(stepper.classList.contains("vertical")).to.be.true;
   });
-  it("when iconName is included in stepsMetadata, sgds-icon is rendered in steps marker", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${iconStepMetaData}></sgds-stepper> `);
-    const markers = el.shadowRoot?.querySelectorAll(".stepper-marker > sgds-icon[name='placeholder']");
+  it("when iconName is included in stepsMetadata, sit-icon is rendered in steps marker", async () => {
+    const el = await fixture(html` <sit-stepper .steps=${iconStepMetaData}></sit-stepper> `);
+    const markers = el.shadowRoot?.querySelectorAll(".stepper-marker > sit-icon[name='placeholder']");
     expect(markers?.length).to.equal(3);
   });
 });
 
-describe("sgds-stepper, sgds-button interactions", () => {
+describe("SIT-stepper, sit-button interactions", () => {
   it("should increment the active step when the nextStep() method is called", async () => {
     const el = await fixture(html`
-      <sgds-stepper .steps=${stepMetaData} id="myStepper" activeStep="0"></sgds-stepper>
-      <sgds-button stepperId="myStepper" methodType="increment" variant="primary">Next</sgds-button>
+      <sit-stepper .steps=${stepMetaData} id="myStepper" activeStep="0"></sit-stepper>
+      <sit-button stepperId="myStepper" methodType="increment" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SgdsStepper>("sgds-stepper");
-    const button = el.querySelector<SgdsButton>("sgds-button");
+    const stepper = el.querySelector<SitStepper>("SIT-stepper");
+    const button = el.querySelector<SitButton>("SIT-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[0]).to.have.class("is-active");
@@ -147,12 +147,12 @@ describe("sgds-stepper, sgds-button interactions", () => {
 
   it("should increment the active step when the nextStep() method is called, showing the previous step 1 to have is-clickable, is-completed props, tab-index=0", async () => {
     const el = await fixture(html`
-      <sgds-stepper .steps=${stepMetaData} id="myStepper" activeStep="0"></sgds-stepper>
-      <sgds-button stepperId="myStepper" methodType="increment" variant="primary">Next</sgds-button>
+      <sit-stepper .steps=${stepMetaData} id="myStepper" activeStep="0"></sit-stepper>
+      <sit-button stepperId="myStepper" methodType="increment" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SgdsStepper>("sgds-stepper");
-    const button = el.querySelector<SgdsButton>("sgds-button");
+    const stepper = el.querySelector<SitStepper>("SIT-stepper");
+    const button = el.querySelector<SitButton>("SIT-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[0]).to.have.class("is-active");
@@ -166,12 +166,12 @@ describe("sgds-stepper, sgds-button interactions", () => {
 
   it("should decrement the active step when the previousStep() method is called", async () => {
     const el = await fixture(html`
-      <sgds-stepper .steps=${stepMetaData} id="myStepper" activeStep="1"></sgds-stepper>
-      <sgds-button stepperId="myStepper" methodType="decrement" variant="primary">Back</sgds-button>
+      <sit-stepper .steps=${stepMetaData} id="myStepper" activeStep="1"></sit-stepper>
+      <sit-button stepperId="myStepper" methodType="decrement" variant="primary">Back</sit-button>
     `);
 
-    const stepper = el.querySelector<SgdsStepper>("sgds-stepper");
-    const button = el.querySelector<SgdsButton>("sgds-button");
+    const stepper = el.querySelector<SitStepper>("SIT-stepper");
+    const button = el.querySelector<SitButton>("SIT-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[1]).to.have.class("is-active");
@@ -184,12 +184,12 @@ describe("sgds-stepper, sgds-button interactions", () => {
 
   it("should decrement the active step when the previousStep() method is called, showing the previous step 2 to not have is-clickable, is-completed props", async () => {
     const el = await fixture(html`
-      <sgds-stepper .steps=${stepMetaData} id="myStepper" activeStep="1"></sgds-stepper>
-      <sgds-button stepperId="myStepper" methodType="decrement" variant="primary">Next</sgds-button>
+      <sit-stepper .steps=${stepMetaData} id="myStepper" activeStep="1"></sit-stepper>
+      <sit-button stepperId="myStepper" methodType="decrement" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SgdsStepper>("sgds-stepper");
-    const button = el.querySelector<SgdsButton>("sgds-button");
+    const stepper = el.querySelector<SitStepper>("SIT-stepper");
+    const button = el.querySelector<SitButton>("SIT-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[1]).to.have.class("is-active");
@@ -203,12 +203,12 @@ describe("sgds-stepper, sgds-button interactions", () => {
 
   it("should set the active step to the last step when the lastStep() method is called", async () => {
     const el = await fixture(html`
-      <sgds-stepper .steps=${stepMetaData} id="myStepper" activeStep="0"></sgds-stepper>
-      <sgds-button stepperId="myStepper" methodType="last" variant="primary">Next</sgds-button>
+      <sit-stepper .steps=${stepMetaData} id="myStepper" activeStep="0"></sit-stepper>
+      <sit-button stepperId="myStepper" methodType="last" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SgdsStepper>("sgds-stepper");
-    const button = el.querySelector<SgdsButton>("sgds-button");
+    const stepper = el.querySelector<SitStepper>("SIT-stepper");
+    const button = el.querySelector<SitButton>("SIT-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[0]).to.have.class("is-active");
@@ -222,12 +222,12 @@ describe("sgds-stepper, sgds-button interactions", () => {
 
   it("should set the active step to the first step when the firstStep() method is called", async () => {
     const el = await fixture(html`
-      <sgds-stepper .steps=${stepMetaData} id="myStepper" activeStep="2"></sgds-stepper>
-      <sgds-button stepperId="myStepper" methodType="first" variant="primary">Next</sgds-button>
+      <sit-stepper .steps=${stepMetaData} id="myStepper" activeStep="2"></sit-stepper>
+      <sit-button stepperId="myStepper" methodType="first" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SgdsStepper>("sgds-stepper");
-    const button = el.querySelector<SgdsButton>("sgds-button");
+    const stepper = el.querySelector<SitStepper>("SIT-stepper");
+    const button = el.querySelector<SitButton>("SIT-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[2]).to.have.class("is-active");
@@ -240,7 +240,7 @@ describe("sgds-stepper, sgds-button interactions", () => {
   });
 
   it("when reset method is fired, activeStep is back to defaultValue", async () => {
-    const el = await fixture<SgdsStepper>(html` <sgds-stepper .steps=${stepMetaData} activeStep="1"></sgds-stepper> `);
+    const el = await fixture<SitStepper>(html` <sit-stepper .steps=${stepMetaData} activeStep="1"></sit-stepper> `);
     expect(el.defaultActiveStep).to.equal(1);
     expect(el.activeStep).to.equal(1);
 
@@ -255,32 +255,32 @@ describe("sgds-stepper, sgds-button interactions", () => {
 
 const eventsMetadata = [
   {
-    event: "sgds-next-step",
+    event: "SIT-next-step",
     method: "nextStep"
   },
   {
-    event: "sgds-previous-step",
+    event: "SIT-previous-step",
     method: "previousStep"
   },
   {
-    event: "sgds-last-step",
+    event: "SIT-last-step",
     method: "lastStep"
   },
   {
-    event: "sgds-first-step",
+    event: "SIT-first-step",
     method: "firstStep"
   }
 ];
 describe("Stepper events", () => {
   eventsMetadata.forEach(m => {
-    it(`${m.event} is fired when method ${m.method}() is called and sgds-arrived is called after`, async () => {
-      const el = await fixture<SgdsStepper>(
-        html` <sgds-stepper .steps=${stepMetaData} activeStep="1"></sgds-stepper> `
+    it(`${m.event} is fired when method ${m.method}() is called and sit-arrived is called after`, async () => {
+      const el = await fixture<SitStepper>(
+        html` <sit-stepper .steps=${stepMetaData} activeStep="1"></sit-stepper> `
       );
       const eventHandler = sinon.spy();
       const arrivedEventHandler = sinon.spy();
       el.addEventListener(m.event, eventHandler);
-      el.addEventListener("sgds-arrived", arrivedEventHandler);
+      el.addEventListener("SIT-arrived", arrivedEventHandler);
       el[m.method]();
       await waitUntil(() => eventHandler.calledOnce);
       expect(eventHandler).to.have.been.calledOnce;
@@ -290,12 +290,12 @@ describe("Stepper events", () => {
     });
   });
 
-  it("sgds-reset is fired when reset method is called, sgds-arrived called after", async () => {
-    const el = await fixture<SgdsStepper>(html` <sgds-stepper .steps=${stepMetaData}></sgds-stepper> `);
+  it("SIT-reset is fired when reset method is called, sit-arrived called after", async () => {
+    const el = await fixture<SitStepper>(html` <sit-stepper .steps=${stepMetaData}></sit-stepper> `);
     const eventHandler = sinon.spy();
     const arrivedEventHandler = sinon.spy();
-    el.addEventListener("sgds-reset", eventHandler);
-    el.addEventListener("sgds-arrived", arrivedEventHandler);
+    el.addEventListener("SIT-reset", eventHandler);
+    el.addEventListener("SIT-arrived", arrivedEventHandler);
 
     //setting the stage
     el.nextStep();
@@ -311,11 +311,11 @@ describe("Stepper events", () => {
 
 describe("Stepper keyboard interactions", () => {
   it("keyboard enter will simulate a click behaviour on the markers", async () => {
-    const el = await fixture<SgdsStepper>(
-      html` <sgds-stepper activeStep="2" .steps=${stepMetaData} clickable></sgds-stepper> `
+    const el = await fixture<SitStepper>(
+      html` <sit-stepper activeStep="2" .steps=${stepMetaData} clickable></sit-stepper> `
     );
     const arrivedHandler = sinon.spy();
-    el.addEventListener("sgds-arrived", arrivedHandler);
+    el.addEventListener("SIT-arrived", arrivedHandler);
     const markers = el.shadowRoot?.querySelectorAll("div.stepper-item");
     expect(markers?.[0]).to.have.class("is-completed").and.have.class("is-clickable");
     expect(markers?.[1]).to.have.class("is-completed").and.have.class("is-clickable");
@@ -328,10 +328,10 @@ describe("Stepper keyboard interactions", () => {
   });
 });
 
-describe("sgds-stepper accessibility", () => {
+describe("SIT-stepper accessibility", () => {
   it("when orientation=horizontal, stepper should be displayed in horizontal orientation", async () => {
     const el = await fixture(
-      html` <sgds-stepper orientation="horizontal" .steps=${stepMetaData} activeStep="1"></sgds-stepper> `
+      html` <sit-stepper orientation="horizontal" .steps=${stepMetaData} activeStep="1"></sit-stepper> `
     );
     const stepper = el.shadowRoot?.querySelector(".stepper");
     expect(stepper).to.have.class("horizontal");
@@ -339,14 +339,14 @@ describe("sgds-stepper accessibility", () => {
 
   it("when orientation=vertical, stepper should be displayed in horizontal orientation", async () => {
     const el = await fixture(
-      html` <sgds-stepper orientation="horizontal" .steps=${stepMetaData} activeStep="1"></sgds-stepper> `
+      html` <sit-stepper orientation="horizontal" .steps=${stepMetaData} activeStep="1"></sit-stepper> `
     );
     const stepper = el.shadowRoot?.querySelector(".stepper");
     expect(stepper).to.have.class("horizontal");
   });
 
   it("when clickable=false, should not be tab-accessible for all steps", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData} activeStep="1"></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData} activeStep="1"></sit-stepper> `);
     const markers = el.shadowRoot?.querySelectorAll("div.stepper-item");
     expect(markers?.[0]).to.have.attribute("tabindex", "-1");
     expect(markers?.[1]).to.have.attribute("tabindex", "-1");
@@ -354,7 +354,7 @@ describe("sgds-stepper accessibility", () => {
   });
 
   it("when clickable=true, the steps before activeStep should be tab-accessible", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData} clickable activeStep="1"></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData} clickable activeStep="1"></sit-stepper> `);
     const markers = el.shadowRoot?.querySelectorAll("div.stepper-item");
     expect(markers?.[0]).to.have.attribute("tabindex", "0");
     expect(markers?.[1]).to.have.attribute("tabindex", "-1");
@@ -362,7 +362,7 @@ describe("sgds-stepper accessibility", () => {
   });
 
   it("should have correct aria-current value for each step when activeStep set to 1", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData} activeStep="1"></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData} activeStep="1"></sit-stepper> `);
     const markers = el.shadowRoot?.querySelectorAll("div.stepper-item");
     expect(markers?.[0]).to.have.attribute("aria-current", "false");
     expect(markers?.[1]).to.have.attribute("aria-current", "step");
@@ -370,7 +370,7 @@ describe("sgds-stepper accessibility", () => {
   });
 
   it("should have correct aria-disabled value for each step when activeStep set to 1", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData} activeStep="1"></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData} activeStep="1"></sit-stepper> `);
     const markers = el.shadowRoot?.querySelectorAll("div.stepper-item");
     expect(markers?.[0]).to.have.attribute("aria-disabled", "false");
     expect(markers?.[1]).to.have.attribute("aria-disabled", "true");
@@ -378,50 +378,53 @@ describe("sgds-stepper accessibility", () => {
   });
 });
 
-describe("sgds-stepper with sgds-step child components", () => {
-  it("should render sgds-step children when slotted", async () => {
+describe("SIT-stepper with sit-step child components", () => {
+  it("should render sit-step children when slotted", async () => {
     const el = await fixture(html`
-      <sgds-stepper>
-        <sgds-step stepHeader="Personal Details"></sgds-step>
-        <sgds-step stepHeader="Address"></sgds-step>
-        <sgds-step stepHeader="Review"></sgds-step>
-      </sgds-stepper>
+      <sit-stepper>
+        <sit-step stepHeader="Personal Details"></sit-step>
+        <sit-step stepHeader="Address"></sit-step>
+        <sit-step stepHeader="Review"></sit-step>
+      </sit-stepper>
     `);
-    const steps = el.querySelectorAll("sgds-step");
+    const steps = el.querySelectorAll("SIT-step");
     expect(steps.length).to.equal(3);
   });
 
-  it("should not render fallback steps when sgds-step children are slotted", async () => {
+  it("should not render fallback steps when sit-step children are slotted", async () => {
     const el = await fixture(html`
-      <sgds-stepper .steps=${stepMetaData}>
-        <sgds-step stepHeader="Personal Details"></sgds-step>
-        <sgds-step stepHeader="Address"></sgds-step>
-        <sgds-step stepHeader="Review"></sgds-step>
-      </sgds-stepper>
+      <sit-stepper .steps=${stepMetaData}>
+        <sit-step stepHeader="Personal Details"></sit-step>
+        <sit-step stepHeader="Address"></sit-step>
+        <sit-step stepHeader="Review"></sit-step>
+      </sit-stepper>
     `);
     const shadowSteps = el.shadowRoot?.querySelectorAll(".stepper-item-container");
     expect(shadowSteps?.length).to.equal(0);
   });
 
-  it("should set hasDefaultSlot=true when sgds-step children are slotted", async () => {
-    const el = await fixture<SgdsStepper>(html`
-      <sgds-stepper>
-        <sgds-step stepHeader="Personal Details"></sgds-step>
-      </sgds-stepper>
+  it("should set hasDefaultSlot=true when sit-step children are slotted", async () => {
+    const el = await fixture<SitStepper>(html`
+      <sit-stepper>
+        <sit-step stepHeader="Personal Details"></sit-step>
+      </sit-stepper>
     `);
     await el.updateComplete;
     expect(el.hasDefaultSlot).to.be.true;
   });
 
-  it("should set hasDefaultSlot=false when no sgds-step children are slotted", async () => {
-    const el = await fixture<SgdsStepper>(html` <sgds-stepper .steps=${stepMetaData}></sgds-stepper> `);
+  it("should set hasDefaultSlot=false when no sit-step children are slotted", async () => {
+    const el = await fixture<SitStepper>(html` <sit-stepper .steps=${stepMetaData}></sit-stepper> `);
     await el.updateComplete;
     expect(el.hasDefaultSlot).to.be.false;
   });
 
   it("should render fallback steps when steps prop is provided and no children are slotted", async () => {
-    const el = await fixture(html` <sgds-stepper .steps=${stepMetaData}></sgds-stepper> `);
+    const el = await fixture(html` <sit-stepper .steps=${stepMetaData}></sit-stepper> `);
     const shadowSteps = el.shadowRoot?.querySelectorAll(".stepper-item-container");
     expect(shadowSteps?.length).to.equal(3);
   });
 });
+
+
+

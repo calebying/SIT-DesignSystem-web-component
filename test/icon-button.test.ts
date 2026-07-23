@@ -2,17 +2,17 @@ import { assert, expect, fixture } from "@open-wc/testing";
 import { sendKeys } from "@web/test-runner-commands";
 import { html } from "lit";
 import Sinon from "sinon";
-import { SgdsIcon, SgdsIconButton, SgdsSpinner } from "../src/components";
+import { SitIcon, SitIconButton, SitSpinner } from "../src/components";
 import "../src/index";
 
-describe("<sgds-icon-button>", () => {
+describe("<sit-icon-button>", () => {
   it("semantically matches the DOM", async () => {
     // Mock fetch to prevent network requests
     const fetchStub = Sinon.stub(window, "fetch").resolves(
       new Response("<svg></svg>", { status: 200, headers: { "Content-Type": "image/svg+xml" } })
     );
 
-    const el = await fixture<SgdsIconButton>(html`<sgds-icon-button name="placeholder"></sgds-icon-button>`);
+    const el = await fixture<SitIconButton>(html`<sit-icon-button name="placeholder"></sit-icon-button>`);
     await el.updateComplete;
     assert.shadowDom.equal(
       el,
@@ -22,7 +22,7 @@ describe("<sgds-icon-button>", () => {
       class="btn btn-icon btn-primary btn-md"
       tabindex="0"
       type="button">
-        <sgds-icon name="placeholder" size="lg"></sgds-icon>
+        <sit-icon name="placeholder" size="lg"></sit-icon>
       </button>
       `
     );
@@ -38,10 +38,10 @@ describe("<sgds-icon-button>", () => {
   ];
   mappedSize.forEach(({ btnSize, iconSize }) => {
     it(`when icon button size is ${btnSize}, expected icon size is ${iconSize}`, async () => {
-      const el = await fixture<SgdsIconButton>(
-        html`<sgds-icon-button size=${btnSize} name="placeholder"></sgds-icon-button>`
+      const el = await fixture<SitIconButton>(
+        html`<sit-icon-button size=${btnSize} name="placeholder"></sit-icon-button>`
       );
-      const icon = el.shadowRoot?.querySelector("sgds-icon") as SgdsIcon;
+      const icon = el.shadowRoot?.querySelector("SIT-icon") as SitIcon;
       expect(icon.size).to.equal(iconSize);
     });
   });
@@ -54,10 +54,10 @@ describe("<sgds-icon-button>", () => {
   ];
   mappedIconButtonToSpinnerSize.forEach(({ btnSize, spinnerSize }) => {
     it(`when icon button size is ${btnSize}, expected spinner size is ${spinnerSize}`, async () => {
-      const el = await fixture<SgdsIconButton>(
-        html`<sgds-icon-button size=${btnSize} loading name="placeholder"></sgds-icon-button>`
+      const el = await fixture<SitIconButton>(
+        html`<sit-icon-button size=${btnSize} loading name="placeholder"></sit-icon-button>`
       );
-      const spinner = el.shadowRoot?.querySelector("sgds-spinner") as SgdsSpinner;
+      const spinner = el.shadowRoot?.querySelector("SIT-spinner") as SitSpinner;
       expect(spinner.size).to.equal(spinnerSize);
     });
   });
@@ -67,8 +67,8 @@ describe("<sgds-icon-button>", () => {
       new Response("<svg></svg>", { status: 200, headers: { "Content-Type": "image/svg+xml" } })
     );
 
-    const el = await fixture<SgdsIconButton>(
-      html`<sgds-icon-button href="https://example.com" name="placeholder"></sgds-icon-button>`
+    const el = await fixture<SitIconButton>(
+      html`<sit-icon-button href="https://example.com" name="placeholder"></sit-icon-button>`
     );
     const anchorTag = el.shadowRoot?.querySelector("a");
     expect(anchorTag).to.exist;
@@ -88,8 +88,8 @@ describe("<sgds-icon-button>", () => {
     );
 
     const el = await fixture(
-      html`<sgds-icon-button href="https://example.com" target="_blank" download="example.pdf" name="placeholder">
-      </sgds-icon-button>`
+      html`<sit-icon-button href="https://example.com" target="_blank" download="example.pdf" name="placeholder">
+      </sit-icon-button>`
     );
     const anchor = el.shadowRoot?.querySelector("a");
     expect(anchor).to.have.attribute("href", "https://example.com");
@@ -107,8 +107,8 @@ describe("<sgds-icon-button>", () => {
       new Response("<svg></svg>", { status: 200, headers: { "Content-Type": "image/svg+xml" } })
     );
 
-    const el = await fixture<SgdsIconButton>(
-      html`<sgds-icon-button size="lg" variant="primary" name="placeholder"></sgds-icon-button>`
+    const el = await fixture<SitIconButton>(
+      html`<sit-icon-button size="lg" variant="primary" name="placeholder"></sit-icon-button>`
     );
     const button = el.shadowRoot?.querySelector("button");
     expect(button).to.have.class("btn-icon");
@@ -125,7 +125,7 @@ describe("<sgds-icon-button>", () => {
       new Response("<svg></svg>", { status: 200, headers: { "Content-Type": "image/svg+xml" } })
     );
 
-    const el = await fixture<SgdsIconButton>(html`<sgds-icon-button disabled name="placeholder"></sgds-icon-button>`);
+    const el = await fixture<SitIconButton>(html`<sit-icon-button disabled name="placeholder"></sit-icon-button>`);
     const button = el.shadowRoot?.querySelector("button");
     expect(button).to.have.attribute("disabled");
     expect(button).to.have.attribute("aria-disabled", "true");
@@ -135,7 +135,7 @@ describe("<sgds-icon-button>", () => {
   });
 
   it("does not allow interaction when disabled", async () => {
-    const el = await fixture(html`<sgds-icon-button disabled name="placeholder"></sgds-icon-button>`);
+    const el = await fixture(html`<sit-icon-button disabled name="placeholder"></sit-icon-button>`);
     const button = el.shadowRoot?.querySelector("button");
     expect(button).attribute("tabindex").to.equal("-1");
 
@@ -146,12 +146,12 @@ describe("<sgds-icon-button>", () => {
   });
 
   it("handles focus and blur events", async () => {
-    const el = await fixture(html`<sgds-icon-button name="placeholder"></sgds-icon-button>`);
+    const el = await fixture(html`<sit-icon-button name="placeholder"></sit-icon-button>`);
     const button = el.shadowRoot?.querySelector("button");
     let focused = false;
     let blurred = false;
-    el.addEventListener("sgds-focus", () => (focused = true));
-    el.addEventListener("sgds-blur", () => (blurred = true));
+    el.addEventListener("SIT-focus", () => (focused = true));
+    el.addEventListener("SIT-blur", () => (blurred = true));
 
     button?.focus();
     expect(focused).to.be.true;
@@ -160,26 +160,26 @@ describe("<sgds-icon-button>", () => {
     expect(blurred).to.be.true;
   });
   it("loading is true, spinner replaces the icon", async () => {
-    const el = await fixture(html`<sgds-icon-button name="placeholder" loading></sgds-icon-button>`);
-    const icon = el.shadowRoot?.querySelector("sgds-icon");
-    const spinner = el.shadowRoot?.querySelector("sgds-spinner");
+    const el = await fixture(html`<sit-icon-button name="placeholder" loading></sit-icon-button>`);
+    const icon = el.shadowRoot?.querySelector("SIT-icon");
+    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner).to.exist;
     expect(icon).not.to.exist;
   });
   it("loading is true, aria-label set to Loading, aria-disabled is true, .disabled.loading styles are set", async () => {
-    const el = await fixture(html`<sgds-icon-button name="placeholder" loading></sgds-icon-button>`);
+    const el = await fixture(html`<sit-icon-button name="placeholder" loading></sit-icon-button>`);
     const button = el.shadowRoot?.querySelector("button");
     expect(button).to.have.attribute("aria-label", "Loading");
     expect(button).to.have.attribute("aria-disabled", "true");
     expect(button).to.have.class("loading");
   });
   it("loading is true, onclick handler are disabled", async () => {
-    const el = await fixture<SgdsIconButton>(
-      html`<sgds-icon-button
+    const el = await fixture<SitIconButton>(
+      html`<sit-icon-button
         name="placeholder"
         ?loading=${true}
         onclick=${() => console.log("click")}
-      ></sgds-icon-button>`
+      ></sit-icon-button>`
     );
     const button = el.shadowRoot?.querySelector<HTMLButtonElement>("button");
 
@@ -194,12 +194,12 @@ describe("<sgds-icon-button>", () => {
     expect(clicked).to.be.true;
   });
   it("loading is true, keydown enter handler are disabled", async () => {
-    const el = await fixture<SgdsIconButton>(
-      html`<sgds-icon-button
+    const el = await fixture<SitIconButton>(
+      html`<sit-icon-button
         name="placeholder"
         loading
         onkeydown=${(e: KeyboardEvent) => (e.key === "Enter" ? console.log("enter") : null)}
-      ></sgds-icon-button>`
+      ></sit-icon-button>`
     );
     const button = el.shadowRoot?.querySelector<HTMLButtonElement>("button");
     let enter = false;
@@ -220,3 +220,5 @@ describe("<sgds-icon-button>", () => {
     expect(enter).to.be.true;
   });
 });
+
+

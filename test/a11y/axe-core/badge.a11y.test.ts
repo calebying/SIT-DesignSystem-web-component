@@ -1,15 +1,18 @@
-import "../../sgds-web-component";
+import "../../sit-web-component";
 import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Badge a11y", () => {
-  it("sgds-badge should be accessible", async () => {
-    const el = await fixture(html` <sgds-badge variant="primary">New</sgds-badge> `);
+  it("SIT-badge should be accessible", async () => {
+    const el = await fixture(html` <sit-badge variant="primary">New</sit-badge> `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-badge outlined should be accessible", async () => {
-    const el = await fixture(html` <sgds-badge variant="neutral" outlined>Tag</sgds-badge> `);
+  it("SIT-badge outlined should be accessible", async () => {
+    const el = await fixture(html` <sit-badge variant="neutral" outlined>Tag</sit-badge> `);
     await expect(el).to.be.accessible();
   });
 });
+
+
+

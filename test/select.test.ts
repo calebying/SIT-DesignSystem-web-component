@@ -2,53 +2,53 @@ import { assert, aTimeout, expect, fixture, waitUntil } from "@open-wc/testing";
 import { sendKeys } from "@web/test-runner-commands";
 import { html } from "lit";
 import sinon from "sinon";
-import { SgdsButton, SgdsSelect } from "../src/components";
-import SgdsSelectOption from "../src/components/Select/sgds-select-option";
+import { SitButton, SitSelect } from "../src/components";
+import SitSelectOption from "../src/components/Select/sit-select-option";
 import "../src/index";
 
 const NoOptionsSelects = [
-  { render: html`<sgds-select .menuList=${[]}></sgds-select>`, mode: "property" },
-  { render: html`<sgds-select></sgds-select>`, mode: "slot" }
+  { render: html`<sit-select .menuList=${[]}></sit-select>`, mode: "property" },
+  { render: html`<sit-select></sit-select>`, mode: "slot" }
 ];
 
 const TwoOptionsSelects = [
   {
-    render: html`<sgds-select
+    render: html`<sit-select
       .menuList=${[
         { label: "Option 1", value: "option1" },
         { label: "Option 2", value: "option2" }
       ]}
-    ></sgds-select>`,
+    ></sit-select>`,
     mode: "property"
   },
   {
-    render: html`<sgds-select>
-      <sgds-select-option value="option1">Option 1</sgds-select-option>
-      <sgds-select-option value="option2">Option 2</sgds-select-option>
-    </sgds-select>`,
+    render: html`<sit-select>
+      <sit-select-option value="option1">Option 1</sit-select-option>
+      <sit-select-option value="option2">Option 2</sit-select-option>
+    </sit-select>`,
     mode: "slot"
   }
 ];
 
 const ThreeOptionsSelects = [
   {
-    render: html`<sgds-select
+    render: html`<sit-select
       .menuList=${[
         { label: "Apple", value: "option1" },
         { label: "Apricot", value: "option2" },
         { label: "Durian", value: "option3" }
       ]}
       value="option3"
-    ></sgds-select>`,
+    ></sit-select>`,
 
     mode: "property"
   },
   {
-    render: html`<sgds-select value="option3">
-      <sgds-select-option value="option1">Apple</sgds-select-option>
-      <sgds-select-option value="option2">Apricot</sgds-select-option>
-      <sgds-select-option value="option3">Durian</sgds-select-option>
-    </sgds-select>`,
+    render: html`<sit-select value="option3">
+      <sit-select-option value="option1">Apple</sit-select-option>
+      <sit-select-option value="option2">Apricot</sit-select-option>
+      <sit-select-option value="option3">Durian</sit-select-option>
+    </sit-select>`,
 
     mode: "slot"
   }
@@ -71,14 +71,14 @@ async function simulateUserClick(element: HTMLElement) {
   await aTimeout(0);
 }
 
-describe("<sgds-select>", () => {
+describe("<sit-select>", () => {
   it("matches shadowDom semantically", async () => {
-    const el = await fixture<SgdsSelect>(html` <sgds-select
+    const el = await fixture<SitSelect>(html` <sit-select
       .menuList=${[
         { label: "Option 1", value: "option1" },
         { label: "Option 2", value: "option2" }
       ]}
-    ></sgds-select>`);
+    ></sit-select>`);
     await el.updateComplete;
     assert.shadowDom.equal(
       el,
@@ -90,35 +90,35 @@ describe("<sgds-select>", () => {
                   class="form-control"
                 type="text"
               >
-            <sgds-icon
+            <sit-icon
               name="chevron-down"
               size="md"
             >
-            </sgds-icon>
+            </sit-icon>
             </div>
           <div
             class="dropdown-menu"
-            id="id-7895-sgds-dropdown-menu-div"
+            id="id-7895-sit-dropdown-menu-div"
             part="menu"
             tabindex="-1"
             role="menu"
             aria-label="Options"
             >
             <slot>
-            <sgds-select-option
+            <sit-select-option
               aria-disabled="false"
               role="menuitem"
               value="option1"
             >
               Option 1
-            </sgds-select-option>
-            <sgds-select-option
+            </sit-select-option>
+            <sit-select-option
               aria-disabled="false"
               role="menuitem"
               value="option2"
             >
               Option 2
-            </sgds-select-option>
+            </sit-select-option>
             </slot>
           </div>
         
@@ -128,7 +128,7 @@ describe("<sgds-select>", () => {
   });
 
   it("Should not be able to type in the input", async () => {
-    const el = await fixture<SgdsSelect>(html`<sgds-select></sgds-select>`);
+    const el = await fixture<SitSelect>(html`<sit-select></sit-select>`);
     const input = el.shadowRoot?.querySelector("input");
     input?.focus();
     await sendKeys({ type: "hi" });
@@ -139,13 +139,13 @@ describe("<sgds-select>", () => {
   });
 
   it("should be disabled with the disabled attribute to be true", async () => {
-    const el = await fixture(html`<sgds-select disabled></sgds-select>`);
+    const el = await fixture(html`<sit-select disabled></sit-select>`);
     const selectInput = el.shadowRoot?.querySelector("input");
     expect(selectInput?.disabled).to.be.true;
   });
 
   it("when readonly set to true, menu cannot open", async () => {
-    const el = await fixture<SgdsSelect>(html`<sgds-select readonly></sgds-select>`);
+    const el = await fixture<SitSelect>(html`<sit-select readonly></sit-select>`);
     const input = el.shadowRoot?.querySelector("input.form-control") as HTMLInputElement;
     const menuEl = el.shadowRoot?.querySelector(".dropdown-menu") as HTMLElement;
     input?.click();
@@ -163,10 +163,10 @@ describe("<sgds-select>", () => {
   });
 
   TwoOptionsSelects.forEach(({ mode, render }) => {
-    it(`MODE: ${mode} , should emit sgds-select event when select value is updated`, async () => {
-      const el = await fixture<SgdsSelect>(render);
+    it(`MODE: ${mode} , should emit sit-select event when select value is updated`, async () => {
+      const el = await fixture<SitSelect>(render);
       const selectHandler = sinon.spy();
-      el?.addEventListener("sgds-select", selectHandler);
+      el?.addEventListener("SIT-select", selectHandler);
 
       expect(el.value).to.equal("");
       el.value = "option1";
@@ -174,10 +174,10 @@ describe("<sgds-select>", () => {
       await waitUntil(() => selectHandler.calledOnce);
       expect(selectHandler).to.have.been.calledOnce;
     });
-    it(`MODE: ${mode} ,should emit sgds-change event when select value is updated`, async () => {
-      const el = await fixture<SgdsSelect>(render);
+    it(`MODE: ${mode} ,should emit sit-change event when select value is updated`, async () => {
+      const el = await fixture<SitSelect>(render);
       const changeHandler = sinon.spy();
-      el?.addEventListener("sgds-change", changeHandler);
+      el?.addEventListener("SIT-change", changeHandler);
 
       expect(el.value).to.equal("");
       el.value = "option1";
@@ -186,16 +186,16 @@ describe("<sgds-select>", () => {
       expect(changeHandler).to.have.been.calledOnce;
     });
 
-    it(`MODE: ${mode} ,should emit sgds-focus and sgds-blur event when select is focused/blurred`, async () => {
-      const el = await fixture<SgdsSelect>(render);
+    it(`MODE: ${mode} ,should emit sit-focus and sit-blur event when select is focused/blurred`, async () => {
+      const el = await fixture<SitSelect>(render);
 
       const selectInput = el.shadowRoot?.querySelector("input");
 
       const focusHandler = sinon.spy();
-      el?.addEventListener("sgds-focus", focusHandler);
+      el?.addEventListener("SIT-focus", focusHandler);
 
       const blurHandler = sinon.spy();
-      el?.addEventListener("sgds-blur", blurHandler);
+      el?.addEventListener("SIT-blur", blurHandler);
 
       selectInput?.focus();
       await waitUntil(() => focusHandler.calledOnce);
@@ -206,12 +206,12 @@ describe("<sgds-select>", () => {
       expect(blurHandler).to.have.been.calledOnce;
     });
     it(`MODE: ${mode} mouse click on item, should update value of selected item`, async () => {
-      const el = await fixture<SgdsSelect>(render);
+      const el = await fixture<SitSelect>(render);
       const input = el.shadowRoot?.querySelector("input");
       input?.click();
       await waitUntil(() => el.menuIsOpen);
 
-      const item = el.shadowRoot?.querySelectorAll("sgds-select-option")[0] as SgdsSelectOption;
+      const item = el.shadowRoot?.querySelectorAll("SIT-select-option")[0] as SitSelectOption;
       const itemContent = item.shadowRoot?.querySelector("div.normal-item-content") as HTMLDivElement;
       itemContent?.click();
 
@@ -223,10 +223,10 @@ describe("<sgds-select>", () => {
 
   NoOptionsSelects.forEach(({ mode, render }) => {
     it(`MODE=${mode}, it should not show any items in dropdown menu when there is no match (for default filter)`, async () => {
-      const el = await fixture<SgdsSelect>(render);
+      const el = await fixture<SitSelect>(render);
 
       await el.updateComplete;
-      const items = el.shadowRoot?.querySelectorAll("sgds-select-option");
+      const items = el.shadowRoot?.querySelectorAll("SIT-select-option");
       expect(items?.length).to.equal(0);
       const emptyMenu = el.shadowRoot?.querySelector(".empty-menu");
       expect(emptyMenu).to.exist;
@@ -235,14 +235,14 @@ describe("<sgds-select>", () => {
 
   ThreeOptionsSelects.forEach(({ mode, render }) => {
     it(`MODE=${mode},when initial value is specified, input is populated, item is active`, async () => {
-      const el = await fixture<SgdsSelect>(render);
+      const el = await fixture<SitSelect>(render);
 
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
-      let durianItem: SgdsSelectOption;
+      let durianItem: SitSelectOption;
       if (mode === "slot") {
-        durianItem = el.querySelector("sgds-select-option[value='option3']") as SgdsSelectOption;
+        durianItem = el.querySelector("SIT-select-option[value='option3']") as SitSelectOption;
       } else {
-        durianItem = el.shadowRoot?.querySelector("sgds-select-option[value='option3']") as SgdsSelectOption;
+        durianItem = el.shadowRoot?.querySelector("SIT-select-option[value='option3']") as SitSelectOption;
       }
       await el.updateComplete;
       await waitUntil(() => input.value === "Durian");
@@ -251,7 +251,7 @@ describe("<sgds-select>", () => {
       expect(durianItem.active).to.be.true;
     });
     it(`MODE=${mode}, when menu is close, focused is brought back to input`, async () => {
-      const el = await fixture<SgdsSelect>(render);
+      const el = await fixture<SitSelect>(render);
 
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
       await simulateUserClick(input);
@@ -259,14 +259,14 @@ describe("<sgds-select>", () => {
       await sendKeys({ press: "ArrowDown" });
       if (mode === "slot") {
         await waitUntil(
-          () => el?.querySelectorAll("sgds-select-option")[0] === document.activeElement,
+          () => el?.querySelectorAll("SIT-select-option")[0] === document.activeElement,
           "focus did not move into first select item",
           { timeout: 2000 }
         );
       } else {
         await waitUntil(
           () => {
-            const selectItem1 = el.shadowRoot?.querySelectorAll("sgds-select-option")[0];
+            const selectItem1 = el.shadowRoot?.querySelectorAll("SIT-select-option")[0];
             return getRootActiveElement(input) === selectItem1;
           },
           "focus did not move into first select item",
@@ -287,16 +287,16 @@ describe("select >> when submitting a form", () => {
   it("when value exist in required field, pressing submit should not show error", async () => {
     const form = await fixture<HTMLFormElement>(
       html`<form>
-        <sgds-select required value="option1">
-          <sgds-select-option value="option1">Apple</sgds-select-option>
-          <sgds-select-option value="option2">Apricot</sgds-select-option>
-          <sgds-select-option value="option3">Dur</sgds-select-option>
-        </sgds-select>
-        <sgds-button type="submit">Submit</sgds-button>
+        <sit-select required value="option1">
+          <sit-select-option value="option1">Apple</sit-select-option>
+          <sit-select-option value="option2">Apricot</sit-select-option>
+          <sit-select-option value="option3">Dur</sit-select-option>
+        </sit-select>
+        <sit-button type="submit">Submit</sit-button>
       </form>`
     );
-    const select = form.querySelector<SgdsSelect>("sgds-select");
-    const button = form.querySelector<SgdsButton>("sgds-button");
+    const select = form.querySelector<SitSelect>("SIT-select");
+    const button = form.querySelector<SitButton>("SIT-button");
     form?.addEventListener("submit", e => e.preventDefault());
     expect(select?.value).to.equal("option1");
     expect(select?.invalid).to.be.false;
@@ -307,19 +307,19 @@ describe("select >> when submitting a form", () => {
   it("when value is truthy, and reset button is clicked, input is reset and is valid", async () => {
     const form = await fixture<HTMLFormElement>(
       html`<form>
-        <sgds-select required menuIsOpen>
-          <sgds-select-option value="option1">Apple</sgds-select-option>
-          <sgds-select-option value="option2">Apricot</sgds-select-option>
-          <sgds-select-option value="option3">Dur</sgds-select-option>
-        </sgds-select>
-        <sgds-button type="reset">Reset</sgds-button>
+        <sit-select required menuIsOpen>
+          <sit-select-option value="option1">Apple</sit-select-option>
+          <sit-select-option value="option2">Apricot</sit-select-option>
+          <sit-select-option value="option3">Dur</sit-select-option>
+        </sit-select>
+        <sit-button type="reset">Reset</sit-button>
       </form>`
     );
 
-    const button = form.querySelector<SgdsButton>("sgds-button");
-    const select = form.querySelector<SgdsSelect>("sgds-select");
+    const button = form.querySelector<SitButton>("SIT-button");
+    const select = form.querySelector<SitSelect>("SIT-select");
     const appleItem = form
-      .querySelector<SgdsSelectOption>("sgds-select-option[value='option1']")
+      .querySelector<SitSelectOption>("SIT-select-option[value='option1']")
       ?.shadowRoot?.querySelector("div.normal-item-content") as HTMLElement;
     appleItem?.click();
     await select?.updateComplete;
@@ -333,18 +333,18 @@ describe("select >> when submitting a form", () => {
   it("when required=true should block submission of form when there is no value", async () => {
     const form = await fixture<HTMLFormElement>(
       html`<form>
-        <sgds-select
+        <sit-select
           required
           .menuList=${[
             { label: "Apple", value: "option1" },
             { label: "Apricot", value: "option2" },
             { label: "Dur", value: "option3" }
           ]}
-        ></sgds-select>
-        <sgds-button type="submit"></sgds-button>
+        ></sit-select>
+        <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SgdsButton>("sgds-button");
+    const submitButton = form.querySelector<SitButton>("SIT-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(false);
     form.addEventListener("submit", submitHandler);
@@ -355,7 +355,7 @@ describe("select >> when submitting a form", () => {
   it("when required=true and value is true , form can be submitted", async () => {
     const form = await fixture<HTMLFormElement>(
       html`<form>
-        <sgds-select
+        <sit-select
           required
           .menuList=${[
             { label: "Apple", value: "option1" },
@@ -363,11 +363,11 @@ describe("select >> when submitting a form", () => {
             { label: "Dur", value: "option3" }
           ]}
           value="option3"
-        ></sgds-select>
-        <sgds-button type="submit"></sgds-button>
+        ></sit-select>
+        <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SgdsButton>("sgds-button");
+    const submitButton = form.querySelector<SitButton>("SIT-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -379,7 +379,7 @@ describe("select >> when submitting a form", () => {
   it("when disabled, form is always able to submit even if there is no value", async () => {
     const form = await fixture<HTMLFormElement>(
       html`<form>
-        <sgds-select
+        <sit-select
           required
           disabled
           .menuList=${[
@@ -387,11 +387,11 @@ describe("select >> when submitting a form", () => {
             { label: "Apricot", value: "option2" },
             { label: "Dur", value: "option3" }
           ]}
-        ></sgds-select>
-        <sgds-button type="submit"></sgds-button>
+        ></sit-select>
+        <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SgdsButton>("sgds-button");
+    const submitButton = form.querySelector<SitButton>("SIT-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -403,7 +403,7 @@ describe("select >> when submitting a form", () => {
   it("when reset, values are reset to defaultValue", async () => {
     const form = await fixture<HTMLFormElement>(
       html`<form>
-        <sgds-select
+        <sit-select
           required
           .menuList=${[
             { label: "Apple", value: "option1" },
@@ -411,33 +411,33 @@ describe("select >> when submitting a form", () => {
             { label: "Dur", value: "option3" }
           ]}
           value="option3"
-        ></sgds-select>
-        <sgds-button type="submit"></sgds-button>
-        <sgds-button type="reset"></sgds-button>
+        ></sit-select>
+        <sit-button type="submit"></sit-button>
+        <sit-button type="reset"></sit-button>
       </form>`
     );
-    const input = () => form.querySelector("sgds-select")?.shadowRoot?.querySelector("input");
-    const select = () => form.querySelector("sgds-select");
+    const input = () => form.querySelector("SIT-select")?.shadowRoot?.querySelector("input");
+    const select = () => form.querySelector("SIT-select");
     expect(input()?.value).to.equal("Dur");
     // Clear input
     input()?.click();
     await waitUntil(() => select()?.menuIsOpen);
 
-    const itemOne = select()?.shadowRoot?.querySelectorAll("sgds-select-option")[0] as SgdsSelectOption;
+    const itemOne = select()?.shadowRoot?.querySelectorAll("SIT-select-option")[0] as SitSelectOption;
 
     itemOne?.click();
     await waitUntil(() => select()?.value === "option1");
 
-    const resetButton = form.querySelector<SgdsButton>("sgds-button[type='reset']");
+    const resetButton = form.querySelector<SitButton>("SIT-button[type='reset']");
     resetButton?.click();
     // resets value to the defaultValue
     await waitUntil(() => select()?.value === "option3");
   });
 
   it("when touched and blurred and value is empty, error is shown", async () => {
-    const el = await fixture<SgdsSelect>(
+    const el = await fixture<SitSelect>(
       html`
-        <sgds-select
+        <sit-select
           hasFeedback
           required
           .menuList=${[
@@ -445,7 +445,7 @@ describe("select >> when submitting a form", () => {
             { label: "Apricot", value: "option2" },
             { label: "Dur", value: "option3" }
           ]}
-        ></sgds-select>
+        ></sit-select>
       `
     );
     const input = el.shadowRoot?.querySelector("input");
@@ -456,9 +456,9 @@ describe("select >> when submitting a form", () => {
   });
 
   it("when traversing menu, no error should be shown", async () => {
-    const el = await fixture<SgdsSelect>(
+    const el = await fixture<SitSelect>(
       html`
-        <sgds-select
+        <sit-select
           hasFeedback
           required
           .menuList=${[
@@ -466,7 +466,7 @@ describe("select >> when submitting a form", () => {
             { label: "Apricot", value: "option2" },
             { label: "Dur", value: "option3" }
           ]}
-        ></sgds-select>
+        ></sit-select>
       `
     );
     const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
@@ -475,7 +475,7 @@ describe("select >> when submitting a form", () => {
     await sendKeys({ press: "ArrowDown" });
     await waitUntil(
       () => {
-        const selectItem1 = el.shadowRoot?.querySelectorAll("sgds-select-option")[0];
+        const selectItem1 = el.shadowRoot?.querySelectorAll("SIT-select-option")[0];
         return getRootActiveElement(input) === selectItem1;
       },
       "focus did not move into first select item",
@@ -485,13 +485,13 @@ describe("select >> when submitting a form", () => {
     expect(el.invalid).to.be.false;
   });
   it("should dynamically update the display value when the value changes", async () => {
-    const el = await fixture<SgdsSelect>(html`<sgds-select value="1">
-      <sgds-select-option value="1">Option 1</sgds-select-option>
-      <sgds-select-option value="2">Option 2</sgds-select-option>
-      <sgds-select-option value="3">Option 3</sgds-select-option>
-    </sgds-select>`);
+    const el = await fixture<SitSelect>(html`<sit-select value="1">
+      <sit-select-option value="1">Option 1</sit-select-option>
+      <sit-select-option value="2">Option 2</sit-select-option>
+      <sit-select-option value="3">Option 3</sit-select-option>
+    </sit-select>`);
     expect(el.value).to.equal("1");
-    const firstOption = el.querySelector<SgdsSelectOption>("sgds-select-option[value='1']");
+    const firstOption = el.querySelector<SitSelectOption>("SIT-select-option[value='1']");
     await waitUntil(() => firstOption?.active);
     expect(firstOption?.active).to.be.true;
     const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
@@ -502,37 +502,37 @@ describe("select >> when submitting a form", () => {
     await waitUntil(() => input.value === "Option 2");
     expect(input.value).to.equal("Option 2");
     expect(firstOption?.active).to.be.false;
-    const secondOption = el.querySelector<SgdsSelectOption>("sgds-select-option[value='2']");
+    const secondOption = el.querySelector<SitSelectOption>("SIT-select-option[value='2']");
     expect(secondOption?.active).to.be.true;
   });
 });
 
-describe("noValidate disables native and sgds validation behaviours", () => {
+describe("noValidate disables native and sit validation behaviours", () => {
   it("should override required and allow form submission when noValidate is set", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-select noValidate required>
-          <sgds-select-option value="option1">Apple</sgds-select-option>
-          <sgds-select-option value="option2">Apricot</sgds-select-option>
-        </sgds-select>
-        <sgds-button type="submit">Submit</sgds-button>
+        <sit-select noValidate required>
+          <sit-select-option value="option1">Apple</sit-select-option>
+          <sit-select-option value="option2">Apricot</sit-select-option>
+        </sit-select>
+        <sit-button type="submit">Submit</sit-button>
       </form>
     `);
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SgdsButton>("sgds-button");
+    const button = form.querySelector<SitButton>("SIT-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
   });
 
   it("with noValidate, invalid state does not appear on blur when required and empty", async () => {
-    const el = await fixture<SgdsSelect>(html`
-      <sgds-select noValidate hasFeedback required>
-        <sgds-select-option value="option1">Apple</sgds-select-option>
-        <sgds-select-option value="option2">Apricot</sgds-select-option>
-      </sgds-select>
+    const el = await fixture<SitSelect>(html`
+      <sit-select noValidate hasFeedback required>
+        <sit-select-option value="option1">Apple</sit-select-option>
+        <sit-select-option value="option2">Apricot</sit-select-option>
+      </sit-select>
     `);
     const input = el.shadowRoot?.querySelector("input");
     input?.focus();
@@ -542,11 +542,11 @@ describe("noValidate disables native and sgds validation behaviours", () => {
   });
 
   it("with noValidate, setInvalid(true) still works for programmatic control", async () => {
-    const el = await fixture<SgdsSelect>(html`
-      <sgds-select noValidate required>
-        <sgds-select-option value="option1">Apple</sgds-select-option>
-        <sgds-select-option value="option2">Apricot</sgds-select-option>
-      </sgds-select>
+    const el = await fixture<SitSelect>(html`
+      <sit-select noValidate required>
+        <sit-select-option value="option1">Apple</sit-select-option>
+        <sit-select-option value="option2">Apricot</sit-select-option>
+      </sit-select>
     `);
     el.setInvalid(true);
     await el.updateComplete;
@@ -558,11 +558,11 @@ describe("noValidate disables native and sgds validation behaviours", () => {
   });
 
   it("with noValidate, programmatic setInvalid(true) persists after blur", async () => {
-    const el = await fixture<SgdsSelect>(html`
-      <sgds-select noValidate required>
-        <sgds-select-option value="option1">Apple</sgds-select-option>
-        <sgds-select-option value="option2">Apricot</sgds-select-option>
-      </sgds-select>
+    const el = await fixture<SitSelect>(html`
+      <sit-select noValidate required>
+        <sit-select-option value="option1">Apple</sit-select-option>
+        <sit-select-option value="option2">Apricot</sit-select-option>
+      </sit-select>
     `);
     el.setInvalid(true);
     await el.updateComplete;
@@ -577,17 +577,17 @@ describe("noValidate disables native and sgds validation behaviours", () => {
   it("should still populate FormData when noValidate is enabled", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-select noValidate name="select-field" value="option1">
-          <sgds-select-option value="option1">Apple</sgds-select-option>
-          <sgds-select-option value="option2">Apricot</sgds-select-option>
-        </sgds-select>
-        <sgds-button type="submit">Submit</sgds-button>
+        <sit-select noValidate name="select-field" value="option1">
+          <sit-select-option value="option1">Apple</sit-select-option>
+          <sit-select-option value="option2">Apricot</sit-select-option>
+        </sit-select>
+        <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const select = form.querySelector<SgdsSelect>("sgds-select");
+    const select = form.querySelector<SitSelect>("SIT-select");
     await waitUntil(() => select?.value === "option1");
 
-    const submitButton = form.querySelector<SgdsButton>("sgds-button");
+    const submitButton = form.querySelector<SitButton>("SIT-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -601,18 +601,18 @@ describe("noValidate disables native and sgds validation behaviours", () => {
   });
 });
 
-describe("form novalidate for sgds-select", () => {
+describe("form novalidate for sit-select", () => {
   it("when form has novalidate, form submission proceeds even when select is required", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form novalidate>
-        <sgds-select required>
-          <sgds-select-option value="option1">Apple</sgds-select-option>
-          <sgds-select-option value="option2">Apricot</sgds-select-option>
-        </sgds-select>
-        <sgds-button type="submit"></sgds-button>
+        <sit-select required>
+          <sit-select-option value="option1">Apple</sit-select-option>
+          <sit-select-option value="option2">Apricot</sit-select-option>
+        </sit-select>
+        <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SgdsButton>("sgds-button");
+    const submitButton = form.querySelector<SitButton>("SIT-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -624,14 +624,14 @@ describe("form novalidate for sgds-select", () => {
   it("when form has novalidate, select does not show invalid state on blur", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form novalidate>
-        <sgds-select required hasFeedback>
-          <sgds-select-option value="option1">Apple</sgds-select-option>
-          <sgds-select-option value="option2">Apricot</sgds-select-option>
-        </sgds-select>
-        <sgds-button type="submit"></sgds-button>
+        <sit-select required hasFeedback>
+          <sit-select-option value="option1">Apple</sit-select-option>
+          <sit-select-option value="option2">Apricot</sit-select-option>
+        </sit-select>
+        <sit-button type="submit"></sit-button>
       </form>
     `);
-    const select = form.querySelector<SgdsSelect>("sgds-select");
+    const select = form.querySelector<SitSelect>("SIT-select");
     const input = select?.shadowRoot?.querySelector("input");
     input?.focus();
     select?.blur();
@@ -644,18 +644,18 @@ describe("reset clears invalid state when noValidate is true", () => {
   it("reset clears programmatic invalid state when component has noValidate", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-select noValidate name="test">
-          <sgds-select-option value="option1">Apple</sgds-select-option>
-        </sgds-select>
-        <sgds-button type="reset">Reset</sgds-button>
+        <sit-select noValidate name="test">
+          <sit-select-option value="option1">Apple</sit-select-option>
+        </sit-select>
+        <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const select = form.querySelector<SgdsSelect>("sgds-select");
+    const select = form.querySelector<SitSelect>("SIT-select");
     select?.setInvalid(true);
     await select?.updateComplete;
     expect(select?.invalid).to.be.true;
 
-    setTimeout(() => form.querySelector<SgdsButton>("sgds-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
     await waitUntil(() => select?.invalid === false);
     expect(select?.invalid).to.be.false;
   });
@@ -663,48 +663,48 @@ describe("reset clears invalid state when noValidate is true", () => {
   it("reset clears programmatic invalid state when form has novalidate", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form novalidate>
-        <sgds-select name="test">
-          <sgds-select-option value="option1">Apple</sgds-select-option>
-        </sgds-select>
-        <sgds-button type="reset">Reset</sgds-button>
+        <sit-select name="test">
+          <sit-select-option value="option1">Apple</sit-select-option>
+        </sit-select>
+        <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const select = form.querySelector<SgdsSelect>("sgds-select");
+    const select = form.querySelector<SitSelect>("SIT-select");
     select?.setInvalid(true);
     await select?.updateComplete;
     expect(select?.invalid).to.be.true;
 
-    setTimeout(() => form.querySelector<SgdsButton>("sgds-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
     await waitUntil(() => select?.invalid === false);
     expect(select?.invalid).to.be.false;
   });
 });
 
-describe("setInvalid emits sgds-invalid and sgds-valid events", () => {
-  it("setInvalid(true) emits sgds-invalid event", async () => {
-    const el = await fixture<SgdsSelect>(html`
-      <sgds-select noValidate>
-        <sgds-select-option value="option1">Apple</sgds-select-option>
-        <sgds-select-option value="option2">Apricot</sgds-select-option>
-      </sgds-select>
+describe("setInvalid emits sit-invalid and sit-valid events", () => {
+  it("setInvalid(true) emits sit-invalid event", async () => {
+    const el = await fixture<SitSelect>(html`
+      <sit-select noValidate>
+        <sit-select-option value="option1">Apple</sit-select-option>
+        <sit-select-option value="option2">Apricot</sit-select-option>
+      </sit-select>
     `);
     const handler = sinon.spy();
-    el.addEventListener("sgds-invalid", handler);
+    el.addEventListener("SIT-invalid", handler);
 
     el.setInvalid(true);
     await el.updateComplete;
     expect(handler).to.have.been.calledOnce;
   });
 
-  it("setInvalid(false) emits sgds-valid event", async () => {
-    const el = await fixture<SgdsSelect>(html`
-      <sgds-select noValidate>
-        <sgds-select-option value="option1">Apple</sgds-select-option>
-        <sgds-select-option value="option2">Apricot</sgds-select-option>
-      </sgds-select>
+  it("setInvalid(false) emits sit-valid event", async () => {
+    const el = await fixture<SitSelect>(html`
+      <sit-select noValidate>
+        <sit-select-option value="option1">Apple</sit-select-option>
+        <sit-select-option value="option2">Apricot</sit-select-option>
+      </sit-select>
     `);
     const handler = sinon.spy();
-    el.addEventListener("sgds-valid", handler);
+    el.addEventListener("SIT-valid", handler);
 
     el.setInvalid(false);
     await el.updateComplete;
@@ -712,16 +712,16 @@ describe("setInvalid emits sgds-invalid and sgds-valid events", () => {
   });
 
   it("setInvalid(true) followed by setInvalid(false) emits both events in order", async () => {
-    const el = await fixture<SgdsSelect>(html`
-      <sgds-select noValidate>
-        <sgds-select-option value="option1">Apple</sgds-select-option>
-        <sgds-select-option value="option2">Apricot</sgds-select-option>
-      </sgds-select>
+    const el = await fixture<SitSelect>(html`
+      <sit-select noValidate>
+        <sit-select-option value="option1">Apple</sit-select-option>
+        <sit-select-option value="option2">Apricot</sit-select-option>
+      </sit-select>
     `);
     const invalidHandler = sinon.spy();
     const validHandler = sinon.spy();
-    el.addEventListener("sgds-invalid", invalidHandler);
-    el.addEventListener("sgds-valid", validHandler);
+    el.addEventListener("SIT-invalid", invalidHandler);
+    el.addEventListener("SIT-valid", validHandler);
 
     el.setInvalid(true);
     await el.updateComplete;
@@ -734,9 +734,9 @@ describe("setInvalid emits sgds-invalid and sgds-valid events", () => {
   });
 });
 
-describe("sgds-select-option (default)", () => {
+describe("SIT-select-option (default)", () => {
   it("matches shadowDom semantically", async () => {
-    const el = await fixture<SgdsSelectOption>(html`<sgds-select-option></sgds-select-option>`);
+    const el = await fixture<SitSelectOption>(html`<sit-select-option></sit-select-option>`);
     assert.shadowDom.equal(
       el,
       `
@@ -748,22 +748,22 @@ describe("sgds-select-option (default)", () => {
       `
     );
   });
-  it("when active is true, tick sgds-icon appears", async () => {
-    const el = await fixture<SgdsSelectOption>(html`<sgds-select-option active></sgds-select-option>`);
+  it("when active is true, tick sit-icon appears", async () => {
+    const el = await fixture<SitSelectOption>(html`<sit-select-option active></sit-select-option>`);
     assert.shadowDom.equal(
       el,
       `
           <div class="dropdown-item active" tabindex="0">
           <div class="normal-item-content" role="presentation">
             <slot></slot>
-            <sgds-icon name="check" size="lg"></sgds-icon>
+            <sit-icon name="check" size="lg"></sit-icon>
           </div>
           </div>
       `
     );
   });
   it("when disabled is true, matches the shadow Dom semantically", async () => {
-    const el = await fixture<SgdsSelectOption>(html`<sgds-select-option disabled></sgds-select-option>`);
+    const el = await fixture<SitSelectOption>(html`<sit-select-option disabled></sit-select-option>`);
     assert.shadowDom.equal(
       el,
       `
@@ -776,7 +776,7 @@ describe("sgds-select-option (default)", () => {
     );
   });
   it("loading menu overrides no options menu ", async () => {
-    const el = await fixture<SgdsSelect>(html`<sgds-select loading menuIsOpen> </sgds-select>`);
+    const el = await fixture<SitSelect>(html`<sit-select loading menuIsOpen> </sit-select>`);
     await el.updateComplete;
     const slot = el.shadowRoot?.querySelector("slot#default");
     expect(slot?.classList.contains("is-loading")).to.be.true;
@@ -785,9 +785,9 @@ describe("sgds-select-option (default)", () => {
   });
 
   it("loading menu overrides options menu ", async () => {
-    const el = await fixture<SgdsSelect>(html`<sgds-select loading menuIsOpen>
-      <sgds-select-option value="1">Option 1</sgds-select-option>
-    </sgds-select>`);
+    const el = await fixture<SitSelect>(html`<sit-select loading menuIsOpen>
+      <sit-select-option value="1">Option 1</sit-select-option>
+    </sit-select>`);
     await el.updateComplete;
     const slot = el.shadowRoot?.querySelector("slot#default");
     expect(slot?.classList.contains("is-loading")).to.be.true;
@@ -795,3 +795,7 @@ describe("sgds-select-option (default)", () => {
     expect(dropdownMenu?.textContent).to.contain("Loading...");
   });
 });
+
+
+
+

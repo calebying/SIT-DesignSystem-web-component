@@ -1,12 +1,12 @@
-import "./sgds-web-component";
+import "./sit-web-component";
 import { expect, fixture, oneEvent, waitUntil, aTimeout } from "@open-wc/testing";
 import { html } from "lit";
-import type { SgdsFileUpload, SgdsButton, SgdsIcon } from "../src/components";
-import SgdsCloseButton from "../src/components/CloseButton/sgds-close-button";
+import type { SitFileUpload, SitButton, SitIcon } from "../src/components";
+import SitCloseButton from "../src/components/CloseButton/sit-close-button";
 
-describe("sgds-file-upload", () => {
+describe("SIT-file-upload", () => {
   it("should be able to pass in content in between the slot", async () => {
-    const el = await fixture<SgdsFileUpload>(html` <sgds-file-upload>Hello</sgds-file-upload> `);
+    const el = await fixture<SitFileUpload>(html` <sit-file-upload>Hello</sit-file-upload> `);
 
     const slot = el.shadowRoot?.querySelector("slot");
     expect(slot).to.exist;
@@ -16,20 +16,20 @@ describe("sgds-file-upload", () => {
   });
 
   it("Should output a child input element", async () => {
-    const el = await fixture(html`<sgds-file-upload></sgds-file-upload>`);
+    const el = await fixture(html`<sit-file-upload></sit-file-upload>`);
     expect(el.shadowRoot?.querySelector("input")).to.exist;
   });
 
-  it("Should output a child sgds-button element", async () => {
-    const el = await fixture(html`<sgds-file-upload></sgds-file-upload>`);
-    expect(el.shadowRoot?.querySelector("sgds-button")).to.exist;
+  it("Should output a child sit-button element", async () => {
+    const el = await fixture(html`<sit-file-upload></sit-file-upload>`);
+    expect(el.shadowRoot?.querySelector("SIT-button")).to.exist;
   });
 
   it("Should not display the input element modal popup when disabled prop is true", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload disabled></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload disabled></sit-file-upload>`);
 
     // simulate click on the button
-    (el.shadowRoot?.querySelector("sgds-button") as SgdsButton)?.click();
+    (el.shadowRoot?.querySelector("SIT-button") as SitButton)?.click();
 
     // check if the input element modal popup is not displayed
     const inputEl = el.shadowRoot?.querySelector("input") as HTMLInputElement;
@@ -37,7 +37,7 @@ describe("sgds-file-upload", () => {
   });
 
   it("adds multiple attribute to input eement", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple></sit-file-upload>`);
 
     // check if the input element modal popup is not displayed
     const inputEl = el.shadowRoot?.querySelector("input") as HTMLInputElement;
@@ -45,7 +45,7 @@ describe("sgds-file-upload", () => {
   });
 
   it("adds multiple attribute to input element", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload accept="test"></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload accept="test"></sit-file-upload>`);
     const inputEl = el.shadowRoot?.querySelector("input") as HTMLInputElement;
     expect(inputEl.hasAttribute("accept")).to.be.true;
     expect(inputEl?.getAttribute("accept")).to.equal("test");
@@ -58,7 +58,7 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
       input.files = dt.files;
@@ -73,17 +73,17 @@ describe("sgds-file-upload", () => {
     }
   });
 
-  it("should render a ul with list of selected files using DataTransfer object and trigger sgds-change event", async () => {
+  it("should render a ul with list of selected files using DataTransfer object and trigger sit-change event", async () => {
     const fileList = [new File(["file1"], "file1.txt"), new File(["file2"], "file2.txt")];
     const dt = new DataTransfer();
     fileList.forEach(file => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected"); // add event listener to the component
+      const promise = oneEvent(el, "SIT-files-selected"); // add event listener to the component
       input.files = dt.files;
       const changeEvent = new Event("change");
       input.dispatchEvent(changeEvent);
@@ -104,10 +104,10 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected"); // add event listener to the component
+      const promise = oneEvent(el, "SIT-files-selected"); // add event listener to the component
       input.files = dt.files;
       const changeEvent = new Event("change");
       input.dispatchEvent(changeEvent);
@@ -117,7 +117,7 @@ describe("sgds-file-upload", () => {
       expect(listItems?.length).to.equal(2);
 
       // Verify exit animation is applied to the correct file (file1.txt)
-      const removeBtn = listItems?.[0].querySelector("sgds-close-button");
+      const removeBtn = listItems?.[0].querySelector("SIT-close-button");
       removeBtn?.dispatchEvent(new Event("click"));
       await el.updateComplete;
 
@@ -140,7 +140,7 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
       input.files = dt.files;
@@ -158,16 +158,16 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
 
       let containers = el.shadowRoot?.querySelectorAll(".file-upload-list-item-container");
-      const removeBtn = containers?.[0].querySelector("sgds-close-button");
+      const removeBtn = containers?.[0].querySelector("SIT-close-button");
 
       removeBtn?.dispatchEvent(new Event("click"));
       await el.updateComplete;
@@ -185,16 +185,16 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
 
       const listItems = el.shadowRoot?.querySelectorAll(".file-upload-list-item");
-      const removeBtn = listItems?.[0].querySelector("sgds-close-button");
+      const removeBtn = listItems?.[0].querySelector("SIT-close-button");
       removeBtn?.dispatchEvent(new Event("click"));
 
       // After animation completes
@@ -211,10 +211,10 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -234,10 +234,10 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -258,10 +258,10 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -271,7 +271,7 @@ describe("sgds-file-upload", () => {
       await el.updateComplete;
 
       const errorContainer = el.shadowRoot?.querySelector(".invalid-feedback-container");
-      const icon = errorContainer?.querySelector('sgds-icon[name="exclamation-circle-fill"]');
+      const icon = errorContainer?.querySelector('SIT-icon[name="exclamation-circle-fill"]');
       expect(icon).to.exist;
     }
   });
@@ -282,10 +282,10 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -294,12 +294,12 @@ describe("sgds-file-upload", () => {
       el.setFileUploadState(0, "loading");
       await el.updateComplete;
 
-      const closeBtn = el.shadowRoot?.querySelector("sgds-close-button");
+      const closeBtn = el.shadowRoot?.querySelector("SIT-close-button");
       expect(closeBtn?.hasAttribute("disabled")).to.be.true;
     }
   });
   it("should add new files to existing files when multiple is true", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -308,7 +308,7 @@ describe("sgds-file-upload", () => {
       dt1.items.add(new File(["file1"], "file1.txt"));
       dt1.items.add(new File(["file2"], "file2.txt"));
 
-      const promise1 = oneEvent(el, "sgds-files-selected");
+      const promise1 = oneEvent(el, "SIT-files-selected");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -322,7 +322,7 @@ describe("sgds-file-upload", () => {
       dt2.items.add(new File(["file3"], "file3.txt"));
       dt2.items.add(new File(["file4"], "file4.txt"));
 
-      const promise2 = oneEvent(el, "sgds-files-selected");
+      const promise2 = oneEvent(el, "SIT-files-selected");
       input.files = dt2.files;
       input.dispatchEvent(new Event("change"));
       await promise2;
@@ -338,7 +338,7 @@ describe("sgds-file-upload", () => {
     }
   });
   it("should not duplicate files when removing one from multiple selected files", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -348,7 +348,7 @@ describe("sgds-file-upload", () => {
       dt1.items.add(new File(["file2"], "file2.txt"));
       dt1.items.add(new File(["file3"], "file3.txt"));
 
-      const promise1 = oneEvent(el, "sgds-files-selected");
+      const promise1 = oneEvent(el, "SIT-files-selected");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -358,7 +358,7 @@ describe("sgds-file-upload", () => {
       expect(listItems?.length).to.equal(3);
 
       // Delete the middle file (file2)
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -381,10 +381,10 @@ describe("sgds-file-upload", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -397,19 +397,19 @@ describe("sgds-file-upload", () => {
       await el.updateComplete;
 
       // Remove first file
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
 
       // Files 1 and 2 should still be loading (now at indices 0 and 1)
-      const spinners = el.shadowRoot?.querySelectorAll("sgds-spinner");
+      const spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(2);
     }
   });
 
-  it("sgds-files-selected event detail files should sync with UI across selections and removals", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("SIT-files-selected event detail files should sync with UI across selections and removals", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -418,7 +418,7 @@ describe("sgds-file-upload", () => {
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
 
-      const promise1 = oneEvent(el, "sgds-files-selected");
+      const promise1 = oneEvent(el, "SIT-files-selected");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       const event1 = (await promise1) as CustomEvent;
@@ -437,7 +437,7 @@ describe("sgds-file-upload", () => {
       dt2.items.add(new File(["content3"], "file3.txt"));
       dt2.items.add(new File(["content4"], "file4.txt"));
 
-      const promise2 = oneEvent(el, "sgds-files-selected");
+      const promise2 = oneEvent(el, "SIT-files-selected");
       input.files = dt2.files;
       input.dispatchEvent(new Event("change"));
       const event2 = (await promise2) as CustomEvent;
@@ -454,7 +454,7 @@ describe("sgds-file-upload", () => {
       expect(eventFiles[3].name).to.equal("file4.txt");
 
       // Remove the second file (file2.txt)
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -473,17 +473,17 @@ describe("sgds-file-upload", () => {
     }
   });
 
-  it("sgds-add-files fires ONLY when files are added, not when removed", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("SIT-add-files fires ONLY when files are added, not when removed", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let addFilesEventCount = 0;
-      el.addEventListener("sgds-add-files", () => {
+      el.addEventListener("SIT-add-files", () => {
         addFilesEventCount++;
       });
 
-      // Select 2 files - should fire sgds-add-files
+      // Select 2 files - should fire sit-add-files
       const dt1 = new DataTransfer();
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
@@ -494,8 +494,8 @@ describe("sgds-file-upload", () => {
 
       expect(addFilesEventCount).to.equal(1);
 
-      // Delete one file - should NOT fire sgds-add-files
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      // Delete one file - should NOT fire sit-add-files
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -504,17 +504,17 @@ describe("sgds-file-upload", () => {
     }
   });
 
-  it("sgds-remove-file fires ONLY when files are removed, not when added", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("SIT-remove-file fires ONLY when files are removed, not when added", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let removeFilesEventCount = 0;
-      el.addEventListener("sgds-remove-file", () => {
+      el.addEventListener("SIT-remove-file", () => {
         removeFilesEventCount++;
       });
 
-      // Select 2 files - should NOT fire sgds-remove-file
+      // Select 2 files - should NOT fire sit-remove-file
       const dt1 = new DataTransfer();
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
@@ -525,8 +525,8 @@ describe("sgds-file-upload", () => {
 
       expect(removeFilesEventCount).to.equal(0); // Not fired
 
-      // Delete one file - should fire sgds-remove-file
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      // Delete one file - should fire sit-remove-file
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -535,17 +535,17 @@ describe("sgds-file-upload", () => {
     }
   });
 
-  it("sgds-files-selected fires every time file set changes (backwards compatible)", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("SIT-files-selected fires every time file set changes (backwards compatible)", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let filesSelectedEventCount = 0;
-      el.addEventListener("sgds-files-selected", () => {
+      el.addEventListener("SIT-files-selected", () => {
         filesSelectedEventCount++;
       });
 
-      // Select 2 files - should fire sgds-files-selected
+      // Select 2 files - should fire sit-files-selected
       const dt1 = new DataTransfer();
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
@@ -556,8 +556,8 @@ describe("sgds-file-upload", () => {
 
       expect(filesSelectedEventCount).to.equal(1);
 
-      // Delete one file - should also fire sgds-files-selected (backwards compatible)
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      // Delete one file - should also fire sit-files-selected (backwards compatible)
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -566,17 +566,17 @@ describe("sgds-file-upload", () => {
     }
   });
 
-  it("sgds-change fires every time file set changes (add or remove)", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("SIT-change fires every time file set changes (add or remove)", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let changeEventCount = 0;
-      el.addEventListener("sgds-change", () => {
+      el.addEventListener("SIT-change", () => {
         changeEventCount++;
       });
 
-      // Select 2 files - should fire sgds-change
+      // Select 2 files - should fire sit-change
       const dt1 = new DataTransfer();
       dt1.items.add(new File(["content1"], "file1.txt"));
       // dt1.items.add(new File(["content2"], "file2.txt"));
@@ -587,15 +587,15 @@ describe("sgds-file-upload", () => {
 
       expect(changeEventCount).to.equal(1);
 
-      // Delete one file - should fire sgds-change again
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      // Delete one file - should fire sit-change again
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
 
       expect(changeEventCount).to.equal(2);
 
-      // Add more files - should fire sgds-change again
+      // Add more files - should fire sit-change again
       const dt2 = new DataTransfer();
       dt2.items.add(new File(["content3"], "file3.txt"));
 
@@ -607,13 +607,13 @@ describe("sgds-file-upload", () => {
     }
   });
 
-  it("prevents re-triggering upload handlers when files are deleted (sgds-add-files only on add)", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("prevents re-triggering upload handlers when files are deleted (sit-add-files only on add)", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let addFilesEventCount = 0;
-      el.addEventListener("sgds-add-files", () => {
+      el.addEventListener("SIT-add-files", () => {
         addFilesEventCount++;
       });
 
@@ -627,7 +627,7 @@ describe("sgds-file-upload", () => {
       input.dispatchEvent(new Event("change"));
       await el.updateComplete;
 
-      // sgds-add-files fired once
+      // sit-add-files fired once
       expect(addFilesEventCount).to.equal(1);
 
       // Simulate upload handler: set file1 and file3 to loading, file2 to success
@@ -637,33 +637,33 @@ describe("sgds-file-upload", () => {
       await el.updateComplete;
 
       // Delete file2 (the one in success state, close button is enabled)
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       expect(closeButtons?.[1].hasAttribute("disabled")).to.be.false; // file2 is not disabled (success state)
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
 
-      // sgds-add-files should NOT have fired again on deletion (still 1)
+      // sit-add-files should NOT have fired again on deletion (still 1)
       expect(addFilesEventCount).to.equal(1);
 
       // Remaining files (file1 and file3) should still have loading state
-      const spinners = el.shadowRoot?.querySelectorAll("sgds-spinner");
+      const spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(2);
 
       // Close buttons for loading files should still be disabled
-      const remainingCloseButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const remainingCloseButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       expect(remainingCloseButtons?.[0].hasAttribute("disabled")).to.be.true; // file1 still loading
       expect(remainingCloseButtons?.[1].hasAttribute("disabled")).to.be.true; // file3 still loading
     }
   });
 
-  it("sgds-remove-file fires with deleted file and remaining file list", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("SIT-remove-file fires with deleted file and remaining file list", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let removeFilesEventDetail: any = null;
-      el.addEventListener("sgds-remove-file", (e: any) => {
+      el.addEventListener("SIT-remove-file", (e: any) => {
         removeFilesEventDetail = e.detail;
       });
 
@@ -681,12 +681,12 @@ describe("sgds-file-upload", () => {
       expect(removeFilesEventDetail).to.be.null;
 
       // Delete file2 (middle file)
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
 
-      // sgds-remove-file event detail should have both deleted file and remaining files
+      // sit-remove-file event detail should have both deleted file and remaining files
       expect(removeFilesEventDetail).to.not.be.null;
 
       // Verify deleted file
@@ -702,7 +702,7 @@ describe("sgds-file-upload", () => {
   });
 
   it("file tracking with stable keys: deleted middle file does not re-animate remaining files", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -712,7 +712,7 @@ describe("sgds-file-upload", () => {
       dt.items.add(new File(["content2"], "file2.txt"));
       dt.items.add(new File(["content3"], "file3.txt"));
 
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -722,7 +722,7 @@ describe("sgds-file-upload", () => {
       expect(listItems?.length).to.equal(3);
 
       // Delete middle file (file2.txt)
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[1].click();
       await el.updateComplete;
       await aTimeout(300); // ← Wait for animation to finish
@@ -758,11 +758,11 @@ describe("sgds-file-upload", () => {
     const dt = new DataTransfer();
     fileList.forEach(file => dt.items.add(file));
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -771,44 +771,44 @@ describe("sgds-file-upload", () => {
       // State 1: Set file1 to loading
       el.setFileUploadState(0, "loading");
       await el.updateComplete;
-      let spinners = el.shadowRoot?.querySelectorAll("sgds-spinner");
+      let spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(1);
 
       // During loading, close button should be disabled (not clickable)
-      let closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      let closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       expect(closeButtons?.[0].hasAttribute("disabled")).to.be.true;
 
       // State 2: Set file1 to success
       el.setFileUploadState(0, "success");
       await el.updateComplete;
-      spinners = el.shadowRoot?.querySelectorAll("sgds-spinner");
+      spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(0);
 
       // After success, close button should be enabled again
-      closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       expect(closeButtons?.[0].hasAttribute("disabled")).to.be.false;
 
-      const checkIcons = el.shadowRoot?.querySelectorAll('sgds-icon[name="check-circle-fill"]');
+      const checkIcons = el.shadowRoot?.querySelectorAll('SIT-icon[name="check-circle-fill"]');
       expect(checkIcons?.length).to.be.greaterThan(0);
 
       // State 3: Set file2 to loading
       el.setFileUploadState(1, "loading");
       await el.updateComplete;
-      spinners = el.shadowRoot?.querySelectorAll("sgds-spinner");
+      spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(1);
 
       // During loading, close button should be disabled
-      closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       expect(closeButtons?.[1].hasAttribute("disabled")).to.be.true;
 
       // State 4: Set file2 to error
       el.setFileUploadState(1, "error", "Upload failed");
       await el.updateComplete;
-      spinners = el.shadowRoot?.querySelectorAll("sgds-spinner");
+      spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(0);
 
       // After error, close button should be enabled again
-      closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       expect(closeButtons?.[1].hasAttribute("disabled")).to.be.false;
 
       const errorMessages = el.shadowRoot?.querySelectorAll(".invalid-feedback");
@@ -823,7 +823,7 @@ describe("sgds-file-upload", () => {
   });
 
   it("file combining: multiple selections combine instead of replace, duplication prevented on removal", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -832,7 +832,7 @@ describe("sgds-file-upload", () => {
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
 
-      const promise1 = oneEvent(el, "sgds-files-selected");
+      const promise1 = oneEvent(el, "SIT-files-selected");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -846,7 +846,7 @@ describe("sgds-file-upload", () => {
       el.setFileUploadState(1, "loading");
       await el.updateComplete;
 
-      const spinners = el.shadowRoot?.querySelectorAll("sgds-spinner");
+      const spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(2);
 
       // Second selection: add 2 more files (should combine, not replace)
@@ -854,7 +854,7 @@ describe("sgds-file-upload", () => {
       dt2.items.add(new File(["content3"], "file3.txt"));
       dt2.items.add(new File(["content4"], "file4.txt"));
 
-      const promise2 = oneEvent(el, "sgds-files-selected");
+      const promise2 = oneEvent(el, "SIT-files-selected");
       input.files = dt2.files;
       input.dispatchEvent(new Event("change"));
       await promise2;
@@ -870,7 +870,7 @@ describe("sgds-file-upload", () => {
       expect(listItems?.[3].querySelector(".filename")?.textContent).to.include("file4.txt");
 
       // Delete middle file (file2.txt) - should NOT duplicate
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -884,7 +884,7 @@ describe("sgds-file-upload", () => {
   });
 
   it("file states are maintained correctly after deletion (keyed by File object, not index)", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -894,7 +894,7 @@ describe("sgds-file-upload", () => {
       dt.items.add(new File(["content2"], "file2.txt"));
       dt.items.add(new File(["content3"], "file3.txt"));
 
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -913,7 +913,7 @@ describe("sgds-file-upload", () => {
       expect(listItems?.[2].querySelector(".filename")?.textContent).to.include("file3.txt");
 
       // Delete file2 (the loading one in the middle)
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -924,7 +924,7 @@ describe("sgds-file-upload", () => {
 
       // file1 should still be in success state (no spinner, has checkmark)
       expect(listItems?.[0].querySelector(".filename")?.textContent).to.include("file1.txt");
-      let spinners = listItems?.[0].querySelectorAll("sgds-spinner");
+      let spinners = listItems?.[0].querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(0);
 
       // file3 should still be in error state (not success state from old index 1)
@@ -934,14 +934,14 @@ describe("sgds-file-upload", () => {
       expect(errorContainer?.[0].textContent).to.include("File too large");
 
       // Verify no spinner exists (file3 is error, not loading)
-      spinners = el.shadowRoot?.querySelectorAll("sgds-spinner");
+      spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
       expect(spinners?.length).to.equal(0);
     }
   });
 
   it("drag and drop combines files with existing files when multiple is enabled", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload variant="drag-and-drop" multiple>Hello</sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload variant="drag-and-drop" multiple>Hello</sit-file-upload>`
     );
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
@@ -951,7 +951,7 @@ describe("sgds-file-upload", () => {
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
 
-      const promise1 = oneEvent(el, "sgds-add-files");
+      const promise1 = oneEvent(el, "SIT-add-files");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -974,7 +974,7 @@ describe("sgds-file-upload", () => {
         dataTransfer: dt2
       });
 
-      const promise2 = oneEvent(el, "sgds-add-files");
+      const promise2 = oneEvent(el, "SIT-add-files");
       dragDropZone.dispatchEvent(dropEvent);
       await promise2;
       await el.updateComplete;
@@ -992,7 +992,7 @@ describe("sgds-file-upload", () => {
   });
 
   it("drag and drop replaces files when multiple is disabled", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload variant="drag-and-drop">Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop">Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -1000,7 +1000,7 @@ describe("sgds-file-upload", () => {
       const dt1 = new DataTransfer();
       dt1.items.add(new File(["content1"], "file1.txt"));
 
-      const promise1 = oneEvent(el, "sgds-add-files");
+      const promise1 = oneEvent(el, "SIT-add-files");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -1023,7 +1023,7 @@ describe("sgds-file-upload", () => {
         dataTransfer: dt2
       });
 
-      const promise2 = oneEvent(el, "sgds-add-files");
+      const promise2 = oneEvent(el, "SIT-add-files");
       dragDropZone.dispatchEvent(dropEvent);
       await promise2;
       await el.updateComplete;
@@ -1035,8 +1035,8 @@ describe("sgds-file-upload", () => {
     }
   });
 
-  it("cancelling the file picker does not fire sgds-change or sgds-files-selected events", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("cancelling the file picker does not fire sit-change or sit-files-selected events", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -1050,8 +1050,8 @@ describe("sgds-file-upload", () => {
 
       let changeCount = 0;
       let filesSelectedCount = 0;
-      el.addEventListener("sgds-change", () => changeCount++);
-      el.addEventListener("sgds-files-selected", () => filesSelectedCount++);
+      el.addEventListener("SIT-change", () => changeCount++);
+      el.addEventListener("SIT-files-selected", () => filesSelectedCount++);
 
       // Simulate cancel: browser resets input.files to empty and fires change in some browsers
       const emptyDt = new DataTransfer();
@@ -1069,7 +1069,7 @@ describe("sgds-file-upload", () => {
   });
 
   it("after cancelling the file picker, closing one file removes only that file", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
@@ -1089,7 +1089,7 @@ describe("sgds-file-upload", () => {
       await el.updateComplete;
 
       // Remove the second file
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -1102,13 +1102,13 @@ describe("sgds-file-upload", () => {
     }
   });
 
-  it("sgds-change event detail contains current file list after deletion", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload multiple>Hello</sgds-file-upload>`);
+  it("SIT-change event detail contains current file list after deletion", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let lastChangeEventFiles: FileList | null = null;
-      el.addEventListener("sgds-change", (e: any) => {
+      el.addEventListener("SIT-change", (e: any) => {
         lastChangeEventFiles = e.detail;
       });
 
@@ -1124,12 +1124,12 @@ describe("sgds-file-upload", () => {
       expect(lastChangeEventFiles?.length).to.equal(2);
 
       // Delete one file
-      const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
 
-      // sgds-change event detail should reflect 1 file remaining
+      // sit-change event detail should reflect 1 file remaining
       expect(lastChangeEventFiles?.length).to.equal(1);
       expect(lastChangeEventFiles?.[0].name).to.equal("file2.txt");
     }
@@ -1140,10 +1140,10 @@ describe("Fileupload validation", () => {
   it("has constraint validation for required prop", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-file-upload required hasFeedback></sgds-file-upload>
+        <sit-file-upload required hasFeedback></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector("sgds-file-upload");
+    const upload = form.querySelector("SIT-file-upload");
     expect(form.reportValidity()).to.be.false;
     await waitUntil(() => upload?.invalid);
 
@@ -1158,13 +1158,13 @@ describe("Fileupload validation", () => {
 
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-file-upload required hasFeedback></sgds-file-upload>
+        <sit-file-upload required hasFeedback></sit-file-upload>
       </form>
     `);
-    const fileupload = form.querySelector<SgdsFileUpload>("sgds-file-upload");
+    const fileupload = form.querySelector<SitFileUpload>("SIT-file-upload");
     const input = fileupload?.shadowRoot?.querySelector("input");
     if (input && fileupload) {
-      const promise = oneEvent(fileupload, "sgds-files-selected"); // add event listener to the component
+      const promise = oneEvent(fileupload, "SIT-files-selected"); // add event listener to the component
       input.files = dt.files;
       const changeEvent = new Event("change");
       input.dispatchEvent(changeEvent);
@@ -1189,14 +1189,14 @@ describe("Fileupload validation", () => {
 
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-file-upload required hasFeedback></sgds-file-upload>
+        <sit-file-upload required hasFeedback></sit-file-upload>
       </form>
     `);
     expect(form.reportValidity()).to.be.false;
-    const fileupload = form.querySelector<SgdsFileUpload>("sgds-file-upload");
+    const fileupload = form.querySelector<SitFileUpload>("SIT-file-upload");
     const input = fileupload?.shadowRoot?.querySelector("input");
     if (input && fileupload) {
-      const promise = oneEvent(fileupload, "sgds-files-selected"); // add event listener to the component
+      const promise = oneEvent(fileupload, "SIT-files-selected"); // add event listener to the component
       input.files = dt.files;
       const changeEvent = new Event("change");
       input.dispatchEvent(changeEvent);
@@ -1205,7 +1205,7 @@ describe("Fileupload validation", () => {
       expect(listItems?.length).to.equal(1);
       expect(form.reportValidity()).to.be.true;
 
-      const cancelButtonOnListItems = fileupload?.shadowRoot?.querySelector<SgdsCloseButton>("sgds-close-button");
+      const cancelButtonOnListItems = fileupload?.shadowRoot?.querySelector<SitCloseButton>("SIT-close-button");
       cancelButtonOnListItems?.click();
       await aTimeout(300); // wait for animation to complete
       await fileupload?.updateComplete;
@@ -1214,7 +1214,7 @@ describe("Fileupload validation", () => {
   });
 });
 
-describe("sgds-file-upload upload state", () => {
+describe("SIT-file-upload upload state", () => {
   it("should show spinner when file is in loading state", async () => {
     const fileList = [new File(["file1"], "file1.txt")];
     const dt = new DataTransfer();
@@ -1222,10 +1222,10 @@ describe("sgds-file-upload upload state", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -1236,7 +1236,7 @@ describe("sgds-file-upload upload state", () => {
       await el.updateComplete;
 
       const listItem = el.shadowRoot?.querySelector(".file-upload-list-item");
-      const spinner = listItem?.querySelector("sgds-spinner");
+      const spinner = listItem?.querySelector("SIT-spinner");
       expect(spinner).to.exist;
     }
   });
@@ -1248,10 +1248,10 @@ describe("sgds-file-upload upload state", () => {
       dt.items.add(file);
     });
 
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload>Hello</sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "sgds-files-selected");
+      const promise = oneEvent(el, "SIT-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -1260,35 +1260,35 @@ describe("sgds-file-upload upload state", () => {
       el.setFileUploadState(0, "loading");
       await el.updateComplete;
 
-      const closeBtn = el.shadowRoot?.querySelector("sgds-close-button");
+      const closeBtn = el.shadowRoot?.querySelector("SIT-close-button");
       expect(closeBtn?.hasAttribute("disabled")).to.be.true;
     }
   });
 });
 
-describe("sgds-file-upload variant prop", () => {
+describe("SIT-file-upload variant prop", () => {
   it("renders default variant with button when variant is 'default'", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload variant="default"></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="default"></sit-file-upload>`);
 
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
     expect(button).to.exist;
   });
 
   it("renders default variant by default when variant prop is not specified", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload></sit-file-upload>`);
 
-    const button = el.shadowRoot?.querySelector<HTMLElement>("sgds-button");
+    const button = el.shadowRoot?.querySelector<HTMLElement>("SIT-button");
     expect(button).to.exist;
   });
 
   it("renders drag-and-drop variant with upload icon and text when variant is 'drag-and-drop'", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload variant="drag-and-drop"></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop"></sit-file-upload>`);
 
     const dragDropDiv = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     expect(dragDropDiv).to.exist;
 
     // Check for icon
-    const icon = dragDropDiv?.querySelector<SgdsIcon>("sgds-icon");
+    const icon = dragDropDiv?.querySelector<SitIcon>("SIT-icon");
     expect(icon).to.exist;
     expect(icon?.getAttribute("name")).to.equal("upload");
     expect(icon?.getAttribute("size")).to.equal("lg");
@@ -1299,14 +1299,14 @@ describe("sgds-file-upload variant prop", () => {
   });
 
   it("drag-and-drop zone should have correct styling classes", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload variant="drag-and-drop"></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop"></sit-file-upload>`);
 
     const dragDropDiv = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     expect(dragDropDiv?.classList.contains("drag-drop-zone")).to.be.true;
   });
 });
 
-describe("sgds-file-upload drag-and-drop interactions", () => {
+describe("SIT-file-upload drag-and-drop interactions", () => {
   function makeDragEvent(type: string, files: File[] = []): DragEvent {
     const dt = new DataTransfer();
     files.forEach(f => dt.items.add(f));
@@ -1314,20 +1314,20 @@ describe("sgds-file-upload drag-and-drop interactions", () => {
   }
 
   it("drag-drop zone has tabindex='0' to be focusable", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload variant="drag-and-drop"></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop"></sit-file-upload>`);
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     expect(zone?.getAttribute("tabindex")).to.equal("0");
   });
 
   it("dragenter focuses the drag-drop zone", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload variant="drag-and-drop"></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop"></sit-file-upload>`);
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     zone?.dispatchEvent(makeDragEvent("dragenter"));
     expect(el.shadowRoot?.activeElement).to.equal(zone);
   });
 
   it("dragleave after dragenter blurs the drag-drop zone", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload variant="drag-and-drop"></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop"></sit-file-upload>`);
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     zone?.dispatchEvent(makeDragEvent("dragenter"));
     zone?.dispatchEvent(makeDragEvent("dragleave"));
@@ -1335,8 +1335,8 @@ describe("sgds-file-upload drag-and-drop interactions", () => {
   });
 
   it("drop appends files to the file list", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload variant="drag-and-drop" multiple></sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload variant="drag-and-drop" multiple></sit-file-upload>`
     );
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     const file = new File(["content"], "test.pdf", { type: "application/pdf" });
@@ -1349,7 +1349,7 @@ describe("sgds-file-upload drag-and-drop interactions", () => {
   });
 
   it("drop with multiple=false keeps only the first file", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload variant="drag-and-drop"></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop"></sit-file-upload>`);
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     const files = [
       new File(["a"], "a.pdf", { type: "application/pdf" }),
@@ -1363,8 +1363,8 @@ describe("sgds-file-upload drag-and-drop interactions", () => {
   });
 
   it("drop does nothing when disabled", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload variant="drag-and-drop" disabled></sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload variant="drag-and-drop" disabled></sit-file-upload>`
     );
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     const file = new File(["content"], "test.pdf", { type: "application/pdf" });
@@ -1376,14 +1376,14 @@ describe("sgds-file-upload drag-and-drop interactions", () => {
   });
 });
 
-describe("noValidate disables native and sgds validation behaviours", () => {
+describe("noValidate disables native and sit validation behaviours", () => {
   it("noValidate=true prevents form submission from being blocked by required validation", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-file-upload noValidate required hasFeedback name="doc"></sgds-file-upload>
+        <sit-file-upload noValidate required hasFeedback name="doc"></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector("sgds-file-upload");
+    const upload = form.querySelector("SIT-file-upload");
 
     // Try to submit empty form
     const canSubmit = form.reportValidity();
@@ -1397,10 +1397,10 @@ describe("noValidate disables native and sgds validation behaviours", () => {
   it("noValidate=true allows custom validation via setInvalid with custom feedback", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-file-upload noValidate required hasFeedback name="doc"></sgds-file-upload>
+        <sit-file-upload noValidate required hasFeedback name="doc"></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector<SgdsFileUpload>("sgds-file-upload");
+    const upload = form.querySelector<SitFileUpload>("SIT-file-upload");
     const input = upload?.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (!input) return;
@@ -1428,16 +1428,16 @@ describe("reset clears invalid state when noValidate is true", () => {
   it("reset clears programmatic invalid state when component has noValidate", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form>
-        <sgds-file-upload noValidate name="test"></sgds-file-upload>
-        <sgds-button type="reset">Reset</sgds-button>
+        <sit-file-upload noValidate name="test"></sit-file-upload>
+        <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const upload = form.querySelector<SgdsFileUpload>("sgds-file-upload");
+    const upload = form.querySelector<SitFileUpload>("SIT-file-upload");
     upload?.setInvalid(true);
     await upload?.updateComplete;
     expect(upload?.invalid).to.be.true;
 
-    form.querySelector<SgdsButton>("sgds-button")?.click();
+    form.querySelector<SitButton>("SIT-button")?.click();
     await waitUntil(() => upload?.invalid === false);
     expect(upload?.invalid).to.be.false;
   });
@@ -1445,29 +1445,29 @@ describe("reset clears invalid state when noValidate is true", () => {
   it("reset clears programmatic invalid state when form has novalidate", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form novalidate>
-        <sgds-file-upload name="test"></sgds-file-upload>
-        <sgds-button type="reset">Reset</sgds-button>
+        <sit-file-upload name="test"></sit-file-upload>
+        <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const upload = form.querySelector<SgdsFileUpload>("sgds-file-upload");
+    const upload = form.querySelector<SitFileUpload>("SIT-file-upload");
     upload?.setInvalid(true);
     await upload?.updateComplete;
     expect(upload?.invalid).to.be.true;
 
-    form.querySelector<SgdsButton>("sgds-button")?.click();
+    form.querySelector<SitButton>("SIT-button")?.click();
     await waitUntil(() => upload?.invalid === false);
     expect(upload?.invalid).to.be.false;
   });
 });
 
-describe("form novalidate disables sgds validation on all children", () => {
+describe("form novalidate disables sit validation on all children", () => {
   it("form novalidate prevents required validation from blocking submission", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form novalidate>
-        <sgds-file-upload required hasFeedback name="doc"></sgds-file-upload>
+        <sit-file-upload required hasFeedback name="doc"></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector("sgds-file-upload");
+    const upload = form.querySelector("SIT-file-upload");
 
     // Try to submit empty form
     const canSubmit = form.reportValidity();
@@ -1480,10 +1480,10 @@ describe("form novalidate disables sgds validation on all children", () => {
   it("form novalidate allows custom validation via setInvalid", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form novalidate>
-        <sgds-file-upload required hasFeedback name="doc"></sgds-file-upload>
+        <sit-file-upload required hasFeedback name="doc"></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector<SgdsFileUpload>("sgds-file-upload");
+    const upload = form.querySelector<SitFileUpload>("SIT-file-upload");
     const input = upload?.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (!input) return;
@@ -1506,9 +1506,9 @@ describe("form novalidate disables sgds validation on all children", () => {
     expect(upload.invalid).to.be.true;
   });
 });
-describe("sgds-file-upload touched validation (blur-triggered)", () => {
+describe("SIT-file-upload touched validation (blur-triggered)", () => {
   it("should NOT show invalid feedback on required field until blur (touched behavior)", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
 
     // Initially, should NOT show invalid feedback (not touched yet)
     await el.updateComplete;
@@ -1518,17 +1518,17 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 
   it("should show invalid feedback when focus leaves the button without selecting files (default variant)", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload required hasFeedback variant="default"></sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload required hasFeedback variant="default"></sit-file-upload>`
     );
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     // Focus the button
     button?.focus();
     await el.updateComplete;
 
-    // Simulate blur by emitting sgds-blur event on the button
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    // Simulate blur by emitting sit-blur event on the button
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
 
     // Now should show invalid feedback
@@ -1538,8 +1538,8 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 
   it("should show invalid feedback when focus leaves drag-and-drop zone without selecting files", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload required hasFeedback variant="drag-and-drop"></sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload required hasFeedback variant="drag-and-drop"></sit-file-upload>`
     );
     const dragZone = el.shadowRoot?.querySelector<HTMLDivElement>(".drag-drop-zone");
 
@@ -1558,11 +1558,11 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 
   it("should NOT show invalid feedback after blur if files are added", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload required hasFeedback variant="default"></sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload required hasFeedback variant="default"></sit-file-upload>`
     );
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     // Add a file
     const dt = new DataTransfer();
@@ -1574,7 +1574,7 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
     await el.updateComplete;
 
     // Blur the button
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
 
     // Should NOT be invalid (files are present)
@@ -1584,12 +1584,12 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 
   it("should clear invalid state when files are added after blur", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     // Blur without files (should become invalid)
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
     expect(el.invalid).to.be.true;
 
@@ -1609,9 +1609,9 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 
   it("should show invalid feedback when all files are removed after blur", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback multiple></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback multiple></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     // Add a file
     const dt = new DataTransfer();
@@ -1624,12 +1624,12 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
     expect(el.invalid).to.be.false;
 
     // Blur (should remain valid since file is present)
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
     expect(el.invalid).to.be.false;
 
     // Remove the file
-    const closeButtons = el.shadowRoot?.querySelectorAll("sgds-close-button");
+    const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
     closeButtons?.[0].click();
     await aTimeout(300);
     await el.updateComplete;
@@ -1640,30 +1640,30 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
     expect(feedback).to.exist;
   });
 
-  it("should emit sgds-blur event when button loses focus", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+  it("should emit sit-blur event when button loses focus", async () => {
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     let blurEventFired = false;
-    el.addEventListener("sgds-blur", () => {
+    el.addEventListener("SIT-blur", () => {
       blurEventFired = true;
     });
 
     // Emit blur on button
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
 
     expect(blurEventFired).to.be.true;
   });
 
   it("should not show invalid state when noValidate is true, even after blur", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload required hasFeedback noValidate></sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload required hasFeedback noValidate></sit-file-upload>`
     );
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     // Blur without files
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
 
     // Should NOT be invalid (noValidate skips validation)
@@ -1673,7 +1673,7 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 
   it("should NOT show validation when user cancels file picker before being touched", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     // Step 1: User selects a file → valid (not yet touched)
@@ -1700,12 +1700,12 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 
   it("should NOT show validation when user cancels file picker after being touched and having a file selected", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     // Step 1: Blur to mark as touched → invalid (no file yet)
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
     expect(el.invalid).to.be.true;
 
@@ -1736,12 +1736,12 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 
   it("should re-validate after file is removed via close button", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     // Step 1: Blur without files → invalid
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
     expect(el.invalid).to.be.true;
 
@@ -1756,7 +1756,7 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
     expect(el.invalid).to.be.false;
 
     // Step 3: Remove the file via close button (simulates _removeFileHandler)
-    const closeButton = el.shadowRoot?.querySelector<HTMLElement>("sgds-close-button");
+    const closeButton = el.shadowRoot?.querySelector<HTMLElement>("SIT-close-button");
     closeButton?.click();
 
     // Wait for the 300ms exit animation timeout
@@ -1769,7 +1769,7 @@ describe("sgds-file-upload touched validation (blur-triggered)", () => {
   });
 });
 
-describe("sgds-file-upload dialog and drop validation behavior", () => {
+describe("SIT-file-upload dialog and drop validation behavior", () => {
   function makeDragEvent(type: string, files: File[] = []): DragEvent {
     const dt = new DataTransfer();
     files.forEach(f => dt.items.add(f));
@@ -1777,8 +1777,8 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
   }
 
   it("should NOT show validation when clicking the upload button (dialog opens)", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
-    const button = el.shadowRoot?.querySelector<SgdsButton>("sgds-button");
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
+    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
 
     // Simulate clicking the button (which sets _isDialogOpen = true)
     // then the blur that follows when the dialog steals focus
@@ -1786,7 +1786,7 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
     await el.updateComplete;
 
     // Simulate the blur that happens when dialog opens
-    button?.dispatchEvent(new CustomEvent("sgds-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
     await el.updateComplete;
 
     // Should NOT show invalid — dialog is open, blur should be ignored
@@ -1796,7 +1796,7 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
   });
 
   it("should show validation when user cancels the file dialog", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     // Simulate cancel event (user opened dialog and clicked cancel)
@@ -1810,8 +1810,8 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
   });
 
   it("should NOT show validation on cancel when noValidate is set", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload required hasFeedback noValidate></sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload required hasFeedback noValidate></sit-file-upload>`
     );
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
@@ -1824,15 +1824,15 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
   });
 
   it("should clear invalid state when files are dropped on a drag-and-drop variant that starts invalid", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload
         variant="drag-and-drop"
         multiple
         required
         hasFeedback
         invalid
         invalidFeedback="Please upload at least one file"
-      ></sgds-file-upload>`
+      ></sit-file-upload>`
     );
     await el.updateComplete;
 
@@ -1852,8 +1852,8 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
   });
 
   it("should clear invalid state when files are dropped after cancel triggered validation", async () => {
-    const el = await fixture<SgdsFileUpload>(
-      html`<sgds-file-upload variant="drag-and-drop" required hasFeedback></sgds-file-upload>`
+    const el = await fixture<SitFileUpload>(
+      html`<sit-file-upload variant="drag-and-drop" required hasFeedback></sit-file-upload>`
     );
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
@@ -1873,7 +1873,7 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
   });
 
   it("should show validation after selecting files then cancelling the dialog (touched)", async () => {
-    const el = await fixture<SgdsFileUpload>(html`<sgds-file-upload required hasFeedback></sgds-file-upload>`);
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     // First cancel to mark as touched
@@ -1892,7 +1892,7 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
     expect(el.invalid).to.be.false;
 
     // Remove the file via close button
-    const closeButton = el.shadowRoot?.querySelector<HTMLElement>("sgds-close-button");
+    const closeButton = el.shadowRoot?.querySelector<HTMLElement>("SIT-close-button");
     closeButton?.click();
     await new Promise(resolve => setTimeout(resolve, 350));
     await el.updateComplete;
@@ -1901,3 +1901,7 @@ describe("sgds-file-upload dialog and drop validation behavior", () => {
     expect(el.invalid).to.be.true;
   });
 });
+
+
+
+

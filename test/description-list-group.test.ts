@@ -1,14 +1,14 @@
 import { expect, fixture } from "@open-wc/testing";
 import { html } from "lit";
-import { SgdsDescriptionListGroup } from "../src/components";
+import { SitDescriptionListGroup } from "../src/components";
 import "../src/index"; // Adjust the path as necessary
 
-describe("<sgds-description-list-group>", () => {
+describe("<sit-description-list-group>", () => {
   it("should render title element when title is provided", async () => {
-    const el = await fixture<SgdsDescriptionListGroup>(html`
-      <sgds-description-list-group>
+    const el = await fixture<SitDescriptionListGroup>(html`
+      <sit-description-list-group>
         <div slot="title">Title Text</div>
-      </sgds-description-list-group>
+      </sit-description-list-group>
     `);
 
     await el.updateComplete;
@@ -23,8 +23,8 @@ describe("<sgds-description-list-group>", () => {
   });
 
   it("should not render title element when title is not provided", async () => {
-    const el = await fixture<SgdsDescriptionListGroup>(html`
-      <sgds-description-list-group></sgds-description-list-group>
+    const el = await fixture<SitDescriptionListGroup>(html`
+      <sit-description-list-group></sit-description-list-group>
     `);
 
     await el.updateComplete;
@@ -38,10 +38,10 @@ describe("<sgds-description-list-group>", () => {
   });
 
   it("should render description element when description is provided", async () => {
-    const el = await fixture<SgdsDescriptionListGroup>(html`
-      <sgds-description-list-group>
+    const el = await fixture<SitDescriptionListGroup>(html`
+      <sit-description-list-group>
         <div slot="description">Description</div>
-      </sgds-description-list-group>
+      </sit-description-list-group>
     `);
 
     await el.updateComplete;
@@ -56,8 +56,8 @@ describe("<sgds-description-list-group>", () => {
   });
 
   it("should not render description element when description is not provided", async () => {
-    const el = await fixture<SgdsDescriptionListGroup>(html`
-      <sgds-description-list-group></sgds-description-list-group>
+    const el = await fixture<SitDescriptionListGroup>(html`
+      <sit-description-list-group></sit-description-list-group>
     `);
 
     await el.updateComplete;
@@ -70,3 +70,5 @@ describe("<sgds-description-list-group>", () => {
     expect(assigned.length).to.equal(0);
   });
 });
+
+

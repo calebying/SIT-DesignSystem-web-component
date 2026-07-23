@@ -1,10 +1,13 @@
-import "../../sgds-web-component";
+import "../../sit-web-component";
 import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Skeleton a11y", () => {
-  it("sgds-skeleton should be accessible", async () => {
-    const el = await fixture(html` <sgds-skeleton></sgds-skeleton> `);
+  it("SIT-skeleton should be accessible", async () => {
+    const el = await fixture(html` <sit-skeleton></sit-skeleton> `);
     await expect(el).to.be.accessible();
   });
 });
+
+
+

@@ -1,31 +1,31 @@
 import { html } from "lit";
 import { fixture, expect } from "@open-wc/testing";
-import { SgdsImageCard } from "../src/components";
+import { SitImageCard } from "../src/components";
 import "../src/index";
 
-describe("sgds-image-card", () => {
+describe("SIT-image-card", () => {
   it("renders with default properties", async () => {
-    const el = await fixture<SgdsImageCard>(html`<sgds-image-card></sgds-image-card>`);
+    const el = await fixture<SitImageCard>(html`<sit-image-card></sit-image-card>`);
     expect(el).to.exist;
     expect(el.imagePosition).to.equal("before");
     expect(el.imageAdjustment).to.equal("default");
   });
 
   it("hides image container when no image slot is provided", async () => {
-    const el = await fixture<SgdsImageCard>(html`<sgds-image-card></sgds-image-card>`);
+    const el = await fixture<SitImageCard>(html`<sit-image-card></sit-image-card>`);
     const image = el.shadowRoot?.querySelector(".card-image") as HTMLElement;
     expect(image.style.display).to.equal("none");
   });
 
   it("renders image when slotted", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card>
         <img
           slot="image"
           src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
           alt="test"
         />
-      </sgds-image-card>
+      </sit-image-card>
     `);
     const slot = el.shadowRoot?.querySelector("slot[name=image]") as HTMLSlotElement;
     const nodes = slot.assignedNodes();
@@ -36,11 +36,11 @@ describe("sgds-image-card", () => {
   });
 
   it("renders title and subtitle slots", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card>
         <span slot="subtitle">Subtitle here</span>
         <span slot="title">Title here</span>
-      </sgds-image-card>
+      </sit-image-card>
     `);
 
     const subtitle = el.shadowRoot?.querySelector("slot[name=subtitle]");
@@ -51,10 +51,10 @@ describe("sgds-image-card", () => {
   });
 
   it("renders content in the description slot", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card>
         <span slot="description">This is a description</span>
-      </sgds-image-card>
+      </sit-image-card>
     `);
 
     const descriptionSlot = el.shadowRoot?.querySelector('slot[name="description"]') as HTMLSlotElement;
@@ -66,7 +66,7 @@ describe("sgds-image-card", () => {
   });
 
   it("renders nothing if no description slot is provided", async () => {
-    const el = await fixture<SgdsImageCard>(html`<sgds-image-card></sgds-image-card>`);
+    const el = await fixture<SitImageCard>(html`<sit-image-card></sit-image-card>`);
 
     const descriptionSlot = el.shadowRoot?.querySelector('slot[name="description"]') as HTMLSlotElement;
     const assignedNodes = descriptionSlot.assignedNodes({ flatten: true });
@@ -74,17 +74,17 @@ describe("sgds-image-card", () => {
   });
 
   it("renders footer slot with stretchedLink", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card stretchedLink>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card stretchedLink>
         <a slot="footer" href="#">Read More</a>
-      </sgds-image-card>
+      </sit-image-card>
     `);
     const tag = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(tag.tagName.toLowerCase()).to.equal("a");
   });
 
   it("sets tabindex correctly based on stretchedLink and disabled", async () => {
-    const el = await fixture<SgdsImageCard>(html`<sgds-image-card></sgds-image-card>`);
+    const el = await fixture<SitImageCard>(html`<sit-image-card></sit-image-card>`);
     el.stretchedLink = true;
     await el.updateComplete;
 
@@ -97,10 +97,10 @@ describe("sgds-image-card", () => {
   });
 
   it("forwards href and target from footer slot anchor when stretchedLink is true", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card stretchedLink>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card stretchedLink>
         <a slot="footer" href="https://example.com" target="_blank">Read More</a>
-      </sgds-image-card>
+      </sit-image-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("href")).to.equal("https://example.com");
@@ -108,12 +108,12 @@ describe("sgds-image-card", () => {
   });
 
   it("forwards safe attributes (rel, aria-label, data-*) from footer slot anchor", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card stretchedLink>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card stretchedLink>
         <a slot="footer" href="https://example.com" rel="noopener noreferrer" aria-label="Read more" data-id="123"
           >Read More</a
         >
-      </sgds-image-card>
+      </sit-image-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("rel")).to.equal("noopener noreferrer");
@@ -122,10 +122,10 @@ describe("sgds-image-card", () => {
   });
 
   it("does not forward class, style, id from footer slot anchor", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card stretchedLink>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card stretchedLink>
         <a slot="footer" href="https://example.com" class="custom-link" style="color:red" id="my-link">Read More</a>
-      </sgds-image-card>
+      </sit-image-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("class")).to.not.include("custom-link");
@@ -134,20 +134,20 @@ describe("sgds-image-card", () => {
   });
 
   it("does not forward on* event handler attributes from footer slot anchor", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card stretchedLink>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card stretchedLink>
         <a slot="footer" href="https://example.com" onclick="alert(1)">Read More</a>
-      </sgds-image-card>
+      </sit-image-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("onclick")).to.be.null;
   });
 
   it("does not forward attributes when anchor href uses javascript: protocol", async () => {
-    const el = await fixture<SgdsImageCard>(html`
-      <sgds-image-card stretchedLink>
+    const el = await fixture<SitImageCard>(html`
+      <sit-image-card stretchedLink>
         <a slot="footer" href="javascript:alert(1)" target="_blank">Read More</a>
-      </sgds-image-card>
+      </sit-image-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("href")).to.be.null;
@@ -155,7 +155,7 @@ describe("sgds-image-card", () => {
   });
 
   it("applies tinted background when tinted is true and noPadding is false", async () => {
-    const el = await fixture<SgdsImageCard>(html`<sgds-image-card></sgds-image-card>`);
+    const el = await fixture<SitImageCard>(html`<sit-image-card></sit-image-card>`);
     el.tinted = true;
     el.noPadding = false;
     await el.updateComplete;
@@ -164,3 +164,5 @@ describe("sgds-image-card", () => {
     expect(tinted).to.exist;
   });
 });
+
+

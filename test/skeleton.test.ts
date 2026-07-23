@@ -1,11 +1,11 @@
 import { html } from "lit";
 import { expect, assert, fixture, elementUpdated } from "@open-wc/testing";
-import { SgdsSkeleton } from "../src/components";
+import { SitSkeleton } from "../src/components";
 import "../src/index";
 
-describe("<sgds-skeleton>", () => {
+describe("<sit-skeleton>", () => {
   it("matches semantic shadowDOM", async () => {
-    const el = await fixture(html`<sgds-skeleton></sgds-skeleton>`);
+    const el = await fixture(html`<sit-skeleton></sit-skeleton>`);
     assert.shadowDom.equal(
       el,
       `
@@ -14,7 +14,7 @@ describe("<sgds-skeleton>", () => {
     );
   });
   it("matches semantic shadowDOM when rows are defined", async () => {
-    const el = await fixture(html`<sgds-skeleton rows="3"></sgds-skeleton>`);
+    const el = await fixture(html`<sit-skeleton rows="3"></sit-skeleton>`);
     assert.shadowDom.equal(
       el,
       `
@@ -27,7 +27,7 @@ describe("<sgds-skeleton>", () => {
     );
   });
   it("matches semantic shadowDOM when sheen is defined", async () => {
-    const el = await fixture(html`<sgds-skeleton sheen></sgds-skeleton>`);
+    const el = await fixture(html`<sit-skeleton sheen></sit-skeleton>`);
     assert.shadowDom.equal(
       el,
       `
@@ -37,7 +37,7 @@ describe("<sgds-skeleton>", () => {
     );
   });
   it("matches semantic shadowDOM when sheen and rows are defined", async () => {
-    const el = await fixture(html`<sgds-skeleton sheen rows="3"></sgds-skeleton>`);
+    const el = await fixture(html`<sit-skeleton sheen rows="3"></sit-skeleton>`);
     assert.shadowDom.equal(
       el,
       `
@@ -50,7 +50,7 @@ describe("<sgds-skeleton>", () => {
     );
   });
   it("width, height and borderRadius are forwarded to style of .skeleton element", async () => {
-    const el = await fixture(html`<sgds-skeleton width="100px" height="100px" borderRadius="5px"></sgds-skeleton>`);
+    const el = await fixture(html`<sit-skeleton width="100px" height="100px" borderRadius="5px"></sit-skeleton>`);
     const skeletonDiv = el.shadowRoot?.querySelector(".skeleton");
     const skeletonStyles = skeletonDiv?.getAttribute("style")?.split(";");
     expect(skeletonStyles?.[0]).to.contain("width: 100px");
@@ -58,8 +58,8 @@ describe("<sgds-skeleton>", () => {
     expect(skeletonStyles?.[2]).to.contain("border-radius: 5px");
   });
   it("borderRadius is forwarded to style of .skeleton-row elements when row is defined", async () => {
-    const el = await fixture<SgdsSkeleton>(
-      html`<sgds-skeleton rows="3" width="100px" height="100px" borderRadius="5px"></sgds-skeleton>`
+    const el = await fixture<SitSkeleton>(
+      html`<sit-skeleton rows="3" width="100px" height="100px" borderRadius="5px"></sit-skeleton>`
     );
     await elementUpdated(el);
     const skeletonRowDivs = [
@@ -71,3 +71,5 @@ describe("<sgds-skeleton>", () => {
     skeletonRowStyles.forEach(s => expect(s).to.contain("border-radius: 5px"));
   });
 });
+
+

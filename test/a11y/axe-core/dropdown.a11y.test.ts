@@ -1,51 +1,54 @@
-import "../../sgds-web-component";
+import "../../sit-web-component";
 import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Dropdown a11y", () => {
-  it("sgds-dropdown should be accessible", async () => {
+  it("SIT-dropdown should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-dropdown>
-        <sgds-button slot="toggler">Actions</sgds-button>
-        <sgds-dropdown-item>Option 1</sgds-dropdown-item>
-        <sgds-dropdown-item>Option 2</sgds-dropdown-item>
-        <sgds-dropdown-item>Option 3</sgds-dropdown-item>
-      </sgds-dropdown>
+      <sit-dropdown>
+        <sit-button slot="toggler">Actions</sit-button>
+        <sit-dropdown-item>Option 1</sit-dropdown-item>
+        <sit-dropdown-item>Option 2</sit-dropdown-item>
+        <sit-dropdown-item>Option 3</sit-dropdown-item>
+      </sit-dropdown>
     `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-dropdown should set aria-haspopup and aria-expanded on toggler", async () => {
+  it("SIT-dropdown should set aria-haspopup and aria-expanded on toggler", async () => {
     const el = await fixture(html`
-      <sgds-dropdown>
-        <sgds-button slot="toggler">Actions</sgds-button>
-        <sgds-dropdown-item>Option 1</sgds-dropdown-item>
-      </sgds-dropdown>
+      <sit-dropdown>
+        <sit-button slot="toggler">Actions</sit-button>
+        <sit-dropdown-item>Option 1</sit-dropdown-item>
+      </sit-dropdown>
     `);
     const toggler = el.querySelector("[slot='toggler']");
     expect(toggler).to.have.attribute("aria-haspopup", "menu");
     expect(toggler).to.have.attribute("aria-expanded", "false");
   });
 
-  it("sgds-dropdown should update aria-expanded when menu opens", async () => {
+  it("SIT-dropdown should update aria-expanded when menu opens", async () => {
     const el = await fixture(html`
-      <sgds-dropdown menuIsOpen>
-        <sgds-button slot="toggler">Actions</sgds-button>
-        <sgds-dropdown-item>Option 1</sgds-dropdown-item>
-      </sgds-dropdown>
+      <sit-dropdown menuIsOpen>
+        <sit-button slot="toggler">Actions</sit-button>
+        <sit-dropdown-item>Option 1</sit-dropdown-item>
+      </sit-dropdown>
     `);
     const toggler = el.querySelector("[slot='toggler']");
     expect(toggler).to.have.attribute("aria-expanded", "true");
   });
 
-  it("sgds-overflow-menu should be accessible", async () => {
+  it("SIT-overflow-menu should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-overflow-menu>
-        <sgds-dropdown-item>View</sgds-dropdown-item>
-        <sgds-dropdown-item>Edit</sgds-dropdown-item>
-        <sgds-dropdown-item>Delete</sgds-dropdown-item>
-      </sgds-overflow-menu>
+      <sit-overflow-menu>
+        <sit-dropdown-item>View</sit-dropdown-item>
+        <sit-dropdown-item>Edit</sit-dropdown-item>
+        <sit-dropdown-item>Delete</sit-dropdown-item>
+      </sit-overflow-menu>
     `);
     await expect(el).to.be.accessible();
   });
 });
+
+
+

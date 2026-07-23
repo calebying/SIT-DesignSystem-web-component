@@ -1,21 +1,21 @@
-import "./sgds-web-component";
-import { SgdsAccordionItem, SgdsAccordion } from "../src/components";
+import "./sit-web-component";
+import { SitAccordionItem, SitAccordion } from "../src/components";
 import { fixture, expect, waitUntil } from "@open-wc/testing";
 import { html } from "lit";
 import sinon from "sinon";
 
-// customElements.define("sgds-accordion", SgdsAccordion);
-// customElements.define("sgds-accordion-item", SgdsAccordionItem);
+// customElements.define("SIT-accordion", SitAccordion);
+// customElements.define("SIT-accordion-item", SitAccordionItem);
 
-describe("<sgds-accordion>", () => {
+describe("<sit-accordion>", () => {
   it("accordion items should contain the attribute [first,nth,last]-of-type if items is more than 2", async () => {
-    const el = await fixture<SgdsAccordion>(html`
-      <sgds-accordion>
-        <sgds-accordion-item> Lorem ipsum </sgds-accordion-item>
-        <sgds-accordion-item> Lorem ipsum </sgds-accordion-item>
-        <sgds-accordion-item> Lorem ipsum </sgds-accordion-item>
-        <sgds-accordion-item> Lorem ipsum </sgds-accordion-item>
-      </sgds-accordion>
+    const el = await fixture<SitAccordion>(html`
+      <sit-accordion>
+        <sit-accordion-item> Lorem ipsum </sit-accordion-item>
+        <sit-accordion-item> Lorem ipsum </sit-accordion-item>
+        <sit-accordion-item> Lorem ipsum </sit-accordion-item>
+        <sit-accordion-item> Lorem ipsum </sit-accordion-item>
+      </sit-accordion>
     `);
 
     const first = el.shadowRoot?.querySelector("slot")?.assignedNodes()[1];
@@ -30,14 +30,14 @@ describe("<sgds-accordion>", () => {
   });
 });
 
-describe("<sgds-accordion-item>", () => {
+describe("<sit-accordion-item>", () => {
   it("should be visible with the open attribute", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item open>
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item open>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const body = el.shadowRoot?.querySelector<HTMLElement>(".accordion-body");
 
@@ -45,32 +45,32 @@ describe("<sgds-accordion-item>", () => {
   });
 
   it("should not be visible without the open attribute", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item>
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const body = el.shadowRoot?.querySelector<HTMLElement>(".accordion-body");
 
     expect(body?.classList.contains("hidden")).to.be.true;
   });
 
-  it("should emit sgds-show and sgds-after-show when calling show()", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item>
+  it("should emit sit-show and sit-after-show when calling show()", async () => {
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const body = el.shadowRoot?.querySelector<HTMLElement>(".accordion-body");
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("sgds-show", showHandler);
-    el.addEventListener("sgds-after-show", afterShowHandler);
+    el.addEventListener("SIT-show", showHandler);
+    el.addEventListener("SIT-after-show", afterShowHandler);
     el.show();
 
     await waitUntil(() => showHandler.calledOnce);
@@ -81,20 +81,20 @@ describe("<sgds-accordion-item>", () => {
     expect(body?.hidden).to.be.false;
   });
 
-  it("should emit sgds-hide and sgds-after-hide when calling hide()", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item open>
+  it("should emit sit-hide and sit-after-hide when calling hide()", async () => {
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item open>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const body = el.shadowRoot?.querySelector<HTMLElement>(".accordion-body");
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("sgds-hide", hideHandler);
-    el.addEventListener("sgds-after-hide", afterHideHandler);
+    el.addEventListener("SIT-hide", hideHandler);
+    el.addEventListener("SIT-after-hide", afterHideHandler);
     el.hide();
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -105,20 +105,20 @@ describe("<sgds-accordion-item>", () => {
     expect(body?.classList.contains("hidden")).to.be.true;
   });
 
-  it("should emit sgds-show and sgds-after-show when setting open = true", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item>
+  it("should emit sit-show and sit-after-show when setting open = true", async () => {
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const body = el.shadowRoot?.querySelector<HTMLElement>(".accordion-body");
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("sgds-show", showHandler);
-    el.addEventListener("sgds-after-show", afterShowHandler);
+    el.addEventListener("SIT-show", showHandler);
+    el.addEventListener("SIT-after-show", afterShowHandler);
     el.open = true;
 
     await waitUntil(() => showHandler.calledOnce);
@@ -129,20 +129,20 @@ describe("<sgds-accordion-item>", () => {
     expect(body?.hidden).to.be.false;
   });
 
-  it("should emit sgds-hide and sgds-after-hide when setting open = false", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item open>
+  it("should emit sit-hide and sit-after-hide when setting open = false", async () => {
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item open>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const body = el.shadowRoot?.querySelector<HTMLElement>(".accordion-body");
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("sgds-hide", hideHandler);
-    el.addEventListener("sgds-after-hide", afterHideHandler);
+    el.addEventListener("SIT-hide", hideHandler);
+    el.addEventListener("SIT-after-hide", afterHideHandler);
     el.open = false;
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -153,17 +153,17 @@ describe("<sgds-accordion-item>", () => {
     expect(body?.classList.contains("hidden")).to.be.true;
   });
 
-  it("should not open when preventing sgds-show", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item>
+  it("should not open when preventing sit-show", async () => {
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const showHandler = sinon.spy((event: Event) => event.preventDefault());
 
-    el.addEventListener("sgds-show", showHandler);
+    el.addEventListener("SIT-show", showHandler);
     el.open = true;
 
     await waitUntil(() => showHandler.calledOnce);
@@ -172,17 +172,17 @@ describe("<sgds-accordion-item>", () => {
     expect(el.open).to.be.false;
   });
 
-  it("should not close when preventing sgds-hide", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item open>
+  it("should not close when preventing sit-hide", async () => {
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item open>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const hideHandler = sinon.spy((event: Event) => event.preventDefault());
 
-    el.addEventListener("sgds-hide", hideHandler);
+    el.addEventListener("SIT-hide", hideHandler);
     el.open = false;
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -191,39 +191,39 @@ describe("<sgds-accordion-item>", () => {
     expect(el.open).to.be.true;
   });
 
-  it("variant prop is forwarded to variant prop of sgds-accordion-item element", async () => {
-    const el = await fixture<SgdsAccordion>(html`<sgds-accordion variant="border">
-      <sgds-accordion-item>
+  it("variant prop is forwarded to variant prop of sit-accordion-item element", async () => {
+    const el = await fixture<SitAccordion>(html`<sit-accordion variant="border">
+      <sit-accordion-item>
         <div slot="header">Accordion 1</div>
         <span slot="content"
           >Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores soluta eaque fugit fuga distinctio?
           Eum.</span
         >
-      </sgds-accordion-item>
-    </sgds-accordion>`);
-    expect(el.querySelectorAll("sgds-accordion-item")[0]).to.have.attribute("variant", "border");
+      </sit-accordion-item>
+    </sit-accordion>`);
+    expect(el.querySelectorAll("SIT-accordion-item")[0]).to.have.attribute("variant", "border");
   });
 
-  it("density prop is forwarded to density prop of sgds-accordion-item element", async () => {
-    const el = await fixture<SgdsAccordion>(html`<sgds-accordion density="compact">
-      <sgds-accordion-item>
+  it("density prop is forwarded to density prop of sit-accordion-item element", async () => {
+    const el = await fixture<SitAccordion>(html`<sit-accordion density="compact">
+      <sit-accordion-item>
         <div slot="header">Accordion 1</div>
         <span slot="content"
           >Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores soluta eaque fugit fuga distinctio?
           Eum.</span
         >
-      </sgds-accordion-item>
-    </sgds-accordion>`);
-    expect(el.querySelectorAll("sgds-accordion-item")[0]).to.have.attribute("density", "compact");
+      </sit-accordion-item>
+    </sit-accordion>`);
+    expect(el.querySelectorAll("SIT-accordion-item")[0]).to.have.attribute("density", "compact");
   });
 
   it("should be disabled when disabled = true", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`
-      <sgds-accordion-item disabled>
+    const el = await fixture<SitAccordionItem>(html`
+      <sit-accordion-item disabled>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     const button = el.shadowRoot?.querySelector(".accordion-btn") as HTMLButtonElement;
 
@@ -236,45 +236,48 @@ describe("<sgds-accordion-item>", () => {
     expect(accordionBody?.classList.contains("hidden")).to.be.true;
   });
 
-  it("accordion-btn should use --sgds-font-size-subtitle-sm and --sgds-line-height-2-xs for compact density", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`<sgds-accordion-item density="compact"></sgds-accordion-item>`);
+  it("accordion-btn should use --sit-font-size-subtitle-sm and --sit-line-height-2-xs for compact density", async () => {
+    const el = await fixture<SitAccordionItem>(html`<sit-accordion-item density="compact"></sit-accordion-item>`);
     const button = el.shadowRoot?.querySelector<HTMLElement>(".accordion-btn");
-    el.style.setProperty("--sgds-font-size-subtitle-sm", "14px");
-    el.style.setProperty("--sgds-line-height-2-xs", "20px");
+    el.style.setProperty("--sit-font-size-subtitle-sm", "14px");
+    el.style.setProperty("--sit-line-height-2-xs", "20px");
     await el.updateComplete;
     expect(getComputedStyle(button!).fontSize).to.equal("14px");
     expect(getComputedStyle(button!).lineHeight).to.equal("20px");
   });
 
-  it("accordion-btn should use --sgds-font-size-subtitle-md and --sgds-line-height-xs for default density", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`<sgds-accordion-item></sgds-accordion-item>`);
+  it("accordion-btn should use --sit-font-size-subtitle-md and --sit-line-height-xs for default density", async () => {
+    const el = await fixture<SitAccordionItem>(html`<sit-accordion-item></sit-accordion-item>`);
     const button = el.shadowRoot?.querySelector<HTMLElement>(".accordion-btn");
-    el.style.setProperty("--sgds-font-size-subtitle-md", "18px");
-    el.style.setProperty("--sgds-line-height-xs", "24px");
+    el.style.setProperty("--sit-font-size-subtitle-md", "18px");
+    el.style.setProperty("--sit-line-height-xs", "24px");
     await el.updateComplete;
     expect(getComputedStyle(button!).fontSize).to.equal("18px");
     expect(getComputedStyle(button!).lineHeight).to.equal("24px");
   });
 
-  it("accordion-btn should use --sgds-font-size-heading-sm and --sgds-line-height-sm for spacious density", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`<sgds-accordion-item density="spacious"></sgds-accordion-item>`);
+  it("accordion-btn should use --sit-font-size-heading-sm and --sit-line-height-sm for spacious density", async () => {
+    const el = await fixture<SitAccordionItem>(html`<sit-accordion-item density="spacious"></sit-accordion-item>`);
     const button = el.shadowRoot?.querySelector<HTMLElement>(".accordion-btn");
-    el.style.setProperty("--sgds-font-size-heading-sm", "24px");
-    el.style.setProperty("--sgds-line-height-sm", "28px");
+    el.style.setProperty("--sit-font-size-heading-sm", "24px");
+    el.style.setProperty("--sit-line-height-sm", "28px");
     await el.updateComplete;
     expect(getComputedStyle(button!).fontSize).to.equal("24px");
     expect(getComputedStyle(button!).lineHeight).to.equal("28px");
   });
 
   it("should have an icon slot inside the accordion button", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`<sgds-accordion-item></sgds-accordion-item>`);
+    const el = await fixture<SitAccordionItem>(html`<sit-accordion-item></sit-accordion-item>`);
     const button = el.shadowRoot?.querySelector(".accordion-btn");
     expect(button?.querySelector("slot[name='icon']")).to.exist;
   });
 
   it("should have a badge slot inside accordion-header__trailing", async () => {
-    const el = await fixture<SgdsAccordionItem>(html`<sgds-accordion-item></sgds-accordion-item>`);
+    const el = await fixture<SitAccordionItem>(html`<sit-accordion-item></sit-accordion-item>`);
     const trailing = el.shadowRoot?.querySelector(".accordion-header__trailing");
     expect(trailing?.querySelector("slot[name='badge']")).to.exist;
   });
 });
+
+
+

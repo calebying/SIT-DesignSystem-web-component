@@ -1,55 +1,58 @@
-import "../../sgds-web-component";
+import "../../sit-web-component";
 import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Accordion a11y", () => {
-  it("sgds-accordion should be accessible", async () => {
+  it("SIT-accordion should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-accordion>
-        <sgds-accordion-item ariaLabel="Accordion title #1">
+      <sit-accordion>
+        <sit-accordion-item ariaLabel="Accordion title #1">
           <div slot="header">Accordion title #1</div>
           <div slot="content">Content for item 1</div>
-        </sgds-accordion-item>
-        <sgds-accordion-item ariaLabel="Accordion title #2">
+        </sit-accordion-item>
+        <sit-accordion-item ariaLabel="Accordion title #2">
           <div slot="header">Accordion title #2</div>
           <div slot="content">Content for item 2</div>
-        </sgds-accordion-item>
-        <sgds-accordion-item ariaLabel="Accordion title #3">
+        </sit-accordion-item>
+        <sit-accordion-item ariaLabel="Accordion title #3">
           <div slot="header">Accordion title #3</div>
           <div slot="content">Content for item 3</div>
-        </sgds-accordion-item>
-      </sgds-accordion>
+        </sit-accordion-item>
+      </sit-accordion>
     `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-accordion-item (open) should be accessible", async () => {
+  it("SIT-accordion-item (open) should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-accordion-item open ariaLabel="Accordion title">
+      <sit-accordion-item open ariaLabel="Accordion title">
         <div slot="header">Accordion title</div>
         <div slot="content">Accordion content</div>
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-accordion-item (closed) should be accessible", async () => {
+  it("SIT-accordion-item (closed) should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-accordion-item ariaLabel="Accordion title">
+      <sit-accordion-item ariaLabel="Accordion title">
         <div slot="header">Accordion title</div>
         <div slot="content">Accordion content</div>
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-accordion-item (disabled) should be accessible", async () => {
+  it("SIT-accordion-item (disabled) should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-accordion-item disabled ariaLabel="Disabled accordion">
+      <sit-accordion-item disabled ariaLabel="Disabled accordion">
         <div slot="header">Disabled accordion</div>
         <div slot="content">This item is disabled</div>
-      </sgds-accordion-item>
+      </sit-accordion-item>
     `);
     await expect(el).to.be.accessible();
   });
 });
+
+
+

@@ -1,21 +1,21 @@
 import { html } from "lit";
 import { fixture, expect, elementUpdated } from "@open-wc/testing";
 import "../src/index";
-import { SgdsDescriptionList } from "../src/components";
+import { SitDescriptionList } from "../src/components";
 
-describe("<sgds-description-list>", () => {
+describe("<sit-description-list>", () => {
   it("should render label content when label is provided", async () => {
-    const el = await fixture<SgdsDescriptionList>(html` <sgds-description-list> Label Text </sgds-description-list> `);
+    const el = await fixture<SitDescriptionList>(html` <sit-description-list> Label Text </sit-description-list> `);
     await elementUpdated(el);
     const labelElement = el.shadowRoot?.querySelector(".label");
     expect(labelElement).to.exist;
   });
 
   it("should render data content when data is provided", async () => {
-    const el = await fixture<SgdsDescriptionList>(html`
-      <sgds-description-list>
+    const el = await fixture<SitDescriptionList>(html`
+      <sit-description-list>
         <span slot="data">Data Text</span>
-      </sgds-description-list>
+      </sit-description-list>
     `);
     await elementUpdated(el);
     const dataElement = el.shadowRoot?.querySelector(".data");
@@ -23,9 +23,11 @@ describe("<sgds-description-list>", () => {
   });
 
   it("should always have label and data containers present", async () => {
-    const el = await fixture<SgdsDescriptionList>(html`<sgds-description-list></sgds-description-list>`);
+    const el = await fixture<SitDescriptionList>(html`<sit-description-list></sit-description-list>`);
     await elementUpdated(el);
     expect(el.shadowRoot?.querySelector(".label-container")).to.exist;
     expect(el.shadowRoot?.querySelector(".data-container")).to.exist;
   });
 });
+
+

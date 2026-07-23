@@ -1,15 +1,18 @@
-import "../../sgds-web-component";
+import "../../sit-web-component";
 import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("TableOfContents a11y", () => {
-  it("sgds-table-of-contents should be accessible", async () => {
+  it("SIT-table-of-contents should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-table-of-contents>
-        <sgds-table-of-contents-item href="#section1">Section 1</sgds-table-of-contents-item>
-        <sgds-table-of-contents-item href="#section2">Section 2</sgds-table-of-contents-item>
-      </sgds-table-of-contents>
+      <sit-table-of-contents>
+        <sit-table-of-contents-item href="#section1">Section 1</sit-table-of-contents-item>
+        <sit-table-of-contents-item href="#section2">Section 2</sit-table-of-contents-item>
+      </sit-table-of-contents>
     `);
     await expect(el).to.be.accessible();
   });
 });
+
+
+

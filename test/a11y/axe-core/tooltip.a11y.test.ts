@@ -1,14 +1,17 @@
-import "../../sgds-web-component";
+import "../../sit-web-component";
 import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Tooltip a11y", () => {
-  it("sgds-tooltip should be accessible", async () => {
+  it("SIT-tooltip should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-tooltip content="Helpful tooltip text">
-        <sgds-button>Hover me</sgds-button>
-      </sgds-tooltip>
+      <sit-tooltip content="Helpful tooltip text">
+        <sit-button>Hover me</sit-button>
+      </sit-tooltip>
     `);
     await expect(el).to.be.accessible();
   });
 });
+
+
+

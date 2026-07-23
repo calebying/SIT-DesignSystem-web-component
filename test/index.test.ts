@@ -1,4 +1,4 @@
-import "./sgds-web-component";
+import "./sit-web-component";
 
 import * as Components from "../src/components";
 import { assert } from "@open-wc/testing";
@@ -15,3 +15,4 @@ describe("custom element registration is correct", () => {
     });
   }
 });
+

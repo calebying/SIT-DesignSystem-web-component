@@ -2,24 +2,24 @@ import { aTimeout, assert, elementUpdated, expect, fixture, fixtureCleanup, wait
 import { html } from "lit";
 import Sinon from "sinon";
 import {
-  SgdsDropdownItem,
-  SgdsIconButton,
-  SgdsMainnav,
-  SgdsMainnavDropdown,
-  SgdsMainnavItem,
+  SitDropdownItem,
+  SitIconButton,
+  SitMainnav,
+  SitMainnavDropdown,
+  SitMainnavItem,
   type MainnavExpandSize
 } from "../src/components";
-import "./sgds-web-component";
+import "./sit-web-component";
 
-describe("sgds-mainnav", () => {
+describe("SIT-mainnav", () => {
   afterEach(() => fixtureCleanup());
   it("is defined", () => {
-    const el = document.createElement("sgds-mainnav");
-    assert.instanceOf(el, SgdsMainnav);
+    const el = document.createElement("SIT-mainnav");
+    assert.instanceOf(el, SitMainnav);
   });
 
   it("can be semantically compare with shadowDom trees", async () => {
-    const el = await fixture(html`<sgds-mainnav></sgds-mainnav>`);
+    const el = await fixture(html`<sit-mainnav></sit-mainnav>`);
     assert.shadowDom.equal(
       el,
       `<nav>
@@ -36,7 +36,7 @@ describe("sgds-mainnav", () => {
             name="non-collapsible"
           >
           </slot>
-          <sgds-icon-button
+          <sit-icon-button
             aria-expanded="false"
             class="navbar-toggler"
             name="menu"
@@ -45,7 +45,7 @@ describe("sgds-mainnav", () => {
             variant="ghost"
             tone="brand"
           >
-          </sgds-icon-button>
+          </sit-icon-button>
         </div>
         <div
           class="navbar-body navbar-collapse"
@@ -66,37 +66,37 @@ describe("sgds-mainnav", () => {
   });
 
   it("expect div.collapse's id to equal to button's aria-controls", async () => {
-    const el = await fixture(html`<sgds-mainnav></sgds-mainnav>`);
+    const el = await fixture(html`<sit-mainnav></sit-mainnav>`);
     const collapse = el.shadowRoot?.querySelector("div.navbar-body");
-    const button = el.shadowRoot?.querySelector("sgds-icon-button");
+    const button = el.shadowRoot?.querySelector("SIT-icon-button");
     expect(collapse?.getAttribute("id")).to.equal(button?.getAttribute("aria-controls"));
   });
   it("brandHref props forwards to a.navbar-brand  href attribute", async () => {
-    const el = await fixture(html`<sgds-mainnav brandHref="test"></sgds-mainnav>`);
+    const el = await fixture(html`<sit-mainnav brandHref="test"></sit-mainnav>`);
     expect(el.shadowRoot?.querySelector("a.navbar-brand")?.getAttribute("href")).to.equal("test");
   });
 
   // itx("when mode is offcanvas, offcanvas classes are present instead of collapse classes", async () => {
-  //   const el = await fixture(html`<sgds-mainnav mode="offcanvas"></sgds-mainnav>`);
+  //   const el = await fixture(html`<sit-mainnav mode="offcanvas"></sit-mainnav>`);
   //   expect(el.shadowRoot?.querySelector(".offcanvas.offcanvas-start.order-4")).to.exist;
   //   expect(el.shadowRoot?.querySelector(".collapse.navbar-collapse.order-4")).not.to.exist;
   // });
 
   it("when expand=always, navbar class has .navbar-expand", async () => {
-    const el = await fixture(html`<sgds-mainnav expand="always"></sgds-mainnav>`);
+    const el = await fixture(html`<sit-mainnav expand="always"></sit-mainnav>`);
     expect(el.shadowRoot?.querySelector(".navbar")).to.have.class("navbar-expand");
     const classList = el.shadowRoot?.querySelector(".navbar")?.classList.value;
     expect(/navbar-expand/.test(classList as string)).to.be.true;
   });
   it("when expand=never, navbar class does not have .navbar-expand", async () => {
-    const el = await fixture(html`<sgds-mainnav expand="never"></sgds-mainnav>`);
+    const el = await fixture(html`<sit-mainnav expand="never"></sit-mainnav>`);
     const classList = el.shadowRoot?.querySelector(".navbar")?.classList.value;
     expect(/navbar-expand/.test(classList as string)).to.be.false;
   });
   const testSizes: MainnavExpandSize[] = ["sm", "md", "lg", "xl", "xxl"];
   testSizes.forEach(size => {
     it(`when expand=${size}, navbar class have .navbar-expand=${size}`, async () => {
-      const el = await fixture(html`<sgds-mainnav expand=${size}></sgds-mainnav>`);
+      const el = await fixture(html`<sit-mainnav expand=${size}></sit-mainnav>`);
       const classList = el.shadowRoot?.querySelector(".navbar")?.classList.value;
       expect(/navbar-expand/.test(classList as string)).to.be.true;
       expect(classList).to.contain(`navbar-expand-${size}`);
@@ -104,11 +104,11 @@ describe("sgds-mainnav", () => {
   });
 
   it("in default mode (collapse menu), when .navbar-toggler is clicked .navbar-collapse has hidden attribute removed and toggler has aria-expanded true", async () => {
-    const el = await fixture<SgdsMainnav>(html`<sgds-mainnav expand="never"></sgds-mainnav>`);
+    const el = await fixture<SitMainnav>(html`<sit-mainnav expand="never"></sit-mainnav>`);
     const mainNavCollapse = el.shadowRoot?.querySelector(".navbar-collapse");
     await el.updateComplete;
     expect(mainNavCollapse).to.have.attribute("hidden");
-    const toggler = el.shadowRoot?.querySelector("sgds-icon-button.navbar-toggler") as HTMLButtonElement;
+    const toggler = el.shadowRoot?.querySelector("SIT-icon-button.navbar-toggler") as HTMLButtonElement;
     expect(toggler.getAttribute("aria-expanded")).to.equal("false");
     toggler?.click();
     // await nextFrame();
@@ -127,7 +127,7 @@ describe("sgds-mainnav", () => {
   // LG_BREAKPOINT = 1024
   // since window.innerWidth < LG_BREAKPOINT --> expect non-collapsible slot to be .order-2 (see first test)
   it("when expand=lg and window resize event occurs to above breakpoint, it inserts .navbar-body before non-collapsible slot, and end slot has class .slot-end", async () => {
-    const el = await fixture<SgdsMainnav>(html`<sgds-mainnav expand="lg"></sgds-mainnav>`);
+    const el = await fixture<SitMainnav>(html`<sit-mainnav expand="lg"></sit-mainnav>`);
     await el.updateComplete;
     expect(el.shadowRoot?.querySelector("nav > .navbar-body")).to.exist;
     expect(el.shadowRoot?.querySelector("nav > .navbar .navbar-body")).not.to.exist;
@@ -146,7 +146,7 @@ describe("sgds-mainnav", () => {
   //SM_BREAKPOINT = 512
   // now window.innerWidth = 1030
   it("when expand=sm and window resize event occurs to above breakpoint, it inserts .navbar-body before non-collapsible slot, and end slot has class slot-end ", async () => {
-    const el = await fixture<SgdsMainnav>(html`<sgds-mainnav expand="sm"></sgds-mainnav>`);
+    const el = await fixture<SitMainnav>(html`<sit-mainnav expand="sm"></sit-mainnav>`);
     expect(el.shadowRoot?.querySelector("nav > .navbar-body")).not.to.exist;
     expect(el.shadowRoot?.querySelector("nav > .navbar .navbar-body")).to.exist;
     expect(el.shadowRoot?.querySelector("slot[name='end']")).to.have.class("slot-end");
@@ -163,7 +163,7 @@ describe("sgds-mainnav", () => {
   });
   // now window.innerWidth = 511
   it("when expand=always and window resize event occurs, it NEVER changes the position of .navbar-body, and end slot ALWAYS have slot-end ", async () => {
-    const el = await fixture<SgdsMainnav>(html`<sgds-mainnav expand="always"></sgds-mainnav>`);
+    const el = await fixture<SitMainnav>(html`<sit-mainnav expand="always"></sit-mainnav>`);
     expect(el.shadowRoot?.querySelector("nav > .navbar-body")).not.to.exist;
     expect(el.shadowRoot?.querySelector("nav > .navbar .navbar-body")).to.exist;
     expect(el.shadowRoot?.querySelector("slot[name='end']")).to.have.class("slot-end");
@@ -190,7 +190,7 @@ describe("sgds-mainnav", () => {
     expect(el.shadowRoot?.querySelector("nav > .navbar .navbar-body")).to.exist;
   });
   it("when expand=never and window resize event occurs, it NEVER changes the position of .navbar-body,  and end slot NEVER has class slot-end", async () => {
-    const el = await fixture<SgdsMainnav>(html`<sgds-mainnav expand="never"></sgds-mainnav>`);
+    const el = await fixture<SitMainnav>(html`<sit-mainnav expand="never"></sit-mainnav>`);
     expect(el.shadowRoot?.querySelector("nav > .navbar-body")).to.exist;
     expect(el.shadowRoot?.querySelector("nav > .navbar .navbar-body")).not.to.exist;
     expect(el.shadowRoot?.querySelector("slot[name='end']")).not.to.have.class("slot-end");
@@ -219,8 +219,8 @@ describe("sgds-mainnav", () => {
   });
 
   // it('keyboard esc to exit offcanvas works', async() => {
-  //   const el = await fixture<SgdsMainnav>(
-  //     html`<sgds-mainnav expand="never" mode="offcanvas"></sgds-mainnav>`
+  //   const el = await fixture<SitMainnav>(
+  //     html`<sit-mainnav expand="never" mode="offcanvas"></sit-mainnav>`
   //   );
   //   el.shadowRoot?.querySelector('button')?.click()
   //   await el.updateComplete
@@ -232,85 +232,85 @@ describe("sgds-mainnav", () => {
 
   // })
   it('adds name attribute to elements in slot="end" only', async () => {
-    const el = await fixture<SgdsMainnav>(
-      html`<sgds-mainnav>
+    const el = await fixture<SitMainnav>(
+      html`<sit-mainnav>
         <div></div>
-        <sgds-mainnav-item slot="end"></sgds-mainnav-item>
-        <sgds-button slot="end"></sgds-button>
-      </sgds-mainnav>`
+        <sit-mainnav-item slot="end"></sit-mainnav-item>
+        <sit-button slot="end"></sit-button>
+      </sit-mainnav>`
     );
     expect(el.querySelector("div")).not.to.have.attribute("name", "div");
-    expect(el.querySelector("sgds-mainnav-item")).to.have.attribute("name", "sgds-mainnav-item");
-    expect(el.querySelector("sgds-button")).to.have.attribute("name", "sgds-button");
+    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("name", "SIT-mainnav-item");
+    expect(el.querySelector("SIT-button")).to.have.attribute("name", "SIT-button");
   });
 
   it("slotchange on default slot sets expand attribute on slotted items using component expand value", async () => {
-    const el = await fixture<SgdsMainnav>(
-      html`<sgds-mainnav expand="md">
-        <sgds-mainnav-item></sgds-mainnav-item>
-        <sgds-mainnav-dropdown><span slot="toggler">Menu</span></sgds-mainnav-dropdown>
-      </sgds-mainnav>`
+    const el = await fixture<SitMainnav>(
+      html`<sit-mainnav expand="md">
+        <sit-mainnav-item></sit-mainnav-item>
+        <sit-mainnav-dropdown><span slot="toggler">Menu</span></sit-mainnav-dropdown>
+      </sit-mainnav>`
     );
     await el.updateComplete;
-    expect(el.querySelector("sgds-mainnav-item")).to.have.attribute("expand", "md");
-    expect(el.querySelector("sgds-mainnav-dropdown")).to.have.attribute("expand", "md");
+    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("expand", "md");
+    expect(el.querySelector("SIT-mainnav-dropdown")).to.have.attribute("expand", "md");
   });
 
   it("slotchange on end slot sets both expand and name attributes on slotted items", async () => {
-    const el = await fixture<SgdsMainnav>(
-      html`<sgds-mainnav expand="xl">
-        <sgds-mainnav-item slot="end"></sgds-mainnav-item>
-        <sgds-mainnav-dropdown slot="end"><span slot="toggler">Menu</span></sgds-mainnav-dropdown>
-      </sgds-mainnav>`
+    const el = await fixture<SitMainnav>(
+      html`<sit-mainnav expand="xl">
+        <sit-mainnav-item slot="end"></sit-mainnav-item>
+        <sit-mainnav-dropdown slot="end"><span slot="toggler">Menu</span></sit-mainnav-dropdown>
+      </sit-mainnav>`
     );
     await el.updateComplete;
-    expect(el.querySelector("sgds-mainnav-item")).to.have.attribute("expand", "xl");
-    expect(el.querySelector("sgds-mainnav-item")).to.have.attribute("name", "sgds-mainnav-item");
-    expect(el.querySelector("sgds-mainnav-dropdown")).to.have.attribute("expand", "xl");
-    expect(el.querySelector("sgds-mainnav-dropdown")).to.have.attribute("name", "sgds-mainnav-dropdown");
+    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("expand", "xl");
+    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("name", "SIT-mainnav-item");
+    expect(el.querySelector("SIT-mainnav-dropdown")).to.have.attribute("expand", "xl");
+    expect(el.querySelector("SIT-mainnav-dropdown")).to.have.attribute("name", "SIT-mainnav-dropdown");
   });
 
   it("default slot items do not receive name attribute", async () => {
-    const el = await fixture<SgdsMainnav>(
-      html`<sgds-mainnav expand="lg">
-        <sgds-mainnav-item></sgds-mainnav-item>
-      </sgds-mainnav>`
+    const el = await fixture<SitMainnav>(
+      html`<sit-mainnav expand="lg">
+        <sit-mainnav-item></sit-mainnav-item>
+      </sit-mainnav>`
     );
     await el.updateComplete;
-    expect(el.querySelector("sgds-mainnav-item")).to.have.attribute("expand", "lg");
-    expect(el.querySelector("sgds-mainnav-item")).not.to.have.attribute("name");
+    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("expand", "lg");
+    expect(el.querySelector("SIT-mainnav-item")).not.to.have.attribute("name");
   });
 });
 
-describe("sgds-mainnav-item", () => {
+describe("SIT-mainnav-item", () => {
   it("is defined", () => {
-    const el = document.createElement("sgds-mainnav-item");
-    assert.instanceOf(el, SgdsMainnavItem);
+    const el = document.createElement("SIT-mainnav-item");
+    assert.instanceOf(el, SitMainnavItem);
   });
 });
 
-describe("sgds-mainnav-dropdown", () => {
+describe("SIT-mainnav-dropdown", () => {
   it("is defined", () => {
-    const el = document.createElement("sgds-mainnav-dropdown");
-    assert.instanceOf(el, SgdsMainnavDropdown);
+    const el = document.createElement("SIT-mainnav-dropdown");
+    assert.instanceOf(el, SitMainnavDropdown);
   });
   it("desktop view: can be semantically compare with shadowDom trees", async () => {
-    const el = await fixture<SgdsMainnav>(html`
-      <sgds-mainnav>
-        <sgds-mainnav-dropdown>
+    const el = await fixture<SitMainnav>(html`
+      <sit-mainnav>
+        <sit-mainnav-dropdown>
           <span slot="toggler">Dropdown</span>
-          <sgds-dropdown-item>
+          <sit-dropdown-item>
             <a href="https://www.google.com/">Item 1</a>
-          </sgds-dropdown-item>
-        </sgds-mainnav-dropdown>
-      </sgds-mainnav>
+          </sit-dropdown-item>
+        </sit-mainnav-dropdown>
+      </sit-mainnav>
     `);
-    const dropdown = el.querySelector<SgdsMainnavDropdown>("sgds-mainnav-dropdown");
+    const dropdown = el.querySelector<SitMainnavDropdown>("SIT-mainnav-dropdown");
     await dropdown?.updateComplete;
     assert.shadowDom.equal(
-      dropdown as SgdsMainnavDropdown,
+      dropdown as SitMainnavDropdown,
       `
-      <sgds-dropdown
+      <sit-dropdown
         close="default"
         drop="down"
       >
@@ -325,15 +325,15 @@ describe("sgds-mainnav-dropdown", () => {
         >
           <slot name="toggler">
           </slot>
-          <sgds-icon
+          <sit-icon
             name="chevron-down"
             size="md"
           >
-          </sgds-icon>  
+          </sit-icon>  
         </a>
         <slot>
         </slot>
-      </sgds-dropdown>
+      </sit-dropdown>
       `,
       { ignoreAttributes: ["id"] }
     );
@@ -345,21 +345,21 @@ describe("sgds-mainnav-dropdown", () => {
       value: 300 // mobile size
     });
     window.dispatchEvent(new Event("resize"));
-    const el = await fixture<SgdsMainnav>(html`
-      <sgds-mainnav>
-        <sgds-mainnav-dropdown>
+    const el = await fixture<SitMainnav>(html`
+      <sit-mainnav>
+        <sit-mainnav-dropdown>
           <span slot="toggler">Dropdown</span>
-          <sgds-dropdown-item>
+          <sit-dropdown-item>
             <a href="https://www.google.com/">Item 1</a>
-          </sgds-dropdown-item>
-        </sgds-mainnav-dropdown>
-      </sgds-mainnav>
+          </sit-dropdown-item>
+        </sit-mainnav-dropdown>
+      </sit-mainnav>
     `);
 
-    const dropdown = el.querySelector<SgdsMainnavDropdown>("sgds-mainnav-dropdown");
+    const dropdown = el.querySelector<SitMainnavDropdown>("SIT-mainnav-dropdown");
     await waitUntil(() => dropdown?.shadowRoot?.querySelector("div.dropdown-items"));
     assert.shadowDom.equal(
-      dropdown as SgdsMainnavDropdown,
+      dropdown as SitMainnavDropdown,
       `
       <a
              class="nav-link"
@@ -368,11 +368,11 @@ describe("sgds-mainnav-dropdown", () => {
              role="button"
            >
              <slot name="toggler"></slot>
-             <sgds-icon name="chevron-right" size="md"></sgds-icon>
+             <sit-icon name="chevron-right" size="md"></sit-icon>
            </a>
            <div class="dropdown-items" aria-hidden="true" style="display: none;">
              <a tabindex="0" role="button">
-               <sgds-icon name="chevron-left" size="md"></sgds-icon>
+               <sit-icon name="chevron-left" size="md"></sit-icon>
                <span>Dropdown</span>
              </a>
              <slot></slot>
@@ -388,18 +388,18 @@ describe("sgds-mainnav-dropdown", () => {
       value: 300 // mobile size
     });
     window.dispatchEvent(new Event("resize"));
-    const el = await fixture<SgdsMainnav>(html`
-      <sgds-mainnav>
-        <sgds-mainnav-dropdown>
+    const el = await fixture<SitMainnav>(html`
+      <sit-mainnav>
+        <sit-mainnav-dropdown>
           <span slot="toggler">Dropdown</span>
-          <sgds-dropdown-item>
+          <sit-dropdown-item>
             <a href="https://www.google.com/">Item 1</a>
-          </sgds-dropdown-item>
-        </sgds-mainnav-dropdown>
-      </sgds-mainnav>
+          </sit-dropdown-item>
+        </sit-mainnav-dropdown>
+      </sit-mainnav>
     `);
 
-    const dropdown = el.querySelector<SgdsMainnavDropdown>("sgds-mainnav-dropdown");
+    const dropdown = el.querySelector<SitMainnavDropdown>("SIT-mainnav-dropdown");
     await waitUntil(() => dropdown?.shadowRoot?.querySelector("div.dropdown-items"));
     const togglerAnchor = dropdown?.shadowRoot?.querySelector("a.nav-link") as HTMLAnchorElement;
     togglerAnchor.click();
@@ -407,7 +407,7 @@ describe("sgds-mainnav-dropdown", () => {
       () => dropdown?.shadowRoot?.querySelector("div.dropdown-items")?.getAttribute("aria-hidden") === "false"
     );
     assert.shadowDom.equal(
-      dropdown as SgdsMainnavDropdown,
+      dropdown as SitMainnavDropdown,
       `
       <a
              class="nav-link"
@@ -416,11 +416,11 @@ describe("sgds-mainnav-dropdown", () => {
              role="button"
            >
              <slot name="toggler"></slot>
-             <sgds-icon name="chevron-right" size="md"></sgds-icon>
+             <sit-icon name="chevron-right" size="md"></sit-icon>
            </a>
            <div class="dropdown-items" aria-hidden="false" style="">
              <a tabindex="0" role="button">
-               <sgds-icon name="chevron-left" size="md"></sgds-icon>
+               <sit-icon name="chevron-left" size="md"></sit-icon>
                <span>Dropdown</span>
              </a>
              <slot></slot>
@@ -431,11 +431,11 @@ describe("sgds-mainnav-dropdown", () => {
   });
 
   it("when prop active=true, .active class is defined in the button", async () => {
-    const el = await fixture(html`<sgds-mainnav-dropdown active
+    const el = await fixture(html`<sit-mainnav-dropdown active
       ><span slot="toggler">Dropdown</span>
-      <sgds-dropdown-item>
+      <sit-dropdown-item>
         <a href="https://www.google.com/">Item 1</a>
-      </sgds-dropdown-item></sgds-mainnav-dropdown
+      </sit-dropdown-item></sit-mainnav-dropdown
     >`);
 
     expect(el.shadowRoot?.querySelector("a[role=button]")).to.have.class("active");
@@ -448,28 +448,28 @@ describe("sgds-mainnav-dropdown", () => {
       value: 300 // mobile size
     });
     window.dispatchEvent(new Event("resize"));
-    const stubHide = Sinon.stub(SgdsMainnav.prototype, "hide");
+    const stubHide = Sinon.stub(SitMainnav.prototype, "hide");
     const showSpy = Sinon.spy();
 
-    const mainnav = await fixture<SgdsMainnav>(html`
-      <sgds-mainnav expand="lg">
-        <sgds-mainnav-dropdown>
+    const mainnav = await fixture<SitMainnav>(html`
+      <sit-mainnav expand="lg">
+        <sit-mainnav-dropdown>
           <span slot="toggler">Menu</span>
-          <sgds-dropdown-item><a href="#">Item 1</a></sgds-dropdown-item>
-          <sgds-dropdown-item><a href="#">Item 2</a></sgds-dropdown-item>
-        </sgds-mainnav-dropdown>
-      </sgds-mainnav>
+          <sit-dropdown-item><a href="#">Item 1</a></sit-dropdown-item>
+          <sit-dropdown-item><a href="#">Item 2</a></sit-dropdown-item>
+        </sit-mainnav-dropdown>
+      </sit-mainnav>
     `);
-    mainnav.addEventListener("sgds-show", showSpy);
+    mainnav.addEventListener("SIT-show", showSpy);
     await mainnav.updateComplete;
-    const hamburgerButton = mainnav.shadowRoot?.querySelector("sgds-icon-button.navbar-toggler") as SgdsIconButton;
+    const hamburgerButton = mainnav.shadowRoot?.querySelector("SIT-icon-button.navbar-toggler") as SitIconButton;
     hamburgerButton.click();
     await elementUpdated(mainnav);
     expect(showSpy.calledOnce).to.be.true;
-    const anchorOne = mainnav.querySelectorAll("sgds-dropdown-item")?.[0] as SgdsDropdownItem;
+    const anchorOne = mainnav.querySelectorAll("SIT-dropdown-item")?.[0] as SitDropdownItem;
     anchorOne.click();
     await elementUpdated(mainnav);
-    const dropdown = mainnav.querySelector<SgdsMainnavDropdown>("sgds-mainnav-dropdown");
+    const dropdown = mainnav.querySelector<SitMainnavDropdown>("SIT-mainnav-dropdown");
 
     await dropdown?.updateComplete;
     await waitUntil(() => stubHide.called);
@@ -477,3 +477,5 @@ describe("sgds-mainnav-dropdown", () => {
     stubHide.restore();
   }); // retries 1 time as occasionally fails with timeout (CI or local)
 });
+
+

@@ -1,11 +1,11 @@
-import "./sgds-web-component";
+import "./sit-web-component";
 import { html } from "lit";
 import { fixture, assert } from "@open-wc/testing";
-import type { SgdsProgressBar } from "../src/components";
+import type { SitProgressBar } from "../src/components";
 
-describe("<sgds-progress-bar>", () => {
+describe("<sit-progress-bar>", () => {
   it("renders with default values", async () => {
-    const el = await fixture<SgdsProgressBar>(html` <sgds-progress-bar value="50"></sgds-progress-bar> `);
+    const el = await fixture<SitProgressBar>(html` <sit-progress-bar value="50"></sit-progress-bar> `);
     assert.shadowDom.equal(
       el,
       `<div class="progress-container">
@@ -21,3 +21,5 @@ describe("<sgds-progress-bar>", () => {
     );
   });
 });
+
+

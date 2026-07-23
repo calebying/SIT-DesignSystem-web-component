@@ -1,21 +1,21 @@
 import { html } from "lit";
 import { fixture, expect } from "@open-wc/testing";
-import { SgdsThumbnailCard } from "../src/components";
+import { SitThumbnailCard } from "../src/components";
 import "../src/index";
 
-describe("sgds-thumbnail-card", () => {
+describe("SIT-thumbnail-card", () => {
   it("renders by default", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`<sgds-thumbnail-card></sgds-thumbnail-card>`);
+    const el = await fixture<SitThumbnailCard>(html`<sit-thumbnail-card></sit-thumbnail-card>`);
     expect(el).to.be.accessible;
     expect(el.shadowRoot?.querySelector(".card")).to.exist;
   });
 
   it("renders title and subtitle properly", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card>
         <span slot="subtitle">Subtitle text</span>
         <span slot="title">Title text</span>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const subtitle = el.shadowRoot?.querySelector("slot[name=subtitle]");
     const title = el.shadowRoot?.querySelector("slot[name=title]");
@@ -24,10 +24,10 @@ describe("sgds-thumbnail-card", () => {
   });
 
   it("renders content in the description slot", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card>
         <span slot="description">This is a description</span>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
 
     const descriptionSlot = el.shadowRoot?.querySelector('slot[name="description"]') as HTMLSlotElement;
@@ -39,7 +39,7 @@ describe("sgds-thumbnail-card", () => {
   });
 
   it("renders nothing if no description slot is provided", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`<sgds-thumbnail-card></sgds-thumbnail-card>`);
+    const el = await fixture<SitThumbnailCard>(html`<sit-thumbnail-card></sit-thumbnail-card>`);
 
     const descriptionSlot = el.shadowRoot?.querySelector('slot[name="description"]') as HTMLSlotElement;
     const assignedNodes = descriptionSlot.assignedNodes({ flatten: true });
@@ -47,17 +47,17 @@ describe("sgds-thumbnail-card", () => {
   });
 
   it("supports noPadding prop (removes padding and tint)", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`<sgds-thumbnail-card noPadding></sgds-thumbnail-card>`);
+    const el = await fixture<SitThumbnailCard>(html`<sit-thumbnail-card noPadding></sit-thumbnail-card>`);
     expect(el.noPadding).to.be.true;
     const body = el.shadowRoot?.querySelector(".card-body") as HTMLElement;
     expect(getComputedStyle(body).padding).to.equal("0px");
   });
 
   it("renders upper slot when slotted", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card orientation="vertical">
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card orientation="vertical">
         <span slot="upper">Badge</span>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const upper = el.shadowRoot?.querySelector("slot[name=upper]");
     expect(upper).to.exist;
@@ -65,27 +65,27 @@ describe("sgds-thumbnail-card", () => {
 
   /**@deprecated Remove in v4.0.0 */
   it("renders link slot with stretchedLink", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card stretchedLink>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card stretchedLink>
         <a slot="link" href="#">Read More</a>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const tag = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(tag.tagName.toLowerCase()).to.equal("a");
   });
 
   it("renders footer slot with stretchedLink", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card stretchedLink>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card stretchedLink>
         <a slot="footer" href="#">Read More</a>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const tag = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(tag.tagName.toLowerCase()).to.equal("a");
   });
 
   it("sets tabindex correctly based on stretchedLink and disabled", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`<sgds-thumbnail-card></sgds-thumbnail-card>`);
+    const el = await fixture<SitThumbnailCard>(html`<sit-thumbnail-card></sit-thumbnail-card>`);
     el.stretchedLink = true;
     await el.updateComplete;
 
@@ -98,10 +98,10 @@ describe("sgds-thumbnail-card", () => {
   });
 
   it("forwards href and target from footer slot anchor when stretchedLink is true", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card stretchedLink>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card stretchedLink>
         <a slot="footer" href="https://example.com" target="_blank">Read More</a>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("href")).to.equal("https://example.com");
@@ -110,10 +110,10 @@ describe("sgds-thumbnail-card", () => {
 
   /** @deprecated Remove in v4.0.0 */
   it("forwards href and target from link slot anchor when stretchedLink is true", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card stretchedLink>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card stretchedLink>
         <a slot="link" href="https://example.com" target="_blank">Read More</a>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("href")).to.equal("https://example.com");
@@ -121,12 +121,12 @@ describe("sgds-thumbnail-card", () => {
   });
 
   it("forwards safe attributes (rel, aria-label, data-*) from footer slot anchor", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card stretchedLink>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card stretchedLink>
         <a slot="footer" href="https://example.com" rel="noopener noreferrer" aria-label="Read more" data-id="123"
           >Read More</a
         >
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("rel")).to.equal("noopener noreferrer");
@@ -135,10 +135,10 @@ describe("sgds-thumbnail-card", () => {
   });
 
   it("does not forward class, style, id from footer slot anchor", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card stretchedLink>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card stretchedLink>
         <a slot="footer" href="https://example.com" class="custom-link" style="color:red" id="my-link">Read More</a>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("class")).to.not.include("custom-link");
@@ -147,20 +147,20 @@ describe("sgds-thumbnail-card", () => {
   });
 
   it("does not forward on* event handler attributes from footer slot anchor", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card stretchedLink>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card stretchedLink>
         <a slot="footer" href="https://example.com" onclick="alert(1)">Read More</a>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("onclick")).to.be.null;
   });
 
   it("does not forward attributes when anchor href uses javascript: protocol", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`
-      <sgds-thumbnail-card stretchedLink>
+    const el = await fixture<SitThumbnailCard>(html`
+      <sit-thumbnail-card stretchedLink>
         <a slot="footer" href="javascript:alert(1)" target="_blank">Read More</a>
-      </sgds-thumbnail-card>
+      </sit-thumbnail-card>
     `);
     const card = el.shadowRoot?.querySelector(".card") as HTMLElement;
     expect(card.getAttribute("href")).to.be.null;
@@ -168,12 +168,14 @@ describe("sgds-thumbnail-card", () => {
   });
 
   it("renders tinted background unless noPadding is true", async () => {
-    const el = await fixture<SgdsThumbnailCard>(html`<sgds-thumbnail-card tinted></sgds-thumbnail-card>`);
+    const el = await fixture<SitThumbnailCard>(html`<sit-thumbnail-card tinted></sit-thumbnail-card>`);
     const tintedBg = el.shadowRoot?.querySelector(".card-tinted-bg");
     expect(tintedBg).to.exist;
 
-    const el2 = await fixture<SgdsThumbnailCard>(html`<sgds-thumbnail-card tinted noPadding></sgds-thumbnail-card>`);
+    const el2 = await fixture<SitThumbnailCard>(html`<sit-thumbnail-card tinted noPadding></sit-thumbnail-card>`);
     const tintedBg2 = el2.shadowRoot?.querySelector(".card-tinted-bg");
     expect(tintedBg2).to.not.exist;
   });
 });
+
+

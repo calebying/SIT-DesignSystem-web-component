@@ -2,9 +2,9 @@ import { assert, expect, fixture } from "@open-wc/testing";
 import { html } from "lit";
 import "../src/index";
 
-describe("<sgds-table-of-contents>", () => {
+describe("<sit-table-of-contents>", () => {
   it("matches semantic shadowDOM", async () => {
-    const el = await fixture(html`<sgds-table-of-contents></sgds-table-of-contents>`);
+    const el = await fixture(html`<sit-table-of-contents></sit-table-of-contents>`);
     assert.shadowDom.equal(
       el,
       `
@@ -21,9 +21,9 @@ describe("<sgds-table-of-contents>", () => {
 
   it("renders default slot content", async () => {
     const el = await fixture(html`
-      <sgds-table-of-contents>
+      <sit-table-of-contents>
         <h4>Header</h4>
-      </sgds-table-of-contents>
+      </sit-table-of-contents>
     `);
 
     const slot = el.shadowRoot?.querySelector("slot:not([name])");
@@ -33,11 +33,11 @@ describe("<sgds-table-of-contents>", () => {
 
   it("renders named slot 'contents' properly", async () => {
     const el = await fixture(html`
-      <sgds-table-of-contents>
+      <sit-table-of-contents>
         <h4>Header</h4>
         <li slot="contents">Section 1</li>
         <li slot="contents">Section 2</li>
-      </sgds-table-of-contents>
+      </sit-table-of-contents>
     `);
 
     const slot = el.shadowRoot?.querySelector('slot[name="contents"]');
@@ -46,3 +46,5 @@ describe("<sgds-table-of-contents>", () => {
     expect(el.textContent).to.include("Section 2");
   });
 });
+
+

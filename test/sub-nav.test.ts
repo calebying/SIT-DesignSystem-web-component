@@ -1,19 +1,19 @@
 import { html } from "lit";
 import { expect, fixture } from "@open-wc/testing";
-import { SgdsSubnav } from "../src/components";
+import { SitSubnav } from "../src/components";
 import "../src/index";
 
-describe("<sgds-subnav>", () => {
-  it("renders sgds-subnav with a default slot item", async () => {
-    const el = await fixture<SgdsSubnav>(html`
-      <sgds-subnav>
-        <sgds-subnav-item>
+describe("<sit-subnav>", () => {
+  it("renders sit-subnav with a default slot item", async () => {
+    const el = await fixture<SitSubnav>(html`
+      <sit-subnav>
+        <sit-subnav-item>
           <a href="#">Home</a>
-        </sgds-subnav-item>
-      </sgds-subnav>
+        </sit-subnav-item>
+      </sit-subnav>
     `);
 
-    const item = el.querySelector("sgds-subnav-item");
+    const item = el.querySelector("SIT-subnav-item");
     expect(item).to.exist;
     const anchor = item?.querySelector("a");
     expect(anchor).to.exist;
@@ -21,25 +21,25 @@ describe("<sgds-subnav>", () => {
   });
 
   it("automatically wraps text node in an anchor tag", async () => {
-    const el = await fixture<SgdsSubnav>(html`
-      <sgds-subnav>
-        <sgds-subnav-item>Dashboard</sgds-subnav-item>
-      </sgds-subnav>
+    const el = await fixture<SitSubnav>(html`
+      <sit-subnav>
+        <sit-subnav-item>Dashboard</sit-subnav-item>
+      </sit-subnav>
     `);
 
-    const item = el.querySelector("sgds-subnav-item");
+    const item = el.querySelector("SIT-subnav-item");
     const anchor = item?.querySelector("a");
     expect(anchor).to.exist;
     expect(anchor?.textContent?.trim()).to.equal("Dashboard");
   });
 
   it("sets aria-current when active is true", async () => {
-    const el = await fixture<SgdsSubnav>(html`
-      <sgds-subnav>
-        <sgds-subnav-item active>
+    const el = await fixture<SitSubnav>(html`
+      <sit-subnav>
+        <sit-subnav-item active>
           <a href="#">Current Page</a>
-        </sgds-subnav-item>
-      </sgds-subnav>
+        </sit-subnav-item>
+      </sit-subnav>
     `);
 
     const anchor = el.querySelector("a");
@@ -47,12 +47,12 @@ describe("<sgds-subnav>", () => {
   });
 
   it("disables link and removes tab index when disabled", async () => {
-    const el = await fixture<SgdsSubnav>(html`
-      <sgds-subnav>
-        <sgds-subnav-item disabled>
+    const el = await fixture<SitSubnav>(html`
+      <sit-subnav>
+        <sit-subnav-item disabled>
           <a href="#">Disabled Page</a>
-        </sgds-subnav-item>
-      </sgds-subnav>
+        </sit-subnav-item>
+      </sit-subnav>
     `);
 
     const anchor = el.querySelector("a");
@@ -61,19 +61,19 @@ describe("<sgds-subnav>", () => {
   });
 
   it("renders header and actions slots correctly", async () => {
-    const el = await fixture<SgdsSubnav>(html`
-      <sgds-subnav>
+    const el = await fixture<SitSubnav>(html`
+      <sit-subnav>
         <div slot="header">Subnav Header</div>
-        <sgds-subnav-item>Home</sgds-subnav-item>
+        <sit-subnav-item>Home</sit-subnav-item>
         <div slot="actions">
-          <sgds-button>Action</sgds-button>
+          <sit-button>Action</sit-button>
         </div>
-      </sgds-subnav>
+      </sit-subnav>
     `);
 
     const headerSlot = el.querySelector('[slot="header"]');
     const actionsSlot = el.querySelector('[slot="actions"]');
-    const button = actionsSlot?.querySelector("sgds-button");
+    const button = actionsSlot?.querySelector("SIT-button");
 
     expect(headerSlot).to.exist;
     expect(headerSlot?.textContent?.trim()).to.equal("Subnav Header");
@@ -83,11 +83,11 @@ describe("<sgds-subnav>", () => {
   });
 
   it("handles absence of actions slot correctly", async () => {
-    const el = await fixture<SgdsSubnav>(html`
-      <sgds-subnav>
+    const el = await fixture<SitSubnav>(html`
+      <sit-subnav>
         <div slot="header">Subnav Header</div>
-        <sgds-subnav-item>Home</sgds-subnav-item>
-      </sgds-subnav>
+        <sit-subnav-item>Home</sit-subnav-item>
+      </sit-subnav>
     `);
 
     const actionsContainer = el.shadowRoot?.querySelector(".subnav-actions");
@@ -101,3 +101,6 @@ describe("<sgds-subnav>", () => {
     expect(el.hasActionsSlot).to.be.false;
   });
 });
+
+
+

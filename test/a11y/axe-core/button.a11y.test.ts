@@ -1,30 +1,33 @@
-import "../../sgds-web-component";
+import "../../sit-web-component";
 import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Button a11y", () => {
-  it("sgds-button should be accessible", async () => {
-    const el = await fixture(html` <sgds-button>Click me</sgds-button> `);
+  it("SIT-button should be accessible", async () => {
+    const el = await fixture(html` <sit-button>Click me</sit-button> `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-button as link should be accessible", async () => {
-    const el = await fixture(html` <sgds-button href="https://example.com">Visit site</sgds-button> `);
+  it("SIT-button as link should be accessible", async () => {
+    const el = await fixture(html` <sit-button href="https://example.com">Visit site</sit-button> `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-button disabled should be accessible", async () => {
-    const el = await fixture(html` <sgds-button disabled>Disabled</sgds-button> `);
+  it("SIT-button disabled should be accessible", async () => {
+    const el = await fixture(html` <sit-button disabled>Disabled</sit-button> `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-icon-button should be accessible", async () => {
-    const el = await fixture(html` <sgds-icon-button name="plus" ariaLabel="Add item"></sgds-icon-button> `);
+  it("SIT-icon-button should be accessible", async () => {
+    const el = await fixture(html` <sit-icon-button name="plus" ariaLabel="Add item"></sit-icon-button> `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-close-button should be accessible", async () => {
-    const el = await fixture(html` <sgds-close-button></sgds-close-button> `);
+  it("SIT-close-button should be accessible", async () => {
+    const el = await fixture(html` <sit-close-button></sit-close-button> `);
     await expect(el).to.be.accessible();
   });
 });
+
+
+

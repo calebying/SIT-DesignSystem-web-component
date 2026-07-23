@@ -9,10 +9,11 @@ describe("generateId function", () => {
     expect(typeof generateId()).to.equal("string");
   });
   it("returns an id with the correct structure", () => {
-    expect(generateId()).to.equal("id-3456-sgds--");
+    expect(generateId()).to.equal("id-3456-sit--");
   });
 
   it("when suffix specified , should return with suffix", () => {
-    expect(generateId("test", "test")).to.equal("id-3456-sgds-test-test");
+    expect(generateId("test", "test")).to.equal("id-3456-sit-test-test");
   });
 });
+

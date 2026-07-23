@@ -1,10 +1,10 @@
 import { expect, assert, fixture, html, oneEvent } from "@open-wc/testing";
-import { SgdsSwitch } from "../src/components/Switch/sgds-switch";
+import { SitSwitch } from "../src/components/Switch/sit-switch";
 import "../src/components/Switch";
 
-describe("<sgds-switch>", () => {
+describe("<sit-switch>", () => {
   it("semantically matches the shadowDOM", async () => {
-    const el = await fixture<SgdsSwitch>(html`<sgds-switch></sgds-switch>`);
+    const el = await fixture<SitSwitch>(html`<sit-switch></sit-switch>`);
     assert.shadowDom.equal(
       el,
       `
@@ -28,7 +28,7 @@ describe("<sgds-switch>", () => {
   });
 
   it("toggles checked state on click", async () => {
-    const el = await fixture<SgdsSwitch>(html`<sgds-switch></sgds-switch>`);
+    const el = await fixture<SitSwitch>(html`<sit-switch></sit-switch>`);
     const input = el.shadowRoot?.querySelector("input");
 
     input?.click();
@@ -38,10 +38,10 @@ describe("<sgds-switch>", () => {
     expect(el.checked).to.be.false;
   });
 
-  it("emits sgds-change event on toggle", async () => {
-    const el = await fixture<SgdsSwitch>(html`<sgds-switch></sgds-switch>`);
+  it("emits sit-change event on toggle", async () => {
+    const el = await fixture<SitSwitch>(html`<sit-switch></sit-switch>`);
     const input = el.shadowRoot?.querySelector("input");
-    const listener = oneEvent(el, "sgds-change");
+    const listener = oneEvent(el, "SIT-change");
 
     input?.click();
 
@@ -51,7 +51,7 @@ describe("<sgds-switch>", () => {
   });
 
   it("applies disabled state correctly", async () => {
-    const el = await fixture<SgdsSwitch>(html`<sgds-switch disabled></sgds-switch>`);
+    const el = await fixture<SitSwitch>(html`<sit-switch disabled></sit-switch>`);
     const input = el.shadowRoot?.querySelector("input");
 
     expect(input?.disabled).to.be.true;
@@ -61,10 +61,10 @@ describe("<sgds-switch>", () => {
   });
 
   it("renders with leftLabel slot", async () => {
-    const el = await fixture<SgdsSwitch>(html`
-      <sgds-switch>
+    const el = await fixture<SitSwitch>(html`
+      <sit-switch>
         <span slot="leftLabel">Left Label</span>
-      </sgds-switch>
+      </sit-switch>
     `);
 
     const leftLabelSlot = el.shadowRoot?.querySelector("slot[name='leftLabel']");
@@ -75,10 +75,10 @@ describe("<sgds-switch>", () => {
   });
 
   it("renders with default (rightLabel) slot", async () => {
-    const el = await fixture<SgdsSwitch>(html`
-      <sgds-switch>
+    const el = await fixture<SitSwitch>(html`
+      <sit-switch>
         <span>Right Label</span>
-      </sgds-switch>
+      </sit-switch>
     `);
 
     const defaultSlot = el.shadowRoot?.querySelector("slot:not([name])");
@@ -89,10 +89,10 @@ describe("<sgds-switch>", () => {
   });
 
   it("hides left label when default slot is filled", async () => {
-    const el = await fixture<SgdsSwitch>(html`
-      <sgds-switch>
+    const el = await fixture<SitSwitch>(html`
+      <sit-switch>
         <span>Right Label</span>
-      </sgds-switch>
+      </sit-switch>
     `);
 
     const leftLabel = el.shadowRoot?.querySelector(".left-label");
@@ -100,10 +100,10 @@ describe("<sgds-switch>", () => {
   });
 
   it("hides right label when leftLabel slot is filled", async () => {
-    const el = await fixture<SgdsSwitch>(html`
-      <sgds-switch>
+    const el = await fixture<SitSwitch>(html`
+      <sit-switch>
         <span slot="leftLabel">Left Label</span>
-      </sgds-switch>
+      </sit-switch>
     `);
 
     const rightLabel = el.shadowRoot?.querySelectorAll(".form-check-label")[1];
@@ -111,7 +111,7 @@ describe("<sgds-switch>", () => {
   });
 
   it("toggles with Enter key", async () => {
-    const el = await fixture<SgdsSwitch>(html`<sgds-switch></sgds-switch>`);
+    const el = await fixture<SitSwitch>(html`<sit-switch></sit-switch>`);
     const input = el.shadowRoot?.querySelector("input");
     const event = new KeyboardEvent("keydown", { key: "Enter", bubbles: true });
 
@@ -119,3 +119,6 @@ describe("<sgds-switch>", () => {
     expect(el.checked).to.be.true;
   });
 });
+
+
+

@@ -1,13 +1,13 @@
-import "./sgds-web-component";
-import type { SgdsModal } from "../src/components";
+import "./sit-web-component";
+import type { SitModal } from "../src/components";
 import { expect, fixture, waitUntil, assert } from "@open-wc/testing";
 import { sendKeys } from "@web/test-runner-commands";
 import sinon from "sinon";
 import { html } from "lit";
 
-describe("<sgds-modal>", () => {
+describe("<sit-modal>", () => {
   it("renders with default values", async () => {
-    const el = await fixture<SgdsModal>(html`<sgds-modal></sgds-moadl>`);
+    const el = await fixture<SitModal>(html`<sit-modal></sit-moadl>`);
     assert.shadowDom.equal(
       el,
       `
@@ -25,12 +25,12 @@ describe("<sgds-modal>", () => {
           tabindex="-1"
         >
           <div class="modal-content">
-                <sgds-close-button
+                <sit-close-button
                 class="modal-header__close"
                 aria-label="close modal"
                 size="md" 
                 tone="default"
-              ></sgds-close-button>
+              ></sit-close-button>
             <div class="modal-header">
                 <div class="modal-header__title-description">
                   <slot class="modal-title" id="title" name="title"></slot>
@@ -51,8 +51,8 @@ describe("<sgds-modal>", () => {
     );
   });
   it("should be visible with the open attribute", async () => {
-    const el = await fixture<SgdsModal>(html`
-      <sgds-modal open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sgds-modal>
+    const el = await fixture<SitModal>(html`
+      <sit-modal open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sit-modal>
     `);
     const base = el.shadowRoot?.querySelector<HTMLElement>(".modal");
 
@@ -60,24 +60,24 @@ describe("<sgds-modal>", () => {
   });
 
   it("should not be visible without the open attribute", async () => {
-    const el = await fixture<SgdsModal>(
-      html` <sgds-modal>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sgds-modal> `
+    const el = await fixture<SitModal>(
+      html` <sit-modal>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sit-modal> `
     );
     const base = el.shadowRoot?.querySelector<HTMLElement>(".modal");
 
     expect(base?.hidden).to.be.true;
   });
 
-  it("should emit sgds-show and sgds-after-show when calling show()", async () => {
-    const el = await fixture<SgdsModal>(html`
-      <sgds-modal>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sgds-modal>
+  it("should emit sit-show and sit-after-show when calling show()", async () => {
+    const el = await fixture<SitModal>(html`
+      <sit-modal>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sit-modal>
     `);
     const base = el.shadowRoot?.querySelector<HTMLElement>(".modal");
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("sgds-show", showHandler);
-    el.addEventListener("sgds-after-show", afterShowHandler);
+    el.addEventListener("SIT-show", showHandler);
+    el.addEventListener("SIT-after-show", afterShowHandler);
     el.show();
 
     await waitUntil(() => showHandler.calledOnce);
@@ -88,16 +88,16 @@ describe("<sgds-modal>", () => {
     expect(base?.hidden).to.be.false;
   });
 
-  it("should emit sgds-hide and sgds-after-hide when calling hide()", async () => {
-    const el = await fixture<SgdsModal>(html`
-      <sgds-modal open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sgds-modal>
+  it("should emit sit-hide and sit-after-hide when calling hide()", async () => {
+    const el = await fixture<SitModal>(html`
+      <sit-modal open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sit-modal>
     `);
     const base = el.shadowRoot?.querySelector<HTMLElement>(".modal");
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("sgds-hide", hideHandler);
-    el.addEventListener("sgds-after-hide", afterHideHandler);
+    el.addEventListener("SIT-hide", hideHandler);
+    el.addEventListener("SIT-after-hide", afterHideHandler);
     el.hide();
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -108,16 +108,16 @@ describe("<sgds-modal>", () => {
     expect(base?.hidden).to.be.true;
   });
 
-  it("should emit sgds-show and sgds-after-show when setting open = true", async () => {
-    const el = await fixture<SgdsModal>(html`
-      <sgds-modal>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sgds-modal>
+  it("should emit sit-show and sit-after-show when setting open = true", async () => {
+    const el = await fixture<SitModal>(html`
+      <sit-modal>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sit-modal>
     `);
     const base = el.shadowRoot?.querySelector<HTMLElement>(".modal");
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("sgds-show", showHandler);
-    el.addEventListener("sgds-after-show", afterShowHandler);
+    el.addEventListener("SIT-show", showHandler);
+    el.addEventListener("SIT-after-show", afterShowHandler);
     el.open = true;
 
     await waitUntil(() => showHandler.calledOnce);
@@ -128,16 +128,16 @@ describe("<sgds-modal>", () => {
     expect(base?.hidden).to.be.false;
   });
 
-  it("should emit sgds-hide and sgds-after-hide when setting open = false", async () => {
-    const el = await fixture<SgdsModal>(html`
-      <sgds-modal open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sgds-modal>
+  it("should emit sit-hide and sit-after-hide when setting open = false", async () => {
+    const el = await fixture<SitModal>(html`
+      <sit-modal open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sit-modal>
     `);
     const base = el.shadowRoot?.querySelector<HTMLElement>(".modal");
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("sgds-hide", hideHandler);
-    el.addEventListener("sgds-after-hide", afterHideHandler);
+    el.addEventListener("SIT-hide", hideHandler);
+    el.addEventListener("SIT-after-hide", afterHideHandler);
     el.open = false;
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -148,13 +148,13 @@ describe("<sgds-modal>", () => {
     expect(base?.hidden).to.be.true;
   });
 
-  it("should not close when sgds-close is prevented", async () => {
-    const el = await fixture<SgdsModal>(html`
-      <sgds-modal open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sgds-modal>
+  it("should not close when sit-close is prevented", async () => {
+    const el = await fixture<SitModal>(html`
+      <sit-modal open>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</sit-modal>
     `);
     const overlay = el.shadowRoot?.querySelector<HTMLElement>(".modal-overlay");
 
-    el.addEventListener("sgds-close", event => {
+    el.addEventListener("SIT-close", event => {
       event.preventDefault();
     });
     overlay?.click();
@@ -163,10 +163,10 @@ describe("<sgds-modal>", () => {
   });
 
   it("should close when pressing Escape", async () => {
-    const el = await fixture<SgdsModal>(html` <sgds-modal open></sgds-modal> `);
+    const el = await fixture<SitModal>(html` <sit-modal open></sit-modal> `);
     const hideHandler = sinon.spy();
 
-    el.addEventListener("sgds-hide", hideHandler);
+    el.addEventListener("SIT-hide", hideHandler);
 
     await sendKeys({ press: "Escape" });
     await waitUntil(() => hideHandler.calledOnce);
@@ -175,41 +175,44 @@ describe("<sgds-modal>", () => {
   });
 
   it("should render close button by default", async () => {
-    const el = await fixture<SgdsModal>(html`<sgds-modal></sgds-modal>`);
-    const closeBtn = el.shadowRoot?.querySelector("sgds-close-button");
+    const el = await fixture<SitModal>(html`<sit-modal></sit-modal>`);
+    const closeBtn = el.shadowRoot?.querySelector("SIT-close-button");
     expect(closeBtn).to.not.be.null;
   });
 
   it("should not render close button when noCloseButton is set", async () => {
-    const el = await fixture<SgdsModal>(html`<sgds-modal noCloseButton></sgds-modal>`);
-    const closeBtn = el.shadowRoot?.querySelector("sgds-close-button");
+    const el = await fixture<SitModal>(html`<sit-modal noCloseButton></sit-modal>`);
+    const closeBtn = el.shadowRoot?.querySelector("SIT-close-button");
     expect(closeBtn).to.be.null;
   });
 
   it("should toggle close button when noCloseButton changes dynamically", async () => {
-    const el = await fixture<SgdsModal>(html`<sgds-modal></sgds-modal>`);
-    expect(el.shadowRoot?.querySelector("sgds-close-button")).to.not.be.null;
+    const el = await fixture<SitModal>(html`<sit-modal></sit-modal>`);
+    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.not.be.null;
 
     el.noCloseButton = true;
     await el.updateComplete;
-    expect(el.shadowRoot?.querySelector("sgds-close-button")).to.be.null;
+    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.be.null;
 
     el.noCloseButton = false;
     await el.updateComplete;
-    expect(el.shadowRoot?.querySelector("sgds-close-button")).to.not.be.null;
+    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.not.be.null;
   });
 
   it("should lock or unlock scrolling on body when modal opens or closes respectively", async () => {
     document.body.style.overflow = "auto";
-    const el = await fixture<SgdsModal>(html` <sgds-modal open></sgds-modal> `);
+    const el = await fixture<SitModal>(html` <sit-modal open></sit-modal> `);
     el.open = true;
     expect(document.body.style.overflow).to.equal("hidden");
 
     const afterHideHandler = sinon.spy();
-    el.addEventListener("sgds-after-hide", afterHideHandler);
+    el.addEventListener("SIT-after-hide", afterHideHandler);
     el.open = false;
 
     await waitUntil(() => afterHideHandler.calledOnce);
     expect(document.body.style.overflow).to.not.equal("hidden");
   });
 });
+
+
+

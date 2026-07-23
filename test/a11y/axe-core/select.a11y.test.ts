@@ -1,60 +1,63 @@
-import "../../sgds-web-component";
+import "../../sit-web-component";
 import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Select a11y", () => {
-  it("sgds-select with slot children should be accessible", async () => {
+  it("SIT-select with slot children should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-select label="Choose a country">
-        <sgds-select-option value="sg">Singapore</sgds-select-option>
-        <sgds-select-option value="my">Malaysia</sgds-select-option>
-        <sgds-select-option value="id">Indonesia</sgds-select-option>
-      </sgds-select>
+      <sit-select label="Choose a country">
+        <sit-select-option value="sg">Singapore</sit-select-option>
+        <sit-select-option value="my">Malaysia</sit-select-option>
+        <sit-select-option value="id">Indonesia</sit-select-option>
+      </sit-select>
     `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-select required should be accessible", async () => {
+  it("SIT-select required should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-select label="Choose a country" required>
-        <sgds-select-option value="sg">Singapore</sgds-select-option>
-        <sgds-select-option value="my">Malaysia</sgds-select-option>
-        <sgds-select-option value="id">Indonesia</sgds-select-option>
-      </sgds-select>
+      <sit-select label="Choose a country" required>
+        <sit-select-option value="sg">Singapore</sit-select-option>
+        <sit-select-option value="my">Malaysia</sit-select-option>
+        <sit-select-option value="id">Indonesia</sit-select-option>
+      </sit-select>
     `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-select readonly should be accessible", async () => {
+  it("SIT-select readonly should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-select label="Choose a country" readonly value="sg">
-        <sgds-select-option value="sg">Singapore</sgds-select-option>
-        <sgds-select-option value="my">Malaysia</sgds-select-option>
-        <sgds-select-option value="id">Indonesia</sgds-select-option>
-      </sgds-select>
+      <sit-select label="Choose a country" readonly value="sg">
+        <sit-select-option value="sg">Singapore</sit-select-option>
+        <sit-select-option value="my">Malaysia</sit-select-option>
+        <sit-select-option value="id">Indonesia</sit-select-option>
+      </sit-select>
     `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-select with hintText should be accessible", async () => {
+  it("SIT-select with hintText should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-select label="Choose a country" hintText="Select your country of residence">
-        <sgds-select-option value="sg">Singapore</sgds-select-option>
-        <sgds-select-option value="my">Malaysia</sgds-select-option>
-        <sgds-select-option value="id">Indonesia</sgds-select-option>
-      </sgds-select>
+      <sit-select label="Choose a country" hintText="Select your country of residence">
+        <sit-select-option value="sg">Singapore</sit-select-option>
+        <sit-select-option value="my">Malaysia</sit-select-option>
+        <sit-select-option value="id">Indonesia</sit-select-option>
+      </sit-select>
     `);
     await expect(el).to.be.accessible();
   });
 
-  it("sgds-select invalid with feedback should be accessible", async () => {
+  it("SIT-select invalid with feedback should be accessible", async () => {
     const el = await fixture(html`
-      <sgds-select label="Choose a country" invalid hasFeedback invalidFeedback="Please select a country">
-        <sgds-select-option value="sg">Singapore</sgds-select-option>
-        <sgds-select-option value="my">Malaysia</sgds-select-option>
-        <sgds-select-option value="id">Indonesia</sgds-select-option>
-      </sgds-select>
+      <sit-select label="Choose a country" invalid hasFeedback invalidFeedback="Please select a country">
+        <sit-select-option value="sg">Singapore</sit-select-option>
+        <sit-select-option value="my">Malaysia</sit-select-option>
+        <sit-select-option value="id">Indonesia</sit-select-option>
+      </sit-select>
     `);
     await expect(el).to.be.accessible();
   });
 });
+
+
+

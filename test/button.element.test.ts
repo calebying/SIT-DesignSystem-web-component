@@ -1,13 +1,13 @@
-import "./sgds-web-component";
+import "./sit-web-component";
 import { fixture, assert, expect, waitUntil } from "@open-wc/testing";
 import { html } from "lit";
 import sinon from "sinon";
-import type { SgdsButton } from "../src/components";
+import type { SitButton } from "../src/components";
 import { sendKeys } from "@web/test-runner-commands";
 
-describe("sgds-button", () => {
+describe("SIT-button", () => {
   it("renders with default values", async () => {
-    const el = await fixture(html`<sgds-button></sgds-button>`);
+    const el = await fixture(html`<sit-button></sit-button>`);
     assert.shadowDom.equal(
       el,
       `<button class="btn no-icon" type="button" aria-disabled="false" tabindex="0">
@@ -22,7 +22,7 @@ describe("sgds-button", () => {
   });
 
   it("should convert from button tag to anchor tag if href is defined", async () => {
-    const el = await fixture(html`<sgds-button href="#"></sgds-button>`);
+    const el = await fixture(html`<sit-button href="#"></sit-button>`);
     const anchorTag = el.shadowRoot?.querySelector("a");
     expect(anchorTag).to.have.attribute("href", "#");
     expect(anchorTag).to.have.attribute("role", "button");
@@ -31,21 +31,21 @@ describe("sgds-button", () => {
   });
 
   it("should convert to anchor tag if download and href attributes are defined, button tag", async () => {
-    const el = await fixture(html`<sgds-button download="logo.svg" href="folder/subfolder/logo.svg"></sgds-button>`);
+    const el = await fixture(html`<sit-button download="logo.svg" href="folder/subfolder/logo.svg"></sit-button>`);
     const anchorTag = el.shadowRoot?.querySelector("a");
     expect(anchorTag).to.have.attribute("download", "logo.svg");
     expect(el.shadowRoot?.querySelector("button")).not.to.exist;
   });
 
   it('anchor tag should contain rel="noreferrer noopener" attribute if href and target="_blank" attributes are defined', async () => {
-    const el = await fixture(html`<sgds-button href="#" target="_blank"></sgds-button>`);
+    const el = await fixture(html`<sit-button href="#" target="_blank"></sit-button>`);
     const anchorTag = el.shadowRoot?.querySelector("a");
     expect(anchorTag).to.have.attribute("rel", "noreferrer noopener");
     expect(el.shadowRoot?.querySelector("button")).not.to.exist;
   });
 
   it("should contain disabled if is an anchor tag and disabled attributes are defined", async () => {
-    const el = await fixture(html`<sgds-button href="#" disabled></sgds-button>`);
+    const el = await fixture(html`<sit-button href="#" disabled></sit-button>`);
     const anchorTag = el.shadowRoot?.querySelector("a");
     expect(anchorTag).to.have.class("disabled");
     expect(anchorTag).to.have.attribute("aria-disabled", "true");
@@ -55,7 +55,7 @@ describe("sgds-button", () => {
   });
 
   it("should emit a click event when calling click()", async () => {
-    const el = await fixture<SgdsButton>(html` <sgds-button></sgds-button> `);
+    const el = await fixture<SitButton>(html` <sit-button></sit-button> `);
     const clickHandler = sinon.spy();
 
     el.addEventListener("click", clickHandler);
@@ -70,10 +70,10 @@ describe("when submitting a form", () => {
   it("should submit when the button is inside the form", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form action="" method="post">
-        <sgds-button type="submit"></sgds-button>
+        <sit-button type="submit"></sit-button>
       </form>
     `);
-    const button = form.querySelector<SgdsButton>("sgds-button");
+    const button = form.querySelector<SitButton>("SIT-button");
     const handleSubmit = sinon.spy((event: SubmitEvent) => event.preventDefault());
 
     form.addEventListener("submit", handleSubmit);
@@ -85,11 +85,11 @@ describe("when submitting a form", () => {
     const el = await fixture(html`
       <div>
         <form id="a" action="" method="post"></form>
-        <sgds-button type="submit" form="a">Submit</sgds-button>
+        <sit-button type="submit" form="a">Submit</sit-button>
       </div>
     `);
     const form = el.querySelector<HTMLFormElement>("form");
-    const button = el.querySelector<SgdsButton>("sgds-button");
+    const button = el.querySelector<SitButton>("SIT-button");
     const handleSubmit = sinon.spy((event: SubmitEvent) => event.preventDefault());
 
     form?.addEventListener("submit", handleSubmit);
@@ -101,12 +101,12 @@ describe("when submitting a form", () => {
   it("should override form attributes when formaction, formmethod, formnovalidate, and formtarget are used inside a form", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form id="a" action="foo" method="post" target="_self">
-        <sgds-button type="submit" form="a" formaction="bar" formmethod="get" formtarget="_blank" formnovalidate>
+        <sit-button type="submit" form="a" formaction="bar" formmethod="get" formtarget="_blank" formnovalidate>
           Submit
-        </sgds-button>
+        </sit-button>
       </form>
     `);
-    const button = form.querySelector<SgdsButton>("sgds-button");
+    const button = form.querySelector<SitButton>("SIT-button");
     let submitter: HTMLButtonElement;
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       submitter = event.submitter as HTMLButtonElement;
@@ -127,13 +127,13 @@ describe("when submitting a form", () => {
     const el = await fixture(html`
       <div>
         <form id="a" action="foo" method="post" target="_self"></form>
-        <sgds-button type="submit" form="a" formaction="bar" formmethod="get" formtarget="_blank" formnovalidate>
+        <sit-button type="submit" form="a" formaction="bar" formmethod="get" formtarget="_blank" formnovalidate>
           Submit
-        </sgds-button>
+        </sit-button>
       </div>
     `);
     const form = el.querySelector<HTMLFormElement>("form");
-    const button = el.querySelector<SgdsButton>("sgds-button");
+    const button = el.querySelector<SitButton>("SIT-button");
 
     let submitter: HTMLButtonElement;
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
@@ -154,10 +154,10 @@ describe("when submitting a form", () => {
   it("should include the button's name/value in FormData when it is the submitter", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form action="" method="post">
-        <sgds-button type="submit" name="action" value="save">Save</sgds-button>
+        <sit-button type="submit" name="action" value="save">Save</sit-button>
       </form>
     `);
-    const button = form.querySelector<SgdsButton>("sgds-button");
+    const button = form.querySelector<SitButton>("SIT-button");
     let formData: FormData;
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
@@ -179,10 +179,10 @@ describe("when submitting a form", () => {
   it("should not include name/value in FormData when the button has no name", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form action="" method="post">
-        <sgds-button type="submit" value="save">Save</sgds-button>
+        <sit-button type="submit" value="save">Save</sit-button>
       </form>
     `);
-    const button = form.querySelector<SgdsButton>("sgds-button");
+    const button = form.querySelector<SitButton>("SIT-button");
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const submitter = event.submitter as HTMLButtonElement;
@@ -198,11 +198,11 @@ describe("when submitting a form", () => {
   it("should only include the clicked button's value when multiple submit buttons exist", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form action="" method="post">
-        <sgds-button type="submit" name="action" value="save">Save</sgds-button>
-        <sgds-button type="submit" name="action" value="delete">Delete</sgds-button>
+        <sit-button type="submit" name="action" value="save">Save</sit-button>
+        <sit-button type="submit" name="action" value="delete">Delete</sit-button>
       </form>
     `);
-    const deleteButton = form.querySelectorAll<SgdsButton>("sgds-button")[1];
+    const deleteButton = form.querySelectorAll<SitButton>("SIT-button")[1];
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const submitter = event.submitter as HTMLButtonElement;
@@ -219,11 +219,11 @@ describe("when submitting a form", () => {
   it("should not include name/value for type='reset' buttons", async () => {
     const form = await fixture<HTMLFormElement>(html`
       <form action="" method="post">
-        <sgds-button type="submit" name="action" value="submit">Submit</sgds-button>
-        <sgds-button type="reset" name="action" value="reset">Reset</sgds-button>
+        <sit-button type="submit" name="action" value="submit">Submit</sit-button>
+        <sit-button type="reset" name="action" value="reset">Reset</sit-button>
       </form>
     `);
-    const resetButton = form.querySelectorAll<SgdsButton>("sgds-button")[1];
+    const resetButton = form.querySelectorAll<SitButton>("SIT-button")[1];
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
     });
@@ -237,13 +237,13 @@ describe("when submitting a form", () => {
 });
 
 describe("when using methods", () => {
-  it("should emit sgds-focus and sgds-blur when the button is focused and blurred", async () => {
-    const el = await fixture<SgdsButton>(html` <sgds-button>Button</sgds-button> `);
+  it("should emit sit-focus and sit-blur when the button is focused and blurred", async () => {
+    const el = await fixture<SitButton>(html` <sit-button>Button</sit-button> `);
     const focusHandler = sinon.spy();
     const blurHandler = sinon.spy();
 
-    el.addEventListener("sgds-focus", focusHandler);
-    el.addEventListener("sgds-blur", blurHandler);
+    el.addEventListener("SIT-focus", focusHandler);
+    el.addEventListener("SIT-blur", blurHandler);
 
     el.focus();
     await waitUntil(() => focusHandler.calledOnce);
@@ -256,7 +256,7 @@ describe("when using methods", () => {
   });
 
   it("should emit a click event when calling click()", async () => {
-    const el = await fixture<SgdsButton>(html` <sgds-button></sgds-button> `);
+    const el = await fixture<SitButton>(html` <sit-button></sit-button> `);
     const clickHandler = sinon.spy();
 
     el.addEventListener("click", clickHandler);
@@ -267,22 +267,22 @@ describe("when using methods", () => {
   });
 
   it("loading is true, spinner replaces the icon", async () => {
-    const el = await fixture(html`<sgds-button loading>hello</sgds-button>`);
+    const el = await fixture(html`<sit-button loading>hello</sit-button>`);
     const button = el.shadowRoot?.querySelector("button");
-    const spinner = el.shadowRoot?.querySelector("sgds-spinner");
+    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner).to.exist;
     expect(button?.textContent).not.to.equal("hello");
   });
   it("loading is true, aria-label set to Loading, aria-disabled is true, .disabled.loading styles are set", async () => {
-    const el = await fixture(html`<sgds-button loading>hello</sgds-button>`);
+    const el = await fixture(html`<sit-button loading>hello</sit-button>`);
     const button = el.shadowRoot?.querySelector("button");
     expect(button).to.have.attribute("aria-label", "Loading");
     expect(button).to.have.attribute("aria-disabled", "true");
     expect(button).to.have.class("loading");
   });
   it("loading is true, onclick handler are disabled", async () => {
-    const el = await fixture<SgdsButton>(
-      html`<sgds-button ?loading=${true} onclick=${() => console.log("click")}>hello</sgds-button>`
+    const el = await fixture<SitButton>(
+      html`<sit-button ?loading=${true} onclick=${() => console.log("click")}>hello</sit-button>`
     );
     const button = el.shadowRoot?.querySelector<HTMLButtonElement>("button");
 
@@ -297,9 +297,9 @@ describe("when using methods", () => {
     expect(clicked).to.be.true;
   });
   it("loading is true, keydown enter handler are disabled", async () => {
-    const el = await fixture<SgdsButton>(
-      html`<sgds-button loading onkeydown=${(e: KeyboardEvent) => (e.key === "Enter" ? console.log("enter") : null)}
-        >hello</sgds-button
+    const el = await fixture<SitButton>(
+      html`<sit-button loading onkeydown=${(e: KeyboardEvent) => (e.key === "Enter" ? console.log("enter") : null)}
+        >hello</sit-button
       >`
     );
     const button = el.shadowRoot?.querySelector<HTMLButtonElement>("button");
@@ -321,49 +321,52 @@ describe("when using methods", () => {
     expect(enter).to.be.true;
   });
   it("should assign spinner tone=fixed-dark when button tone=fixed-light and button variant=primary", async () => {
-    const el = await fixture<SgdsButton>(
-      html`<sgds-button variant="primary" tone="fixed-light" ?loading=${true}>hello</sgds-button>`
+    const el = await fixture<SitButton>(
+      html`<sit-button variant="primary" tone="fixed-light" ?loading=${true}>hello</sit-button>`
     );
-    const spinner = el.shadowRoot?.querySelector("sgds-spinner");
+    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner?.tone).to.equal("fixed-dark");
   });
   it("should assign spinner tone=inverse when button tone=neutral and button variant=primary", async () => {
-    const el = await fixture<SgdsButton>(
-      html`<sgds-button variant="primary" tone="neutral" ?loading=${true}>hello</sgds-button>`
+    const el = await fixture<SitButton>(
+      html`<sit-button variant="primary" tone="neutral" ?loading=${true}>hello</sit-button>`
     );
-    const spinner = el.shadowRoot?.querySelector("sgds-spinner");
+    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner?.tone).to.equal("inverse");
   });
   it("should assign spinner tone=fixed-light when button tone=fixed-light or button variant=primary", async () => {
-    const el1 = await fixture<SgdsButton>(
-      html`<sgds-button variant="ghost" tone="fixed-light" ?loading=${true}>hello</sgds-button>`
+    const el1 = await fixture<SitButton>(
+      html`<sit-button variant="ghost" tone="fixed-light" ?loading=${true}>hello</sit-button>`
     );
-    const spinner1 = el1.shadowRoot?.querySelector("sgds-spinner");
+    const spinner1 = el1.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner1?.tone).to.equal("fixed-light");
 
-    const el2 = await fixture<SgdsButton>(
-      html`<sgds-button variant="primary" tone="brand" ?loading=${true}>hello</sgds-button>`
+    const el2 = await fixture<SitButton>(
+      html`<sit-button variant="primary" tone="brand" ?loading=${true}>hello</sit-button>`
     );
-    const spinner2 = el2.shadowRoot?.querySelector("sgds-spinner");
+    const spinner2 = el2.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner2?.tone).to.equal("fixed-light");
   });
   it("should assign spinner tone=neutral when button tone=neutral and button variant=outline or ghost", async () => {
-    const el = await fixture<SgdsButton>(
-      html`<sgds-button variant="ghost" tone="neutral" ?loading=${true}>hello</sgds-button>`
+    const el = await fixture<SitButton>(
+      html`<sit-button variant="ghost" tone="neutral" ?loading=${true}>hello</sit-button>`
     );
-    const spinner = el.shadowRoot?.querySelector("sgds-spinner");
+    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner?.tone).to.equal("neutral");
   });
   it("should assign spinner tone=brand when variant=outline tone is default", async () => {
-    const el = await fixture<SgdsButton>(
-      html`<sgds-button variant="outline" tone="brand" ?loading=${true}>hello</sgds-button>`
+    const el = await fixture<SitButton>(
+      html`<sit-button variant="outline" tone="brand" ?loading=${true}>hello</sit-button>`
     );
-    const spinner = el.shadowRoot?.querySelector("sgds-spinner");
+    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner?.tone).to.equal("brand");
   });
   it("should assign spinner tone=fixed-light by default", async () => {
-    const el = await fixture<SgdsButton>(html`<sgds-button ?loading=${true}>hello</sgds-button>`);
-    const spinner = el.shadowRoot?.querySelector("sgds-spinner");
+    const el = await fixture<SitButton>(html`<sit-button ?loading=${true}>hello</sit-button>`);
+    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
     expect(spinner?.tone).to.equal("fixed-light");
   });
 });
+
+
+

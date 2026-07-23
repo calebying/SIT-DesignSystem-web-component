@@ -2,22 +2,24 @@ import { assert, fixture } from "@open-wc/testing";
 import { html } from "lit";
 import "../src/index";
 
-describe("<sgds-overflow-menu>", () => {
+describe("<sit-overflow-menu>", () => {
   it("semantically matches the DOM", async () => {
-    const el = await fixture(html`<sgds-overflow-menu></sgds-overflow-menu>`);
+    const el = await fixture(html`<sit-overflow-menu></sit-overflow-menu>`);
     assert.shadowDom.equal(
       el,
       `
-      <sgds-dropdown
+      <sit-dropdown
         close="default"
         drop="down"
       >
         <button aria-expanded="false" aria-haspopup="menu" aria-label="More options" slot="toggler" class="overflow-btn">
-            <sgds-icon name="three-dots" size="md"></sgds-icon>
+            <sit-icon name="three-dots" size="md"></sit-icon>
         </button>
         <slot></slot>
-      </sgds-dropdown>
+      </sit-dropdown>
       `
     );
   });
 });
+
+

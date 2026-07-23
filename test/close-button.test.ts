@@ -1,26 +1,26 @@
 import { html } from "lit";
 import { expect, fixture, waitUntil, assert } from "@open-wc/testing";
-import { SgdsCloseButton } from "../src/components/CloseButton/sgds-close-button";
+import { SitCloseButton } from "../src/components/CloseButton/sit-close-button";
 import "../src/components/Icon";
 import "../src/components/CloseButton";
 import * as sinon from "sinon";
 
-describe("<sgds-close-button>", () => {
+describe("<sit-close-button>", () => {
   it("semantically matches the DOM", async () => {
-    const el = await fixture(html`<sgds-close-button></sgds-close-button>`);
+    const el = await fixture(html`<sit-close-button></sit-close-button>`);
     assert.shadowDom.equal(
       el,
       `
       <button class="btn-close" aria-label="Close button">
-        <sgds-icon name="cross" size="sm"></sgds-icon>
+        <sit-icon name="cross" size="sm"></sit-icon>
       </button>
       `
     );
   });
   it('should apply dark tone styles when variant="fixed-dark"', async () => {
-    document.documentElement.style.setProperty("--sgds-color-fixed-dark", "rgb(26, 26, 26)");
+    document.documentElement.style.setProperty("--sit-color-fixed-dark", "rgb(26, 26, 26)");
 
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button tone="fixed-dark"></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button tone="fixed-dark"></sit-close-button>`);
 
     // Check attribute reflection
     expect(el.getAttribute("tone")).to.equal("fixed-dark");
@@ -33,9 +33,9 @@ describe("<sgds-close-button>", () => {
     expect(el.tone).to.equal("fixed-dark");
   });
   it('should apply light tone styles when variant="light"', async () => {
-    document.documentElement.style.setProperty("--sgds-color-fixed-light", "rgb(243, 243, 243)");
+    document.documentElement.style.setProperty("--sit-color-fixed-light", "rgb(243, 243, 243)");
 
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button tone="fixed-light"></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button tone="fixed-light"></sit-close-button>`);
 
     // Check attribute reflection
     expect(el.getAttribute("tone")).to.equal("fixed-light");
@@ -48,7 +48,7 @@ describe("<sgds-close-button>", () => {
     expect(el.tone).to.equal("fixed-light");
   });
   it('should apply sm size styles when size="sm"', async () => {
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button size="sm"></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button size="sm"></sit-close-button>`);
 
     // Check attribute reflection
     expect(el.getAttribute("size")).to.equal("sm");
@@ -58,7 +58,7 @@ describe("<sgds-close-button>", () => {
     expect(button).to.exist;
 
     // Wait for the icon inside to load asynchronously
-    const icon = button.querySelector("sgds-icon");
+    const icon = button.querySelector("SIT-icon");
     await waitUntil(() => icon?.shadowRoot?.querySelector("svg"), "Icon SVG should render");
 
     expect(getComputedStyle(button).width).to.equal("24px");
@@ -66,8 +66,8 @@ describe("<sgds-close-button>", () => {
     expect(el.size).to.equal("sm");
   });
   it('should apply md size styles when size="md"', async () => {
-    document.documentElement.style.setProperty("--sgds-dimension-32", "32px");
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button size="md"></sgds-close-button>`);
+    document.documentElement.style.setProperty("--sit-dimension-32", "32px");
+    const el = await fixture<SitCloseButton>(html`<sit-close-button size="md"></sit-close-button>`);
 
     // Check attribute reflection
     expect(el.getAttribute("size")).to.equal("md");
@@ -77,7 +77,7 @@ describe("<sgds-close-button>", () => {
     expect(button).to.exist;
 
     // Wait for the icon inside to load asynchronously
-    const icon = button.querySelector("sgds-icon");
+    const icon = button.querySelector("SIT-icon");
     await waitUntil(() => icon?.shadowRoot?.querySelector("svg"), "Icon SVG should render");
 
     expect(getComputedStyle(button).width).to.equal("32px");
@@ -85,7 +85,7 @@ describe("<sgds-close-button>", () => {
     expect(el.size).to.equal("md");
   });
   it("emits click when clicked on", async () => {
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button></sit-close-button>`);
     const clickHandler = sinon.spy();
     el.addEventListener("click", clickHandler);
     el.click();
@@ -94,13 +94,13 @@ describe("<sgds-close-button>", () => {
     expect(clickHandler).to.have.been.calledOnce;
   });
   it("should have disabled attribute when disabled prop is true", async () => {
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button disabled></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button disabled></sit-close-button>`);
 
     expect(el.hasAttribute("disabled")).to.be.true;
     expect(el.disabled).to.be.true;
   });
   it("should not emit click when disabled", async () => {
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button disabled></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button disabled></sit-close-button>`);
     const clickHandler = sinon.spy();
     el.addEventListener("click", clickHandler);
 
@@ -110,7 +110,7 @@ describe("<sgds-close-button>", () => {
     expect(clickHandler).to.not.have.been.called;
   });
   it("should prevent click event when disabled", async () => {
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button disabled></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button disabled></sit-close-button>`);
     const button = el.shadowRoot?.querySelector(".btn-close") as HTMLButtonElement;
     const preventDefaultSpy = sinon.spy();
 
@@ -123,14 +123,14 @@ describe("<sgds-close-button>", () => {
     expect(button?.disabled).to.be.true;
   });
   it("should apply disabled styling", async () => {
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button disabled></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button disabled></sit-close-button>`);
 
     expect(el.getAttribute("disabled")).to.equal("");
     const button = el.shadowRoot?.querySelector(".btn-close") as HTMLButtonElement;
     expect(button.disabled).to.be.true;
   });
   it("should allow clicks when not disabled", async () => {
-    const el = await fixture<SgdsCloseButton>(html`<sgds-close-button></sgds-close-button>`);
+    const el = await fixture<SitCloseButton>(html`<sit-close-button></sit-close-button>`);
     const clickHandler = sinon.spy();
     el.addEventListener("click", clickHandler);
 
@@ -140,3 +140,6 @@ describe("<sgds-close-button>", () => {
     expect(clickHandler).to.have.been.called;
   });
 });
+
+
+
