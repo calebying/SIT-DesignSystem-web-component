@@ -46,7 +46,7 @@ export const ValidationDragDropInvalid = {
 
 const UploadingStateDefaultTemplate = args => {
   return html`
-    <sgds-file-upload id="uploadingStateDefault" label="Upload File"> Choose file </sgds-file-upload>
+    <sit-file-upload id="uploadingStateDefault" label="Upload File"> Choose file </sit-file-upload>
     <script>
       setTimeout(async () => {
         const fileUpload = document.getElementById("uploadingStateDefault");
@@ -78,9 +78,9 @@ export const UploadingStateDefault = {
 
 const UploadingStateDragDropTemplate = args => {
   return html`
-    <sgds-file-upload id="uploadingStateDragDrop" variant="drag-and-drop" label="Upload File">
+    <sit-file-upload id="uploadingStateDragDrop" variant="drag-and-drop" label="Upload File">
       Choose files
-    </sgds-file-upload>
+    </sit-file-upload>
     <script>
       setTimeout(async () => {
         const fileUpload = document.getElementById("uploadingStateDragDrop");
@@ -114,7 +114,7 @@ export const UploadingStateDragDrop = {
 
 const ErrorStateDefaultTemplate = args => {
   return html`
-    <sgds-file-upload id="errorStateDefault" label="Upload File"> Choose file </sgds-file-upload>
+    <sit-file-upload id="errorStateDefault" label="Upload File"> Choose file </sit-file-upload>
     <script>
       setTimeout(async () => {
         const fileUpload = document.getElementById("errorStateDefault");
@@ -151,9 +151,9 @@ export const ErrorStateDefault = {
 
 const ErrorStateDragDropTemplate = args => {
   return html`
-    <sgds-file-upload id="errorStateDragDrop" variant="drag-and-drop" label="Upload File">
+    <sit-file-upload id="errorStateDragDrop" variant="drag-and-drop" label="Upload File">
       Choose files
-    </sgds-file-upload>
+    </sit-file-upload>
     <script>
       setTimeout(async () => {
         const fileUpload = document.getElementById("errorStateDragDrop");
@@ -192,7 +192,7 @@ export const ErrorStateDragDrop = {
 
 const SuccessStateDefaultTemplate = args => {
   return html`
-    <sgds-file-upload id="successStateDefault" label="Upload File"> Choose file </sgds-file-upload>
+    <sit-file-upload id="successStateDefault" label="Upload File"> Choose file </sit-file-upload>
     <script>
       setTimeout(async () => {
         const fileUpload = document.getElementById("successStateDefault");
@@ -228,9 +228,9 @@ export const SuccessStateDefault = {
 
 const SuccessStateDragDropTemplate = args => {
   return html`
-    <sgds-file-upload id="successStateDragDrop" variant="drag-and-drop" label="Upload File">
+    <sit-file-upload id="successStateDragDrop" variant="drag-and-drop" label="Upload File">
       Choose files
-    </sgds-file-upload>
+    </sit-file-upload>
     <script>
       setTimeout(async () => {
         const fileUpload = document.getElementById("successStateDragDrop");
@@ -266,30 +266,30 @@ export const SuccessStateDragDrop = {
 
 // ========== UPLOAD TO SERVER ==========
 
-// ========== EVENT: sgds-add-files ==========
+// ========== EVENT: Sit-add-files ==========
 
-const SgdsAddFilesTemplate = args => {
+const SitAddFilesTemplate = args => {
   return html`
-    <sgds-file-upload
-      id="sgdsAddFilesDemo"
+    <sit-file-upload
+      id="SitAddFilesDemo"
       variant="drag-and-drop"
       ?multiple=${args.multiple}
-      label="Listen to sgds-add-files"
-      hintText="Select files - sgds-add-files will fire only on file additions, not deletions."
+      label="Listen to Sit-add-files"
+      hintText="Select files - Sit-add-files will fire only on file additions, not deletions."
     >
       Choose files
-    </sgds-file-upload>
+    </sit-file-upload>
     <div
       id="addFilesLog"
       style="margin-top: 16px; padding: 12px; background-color: #f5f5f5; border-radius: 4px; max-height: 200px; overflow-y: auto;"
     >
-      <div style="font-weight: bold; margin-bottom: 8px;">sgds-add-files events:</div>
+      <div style="font-weight: bold; margin-bottom: 8px;">Sit-add-files events:</div>
     </div>
     <script>
-      const fileUpload = document.getElementById("sgdsAddFilesDemo");
+      const fileUpload = document.getElementById("SitAddFilesDemo");
       const logElement = document.getElementById("addFilesLog");
 
-      fileUpload.addEventListener("sgds-add-files", async e => {
+      fileUpload.addEventListener("Sit-add-files", async e => {
         const files = e.detail;
         const timestamp = new Date().toLocaleTimeString();
         const fileNames = Array.from(files)
@@ -305,40 +305,40 @@ const SgdsAddFilesTemplate = args => {
   `;
 };
 
-export const SgdsAddFiles = {
-  render: SgdsAddFilesTemplate.bind({}),
-  name: "Event: sgds-add-files",
+export const SitAddFiles = {
+  render: SitAddFilesTemplate.bind({}),
+  name: "Event: Sit-add-files",
   args: { multiple: true },
   parameters: { layout: "padded" },
   tags: []
 };
 
-// ========== EVENT: sgds-remove-file ==========
+// ========== EVENT: Sit-remove-file ==========
 
-const SgdsRemoveFileTemplate = args => {
+const SitRemoveFileTemplate = args => {
   return html`
-    <sgds-file-upload
-      id="sgdsRemoveFileDemo"
+    <sit-file-upload
+      id="SitRemoveFileDemo"
       variant="drag-and-drop"
       ?multiple=${args.multiple}
-      label="Listen to sgds-remove-file"
-      hintText="Select files and delete them - sgds-remove-file will show which file was deleted."
+      label="Listen to Sit-remove-file"
+      hintText="Select files and delete them - Sit-remove-file will show which file was deleted."
     >
       Choose files
-    </sgds-file-upload>
+    </sit-file-upload>
     <div
       id="removeFileLog"
       style="margin-top: 16px; padding: 12px; background-color: #f5f5f5; border-radius: 4px; max-height: 200px; overflow-y: auto;"
     >
-      <div style="font-weight: bold; margin-bottom: 8px;">sgds-remove-file events:</div>
+      <div style="font-weight: bold; margin-bottom: 8px;">Sit-remove-file events:</div>
     </div>
     <script>
       setTimeout(() => {
-        const fileUpload = document.getElementById("sgdsRemoveFileDemo");
+        const fileUpload = document.getElementById("SitRemoveFileDemo");
         const logElement = document.getElementById("removeFileLog");
 
         if (fileUpload && logElement) {
-          fileUpload.addEventListener("sgds-remove-file", async e => {
+          fileUpload.addEventListener("Sit-remove-file", async e => {
             const timestamp = new Date().toLocaleTimeString();
             const deletedFileName = e.detail.file.name;
             const remainingCount = e.detail.files.length;
@@ -354,40 +354,40 @@ const SgdsRemoveFileTemplate = args => {
   `;
 };
 
-export const SgdsRemoveFile = {
-  render: SgdsRemoveFileTemplate.bind({}),
-  name: "Event: sgds-remove-file",
+export const SitRemoveFile = {
+  render: SitRemoveFileTemplate.bind({}),
+  name: "Event: Sit-remove-file",
   args: { multiple: true },
   parameters: { layout: "padded" },
   tags: []
 };
 
-// ========== EVENT: sgds-change ==========
+// ========== EVENT: Sit-change ==========
 
-const SgdsChangeTemplate = args => {
+const SitChangeTemplate = args => {
   return html`
-    <sgds-file-upload
-      id="sgdsChangeDemo"
+    <sit-file-upload
+      id="SitChangeDemo"
       variant="drag-and-drop"
       ?multiple=${args.multiple}
-      label="Listen to sgds-change"
-      hintText="Select or delete files - sgds-change will fire on any file set change."
+      label="Listen to Sit-change"
+      hintText="Select or delete files - Sit-change will fire on any file set change."
     >
       Choose files
-    </sgds-file-upload>
+    </sit-file-upload>
     <div
       id="changeLog"
       style="margin-top: 16px; padding: 12px; background-color: #f5f5f5; border-radius: 4px; max-height: 200px; overflow-y: auto;"
     >
-      <div style="font-weight: bold; margin-bottom: 8px;">sgds-change events:</div>
+      <div style="font-weight: bold; margin-bottom: 8px;">Sit-change events:</div>
     </div>
     <script>
       setTimeout(() => {
-        const fileUpload = document.getElementById("sgdsChangeDemo");
+        const fileUpload = document.getElementById("SitChangeDemo");
         const logElement = document.getElementById("changeLog");
 
         if (fileUpload && logElement) {
-          fileUpload.addEventListener("sgds-change", async e => {
+          fileUpload.addEventListener("Sit-change", async e => {
             const timestamp = new Date().toLocaleTimeString();
             const currentCount = e.detail.length;
             const fileNames = Array.from(e.detail)
@@ -405,9 +405,9 @@ const SgdsChangeTemplate = args => {
   `;
 };
 
-export const SgdsChange = {
-  render: SgdsChangeTemplate.bind({}),
-  name: "Event: sgds-change",
+export const SitChange = {
+  render: SitChangeTemplate.bind({}),
+  name: "Event: Sit-change",
   args: { multiple: true },
   parameters: { layout: "padded" },
   tags: []
@@ -417,7 +417,7 @@ export const SgdsChange = {
 
 const UploadToServerTemplate = args => {
   return html`
-    <sgds-file-upload
+    <sit-file-upload
       id="uploadToServerDemo"
       variant="drag-and-drop"
       ?multiple=${args.multiple}
@@ -425,13 +425,13 @@ const UploadToServerTemplate = args => {
       hintText="Select multiple files to upload. Simulates server upload with some files succeeding and some failing."
     >
       Choose files
-    </sgds-file-upload>
+    </sit-file-upload>
     <script>
       setTimeout(() => {
         const fileUpload = document.getElementById("uploadToServerDemo");
 
         if (fileUpload) {
-          fileUpload.addEventListener("sgds-add-files", async e => {
+          fileUpload.addEventListener("Sit-add-files", async e => {
             const newFiles = e.detail; // Only contains newly-added files
             const allFiles = fileUpload.files;
 
@@ -478,7 +478,7 @@ export const UploadToServer = {
 
 const CustomValidationTemplate = args => {
   return html`
-    <sgds-file-upload
+    <sit-file-upload
       id="customValidationDemo"
       variant="drag-and-drop"
       label="Upload Documents"
@@ -488,16 +488,16 @@ const CustomValidationTemplate = args => {
       ?noValidate=${args.noValidate}
       ?multiple=${args.multiple}
       accept=".pdf"
-      hintText="Max 2 PDF files. SGDS validation is disabled, using custom validation instead"
+      hintText="Max 2 PDF files. Sit validation is disabled, using custom validation instead"
     >
       Choose files
-    </sgds-file-upload>
+    </sit-file-upload>
     <script>
       setTimeout(() => {
         const customValidationEl = document.getElementById("customValidationDemo");
 
         if (customValidationEl) {
-          customValidationEl.addEventListener("sgds-add-files", async e => {
+          customValidationEl.addEventListener("Sit-add-files", async e => {
             const files = e.detail;
 
             // Custom validation rules:
@@ -526,7 +526,7 @@ const CustomValidationTemplate = args => {
             customValidationEl.setInvalid(!isValid);
           });
 
-          customValidationEl.addEventListener("sgds-remove-file", async e => {
+          customValidationEl.addEventListener("Sit-remove-file", async e => {
             // Re-validate remaining files
             const remaining = e.detail.files;
             if (remaining.length === 0) {

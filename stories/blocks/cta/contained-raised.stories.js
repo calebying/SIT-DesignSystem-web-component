@@ -7,28 +7,28 @@ export default {
 
 const Template = () => {
   return html`
-    <section class="sgds:py-layout-lg">
-      <div class="sgds-container">
-        <div class="sgds:bg-surface-raised sgds:rounded-2-xl sgds:p-layout-lg">
-          <div class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left sgds:max-w-text">
-            <div class="sgds:mb-xl">
+    <section class="sit:py-layout-lg">
+      <div class="sit-container">
+        <div class="sit:bg-surface-raised sit:rounded-2-xl sit:p-layout-lg">
+          <div class="sit:flex sit:flex-col sit:items-start sit:text-left sit:max-w-text">
+            <div class="sit:mb-xl">
               <div
-                class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+                class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
               >
                 Overline
               </div>
               <h2
-                class="sgds:text-display-sm sgds:font-bold sgds:leading-2-xl sgds:tracking-tighter sgds:text-display-default"
+                class="sit:text-display-sm sit:font-bold sit:leading-2-xl sit:tracking-tighter sit:text-display-default"
               >
                 Headline
               </h2>
               <h5
-                class="sgds:text-subtitle-sm sgds:font-light sgds:leading-xs sgds:tracking-normal sgds:text-heading-subtle"
+                class="sit:text-subtitle-sm sit:font-light sit:leading-xs sit:tracking-normal sit:text-heading-subtle"
               >
                 Description
               </h5>
             </div>
-            <sgds-button variant="primary" tone="brand" size="md">Button Label</sgds-button>
+            <sit-button variant="primary" tone="brand" size="md">Button Label</sit-button>
           </div>
         </div>
       </div>

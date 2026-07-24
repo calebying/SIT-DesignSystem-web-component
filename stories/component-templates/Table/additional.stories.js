@@ -1,144 +1,144 @@
 import { html } from "lit";
 
 const StructuredElementsTemplate = () => html`
-  <sgds-table ?headerbackground=${true} ?tableBorder=${true}>
-    <sgds-table-row>
-      <sgds-table-head>#</sgds-table-head>
-      <sgds-table-head>First name</sgds-table-head>
-      <sgds-table-head>Last name</sgds-table-head>
-      <sgds-table-head>Username</sgds-table-head>
-      <sgds-table-head>Action</sgds-table-head>
-    </sgds-table-row>
+  <sit-table ?headerbackground=${true} ?tableBorder=${true}>
+    <sit-table-row>
+      <sit-table-head>#</sit-table-head>
+      <sit-table-head>First name</sit-table-head>
+      <sit-table-head>Last name</sit-table-head>
+      <sit-table-head>Username</sit-table-head>
+      <sit-table-head>Action</sit-table-head>
+    </sit-table-row>
 
-    <sgds-table-row>
-      <sgds-table-cell>1</sgds-table-cell>
-      <sgds-table-cell>John</sgds-table-cell>
-      <sgds-table-cell>Doe</sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-link>
+    <sit-table-row>
+      <sit-table-cell>1</sit-table-cell>
+      <sit-table-cell>John</sit-table-cell>
+      <sit-table-cell>Doe</sit-table-cell>
+      <sit-table-cell>
+        <sit-link>
           <a href="#">@johndoe</a>
-        </sgds-link>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-icon-button name="three-dots-vertical"></sgds-icon-button>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>2</sgds-table-cell>
-      <sgds-table-cell>Jane</sgds-table-cell>
-      <sgds-table-cell>Doe</sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-link>
+        </sit-link>
+      </sit-table-cell>
+      <sit-table-cell>
+        <sit-icon-button name="three-dots-vertical"></sit-icon-button>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>2</sit-table-cell>
+      <sit-table-cell>Jane</sit-table-cell>
+      <sit-table-cell>Doe</sit-table-cell>
+      <sit-table-cell>
+        <sit-link>
           <a href="#">@janedoe</a>
-        </sgds-link>
-      </sgds-table-cell>
-      <sgds-table-cell>-</sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>3</sgds-table-cell>
-      <sgds-table-cell>Bob</sgds-table-cell>
-      <sgds-table-cell>Smith</sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-link>
+        </sit-link>
+      </sit-table-cell>
+      <sit-table-cell>-</sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>3</sit-table-cell>
+      <sit-table-cell>Bob</sit-table-cell>
+      <sit-table-cell>Smith</sit-table-cell>
+      <sit-table-cell>
+        <sit-link>
           <a href="#">@bobsmith</a>
-        </sgds-link>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-badge outlined> active </sgds-badge>
-      </sgds-table-cell>
-    </sgds-table-row>
-  </sgds-table>
+        </sit-link>
+      </sit-table-cell>
+      <sit-table-cell>
+        <sit-badge outlined> active </sit-badge>
+      </sit-table-cell>
+    </sit-table-row>
+  </sit-table>
 `;
 
 const StructuredElementsTemplateVertical = () => html`
-  <sgds-table ?headerbackground=${true} ?tableBorder=${true}>
-    <sgds-table-row>
-      <sgds-table-head>1</sgds-table-head>
-      <sgds-table-cell>John</sgds-table-cell>
-      <sgds-table-cell>Doe</sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-link>
+  <sit-table ?headerbackground=${true} ?tableBorder=${true}>
+    <sit-table-row>
+      <sit-table-head>1</sit-table-head>
+      <sit-table-cell>John</sit-table-cell>
+      <sit-table-cell>Doe</sit-table-cell>
+      <sit-table-cell>
+        <sit-link>
           <a href="#">@johndoe</a>
-        </sgds-link>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-icon-button name="three-dots-vertical"></sgds-icon-button>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-head>2</sgds-table-head>
-      <sgds-table-cell>Jane</sgds-table-cell>
-      <sgds-table-cell>Doe</sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-link>
+        </sit-link>
+      </sit-table-cell>
+      <sit-table-cell>
+        <sit-icon-button name="three-dots-vertical"></sit-icon-button>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-head>2</sit-table-head>
+      <sit-table-cell>Jane</sit-table-cell>
+      <sit-table-cell>Doe</sit-table-cell>
+      <sit-table-cell>
+        <sit-link>
           <a href="#">@janedoe</a>
-        </sgds-link>
-      </sgds-table-cell>
-      <sgds-table-cell>-</sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-head>3</sgds-table-head>
-      <sgds-table-cell>Bob</sgds-table-cell>
-      <sgds-table-cell>Smith</sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-link>
+        </sit-link>
+      </sit-table-cell>
+      <sit-table-cell>-</sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-head>3</sit-table-head>
+      <sit-table-cell>Bob</sit-table-cell>
+      <sit-table-cell>Smith</sit-table-cell>
+      <sit-table-cell>
+        <sit-link>
           <a href="#">@bobsmith</a>
-        </sgds-link>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <sgds-badge outlined> active </sgds-badge>
-      </sgds-table-cell>
-    </sgds-table-row>
-  </sgds-table>
+        </sit-link>
+      </sit-table-cell>
+      <sit-table-cell>
+        <sit-badge outlined> active </sit-badge>
+      </sit-table-cell>
+    </sit-table-row>
+  </sit-table>
 `;
 
-const StructuredElementsTemplateBoth = () => html` <sgds-table ?headerbackground=${true} ?tableBorder=${true}>
-  <sgds-table-row>
-    <sgds-table-head>#</sgds-table-head>
-    <sgds-table-head>First name</sgds-table-head>
-    <sgds-table-head>Last name</sgds-table-head>
-    <sgds-table-head>Username</sgds-table-head>
-    <sgds-table-head>Action</sgds-table-head>
-  </sgds-table-row>
+const StructuredElementsTemplateBoth = () => html` <sit-table ?headerbackground=${true} ?tableBorder=${true}>
+  <sit-table-row>
+    <sit-table-head>#</sit-table-head>
+    <sit-table-head>First name</sit-table-head>
+    <sit-table-head>Last name</sit-table-head>
+    <sit-table-head>Username</sit-table-head>
+    <sit-table-head>Action</sit-table-head>
+  </sit-table-row>
 
-  <sgds-table-row>
-    <sgds-table-head>1</sgds-table-head>
-    <sgds-table-cell>John</sgds-table-cell>
-    <sgds-table-cell>Doe</sgds-table-cell>
-    <sgds-table-cell>
-      <sgds-link>
+  <sit-table-row>
+    <sit-table-head>1</sit-table-head>
+    <sit-table-cell>John</sit-table-cell>
+    <sit-table-cell>Doe</sit-table-cell>
+    <sit-table-cell>
+      <sit-link>
         <a href="#">@johndoe</a>
-      </sgds-link>
-    </sgds-table-cell>
-    <sgds-table-cell>
-      <sgds-icon-button name="three-dots-vertical"></sgds-icon-button>
-    </sgds-table-cell>
-  </sgds-table-row>
-  <sgds-table-row>
-    <sgds-table-head>2</sgds-table-head>
-    <sgds-table-cell>Jane</sgds-table-cell>
-    <sgds-table-cell>Doe</sgds-table-cell>
-    <sgds-table-cell>
-      <sgds-link>
+      </sit-link>
+    </sit-table-cell>
+    <sit-table-cell>
+      <sit-icon-button name="three-dots-vertical"></sit-icon-button>
+    </sit-table-cell>
+  </sit-table-row>
+  <sit-table-row>
+    <sit-table-head>2</sit-table-head>
+    <sit-table-cell>Jane</sit-table-cell>
+    <sit-table-cell>Doe</sit-table-cell>
+    <sit-table-cell>
+      <sit-link>
         <a href="#">@janedoe</a>
-      </sgds-link>
-    </sgds-table-cell>
-    <sgds-table-cell>-</sgds-table-cell>
-  </sgds-table-row>
-  <sgds-table-row>
-    <sgds-table-head>3</sgds-table-head>
-    <sgds-table-cell>Bob</sgds-table-cell>
-    <sgds-table-cell>Smith</sgds-table-cell>
-    <sgds-table-cell>
-      <sgds-link>
+      </sit-link>
+    </sit-table-cell>
+    <sit-table-cell>-</sit-table-cell>
+  </sit-table-row>
+  <sit-table-row>
+    <sit-table-head>3</sit-table-head>
+    <sit-table-cell>Bob</sit-table-cell>
+    <sit-table-cell>Smith</sit-table-cell>
+    <sit-table-cell>
+      <sit-link>
         <a href="#">@bobsmith</a>
-      </sgds-link>
-    </sgds-table-cell>
-    <sgds-table-cell>
-      <sgds-badge outlined> active </sgds-badge>
-    </sgds-table-cell>
-  </sgds-table-row>
-</sgds-table>`;
+      </sit-link>
+    </sit-table-cell>
+    <sit-table-cell>
+      <sit-badge outlined> active </sit-badge>
+    </sit-table-cell>
+  </sit-table-row>
+</sit-table>`;
 
 export const AlwaysResponsive = {
   render: Template.bind({}),

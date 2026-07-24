@@ -2,28 +2,28 @@ import { html } from "lit";
 
 const ShowMoreHookTemplate = args => {
   return html`
-    <sgds-system-banner show id="system-banner__show-more-example" dismissible>
-      <sgds-system-banner-item>
+    <sit-system-banner show id="system-banner__show-more-example" dismissible>
+      <sit-system-banner-item>
         <strong>Etiam suscipit nisi eget porta cursus.</strong> Ut sit amet felis aliquet, pellentesque mi at, vulputate
         nunc. Vivamus ac facilisis tellus. Maecenas ac libero scelerisque tellus maximus accumsan a vehicula arcu.
         Aenean quis leo gravida, congue sapien eu, rhoncus ac libero scelerisque tellus maximus accumsan a vehicula
         arcu. Aenean quis leo gravida, congue sapien eu, rhoncus
-        <sgds-link size="sm" variant="light" slot="action"
-          ><a href="#">Action link<sgds-icon name="arrow-right"></sgds-icon></a
-        ></sgds-link>
-      </sgds-system-banner-item>
-    </sgds-system-banner>
-    <sgds-modal>
+        <sit-link size="sm" variant="light" slot="action"
+          ><a href="#">Action link<sit-icon name="arrow-right"></sit-icon></a
+        ></sit-link>
+      </sit-system-banner-item>
+    </sit-system-banner>
+    <sit-modal>
       <strong>Etiam suscipit nisi eget porta cursus.</strong> Ut sit amet felis aliquet, pellentesque mi at, vulputate
       nunc. Vivamus ac facilisis tellus. Maecenas ac libero scelerisque tellus maximus accumsan a vehicula arcu. Aenean
       quis leo gravida, congue sapien eu, rhoncus ac libero scelerisque tellus maximus accumsan a vehicula arcu. Aenean
       quis leo gravida, congue sapien eu, rhoncus
-    </sgds-modal>
+    </sit-modal>
 
     <script>
       const banner = document.querySelector("#system-banner__show-more-example");
-      const modal = document.querySelector("sgds-modal");
-      banner.addEventListener("sgds-show-more", () => {
+      const modal = document.querySelector("Sit-modal");
+      banner.addEventListener("Sit-show-more", () => {
         modal.show();
       });
     </script>
@@ -69,25 +69,25 @@ export const Fluid = {
 
 const BadgeSlotTemplate = args => {
   return html`
-    <sgds-system-banner show>
-      <sgds-system-banner-item>
-        <sgds-badge slot="badge" variant="danger" outlined>Critical</sgds-badge>
+    <sit-system-banner show>
+      <sit-system-banner-item>
+        <sit-badge slot="badge" variant="danger" outlined>Critical</sit-badge>
         <strong>Important system update available.</strong> Review the latest security patches and feature updates for
         your system.
-        <sgds-link size="sm" variant="light" slot="action"
-          ><a href="#">Learn more<sgds-icon name="arrow-right"></sgds-icon></a
-        ></sgds-link>
-      </sgds-system-banner-item>
-      <sgds-system-banner-item>
-        <sgds-badge slot="badge" variant="warning" outlined>Alert</sgds-badge>
+        <sit-link size="sm" variant="light" slot="action"
+          ><a href="#">Learn more<sit-icon name="arrow-right"></sit-icon></a
+        ></sit-link>
+      </sit-system-banner-item>
+      <sit-system-banner-item>
+        <sit-badge slot="badge" variant="warning" outlined>Alert</sit-badge>
         <strong>Scheduled maintenance window.</strong> Services will be temporarily unavailable during the maintenance
         period.
-        <sgds-button href="#" slot="action" size="sm" tone="fixed-light" variant="outline">
+        <sit-button href="#" slot="action" size="sm" tone="fixed-light" variant="outline">
           View schedule
-          <sgds-icon name="arrow-right" slot="rightIcon" size="md"></sgds-icon>
-        </sgds-button>
-      </sgds-system-banner-item>
-    </sgds-system-banner>
+          <sit-icon name="arrow-right" slot="rightIcon" size="md"></sit-icon>
+        </sit-button>
+      </sit-system-banner-item>
+    </sit-system-banner>
   `;
 };
 

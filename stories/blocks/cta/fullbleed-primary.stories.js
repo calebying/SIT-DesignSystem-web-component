@@ -7,27 +7,23 @@ export default {
 
 const Template = () => {
   return html`
-    <section class="sgds:bg-primary-default sgds:py-layout-lg">
-      <div class="sgds-container">
-        <div class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left sgds:max-w-text">
-          <div class="sgds:mb-xl">
+    <section class="sit:bg-primary-default sit:py-layout-lg">
+      <div class="sit-container">
+        <div class="sit:flex sit:flex-col sit:items-start sit:text-left sit:max-w-text">
+          <div class="sit:mb-xl">
             <div
-              class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-fixed-light sgds:mb-xs"
+              class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-fixed-light sit:mb-xs"
             >
               Overline
             </div>
-            <h2
-              class="sgds:text-display-sm sgds:font-bold sgds:leading-2-xl sgds:tracking-tighter sgds:text-fixed-light"
-            >
+            <h2 class="sit:text-display-sm sit:font-bold sit:leading-2-xl sit:tracking-tighter sit:text-fixed-light">
               Headline
             </h2>
-            <h5
-              class="sgds:text-subtitle-sm sgds:font-light sgds:leading-xs sgds:tracking-normal sgds:text-fixed-light"
-            >
+            <h5 class="sit:text-subtitle-sm sit:font-light sit:leading-xs sit:tracking-normal sit:text-fixed-light">
               Description
             </h5>
           </div>
-          <sgds-button variant="primary" tone="fixed-light" size="md">Button Label</sgds-button>
+          <sit-button variant="primary" tone="fixed-light" size="md">Button Label</sit-button>
         </div>
       </div>
     </section>

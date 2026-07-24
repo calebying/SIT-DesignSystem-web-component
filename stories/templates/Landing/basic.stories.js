@@ -5,7 +5,7 @@ const Template = () => html`
     .hero-row {
       display: flex;
       flex-direction: column;
-      gap: var(--sgds-gap-layout-md);
+      gap: var(--Sit-gap-layout-md);
     }
     .hero-row > * {
       width: 100%;
@@ -17,8 +17,8 @@ const Template = () => html`
       }
       .hero-row > :first-child {
         width: 50%;
-        padding-top: var(--sgds-spacing-layout-xs);
-        padding-right: var(--sgds-spacing-layout-md);
+        padding-top: var(--Sit-spacing-layout-xs);
+        padding-right: var(--Sit-spacing-layout-md);
       }
       .hero-row > :last-child {
         width: 50%;
@@ -28,7 +28,7 @@ const Template = () => html`
     .stats-row {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--sgds-gap-layout-md);
+      gap: var(--Sit-gap-layout-md);
     }
     .stats-row > * {
       width: 100%;
@@ -44,36 +44,34 @@ const Template = () => html`
     }
   </style>
 
-  <sgds-masthead></sgds-masthead>
-  <sgds-mainnav>
+  <sit-masthead></sit-masthead>
+  <sit-mainnav>
     <strong slot="brand">Logo</strong>
-  </sgds-mainnav>
+  </sit-mainnav>
 
   <!--   HERO - display-lg + overline + h4 light                           -->
-  <section class="sgds:bg-default sgds:py-layout-md sgds:min-h-[600px]">
-    <div class="sgds-container">
+  <section class="sit:bg-default sit:py-layout-md sit:min-h-[600px]">
+    <div class="sit-container">
       <div class="hero-row">
-        <div class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left">
-          <div class="sgds:mb-xl">
+        <div class="sit:flex sit:flex-col sit:items-start sit:text-left">
+          <div class="sit:mb-xl">
             <div
-              class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+              class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
             >
               Singapore Government Digital Services
             </div>
             <h1
-              class="sgds:text-display-lg sgds:font-bold sgds:leading-3-xl sgds:tracking-tighter sgds:text-display-default"
+              class="sit:text-display-lg sit:font-bold sit:leading-3-xl sit:tracking-tighter sit:text-display-default"
             >
               One Platform.<br />Simpler Living.
             </h1>
-            <h4
-              class="sgds:text-heading-sm sgds:font-light sgds:leading-sm sgds:tracking-tight sgds:text-heading-default"
-            >
+            <h4 class="sit:text-heading-sm sit:font-light sit:leading-sm sit:tracking-tight sit:text-heading-default">
               Access government services anytime, anywhere. Built for residents, designed for ease.
             </h4>
           </div>
-          <div class="sgds:flex sgds:gap-component-md">
-            <sgds-button variant="primary" size="md">Get Started</sgds-button>
-            <sgds-button variant="outline" size="md">Learn More</sgds-button>
+          <div class="sit:flex sit:gap-component-md">
+            <sit-button variant="primary" size="md">Get Started</sit-button>
+            <sit-button variant="outline" size="md">Learn More</sit-button>
           </div>
         </div>
 
@@ -81,7 +79,7 @@ const Template = () => html`
           <img
             src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512'%3E%3Crect width='512' height='512' fill='%23e8f0fe'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='24' fill='%231f69ff'%3EGovernment Services%3C/text%3E%3C/svg%3E"
             alt="Government digital services"
-            style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--sgds-border-radius-xl);"
+            style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--Sit-border-radius-xl);"
           />
         </div>
       </div>
@@ -89,71 +87,69 @@ const Template = () => html`
   </section>
 
   <!--   FEATURES - feature-cards-below pattern                            -->
-  <section class="sgds:bg-default sgds:py-layout-md">
-    <div class="sgds-container">
-      <div style="display: flex; flex-direction: column; gap: var(--sgds-gap-layout-md);">
+  <section class="sit:bg-default sit:py-layout-md">
+    <div class="sit-container">
+      <div style="display: flex; flex-direction: column; gap: var(--Sit-gap-layout-md);">
         <div
-          class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left"
-          style="padding-bottom: var(--sgds-spacing-layout-md);"
+          class="sit:flex sit:flex-col sit:items-start sit:text-left"
+          style="padding-bottom: var(--Sit-spacing-layout-md);"
         >
           <div
-            class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+            class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
           >
             Life Moments
           </div>
-          <h2
-            class="sgds:text-display-md sgds:font-bold sgds:leading-2-xl sgds:tracking-tighter sgds:text-display-default"
-          >
+          <h2 class="sit:text-display-md sit:font-bold sit:leading-2-xl sit:tracking-tighter sit:text-display-default">
             Built for Every Stage of Life
           </h2>
           <h5
-            class="sgds:text-subtitle-md sgds:font-light sgds:leading-xs sgds:tracking-normal sgds:text-heading-default sgds:mb-0"
+            class="sit:text-subtitle-md sit:font-light sit:leading-xs sit:tracking-normal sit:text-heading-default sit:mb-0"
           >
             Services grouped around your life moments - not government structures.
           </h5>
         </div>
 
-        <div class="sgds-grid" style="gap: var(--sgds-gap-layout-md);">
-          <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
-            <sgds-card tinted hideBorder stretchedLink>
+        <div class="sit-grid" style="gap: var(--Sit-gap-layout-md);">
+          <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
+            <sit-card tinted hideBorder stretchedLink>
               <span slot="subtitle">FAMILY</span>
               <span slot="title">Family and Relationships</span>
               <span slot="description"
                 >Register births, apply for child development grants, and access parenting resources all in one
                 place.</span
               >
-              <sgds-link slot="footer">
-                <a href="#" aria-label="Learn more">Learn more <sgds-icon name="arrow-right"></sgds-icon></a>
-              </sgds-link>
-            </sgds-card>
+              <sit-link slot="footer">
+                <a href="#" aria-label="Learn more">Learn more <sit-icon name="arrow-right"></sit-icon></a>
+              </sit-link>
+            </sit-card>
           </div>
 
-          <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
-            <sgds-card tinted hideBorder stretchedLink>
+          <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
+            <sit-card tinted hideBorder stretchedLink>
               <span slot="subtitle">HOUSING</span>
               <span slot="title">Home and Housing</span>
               <span slot="description"
                 >Check eligibility, apply for flats, and manage your property-related transactions with HDB and other
                 agencies.</span
               >
-              <sgds-link slot="footer">
-                <a href="#" aria-label="Learn more">Learn more <sgds-icon name="arrow-right"></sgds-icon></a>
-              </sgds-link>
-            </sgds-card>
+              <sit-link slot="footer">
+                <a href="#" aria-label="Learn more">Learn more <sit-icon name="arrow-right"></sit-icon></a>
+              </sit-link>
+            </sit-card>
           </div>
 
-          <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
-            <sgds-card tinted hideBorder stretchedLink>
+          <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
+            <sit-card tinted hideBorder stretchedLink>
               <span slot="subtitle">EMPLOYMENT</span>
               <span slot="title">Work and Employment</span>
               <span slot="description"
                 >Search for jobs, upskill through SkillsFuture, and access employment support schemes tailored to your
                 needs.</span
               >
-              <sgds-link slot="footer">
-                <a href="#" aria-label="Learn more">Learn more <sgds-icon name="arrow-right"></sgds-icon></a>
-              </sgds-link>
-            </sgds-card>
+              <sit-link slot="footer">
+                <a href="#" aria-label="Learn more">Learn more <sit-icon name="arrow-right"></sit-icon></a>
+              </sit-link>
+            </sit-card>
           </div>
         </div>
       </div>
@@ -161,91 +157,83 @@ const Template = () => html`
   </section>
 
   <!--   STATS - section header + 4 stats                                  -->
-  <section class="sgds:bg-default sgds:py-layout-md">
-    <div class="sgds-container">
-      <div style="display: flex; flex-direction: column; gap: var(--sgds-gap-layout-md);">
-        <div style="max-width: var(--sgds-text-max-width);">
+  <section class="sit:bg-default sit:py-layout-md">
+    <div class="sit-container">
+      <div style="display: flex; flex-direction: column; gap: var(--Sit-gap-layout-md);">
+        <div style="max-width: var(--Sit-text-max-width);">
           <div
-            class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+            class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
           >
             By the Numbers
           </div>
-          <h2 class="sgds:text-heading-lg sgds:font-bold sgds:leading-lg sgds:tracking-tight sgds:text-heading-default">
+          <h2 class="sit:text-heading-lg sit:font-bold sit:leading-lg sit:tracking-tight sit:text-heading-default">
             Impact at a Glance
           </h2>
-          <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle sgds:mb-0">
+          <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle sit:mb-0">
             Key metrics measured over the past 12 months across all participating agencies.
           </p>
         </div>
 
         <div class="stats-row">
-          <div class="sgds:flex sgds:flex-col sgds:items-start" style="padding-right: var(--sgds-spacing-layout-xs);">
-            <div
-              class="sgds:text-display-sm sgds:font-bold sgds:leading-xl sgds:tracking-tighter sgds:text-display-default"
-            >
+          <div class="sit:flex sit:flex-col sit:items-start" style="padding-right: var(--Sit-spacing-layout-xs);">
+            <div class="sit:text-display-sm sit:font-bold sit:leading-xl sit:tracking-tighter sit:text-display-default">
               2.4M
             </div>
             <h5
-              class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal sgds:text-heading-default"
+              class="sit:text-subtitle-md sit:font-semibold sit:leading-xs sit:tracking-normal sit:text-heading-default"
             >
               Active Users
             </h5>
             <p
-              class="sgds:text-label-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:text-label-subtle sgds:mb-0"
+              class="sit:text-label-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:text-label-subtle sit:mb-0"
             >
               Residents actively using the platform to access government services each month.
             </p>
           </div>
 
-          <div class="sgds:flex sgds:flex-col sgds:items-start" style="padding-right: var(--sgds-spacing-layout-xs);">
-            <div
-              class="sgds:text-display-sm sgds:font-bold sgds:leading-xl sgds:tracking-tighter sgds:text-display-default"
-            >
+          <div class="sit:flex sit:flex-col sit:items-start" style="padding-right: var(--Sit-spacing-layout-xs);">
+            <div class="sit:text-display-sm sit:font-bold sit:leading-xl sit:tracking-tighter sit:text-display-default">
               400+
             </div>
             <h5
-              class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal sgds:text-heading-default"
+              class="sit:text-subtitle-md sit:font-semibold sit:leading-xs sit:tracking-normal sit:text-heading-default"
             >
               Government Services
             </h5>
             <p
-              class="sgds:text-label-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:text-label-subtle sgds:mb-0"
+              class="sit:text-label-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:text-label-subtle sit:mb-0"
             >
               Integrated services from agencies across the public sector in one place.
             </p>
           </div>
 
-          <div class="sgds:flex sgds:flex-col sgds:items-start" style="padding-right: var(--sgds-spacing-layout-xs);">
-            <div
-              class="sgds:text-display-sm sgds:font-bold sgds:leading-xl sgds:tracking-tighter sgds:text-display-default"
-            >
+          <div class="sit:flex sit:flex-col sit:items-start" style="padding-right: var(--Sit-spacing-layout-xs);">
+            <div class="sit:text-display-sm sit:font-bold sit:leading-xl sit:tracking-tighter sit:text-display-default">
               99.9%
             </div>
             <h5
-              class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal sgds:text-heading-default"
+              class="sit:text-subtitle-md sit:font-semibold sit:leading-xs sit:tracking-normal sit:text-heading-default"
             >
               Platform Uptime
             </h5>
             <p
-              class="sgds:text-label-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:text-label-subtle sgds:mb-0"
+              class="sit:text-label-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:text-label-subtle sit:mb-0"
             >
               Consistently high availability so residents can access services anytime.
             </p>
           </div>
 
-          <div class="sgds:flex sgds:flex-col sgds:items-start" style="padding-right: var(--sgds-spacing-layout-xs);">
-            <div
-              class="sgds:text-display-sm sgds:font-bold sgds:leading-xl sgds:tracking-tighter sgds:text-display-default"
-            >
+          <div class="sit:flex sit:flex-col sit:items-start" style="padding-right: var(--Sit-spacing-layout-xs);">
+            <div class="sit:text-display-sm sit:font-bold sit:leading-xl sit:tracking-tighter sit:text-display-default">
               16
             </div>
             <h5
-              class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal sgds:text-heading-default"
+              class="sit:text-subtitle-md sit:font-semibold sit:leading-xs sit:tracking-normal sit:text-heading-default"
             >
               Partner Agencies
             </h5>
             <p
-              class="sgds:text-label-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:text-label-subtle sgds:mb-0"
+              class="sit:text-label-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:text-label-subtle sit:mb-0"
             >
               Public agencies contributing services and data to the shared platform.
             </p>
@@ -256,45 +244,43 @@ const Template = () => html`
   </section>
 
   <!--   MISSION - section heading + section subheading + ul list          -->
-  <section class="sgds:bg-default sgds:py-layout-md">
-    <div class="sgds-container">
-      <div style="max-width: var(--sgds-text-max-width);">
-        <div class="sgds:mb-layout-md">
+  <section class="sit:bg-default sit:py-layout-md">
+    <div class="sit-container">
+      <div style="max-width: var(--Sit-text-max-width);">
+        <div class="sit:mb-layout-md">
           <div
-            class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+            class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
           >
             Our Mission
           </div>
-          <h2 class="sgds:text-heading-lg sgds:font-bold sgds:leading-lg sgds:tracking-tight sgds:text-heading-default">
+          <h2 class="sit:text-heading-lg sit:font-bold sit:leading-lg sit:tracking-tight sit:text-heading-default">
             Designed Around Citizens, Not Silos
           </h2>
-          <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+          <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
             We believe government services should feel as natural as any modern digital experience. That means no dead
             ends, no duplicated form-filling, and no having to know which agency is responsible before you can get help.
           </p>
-          <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle sgds:mb-0">
+          <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle sit:mb-0">
             Our team works across public agencies to build shared infrastructure that reduces friction for residents and
             lowers the cost of service delivery for government.
           </p>
         </div>
 
-        <h3
-          class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
-        >
+        <h3 class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default">
           What we stand for
         </h3>
 
-        <ul style="padding-left: var(--sgds-spacing-lg); margin: 0;">
-          <li class="sgds:text-body-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:text-body-default">
+        <ul style="padding-left: var(--Sit-spacing-lg); margin: 0;">
+          <li class="sit:text-body-md sit:font-regular sit:leading-xs sit:tracking-normal sit:text-body-default">
             Accessibility and inclusivity for all residents, regardless of digital literacy.
           </li>
-          <li class="sgds:text-body-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:text-body-default">
+          <li class="sit:text-body-md sit:font-regular sit:leading-xs sit:tracking-normal sit:text-body-default">
             Open standards and reusable components that any agency can adopt.
           </li>
-          <li class="sgds:text-body-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:text-body-default">
+          <li class="sit:text-body-md sit:font-regular sit:leading-xs sit:tracking-normal sit:text-body-default">
             Continuous improvement driven by user research and real feedback.
           </li>
-          <li class="sgds:text-body-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:text-body-default">
+          <li class="sit:text-body-md sit:font-regular sit:leading-xs sit:tracking-normal sit:text-body-default">
             Security and privacy as foundational requirements, not afterthoughts.
           </li>
         </ul>
@@ -303,26 +289,24 @@ const Template = () => html`
   </section>
 
   <!--   CTA - display-md centered + body-md + button                     -->
-  <section class="sgds:bg-alternate sgds:py-layout-md">
-    <div class="sgds-container">
+  <section class="sit:bg-alternate sit:py-layout-md">
+    <div class="sit-container">
       <div
-        class="sgds:flex sgds:flex-col sgds:items-center sgds:text-center sgds:mx-auto"
-        style="max-width: var(--sgds-text-max-width);"
+        class="sit:flex sit:flex-col sit:items-center sit:text-center sit:mx-auto"
+        style="max-width: var(--Sit-text-max-width);"
       >
-        <h2
-          class="sgds:text-display-md sgds:font-bold sgds:leading-2-xl sgds:tracking-tighter sgds:text-display-default"
-        >
+        <h2 class="sit:text-display-md sit:font-bold sit:leading-2-xl sit:tracking-tighter sit:text-display-default">
           Ready to simplify your government experience?
         </h2>
-        <p class="sgds:text-body-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:text-body-default">
+        <p class="sit:text-body-md sit:font-regular sit:leading-xs sit:tracking-normal sit:text-body-default">
           Join millions of residents already using LifeSG to access the services that matter most to them.
         </p>
-        <sgds-button variant="primary" size="md">Get Started with Singpass</sgds-button>
+        <sit-button variant="primary" size="md">Get Started with Singpass</sit-button>
       </div>
     </div>
   </section>
 
-  <sgds-footer></sgds-footer>
+  <sit-footer></sit-footer>
 `;
 
 export default {

@@ -4,7 +4,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 const ValidationTemplate = args =>
   html`
     <form>
-      <sgds-quantity-toggle
+      <sit-quantity-toggle
         name="QT1"
         id="QT1"
         min="3"
@@ -13,9 +13,9 @@ const ValidationTemplate = args =>
         label="Label"
         invalidFeedback=${ifDefined(args.invalidFeedback)}
       >
-      </sgds-quantity-toggle>
-      <sgds-button type="submit">Submit</sgds-button>
-      <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+      </sit-quantity-toggle>
+      <sit-button type="submit">Submit</sit-button>
+      <sit-button type="reset" variant="ghost">Reset</sit-button>
     </form>
   `;
 

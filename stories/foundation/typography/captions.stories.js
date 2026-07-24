@@ -11,15 +11,13 @@ export default {
 const AllCaptionsTemplate = () => html` <div>Caption</div> `;
 
 const CaptionSemiboldTemplate = () => html`
-  <div class="sgds:text-caption-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-normal sgds:mb-md">
+  <div class="sit:text-caption-md sit:font-semibold sit:leading-2-xs sit:tracking-normal sit:mb-md">
     Caption semibold
   </div>
 `;
 
 const CaptionRegularTemplate = () => html`
-  <div class="sgds:text-caption-md sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mb-md">
-    Caption regular
-  </div>
+  <div class="sit:text-caption-md sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mb-md">Caption regular</div>
 `;
 
 export const AllCaptions = {

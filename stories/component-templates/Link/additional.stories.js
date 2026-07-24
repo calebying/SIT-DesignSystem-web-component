@@ -7,9 +7,9 @@ const ToneTemplate = () => {
     <div class="d-flex-column">
       ${tones.map(
         tone => html`
-          <sgds-link tone="${tone.toLowerCase()}">
+          <sit-link tone="${tone.toLowerCase()}">
             <a href="#">${tone} link</a>
-          </sgds-link>
+          </sit-link>
         `
       )}
     </div>
@@ -28,9 +28,9 @@ const VariantTemplate = () => {
     <div class="d-flex-column">
       ${variants.map(
         variant => html`
-          <sgds-link variant="${variant.toLowerCase()}">
+          <sit-link variant="${variant.toLowerCase()}">
             <a href="#">${variant} link</a>
-          </sgds-link>
+          </sit-link>
         `
       )}
     </div>
@@ -46,18 +46,18 @@ export const Variants = {
 const SizeTemplate = () => {
   return html`
     <div class="d-flex-column">
-      <sgds-link size="xs">
+      <sit-link size="xs">
         <a href="#">Extra small</a>
-      </sgds-link>
-      <sgds-link size="sm">
+      </sit-link>
+      <sit-link size="sm">
         <a href="#">Small</a>
-      </sgds-link>
-      <sgds-link size="md">
+      </sit-link>
+      <sit-link size="md">
         <a href="#">Medium (default)</a>
-      </sgds-link>
-      <sgds-link size="lg">
+      </sit-link>
+      <sit-link size="lg">
         <a href="#">Large</a>
-      </sgds-link>
+      </sit-link>
     </div>
   `;
 };
@@ -72,18 +72,18 @@ export const Size = {
 const ExternalLinkTemplate = () => {
   return html`
     <div class="d-flex-column">
-      <sgds-link size="xs">
+      <sit-link size="xs">
         <a href="#" target="_blank">Going to an external link</a>
-      </sgds-link>
-      <sgds-link size="sm">
+      </sit-link>
+      <sit-link size="sm">
         <a href="#" target="_blank">Going to an external link</a>
-      </sgds-link>
-      <sgds-link size="md">
+      </sit-link>
+      <sit-link size="md">
         <a href="#" target="_blank">Going to an external link</a>
-      </sgds-link>
-      <sgds-link size="lg">
+      </sit-link>
+      <sit-link size="lg">
         <a href="#" target="_blank">Going to an external link</a>
-      </sgds-link>
+      </sit-link>
     </div>
   `;
 };
@@ -98,12 +98,12 @@ export const ExternalLink = {
 const WithIconTemplate = () => {
   return html`
     <div class="d-flex-column">
-      <sgds-link
-        ><a href="#"><sgds-icon name="placeholder"></sgds-icon>Icon on the left</a></sgds-link
+      <sit-link
+        ><a href="#"><sit-icon name="placeholder"></sit-icon>Icon on the left</a></sit-link
       >
-      <sgds-link
-        ><a href="#">Icon on the right <sgds-icon name="placeholder"></sgds-icon></a
-      ></sgds-link>
+      <sit-link
+        ><a href="#">Icon on the right <sit-icon name="placeholder"></sit-icon></a
+      ></sit-link>
     </div>
   `;
 };

@@ -5,12 +5,12 @@ const Template = () => html`
     @media (max-width: 1023px) {
       .feature-img {
         order: -1;
-        padding-bottom: var(--sgds-spacing-layout-md);
+        padding-bottom: var(--Sit-spacing-layout-md);
       }
     }
     @media (min-width: 1024px) {
       .feature-content {
-        padding-right: var(--sgds-spacing-layout-md);
+        padding-right: var(--Sit-spacing-layout-md);
       }
     }
   </style>
@@ -20,40 +20,38 @@ const Template = () => html`
        Spacing    : py-layout-lg, gap-layout-md
        Content    : padding-left layout-md (outer edge, image on right)
   -->
-  <section class="sgds:bg-default sgds:py-layout-lg">
-    <div class="sgds-container">
-      <div class="sgds-grid sgds:items-center sgds:gap-layout-md">
+  <section class="sit:bg-default sit:py-layout-lg">
+    <div class="sit-container">
+      <div class="sit-grid sit:items-center sit:gap-layout-md">
         <!-- Content — 6 cols, padding-left layout-md (image on right) -->
         <div
-          class="feature-content sgds-col-4 sgds-col-sm-8 sgds-col-lg-6 sgds:flex sgds:flex-col sgds:items-start sgds:text-left"
+          class="feature-content sit-col-4 sit-col-sm-8 sit-col-lg-6 sit:flex sit:flex-col sit:items-start sit:text-left"
         >
           <!-- Typography group -->
-          <div class="sgds:mb-xl">
+          <div class="sit:mb-xl">
             <div
-              class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+              class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
             >
               Overline Label
             </div>
             <h2
-              class="sgds:text-display-md sgds:font-bold sgds:leading-2-xl sgds:tracking-tighter sgds:text-display-default"
+              class="sit:text-display-md sit:font-bold sit:leading-2-xl sit:tracking-tighter sit:text-display-default"
             >
               Feature Heading Goes Here
             </h2>
-            <h5
-              class="sgds:text-subtitle-md sgds:font-light sgds:leading-xs sgds:tracking-normal sgds:text-heading-subtle"
-            >
+            <h5 class="sit:text-subtitle-md sit:font-light sit:leading-xs sit:tracking-normal sit:text-heading-subtle">
               Supporting subtitle text that provides context and detail for the feature being described.
             </h5>
           </div>
-          <sgds-button variant="primary" tone="neutral" size="md">Get Started</sgds-button>
+          <sit-button variant="primary" tone="neutral" size="md">Get Started</sit-button>
         </div>
 
         <!-- Image — 6 cols -->
-        <div class="feature-img sgds-col-4 sgds-col-sm-8 sgds-col-lg-6">
+        <div class="feature-img sit-col-4 sit-col-sm-8 sit-col-lg-6">
           <img
-            src="/placeholder-sgds.png"
+            src="/placeholder-Sit.png"
             alt=""
-            style="width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; border-radius: var(--sgds-border-radius-xl);"
+            style="width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; border-radius: var(--Sit-border-radius-xl);"
           />
         </div>
       </div>

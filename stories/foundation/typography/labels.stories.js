@@ -9,45 +9,45 @@ export default {
 };
 
 const LabelLgSemiboldTemplate = () => html`
-  <div class="sgds:text-label-lg sgds:font-semibold sgds:leading-md sgds:tracking-normal">Label Large Semibold</div>
+  <div class="sit:text-label-lg sit:font-semibold sit:leading-md sit:tracking-normal">Label Large Semibold</div>
 `;
 
 const LabelLgRegularTemplate = () => html`
-  <div class="sgds:text-label-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">Label Large Regular</div>
+  <div class="sit:text-label-lg sit:font-regular sit:leading-md sit:tracking-normal">Label Large Regular</div>
 `;
 
 const LabelMdSemiboldTemplate = () => html`
-  <div class="sgds:text-label-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal">Label Medium Semibold</div>
+  <div class="sit:text-label-md sit:font-semibold sit:leading-xs sit:tracking-normal">Label Medium Semibold</div>
 `;
 
 const LabelMdRegularTemplate = () => html`
-  <div class="sgds:text-label-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">Label Medium Regular</div>
+  <div class="sit:text-label-md sit:font-regular sit:leading-xs sit:tracking-normal">Label Medium Regular</div>
 `;
 
 const LabelMdLightTemplate = () => html`
-  <div class="sgds:text-label-md sgds:font-light sgds:leading-xs sgds:tracking-normal">Label Medium Light</div>
+  <div class="sit:text-label-md sit:font-light sit:leading-xs sit:tracking-normal">Label Medium Light</div>
 `;
 
 const LabelSmSemiboldTemplate = () => html`
-  <div class="sgds:text-label-sm sgds:font-semibold sgds:leading-2-xs sgds:tracking-normal">Label Small Semibold</div>
+  <div class="sit:text-label-sm sit:font-semibold sit:leading-2-xs sit:tracking-normal">Label Small Semibold</div>
 `;
 
 const LabelSmRegularTemplate = () => html`
-  <div class="sgds:text-label-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">Label Small Regular</div>
+  <div class="sit:text-label-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">Label Small Regular</div>
 `;
 
 const LabelXsSemiboldTemplate = () => html`
-  <div class="sgds:text-label-xs sgds:font-semibold sgds:leading-3-xs sgds:tracking-normal">Label XS Semibold</div>
+  <div class="sit:text-label-xs sit:font-semibold sit:leading-3-xs sit:tracking-normal">Label XS Semibold</div>
 `;
 
 const LabelXsRegularTemplate = () => html`
-  <div class="sgds:text-label-xs sgds:font-regular sgds:leading-3-xs sgds:tracking-normal">Label XS Regular</div>
+  <div class="sit:text-label-xs sit:font-regular sit:leading-3-xs sit:tracking-normal">Label XS Regular</div>
 `;
 
-const FormBuiltInTemplate = () => html` <sgds-input label="Field label"></sgds-input> `;
+const FormBuiltInTemplate = () => html` <sit-input label="Field label"></sit-input> `;
 
 const FormFallbackTemplate = () => html`
-  <label class="sgds:text-label-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal">Field Label</label>
+  <label class="sit:text-label-md sit:font-semibold sit:leading-xs sit:tracking-normal">Field Label</label>
 `;
 
 export const LabelLgSemibold = {

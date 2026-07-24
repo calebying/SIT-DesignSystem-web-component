@@ -1,32 +1,32 @@
 import { html } from "lit";
 
 const ULBodyMdTemplate = () => html`
-  <div style="max-width: var(--sgds-text-max-width);">
-    <ul class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
+  <div style="max-width: var(--Sit-text-max-width);">
+    <ul class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
       <li
-        class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md sgds:text-body-default"
+        class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md sit:text-body-default"
       >
         Unordered list item one with enough text to demonstrate list medium typography and line height.
       </li>
       <li
-        class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md sgds:text-body-default"
+        class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md sit:text-body-default"
       >
         Unordered list item two with a nested list below.
-        <ul class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
+        <ul class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
           <li
-            class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md sgds:text-body-default"
+            class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md sit:text-body-default"
           >
             Nested item one inside the second top-level item.
           </li>
           <li
-            class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md sgds:text-body-default"
+            class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md sit:text-body-default"
           >
             Nested item two continuing the same size and style.
           </li>
         </ul>
       </li>
       <li
-        class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md sgds:text-body-default"
+        class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md sit:text-body-default"
       >
         Unordered list item three to complete the example set.
       </li>

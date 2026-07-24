@@ -1,11 +1,11 @@
 import { html } from "lit";
 
 const H3Template = () => html`
-  <div class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left" style="max-width: var(--sgds-text-max-width);">
-    <h3 class="sgds:text-heading-md sgds:font-bold sgds:leading-md sgds:tracking-tight sgds:text-heading-default">
+  <div class="sit:flex sit:flex-col sit:items-start sit:text-left" style="max-width: var(--Sit-text-max-width);">
+    <h3 class="sit:text-heading-md sit:font-bold sit:leading-md sit:tracking-tight sit:text-heading-default">
       Subsection Heading Goes Here
     </h3>
-    <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+    <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
       Supporting body text that provides context and detail for the subsection above.
     </p>
   </div>

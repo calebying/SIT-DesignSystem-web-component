@@ -7,30 +7,30 @@ export default {
 
 const copyToClipboard = (token, buttonEl) => {
   navigator.clipboard.writeText(token);
-  const icon = buttonEl.querySelector("sgds-icon");
+  const icon = buttonEl.querySelector("Sit-icon");
   icon.setAttribute("name", "check");
   setTimeout(() => {
     icon.setAttribute("name", "files");
   }, 3000);
 };
 
-const CODE_CLASSES = "sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm";
+const CODE_CLASSES = "sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm";
 const COPY_BTN_CLASSES =
-  "sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0";
+  "sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0";
 
 const renderTokenCell = token => html`
-  <sgds-table-cell>
-    <div class="sgds:flex sgds:items-center sgds:gap-xs">
+  <sit-table-cell>
+    <div class="sit:flex sit:items-center sit:gap-xs">
       <code class="${CODE_CLASSES}">${token}</code>
       <button
         class="${COPY_BTN_CLASSES}"
         @click="${e => copyToClipboard(token, e.target.closest("button"))}"
         aria-label="Copy token"
       >
-        <sgds-icon name="files"></sgds-icon>
+        <sit-icon name="files"></sit-icon>
       </button>
     </div>
-  </sgds-table-cell>
+  </sit-table-cell>
 `;
 
 const TOKENS = [
@@ -43,28 +43,28 @@ const TOKENS = [
 ];
 
 export const Layout = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Value (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Value (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${TOKENS.map(
       ({ suffix, value }) => html`
-        <sgds-table-row>
-          ${renderTokenCell(`sgds:gap-layout-${suffix}`)}
-          <sgds-table-cell><code class="${CODE_CLASSES}">--sgds-layout-gap-${suffix}</code></sgds-table-cell>
-          <sgds-table-cell><code class="${CODE_CLASSES}">${value}</code></sgds-table-cell>
-          <sgds-table-cell>
-            <div class="sgds:flex sgds:gap-layout-${suffix}">
-              <div class="sgds:bg-success-default sgds:p-md sgds:rounded-sm sgds:flex-1"></div>
-              <div class="sgds:bg-success-default sgds:p-md sgds:rounded-sm sgds:flex-1"></div>
-              <div class="sgds:bg-success-default sgds:p-md sgds:rounded-sm sgds:flex-1"></div>
+        <sit-table-row>
+          ${renderTokenCell(`sit:gap-layout-${suffix}`)}
+          <sit-table-cell><code class="${CODE_CLASSES}">--Sit-layout-gap-${suffix}</code></sit-table-cell>
+          <sit-table-cell><code class="${CODE_CLASSES}">${value}</code></sit-table-cell>
+          <sit-table-cell>
+            <div class="sit:flex sit:gap-layout-${suffix}">
+              <div class="sit:bg-success-default sit:p-md sit:rounded-sm sit:flex-1"></div>
+              <div class="sit:bg-success-default sit:p-md sit:rounded-sm sit:flex-1"></div>
+              <div class="sit:bg-success-default sit:p-md sit:rounded-sm sit:flex-1"></div>
             </div>
-          </sgds-table-cell>
-        </sgds-table-row>
+          </sit-table-cell>
+        </sit-table-row>
       `
     )}
-  </sgds-table>
+  </sit-table>
 `;

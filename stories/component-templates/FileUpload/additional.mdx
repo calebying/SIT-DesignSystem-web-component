@@ -54,25 +54,25 @@ Display all files with successful upload status.
 
 ## Events
 
-### sgds-add-files
+### Sit-add-files
 
 Fires when files are added to the upload. Use this to initiate uploads.
 
-<Canvas of={FileUploadStories.SgdsAddFiles} />
+<Canvas of={FileUploadStories.SitAddFiles} />
 
-### sgds-remove-file
+### Sit-remove-file
 
 Fires when a file is deleted. Includes the deleted file and remaining files.
 
-<Canvas of={FileUploadStories.SgdsRemoveFile} />
+<Canvas of={FileUploadStories.SitRemoveFile} />
 
-### sgds-change
+### Sit-change
 
 Fires on any file set change (add or remove). Useful for tracking current state.
 
-> **Note:** Use `sgds-change` instead of the deprecated `sgds-files-selected` event for tracking all file set changes.
+> **Note:** Use `Sit-change` instead of the deprecated `Sit-files-selected` event for tracking all file set changes.
 
-<Canvas of={FileUploadStories.SgdsChange} />
+<Canvas of={FileUploadStories.SitChange} />
 
 ## Upload to Server
 
@@ -96,14 +96,14 @@ Shows the drag and drop variant in an invalid state with feedback message.
 
 ## Custom Validation with noValidate
 
-Disable SGDS's built-in validation to implement custom validation logic using your own validation library (Zod, Yup, VeeValidate, etc).
+Disable Sit's built-in validation to implement custom validation logic using your own validation library (Zod, Yup, VeeValidate, etc).
 
 <Canvas of={FileUploadStories.CustomValidation} />
 
-Set the `noValidate` prop to opt out of native HTML5 and SGDS validation:
+Set the `noValidate` prop to opt out of native HTML5 and Sit validation:
 
 ```html
-<sgds-file-upload
+<sit-file-upload
   noValidate
   required
   hasFeedback
@@ -111,18 +111,18 @@ Set the `noValidate` prop to opt out of native HTML5 and SGDS validation:
   accept=".pdf"
   label="Upload Documents"
   name="documents"
-  hintText="Max 2 PDF files. SGDS validation is disabled, using custom validation instead"
+  hintText="Max 2 PDF files. Sit validation is disabled, using custom validation instead"
 >
   Choose files
-</sgds-file-upload>
+</sit-file-upload>
 ```
 
 Then handle validation manually via events:
 
 ```js
-const fileUpload = document.querySelector('sgds-file-upload');
+const fileUpload = document.querySelector('Sit-file-upload');
 
-fileUpload.addEventListener('sgds-add-files', (e) => {
+fileUpload.addEventListener('Sit-add-files', (e) => {
   const files = e.detail;
 
   // Custom validation rules:
@@ -150,7 +150,7 @@ fileUpload.addEventListener('sgds-add-files', (e) => {
   fileUpload.setInvalid(!isValid);
 });
 
-fileUpload.addEventListener('sgds-remove-file', (e) => {
+fileUpload.addEventListener('Sit-remove-file', (e) => {
   // Re-validate remaining files
   const remaining = e.detail.files;
   if (remaining.length === 0) {
@@ -168,10 +168,10 @@ Disable validation for all form components at once:
 
 ```html
 <form novalidate>
-  <sgds-file-upload required name="doc"></sgds-file-upload>
-  <sgds-input required name="name"></sgds-input>
-  <!-- All SGDS components auto-detect form novalidate -->
+  <sit-file-upload required name="doc"></sit-file-upload>
+  <sit-input required name="name"></sit-input>
+  <!-- All Sit components auto-detect form novalidate -->
 </form>
 ```
 
-> **Note:** When `noValidate` is true, native HTML5 validation is disabled. Only your custom validation runs. Use the `sgds-add-files` and `sgds-remove-file` events to implement your validation rules.
+> **Note:** When `noValidate` is true, native HTML5 validation is disabled. Only your custom validation runs. Use the `Sit-add-files` and `Sit-remove-file` events to implement your validation rules.

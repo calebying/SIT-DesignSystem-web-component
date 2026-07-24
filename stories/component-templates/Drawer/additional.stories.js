@@ -2,11 +2,11 @@ import { html } from "lit";
 
 const PlacementTemplate = () => {
   return html`
-    <sgds-button @click=${() => showDrawer("start")}>Open Start Drawer</sgds-button>
-    <sgds-button @click=${() => showDrawer("end")}>Open End Drawer</sgds-button>
-    <sgds-button @click=${() => showDrawer("top")}>Open Top Drawer</sgds-button>
-    <sgds-button @click=${() => showDrawer("bottom")}>Open Bottom Drawer</sgds-button>
-    <sgds-drawer id="drawer_placement">
+    <sit-button @click=${() => showDrawer("start")}>Open Start Drawer</sit-button>
+    <sit-button @click=${() => showDrawer("end")}>Open End Drawer</sit-button>
+    <sit-button @click=${() => showDrawer("top")}>Open Top Drawer</sit-button>
+    <sit-button @click=${() => showDrawer("bottom")}>Open Bottom Drawer</sit-button>
+    <sit-drawer id="drawer_placement">
       <h4 slot="title">Title</h4>
       <p slot="description">Description</p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum est vitae erat molestie blandit.
@@ -26,9 +26,9 @@ const PlacementTemplate = () => {
       turpis quis placerat pharetra, lacus tortor fermentum tortor, a tincidunt mi arcu quis risus. Duis id ultrices
       urna, non placerat ex.
       <div slot="footer">
-        <sgds-button>Button</sgds-button>
+        <sit-button>Button</sit-button>
       </div>
-    </sgds-drawer>
+    </sit-drawer>
   `;
 };
 
@@ -54,11 +54,11 @@ export const Placement = {
 
 const SizeTemplate = () => {
   return html`
-    <sgds-button @click=${() => showDrawerSize("sm")}>Open Small Drawer</sgds-button>
-    <sgds-button @click=${() => showDrawerSize("md")}>Open Medium Drawer</sgds-button>
-    <sgds-button @click=${() => showDrawerSize("lg")}>Open Large Drawer</sgds-button>
+    <sit-button @click=${() => showDrawerSize("sm")}>Open Small Drawer</sit-button>
+    <sit-button @click=${() => showDrawerSize("md")}>Open Medium Drawer</sit-button>
+    <sit-button @click=${() => showDrawerSize("lg")}>Open Large Drawer</sit-button>
 
-    <sgds-drawer id="drawer_size">
+    <sit-drawer id="drawer_size">
       <h4 slot="title">Size example</h4>
       <p slot="description">This demonstrates drawer size options.</p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum est vitae erat molestie blandit.
@@ -78,9 +78,9 @@ const SizeTemplate = () => {
       turpis quis placerat pharetra, lacus tortor fermentum tortor, a tincidunt mi arcu quis risus. Duis id ultrices
       urna, non placerat ex.
       <div slot="footer">
-        <sgds-button>Button</sgds-button>
+        <sit-button>Button</sit-button>
       </div>
-    </sgds-drawer>
+    </sit-drawer>
   `;
 };
 

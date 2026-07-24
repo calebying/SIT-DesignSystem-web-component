@@ -4,23 +4,23 @@ const ThicknessTemplate = args =>
   html`
     <div class="d-flex-column">
       <div class="d-flex-row">
-        <sgds-divider></sgds-divider>
-        <sgds-divider thickness="thick"></sgds-divider>
-        <sgds-divider thickness="thicker"></sgds-divider>
+        <sit-divider></sit-divider>
+        <sit-divider thickness="thick"></sit-divider>
+        <sit-divider thickness="thicker"></sit-divider>
       </div>
       <div class="d-flex-row" style="height: 100px">
-        <sgds-divider orientation="vertical"></sgds-divider>
-        <sgds-divider orientation="vertical" thickness="thick"></sgds-divider>
-        <sgds-divider orientation="vertical" thickness="thicker"></sgds-divider>
+        <sit-divider orientation="vertical"></sit-divider>
+        <sit-divider orientation="vertical" thickness="thick"></sit-divider>
+        <sit-divider orientation="vertical" thickness="thicker"></sit-divider>
       </div>
     </div>
   `;
 const OrientationTeamplate = args =>
   html`
     <div class="d-flex-row" style="height: 500px">
-      <sgds-divider orientation="vertical"></sgds-divider>
-      <sgds-divider orientation="vertical" thickness="thick"></sgds-divider>
-      <sgds-divider orientation="vertical" thickness="thicker"></sgds-divider>
+      <sit-divider orientation="vertical"></sit-divider>
+      <sit-divider orientation="vertical" thickness="thick"></sit-divider>
+      <sit-divider orientation="vertical" thickness="thicker"></sit-divider>
     </div>
   `;
 

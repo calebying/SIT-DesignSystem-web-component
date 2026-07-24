@@ -7,9 +7,9 @@ const PlacementTemplate = args => {
     <div class="d-flex-row">
       ${placements.map(
         p => html` <div class="d-flex-row">
-        <sgds-tooltip content="${p}" placement="${p}">
-          <sgds-icon name="info-circle" ariaLabel="Information" tabindex="0"></sgds-icon>
-        </sgds-tooltip>
+        <sit-tooltip content="${p}" placement="${p}">
+          <sit-icon name="info-circle" ariaLabel="Information" tabindex="0"></sit-icon>
+        </sit-tooltip>
       </div>
       </div>
       `
@@ -24,9 +24,9 @@ const TriggerTemplate = args => {
       ${trigger.map(
         t => html` <div class="d-flex-row">
             ${t} to invoke the tooltip
-        <sgds-tooltip content="${t}" trigger=${t}>
-          <sgds-icon name="info-circle" ariaLabel="Information" tabindex="0"></sgds-icon>
-        </sgds-tooltip>
+        <sit-tooltip content="${t}" trigger=${t}>
+          <sit-icon name="info-circle" ariaLabel="Information" tabindex="0"></sit-icon>
+        </sit-tooltip>
       </div>
       </div>
       `

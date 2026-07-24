@@ -12,8 +12,8 @@ export const PaginationWithAPI = {
 
 export const PaginationSizes = {
   render: () => html`
-    <sgds-pagination dataLength="50" size="sm"></sgds-pagination>
-    <sgds-pagination dataLength="50" size="md"></sgds-pagination>
+    <sit-pagination dataLength="50" size="sm"></sit-pagination>
+    <sit-pagination dataLength="50" size="md"></sit-pagination>
   `,
   name: "Sizes",
   args: {},
@@ -22,10 +22,10 @@ export const PaginationSizes = {
 
 export const PaginationVariants = {
   render: () => html`
-    <sgds-pagination dataLength="50"></sgds-pagination>
-    <sgds-pagination dataLength="50" variant="number"></sgds-pagination>
-    <sgds-pagination dataLength="50" variant="button"></sgds-pagination>
-    <sgds-pagination dataLength="50" variant="description"></sgds-pagination>
+    <sit-pagination dataLength="50"></sit-pagination>
+    <sit-pagination dataLength="50" variant="number"></sit-pagination>
+    <sit-pagination dataLength="50" variant="button"></sit-pagination>
+    <sit-pagination dataLength="50" variant="description"></sit-pagination>
   `,
   name: "Variants",
   args: {},
@@ -34,8 +34,8 @@ export const PaginationVariants = {
 
 export const Navigation = {
   render: () => html`
-    <sgds-pagination dataLength="50"></sgds-pagination>
-    <sgds-pagination dataLength="50" navigation="button"></sgds-pagination>
+    <sit-pagination dataLength="50"></sit-pagination>
+    <sit-pagination dataLength="50" navigation="button"></sit-pagination>
   `,
   name: "Navigation button type",
   args: {},

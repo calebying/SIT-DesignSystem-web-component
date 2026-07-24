@@ -1,4 +1,4 @@
-## SgdsSidenavItem as a link
+## SitSidenavItem as a link
 
 SidenavItem can be configured as a link by passing in a single anchor tag element into the default slot
 
@@ -6,15 +6,15 @@ SidenavItem can be configured as a link by passing in a single anchor tag elemen
   <Story of={SidenavStories.SidenavItemAsLink} />
 </Canvas>
 
-## SgdsSidenavItem as a menu 
+## SitSidenavItem as a menu 
 
-SidenavItem can be configured as a menu by passing in a SgdsSidenavLink into the default slot
+SidenavItem can be configured as a menu by passing in a SitSidenavLink into the default slot
 
 <Canvas of={SidenavStories.SidenavItemAsMenu}>
   <Story of={SidenavStories.SidenavItemAsMenu} />
 </Canvas>
 
-## Embedded second level menu in SgdsSidenavItem
+## Embedded second level menu in SitSidenavItem
 
 SidenavItem accepts another SidenavItem as its children in the default slot. This results in a second level menu in the SidenavItem
 
@@ -32,26 +32,26 @@ Icons show a visual indication of what the item category is about. Only add icon
 
 ## Active state 
 
-Both SgdsSidenavItem and SgdsSidenavLink have `active` state. 
+Both SitSidenavItem and SitSidenavLink have `active` state. 
 
-As a menu type, SgdsSidenavItem will be automatically assigned `active` to true when one of its SgdsSidenavLink children is active. When this happens, SgdsSidenavItem menu will be open on first load
+As a menu type, SitSidenavItem will be automatically assigned `active` to true when one of its SitSidenavLink children is active. When this happens, SitSidenavItem menu will be open on first load
 
-As a link type, add `active` prop to SgdsSidenavItem to achieve the active styles 
+As a link type, add `active` prop to SitSidenavItem to achieve the active styles 
 
 
-### Active SgdsSidenavLink
+### Active SitSidenavLink
 
 <Canvas of={SidenavStories.ActiveLinkState}>
   <Story of={SidenavStories.ActiveLinkState} />
 </Canvas>
 
-### Active SgdsSidenavItem as link type
+### Active SitSidenavItem as link type
 
 <Canvas of={SidenavStories.ActiveaSidenavItemAsLinkState}>
   <Story of={SidenavStories.ActiveaSidenavItemAsLinkState} />
 </Canvas>
 
-### Active SgdsSidenavItem as menu type
+### Active SitSidenavItem as menu type
 
 <Canvas of={SidenavStories.ActiveaSidenavItemAsMenu}>
   <Story of={SidenavStories.ActiveaSidenavItemAsMenu} />
@@ -60,13 +60,13 @@ As a link type, add `active` prop to SgdsSidenavItem to achieve the active style
 
 ## Disabled state
 
-### Disabled SgdsSidenavItem
+### Disabled SitSidenavItem
 
 <Canvas of={SidenavStories.DisabledItem}>
   <Story of={SidenavStories.DisabledItem} />
 </Canvas>
 
-### Disabled SgdsSidenavLink
+### Disabled SitSidenavLink
 
 <Canvas of={SidenavStories.DisabledLink}>
   <Story of={SidenavStories.DisabledLink} />

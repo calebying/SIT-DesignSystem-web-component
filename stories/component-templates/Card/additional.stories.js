@@ -3,7 +3,7 @@ import { html } from "lit";
 const StretchedTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card stretchedLink>
+      <sit-card stretchedLink>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -14,12 +14,12 @@ const StretchedTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Stretched link card</h3>
         <span slot="description">stretched link card</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };
@@ -34,7 +34,7 @@ export const Stretched = {
 const DisabledTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card disabled>
+      <sit-card disabled>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -45,12 +45,12 @@ const DisabledTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Disabled card</h3>
         <span slot="description">disabled card</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };
@@ -65,7 +65,7 @@ export const Disabled = {
 const OrientationTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card orientation="vertical">
+      <sit-card orientation="vertical">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -76,13 +76,13 @@ const OrientationTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card orientation="horizontal">
+        </sit-link>
+      </sit-card>
+      <sit-card orientation="horizontal">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -93,12 +93,12 @@ const OrientationTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Horizontal image card</h3>
         <span slot="description">horizontal card</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };
@@ -113,7 +113,7 @@ export const Orientation = {
 const ImagePositionTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card orientation="vertical" imagePosition="before">
+      <sit-card orientation="vertical" imagePosition="before">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -124,13 +124,13 @@ const ImagePositionTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card with image position set to before the content</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card orientation="vertical" imagePosition="after">
+        </sit-link>
+      </sit-card>
+      <sit-card orientation="vertical" imagePosition="after">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -141,13 +141,13 @@ const ImagePositionTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card with image position set to after the content</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card orientation="horizontal" imagePosition="before">
+        </sit-link>
+      </sit-card>
+      <sit-card orientation="horizontal" imagePosition="before">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -158,13 +158,13 @@ const ImagePositionTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Horizontal image card</h3>
         <span slot="description">horizontal card with image position set to before the content</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card orientation="horizontal" imagePosition="after">
+        </sit-link>
+      </sit-card>
+      <sit-card orientation="horizontal" imagePosition="after">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -175,12 +175,12 @@ const ImagePositionTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Horizontal image card</h3>
         <span slot="description">horizontal card with image position set to after the content</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };
@@ -195,7 +195,7 @@ export const ImagePosition = {
 const ImageAdjustmentTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card orientation="vertical" imageAdjustment="default">
+      <sit-card orientation="vertical" imageAdjustment="default">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -206,13 +206,13 @@ const ImageAdjustmentTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card with image adjustment set to default</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card orientation="vertical" imageAdjustment="padding around">
+        </sit-link>
+      </sit-card>
+      <sit-card orientation="vertical" imageAdjustment="padding around">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -223,13 +223,13 @@ const ImageAdjustmentTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card with image adjustment set to padding around</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card orientation="vertical" imageAdjustment="aspect ratio">
+        </sit-link>
+      </sit-card>
+      <sit-card orientation="vertical" imageAdjustment="aspect ratio">
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -240,12 +240,12 @@ const ImageAdjustmentTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card with image adjustment set to aspect ratio</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };
@@ -260,7 +260,7 @@ export const ImageAdjustment = {
 const HideBorderTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card hideBorder>
+      <sit-card hideBorder>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -271,13 +271,13 @@ const HideBorderTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card with no border</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card hideBorder>
+        </sit-link>
+      </sit-card>
+      <sit-card hideBorder>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -288,13 +288,13 @@ const HideBorderTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card with no border</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card orientation="horizontal" hideBorder>
+        </sit-link>
+      </sit-card>
+      <sit-card orientation="horizontal" hideBorder>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -305,13 +305,13 @@ const HideBorderTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Horizontal image card</h3>
         <span slot="description">horizontal card with no border</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card orientation="horizontal" hideBorder>
+        </sit-link>
+      </sit-card>
+      <sit-card orientation="horizontal" hideBorder>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -322,12 +322,12 @@ const HideBorderTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Horizontal image card</h3>
         <span slot="description">horizontal card with no border</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };
@@ -342,7 +342,7 @@ export const HideBorder = {
 const TintedTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card tinted>
+      <sit-card tinted>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -353,12 +353,12 @@ const TintedTemplate = () => {
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Vertical image card</h3>
         <span slot="description">vertical card with tinted background</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };
@@ -373,16 +373,16 @@ export const Tinted = {
 const NoPaddingTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card noPadding>
+      <sit-card noPadding>
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">No Padding Card</h3>
         <span slot="description">card with no padding</span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };
@@ -397,30 +397,30 @@ export const NoPadding = {
 const OverflowMenuTemplate = () => {
   return html`
     <div class="container">
-      <sgds-card>
-        <sgds-badge variant="primary" slot="upper">New</sgds-badge>
-        <sgds-overflow-menu slot="menu">
-          <sgds-dropdown-item ariaLabel="View">View</sgds-dropdown-item>
-          <sgds-dropdown-item ariaLabel="Edit">Edit</sgds-dropdown-item>
-          <sgds-dropdown-item ariaLabel="Delete">Delete</sgds-dropdown-item>
-        </sgds-overflow-menu>
+      <sit-card>
+        <sit-badge variant="primary" slot="upper">New</sit-badge>
+        <sit-overflow-menu slot="menu">
+          <sit-dropdown-item ariaLabel="View">View</sit-dropdown-item>
+          <sit-dropdown-item ariaLabel="Edit">Edit</sit-dropdown-item>
+          <sit-dropdown-item ariaLabel="Delete">Delete</sit-dropdown-item>
+        </sit-overflow-menu>
         <span slot="subtitle">EVENTS</span>
         <span slot="title">Innovative solutions for you</span>
-        <sgds-icon-list size="sm">
-          <div role="listitem"><sgds-icon size="md" name="calendar"></sgds-icon>12 September</div>
-          <div role="listitem"><sgds-icon size="md" name="laptop"></sgds-icon>Online</div>
-        </sgds-icon-list>
+        <sit-icon-list size="sm">
+          <div role="listitem"><sit-icon size="md" name="calendar"></sit-icon>12 September</div>
+          <div role="listitem"><sit-icon size="md" name="laptop"></sit-icon>Online</div>
+        </sit-icon-list>
         <span slot="description"
           >Discover how our platform can streamline your workflow and enhance productivity. With cutting-edge technology
           and user-friendly design, we empower you to achieve more.</span
         >
         <div slot="lower">
-          <sgds-badge variant="neutral" outlined>Design</sgds-badge>
+          <sit-badge variant="neutral" outlined>Design</sit-badge>
         </div>
-        <sgds-link slot="footer">
-          <a href="#" aria-label="Register now">Register now <sgds-icon name="arrow-right"></sgds-icon></a>
-        </sgds-link>
-      </sgds-card>
+        <sit-link slot="footer">
+          <a href="#" aria-label="Register now">Register now <sit-icon name="arrow-right"></sit-icon></a>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 };

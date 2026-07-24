@@ -1,156 +1,153 @@
 import { html } from "lit";
 
 const Template = () => html`
-  <sgds-masthead></sgds-masthead>
+  <sit-masthead></sit-masthead>
 
-  <sgds-mainnav>
+  <sit-mainnav>
     <strong slot="brand">Logo</strong>
-  </sgds-mainnav>
+  </sit-mainnav>
 
   <!-- Page header -->
-  <section class="sgds:bg-default sgds:py-layout-lg">
-    <div class="sgds-container">
-      <div
-        class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left"
-        style="max-width: var(--sgds-text-max-width);"
-      >
+  <section class="sit:bg-default sit:py-layout-lg">
+    <div class="sit-container">
+      <div class="sit:flex sit:flex-col sit:items-start sit:text-left" style="max-width: var(--Sit-text-max-width);">
         <div
-          class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+          class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
         >
           Profile Settings
         </div>
-        <h1 class="sgds:text-heading-xl sgds:font-bold sgds:leading-xl sgds:tracking-tight sgds:text-heading-default">
+        <h1 class="sit:text-heading-xl sit:font-bold sit:leading-xl sit:tracking-tight sit:text-heading-default">
           Edit profile
         </h1>
-        <p class="sgds:text-body-lg sgds:leading-md sgds:tracking-normal sgds:text-body-subtle">
+        <p class="sit:text-body-lg sit:leading-md sit:tracking-normal sit:text-body-subtle">
           Update your personal details and preferences.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="sgds:bg-surface-default sgds:min-h-screen">
-    <div class="sgds-container">
+  <section class="sit:bg-surface-default sit:min-h-screen">
+    <div class="sit-container">
       <form id="profile-form" method="post" novalidate>
         <!-- Section 1: Personal information -->
-        <div class="sgds:border-t sgds:border-muted sgds:py-layout-md">
-          <div class="sgds-grid sgds:gap-layout-md">
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+        <div class="sit:border-t sit:border-muted sit:py-layout-md">
+          <div class="sit-grid sit:gap-layout-md">
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
               <h3
-                class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
+                class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default"
               >
                 Personal information
               </h3>
-              <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+              <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
                 Your name and contact details. Only your agency administrator can see this information.
               </p>
             </div>
 
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:flex sgds:flex-col sgds:gap-component-sm">
-              <div class="sgds-grid sgds:gap-component-sm">
-                <sgds-input
-                  class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6"
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8 sit:flex sit:flex-col sit:gap-component-sm">
+              <div class="sit-grid sit:gap-component-sm">
+                <sit-input
+                  class="sit-col-4 sit-col-sm-4 sit-col-lg-6"
                   label="First name"
                   name="firstName"
                   required
                   hasFeedback
-                ></sgds-input>
-                <sgds-input
-                  class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6"
+                ></sit-input>
+                <sit-input
+                  class="sit-col-4 sit-col-sm-4 sit-col-lg-6"
                   label="Last name"
                   name="lastName"
                   required
                   hasFeedback
-                ></sgds-input>
+                ></sit-input>
               </div>
-              <sgds-input
+              <sit-input
                 label="Email address"
                 type="email"
                 name="email"
                 hint="Must be a gov.sg email address."
                 required
                 hasFeedback
-              ></sgds-input>
-              <sgds-input
+              ></sit-input>
+              <sit-input
                 label="Phone number"
                 type="tel"
                 name="phone"
                 hint="Singapore number including country code, e.g. +65 9123 4567"
                 hasFeedback
-              ></sgds-input>
+              ></sit-input>
             </div>
           </div>
         </div>
 
         <!-- Section 2: Role & access -->
-        <div class="sgds:border-t sgds:border-muted sgds:py-layout-md">
-          <div class="sgds-grid sgds:gap-layout-md">
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+        <div class="sit:border-t sit:border-muted sit:py-layout-md">
+          <div class="sit-grid sit:gap-layout-md">
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
               <h3
-                class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
+                class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default"
               >
                 Role &amp; access
               </h3>
-              <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+              <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
                 Your position and assigned permissions within the system.
               </p>
             </div>
 
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:flex sgds:flex-col sgds:gap-component-sm">
-              <sgds-input label="Job title" name="jobTitle" hasFeedback></sgds-input>
-              <sgds-select label="Department" name="department" placeholder="Select department" hasFeedback>
-                <sgds-select-option value="policy">Policy</sgds-select-option>
-                <sgds-select-option value="operations">Operations</sgds-select-option>
-                <sgds-select-option value="ict">ICT</sgds-select-option>
-              </sgds-select>
-              <sgds-select label="Access level" name="accessLevel" hasFeedback>
-                <sgds-select-option value="viewer">Viewer</sgds-select-option>
-                <sgds-select-option value="editor">Editor</sgds-select-option>
-                <sgds-select-option value="admin">Admin</sgds-select-option>
-              </sgds-select>
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8 sit:flex sit:flex-col sit:gap-component-sm">
+              <sit-input label="Job title" name="jobTitle" hasFeedback></sit-input>
+              <sit-select label="Department" name="department" placeholder="Select department" hasFeedback>
+                <sit-select-option value="policy">Policy</sit-select-option>
+                <sit-select-option value="operations">Operations</sit-select-option>
+                <sit-select-option value="ict">ICT</sit-select-option>
+              </sit-select>
+              <sit-select label="Access level" name="accessLevel" hasFeedback>
+                <sit-select-option value="viewer">Viewer</sit-select-option>
+                <sit-select-option value="editor">Editor</sit-select-option>
+                <sit-select-option value="admin">Admin</sit-select-option>
+              </sit-select>
             </div>
           </div>
         </div>
 
         <!-- Section 3: Notes -->
-        <div class="sgds:border-t sgds:border-muted sgds:py-layout-md">
-          <div class="sgds-grid sgds:gap-layout-md">
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+        <div class="sit:border-t sit:border-muted sit:py-layout-md">
+          <div class="sit-grid sit:gap-layout-md">
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
               <h3
-                class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
+                class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default"
               >
                 Notes
               </h3>
-              <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+              <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
                 Optional additional context visible to your team.
               </p>
             </div>
 
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8">
-              <sgds-textarea
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8">
+              <sit-textarea
                 label="Internal notes"
                 name="notes"
                 rows="4"
                 maxlength="500"
                 characterCount
                 hint="Max 500 characters."
-              ></sgds-textarea>
+              ></sit-textarea>
             </div>
           </div>
         </div>
 
         <!-- Form footer -->
         <div
-          class="sgds:border-t sgds:border-muted sgds:pt-layout-sm sgds:flex sgds:justify-end sgds:gap-component-sm sgds:mb-layout-lg "
+          class="sit:border-t sit:border-muted sit:pt-layout-sm sit:flex sit:justify-end sit:gap-component-sm sit:mb-layout-lg "
         >
-          <sgds-button variant="outline" type="button">Cancel</sgds-button>
-          <sgds-button variant="primary" type="submit">Save changes</sgds-button>
+          <sit-button variant="outline" type="button">Cancel</sit-button>
+          <sit-button variant="primary" type="submit">Save changes</sit-button>
         </div>
       </form>
     </div>
   </section>
 
-  <sgds-footer></sgds-footer>
+  <sit-footer></sit-footer>
 `;
 
 export default {

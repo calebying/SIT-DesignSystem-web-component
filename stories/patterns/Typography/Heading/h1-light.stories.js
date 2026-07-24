@@ -1,16 +1,16 @@
 import { html } from "lit";
 
 const H1LightTemplate = () => html`
-  <div class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left" style="max-width: var(--sgds-text-max-width);">
+  <div class="sit:flex sit:flex-col sit:items-start sit:text-left" style="max-width: var(--Sit-text-max-width);">
     <div
-      class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+      class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
     >
       Overline Label
     </div>
-    <h1 class="sgds:text-heading-xl sgds:font-light sgds:leading-xl sgds:tracking-tight sgds:text-heading-default">
+    <h1 class="sit:text-heading-xl sit:font-light sit:leading-xl sit:tracking-tight sit:text-heading-default">
       Page Heading Goes Here
     </h1>
-    <p class="sgds:text-body-lg sgds:leading-md sgds:tracking-normal sgds:text-body-subtle">
+    <p class="sit:text-body-lg sit:leading-md sit:tracking-normal sit:text-body-subtle">
       Supporting body text that provides context and detail for the page or section above.
     </p>
   </div>

@@ -12,7 +12,7 @@ When the close button is clicked, it updates the `show` state of the system bann
 The two-line clamped feature limits the content of the system banner to two lines to achieve a consistency in the banner's height. It is a responsive feature that ensures the banner looks good on all screen sizes.
 If the content exceeds two lines, it will be truncated with an ellipsis and a show more link appears.
 
-When the show more link is clicked, it emits a custom event called `sgds-show-more`
+When the show more link is clicked, it emits a custom event called `Sit-show-more`
 You can hook onto the click event of the show more link to perform your side effect action. It could be an opening of a modal
 or a redirect to another page.
 
@@ -36,12 +36,12 @@ By default, the SystemBanner content is contained within a max-width container. 
 
 The `noClampAction` prop disables the "show more" link functionality when set to `true`. When enabled, long content will be truncated with an ellipsis only, without providing the option to expand the message.
 
-This is useful when you want to enforce a strict two-line limit for banner messages without giving users the ability to view the full content. All child `sgds-system-banner-item` components will inherit this behaviour.
+This is useful when you want to enforce a strict two-line limit for banner messages without giving users the ability to view the full content. All child `Sit-system-banner-item` components will inherit this behaviour.
 
 **Key behaviours when `noClampAction` is true:**
 - Text content is truncated to two lines with an ellipsis
 - No "show more" link appears, even for long content
-- The `sgds-show-more` event will not be emitted
+- The `Sit-show-more` event will not be emitted
 
 <Canvas of={SystemBannerStories.NoClampAction}>
   <Story of={SystemBannerStories.NoClampAction} />

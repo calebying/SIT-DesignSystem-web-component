@@ -3,9 +3,9 @@ import { html } from "lit";
 const SizeTemplate = args => {
   return html`
     <div class="d-flex-column">
-      <sgds-switch size="sm">small</sgds-switch>
-      <sgds-switch size="md">medium (default)</sgds-switch>
-      <sgds-switch size="lg">large </sgds-switch>
+      <sit-switch size="sm">small</sit-switch>
+      <sit-switch size="md">medium (default)</sit-switch>
+      <sit-switch size="lg">large </sit-switch>
     </div>
   `;
 };
@@ -13,8 +13,8 @@ const SizeTemplate = args => {
 const LabelTemplate = args => {
   return html`
     <div class="d-flex-column">
-      <sgds-switch>Label on the right</sgds-switch>
-      <sgds-switch><span slot="leftLabel"> Label on the left</span></sgds-switch>
+      <sit-switch>Label on the right</sit-switch>
+      <sit-switch><span slot="leftLabel"> Label on the left</span></sit-switch>
     </div>
   `;
 };
@@ -22,8 +22,8 @@ const LabelTemplate = args => {
 const IconTemplate = args => {
   return html`
     <div class="d-flex-column">
-      <sgds-switch icon>Off with icon</sgds-switch>
-      <sgds-switch icon checked>On with icon</sgds-switch>
+      <sit-switch icon>Off with icon</sit-switch>
+      <sit-switch icon checked>On with icon</sit-switch>
     </div>
   `;
 };

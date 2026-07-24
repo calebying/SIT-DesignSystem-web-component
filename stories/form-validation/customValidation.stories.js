@@ -7,8 +7,8 @@ const handleInput = e => {};
 
 const DisableValidationByInputTemplate = args => {
   return html`
-    <form id="custom-validation-form" class="sgds:flex sgds:flex-col sgds:gap-layout-xs">
-      <sgds-input
+    <form id="custom-validation-form" class="sit:flex sit:flex-col sit:gap-layout-xs">
+      <sit-input
         noValidate
         required
         label="Keys"
@@ -17,10 +17,10 @@ const DisableValidationByInputTemplate = args => {
         hasFeedback="both"
         placeholder="Placeholder"
         id="custom-validation__input-novalidate"
-        @sgds-input=${handleInput}
+        @Sit-input=${handleInput}
       >
-      </sgds-input>
-      <sgds-textarea
+      </sit-input>
+      <sit-textarea
         noValidate
         required
         label="Bio"
@@ -30,8 +30,8 @@ const DisableValidationByInputTemplate = args => {
         placeholder="Enter bio"
         id="custom-validation__textarea-novalidate"
       >
-      </sgds-textarea>
-      <sgds-combo-box
+      </sit-textarea>
+      <sit-combo-box
         noValidate
         required
         label="Fruit"
@@ -41,12 +41,12 @@ const DisableValidationByInputTemplate = args => {
         placeholder="Select a fruit"
         id="custom-validation__combobox-novalidate"
       >
-        <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-        <sgds-combo-box-option value="apricot">Apricot</sgds-combo-box-option>
-        <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-        <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-      </sgds-combo-box>
-      <sgds-select
+        <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+        <sit-combo-box-option value="apricot">Apricot</sit-combo-box-option>
+        <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+        <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+      </sit-combo-box>
+      <sit-select
         noValidate
         required
         label="Gender"
@@ -56,12 +56,12 @@ const DisableValidationByInputTemplate = args => {
         placeholder="Select a gender"
         id="custom-validation__select-novalidate"
       >
-        <sgds-select-option value="male">Male</sgds-select-option>
-        <sgds-select-option value="female">Female</sgds-select-option>
-        <sgds-select-option value="other">Other</sgds-select-option>
-        <sgds-select-option value="prefer-not-to-say">Prefer not to say</sgds-select-option>
-      </sgds-select>
-      <sgds-file-upload
+        <sit-select-option value="male">Male</sit-select-option>
+        <sit-select-option value="female">Female</sit-select-option>
+        <sit-select-option value="other">Other</sit-select-option>
+        <sit-select-option value="prefer-not-to-say">Prefer not to say</sit-select-option>
+      </sit-select>
+      <sit-file-upload
         noValidate
         required
         label="Documents"
@@ -73,8 +73,8 @@ const DisableValidationByInputTemplate = args => {
         id="custom-validation__file-upload-novalidate"
       >
         Choose Files
-      </sgds-file-upload>
-      <sgds-datepicker
+      </sit-file-upload>
+      <sit-datepicker
         noValidate
         required
         label="Appointment Date"
@@ -82,8 +82,8 @@ const DisableValidationByInputTemplate = args => {
         name="appointment-date"
         hasFeedback
         id="custom-validation__datepicker-novalidate"
-      ></sgds-datepicker>
-      <sgds-radio-group
+      ></sit-datepicker>
+      <sit-radio-group
         noValidate
         required
         label="Gender"
@@ -92,11 +92,11 @@ const DisableValidationByInputTemplate = args => {
         hasFeedback
         id="custom-validation__radio-novalidate"
       >
-        <sgds-radio value="male">Male</sgds-radio>
-        <sgds-radio value="female">Female</sgds-radio>
-        <sgds-radio value="other">Other</sgds-radio>
-      </sgds-radio-group>
-      <sgds-checkbox-group
+        <sit-radio value="male">Male</sit-radio>
+        <sit-radio value="female">Female</sit-radio>
+        <sit-radio value="other">Other</sit-radio>
+      </sit-radio-group>
+      <sit-checkbox-group
         noValidate
         required
         label="Interests"
@@ -105,13 +105,13 @@ const DisableValidationByInputTemplate = args => {
         hasFeedback
         id="custom-validation__checkbox-novalidate"
       >
-        <sgds-checkbox value="sports">Sports</sgds-checkbox>
-        <sgds-checkbox value="music">Music</sgds-checkbox>
-        <sgds-checkbox value="reading">Reading</sgds-checkbox>
-      </sgds-checkbox-group>
-      <div class="sgds:flex sgds:justify-end sgds:gap-component-xs">
-        <sgds-button type="reset" variant="ghost">Reset</sgds-button>
-        <sgds-button type="submit">Submit</sgds-button>
+        <sit-checkbox value="sports">Sports</sit-checkbox>
+        <sit-checkbox value="music">Music</sit-checkbox>
+        <sit-checkbox value="reading">Reading</sit-checkbox>
+      </sit-checkbox-group>
+      <div class="sit:flex sit:justify-end sit:gap-component-xs">
+        <sit-button type="reset" variant="ghost">Reset</sit-button>
+        <sit-button type="submit">Submit</sit-button>
       </div>
     </form>
     <script>
@@ -119,7 +119,7 @@ const DisableValidationByInputTemplate = args => {
       formOne.addEventListener("submit", e => {
         e.preventDefault();
         const components = formOne.querySelectorAll(
-          "sgds-input, sgds-textarea, sgds-combo-box, sgds-select, sgds-file-upload, sgds-datepicker"
+          "Sit-input, Sit-textarea, Sit-combo-box, Sit-select, Sit-file-upload, Sit-datepicker"
         );
         let hasInvalid = false;
         components.forEach(c => {
@@ -131,8 +131,8 @@ const DisableValidationByInputTemplate = args => {
         );
       });
 
-      const inputOne = document.querySelector("sgds-input#custom-validation__input-novalidate");
-      inputOne.addEventListener("sgds-input", e => {
+      const inputOne = document.querySelector("Sit-input#custom-validation__input-novalidate");
+      inputOne.addEventListener("Sit-input", e => {
         if (!/^[^a-zA-Z0-9]/.test(e.target.value)) {
           e.target.setInvalid(false);
         } else {
@@ -141,8 +141,8 @@ const DisableValidationByInputTemplate = args => {
         }
       });
 
-      const textareaOne = document.querySelector("sgds-textarea#custom-validation__textarea-novalidate");
-      textareaOne.addEventListener("sgds-input", e => {
+      const textareaOne = document.querySelector("Sit-textarea#custom-validation__textarea-novalidate");
+      textareaOne.addEventListener("Sit-input", e => {
         if (!e.target.value || e.target.value.length >= 10) {
           e.target.setInvalid(false);
         } else {
@@ -150,8 +150,8 @@ const DisableValidationByInputTemplate = args => {
           e.target.invalidFeedback = "Bio must be at least 10 characters long";
         }
       });
-      const comboOne = document.querySelector("sgds-combo-box#custom-validation__combobox-novalidate");
-      comboOne.addEventListener("sgds-change", e => {
+      const comboOne = document.querySelector("Sit-combo-box#custom-validation__combobox-novalidate");
+      comboOne.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Select an option";
@@ -162,8 +162,8 @@ const DisableValidationByInputTemplate = args => {
           e.target.setInvalid(false);
         }
       });
-      const selectOne = document.querySelector("sgds-select#custom-validation__select-novalidate");
-      selectOne.addEventListener("sgds-change", e => {
+      const selectOne = document.querySelector("Sit-select#custom-validation__select-novalidate");
+      selectOne.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Please select a gender";
@@ -171,8 +171,8 @@ const DisableValidationByInputTemplate = args => {
           e.target.setInvalid(false);
         }
       });
-      const fileUploadOne = document.querySelector("sgds-file-upload#custom-validation__file-upload-novalidate");
-      fileUploadOne.addEventListener("sgds-add-files", e => {
+      const fileUploadOne = document.querySelector("Sit-file-upload#custom-validation__file-upload-novalidate");
+      fileUploadOne.addEventListener("Sit-add-files", e => {
         const allFiles = fileUploadOne.files;
         let isValid = true;
         let errorMsg = "";
@@ -194,7 +194,7 @@ const DisableValidationByInputTemplate = args => {
         fileUploadOne.setInvalid(!isValid);
       });
 
-      fileUploadOne.addEventListener("sgds-remove-file", e => {
+      fileUploadOne.addEventListener("Sit-remove-file", e => {
         const remaining = e.detail.files;
         if (remaining.length === 0) {
           fileUploadOne.invalidFeedback = "At least one file is required";
@@ -204,8 +204,8 @@ const DisableValidationByInputTemplate = args => {
         }
       });
 
-      const datepickerOne = document.querySelector("sgds-datepicker#custom-validation__datepicker-novalidate");
-      datepickerOne.addEventListener("sgds-change-date", e => {
+      const datepickerOne = document.querySelector("Sit-datepicker#custom-validation__datepicker-novalidate");
+      datepickerOne.addEventListener("Sit-change-date", e => {
         const val = e.target.value;
         if (!val || val === "DD/MM/YYYY") return;
         const [day, month, year] = val.split("/");
@@ -220,8 +220,8 @@ const DisableValidationByInputTemplate = args => {
         }
       });
 
-      const radioOne = document.querySelector("sgds-radio-group#custom-validation__radio-novalidate");
-      radioOne.addEventListener("sgds-change", e => {
+      const radioOne = document.querySelector("Sit-radio-group#custom-validation__radio-novalidate");
+      radioOne.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Please select a gender";
@@ -229,8 +229,8 @@ const DisableValidationByInputTemplate = args => {
           e.target.setInvalid(false);
         }
       });
-      const checkboxGroupOne = document.querySelector("sgds-checkbox-group#custom-validation__checkbox-novalidate");
-      checkboxGroupOne.addEventListener("sgds-change", e => {
+      const checkboxGroupOne = document.querySelector("Sit-checkbox-group#custom-validation__checkbox-novalidate");
+      checkboxGroupOne.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Please select at least one interest";
@@ -243,8 +243,8 @@ const DisableValidationByInputTemplate = args => {
 };
 const DisableValidationByFormTemplate = args => {
   return html`
-    <form id="custom-validation-form_novalidate" class="sgds:flex sgds:flex-col sgds:gap-layout-xs" novalidate>
-      <sgds-input
+    <form id="custom-validation-form_novalidate" class="sit:flex sit:flex-col sit:gap-layout-xs" novalidate>
+      <sit-input
         required
         label="Keys"
         hinttext="Keys cannot start with special characters like @, #, $"
@@ -253,8 +253,8 @@ const DisableValidationByFormTemplate = args => {
         placeholder="Placeholder"
         id="custom-validation__input-two-novalidate"
       >
-      </sgds-input>
-      <sgds-textarea
+      </sit-input>
+      <sit-textarea
         required
         label="Notes"
         hinttext="Custom validation: minimum 5 characters"
@@ -263,8 +263,8 @@ const DisableValidationByFormTemplate = args => {
         placeholder="Enter notes"
         id="custom-validation__textarea-two-novalidate"
       >
-      </sgds-textarea>
-      <sgds-combo-box
+      </sit-textarea>
+      <sit-combo-box
         required
         label="Fruit"
         hinttext="Selection must start with 'A'"
@@ -273,12 +273,12 @@ const DisableValidationByFormTemplate = args => {
         placeholder="Select a fruit"
         id="custom-validation__combobox-two-novalidate"
       >
-        <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-        <sgds-combo-box-option value="apricot">Apricot</sgds-combo-box-option>
-        <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-        <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-      </sgds-combo-box>
-      <sgds-select
+        <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+        <sit-combo-box-option value="apricot">Apricot</sit-combo-box-option>
+        <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+        <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+      </sit-combo-box>
+      <sit-select
         required
         label="Gender"
         hinttext="Please select a gender"
@@ -287,12 +287,12 @@ const DisableValidationByFormTemplate = args => {
         placeholder="Select a gender"
         id="custom-validation__select-two-novalidate"
       >
-        <sgds-select-option value="male">Male</sgds-select-option>
-        <sgds-select-option value="female">Female</sgds-select-option>
-        <sgds-select-option value="other">Other</sgds-select-option>
-        <sgds-select-option value="prefer-not-to-say">Prefer not to say</sgds-select-option>
-      </sgds-select>
-      <sgds-file-upload
+        <sit-select-option value="male">Male</sit-select-option>
+        <sit-select-option value="female">Female</sit-select-option>
+        <sit-select-option value="other">Other</sit-select-option>
+        <sit-select-option value="prefer-not-to-say">Prefer not to say</sit-select-option>
+      </sit-select>
+      <sit-file-upload
         required
         label="Documents"
         hinttext="Max 2 PDF files"
@@ -303,16 +303,16 @@ const DisableValidationByFormTemplate = args => {
         id="custom-validation__file-upload-two-novalidate"
       >
         Choose Files
-      </sgds-file-upload>
-      <sgds-datepicker
+      </sit-file-upload>
+      <sit-datepicker
         required
         label="Appointment Date"
         hintText="Must be a future date"
         name="appointment-date"
         hasFeedback
         id="custom-validation__datepicker-two-novalidate"
-      ></sgds-datepicker>
-      <sgds-radio-group
+      ></sit-datepicker>
+      <sit-radio-group
         required
         label="Gender"
         hintText="Please select a gender"
@@ -320,12 +320,12 @@ const DisableValidationByFormTemplate = args => {
         hasFeedback
         id="custom-validation__radio-two-novalidate"
       >
-        <sgds-radio value="male">Male</sgds-radio>
-        <sgds-radio value="female">Female</sgds-radio>
-        <sgds-radio value="other">Other</sgds-radio>
-      </sgds-radio-group>
-      <sgds-button type="submit">Submit</sgds-button>
-      <sgds-checkbox-group
+        <sit-radio value="male">Male</sit-radio>
+        <sit-radio value="female">Female</sit-radio>
+        <sit-radio value="other">Other</sit-radio>
+      </sit-radio-group>
+      <sit-button type="submit">Submit</sit-button>
+      <sit-checkbox-group
         required
         label="Interests"
         hintText="Select at least one interest"
@@ -333,13 +333,13 @@ const DisableValidationByFormTemplate = args => {
         hasFeedback
         id="custom-validation__checkbox-two-novalidate"
       >
-        <sgds-checkbox value="sports">Sports</sgds-checkbox>
-        <sgds-checkbox value="music">Music</sgds-checkbox>
-        <sgds-checkbox value="reading">Reading</sgds-checkbox>
-      </sgds-checkbox-group>
-      <div class="sgds:flex sgds:justify-end sgds:gap-component-xs">
-        <sgds-button type="reset" variant="ghost">Reset</sgds-button>
-        <sgds-button type="submit">Submit</sgds-button>
+        <sit-checkbox value="sports">Sports</sit-checkbox>
+        <sit-checkbox value="music">Music</sit-checkbox>
+        <sit-checkbox value="reading">Reading</sit-checkbox>
+      </sit-checkbox-group>
+      <div class="sit:flex sit:justify-end sit:gap-component-xs">
+        <sit-button type="reset" variant="ghost">Reset</sit-button>
+        <sit-button type="submit">Submit</sit-button>
       </div>
     </form>
     <script>
@@ -352,7 +352,7 @@ const DisableValidationByFormTemplate = args => {
       });
 
       const inputTwo = document.getElementById("custom-validation__input-two-novalidate");
-      inputTwo.addEventListener("sgds-input", e => {
+      inputTwo.addEventListener("Sit-input", e => {
         if (!/^[^a-zA-Z0-9]/.test(e.target.value)) {
           e.target.setInvalid(false);
         } else {
@@ -362,7 +362,7 @@ const DisableValidationByFormTemplate = args => {
       });
 
       const textareaTwo = document.getElementById("custom-validation__textarea-two-novalidate");
-      textareaTwo.addEventListener("sgds-input", e => {
+      textareaTwo.addEventListener("Sit-input", e => {
         if (!e.target.value || e.target.value.length >= 5) {
           e.target.setInvalid(false);
         } else {
@@ -372,7 +372,7 @@ const DisableValidationByFormTemplate = args => {
       });
 
       const comboTwo = document.getElementById("custom-validation__combobox-two-novalidate");
-      comboTwo.addEventListener("sgds-change", e => {
+      comboTwo.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Select an option";
@@ -384,7 +384,7 @@ const DisableValidationByFormTemplate = args => {
         }
       });
       const selectTwo = document.getElementById("custom-validation__select-two-novalidate");
-      selectTwo.addEventListener("sgds-change", e => {
+      selectTwo.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Please select a gender";
@@ -393,7 +393,7 @@ const DisableValidationByFormTemplate = args => {
         }
       });
       const fileUploadTwo = document.getElementById("custom-validation__file-upload-two-novalidate");
-      fileUploadTwo.addEventListener("sgds-add-files", e => {
+      fileUploadTwo.addEventListener("Sit-add-files", e => {
         const allFiles = fileUploadTwo.files;
         let isValid = true;
         let errorMsg = "";
@@ -415,7 +415,7 @@ const DisableValidationByFormTemplate = args => {
         fileUploadTwo.setInvalid(!isValid);
       });
 
-      fileUploadTwo.addEventListener("sgds-remove-file", e => {
+      fileUploadTwo.addEventListener("Sit-remove-file", e => {
         const remaining = e.detail.files;
         if (remaining.length === 0) {
           fileUploadTwo.invalidFeedback = "At least one file is required";
@@ -426,7 +426,7 @@ const DisableValidationByFormTemplate = args => {
       });
 
       const datepickerTwo = document.getElementById("custom-validation__datepicker-two-novalidate");
-      datepickerTwo.addEventListener("sgds-change-date", e => {
+      datepickerTwo.addEventListener("Sit-change-date", e => {
         const val = e.target.value;
         if (!val || val === "DD/MM/YYYY") return;
         const [day, month, year] = val.split("/");
@@ -442,7 +442,7 @@ const DisableValidationByFormTemplate = args => {
       });
 
       const radioTwo = document.getElementById("custom-validation__radio-two-novalidate");
-      radioTwo.addEventListener("sgds-change", e => {
+      radioTwo.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Please select a gender";
@@ -451,7 +451,7 @@ const DisableValidationByFormTemplate = args => {
         }
       });
       const checkboxGroupTwo = document.getElementById("custom-validation__checkbox-two-novalidate");
-      checkboxGroupTwo.addEventListener("sgds-change", e => {
+      checkboxGroupTwo.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Please select at least one interest";

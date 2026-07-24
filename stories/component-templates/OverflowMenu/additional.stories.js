@@ -2,11 +2,11 @@ import { html } from "lit";
 
 const SizeTemplate = args => {
   return html`
-    <sgds-overflow-menu size=${args.size}>
-      <sgds-dropdown-item ariaLabel="View">View</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Edit">Edit</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Delete">Delete</sgds-dropdown-item>
-    </sgds-overflow-menu>
+    <sit-overflow-menu size=${args.size}>
+      <sit-dropdown-item ariaLabel="View">View</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Edit">Edit</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Delete">Delete</sit-dropdown-item>
+    </sit-overflow-menu>
   `;
 };
 

@@ -1,19 +1,16 @@
 import { html } from "lit";
 
 const DisplaySmCenterLightTemplate = () => html`
-  <div
-    class="sgds:flex sgds:flex-col sgds:items-center sgds:text-center"
-    style="max-width: var(--sgds-text-max-width);"
-  >
+  <div class="sit:flex sit:flex-col sit:items-center sit:text-center" style="max-width: var(--Sit-text-max-width);">
     <div
-      class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+      class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
     >
       Overline Label
     </div>
-    <h1 class="sgds:text-display-sm sgds:font-light sgds:leading-2-xl sgds:tracking-tighter sgds:text-display-default">
+    <h1 class="sit:text-display-sm sit:font-light sit:leading-2-xl sit:tracking-tighter sit:text-display-default">
       Display Small Center Light Heading
     </h1>
-    <h4 class="sgds:text-heading-sm sgds:font-light sgds:leading-sm sgds:tracking-tight sgds:text-heading-default">
+    <h4 class="sit:text-heading-sm sit:font-light sit:leading-sm sit:tracking-tight sit:text-heading-default">
       Supporting heading that provides context and detail for the section above.
     </h4>
   </div>

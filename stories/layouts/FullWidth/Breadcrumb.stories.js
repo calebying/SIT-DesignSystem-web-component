@@ -13,8 +13,8 @@ const placeholderStyle = html`
         -45deg,
         transparent,
         transparent 6px,
-        var(--sgds-color-border-muted, #e5e7eb) 6px,
-        var(--sgds-color-border-muted, #e5e7eb) 7px
+        var(--Sit-color-border-muted, #e5e7eb) 6px,
+        var(--Sit-color-border-muted, #e5e7eb) 7px
       );
     }
   </style>
@@ -23,40 +23,40 @@ const placeholderStyle = html`
 const Template = () => html`
   ${placeholderStyle}
   <div>
-    <sgds-masthead></sgds-masthead>
-    <sgds-mainnav>
+    <sit-masthead></sit-masthead>
+    <sit-mainnav>
       <strong slot="brand">My App</strong>
-      <sgds-mainnav-dropdown ariaLabel="Workspace menu">
+      <sit-mainnav-dropdown ariaLabel="Workspace menu">
         <span slot="toggler">Workspace</span>
-        <sgds-dropdown-item ariaLabel="Dashboard"><a href="#">Dashboard</a></sgds-dropdown-item>
-        <sgds-dropdown-item ariaLabel="Analytics"><a href="#">Analytics</a></sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
-      <sgds-mainnav-dropdown ariaLabel="Manage menu">
+        <sit-dropdown-item ariaLabel="Dashboard"><a href="#">Dashboard</a></sit-dropdown-item>
+        <sit-dropdown-item ariaLabel="Analytics"><a href="#">Analytics</a></sit-dropdown-item>
+      </sit-mainnav-dropdown>
+      <sit-mainnav-dropdown ariaLabel="Manage menu">
         <span slot="toggler">Manage</span>
-        <sgds-dropdown-item ariaLabel="Team"><a href="#">Team</a></sgds-dropdown-item>
-        <sgds-dropdown-item ariaLabel="Reports"><a href="#">Reports</a></sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
+        <sit-dropdown-item ariaLabel="Team"><a href="#">Team</a></sit-dropdown-item>
+        <sit-dropdown-item ariaLabel="Reports"><a href="#">Reports</a></sit-dropdown-item>
+      </sit-mainnav-dropdown>
       <div slot="end">
-        <sgds-button variant="primary" size="sm">New</sgds-button>
+        <sit-button variant="primary" size="sm">New</sit-button>
       </div>
-    </sgds-mainnav>
+    </sit-mainnav>
   </div>
-  <div class="sgds:flex sgds:flex-col">
+  <div class="sit:flex sit:flex-col">
     <main>
-      <div class="sgds:border-b sgds:border-muted sgds:text-body-sm">
-        <div class="sgds-container sgds:py-md">
-          <sgds-breadcrumb>
-            <sgds-breadcrumb-item><a href="#">Home</a></sgds-breadcrumb-item>
-            <sgds-breadcrumb-item><a href="#">Section</a></sgds-breadcrumb-item>
-            <sgds-breadcrumb-item active><a href="#">Current Page</a></sgds-breadcrumb-item>
-          </sgds-breadcrumb>
+      <div class="sit:border-b sit:border-muted sit:text-body-sm">
+        <div class="sit-container sit:py-md">
+          <sit-breadcrumb>
+            <sit-breadcrumb-item><a href="#">Home</a></sit-breadcrumb-item>
+            <sit-breadcrumb-item><a href="#">Section</a></sit-breadcrumb-item>
+            <sit-breadcrumb-item active><a href="#">Current Page</a></sit-breadcrumb-item>
+          </sit-breadcrumb>
         </div>
       </div>
-      <div class="sgds-container sgds:py-layout-md sgds:flex sgds:flex-col">
-        <div class="content-placeholder sgds:border sgds:border-muted sgds:flex-1"></div>
+      <div class="sit-container sit:py-layout-md sit:flex sit:flex-col">
+        <div class="content-placeholder sit:border sit:border-muted sit:flex-1"></div>
       </div>
     </main>
-    <sgds-footer></sgds-footer>
+    <sit-footer></sit-footer>
   </div>
 `;
 

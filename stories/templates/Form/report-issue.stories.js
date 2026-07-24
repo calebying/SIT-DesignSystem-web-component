@@ -7,30 +7,28 @@ const Template = () => html`
     }
   </style>
 
-  <sgds-masthead></sgds-masthead>
-  <sgds-mainnav>
+  <sit-masthead></sit-masthead>
+  <sit-mainnav>
     <strong slot="brand">Logo</strong>
-  </sgds-mainnav>
+  </sit-mainnav>
 
-  <section class="sgds:bg-default sgds:py-layout-lg">
-    <div class="sgds-container">
-      <div class="sgds-grid">
-        <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8">
+  <section class="sit:bg-default sit:py-layout-lg">
+    <div class="sit-container">
+      <div class="sit-grid">
+        <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8">
           <!-- VIEW: FORM -->
           <div id="view-form">
-            <div class="sgds:mb-layout-md">
-              <h1
-                class="sgds:text-heading-xl sgds:font-bold sgds:leading-xl sgds:tracking-tight sgds:text-heading-default"
-              >
+            <div class="sit:mb-layout-md">
+              <h1 class="sit:text-heading-xl sit:font-bold sit:leading-xl sit:tracking-tight sit:text-heading-default">
                 Report an Issue
               </h1>
-              <p class="sgds:text-body-lg sgds:leading-md sgds:tracking-normal sgds:text-body-subtle">
+              <p class="sit:text-body-lg sit:leading-md sit:tracking-normal sit:text-body-subtle">
                 Help us improve by reporting problems in your area. We aim to respond within 3 working days.
               </p>
             </div>
 
-            <form id="report-issue-form" class="sgds:flex sgds:flex-col sgds:gap-form-2-xl">
-              <sgds-input
+            <form id="report-issue-form" class="sit:flex sit:flex-col sit:gap-form-2-xl">
+              <sit-input
                 type="text"
                 label="Location"
                 name="location"
@@ -39,9 +37,9 @@ const Template = () => html`
                 required
                 hasFeedback="both"
                 invalidFeedback="Enter the location of the issue"
-              ></sgds-input>
+              ></sit-input>
 
-              <sgds-textarea
+              <sit-textarea
                 label="Description"
                 name="description"
                 placeholder="Describe the issue in detail - what it is, how long it has been there, and any safety concerns"
@@ -52,9 +50,9 @@ const Template = () => html`
                 required
                 hasFeedback="both"
                 invalidFeedback="Describe the issue (at least 20 characters)"
-              ></sgds-textarea>
+              ></sit-textarea>
 
-              <sgds-file-upload
+              <sit-file-upload
                 id="photo-upload"
                 label="Photos (optional)"
                 name="photos"
@@ -63,77 +61,75 @@ const Template = () => html`
                 hintText="Upload up to 3 photos. JPEG or PNG, max 5MB each."
               >
                 Upload Photos
-              </sgds-file-upload>
+              </sit-file-upload>
 
-              <sgds-button id="submit-btn" type="submit" variant="primary" size="md" class="sgds:self-end">
+              <sit-button id="submit-btn" type="submit" variant="primary" size="md" class="sit:self-end">
                 Submit Report
-              </sgds-button>
+              </sit-button>
             </form>
           </div>
 
           <!-- VIEW: SUCCESS -->
           <div id="view-success">
-            <div class="sgds:mb-lg">
-              <sgds-icon
+            <div class="sit:mb-lg">
+              <sit-icon
                 name="check-circle-fill"
                 size="3-xl"
-                style="color: var(--sgds-success-color-default);"
-              ></sgds-icon>
+                style="color: var(--Sit-success-color-default);"
+              ></sit-icon>
             </div>
 
-            <div class="sgds:mb-layout-md">
-              <h1
-                class="sgds:text-heading-xl sgds:font-bold sgds:leading-xl sgds:tracking-tight sgds:text-heading-default"
-              >
+            <div class="sit:mb-layout-md">
+              <h1 class="sit:text-heading-xl sit:font-bold sit:leading-xl sit:tracking-tight sit:text-heading-default">
                 Report Submitted
               </h1>
-              <p class="sgds:text-body-lg sgds:leading-md sgds:tracking-normal sgds:text-body-subtle">
+              <p class="sit:text-body-lg sit:leading-md sit:tracking-normal sit:text-body-subtle">
                 Thank you for helping us keep the community safe and clean.
               </p>
             </div>
 
-            <div class="sgds:mb-layout-sm">
+            <div class="sit:mb-layout-sm">
               <div
-                class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+                class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
               >
                 Reference Number
               </div>
               <h4
                 id="ref-number"
-                class="sgds:text-heading-sm sgds:font-light sgds:leading-sm sgds:tracking-tight sgds:text-heading-default"
+                class="sit:text-heading-sm sit:font-light sit:leading-sm sit:tracking-tight sit:text-heading-default"
               ></h4>
             </div>
 
             <!-- Submission summary -->
-            <sgds-description-list-group bordered class="sgds:mb-layout-sm">
-              <sgds-description-list>
+            <sit-description-list-group bordered class="sit:mb-layout-sm">
+              <sit-description-list>
                 Location
                 <span slot="data" id="summary-location"></span>
-              </sgds-description-list>
-              <sgds-description-list>
+              </sit-description-list>
+              <sit-description-list>
                 Description
                 <span slot="data" id="summary-description"></span>
-              </sgds-description-list>
-              <sgds-description-list>
+              </sit-description-list>
+              <sit-description-list>
                 Photos
                 <span slot="data" id="summary-photos"></span>
-              </sgds-description-list>
-              <sgds-description-list>
+              </sit-description-list>
+              <sit-description-list>
                 Submitted on
                 <span slot="data" id="summary-date"></span>
-              </sgds-description-list>
-            </sgds-description-list-group>
+              </sit-description-list>
+            </sit-description-list-group>
 
             <!-- What happens next -->
-            <div class="sgds:mb-layout-md">
+            <div class="sit:mb-layout-md">
               <p
-                class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal sgds:text-heading-default sgds:mb-sm"
+                class="sit:text-subtitle-md sit:font-semibold sit:leading-xs sit:tracking-normal sit:text-heading-default sit:mb-sm"
               >
                 What happens next
               </p>
               <ul
-                class="sgds:text-body-md sgds:font-regular sgds:leading-md sgds:text-default"
-                style="padding-left: var(--sgds-spacing-lg); margin: 0;"
+                class="sit:text-body-md sit:font-regular sit:leading-md sit:text-default"
+                style="padding-left: var(--Sit-spacing-lg); margin: 0;"
               >
                 <li>Our team will review your report within 3 working days.</li>
                 <li>You may be contacted for more information if needed.</li>
@@ -141,8 +137,8 @@ const Template = () => html`
               </ul>
             </div>
 
-            <div class="sgds:flex sgds:justify-end">
-              <sgds-button id="new-report-btn" variant="outline" size="md"> Submit Another Report </sgds-button>
+            <div class="sit:flex sit:justify-end">
+              <sit-button id="new-report-btn" variant="outline" size="md"> Submit Another Report </sit-button>
             </div>
           </div>
         </div>
@@ -150,7 +146,7 @@ const Template = () => html`
     </div>
   </section>
 
-  <sgds-footer></sgds-footer>
+  <sit-footer></sit-footer>
 
   <script>
     const form = document.getElementById("report-issue-form");
@@ -161,7 +157,7 @@ const Template = () => html`
     const photoUpload = document.getElementById("photo-upload");
 
     let selectedFiles = [];
-    photoUpload.addEventListener("sgds-files-selected", e => {
+    photoUpload.addEventListener("Sit-files-selected", e => {
       selectedFiles = Array.from(e.detail);
     });
 

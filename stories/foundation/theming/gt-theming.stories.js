@@ -92,64 +92,62 @@ const GT_PALETTES = [
 ];
 
 const GT_DOCS = `
-GovTech products should use one of the pre-approved colour palettes shipped with SGDS instead of defining custom hex values. Each product must pick **exactly one** colour — do not import multiple GT palettes.
+GovTech products should use one of the pre-approved colour palettes shipped with Sit instead of defining custom hex values. Each product must pick **exactly one** colour — do not import multiple GT palettes.
 
 The available palettes are:
 
 | Import path | Colour |
 |-------------|--------|
-| \`@govtechsg/sgds-web-component/themes/gt/blue.css\` | Blue |
-| \`@govtechsg/sgds-web-component/themes/gt/cyan.css\` | Cyan |
-| \`@govtechsg/sgds-web-component/themes/gt/magenta.css\` | Magenta |
-| \`@govtechsg/sgds-web-component/themes/gt/pink.css\` | Pink |
-| \`@govtechsg/sgds-web-component/themes/gt/purple.css\` | Purple |
-| \`@govtechsg/sgds-web-component/themes/gt/red.css\` | Red |
+| \`@govtechsg/Sit-web-component/themes/gt/blue.css\` | Blue |
+| \`@govtechsg/Sit-web-component/themes/gt/cyan.css\` | Cyan |
+| \`@govtechsg/Sit-web-component/themes/gt/magenta.css\` | Magenta |
+| \`@govtechsg/Sit-web-component/themes/gt/pink.css\` | Pink |
+| \`@govtechsg/Sit-web-component/themes/gt/purple.css\` | Purple |
+| \`@govtechsg/Sit-web-component/themes/gt/red.css\` | Red |
 
-Each GT file defines \`--gt-color-100\` through \`--gt-color-900\`. Map these onto the SGDS product primary scale in your custom CSS:
+Each GT file defines \`--gt-color-100\` through \`--gt-color-900\`. Map these onto the Sit product primary scale in your custom CSS:
 
 \`\`\`css
 /* yourCustomCss.css */
 :root {
-  --sgds-product-primary-100: var(--gt-color-100);
-  --sgds-product-primary-200: var(--gt-color-200);
-  --sgds-product-primary-300: var(--gt-color-300);
-  --sgds-product-primary-400: var(--gt-color-400);
-  --sgds-product-primary-500: var(--gt-color-500);
-  --sgds-product-primary-600: var(--gt-color-600);
-  --sgds-product-primary-700: var(--gt-color-700);
-  --sgds-product-primary-800: var(--gt-color-800);
-  --sgds-product-primary-900: var(--gt-color-900);
+  --Sit-product-primary-100: var(--gt-color-100);
+  --Sit-product-primary-200: var(--gt-color-200);
+  --Sit-product-primary-300: var(--gt-color-300);
+  --Sit-product-primary-400: var(--gt-color-400);
+  --Sit-product-primary-500: var(--gt-color-500);
+  --Sit-product-primary-600: var(--gt-color-600);
+  --Sit-product-primary-700: var(--gt-color-700);
+  --Sit-product-primary-800: var(--gt-color-800);
+  --Sit-product-primary-900: var(--gt-color-900);
 }
 \`\`\`
 
 Import order matters — the GT palette file must come after \`themes/day.css\` and before your custom mapping CSS:
 
 \`\`\`css
-@import "@govtechsg/sgds-web-component/themes/day.css";
-@import "@govtechsg/sgds-web-component/themes/gt/blue.css"; /* pick one colour only */
+@import "@govtechsg/Sit-web-component/themes/day.css";
+@import "@govtechsg/Sit-web-component/themes/gt/blue.css"; /* pick one colour only */
 @import "./yourCustomCss.css";
 \`\`\`
 `;
 
 const GtPalettesTemplate = () => html`
-  <div class="sgds:p-layout-xs sgds:flex sgds:flex-col sgds:gap-layout-lg">
+  <div class="sit:p-layout-xs sit:flex sit:flex-col sit:gap-layout-lg">
     ${GT_PALETTES.map(
       palette => html`
-        <div class="sgds:flex sgds:flex-col sgds:gap-text-md">
-          <h4 class="sgds:text-heading-sm sgds:font-semibold sgds:leading-sm sgds:tracking-tight">
-            GT ${palette.name}
-          </h4>
-          <div class="sgds:flex">
+        <div class="sit:flex sit:flex-col sit:gap-text-md">
+          <h4 class="sit:text-heading-sm sit:font-semibold sit:leading-sm sit:tracking-tight">GT ${palette.name}</h4>
+          <div class="sit:flex">
             ${palette.shades.map(
               (s, i) => html`
                 <div
-                  class="sgds:relative sgds:w-30 sgds:h-30 sgds:shrink-0 sgds:rounded-md sgds:shadow-2 sgds:p-2 sgds:flex sgds:flex-col sgds:justify-end sgds:font-mono sgds:text-label-xs sgds:leading-2-xs${i >
+                  class="sit:relative sit:w-30 sit:h-30 sit:shrink-0 sit:rounded-md sit:shadow-2 sit:p-2 sit:flex sit:flex-col sit:justify-end sit:font-mono sit:text-label-xs sit:leading-2-xs${i >
                   0
-                    ? " sgds:-ml-12"
+                    ? " sit:-ml-12"
                     : ""}"
                   style="background-color: ${s.hex}; color: ${s.shade >= 500 ? "#ffffff" : "#111111"};"
                 >
-                  <span class="sgds:font-bold">${s.shade}</span>
+                  <span class="sit:font-bold">${s.shade}</span>
                   <span>${s.hex}</span>
                 </div>
               `

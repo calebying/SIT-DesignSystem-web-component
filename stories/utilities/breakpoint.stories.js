@@ -7,7 +7,7 @@ export default {
 
 const copyToClipboard = (token, buttonEl) => {
   navigator.clipboard.writeText(token);
-  const icon = buttonEl.querySelector("sgds-icon");
+  const icon = buttonEl.querySelector("Sit-icon");
   icon.setAttribute("name", "check");
   setTimeout(() => {
     icon.setAttribute("name", "files");
@@ -15,160 +15,160 @@ const copyToClipboard = (token, buttonEl) => {
 };
 
 export const Breakpoints = () => html`
-  <p class="sgds:mb-md sgds:text-body-md">
+  <p class="sit:mb-md sit:text-body-md">
     Responsive breakpoints use the syntax
-    <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm"
-      >sgds:&lt;breakpoint&gt;:&lt;utility&gt;</code
+    <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm"
+      >sit:&lt;breakpoint&gt;:&lt;utility&gt;</code
     >
-    (e.g. <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:sm:hidden</code>).
+    (e.g. <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:sm:hidden</code>).
   </p>
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>Responsive Prefix</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Min-width</sgds-table-head>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:xs:</code>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Responsive Prefix</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Min-width</sit-table-head>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:xs:</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:xs:", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:xs:", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-breakpoint-xs</code>
-      </sgds-table-cell>
-      <sgds-table-cell>320px</sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:sm:</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-breakpoint-xs</code>
+      </sit-table-cell>
+      <sit-table-cell>320px</sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:sm:</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:sm:", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:sm:", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-breakpoint-sm</code>
-      </sgds-table-cell>
-      <sgds-table-cell>512px</sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:md:</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-breakpoint-sm</code>
+      </sit-table-cell>
+      <sit-table-cell>512px</sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:md:</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:md:", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:md:", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-breakpoint-md</code>
-      </sgds-table-cell>
-      <sgds-table-cell>768px</sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:lg:</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-breakpoint-md</code>
+      </sit-table-cell>
+      <sit-table-cell>768px</sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:lg:</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:lg:", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:lg:", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-breakpoint-lg</code>
-      </sgds-table-cell>
-      <sgds-table-cell>1024px</sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:xl:</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-breakpoint-lg</code>
+      </sit-table-cell>
+      <sit-table-cell>1024px</sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:xl:</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:xl:", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:xl:", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-breakpoint-xl</code>
-      </sgds-table-cell>
-      <sgds-table-cell>1280px</sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:2-xl:</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-breakpoint-xl</code>
+      </sit-table-cell>
+      <sit-table-cell>1280px</sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:2-xl:</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:2-xl:", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:2-xl:", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-breakpoint-2-xl</code>
-      </sgds-table-cell>
-      <sgds-table-cell>1440px</sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:3-xl:</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-breakpoint-2-xl</code>
+      </sit-table-cell>
+      <sit-table-cell>1440px</sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:3-xl:</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:3-xl:", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:3-xl:", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-breakpoint-3-xl</code>
-      </sgds-table-cell>
-      <sgds-table-cell>1680px (sidebar layouts)</sgds-table-cell>
-    </sgds-table-row>
-  </sgds-table>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-breakpoint-3-xl</code>
+      </sit-table-cell>
+      <sit-table-cell>1680px (sidebar layouts)</sit-table-cell>
+    </sit-table-row>
+  </sit-table>
 
-  <div class="sgds:mb-2-xl"></div>
-  <h3 class="sgds:mb-md">Example: Responsive Visibility</h3>
-  <p class="sgds:mb-md sgds:text-body-md">
+  <div class="sit:mb-2-xl"></div>
+  <h3 class="sit:mb-md">Example: Responsive Visibility</h3>
+  <p class="sit:mb-md sit:text-body-md">
     Each badge below appears only when the viewport reaches its breakpoint. Resize the browser to see them appear or
     disappear.
   </p>
-  <div class="sgds:flex sgds:flex-wrap sgds:gap-sm">
-    <sgds-badge variant="primary" class="sgds:hidden sgds:xs:inline-flex">xs+ (320px)</sgds-badge>
-    <sgds-badge variant="accent" class="sgds:hidden sgds:sm:inline-flex">sm+ (512px)</sgds-badge>
-    <sgds-badge variant="success" class="sgds:hidden sgds:md:inline-flex">md+ (768px)</sgds-badge>
-    <sgds-badge variant="warning" class="sgds:hidden sgds:lg:inline-flex">lg+ (1024px)</sgds-badge>
-    <sgds-badge variant="danger" class="sgds:hidden sgds:xl:inline-flex">xl+ (1280px)</sgds-badge>
-    <sgds-badge variant="cyan" class="sgds:hidden sgds:2-xl:inline-flex">2-xl+ (1440px)</sgds-badge>
-    <sgds-badge variant="neutral" class="sgds:hidden sgds:3-xl:inline-flex">3-xl+ (1680px)</sgds-badge>
+  <div class="sit:flex sit:flex-wrap sit:gap-sm">
+    <sit-badge variant="primary" class="sit:hidden sit:xs:inline-flex">xs+ (320px)</sit-badge>
+    <sit-badge variant="accent" class="sit:hidden sit:sm:inline-flex">sm+ (512px)</sit-badge>
+    <sit-badge variant="success" class="sit:hidden sit:md:inline-flex">md+ (768px)</sit-badge>
+    <sit-badge variant="warning" class="sit:hidden sit:lg:inline-flex">lg+ (1024px)</sit-badge>
+    <sit-badge variant="danger" class="sit:hidden sit:xl:inline-flex">xl+ (1280px)</sit-badge>
+    <sit-badge variant="cyan" class="sit:hidden sit:2-xl:inline-flex">2-xl+ (1440px)</sit-badge>
+    <sit-badge variant="neutral" class="sit:hidden sit:3-xl:inline-flex">3-xl+ (1680px)</sit-badge>
   </div>
 `;

@@ -10,38 +10,38 @@ const Template = () => html`
     }
   </style>
 
-  <sgds-masthead></sgds-masthead>
+  <sit-masthead></sit-masthead>
 
-  <sgds-mainnav>
+  <sit-mainnav>
     <strong slot="brand">Logo</strong>
-    <sgds-mainnav-item slot="end">
-      <a href="#" class="sgds:text-sm sgds:text-body-subtle">Save draft</a>
-    </sgds-mainnav-item>
-  </sgds-mainnav>
+    <sit-mainnav-item slot="end">
+      <a href="#" class="sit:text-sm sit:text-body-subtle">Save draft</a>
+    </sit-mainnav-item>
+  </sit-mainnav>
 
   <!-- ── Page header ──────────────────────────────────────── -->
-  <section id="page-header" class="sgds:bg-surface-default sgds:py-layout-lg">
-    <div class="sgds-container">
+  <section id="page-header" class="sit:bg-surface-default sit:py-layout-lg">
+    <div class="sit-container">
       <div
-        class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left sgds:gap-layout-md"
-        style="max-width: var(--sgds-text-max-width);"
+        class="sit:flex sit:flex-col sit:items-start sit:text-left sit:gap-layout-md"
+        style="max-width: var(--Sit-text-max-width);"
       >
-        <sgds-breadcrumb>
-          <sgds-breadcrumb-item><a href="#">Home</a></sgds-breadcrumb-item>
-          <sgds-breadcrumb-item><a href="#">Grants</a></sgds-breadcrumb-item>
-          <sgds-breadcrumb-item active><a href="#">Sustainability Grant Application</a></sgds-breadcrumb-item>
-        </sgds-breadcrumb>
+        <sit-breadcrumb>
+          <sit-breadcrumb-item><a href="#">Home</a></sit-breadcrumb-item>
+          <sit-breadcrumb-item><a href="#">Grants</a></sit-breadcrumb-item>
+          <sit-breadcrumb-item active><a href="#">Sustainability Grant Application</a></sit-breadcrumb-item>
+        </sit-breadcrumb>
 
         <div>
           <div
-            class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+            class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
           >
             Grant Programme
           </div>
-          <h1 class="sgds:text-heading-xl sgds:font-bold sgds:leading-xl sgds:tracking-tight sgds:text-heading-default">
+          <h1 class="sit:text-heading-xl sit:font-bold sit:leading-xl sit:tracking-tight sit:text-heading-default">
             Enterprise Sustainability Grant
           </h1>
-          <p class="sgds:text-body-lg sgds:leading-md sgds:tracking-normal sgds:text-body-subtle">
+          <p class="sit:text-body-lg sit:leading-md sit:tracking-normal sit:text-body-subtle">
             Apply for funding to implement sustainability initiatives in your business. Grant quantum: up to 70% of
             qualifying costs, capped at S$30,000 per project.
           </p>
@@ -50,38 +50,38 @@ const Template = () => html`
     </div>
   </section>
 
-  <section class="sgds:bg-surface-default sgds:min-h-screen">
-    <div class="sgds-container sgds:py-2-xl">
+  <section class="sit:bg-surface-default sit:min-h-screen">
+    <div class="sit-container sit:py-2-xl">
       <!-- ── Info alert ─────────────────────────────────────── -->
-      <sgds-alert variant="info" class="sgds:mb-layout-md" dismissible>
+      <sit-alert variant="info" class="sit:mb-layout-md" dismissible>
         <strong>Before you begin:</strong> Ensure you have your company UEN, latest financial statements, and project
         quotations ready. Applications typically take 20-30 minutes to complete.
-      </sgds-alert>
+      </sit-alert>
 
       <!-- ── Stepper ───────────────────────────────────────── -->
-      <sgds-stepper id="grant-stepper" class="sgds:mb-layout-md"></sgds-stepper>
+      <sit-stepper id="grant-stepper" class="sit:mb-layout-md"></sit-stepper>
 
       <!-- ═══════════════════════════════════════════════════
            STEP 1 Eligibility Check
       ════════════════════════════════════════════════════ -->
       <section id="step-eligibility" class="step-section active">
         <form id="form-eligibility" novalidate>
-          <div class="sgds:border-t sgds:border-muted sgds:py-layout-md">
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+          <div class="sit:border-t sit:border-muted sit:py-layout-md">
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
                 <h2
-                  class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
+                  class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default"
                 >
                   Company Information
                 </h2>
-                <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+                <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
                   Basic details about your registered business entity.
                 </p>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:flex sgds:flex-col sgds:gap-layout-md">
-                <div class="sgds-grid sgds:gap-component-sm">
-                  <sgds-input
-                    class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6"
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8 sit:flex sit:flex-col sit:gap-layout-md">
+                <div class="sit-grid sit:gap-component-sm">
+                  <sit-input
+                    class="sit-col-4 sit-col-sm-8 sit-col-lg-6"
                     id="uen"
                     label="Unique Entity Number (UEN)"
                     name="uen"
@@ -89,19 +89,19 @@ const Template = () => html`
                     required
                     hasFeedback="both"
                     invalidFeedback="Enter a valid 9- or 10-character UEN"
-                  ></sgds-input>
-                  <sgds-input
-                    class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6"
+                  ></sit-input>
+                  <sit-input
+                    class="sit-col-4 sit-col-sm-8 sit-col-lg-6"
                     id="companyName"
                     label="Registered Company Name"
                     name="companyName"
                     placeholder="e.g. Green Solutions Pte. Ltd."
                     required
                     hasFeedback="both"
-                  ></sgds-input>
+                  ></sit-input>
                 </div>
 
-                <sgds-select
+                <sit-select
                   id="businessStructure"
                   label="Business Structure"
                   name="businessStructure"
@@ -110,18 +110,16 @@ const Template = () => html`
                   hasFeedback
                   invalidFeedback="Select a business structure"
                 >
-                  <sgds-select-option value="sole-proprietorship">Sole Proprietorship</sgds-select-option>
-                  <sgds-select-option value="partnership"
-                    >Partnership / Limited Liability Partnership</sgds-select-option
-                  >
-                  <sgds-select-option value="private-limited">Private Limited Company (Pte. Ltd.)</sgds-select-option>
-                  <sgds-select-option value="public-limited">Public Limited Company (Ltd.)</sgds-select-option>
-                  <sgds-select-option value="cooperative">Co-operative</sgds-select-option>
-                </sgds-select>
+                  <sit-select-option value="sole-proprietorship">Sole Proprietorship</sit-select-option>
+                  <sit-select-option value="partnership">Partnership / Limited Liability Partnership</sit-select-option>
+                  <sit-select-option value="private-limited">Private Limited Company (Pte. Ltd.)</sit-select-option>
+                  <sit-select-option value="public-limited">Public Limited Company (Ltd.)</sit-select-option>
+                  <sit-select-option value="cooperative">Co-operative</sit-select-option>
+                </sit-select>
 
-                <div class="sgds-grid sgds:gap-component-sm">
-                  <sgds-select
-                    class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6"
+                <div class="sit-grid sit:gap-component-sm">
+                  <sit-select
+                    class="sit-col-4 sit-col-sm-8 sit-col-lg-6"
                     id="employeeCount"
                     label="Number of Employees"
                     name="employeeCount"
@@ -131,13 +129,13 @@ const Template = () => html`
                     invalidFeedback="Select an employee count"
                     hintText="As at last financial year end"
                   >
-                    <sgds-select-option value="1-10">1 - 10</sgds-select-option>
-                    <sgds-select-option value="11-50">11 - 50</sgds-select-option>
-                    <sgds-select-option value="51-200">51 - 200</sgds-select-option>
-                    <sgds-select-option value="201+">More than 200 (not eligible)</sgds-select-option>
-                  </sgds-select>
-                  <sgds-select
-                    class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6"
+                    <sit-select-option value="1-10">1 - 10</sit-select-option>
+                    <sit-select-option value="11-50">11 - 50</sit-select-option>
+                    <sit-select-option value="51-200">51 - 200</sit-select-option>
+                    <sit-select-option value="201+">More than 200 (not eligible)</sit-select-option>
+                  </sit-select>
+                  <sit-select
+                    class="sit-col-4 sit-col-sm-8 sit-col-lg-6"
                     id="annualTurnover"
                     label="Annual Turnover"
                     name="annualTurnover"
@@ -147,33 +145,33 @@ const Template = () => html`
                     invalidFeedback="Select an annual turnover range"
                     hintText="As at last financial year end"
                   >
-                    <sgds-select-option value="lt-1m">Less than S$1 million</sgds-select-option>
-                    <sgds-select-option value="1m-10m">S$1 million - S$10 million</sgds-select-option>
-                    <sgds-select-option value="10m-50m">S$10 million - S$50 million</sgds-select-option>
-                    <sgds-select-option value="50m-100m">S$50 million - S$100 million</sgds-select-option>
-                    <sgds-select-option value="gt-100m">More than S$100 million (not eligible)</sgds-select-option>
-                  </sgds-select>
+                    <sit-select-option value="lt-1m">Less than S$1 million</sit-select-option>
+                    <sit-select-option value="1m-10m">S$1 million - S$10 million</sit-select-option>
+                    <sit-select-option value="10m-50m">S$10 million - S$50 million</sit-select-option>
+                    <sit-select-option value="50m-100m">S$50 million - S$100 million</sit-select-option>
+                    <sit-select-option value="gt-100m">More than S$100 million (not eligible)</sit-select-option>
+                  </sit-select>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="sgds:border-t sgds:border-muted sgds:py-layout-md">
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+          <div class="sit:border-t sit:border-muted sit:py-layout-md">
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
                 <h2
-                  class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
+                  class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default"
                 >
                   Industry & History
                 </h2>
-                <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+                <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
                   Your primary sector and prior engagement with government grants.
                 </p>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:flex sgds:flex-col sgds:gap-layout-md">
-                <div class="sgds-grid sgds:gap-component-sm">
-                  <sgds-select
-                    class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6"
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8 sit:flex sit:flex-col sit:gap-layout-md">
+                <div class="sit-grid sit:gap-component-sm">
+                  <sit-select
+                    class="sit-col-4 sit-col-sm-8 sit-col-lg-6"
                     id="industrySector"
                     label="Primary Industry Sector"
                     name="industrySector"
@@ -181,19 +179,19 @@ const Template = () => html`
                     required
                     hasFeedback
                   >
-                    <sgds-select-option value="food-beverage">Food & Beverage</sgds-select-option>
-                    <sgds-select-option value="retail">Retail</sgds-select-option>
-                    <sgds-select-option value="manufacturing">Manufacturing</sgds-select-option>
-                    <sgds-select-option value="construction">Construction</sgds-select-option>
-                    <sgds-select-option value="logistics">Logistics & Transportation</sgds-select-option>
-                    <sgds-select-option value="hospitality">Hospitality & Tourism</sgds-select-option>
-                    <sgds-select-option value="professional-services">Professional Services</sgds-select-option>
-                    <sgds-select-option value="healthcare">Healthcare</sgds-select-option>
-                    <sgds-select-option value="ict">ICT & Digital Services</sgds-select-option>
-                    <sgds-select-option value="other">Other</sgds-select-option>
-                  </sgds-select>
-                  <sgds-select
-                    class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6"
+                    <sit-select-option value="food-beverage">Food & Beverage</sit-select-option>
+                    <sit-select-option value="retail">Retail</sit-select-option>
+                    <sit-select-option value="manufacturing">Manufacturing</sit-select-option>
+                    <sit-select-option value="construction">Construction</sit-select-option>
+                    <sit-select-option value="logistics">Logistics & Transportation</sit-select-option>
+                    <sit-select-option value="hospitality">Hospitality & Tourism</sit-select-option>
+                    <sit-select-option value="professional-services">Professional Services</sit-select-option>
+                    <sit-select-option value="healthcare">Healthcare</sit-select-option>
+                    <sit-select-option value="ict">ICT & Digital Services</sit-select-option>
+                    <sit-select-option value="other">Other</sit-select-option>
+                  </sit-select>
+                  <sit-select
+                    class="sit-col-4 sit-col-sm-8 sit-col-lg-6"
                     id="yearsInOperation"
                     label="Years in Operation"
                     name="yearsInOperation"
@@ -201,35 +199,33 @@ const Template = () => html`
                     required
                     hasFeedback
                   >
-                    <sgds-select-option value="lt-1">Less than 1 year (not eligible)</sgds-select-option>
-                    <sgds-select-option value="1-3">1 - 3 years</sgds-select-option>
-                    <sgds-select-option value="3-5">3 - 5 years</sgds-select-option>
-                    <sgds-select-option value="gt-5">More than 5 years</sgds-select-option>
-                  </sgds-select>
+                    <sit-select-option value="lt-1">Less than 1 year (not eligible)</sit-select-option>
+                    <sit-select-option value="1-3">1 - 3 years</sit-select-option>
+                    <sit-select-option value="3-5">3 - 5 years</sit-select-option>
+                    <sit-select-option value="gt-5">More than 5 years</sit-select-option>
+                  </sit-select>
                 </div>
 
-                <sgds-radio-group
+                <sit-radio-group
                   id="priorGrant"
                   label="Have you previously received this grant?"
                   name="priorGrant"
                   required
                   hasFeedback
                 >
-                  <sgds-radio value="no">No, this is my first application</sgds-radio>
-                  <sgds-radio value="yes-different">Yes, for a different project</sgds-radio>
-                  <sgds-radio value="yes-same">Yes, for a similar project (may affect eligibility)</sgds-radio>
-                </sgds-radio-group>
+                  <sit-radio value="no">No, this is my first application</sit-radio>
+                  <sit-radio value="yes-different">Yes, for a different project</sit-radio>
+                  <sit-radio value="yes-same">Yes, for a similar project (may affect eligibility)</sit-radio>
+                </sit-radio-group>
               </div>
             </div>
           </div>
 
-          <div
-            class="sgds:border-t sgds:border-muted sgds:pt-layout-sm sgds:flex sgds:justify-end sgds:gap-component-sm"
-          >
-            <sgds-button id="btn-next-1" variant="primary" type="button">
+          <div class="sit:border-t sit:border-muted sit:pt-layout-sm sit:flex sit:justify-end sit:gap-component-sm">
+            <sit-button id="btn-next-1" variant="primary" type="button">
               Next: Project Details
-              <sgds-icon name="arrow-right" slot="rightIcon"></sgds-icon>
-            </sgds-button>
+              <sit-icon name="arrow-right" slot="rightIcon"></sit-icon>
+            </sit-button>
           </div>
         </form>
       </section>
@@ -239,20 +235,20 @@ const Template = () => html`
       ════════════════════════════════════════════════════ -->
       <section id="step-project" class="step-section">
         <form id="form-project" novalidate>
-          <div class="sgds:border-t sgds:border-muted sgds:py-layout-md">
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+          <div class="sit:border-t sit:border-muted sit:py-layout-md">
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
                 <h2
-                  class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
+                  class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default"
                 >
                   Project Overview
                 </h2>
-                <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+                <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
                   Describe the sustainability initiative you are seeking funding for.
                 </p>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:flex sgds:flex-col sgds:gap-layout-md">
-                <sgds-input
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8 sit:flex sit:flex-col sit:gap-layout-md">
+                <sit-input
                   id="projectTitle"
                   label="Project Title"
                   name="projectTitle"
@@ -260,9 +256,9 @@ const Template = () => html`
                   required
                   hasFeedback="both"
                   invalidFeedback="Provide a project title"
-                ></sgds-input>
+                ></sit-input>
 
-                <sgds-select
+                <sit-select
                   id="projectCategory"
                   label="Project Category"
                   name="projectCategory"
@@ -270,21 +266,19 @@ const Template = () => html`
                   required
                   hasFeedback
                 >
-                  <sgds-select-option value="renewable-energy"
-                    >Renewable Energy (Solar, Wind, Biogas)</sgds-select-option
+                  <sit-select-option value="renewable-energy">Renewable Energy (Solar, Wind, Biogas)</sit-select-option>
+                  <sit-select-option value="energy-efficiency">Energy Efficiency & Management</sit-select-option>
+                  <sit-select-option value="water-conservation">Water Conservation & Recycling</sit-select-option>
+                  <sit-select-option value="waste-management">Waste Reduction & Circular Economy</sit-select-option>
+                  <sit-select-option value="green-transport">Green Transport & Logistics</sit-select-option>
+                  <sit-select-option value="sustainable-procurement"
+                    >Sustainable Procurement & Supply Chain</sit-select-option
                   >
-                  <sgds-select-option value="energy-efficiency">Energy Efficiency & Management</sgds-select-option>
-                  <sgds-select-option value="water-conservation">Water Conservation & Recycling</sgds-select-option>
-                  <sgds-select-option value="waste-management">Waste Reduction & Circular Economy</sgds-select-option>
-                  <sgds-select-option value="green-transport">Green Transport & Logistics</sgds-select-option>
-                  <sgds-select-option value="sustainable-procurement"
-                    >Sustainable Procurement & Supply Chain</sgds-select-option
-                  >
-                  <sgds-select-option value="green-building">Green Building Retrofit</sgds-select-option>
-                  <sgds-select-option value="carbon-management">Carbon Measurement & Management</sgds-select-option>
-                </sgds-select>
+                  <sit-select-option value="green-building">Green Building Retrofit</sit-select-option>
+                  <sit-select-option value="carbon-management">Carbon Measurement & Management</sit-select-option>
+                </sit-select>
 
-                <sgds-textarea
+                <sit-textarea
                   id="projectDescription"
                   label="Project Description"
                   name="projectDescription"
@@ -297,22 +291,20 @@ const Template = () => html`
                   hasFeedback="both"
                   invalidFeedback="Provide a description of at least 100 characters"
                   hintText="Describe what you plan to implement and how it will improve your sustainability performance (min. 100 characters)"
-                ></sgds-textarea>
+                ></sit-textarea>
               </div>
             </div>
           </div>
 
-          <div
-            class="sgds:border-t sgds:border-muted sgds:pt-layout-sm sgds:flex sgds:justify-between sgds:gap-component-sm"
-          >
-            <sgds-button id="btn-prev-2" variant="outline" type="button">
-              <sgds-icon name="arrow-left" slot="leftIcon"></sgds-icon>
+          <div class="sit:border-t sit:border-muted sit:pt-layout-sm sit:flex sit:justify-between sit:gap-component-sm">
+            <sit-button id="btn-prev-2" variant="outline" type="button">
+              <sit-icon name="arrow-left" slot="leftIcon"></sit-icon>
               Back
-            </sgds-button>
-            <sgds-button id="btn-next-2" variant="primary" type="button">
+            </sit-button>
+            <sit-button id="btn-next-2" variant="primary" type="button">
               Next: Review
-              <sgds-icon name="arrow-right" slot="rightIcon"></sgds-icon>
-            </sgds-button>
+              <sit-icon name="arrow-right" slot="rightIcon"></sit-icon>
+            </sit-button>
           </div>
         </form>
       </section>
@@ -322,59 +314,59 @@ const Template = () => html`
       ════════════════════════════════════════════════════ -->
       <section id="step-review" class="step-section">
         <form id="form-review" novalidate>
-          <div class="sgds:border-t sgds:border-muted sgds:py-layout-md">
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+          <div class="sit:border-t sit:border-muted sit:py-layout-md">
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
                 <h2
-                  class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
+                  class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default"
                 >
                   Application Summary
                 </h2>
-                <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+                <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
                   Review all details before submitting. Use the Back button to correct any information.
                 </p>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8">
-                <div class="sgds:flex sgds:flex-col sgds:gap-layout-sm">
-                  <sgds-description-list-group bordered>
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8">
+                <div class="sit:flex sit:flex-col sit:gap-layout-sm">
+                  <sit-description-list-group bordered>
                     <span slot="title">Company Information</span>
-                    <sgds-description-list>UEN<span slot="data" id="rv-uen">-</span></sgds-description-list>
-                    <sgds-description-list
-                      >Company Name<span slot="data" id="rv-companyName">-</span></sgds-description-list
+                    <sit-description-list>UEN<span slot="data" id="rv-uen">-</span></sit-description-list>
+                    <sit-description-list
+                      >Company Name<span slot="data" id="rv-companyName">-</span></sit-description-list
                     >
-                    <sgds-description-list
-                      >Business Structure<span slot="data" id="rv-businessStructure">-</span></sgds-description-list
+                    <sit-description-list
+                      >Business Structure<span slot="data" id="rv-businessStructure">-</span></sit-description-list
                     >
-                  </sgds-description-list-group>
+                  </sit-description-list-group>
 
-                  <sgds-description-list-group bordered>
+                  <sit-description-list-group bordered>
                     <span slot="title">Project Details</span>
-                    <sgds-description-list
-                      >Project Title<span slot="data" id="rv-projectTitle">-</span></sgds-description-list
+                    <sit-description-list
+                      >Project Title<span slot="data" id="rv-projectTitle">-</span></sit-description-list
                     >
-                    <sgds-description-list
-                      >Category<span slot="data" id="rv-projectCategory">-</span></sgds-description-list
+                    <sit-description-list
+                      >Category<span slot="data" id="rv-projectCategory">-</span></sit-description-list
                     >
-                  </sgds-description-list-group>
+                  </sit-description-list-group>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="sgds:border-t sgds:border-muted sgds:py-layout-md">
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+          <div class="sit:border-t sit:border-muted sit:py-layout-md">
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4">
                 <h2
-                  class="sgds:text-heading-md sgds:font-semibold sgds:leading-md sgds:tracking-tight sgds:text-heading-default"
+                  class="sit:text-heading-md sit:font-semibold sit:leading-md sit:tracking-tight sit:text-heading-default"
                 >
                   Declarations
                 </h2>
-                <p class="sgds:text-body-md sgds:leading-xs sgds:tracking-normal sgds:text-body-subtle">
+                <p class="sit:text-body-md sit:leading-xs sit:tracking-normal sit:text-body-subtle">
                   All declarations must be acknowledged before submission.
                 </p>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:flex sgds:flex-col sgds:gap-layout-md">
-                <sgds-checkbox
+              <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8 sit:flex sit:flex-col sit:gap-layout-md">
+                <sit-checkbox
                   id="decl-accurate"
                   name="declAccurate"
                   value="yes"
@@ -384,9 +376,9 @@ const Template = () => html`
                 >
                   I declare that all information provided in this application is true, complete, and accurate to the
                   best of my knowledge.
-                </sgds-checkbox>
+                </sit-checkbox>
 
-                <sgds-checkbox
+                <sit-checkbox
                   id="decl-tnc"
                   name="declTnc"
                   value="yes"
@@ -395,23 +387,21 @@ const Template = () => html`
                   invalidFeedback="You must agree to the Terms and Conditions"
                 >
                   I have read and agree to the
-                  <a href="#" class="sgds:text-info-default sgds:underline">Terms and Conditions</a>.
-                </sgds-checkbox>
+                  <a href="#" class="sit:text-info-default sit:underline">Terms and Conditions</a>.
+                </sit-checkbox>
               </div>
             </div>
           </div>
 
-          <div
-            class="sgds:border-t sgds:border-muted sgds:pt-layout-sm sgds:flex sgds:justify-between sgds:gap-component-sm"
-          >
-            <sgds-button id="btn-prev-3" variant="outline" type="button">
-              <sgds-icon name="arrow-left" slot="leftIcon"></sgds-icon>
+          <div class="sit:border-t sit:border-muted sit:pt-layout-sm sit:flex sit:justify-between sit:gap-component-sm">
+            <sit-button id="btn-prev-3" variant="outline" type="button">
+              <sit-icon name="arrow-left" slot="leftIcon"></sit-icon>
               Back
-            </sgds-button>
-            <sgds-button id="btn-submit" variant="primary" type="submit">
+            </sit-button>
+            <sit-button id="btn-submit" variant="primary" type="submit">
               Submit Application
-              <sgds-icon name="send" slot="rightIcon"></sgds-icon>
-            </sgds-button>
+              <sit-icon name="send" slot="rightIcon"></sit-icon>
+            </sit-button>
           </div>
         </form>
       </section>
@@ -420,29 +410,27 @@ const Template = () => html`
            SUCCESS STATE
       ════════════════════════════════════════════════════ -->
       <section id="step-success" class="step-section">
-        <div class="sgds:flex sgds:flex-col sgds:items-center sgds:text-center sgds:py-layout-xl sgds:gap-layout-md">
-          <sgds-icon name="check-circle-fill" size="3-xl" class="sgds:text-success-default"></sgds-icon>
+        <div class="sit:flex sit:flex-col sit:items-center sit:text-center sit:py-layout-xl sit:gap-layout-md">
+          <sit-icon name="check-circle-fill" size="3-xl" class="sit:text-success-default"></sit-icon>
 
           <div>
-            <h1
-              class="sgds:text-heading-xl sgds:font-bold sgds:leading-xl sgds:tracking-tight sgds:text-heading-default"
-            >
+            <h1 class="sit:text-heading-xl sit:font-bold sit:leading-xl sit:tracking-tight sit:text-heading-default">
               Application Submitted
             </h1>
-            <p class="sgds:text-body-lg sgds:leading-md sgds:tracking-normal sgds:text-body-subtle">
+            <p class="sit:text-body-lg sit:leading-md sit:tracking-normal sit:text-body-subtle">
               Thank you for applying for the Enterprise Sustainability Grant.
             </p>
           </div>
 
           <div>
             <div
-              class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+              class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
             >
               Reference Number
             </div>
             <h4
               id="ref-number"
-              class="sgds:text-heading-sm sgds:font-light sgds:leading-sm sgds:tracking-tight sgds:text-heading-default"
+              class="sit:text-heading-sm sit:font-light sit:leading-sm sit:tracking-tight sit:text-heading-default"
             >
               ESG-2026-12345
             </h4>
@@ -452,7 +440,7 @@ const Template = () => html`
     </div>
   </section>
 
-  <sgds-footer></sgds-footer>
+  <sit-footer></sit-footer>
 
   <!-- ── Script ──────────────────────────────────────────────── -->
   <script>
@@ -491,7 +479,7 @@ const Template = () => html`
       return form.reportValidity();
     }
 
-    stepper.addEventListener("sgds-arrived", () => {
+    stepper.addEventListener("Sit-arrived", () => {
       const key = STEPS[stepper.activeStep].component;
       showSection(key);
       window.scrollTo({ top: 0, behavior: "smooth" });

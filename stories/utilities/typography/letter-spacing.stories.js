@@ -7,7 +7,7 @@ export default {
 
 const copyToClipboard = (token, buttonEl) => {
   navigator.clipboard.writeText(token);
-  const icon = buttonEl.querySelector("sgds-icon");
+  const icon = buttonEl.querySelector("Sit-icon");
   icon.setAttribute("name", "check");
   setTimeout(() => {
     icon.setAttribute("name", "files");
@@ -15,129 +15,127 @@ const copyToClipboard = (token, buttonEl) => {
 };
 
 export const LetterSpacing = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Value</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:tracking-tighter</code>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Value</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:tracking-tighter</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:tracking-tighter", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:tracking-tighter", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm"
-          >--sgds-letter-spacing-tighter</code
-        >
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">-1px</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:tracking-tighter">Tighter Letter Spacing</div>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:tracking-tight</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-letter-spacing-tighter</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">-1px</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:tracking-tighter">Tighter Letter Spacing</div>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:tracking-tight</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:tracking-tight", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:tracking-tight", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-letter-spacing-tight</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">-0.4px</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:tracking-tight">Tight Letter Spacing</div>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:tracking-normal</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-letter-spacing-tight</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">-0.4px</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:tracking-tight">Tight Letter Spacing</div>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:tracking-normal</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:tracking-normal", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:tracking-normal", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-letter-spacing-normal</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">0px</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:tracking-normal">Normal Letter Spacing</div>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:tracking-wide</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-letter-spacing-normal</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">0px</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:tracking-normal">Normal Letter Spacing</div>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:tracking-wide</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:tracking-wide", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:tracking-wide", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-letter-spacing-wide</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">1px</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:tracking-wide">Wide Letter Spacing</div>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:tracking-wider</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-letter-spacing-wide</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">1px</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:tracking-wide">Wide Letter Spacing</div>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:tracking-wider</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:tracking-wider", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:tracking-wider", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-letter-spacing-wider</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">2px</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:tracking-wider">Wider Letter Spacing</div>
-      </sgds-table-cell>
-    </sgds-table-row>
-  </sgds-table>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-letter-spacing-wider</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">2px</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:tracking-wider">Wider Letter Spacing</div>
+      </sit-table-cell>
+    </sit-table-row>
+  </sit-table>
 `;

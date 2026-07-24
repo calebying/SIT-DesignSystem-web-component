@@ -4,7 +4,7 @@ import { Meta } from "@storybook/blocks";
 
 # Typography
 
-SGDS foundation styles include a comprehensive responsive typography system that automatically adapts font sizes and line heights across different screen sizes. All HTML elements (headings, paragraphs, labels, etc.) use CSS custom properties that scale at three primary breakpoints:
+Sit foundation styles include a comprehensive responsive typography system that automatically adapts font sizes and line heights across different screen sizes. All HTML elements (headings, paragraphs, labels, etc.) use CSS custom properties that scale at three primary breakpoints:
 
 - **Mobile**: 0px and above (default)
 - **Tablet**: 1024px and above
@@ -31,35 +31,35 @@ Font sizes for headings, body text, labels, links and captions automatically sca
 
 ### Headings
 
-- `--sgds-font-size-heading-sm`: Responsive H4 sizing
-- `--sgds-font-size-heading-md`: Responsive H3 sizing
-- `--sgds-font-size-heading-lg`: Responsive H2 sizing
-- `--sgds-font-size-heading-xl`: Responsive H1 sizing
+- `--Sit-font-size-heading-sm`: Responsive H4 sizing
+- `--Sit-font-size-heading-md`: Responsive H3 sizing
+- `--Sit-font-size-heading-lg`: Responsive H2 sizing
+- `--Sit-font-size-heading-xl`: Responsive H1 sizing
 
 ### Body text
 
-- `--sgds-font-size-body-sm`: Small body text (14px on all viewports)
-- `--sgds-font-size-body-md`: Regular body text (16px on all viewports)
-- `--sgds-font-size-body-lg`: Large body text (responsive: 18px mobile → 20px tablet/desktop)
+- `--Sit-font-size-body-sm`: Small body text (14px on all viewports)
+- `--Sit-font-size-body-md`: Regular body text (16px on all viewports)
+- `--Sit-font-size-body-lg`: Large body text (responsive: 18px mobile → 20px tablet/desktop)
 
 ### Links
 
-- `--sgds-font-size-link-xs`: 12px on all viewports
-- `--sgds-font-size-link-sm`: 14px on all viewports
-- `--sgds-font-size-link-md`: 16px on all viewports
-- `--sgds-font-size-link-lg`: Responsive, 18px mobile → 20px tablet/desktop
+- `--Sit-font-size-link-xs`: 12px on all viewports
+- `--Sit-font-size-link-sm`: 14px on all viewports
+- `--Sit-font-size-link-md`: 16px on all viewports
+- `--Sit-font-size-link-lg`: Responsive, 18px mobile → 20px tablet/desktop
 
 ### Line heights
 
 Line height variables scale proportionally with font sizes for improved readability:
 
-- `--sgds-line-height-xs` through `--sgds-line-height-3-xl`
+- `--Sit-line-height-xs` through `--Sit-line-height-3-xl`
 
 Example progression:
 
-- Mobile: `--sgds-line-height-xs: 24px`, `--sgds-line-height-md: 28px`
-- Tablet (1024px+): `--sgds-line-height-xs: 24px`, `--sgds-line-height-md: 32px`
-- Desktop (1440px+): `--sgds-line-height-xs: 24px`, `--sgds-line-height-md: 32px`
+- Mobile: `--Sit-line-height-xs: 24px`, `--Sit-line-height-md: 28px`
+- Tablet (1024px+): `--Sit-line-height-xs: 24px`, `--Sit-line-height-md: 32px`
+- Desktop (1440px+): `--Sit-line-height-xs: 24px`, `--Sit-line-height-md: 32px`
 
 ## How responsive typography works
 
@@ -67,21 +67,21 @@ All typography variables are defined at the root level with default (mobile) val
 
 ```css
 :root {
-  --sgds-font-size-heading-xl: var(--sgds-font-size-32); /* Mobile: 32px */
-  --sgds-line-height-xl: var(--sgds-line-height-40);
+  --Sit-font-size-heading-xl: var(--Sit-font-size-32); /* Mobile: 32px */
+  --Sit-line-height-xl: var(--Sit-line-height-40);
 }
 
 @media screen and (min-width: 1024px) {
   :root {
-    --sgds-font-size-heading-xl: var(--sgds-font-size-36); /* Tablet: 36px */
-    --sgds-line-height-xl: var(--sgds-line-height-44);
+    --Sit-font-size-heading-xl: var(--Sit-font-size-36); /* Tablet: 36px */
+    --Sit-line-height-xl: var(--Sit-line-height-44);
   }
 }
 
 @media screen and (min-width: 1440px) {
   :root {
-    --sgds-font-size-heading-xl: var(--sgds-font-size-40); /* Desktop: 40px */
-    --sgds-line-height-xl: var(--sgds-line-height-48);
+    --Sit-font-size-heading-xl: var(--Sit-font-size-40); /* Desktop: 40px */
+    --Sit-line-height-xl: var(--Sit-line-height-48);
   }
 }
 ```

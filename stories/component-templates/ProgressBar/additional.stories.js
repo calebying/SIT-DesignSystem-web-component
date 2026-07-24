@@ -3,8 +3,8 @@ import { html } from "lit";
 const VariantTemplate = args => {
   return html`
     <div class="d-flex-column">
-      <sgds-progress-bar variant="primary" value="50"></sgds-progress-bar>
-      <sgds-progress-bar variant="neutral" value="50"></sgds-progress-bar>
+      <sit-progress-bar variant="primary" value="50"></sit-progress-bar>
+      <sit-progress-bar variant="neutral" value="50"></sit-progress-bar>
     </div>
   `;
 };
@@ -12,8 +12,8 @@ const VariantTemplate = args => {
 const LabelTemplate = args => {
   return html`
     <div class="d-flex-column">
-      <sgds-progress-bar variant="primary" value="50" label="50%"></sgds-progress-bar>
-      <sgds-progress-bar variant="neutral" value="50" label="50%"></sgds-progress-bar>
+      <sit-progress-bar variant="primary" value="50" label="50%"></sit-progress-bar>
+      <sit-progress-bar variant="neutral" value="50" label="50%"></sit-progress-bar>
     </div>
   `;
 };

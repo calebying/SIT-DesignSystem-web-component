@@ -28,37 +28,27 @@ const AllBodyTemplate = () => html`
 `;
 
 const BodyLgSemiboldTemplate = () => html`
-  <p class="sgds:text-body-lg sgds:font-semibold sgds:leading-md sgds:tracking-normal sgds:mb-xl">
-    Body large semibold.
-  </p>
+  <p class="sit:text-body-lg sit:font-semibold sit:leading-md sit:tracking-normal sit:mb-xl">Body large semibold.</p>
 `;
 
 const BodyLgRegularTemplate = () => html`
-  <p class="sgds:text-body-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mb-xl">Body large regular.</p>
+  <p class="sit:text-body-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mb-xl">Body large regular.</p>
 `;
 
 const BodyMdSemiboldTemplate = () => html`
-  <p class="sgds:text-body-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal sgds:mb-xl">
-    Body medium semibold.
-  </p>
+  <p class="sit:text-body-md sit:font-semibold sit:leading-xs sit:tracking-normal sit:mb-xl">Body medium semibold.</p>
 `;
 
 const BodyMdRegularTemplate = () => html`
-  <p class="sgds:text-body-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mb-xl">
-    Body medium regular.
-  </p>
+  <p class="sit:text-body-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mb-xl">Body medium regular.</p>
 `;
 
 const BodySmSemiboldTemplate = () => html`
-  <p class="sgds:text-body-sm sgds:font-semibold sgds:leading-2-xs sgds:tracking-normal sgds:mb-xl">
-    Body small semibold.
-  </p>
+  <p class="sit:text-body-sm sit:font-semibold sit:leading-2-xs sit:tracking-normal sit:mb-xl">Body small semibold.</p>
 `;
 
 const BodySmRegularTemplate = () => html`
-  <p class="sgds:text-body-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mb-xl">
-    Body small regular.
-  </p>
+  <p class="sit:text-body-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mb-xl">Body small regular.</p>
 `;
 
 export const AllBody = {

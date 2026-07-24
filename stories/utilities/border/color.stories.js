@@ -17,51 +17,51 @@ const ColorItem = (token, variable, borderColorValue = true) => {
 };
 
 const ColorGrid = (...items) => html`
-  <div class="sgds:grid sgds:gap-2-xl sgds:p-2-xl" style="grid-template-columns: repeat(3, 1fr);">${items}</div>
+  <div class="sit:grid sit:gap-2-xl sit:p-2-xl" style="grid-template-columns: repeat(3, 1fr);">${items}</div>
 `;
 
 export const Grayscales = () =>
   ColorGrid(
-    ColorItem("sgds:border-default", "--sgds-border-color-default"),
-    ColorItem("sgds:border-emphasis", "--sgds-border-color-emphasis"),
-    ColorItem("sgds:border-muted", "--sgds-border-color-muted"),
-    ColorItem("sgds:border-fixed-light", "--sgds-border-color-fixed-light"),
-    ColorItem("sgds:border-fixed-dark", "--sgds-border-color-fixed-dark"),
-    ColorItem("sgds:border-translucent", "--sgds-border-color-translucent"),
-    ColorItem("sgds:border-transparent", "--sgds-border-color-transparent")
+    ColorItem("sit:border-default", "--Sit-border-color-default"),
+    ColorItem("sit:border-emphasis", "--Sit-border-color-emphasis"),
+    ColorItem("sit:border-muted", "--Sit-border-color-muted"),
+    ColorItem("sit:border-fixed-light", "--Sit-border-color-fixed-light"),
+    ColorItem("sit:border-fixed-dark", "--Sit-border-color-fixed-dark"),
+    ColorItem("sit:border-translucent", "--Sit-border-color-translucent"),
+    ColorItem("sit:border-transparent", "--Sit-border-color-transparent")
   );
 
 export const Primary = () =>
   ColorGrid(
-    ColorItem("sgds:border-primary-default", "--sgds-primary-border-color-default"),
-    ColorItem("sgds:border-primary-emphasis", "--sgds-primary-border-color-emphasis"),
-    ColorItem("sgds:border-primary-muted", "--sgds-primary-border-color-muted")
+    ColorItem("sit:border-primary-default", "--Sit-primary-border-color-default"),
+    ColorItem("sit:border-primary-emphasis", "--Sit-primary-border-color-emphasis"),
+    ColorItem("sit:border-primary-muted", "--Sit-primary-border-color-muted")
   );
 
 export const Accent = () =>
   ColorGrid(
-    ColorItem("sgds:border-accent-default", "--sgds-accent-border-color-default"),
-    ColorItem("sgds:border-accent-emphasis", "--sgds-accent-border-color-emphasis"),
-    ColorItem("sgds:border-accent-muted", "--sgds-accent-border-color-muted")
+    ColorItem("sit:border-accent-default", "--Sit-accent-border-color-default"),
+    ColorItem("sit:border-accent-emphasis", "--Sit-accent-border-color-emphasis"),
+    ColorItem("sit:border-accent-muted", "--Sit-accent-border-color-muted")
   );
 
 export const Success = () =>
   ColorGrid(
-    ColorItem("sgds:border-success-default", "--sgds-success-border-color-default"),
-    ColorItem("sgds:border-success-emphasis", "--sgds-success-border-color-emphasis"),
-    ColorItem("sgds:border-success-muted", "--sgds-success-border-color-muted")
+    ColorItem("sit:border-success-default", "--Sit-success-border-color-default"),
+    ColorItem("sit:border-success-emphasis", "--Sit-success-border-color-emphasis"),
+    ColorItem("sit:border-success-muted", "--Sit-success-border-color-muted")
   );
 
 export const Danger = () =>
   ColorGrid(
-    ColorItem("sgds:border-danger-default", "--sgds-danger-border-color-default"),
-    ColorItem("sgds:border-danger-emphasis", "--sgds-danger-border-color-emphasis"),
-    ColorItem("sgds:border-danger-muted", "--sgds-danger-border-color-muted")
+    ColorItem("sit:border-danger-default", "--Sit-danger-border-color-default"),
+    ColorItem("sit:border-danger-emphasis", "--Sit-danger-border-color-emphasis"),
+    ColorItem("sit:border-danger-muted", "--Sit-danger-border-color-muted")
   );
 
 export const Warning = () =>
   ColorGrid(
-    ColorItem("sgds:border-warning-default", "--sgds-warning-border-color-default"),
-    ColorItem("sgds:border-warning-emphasis", "--sgds-warning-border-color-emphasis"),
-    ColorItem("sgds:border-warning-muted", "--sgds-warning-border-color-muted")
+    ColorItem("sit:border-warning-default", "--Sit-warning-border-color-default"),
+    ColorItem("sit:border-warning-emphasis", "--Sit-warning-border-color-emphasis"),
+    ColorItem("sit:border-warning-muted", "--Sit-warning-border-color-muted")
   );

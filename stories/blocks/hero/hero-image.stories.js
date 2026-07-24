@@ -7,52 +7,50 @@ const Template = () => html`
        Spacing  : py-layout-lg (top + bottom)
        Layout   : 50/50 split, gap-layout-md
   -->
-  <section class="sgds:bg-default sgds:py-layout-lg sgds:min-h-[640px]">
+  <section class="sit:bg-default sit:py-layout-lg sit:min-h-[640px]">
     <!-- Container — constrains width and centers block on page -->
-    <div class="sgds-container">
+    <div class="sit-container">
       <!-- Two-column row: left content + right image, gap-layout-md -->
-      <div class="sgds:flex sgds:items-center sgds:gap-layout-md">
+      <div class="sit:flex sit:items-center sit:gap-layout-md">
         <!-- Left: content slot (50%), padding-right layout-md -->
         <div
-          class="sgds:flex sgds:flex-col sgds:items-start sgds:text-left sgds:max-w-text"
-          style="width: 50%; padding-top: var(--sgds-spacing-layout-xs); padding-right: var(--sgds-spacing-layout-md);"
+          class="sit:flex sit:flex-col sit:items-start sit:text-left sit:max-w-text"
+          style="width: 50%; padding-top: var(--Sit-spacing-layout-xs); padding-right: var(--Sit-spacing-layout-md);"
         >
           <!-- Typography group — mb-xl separates group from button -->
-          <div class="sgds:mb-xl">
+          <div class="sit:mb-xl">
             <!-- Overline — overline-md semibold, label color default, mb-xs -->
             <div
-              class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-label-default sgds:mb-xs"
+              class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-label-default sit:mb-xs"
             >
               Singapore Government Digital Services
             </div>
 
             <!-- Headline — display-lg bold, display color default -->
             <h1
-              class="sgds:text-display-lg sgds:font-bold sgds:leading-3-xl sgds:tracking-tighter sgds:text-display-default"
+              class="sit:text-display-lg sit:font-bold sit:leading-3-xl sit:tracking-tighter sit:text-display-default"
             >
               One Platform. Simpler Living.
             </h1>
 
             <!-- Description — heading-sm light, h4 -->
-            <h4
-              class="sgds:text-heading-sm sgds:font-light sgds:leading-sm sgds:tracking-tight sgds:text-heading-subtle"
-            >
+            <h4 class="sit:text-heading-sm sit:font-light sit:leading-sm sit:tracking-tight sit:text-heading-subtle">
               Access government services anytime, anywhere. Built for residents, designed for ease.
             </h4>
           </div>
           <!-- end typography group -->
 
           <!-- Button slot — size md -->
-          <sgds-button variant="primary" tone="neutral" size="md">Get Started</sgds-button>
+          <sit-button variant="primary" tone="neutral" size="md">Get Started</sit-button>
         </div>
         <!-- end left content -->
 
         <!-- Right: image (50%), 1:1 ratio -->
         <div style="width: 50%;">
           <img
-            src="/placeholder-sgds.png"
+            src="/placeholder-Sit.png"
             alt="Government digital services"
-            style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--sgds-border-radius-xl);"
+            style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border-radius: var(--Sit-border-radius-xl);"
           />
         </div>
         <!-- end right image -->

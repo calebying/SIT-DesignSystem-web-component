@@ -2,58 +2,58 @@ import { Meta } from "@storybook/blocks";
 
 <Meta title="Utilities/Introduction" />
 
-# SGDS Utility
+# Sit Utility
 
-SGDS utility provides CSS class utilities powered by Tailwind generator. It offers a convenient way to apply design tokens and styling directly through utility classes in your HTML.
+Sit utility provides CSS class utilities powered by Tailwind generator. It offers a convenient way to apply design tokens and styling directly through utility classes in your HTML.
 
-## What is SGDS Utility?
+## What is Sit Utility?
 
-SGDS utility classes are:
+Sit utility classes are:
 
 - **CSS class utility tokens** powered by the Tailwind CSS generator
-- **Prefixed with `sgds:`** to ensure specificity and prevent CSS naming conflicts
-- **Stripped of Tailwind's default stylings** and fully powered by SGDS CSS variable tokens, ensuring consistent design system adherence
+- **Prefixed with `sit:`** to ensure specificity and prevent CSS naming conflicts
+- **Stripped of Tailwind's default stylings** and fully powered by Sit CSS variable tokens, ensuring consistent design system adherence
 
-This approach allows you to leverage utility-first CSS with SGDS design tokens while maintaining design consistency across your application.
+This approach allows you to leverage utility-first CSS with Sit design tokens while maintaining design consistency across your application.
 
 ## Setup instructions
 
 1. **Install the package:**
 
    ```bash
-   npm install @govtechsg/sgds-web-component
+   npm install @govtechsg/Sit-web-component
    ```
 
 2. **Configure Tailwind CSS:**
 
    Follow the [Tailwind CSS installation guide](https://tailwindcss.com/docs/installation/framework-guides) for your framework.
 
-3. **Import SGDS CSS files:**
+3. **Import Sit CSS files:**
 
    ```css
    // Import theme and foundation files
-   @import '@govtechsg/sgds-web-component/themes/day.css';
-   @import '@govtechsg/sgds-web-component/themes/night.css';
-   @import "@govtechsg/sgds-web-component/css/sgds.css";
+   @import '@govtechsg/Sit-web-component/themes/day.css';
+   @import '@govtechsg/Sit-web-component/themes/night.css';
+   @import "@govtechsg/Sit-web-component/css/Sit.css";
    // Import utility styles
-   @import '@govtechsg/sgds-web-component/css/utility.css';
+   @import '@govtechsg/Sit-web-component/css/utility.css';
    ```
 
-## Using SGDS utility tokens
+## Using Sit utility tokens
 
-Once installed and configured, you can start using SGDS utility classes in your application:
+Once installed and configured, you can start using Sit utility classes in your application:
 
 ```html
-<!-- Example: Using SGDS utility classes -->
- <div class="sgds:bg-surface-raised sgds:p-lg sgds:mb-md">
-      <h3 class="sgds:text-default sgds:mb-sm">Card with Default Text</h3>
-      <p class="sgds:text-subtle sgds:mb-sm">This is subtle text for secondary information like descriptions or metadata.</p>
-      <p class="sgds:text-muted">This is muted text for tertiary content or less important details.</p>
+<!-- Example: Using Sit utility classes -->
+ <div class="sit:bg-surface-raised sit:p-lg sit:mb-md">
+      <h3 class="sit:text-default sit:mb-sm">Card with Default Text</h3>
+      <p class="sit:text-subtle sit:mb-sm">This is subtle text for secondary information like descriptions or metadata.</p>
+      <p class="sit:text-muted">This is muted text for tertiary content or less important details.</p>
     </div>
 ```
 
-All utility classes follow the `sgds:` prefix convention and are fully supported by SGDS CSS variables, ensuring a seamless design system experience.
+All utility classes follow the `sit:` prefix convention and are fully supported by Sit CSS variables, ensuring a seamless design system experience.
 
 ## Other available utilities
 
-SGDS supports all standard [Tailwind CSS utilities](https://tailwindcss.com/docs) with the `sgds:` prefix. Examples include: `sgds:flex`, `sgds:justify-center`, `sgds:align-self`,`sgds:cursor-pointer`, and many more. For a complete reference of all available utilities, refer to the [Tailwind CSS documentation](https://tailwindcss.com/docs).
+Sit supports all standard [Tailwind CSS utilities](https://tailwindcss.com/docs) with the `sit:` prefix. Examples include: `sit:flex`, `sit:justify-center`, `sit:align-self`,`sit:cursor-pointer`, and many more. For a complete reference of all available utilities, refer to the [Tailwind CSS documentation](https://tailwindcss.com/docs).

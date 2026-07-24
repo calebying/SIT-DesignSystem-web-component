@@ -12,24 +12,24 @@ export const ComboBoxMultiSelect = {
 
 const DefaultFilter = () => {
   return html`<div style="display:flex;flex-direction:column;gap:3rem;">
-    <sgds-combo-box placeholder="Single select combo box with default filter" id="default-filter-combobox-example">
-      <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-      <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-      <sgds-combo-box-option value="carrot">Carrot</sgds-combo-box-option>
-      <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-      <sgds-combo-box-option value="eggplant">Eggplant</sgds-combo-box-option>
-    </sgds-combo-box>
-    <sgds-combo-box
+    <sit-combo-box placeholder="Single select combo box with default filter" id="default-filter-combobox-example">
+      <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+      <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+      <sit-combo-box-option value="carrot">Carrot</sit-combo-box-option>
+      <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+      <sit-combo-box-option value="eggplant">Eggplant</sit-combo-box-option>
+    </sit-combo-box>
+    <sit-combo-box
       multiSelect
       placeholder="Multi select combo box with default filter"
       id="default-filter-multiselect-combobox-example"
     >
-      <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-      <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-      <sgds-combo-box-option value="carrot">Carrot</sgds-combo-box-option>
-      <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-      <sgds-combo-box-option value="eggplant">Eggplant</sgds-combo-box-option>
-    </sgds-combo-box>
+      <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+      <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+      <sit-combo-box-option value="carrot">Carrot</sit-combo-box-option>
+      <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+      <sit-combo-box-option value="eggplant">Eggplant</sit-combo-box-option>
+    </sit-combo-box>
   </div> `;
 };
 
@@ -43,27 +43,27 @@ export const ComboBoxDefaultFilter = {
 const CustomFilter = () => {
   return html`
     <div style="display:flex;flex-direction:column;gap:3rem;">
-      <sgds-combo-box
+      <sit-combo-box
         placeholder="Single select combo box with custom filter"
         id="custom-filter-single-select-combobox-example"
       >
-        <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-        <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-        <sgds-combo-box-option value="carrot">Carrot</sgds-combo-box-option>
-        <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-        <sgds-combo-box-option value="eggplant">Eggplant</sgds-combo-box-option>
-      </sgds-combo-box>
-      <sgds-combo-box
+        <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+        <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+        <sit-combo-box-option value="carrot">Carrot</sit-combo-box-option>
+        <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+        <sit-combo-box-option value="eggplant">Eggplant</sit-combo-box-option>
+      </sit-combo-box>
+      <sit-combo-box
         multiSelect
         placeholder="Multi select combobox with custom filter"
         id="custom-filter-multi-select-combobox-example"
       >
-        <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-        <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-        <sgds-combo-box-option value="carrot">Carrot</sgds-combo-box-option>
-        <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-        <sgds-combo-box-option value="eggplant">Eggplant</sgds-combo-box-option>
-      </sgds-combo-box>
+        <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+        <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+        <sit-combo-box-option value="carrot">Carrot</sit-combo-box-option>
+        <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+        <sit-combo-box-option value="eggplant">Eggplant</sit-combo-box-option>
+      </sit-combo-box>
     </div>
     <script>
       const customFilterComboBox = document.querySelector("#custom-filter-single-select-combobox-example");
@@ -91,7 +91,7 @@ export const ComboBoxDefaultSlot = {
 
 const ComboBoxMenuListProp = () => {
   return html`
-    <sgds-combo-box id="menulist-prop-combobox-example" label="Items" placeholder="ComboBox"> </sgds-combo-box>
+    <sit-combo-box id="menulist-prop-combobox-example" label="Items" placeholder="ComboBox"> </sit-combo-box>
     <script>
       const comboBox = document.querySelector("#menulist-prop-combobox-example");
       comboBox.menuList = [
@@ -313,19 +313,19 @@ export const ComboBoxMenuList = {
 };
 
 const ComboBoxMenuListClearableProp = () => {
-  return html` <sgds-combo-box
+  return html` <sit-combo-box
     label="Items"
     id="menulist-clearable-prop-combobox-example"
     clearable
     multiSelect
     placeholder="ComboBox"
   >
-    <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-    <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-    <sgds-combo-box-option value="carrot">Carrot</sgds-combo-box-option>
-    <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-    <sgds-combo-box-option value="eggplant">Eggplant</sgds-combo-box-option>
-  </sgds-combo-box>`;
+    <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+    <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+    <sit-combo-box-option value="carrot">Carrot</sit-combo-box-option>
+    <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+    <sit-combo-box-option value="eggplant">Eggplant</sit-combo-box-option>
+  </sit-combo-box>`;
 };
 
 export const ComboBoxMenuListClearable = {
@@ -337,19 +337,19 @@ export const ComboBoxMenuListClearable = {
 
 const AccessDisplayValueTemplate = () => {
   return html`
-    <sgds-combo-box
-      placeholder="Accessing display value via @sgds-input custom event"
+    <sit-combo-box
+      placeholder="Accessing display value via @Sit-input custom event"
       id="access-display-value-combobox-example"
     >
-      <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-      <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-      <sgds-combo-box-option value="carrot">Carrot</sgds-combo-box-option>
-      <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-      <sgds-combo-box-option value="eggplant">Eggplant</sgds-combo-box-option>
-    </sgds-combo-box>
+      <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+      <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+      <sit-combo-box-option value="carrot">Carrot</sit-combo-box-option>
+      <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+      <sit-combo-box-option value="eggplant">Eggplant</sit-combo-box-option>
+    </sit-combo-box>
     <script>
       const combobox = document.querySelector("#access-display-value-combobox-example");
-      combobox.addEventListener("sgds-input", e => {
+      combobox.addEventListener("Sit-input", e => {
         const displayValue = e.detail.displayValue;
         console.log(displayValue);
       });
@@ -390,8 +390,8 @@ export const AsyncCombobox = {
 const ValidationTemplate = args =>
   html`
     <form>
-      <sgds-combo-box
-        class="sgds:mb-layout-sm"
+      <sit-combo-box
+        class="sit:mb-layout-sm"
         name="comboBoxValidationExample"
         required
         hasFeedback
@@ -400,13 +400,13 @@ const ValidationTemplate = args =>
         placeholder="Select a country"
         invalidFeedback=${ifDefined(args.invalidFeedback)}
       >
-        <sgds-combo-box-option value="singapore">Singapore</sgds-combo-box-option>
-        <sgds-combo-box-option value="malaysia">Malaysia</sgds-combo-box-option>
-        <sgds-combo-box-option value="thailand">Thailand</sgds-combo-box-option>
-        <sgds-combo-box-option value="japan">Japan</sgds-combo-box-option>
-      </sgds-combo-box>
-      <sgds-button type="submit">Submit</sgds-button>
-      <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+        <sit-combo-box-option value="singapore">Singapore</sit-combo-box-option>
+        <sit-combo-box-option value="malaysia">Malaysia</sit-combo-box-option>
+        <sit-combo-box-option value="thailand">Thailand</sit-combo-box-option>
+        <sit-combo-box-option value="japan">Japan</sit-combo-box-option>
+      </sit-combo-box>
+      <sit-button type="submit">Submit</sit-button>
+      <sit-button type="reset" variant="ghost">Reset</sit-button>
     </form>
   `;
 
@@ -427,8 +427,8 @@ export const OverrideInvalidFeedback = {
 const NoValidateTemplate = () => {
   return html`
     <form id="novalidate-combobox-story-form">
-      <sgds-combo-box
-        class="sgds:mb-layout-sm"
+      <sit-combo-box
+        class="sit:mb-layout-sm"
         noValidate
         required
         hasFeedback
@@ -437,18 +437,18 @@ const NoValidateTemplate = () => {
         id="novalidate-combobox-story"
         placeholder="Select a fruit"
       >
-        <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-        <sgds-combo-box-option value="apricot">Apricot</sgds-combo-box-option>
-        <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-        <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-      </sgds-combo-box>
-      <sgds-button type="submit">Submit</sgds-button>
+        <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+        <sit-combo-box-option value="apricot">Apricot</sit-combo-box-option>
+        <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+        <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+      </sit-combo-box>
+      <sit-button type="submit">Submit</sit-button>
     </form>
     <script>
       const noValidateCombo = document.querySelector("#novalidate-combobox-story");
       const noValidateFormStory = document.querySelector("#novalidate-combobox-story-form");
 
-      noValidateCombo.addEventListener("sgds-change", e => {
+      noValidateCombo.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Select an option";
@@ -483,33 +483,33 @@ const AutocompleteTemplate = () =>
     <div style="display:flex;flex-direction:column;gap:2rem;">
       <div>
         <p><strong>autocomplete="on"</strong> (default) — browser may suggest previously entered values</p>
-        <sgds-combo-box
+        <sit-combo-box
           name="name"
           autocomplete="on"
           label="Name"
           placeholder="Select a user"
           hintText="Browser autocomplete enabled"
         >
-          <sgds-combo-box-option value="adamn">Adamn</sgds-combo-box-option>
-          <sgds-combo-box-option value="judy">Judy</sgds-combo-box-option>
-          <sgds-combo-box-option value="benedict">Benedict</sgds-combo-box-option>
-          <sgds-combo-box-option value="kelvin">Kelvin</sgds-combo-box-option>
-        </sgds-combo-box>
+          <sit-combo-box-option value="adamn">Adamn</sit-combo-box-option>
+          <sit-combo-box-option value="judy">Judy</sit-combo-box-option>
+          <sit-combo-box-option value="benedict">Benedict</sit-combo-box-option>
+          <sit-combo-box-option value="kelvin">Kelvin</sit-combo-box-option>
+        </sit-combo-box>
       </div>
       <div>
         <p><strong>autocomplete="off"</strong> — browser autocomplete suppressed</p>
-        <sgds-combo-box
+        <sit-combo-box
           name="name"
           autocomplete="off"
           label="Name"
           placeholder="Select a user"
           hintText="Browser autocomplete disabled"
         >
-          <sgds-combo-box-option value="adamn">Adamn</sgds-combo-box-option>
-          <sgds-combo-box-option value="judy">Judy</sgds-combo-box-option>
-          <sgds-combo-box-option value="benedict">Benedict</sgds-combo-box-option>
-          <sgds-combo-box-option value="kelvin">Kelvin</sgds-combo-box-option>
-        </sgds-combo-box>
+          <sit-combo-box-option value="adamn">Adamn</sit-combo-box-option>
+          <sit-combo-box-option value="judy">Judy</sit-combo-box-option>
+          <sit-combo-box-option value="benedict">Benedict</sit-combo-box-option>
+          <sit-combo-box-option value="kelvin">Kelvin</sit-combo-box-option>
+        </sit-combo-box>
       </div>
     </div>
   `;
@@ -525,43 +525,43 @@ const ScrollEndTemplate = () => {
   return html`
     <div style="display:flex;flex-direction:column;gap:2rem;margin-bottom:3rem">
       <div>
-        <p><strong>Scroll to bottom (sgds-scroll-end)</strong>: <span id="scroll-end-output"></span></p>
+        <p><strong>Scroll to bottom (Sit-scroll-end)</strong>: <span id="scroll-end-output"></span></p>
 
-        <sgds-combo-box
+        <sit-combo-box
           id="scroll-end-combobox-example"
           label="Countries"
           placeholder="Scroll to the bottom"
           scrollBottomOffset="50"
         >
-          <sgds-combo-box-option value="afghanistan">Afghanistan</sgds-combo-box-option>
-          <sgds-combo-box-option value="albania">Albania</sgds-combo-box-option>
-          <sgds-combo-box-option value="algeria">Algeria</sgds-combo-box-option>
-          <sgds-combo-box-option value="andorra">Andorra</sgds-combo-box-option>
-          <sgds-combo-box-option value="angola">Angola</sgds-combo-box-option>
-          <sgds-combo-box-option value="argentina">Argentina</sgds-combo-box-option>
-          <sgds-combo-box-option value="armenia">Armenia</sgds-combo-box-option>
-          <sgds-combo-box-option value="australia">Australia</sgds-combo-box-option>
-          <sgds-combo-box-option value="austria">Austria</sgds-combo-box-option>
-          <sgds-combo-box-option value="azerbaijan">Azerbaijan</sgds-combo-box-option>
-          <sgds-combo-box-option value="bahamas">Bahamas</sgds-combo-box-option>
-          <sgds-combo-box-option value="bahrain">Bahrain</sgds-combo-box-option>
-          <sgds-combo-box-option value="bangladesh">Bangladesh</sgds-combo-box-option>
-          <sgds-combo-box-option value="belgium">Belgium</sgds-combo-box-option>
-          <sgds-combo-box-option value="brazil">Brazil</sgds-combo-box-option>
-          <sgds-combo-box-option value="canada">Canada</sgds-combo-box-option>
-          <sgds-combo-box-option value="chile">Chile</sgds-combo-box-option>
-          <sgds-combo-box-option value="china">China</sgds-combo-box-option>
-          <sgds-combo-box-option value="colombia">Colombia</sgds-combo-box-option>
-          <sgds-combo-box-option value="denmark">Denmark</sgds-combo-box-option>
-        </sgds-combo-box>
+          <sit-combo-box-option value="afghanistan">Afghanistan</sit-combo-box-option>
+          <sit-combo-box-option value="albania">Albania</sit-combo-box-option>
+          <sit-combo-box-option value="algeria">Algeria</sit-combo-box-option>
+          <sit-combo-box-option value="andorra">Andorra</sit-combo-box-option>
+          <sit-combo-box-option value="angola">Angola</sit-combo-box-option>
+          <sit-combo-box-option value="argentina">Argentina</sit-combo-box-option>
+          <sit-combo-box-option value="armenia">Armenia</sit-combo-box-option>
+          <sit-combo-box-option value="australia">Australia</sit-combo-box-option>
+          <sit-combo-box-option value="austria">Austria</sit-combo-box-option>
+          <sit-combo-box-option value="azerbaijan">Azerbaijan</sit-combo-box-option>
+          <sit-combo-box-option value="bahamas">Bahamas</sit-combo-box-option>
+          <sit-combo-box-option value="bahrain">Bahrain</sit-combo-box-option>
+          <sit-combo-box-option value="bangladesh">Bangladesh</sit-combo-box-option>
+          <sit-combo-box-option value="belgium">Belgium</sit-combo-box-option>
+          <sit-combo-box-option value="brazil">Brazil</sit-combo-box-option>
+          <sit-combo-box-option value="canada">Canada</sit-combo-box-option>
+          <sit-combo-box-option value="chile">Chile</sit-combo-box-option>
+          <sit-combo-box-option value="china">China</sit-combo-box-option>
+          <sit-combo-box-option value="colombia">Colombia</sit-combo-box-option>
+          <sit-combo-box-option value="denmark">Denmark</sit-combo-box-option>
+        </sit-combo-box>
 
         <script>
           const scrollEndCombo = document.querySelector("#scroll-end-combobox-example");
           const scrollEndOutput = document.querySelector("#scroll-end-output");
           let scrollEndCount = 0;
-          scrollEndCombo.addEventListener("sgds-scroll-end", () => {
+          scrollEndCombo.addEventListener("Sit-scroll-end", () => {
             scrollEndCount++;
-            scrollEndOutput.textContent = "sgds-scroll-end fired — bottom of menu reached (x" + scrollEndCount + ")";
+            scrollEndOutput.textContent = "Sit-scroll-end fired — bottom of menu reached (x" + scrollEndCount + ")";
           });
         </script>
       </div>
@@ -571,7 +571,7 @@ const ScrollEndTemplate = () => {
 
 export const ScrollEnd = {
   render: ScrollEndTemplate.bind({}),
-  name: "Scroll to bottom (sgds-scroll-end)",
+  name: "Scroll to bottom (Sit-scroll-end)",
   args: {},
   parameters: {}
 };

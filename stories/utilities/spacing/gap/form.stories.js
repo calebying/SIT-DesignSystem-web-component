@@ -7,7 +7,7 @@ export default {
 
 const copyToClipboard = (token, buttonEl) => {
   navigator.clipboard.writeText(token);
-  const icon = buttonEl.querySelector("sgds-icon");
+  const icon = buttonEl.querySelector("Sit-icon");
   icon.setAttribute("name", "check");
   setTimeout(() => {
     icon.setAttribute("name", "files");
@@ -15,126 +15,126 @@ const copyToClipboard = (token, buttonEl) => {
 };
 
 export const Form = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:gap-form-sm</code>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:gap-form-sm</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:gap-form-sm", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:gap-form-sm", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-form-gap-sm</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:gap-form-sm">
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-form-gap-sm</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:flex sit:gap-form-sm">
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
         </div>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:gap-form-md</code>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:gap-form-md</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:gap-form-md", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:gap-form-md", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-form-gap-md</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:gap-form-md">
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-form-gap-md</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:flex sit:gap-form-md">
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
         </div>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:gap-form-lg</code>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:gap-form-lg</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:gap-form-lg", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:gap-form-lg", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-form-gap-lg</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:gap-form-lg">
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-form-gap-lg</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:flex sit:gap-form-lg">
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
         </div>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:gap-form-xl</code>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:gap-form-xl</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:gap-form-xl", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:gap-form-xl", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-form-gap-xl</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:gap-form-xl">
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-form-gap-xl</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:flex sit:gap-form-xl">
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
         </div>
-      </sgds-table-cell>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">sgds:gap-form-2-xl</code>
+      </sit-table-cell>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">sit:gap-form-2-xl</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
-            @click="${e => copyToClipboard("sgds:gap-form-2-xl", e.target.closest("button"))}"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
+            @click="${e => copyToClipboard("sit:gap-form-2-xl", e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">--sgds-form-gap-2-xl</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:gap-form-2-xl">
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
-          <div class="sgds:bg-accent-default sgds:w-6 sgds:h-6"></div>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-form-gap-2-xl</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:flex sit:gap-form-2-xl">
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
+          <div class="sit:bg-accent-default sit:w-6 sit:h-6"></div>
         </div>
-      </sgds-table-cell>
-    </sgds-table-row>
-  </sgds-table>
+      </sit-table-cell>
+    </sit-table-row>
+  </sit-table>
 `;

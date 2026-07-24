@@ -11,27 +11,21 @@ export default {
 const AllLinksTemplate = () => html` <a href="#">Anchor link</a> `;
 
 const LinkLgTemplate = () => html`
-  <a href="#" class="sgds:text-link-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:underline"
-    >Link large</a
-  >
+  <a href="#" class="sit:text-link-lg sit:font-regular sit:leading-md sit:tracking-normal sit:underline">Link large</a>
 `;
 
 const LinkMdTemplate = () => html`
-  <a href="#" class="sgds:text-link-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:underline"
-    >Link medium</a
-  >
+  <a href="#" class="sit:text-link-md sit:font-regular sit:leading-xs sit:tracking-normal sit:underline">Link medium</a>
 `;
 
 const LinkSmTemplate = () => html`
-  <a href="#" class="sgds:text-link-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:underline"
+  <a href="#" class="sit:text-link-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:underline"
     >Link small</a
   >
 `;
 
 const LinkXsTemplate = () => html`
-  <a href="#" class="sgds:text-link-xs sgds:font-regular sgds:leading-3-xs sgds:tracking-normal sgds:underline"
-    >Link XS</a
-  >
+  <a href="#" class="sit:text-link-xs sit:font-regular sit:leading-3-xs sit:tracking-normal sit:underline">Link XS</a>
 `;
 
 export const AllLinks = {

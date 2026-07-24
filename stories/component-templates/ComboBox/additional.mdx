@@ -2,7 +2,7 @@
 
 ### Default slot
 
-Populate menu list of the combo box with `<sgds-combo-box-option>`.
+Populate menu list of the combo box with `<sit-combo-box-option>`.
 
 <Canvas of={ComboBoxStories.ComboBoxDefaultSlot}>
   <Story of={ComboBoxStories.ComboBoxDefaultSlot} />
@@ -42,7 +42,7 @@ Set `loading` to true to show loading spinner in the combo box menu.
 
 ## Customising the filter function
 
-`SgdsComboBox` contains the `filterFunction` prop that is called on each item's label in the `menuList` whenever the input value changes, to determine whether an item should be displayed in the dropdown menu based on the input value.
+`SitComboBox` contains the `filterFunction` prop that is called on each item's label in the `menuList` whenever the input value changes, to determine whether an item should be displayed in the dropdown menu based on the input value.
 
 ### filterFunction
 
@@ -97,7 +97,7 @@ A filter displays items that contain input value as substring.
 **JavaScript Code**
 
 ```
-const comboBox = document.querySelector('sgds-combo-box');
+const comboBox = document.querySelector('Sit-combo-box');
 comboBox.filterFunction = (inputValue, menuItem) => {
     return  menuItem.label.toLowerCase().includes(inputValue)
 }
@@ -107,9 +107,9 @@ comboBox.filterFunction = (inputValue, menuItem) => {
   <Story of={ComboBoxStories.ComboBoxCustomFilter} />
 </Canvas>
 
-## Access input's display value via custom event: sgds-input
+## Access input's display value via custom event: Sit-input
 
-Hook onto the custom event: `sgds-input` to obtain the display value of the input
+Hook onto the custom event: `Sit-input` to obtain the display value of the input
 
 <Canvas of={ComboBoxStories.AccessDisplayValue}>
   <Story of={ComboBoxStories.AccessDisplayValue} />
@@ -118,9 +118,9 @@ Hook onto the custom event: `sgds-input` to obtain the display value of the inpu
 ### Types
 
 ```ts
-import type { ISgdsComboBoxInputEventDetail } from "@govtechsg/sgds-web-component/components/ComboBox/sgds-combo-box";
+import type { ISitComboBoxInputEventDetail } from "@govtechsg/Sit-web-component/components/ComboBox/Sit-combo-box";
 
-const inputHandler = (e: CustomEvent<ISgdsComboBoxInputEventDetail>) => {
+const inputHandler = (e: CustomEvent<ISitComboBoxInputEventDetail>) => {
   const displayValue = e.detail.displayValue;
 };
 ```
@@ -128,7 +128,7 @@ const inputHandler = (e: CustomEvent<ISgdsComboBoxInputEventDetail>) => {
 ## Asynchronous ComboBox
 
 Asynchronous ComboBox search is for filtering remotely via an API request. The filtering is done through the response of API requests.
-Set the `async` attribute to true. You can then hook onto the `sgds-input` event to listen for input changes and make API requests accordingly.
+Set the `async` attribute to true. You can then hook onto the `Sit-input` event to listen for input changes and make API requests accordingly.
 
 - Use `loading` property to show loading spinner while waiting for API response.
 - Use `emptyMenuAsync` property to show "No options" when there are no results from the API response.
@@ -174,7 +174,7 @@ Set `noValidate` to disable built-in constraint validation. Use `setInvalid(bool
 
 ## Scroll to bottom detection
 
-Use `scrollBottomOffset` (number, default `0`) to configure how many pixels before the bottom of the menu the `sgds-scroll-end` event fires. This is useful for implementing infinite scroll or lazy-loading more options as the user scrolls toward the end of the list.
+Use `scrollBottomOffset` (number, default `0`) to configure how many pixels before the bottom of the menu the `Sit-scroll-end` event fires. This is useful for implementing infinite scroll or lazy-loading more options as the user scrolls toward the end of the list.
 
 Set `scrollBottomOffset` to a positive number (e.g. `50`) to fire the event slightly before the very bottom, giving time to fetch and append new options before the user reaches the end. Negative values are treated as `0`.
 

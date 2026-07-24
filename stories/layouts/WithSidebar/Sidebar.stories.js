@@ -13,8 +13,8 @@ const placeholderStyle = html`
         -45deg,
         transparent,
         transparent 6px,
-        var(--sgds-color-border-muted, #e5e7eb) 6px,
-        var(--sgds-color-border-muted, #e5e7eb) 7px
+        var(--Sit-color-border-muted, #e5e7eb) 6px,
+        var(--Sit-color-border-muted, #e5e7eb) 7px
       );
     }
     .sidebar-toggler-bar {
@@ -29,76 +29,74 @@ const placeholderStyle = html`
 `;
 
 const sidebarNav = html`
-  <sgds-sidebar active="dashboard">
+  <sit-sidebar active="dashboard">
     <div slot="brandName">My App</div>
-    <sgds-sidebar-section title="Workspace" name="workspace">
-      <sgds-sidebar-item name="dashboard" title="Dashboard">
-        <sgds-icon name="grid-fill" slot="icon" size="md"></sgds-icon>
+    <sit-sidebar-section title="Workspace" name="workspace">
+      <sit-sidebar-item name="dashboard" title="Dashboard">
+        <sit-icon name="grid-fill" slot="icon" size="md"></sit-icon>
         <a href="#"></a>
-      </sgds-sidebar-item>
-      <sgds-sidebar-item name="analytics" title="Analytics">
-        <sgds-icon name="trend-up" slot="icon" size="md"></sgds-icon>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="analytics" title="Analytics">
+        <sit-icon name="trend-up" slot="icon" size="md"></sit-icon>
         <a href="#"></a>
-      </sgds-sidebar-item>
-    </sgds-sidebar-section>
-    <sgds-sidebar-section title="Manage" name="manage">
-      <sgds-sidebar-item name="team" title="Team">
-        <sgds-icon name="user-circle" slot="icon" size="md"></sgds-icon>
+      </sit-sidebar-item>
+    </sit-sidebar-section>
+    <sit-sidebar-section title="Manage" name="manage">
+      <sit-sidebar-item name="team" title="Team">
+        <sit-icon name="user-circle" slot="icon" size="md"></sit-icon>
         <a href="#"></a>
-      </sgds-sidebar-item>
-      <sgds-sidebar-item name="settings" title="Settings">
-        <sgds-icon name="laptop-gear" slot="icon" size="md"></sgds-icon>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="settings" title="Settings">
+        <sit-icon name="laptop-gear" slot="icon" size="md"></sit-icon>
         <a href="#"></a>
-      </sgds-sidebar-item>
-    </sgds-sidebar-section>
-  </sgds-sidebar>
+      </sit-sidebar-item>
+    </sit-sidebar-section>
+  </sit-sidebar>
 `;
 
 const Template = () => html`
   ${placeholderStyle}
-  <div class="sgds:h-screen sgds:flex sgds:flex-col sgds:overflow-hidden">
-    <div class="sgds:flex-none">
-      <sgds-masthead fluid></sgds-masthead>
-      <sgds-mainnav fluid>
+  <div class="sit:h-screen sit:flex sit:flex-col sit:overflow-hidden">
+    <div class="sit:flex-none">
+      <sit-masthead fluid></sit-masthead>
+      <sit-mainnav fluid>
         <strong slot="brand">My App</strong>
-        <sgds-mainnav-dropdown ariaLabel="Workspace menu">
+        <sit-mainnav-dropdown ariaLabel="Workspace menu">
           <span slot="toggler">Workspace</span>
-          <sgds-dropdown-item ariaLabel="Dashboard"><a href="#">Dashboard</a></sgds-dropdown-item>
-          <sgds-dropdown-item ariaLabel="Analytics"><a href="#">Analytics</a></sgds-dropdown-item>
-        </sgds-mainnav-dropdown>
-        <sgds-mainnav-dropdown ariaLabel="Manage menu">
+          <sit-dropdown-item ariaLabel="Dashboard"><a href="#">Dashboard</a></sit-dropdown-item>
+          <sit-dropdown-item ariaLabel="Analytics"><a href="#">Analytics</a></sit-dropdown-item>
+        </sit-mainnav-dropdown>
+        <sit-mainnav-dropdown ariaLabel="Manage menu">
           <span slot="toggler">Manage</span>
-          <sgds-dropdown-item ariaLabel="Team"><a href="#">Team</a></sgds-dropdown-item>
-          <sgds-dropdown-item ariaLabel="Reports"><a href="#">Reports</a></sgds-dropdown-item>
-        </sgds-mainnav-dropdown>
+          <sit-dropdown-item ariaLabel="Team"><a href="#">Team</a></sit-dropdown-item>
+          <sit-dropdown-item ariaLabel="Reports"><a href="#">Reports</a></sit-dropdown-item>
+        </sit-mainnav-dropdown>
         <div slot="end">
-          <sgds-button variant="primary" size="sm">New</sgds-button>
+          <sit-button variant="primary" size="sm">New</sit-button>
         </div>
-      </sgds-mainnav>
-      <div class="sidebar-toggler-bar sgds:border-b sgds:border-muted sgds:bg-default">
-        <div class="sgds:py-md sgds:px-sm sgds:flex sgds:items-center">
-          <sgds-icon-button
+      </sit-mainnav>
+      <div class="sidebar-toggler-bar sit:border-b sit:border-muted sit:bg-default">
+        <div class="sit:py-md sit:px-sm sit:flex sit:items-center">
+          <sit-icon-button
             data-sidebar-toggler="true"
             size="sm"
             tone="neutral"
             variant="ghost"
             name="sidebar-expand"
-            @click=${() => document.querySelector("sgds-sidebar").toggleCollapsed()}
-          ></sgds-icon-button>
+            @click=${() => document.querySelector("Sit-sidebar").toggleCollapsed()}
+          ></sit-icon-button>
         </div>
       </div>
     </div>
-    <div class="sgds:flex sgds:flex-row sgds:flex-1 sgds:overflow-hidden sgds:relative">
+    <div class="sit:flex sit:flex-row sit:flex-1 sit:overflow-hidden sit:relative">
       ${sidebarNav}
-      <div class="sgds:flex sgds:flex-col sgds:flex-1 sgds:overflow-y-auto">
-        <div class="sgds-container-sidebar sgds:py-layout-md sgds:flex-1">
-          <div class="sgds-grid">
-            <div
-              class="content-placeholder sgds:border sgds:border-muted sgds-col-4 sgds-col-sm-8 sgds-col-lg-12"
-            ></div>
+      <div class="sit:flex sit:flex-col sit:flex-1 sit:overflow-y-auto">
+        <div class="sit-container-sidebar sit:py-layout-md sit:flex-1">
+          <div class="sit-grid">
+            <div class="content-placeholder sit:border sit:border-muted sit-col-4 sit-col-sm-8 sit-col-lg-12"></div>
           </div>
         </div>
-        <sgds-footer tone="neutral" layout="sidebar"></sgds-footer>
+        <sit-footer tone="neutral" layout="sidebar"></sit-footer>
       </div>
     </div>
   </div>

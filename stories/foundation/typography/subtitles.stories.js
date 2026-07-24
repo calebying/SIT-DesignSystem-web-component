@@ -9,30 +9,26 @@ export default {
 };
 
 const DefaultTemplate = () => html`
-  <div class="sgds:flex sgds:flex-col">
+  <div class="sit:flex sit:flex-col">
     <h5>Subtitle header H5</h5>
     <h6>Subtitle header H6</h6>
   </div>
 `;
 
 const SubtitleMdSemiboldTemplate = () => html`
-  <h5 class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs sgds:tracking-normal">
-    Subtitle Medium Semibold
-  </h5>
+  <h5 class="sit:text-subtitle-md sit:font-semibold sit:leading-xs sit:tracking-normal">Subtitle Medium Semibold</h5>
 `;
 
 const SubtitleMdLightTemplate = () => html`
-  <h5 class="sgds:text-subtitle-md sgds:font-light sgds:leading-xs sgds:tracking-normal">Subtitle Medium Light</h5>
+  <h5 class="sit:text-subtitle-md sit:font-light sit:leading-xs sit:tracking-normal">Subtitle Medium Light</h5>
 `;
 
 const SubtitleSmSemiboldTemplate = () => html`
-  <h6 class="sgds:text-subtitle-sm sgds:font-semibold sgds:leading-2-xs sgds:tracking-normal">
-    Subtitle Small Semibold
-  </h6>
+  <h6 class="sit:text-subtitle-sm sit:font-semibold sit:leading-2-xs sit:tracking-normal">Subtitle Small Semibold</h6>
 `;
 
 const SubtitleSmLightTemplate = () => html`
-  <h6 class="sgds:text-subtitle-sm sgds:font-light sgds:leading-2-xs sgds:tracking-normal">Subtitle Small Light</h6>
+  <h6 class="sit:text-subtitle-sm sit:font-light sit:leading-2-xs sit:tracking-normal">Subtitle Small Light</h6>
 `;
 
 export const Default = {

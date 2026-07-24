@@ -4,7 +4,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 const ValidationTemplate = args =>
   html`
     <form>
-      <sgds-input
+      <sit-input
         name="input1"
         id="input1"
         minlength="5"
@@ -14,33 +14,33 @@ const ValidationTemplate = args =>
         required
         invalidFeedback=${ifDefined(args.invalidFeedback)}
       >
-      </sgds-input>
-      <sgds-button type="submit">Submit</sgds-button>
-      <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+      </sit-input>
+      <sit-button type="submit">Submit</sit-button>
+      <sit-button type="reset" variant="ghost">Reset</sit-button>
     </form>
   `;
 
 const LeadingIconTemplate = args =>
   html`
-    <sgds-input name="leading-icon-input" id="leading-icon-input" hintText="with leading icon" label="Leading Icon">
-      <sgds-icon slot="icon" name="telephone"></sgds-icon>
-    </sgds-input>
+    <sit-input name="leading-icon-input" id="leading-icon-input" hintText="with leading icon" label="Leading Icon">
+      <sit-icon slot="icon" name="telephone"></sit-icon>
+    </sit-input>
   `;
 const TrailingIconTemplate = args =>
   html`
-    <sgds-input name="trailing-icon-input" id="trailing-icon-input" hintText="with trailing icon" label="Trailing Icon">
-      <sgds-icon slot="trailing-icon" name="telephone"></sgds-icon>
-    </sgds-input>
+    <sit-input name="trailing-icon-input" id="trailing-icon-input" hintText="with trailing icon" label="Trailing Icon">
+      <sit-icon slot="trailing-icon" name="telephone"></sit-icon>
+    </sit-input>
   `;
 const ActionTemplate = args =>
   html`
-    <sgds-input name="action-input" id="action-input" hintText="with action" label="Action">
-      <sgds-icon-button slot="action" name="trash" id="call-to-action">Action</sgds-icon-button>
-    </sgds-input>
+    <sit-input name="action-input" id="action-input" hintText="with action" label="Action">
+      <sit-icon-button slot="action" name="trash" id="call-to-action">Action</sit-icon-button>
+    </sit-input>
 
     <script>
-      const button = document.querySelector("sgds-icon-button#call-to-action");
-      const input = document.querySelector("sgds-input#action-input");
+      const button = document.querySelector("Sit-icon-button#call-to-action");
+      const input = document.querySelector("Sit-input#action-input");
       button.addEventListener("click", () => {
         input.value = "";
       });
@@ -145,23 +145,23 @@ const AutocompleteTemplate = () =>
     <div style="display:flex;flex-direction:column;gap:2rem;">
       <div>
         <p><strong>autocomplete="on"</strong> (default) — browser may suggest previously entered values</p>
-        <sgds-input
+        <sit-input
           name="name"
           autocomplete="on"
           label="Name"
           placeholder="Enter your name"
           hintText="Browser autocomplete enabled"
-        ></sgds-input>
+        ></sit-input>
       </div>
       <div>
         <p><strong>autocomplete="off"</strong> — browser autocomplete suppressed</p>
-        <sgds-input
+        <sit-input
           name="name"
           autocomplete="off"
           label="Name"
           placeholder="Enter your name"
           hintText="Browser autocomplete disabled"
-        ></sgds-input>
+        ></sit-input>
       </div>
     </div>
   `;

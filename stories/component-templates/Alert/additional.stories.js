@@ -12,10 +12,10 @@ const VariantTemplate = args => {
     <div class="d-flex-column">
       ${variants.map(
         v => html`
-        <sgds-alert variant=${v.variant.toLowerCase()} show title="${v.variant} alert">
-          <sgds-icon slot="icon" name=${v.icon} size="md"></sgds-icon>
+        <sit-alert variant=${v.variant.toLowerCase()} show title="${v.variant} alert">
+          <sit-icon slot="icon" name=${v.icon} size="md"></sit-icon>
           Description with <a href="#">link</a> and more details here
-        </sgds-alert>
+        </sit-alert>
     </div>    
         `
       )}
@@ -34,10 +34,10 @@ const OutlinedVariantTemplate = args => {
     <div class="d-flex-column">
       ${variants.map(
         v => html`
-        <sgds-alert variant=${v.variant.toLowerCase()} show title="${v.variant} alert" outlined>
-          <sgds-icon slot="icon" name=${v.icon} size="md"></sgds-icon>
+        <sit-alert variant=${v.variant.toLowerCase()} show title="${v.variant} alert" outlined>
+          <sit-icon slot="icon" name=${v.icon} size="md"></sit-icon>
           Description with <a href="#">link</a> and more details here
-        </sgds-alert>
+        </sit-alert>
     </div>    
         `
       )}
@@ -56,29 +56,29 @@ const DismissibleTemplate = args => {
     <div class="d-flex-column">
       ${variants.map(
         v => html`
-          <sgds-alert
+          <sit-alert
             show
             variant=${v.variant}
             title="${v.variant.charAt(0).toUpperCase() + v.variant.slice(1)} alert"
             dismissible
           >
-            <sgds-icon slot="icon" name=${v.icon} size="md"></sgds-icon>
+            <sit-icon slot="icon" name=${v.icon} size="md"></sit-icon>
             A dismissible <a href="#">alert</a> with more info
-          </sgds-alert>
+          </sit-alert>
         `
       )}
       ${variants.map(
         v => html`
-          <sgds-alert
+          <sit-alert
             show
             variant=${v.variant}
             title="${v.variant.charAt(0).toUpperCase() + v.variant.slice(1)} outlined alert"
             outlined
             dismissible
           >
-            <sgds-icon slot="icon" name=${v.icon} size="md"></sgds-icon>
+            <sit-icon slot="icon" name=${v.icon} size="md"></sit-icon>
             A dismissible outlined <a href="#">alert</a> with more info
-          </sgds-alert>
+          </sit-alert>
         `
       )}
     </div>
@@ -87,11 +87,11 @@ const DismissibleTemplate = args => {
 const IconTemplate = args => {
   return html`
     <div class="d-flex-column">
-      <sgds-alert show title="Title"> Alert with no leading <a href="#">icon</a> and extra text </sgds-alert>
-      <sgds-alert show title="Title">
-        <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
+      <sit-alert show title="Title"> Alert with no leading <a href="#">icon</a> and extra text </sit-alert>
+      <sit-alert show title="Title">
+        <sit-icon slot="icon" name="info-circle-fill" size="md"></sit-icon>
         Alert with leading <a href="#">icon</a> and extra text
-      </sgds-alert>
+      </sit-alert>
     </div>
   `;
 };
@@ -99,17 +99,17 @@ const IconTemplate = args => {
 const TitleTemplate = args => {
   return html`
     <div class="d-flex-column">
-      <sgds-alert show> Alert with no title </sgds-alert>
-      <sgds-alert show title="Title"> Alert with title </sgds-alert>
+      <sit-alert show> Alert with no title </sit-alert>
+      <sit-alert show title="Title"> Alert with title </sit-alert>
     </div>
   `;
 };
 
 const LinkTemplate = args => {
   return html`
-    <sgds-alert variant="info" show title="Alert with link">
+    <sit-alert variant="info" show title="Alert with link">
       Description with <a href="#">link</a> and more details here
-    </sgds-alert>
+    </sit-alert>
   `;
 };
 
@@ -167,16 +167,16 @@ const FilledActionTemplate = args => {
     <div class="d-flex-column">
       ${variants.map(
         v => html`
-          <sgds-alert
+          <sit-alert
             variant=${v.variant}
             show
             title="${v.variant.charAt(0).toUpperCase() + v.variant.slice(1)} alert"
-            class="sgds:mb-md"
+            class="sit:mb-md"
           >
-            <sgds-icon slot="icon" name=${v.icon} size="md"></sgds-icon>
+            <sit-icon slot="icon" name=${v.icon} size="md"></sit-icon>
             Description with <a href="#">link</a> and more details here
-            <sgds-button slot="action" variant="outline" size="sm" tone=${v.tone}>Take Action</sgds-button>
-          </sgds-alert>
+            <sit-button slot="action" variant="outline" size="sm" tone=${v.tone}>Take Action</sit-button>
+          </sit-alert>
         `
       )}
     </div>
@@ -195,17 +195,17 @@ const OutlinedActionTemplate = args => {
     <div class="d-flex-column">
       ${variants.map(
         v => html`
-          <sgds-alert
+          <sit-alert
             variant=${v.variant}
             show
             title="${v.variant.charAt(0).toUpperCase() + v.variant.slice(1)} alert"
             outlined
-            class="sgds:mb-md"
+            class="sit:mb-md"
           >
-            <sgds-icon slot="icon" name=${v.icon} size="md"></sgds-icon>
+            <sit-icon slot="icon" name=${v.icon} size="md"></sit-icon>
             Description with <a href="#">link</a> and more details here
-            <sgds-button slot="action" variant="outline" size="sm" tone="neutral">Take Action</sgds-button>
-          </sgds-alert>
+            <sit-button slot="action" variant="outline" size="sm" tone="neutral">Take Action</sit-button>
+          </sit-alert>
         `
       )}
     </div>

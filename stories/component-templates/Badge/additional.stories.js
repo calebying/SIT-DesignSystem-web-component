@@ -5,27 +5,27 @@ const variants = ["primary", "accent", "success", "danger", "warning", "cyan", "
 const VariantTemplate = _ => {
   return html`
     <div class="d-flex-row flex-wrap">
-      ${variants.map(v => html` <sgds-badge variant=${v}>Filled Badge</sgds-badge> `)}
+      ${variants.map(v => html` <sit-badge variant=${v}>Filled Badge</sit-badge> `)}
     </div>
   `;
 };
 const OutlinedVariantTemplate = _ => {
   return html`
     <div class="d-flex-row flex-wrap">
-      ${variants.map(v => html` <sgds-badge variant=${v} outlined>Outlined Badge</sgds-badge> `)}
+      ${variants.map(v => html` <sit-badge variant=${v} outlined>Outlined Badge</sit-badge> `)}
     </div>
   `;
 };
 const DismissibleTemplate = _ => {
-  return html` <sgds-badge show dismissible>Dismissible badge</sgds-badge> `;
+  return html` <sit-badge show dismissible>Dismissible badge</sit-badge> `;
 };
 const IconTemplate = _ => {
   return html`
     <div class="d-flex-row flex-wrap">
-      <sgds-badge variant="danger">
-        <sgds-icon slot="icon" name="placeholder" size="sm"></sgds-icon>
+      <sit-badge variant="danger">
+        <sit-icon slot="icon" name="placeholder" size="sm"></sit-icon>
         Leading icon badge
-      </sgds-badge>
+      </sit-badge>
     </div>
   `;
 };
@@ -33,15 +33,15 @@ const IconTemplate = _ => {
 const TruncationTemplate = _ => {
   return html`
     <div class="d-flex-row flex-wrap" style="width:300px;padding: 60px 24px 60px;">
-      <sgds-badge outlined>
-        <sgds-icon slot="icon" name="placeholder" size="sm"></sgds-icon>
+      <sit-badge outlined>
+        <sit-icon slot="icon" name="placeholder" size="sm"></sit-icon>
         A long badge text that needs to be truncated
-      </sgds-badge>
+      </sit-badge>
 
-      <sgds-badge variant="neutral" outlined fullWidth>
-        <sgds-icon slot="icon" name="placeholder" size="sm"></sgds-icon>
+      <sit-badge variant="neutral" outlined fullWidth>
+        <sit-icon slot="icon" name="placeholder" size="sm"></sit-icon>
         A long badge text that needs to be truncated
-      </sgds-badge>
+      </sit-badge>
     </div>
   `;
 };

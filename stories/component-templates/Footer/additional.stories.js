@@ -2,7 +2,7 @@ import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 
 const ExtendedTemplate = args => html`
-  <sgds-footer
+  <sit-footer
     contactHref="https://form.gov.sg/"
     feedbackHref="https://form.gov.sg/"
     faqHref="https://form.gov.sg/"
@@ -14,58 +14,58 @@ const ExtendedTemplate = args => html`
   >
     <h3 slot="title">Name of portal/digital service</h3>
     <p slot="description">Description of portal/digital service</p>
-    <sgds-footer-item slot="items">
+    <sit-footer-item slot="items">
       <div slot="title">Application guidelines</div>
-      <sgds-link><a href="#">Lorem Ipsum One</a></sgds-link>
-      <sgds-link><a href="#">Second Level B</a></sgds-link>
-      <sgds-link><a href="#">Lorem Ipsum Three</a></sgds-link>
-    </sgds-footer-item>
-    <sgds-footer-item slot="items">
+      <sit-link><a href="#">Lorem Ipsum One</a></sit-link>
+      <sit-link><a href="#">Second Level B</a></sit-link>
+      <sit-link><a href="#">Lorem Ipsum Three</a></sit-link>
+    </sit-footer-item>
+    <sit-footer-item slot="items">
       <div slot="title">Legislation</div>
-      <sgds-link><a href="#">Legislation</a></sgds-link>
-      <sgds-link><a href="#">External Link One</a></sgds-link>
-      <sgds-link><a href="#">External Link Two</a></sgds-link>
-    </sgds-footer-item>
-    <sgds-footer-item slot="items">
+      <sit-link><a href="#">Legislation</a></sit-link>
+      <sit-link><a href="#">External Link One</a></sit-link>
+      <sit-link><a href="#">External Link Two</a></sit-link>
+    </sit-footer-item>
+    <sit-footer-item slot="items">
       <div slot="title">Resources</div>
-      <sgds-link><a href="#">All</a></sgds-link>
-      <sgds-link><a href="#">Forms and Templates</a></sgds-link>
-      <sgds-link><a href="#">Guides</a></sgds-link>
-    </sgds-footer-item>
-    <sgds-footer-item slot="items">
+      <sit-link><a href="#">All</a></sit-link>
+      <sit-link><a href="#">Forms and Templates</a></sit-link>
+      <sit-link><a href="#">Guides</a></sit-link>
+    </sit-footer-item>
+    <sit-footer-item slot="items">
       <div slot="title">Resources</div>
-      <sgds-link><a href="#">All</a></sgds-link>
-      <sgds-link><a href="#">Forms and Templates</a></sgds-link>
-      <sgds-link><a href="#">Guides</a></sgds-link>
-    </sgds-footer-item>
-    <sgds-footer-item slot="items">
+      <sit-link><a href="#">All</a></sit-link>
+      <sit-link><a href="#">Forms and Templates</a></sit-link>
+      <sit-link><a href="#">Guides</a></sit-link>
+    </sit-footer-item>
+    <sit-footer-item slot="items">
       <div slot="title">Resources</div>
-      <sgds-link><a href="#">All</a></sgds-link>
-      <sgds-link><a href="#">Forms and Templates</a></sgds-link>
-      <sgds-link><a href="#">Guides</a></sgds-link>
-    </sgds-footer-item>
-    <sgds-footer-item slot="items">
+      <sit-link><a href="#">All</a></sit-link>
+      <sit-link><a href="#">Forms and Templates</a></sit-link>
+      <sit-link><a href="#">Guides</a></sit-link>
+    </sit-footer-item>
+    <sit-footer-item slot="items">
       <div slot="title">Resources</div>
-      <sgds-link><a href="#">All</a></sgds-link>
-      <sgds-link><a href="#">Forms and Templates</a></sgds-link>
-      <sgds-link><a href="#">Guides</a></sgds-link>
-    </sgds-footer-item>
+      <sit-link><a href="#">All</a></sit-link>
+      <sit-link><a href="#">Forms and Templates</a></sit-link>
+      <sit-link><a href="#">Guides</a></sit-link>
+    </sit-footer-item>
     <a slot="social-media" href="https://www.facebook.com">
-      <sgds-icon name="facebook"></sgds-icon>
+      <sit-icon name="facebook"></sit-icon>
     </a>
     <a slot="social-media" href="https://www.instagram.com">
-      <sgds-icon name="instagram"></sgds-icon>
+      <sit-icon name="instagram"></sit-icon>
     </a>
     <a slot="social-media" href="https://www.linkedin.com">
-      <sgds-icon name="linkedin"></sgds-icon>
+      <sit-icon name="linkedin"></sit-icon>
     </a>
     <a slot="social-media" href="https://www.x.com">
-      <sgds-icon name="twitter-x"></sgds-icon>
+      <sit-icon name="twitter-x"></sit-icon>
     </a>
     <a slot="social-media" href="https://www.youtube.com">
-      <sgds-icon name="youtube"></sgds-icon>
+      <sit-icon name="youtube"></sit-icon>
     </a>
-  </sgds-footer>
+  </sit-footer>
 `;
 
 export const Extended = {

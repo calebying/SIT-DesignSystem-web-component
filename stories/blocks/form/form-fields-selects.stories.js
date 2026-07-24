@@ -6,19 +6,19 @@ export default {
 };
 
 const Template = () => html`
-  <div class="sgds-container sgds:py-layout-md">
-    <div class="sgds-grid sgds:gap-layout-md">
-      <form class="sgds-col-4 sgds-col-sm-8 sgds-col-md-8 sgds-col-lg-8 sgds-col-xl-8 sgds-col-2-xl-8">
-        <div class="sgds:flex sgds:flex-col sgds:gap-layout-lg">
-          <div class="sgds:flex sgds:flex-col sgds:gap-layout-md">
+  <div class="sit-container sit:py-layout-md">
+    <div class="sit-grid sit:gap-layout-md">
+      <form class="sit-col-4 sit-col-sm-8 sit-col-md-8 sit-col-lg-8 sit-col-xl-8 sit-col-2-xl-8">
+        <div class="sit:flex sit:flex-col sit:gap-layout-lg">
+          <div class="sit:flex sit:flex-col sit:gap-layout-md">
             <h5
-              class="sgds:text-subtitle-lg sgds:font-semibold sgds:leading-xs sgds:tracking-normal sgds:text-heading-default sgds:mb-0"
+              class="sit:text-subtitle-lg sit:font-semibold sit:leading-xs sit:tracking-normal sit:text-heading-default sit:mb-0"
             >
               Product Selection
             </h5>
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6 sgds-col-xl-6 sgds-col-2-xl-6">
-                <sgds-select
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-4 sit-col-lg-6 sit-col-xl-6 sit-col-2-xl-6">
+                <sit-select
                   placeholder="Select an option"
                   label="Category"
                   name="category"
@@ -26,13 +26,13 @@ const Template = () => html`
                   required
                   hasFeedback="both"
                 >
-                  <sgds-select-option value="electronics">Electronics</sgds-select-option>
-                  <sgds-select-option value="furniture">Furniture</sgds-select-option>
-                  <sgds-select-option value="clothing">Clothing</sgds-select-option>
-                </sgds-select>
+                  <sit-select-option value="electronics">Electronics</sit-select-option>
+                  <sit-select-option value="furniture">Furniture</sit-select-option>
+                  <sit-select-option value="clothing">Clothing</sit-select-option>
+                </sit-select>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6 sgds-col-xl-6 sgds-col-2-xl-6">
-                <sgds-select
+              <div class="sit-col-4 sit-col-sm-4 sit-col-lg-6 sit-col-xl-6 sit-col-2-xl-6">
+                <sit-select
                   placeholder="Select an option"
                   label="Brand"
                   name="brand"
@@ -40,27 +40,27 @@ const Template = () => html`
                   required
                   hasFeedback="both"
                 >
-                  <sgds-select-option value="brand-a">Brand A</sgds-select-option>
-                  <sgds-select-option value="brand-b">Brand B</sgds-select-option>
-                  <sgds-select-option value="brand-c">Brand C</sgds-select-option>
-                </sgds-select>
+                  <sit-select-option value="brand-a">Brand A</sit-select-option>
+                  <sit-select-option value="brand-b">Brand B</sit-select-option>
+                  <sit-select-option value="brand-c">Brand C</sit-select-option>
+                </sit-select>
               </div>
             </div>
             <div>
-              <sgds-combo-box
+              <sit-combo-box
                 placeholder="Search or select..."
                 label="Supplier"
                 name="supplier"
                 placeholder="Search suppliers..."
                 hasFeedback="both"
               >
-                <sgds-combo-box-option value="supplier-1">Supplier 1</sgds-combo-box-option>
-                <sgds-combo-box-option value="supplier-2">Supplier 2</sgds-combo-box-option>
-                <sgds-combo-box-option value="supplier-3">Supplier 3</sgds-combo-box-option>
-              </sgds-combo-box>
+                <sit-combo-box-option value="supplier-1">Supplier 1</sit-combo-box-option>
+                <sit-combo-box-option value="supplier-2">Supplier 2</sit-combo-box-option>
+                <sit-combo-box-option value="supplier-3">Supplier 3</sit-combo-box-option>
+              </sit-combo-box>
             </div>
             <div>
-              <sgds-combo-box
+              <sit-combo-box
                 placeholder="Search or select..."
                 label="Features"
                 name="features"
@@ -68,16 +68,16 @@ const Template = () => html`
                 placeholder="Select features..."
                 hasFeedback="both"
               >
-                <sgds-combo-box-option value="feature-1">Feature 1</sgds-combo-box-option>
-                <sgds-combo-box-option value="feature-2">Feature 2</sgds-combo-box-option>
-                <sgds-combo-box-option value="feature-3">Feature 3</sgds-combo-box-option>
-                <sgds-combo-box-option value="feature-4">Feature 4</sgds-combo-box-option>
-              </sgds-combo-box>
+                <sit-combo-box-option value="feature-1">Feature 1</sit-combo-box-option>
+                <sit-combo-box-option value="feature-2">Feature 2</sit-combo-box-option>
+                <sit-combo-box-option value="feature-3">Feature 3</sit-combo-box-option>
+                <sit-combo-box-option value="feature-4">Feature 4</sit-combo-box-option>
+              </sit-combo-box>
             </div>
           </div>
-          <div class="sgds:flex sgds:gap-layout-sm sgds:items-center sgds:justify-end">
-            <sgds-button type="reset" variant="ghost">Reset</sgds-button>
-            <sgds-button type="submit">Search</sgds-button>
+          <div class="sit:flex sit:gap-layout-sm sit:items-center sit:justify-end">
+            <sit-button type="reset" variant="ghost">Reset</sit-button>
+            <sit-button type="submit">Search</sit-button>
           </div>
         </div>
       </form>

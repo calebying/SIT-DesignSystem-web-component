@@ -1,93 +1,93 @@
 import { html } from "lit";
 
 const SidenavItemAsLinkTemplate = args =>
-  html` <sgds-sidenav-item ariaLabel="Item as a link"><a href="#">Item as a link</a></sgds-sidenav-item> `;
+  html` <sit-sidenav-item ariaLabel="Item as a link"><a href="#">Item as a link</a></sit-sidenav-item> `;
 
 const SidenavItemAsMenuTemplate = args =>
   html`
-    <sgds-sidenav-item ariaLabel="SidenavItem as menu">
+    <sit-sidenav-item ariaLabel="SidenavItem as menu">
       <span slot="title"> SidenavItem as menu </span>
-      <sgds-sidenav-link>
+      <sit-sidenav-link>
         <a href="#"> SidenavLink 1</a>
-      </sgds-sidenav-link>
-      <sgds-sidenav-link>
+      </sit-sidenav-link>
+      <sit-sidenav-link>
         <a href="#">SidenavLink 2</a>
-      </sgds-sidenav-link>
-    </sgds-sidenav-item>
+      </sit-sidenav-link>
+    </sit-sidenav-item>
   `;
 const EmbeddedMenuTemplate = args =>
   html`
-    <sgds-sidenav>
-      <sgds-sidenav-item ariaLabel="SidenavItem L1">
+    <sit-sidenav>
+      <sit-sidenav-item ariaLabel="SidenavItem L1">
         <span slot="title"> SidenavItem L1</span>
-        <sgds-sidenav-link>
+        <sit-sidenav-link>
           <a href="#"> SidenavLink 1 L2</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-link>
+        </sit-sidenav-link>
+        <sit-sidenav-link>
           <a href="#">SidenavLink 2 L2</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-item ariaLabel="SidenavItem L2">
+        </sit-sidenav-link>
+        <sit-sidenav-item ariaLabel="SidenavItem L2">
           <span slot="title"> SidenavItem L2 </span>
-          <sgds-sidenav-link>
+          <sit-sidenav-link>
             <a href="#"> SidenavLink 1 L3</a>
-          </sgds-sidenav-link>
-          <sgds-sidenav-link active>
+          </sit-sidenav-link>
+          <sit-sidenav-link active>
             <a href="#">SidenavLink 2 L3</a>
-          </sgds-sidenav-link>
-        </sgds-sidenav-item>
-      </sgds-sidenav-item>
-    </sgds-sidenav>
+          </sit-sidenav-link>
+        </sit-sidenav-item>
+      </sit-sidenav-item>
+    </sit-sidenav>
   `;
 const IconTemplate = args =>
   html`
-    <sgds-sidenav>
-      <sgds-sidenav-item ariaLabel="SidenavItem L1">
+    <sit-sidenav>
+      <sit-sidenav-item ariaLabel="SidenavItem L1">
         <span slot="title"> SidenavItem L1</span>
-        <sgds-icon slot="icon" name="placeholder"></sgds-icon>
-        <sgds-sidenav-link>
+        <sit-icon slot="icon" name="placeholder"></sit-icon>
+        <sit-sidenav-link>
           <a href="#"> SidenavLink 1 L2</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-link>
+        </sit-sidenav-link>
+        <sit-sidenav-link>
           <a href="#">SidenavLink 2 L2</a>
-        </sgds-sidenav-link>
-      </sgds-sidenav-item>
-      <sgds-sidenav-item ariaLabel="SidenavItem L1 (link)">
-        <a href="#"> <sgds-icon name="placeholder"></sgds-icon> SidenavItem L1 (link)</a>
-      </sgds-sidenav-item>
-    </sgds-sidenav>
+        </sit-sidenav-link>
+      </sit-sidenav-item>
+      <sit-sidenav-item ariaLabel="SidenavItem L1 (link)">
+        <a href="#"> <sit-icon name="placeholder"></sit-icon> SidenavItem L1 (link)</a>
+      </sit-sidenav-item>
+    </sit-sidenav>
   `;
 const DisabledTemplate = args =>
   html`
-    <sgds-sidenav>
-      <sgds-sidenav-item ariaLabel="SidenavItem L1" disabled>
+    <sit-sidenav>
+      <sit-sidenav-item ariaLabel="SidenavItem L1" disabled>
         <span slot="title"> SidenavItem L1</span>
-        <sgds-icon slot="icon" name="placeholder"></sgds-icon>
-        <sgds-sidenav-link>
+        <sit-icon slot="icon" name="placeholder"></sit-icon>
+        <sit-sidenav-link>
           <a href="#"> SidenavLink 1 L2</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-link>
+        </sit-sidenav-link>
+        <sit-sidenav-link>
           <a href="#">SidenavLink 2 L2</a>
-        </sgds-sidenav-link>
-      </sgds-sidenav-item>
-      <sgds-sidenav-item ariaLabel="SidenavItem L1 (link)" disabled>
-        <a href="#"> <sgds-icon name="placeholder"></sgds-icon> SidenavItem L1 (link)</a>
-      </sgds-sidenav-item>
-    </sgds-sidenav>
+        </sit-sidenav-link>
+      </sit-sidenav-item>
+      <sit-sidenav-item ariaLabel="SidenavItem L1 (link)" disabled>
+        <a href="#"> <sit-icon name="placeholder"></sit-icon> SidenavItem L1 (link)</a>
+      </sit-sidenav-item>
+    </sit-sidenav>
   `;
 const DisabledLinkTemplate = args =>
   html`
-    <sgds-sidenav>
-      <sgds-sidenav-item ariaLabel="SidenavItem L1">
+    <sit-sidenav>
+      <sit-sidenav-item ariaLabel="SidenavItem L1">
         <span slot="title"> SidenavItem L1</span>
-        <sgds-icon slot="icon" name="placeholder"></sgds-icon>
-        <sgds-sidenav-link disabled>
+        <sit-icon slot="icon" name="placeholder"></sit-icon>
+        <sit-sidenav-link disabled>
           <a href="#"> SidenavLink 1 L2</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-link>
+        </sit-sidenav-link>
+        <sit-sidenav-link>
           <a href="#">SidenavLink 2 L2</a>
-        </sgds-sidenav-link>
-      </sgds-sidenav-item>
-    </sgds-sidenav>
+        </sit-sidenav-link>
+      </sit-sidenav-item>
+    </sit-sidenav>
   `;
 
 export const SidenavItemAsLink = {

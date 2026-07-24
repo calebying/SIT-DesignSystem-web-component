@@ -6,184 +6,184 @@ export default {
 };
 
 const FONT_SIZE_SCALE = [
-  { name: "12", class: "sgds:text-12", variable: "--sgds-font-size-12", value: "12px (0.75rem)" },
-  { name: "14", class: "sgds:text-14", variable: "--sgds-font-size-14", value: "14px (0.875rem)" },
-  { name: "16", class: "sgds:text-16", variable: "--sgds-font-size-16", value: "16px (1rem)" },
-  { name: "20", class: "sgds:text-20", variable: "--sgds-font-size-20", value: "20px (1.25rem)" },
-  { name: "24", class: "sgds:text-24", variable: "--sgds-font-size-24", value: "24px (1.5rem)" },
-  { name: "28", class: "sgds:text-28", variable: "--sgds-font-size-28", value: "28px (1.75rem)" },
-  { name: "32", class: "sgds:text-32", variable: "--sgds-font-size-32", value: "32px (2rem)" },
-  { name: "40", class: "sgds:text-40", variable: "--sgds-font-size-40", value: "40px (2.5rem)" },
-  { name: "48", class: "sgds:text-48", variable: "--sgds-font-size-48", value: "48px (3rem)" },
-  { name: "56", class: "sgds:text-56", variable: "--sgds-font-size-56", value: "56px (3.5rem)" }
+  { name: "12", class: "sit:text-12", variable: "--Sit-font-size-12", value: "12px (0.75rem)" },
+  { name: "14", class: "sit:text-14", variable: "--Sit-font-size-14", value: "14px (0.875rem)" },
+  { name: "16", class: "sit:text-16", variable: "--Sit-font-size-16", value: "16px (1rem)" },
+  { name: "20", class: "sit:text-20", variable: "--Sit-font-size-20", value: "20px (1.25rem)" },
+  { name: "24", class: "sit:text-24", variable: "--Sit-font-size-24", value: "24px (1.5rem)" },
+  { name: "28", class: "sit:text-28", variable: "--Sit-font-size-28", value: "28px (1.75rem)" },
+  { name: "32", class: "sit:text-32", variable: "--Sit-font-size-32", value: "32px (2rem)" },
+  { name: "40", class: "sit:text-40", variable: "--Sit-font-size-40", value: "40px (2.5rem)" },
+  { name: "48", class: "sit:text-48", variable: "--Sit-font-size-48", value: "48px (3rem)" },
+  { name: "56", class: "sit:text-56", variable: "--Sit-font-size-56", value: "56px (3.5rem)" }
 ];
 
 const RESPONSIVE_FONT_SIZES = {
   display: [
     {
       name: "Display SM",
-      class: "sgds:text-display-sm",
-      variable: "--sgds-font-size-display-sm",
+      class: "sit:text-display-sm",
+      variable: "--Sit-font-size-display-sm",
       responsive: "32px / 36px / 40px"
     },
     {
       name: "Display MD",
-      class: "sgds:text-display-md",
-      variable: "--sgds-font-size-display-md",
+      class: "sit:text-display-md",
+      variable: "--Sit-font-size-display-md",
       responsive: "36px / 44px / 48px"
     },
     {
       name: "Display LG",
-      class: "sgds:text-display-lg",
-      variable: "--sgds-font-size-display-lg",
+      class: "sit:text-display-lg",
+      variable: "--Sit-font-size-display-lg",
       responsive: "40px / 52px / 56px"
     }
   ],
   heading: [
     {
       name: "Heading SM",
-      class: "sgds:text-heading-sm",
-      variable: "--sgds-font-size-heading-sm",
+      class: "sit:text-heading-sm",
+      variable: "--Sit-font-size-heading-sm",
       responsive: "20px / 22px / 24px"
     },
     {
       name: "Heading MD",
-      class: "sgds:text-heading-md",
-      variable: "--sgds-font-size-heading-md",
+      class: "sit:text-heading-md",
+      variable: "--Sit-font-size-heading-md",
       responsive: "24px / 26px / 28px"
     },
     {
       name: "Heading LG",
-      class: "sgds:text-heading-lg",
-      variable: "--sgds-font-size-heading-lg",
+      class: "sit:text-heading-lg",
+      variable: "--Sit-font-size-heading-lg",
       responsive: "28px / 30px / 32px"
     },
     {
       name: "Heading XL",
-      class: "sgds:text-heading-xl",
-      variable: "--sgds-font-size-heading-xl",
+      class: "sit:text-heading-xl",
+      variable: "--Sit-font-size-heading-xl",
       responsive: "32px / 36px / 40px"
     }
   ],
   subtitle: [
     {
       name: "Subtitle SM",
-      class: "sgds:text-subtitle-sm",
-      variable: "--sgds-font-size-subtitle-sm",
+      class: "sit:text-subtitle-sm",
+      variable: "--Sit-font-size-subtitle-sm",
       responsive: "16px / 16px / 16px"
     },
     {
       name: "Subtitle MD",
-      class: "sgds:text-subtitle-md",
-      variable: "--sgds-font-size-subtitle-md",
+      class: "sit:text-subtitle-md",
+      variable: "--Sit-font-size-subtitle-md",
       responsive: "18px / 20px / 20px"
     }
   ],
   body: [
     {
       name: "Body SM",
-      class: "sgds:text-body-sm",
-      variable: "--sgds-font-size-body-sm",
+      class: "sit:text-body-sm",
+      variable: "--Sit-font-size-body-sm",
       responsive: "14px / 14px / 14px"
     },
     {
       name: "Body MD",
-      class: "sgds:text-body-md",
-      variable: "--sgds-font-size-body-md",
+      class: "sit:text-body-md",
+      variable: "--Sit-font-size-body-md",
       responsive: "16px / 16px / 16px"
     },
     {
       name: "Body LG",
-      class: "sgds:text-body-lg",
-      variable: "--sgds-font-size-body-lg",
+      class: "sit:text-body-lg",
+      variable: "--Sit-font-size-body-lg",
       responsive: "18px / 20px / 20px"
     }
   ],
   list: [
     {
       name: "List SM",
-      class: "sgds:text-list-sm",
-      variable: "--sgds-font-size-list-sm",
+      class: "sit:text-list-sm",
+      variable: "--Sit-font-size-list-sm",
       responsive: "14px / 14px / 14px"
     },
     {
       name: "List MD",
-      class: "sgds:text-list-md",
-      variable: "--sgds-font-size-list-md",
+      class: "sit:text-list-md",
+      variable: "--Sit-font-size-list-md",
       responsive: "16px / 16px / 16px"
     },
     {
       name: "List LG",
-      class: "sgds:text-list-lg",
-      variable: "--sgds-font-size-list-lg",
+      class: "sit:text-list-lg",
+      variable: "--Sit-font-size-list-lg",
       responsive: "18px / 20px / 20px"
     }
   ],
   label: [
     {
       name: "Label XS",
-      class: "sgds:text-label-xs",
-      variable: "--sgds-font-size-label-xs",
+      class: "sit:text-label-xs",
+      variable: "--Sit-font-size-label-xs",
       responsive: "12px / 12px / 12px"
     },
     {
       name: "Label SM",
-      class: "sgds:text-label-sm",
-      variable: "--sgds-font-size-label-sm",
+      class: "sit:text-label-sm",
+      variable: "--Sit-font-size-label-sm",
       responsive: "14px / 14px / 14px"
     },
     {
       name: "Label MD",
-      class: "sgds:text-label-md",
-      variable: "--sgds-font-size-label-md",
+      class: "sit:text-label-md",
+      variable: "--Sit-font-size-label-md",
       responsive: "16px / 16px / 16px"
     },
     {
       name: "Label LG",
-      class: "sgds:text-label-lg",
-      variable: "--sgds-font-size-label-lg",
+      class: "sit:text-label-lg",
+      variable: "--Sit-font-size-label-lg",
       responsive: "18px / 20px / 20px"
     }
   ],
   caption: [
     {
       name: "Caption MD",
-      class: "sgds:text-caption-md",
-      variable: "--sgds-font-size-caption-md",
+      class: "sit:text-caption-md",
+      variable: "--Sit-font-size-caption-md",
       responsive: "14px / 14px / 14px"
     }
   ],
   overline: [
     {
       name: "Overline MD",
-      class: "sgds:text-overline-md",
-      variable: "--sgds-font-size-overline-md",
+      class: "sit:text-overline-md",
+      variable: "--Sit-font-size-overline-md",
       responsive: "14px / 14px / 14px"
     }
   ],
   link: [
     {
       name: "Link XS",
-      class: "sgds:text-link-xs",
-      variable: "--sgds-font-size-link-xs",
+      class: "sit:text-link-xs",
+      variable: "--Sit-font-size-link-xs",
       responsive: "12px / 12px / 12px"
     },
     {
       name: "Link SM",
-      class: "sgds:text-link-sm",
-      variable: "--sgds-font-size-link-sm",
+      class: "sit:text-link-sm",
+      variable: "--Sit-font-size-link-sm",
       responsive: "14px / 14px / 14px"
     },
     {
       name: "Link MD",
-      class: "sgds:text-link-md",
-      variable: "--sgds-font-size-link-md",
+      class: "sit:text-link-md",
+      variable: "--Sit-font-size-link-md",
       responsive: "16px / 16px / 16px"
     },
     {
       name: "Link LG",
-      class: "sgds:text-link-lg",
-      variable: "--sgds-font-size-link-lg",
+      class: "sit:text-link-lg",
+      variable: "--Sit-font-size-link-lg",
       responsive: "18px / 20px / 20px"
     }
   ]
@@ -191,7 +191,7 @@ const RESPONSIVE_FONT_SIZES = {
 
 const copyToClipboard = (token, buttonEl) => {
   navigator.clipboard.writeText(token);
-  const icon = buttonEl.querySelector("sgds-icon");
+  const icon = buttonEl.querySelector("Sit-icon");
   icon.setAttribute("name", "check");
   setTimeout(() => {
     icon.setAttribute("name", "files");
@@ -200,29 +200,29 @@ const copyToClipboard = (token, buttonEl) => {
 
 const FontSizeTableRow = item => {
   return html`
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.class}</code>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.class}</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
             @click="${e => copyToClipboard(item.class, e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.variable}</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.value}</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.variable}</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.value}</code>
+      </sit-table-cell>
+      <sit-table-cell>
         <div class="${item.class}">Sample Text</div>
-      </sgds-table-cell>
-    </sgds-table-row>
+      </sit-table-cell>
+    </sit-table-row>
   `;
 };
 
@@ -230,130 +230,130 @@ const ResponsiveFontSizeTableRow = (item, customPreview) => {
   const preview = customPreview ? customPreview(item) : html`<div class="${item.class}">${item.name}</div>`;
 
   return html`
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.class}</code>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.class}</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
             @click="${e => copyToClipboard(item.class, e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.variable}</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.responsive}</code>
-      </sgds-table-cell>
-      <sgds-table-cell> ${preview} </sgds-table-cell>
-    </sgds-table-row>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.variable}</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.responsive}</code>
+      </sit-table-cell>
+      <sit-table-cell> ${preview} </sit-table-cell>
+    </sit-table-row>
   `;
 };
 
 export const DisplaySizes = () => html`
-  <div class="sgds:mb-md">
-    <p class="sgds:mb-md sgds:text-subtle">
+  <div class="sit:mb-md">
+    <p class="sit:mb-md sit:text-subtle">
       Display sizes adapt across breakpoints: mobile (&lt; 1024px), tablet (≥ 1024px), desktop (≥ 1440px)
     </p>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Sit Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
       ${RESPONSIVE_FONT_SIZES.display.map(item => ResponsiveFontSizeTableRow(item))}
-    </sgds-table>
+    </sit-table>
   </div>
 `;
 
 export const HeadingSizes = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${RESPONSIVE_FONT_SIZES.heading.map(item => ResponsiveFontSizeTableRow(item))}
-  </sgds-table>
+  </sit-table>
 `;
 
 export const SubtitleSizes = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${RESPONSIVE_FONT_SIZES.subtitle.map(item => ResponsiveFontSizeTableRow(item))}
-  </sgds-table>
+  </sit-table>
 `;
 
 export const BodySizes = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${RESPONSIVE_FONT_SIZES.body.map(item => ResponsiveFontSizeTableRow(item))}
-  </sgds-table>
+  </sit-table>
 `;
 
 export const ListSizes = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${ResponsiveFontSizeTableRow(
       RESPONSIVE_FONT_SIZES.list[2],
       () => html`
-        <div class="sgds:flex sgds:gap-2-xl">
-          <ul class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">
-            <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+        <div class="sit:flex sit:gap-2-xl">
+          <ul class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal">
+            <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
               First item
             </li>
-            <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+            <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
               Second item
-              <ul class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">
-                <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+              <ul class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal">
+                <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
                   Sub item one
                 </li>
-                <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mt-list-lg">
+                <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mt-list-lg">
                   Sub item two
                 </li>
               </ul>
             </li>
-            <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mt-list-lg">
+            <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mt-list-lg">
               Third item
             </li>
           </ul>
-          <ol class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">
-            <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+          <ol class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal">
+            <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
               First item
             </li>
-            <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+            <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
               Second item
-              <ol class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">
-                <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+              <ol class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal">
+                <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
                   Sub item one
                 </li>
-                <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mt-list-lg">
+                <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mt-list-lg">
                   Sub item two
                 </li>
               </ol>
             </li>
-            <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mt-list-lg">
+            <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mt-list-lg">
               Third item
             </li>
           </ol>
@@ -363,42 +363,42 @@ export const ListSizes = () => html`
     ${ResponsiveFontSizeTableRow(
       RESPONSIVE_FONT_SIZES.list[1],
       () => html`
-        <div class="sgds:flex sgds:gap-2-xl">
-          <ul class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
-            <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+        <div class="sit:flex sit:gap-2-xl">
+          <ul class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
+            <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
               First item
             </li>
-            <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+            <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
               Second item
-              <ul class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
-                <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+              <ul class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
+                <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
                   Sub item one
                 </li>
-                <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md">
+                <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md">
                   Sub item two
                 </li>
               </ul>
             </li>
-            <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md">
+            <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md">
               Third item
             </li>
           </ul>
-          <ol class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
-            <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+          <ol class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
+            <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
               First item
             </li>
-            <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+            <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
               Second item
-              <ol class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
-                <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+              <ol class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
+                <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
                   Sub item one
                 </li>
-                <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md">
+                <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md">
                   Sub item two
                 </li>
               </ol>
             </li>
-            <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md">
+            <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md">
               Third item
             </li>
           </ol>
@@ -408,76 +408,76 @@ export const ListSizes = () => html`
     ${ResponsiveFontSizeTableRow(
       RESPONSIVE_FONT_SIZES.list[0],
       () => html`
-        <div class="sgds:flex sgds:gap-2-xl">
-          <ul class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">
-            <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+        <div class="sit:flex sit:gap-2-xl">
+          <ul class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">
+            <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
               First item
             </li>
-            <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+            <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
               Second item
-              <ul class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">
-                <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+              <ul class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">
+                <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
                   Sub item one
                 </li>
-                <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mt-list-sm">
+                <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mt-list-sm">
                   Sub item two
                 </li>
               </ul>
             </li>
-            <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mt-list-sm">
+            <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mt-list-sm">
               Third item
             </li>
           </ul>
-          <ol class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">
-            <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+          <ol class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">
+            <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
               First item
             </li>
-            <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+            <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
               Second item
-              <ol class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">
-                <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+              <ol class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">
+                <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
                   Sub item one
                 </li>
-                <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mt-list-sm">
+                <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mt-list-sm">
                   Sub item two
                 </li>
               </ol>
             </li>
-            <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mt-list-sm">
+            <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mt-list-sm">
               Third item
             </li>
           </ol>
         </div>
       `
     )}
-  </sgds-table>
+  </sit-table>
 `;
 
 export const LabelSizes = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${RESPONSIVE_FONT_SIZES.label.map(item => ResponsiveFontSizeTableRow(item))}
-  </sgds-table>
+  </sit-table>
 `;
 
 export const CaptionSizes = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${RESPONSIVE_FONT_SIZES.caption.map(item =>
       ResponsiveFontSizeTableRow(
         item,
         item => html`
-          <table class="sgds:border-0">
+          <table class="sit:border-0">
             <caption class="${item.class}">
               ${item.name}
             </caption>
@@ -485,48 +485,48 @@ export const CaptionSizes = () => html`
         `
       )
     )}
-  </sgds-table>
+  </sit-table>
 `;
 
 export const OverlineSizes = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${RESPONSIVE_FONT_SIZES.overline.map(item =>
-      ResponsiveFontSizeTableRow(item, item => html`<div class="${item.class} sgds:uppercase">${item.name}</div>`)
+      ResponsiveFontSizeTableRow(item, item => html`<div class="${item.class} sit:uppercase">${item.name}</div>`)
     )}
-  </sgds-table>
+  </sit-table>
 `;
 
 export const LinkSizes = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Sizes (Mobile / Tablet / Desktop)</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Sizes (Mobile / Tablet / Desktop)</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${RESPONSIVE_FONT_SIZES.link.map(item =>
-      ResponsiveFontSizeTableRow(item, item => html`<a href="#" class="${item.class} sgds:underline">${item.name}</a>`)
+      ResponsiveFontSizeTableRow(item, item => html`<a href="#" class="${item.class} sit:underline">${item.name}</a>`)
     )}
-  </sgds-table>
+  </sit-table>
 `;
 
 export const StaticFontSizes = () => html`
-  <div class="sgds:mb-2-xl">
-    <h3 class="sgds:mb-md">Primitive font sizes</h3>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Value</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
+  <div class="sit:mb-2-xl">
+    <h3 class="sit:mb-md">Primitive font sizes</h3>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Sit Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Value</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
       ${FONT_SIZE_SCALE.map(item => FontSizeTableRow(item))}
-    </sgds-table>
+    </sit-table>
   </div>
 `;

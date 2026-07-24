@@ -7,7 +7,7 @@ export default {
 const ConstraintValidationTemplate = args => {
   return html`
     <form id="validation-form_constraint-validation" class="d-flex-column">
-      <sgds-input
+      <sit-input
         label="First Name"
         hinttext="type Sarah"
         name="firstName"
@@ -16,9 +16,9 @@ const ConstraintValidationTemplate = args => {
         placeholder="Placeholder"
         pattern="Sarah"
       >
-      </sgds-input>
-      <sgds-datepicker required hasFeedback name="appointmentDate" label="Appointment date"></sgds-datepicker>
-      <sgds-select
+      </sit-input>
+      <sit-datepicker required hasFeedback name="appointmentDate" label="Appointment date"></sit-datepicker>
+      <sit-select
         required
         hasFeedback
         name="favouriteAnimal"
@@ -32,8 +32,8 @@ const ConstraintValidationTemplate = args => {
       { "label": "Goose", "value": "7" },
       { "label": "Hen", "value": "8" }
     ]'
-      ></sgds-select>
-      <sgds-combo-box
+      ></sit-select>
+      <sit-combo-box
         required
         hasFeedback
         name="countryOfBirth"
@@ -49,33 +49,27 @@ const ConstraintValidationTemplate = args => {
       { "label": "China", "value": "8" }
     ]'
         placeholder="Choose a country"
-      ></sgds-combo-box>
-      <sgds-quantity-toggle
+      ></sit-combo-box>
+      <sit-quantity-toggle
         label="Number of dependents"
         name="dependentCount"
         min="1"
         max="10"
         hinttext="Input number 1 to 10 only"
         hasFeedback="both"
-      ></sgds-quantity-toggle>
-      <sgds-checkbox-group
-        hasFeedback
-        hintText="Check at least one option"
-        required
-        label="Food preference"
-        name="food"
-      >
-        <sgds-checkbox value="vegetarian">vegetarian</sgds-checkbox>
-        <sgds-checkbox value="halal">halal</sgds-checkbox>
-        <sgds-checkbox value="na">no preference</sgds-checkbox>
-      </sgds-checkbox-group>
+      ></sit-quantity-toggle>
+      <sit-checkbox-group hasFeedback hintText="Check at least one option" required label="Food preference" name="food">
+        <sit-checkbox value="vegetarian">vegetarian</sit-checkbox>
+        <sit-checkbox value="halal">halal</sit-checkbox>
+        <sit-checkbox value="na">no preference</sit-checkbox>
+      </sit-checkbox-group>
 
-      <sgds-radio-group hasFeedback name="gender" required label="Gender">
-        <sgds-radio value="female">Female</sgds-radio>
-        <sgds-radio value="male">Male</sgds-radio>
-      </sgds-radio-group>
+      <sit-radio-group hasFeedback name="gender" required label="Gender">
+        <sit-radio value="female">Female</sit-radio>
+        <sit-radio value="male">Male</sit-radio>
+      </sit-radio-group>
 
-      <sgds-textarea
+      <sit-textarea
         name="comments"
         minlength="3"
         required
@@ -83,14 +77,14 @@ const ConstraintValidationTemplate = args => {
         resize="auto"
         label="Comments"
         hintText="Required to fill with minimum length of 3"
-      ></sgds-textarea>
-      <sgds-file-upload required label="Supporting documents" multiple name="documents" hasFeedback
-        >File upload</sgds-file-upload
+      ></sit-textarea>
+      <sit-file-upload required label="Supporting documents" multiple name="documents" hasFeedback
+        >File upload</sit-file-upload
       >
-      <sgds-checkbox name="consentA" value="consentA" required hasFeedback="both">I consent to ...</sgds-checkbox>
+      <sit-checkbox name="consentA" value="consentA" required hasFeedback="both">I consent to ...</sit-checkbox>
       <div class="d-flex-row">
-        <sgds-button type="submit" id="submit">Submit</sgds-button>
-        <sgds-button type="reset" id="reset" variant="ghost">Reset</sgds-button>
+        <sit-button type="submit" id="submit">Submit</sit-button>
+        <sit-button type="reset" id="reset" variant="ghost">Reset</sit-button>
       </div>
     </form>
   `;
@@ -107,7 +101,7 @@ export const ConstraintValidation = {
 const FormDataTemplate = args => {
   return html`
     <form id="validation-form_getting-data" class="d-flex-column">
-      <sgds-input
+      <sit-input
         label="First Name"
         hinttext="type Sarah"
         name="firstName"
@@ -116,17 +110,17 @@ const FormDataTemplate = args => {
         placeholder="Placeholder"
         pattern="Sarah"
       >
-      </sgds-input>
-      <sgds-quantity-toggle
+      </sit-input>
+      <sit-quantity-toggle
         label="Number of dependents"
         name="dependentCount"
         min="1"
         max="10"
         hinttext="Input number 1 to 10 only"
         hasFeedback="both"
-      ></sgds-quantity-toggle>
-      <sgds-datepicker required hasFeedback name="appointmentDate" label="Appointment date"></sgds-datepicker>
-      <sgds-select
+      ></sit-quantity-toggle>
+      <sit-datepicker required hasFeedback name="appointmentDate" label="Appointment date"></sit-datepicker>
+      <sit-select
         required
         hasFeedback
         name="favouriteAnimal"
@@ -140,8 +134,8 @@ const FormDataTemplate = args => {
       { "label": "Goose", "value": "7" },
       { "label": "Hen", "value": "8" }
     ]'
-      ></sgds-select>
-      <sgds-combo-box
+      ></sit-select>
+      <sit-combo-box
         required
         hasFeedback
         name="countryOfBirth"
@@ -157,25 +151,19 @@ const FormDataTemplate = args => {
       { "label": "China", "value": "8" }
     ]'
         placeholder="Choose a country"
-      ></sgds-combo-box>
-      <sgds-checkbox-group
-        hasFeedback
-        hintText="Check at least one option"
-        required
-        label="Food preference"
-        name="food"
-      >
-        <sgds-checkbox value="vegetarian">vegetarian</sgds-checkbox>
-        <sgds-checkbox value="halal">halal</sgds-checkbox>
-        <sgds-checkbox value="na">no preference</sgds-checkbox>
-      </sgds-checkbox-group>
+      ></sit-combo-box>
+      <sit-checkbox-group hasFeedback hintText="Check at least one option" required label="Food preference" name="food">
+        <sit-checkbox value="vegetarian">vegetarian</sit-checkbox>
+        <sit-checkbox value="halal">halal</sit-checkbox>
+        <sit-checkbox value="na">no preference</sit-checkbox>
+      </sit-checkbox-group>
 
-      <sgds-radio-group hasFeedback name="gender" required label="Gender">
-        <sgds-radio value="female">Female</sgds-radio>
-        <sgds-radio value="male">Male</sgds-radio>
-      </sgds-radio-group>
+      <sit-radio-group hasFeedback name="gender" required label="Gender">
+        <sit-radio value="female">Female</sit-radio>
+        <sit-radio value="male">Male</sit-radio>
+      </sit-radio-group>
 
-      <sgds-textarea
+      <sit-textarea
         name="comments"
         minlength="3"
         required
@@ -183,21 +171,21 @@ const FormDataTemplate = args => {
         resize="auto"
         label="Comments"
         hintText="Required to fill with minimum length of 3"
-      ></sgds-textarea>
-      <sgds-file-upload
+      ></sit-textarea>
+      <sit-file-upload
         id="file-upload-form-data"
         required
         label="Supporting documents"
         multiple
         name="documents"
         hasFeedback
-        >File upload</sgds-file-upload
+        >File upload</sit-file-upload
       >
-      <sgds-checkbox name="consentA" value="consentA" required hasFeedback="both">I consent to ...</sgds-checkbox>
+      <sit-checkbox name="consentA" value="consentA" required hasFeedback="both">I consent to ...</sit-checkbox>
 
       <div class="d-flex-row">
-        <sgds-button type="submit" id="submit">Submit</sgds-button>
-        <sgds-button type="reset" id="reset" variant="ghost">Reset</sgds-button>
+        <sit-button type="submit" id="submit">Submit</sit-button>
+        <sit-button type="reset" id="reset" variant="ghost">Reset</sit-button>
       </div>
     </form>
 

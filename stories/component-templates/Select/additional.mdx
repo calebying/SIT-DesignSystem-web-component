@@ -2,7 +2,7 @@
 
 ### Default slot
 
-Populate menu list of the select with `<sgds-select-option>`.
+Populate menu list of the select with `<sit-select-option>`.
 
 <Canvas of={SelectStories.SelectDefaultSlot}>
   <Story of={SelectStories.SelectDefaultSlot} />
@@ -36,7 +36,7 @@ Set `noValidate` to disable built-in constraint validation. Use `setInvalid(bool
 
 ```html
 <form id="my-form">
-  <sgds-select
+  <sit-select
     id="my-select"
     noValidate
     hasFeedback
@@ -44,21 +44,21 @@ Set `noValidate` to disable built-in constraint validation. Use `setInvalid(bool
     hintText="Must select a fruit starting with 'A'"
     placeholder="Select a fruit"
   >
-    <sgds-select-option value="apple">Apple</sgds-select-option>
-    <sgds-select-option value="apricot">Apricot</sgds-select-option>
-    <sgds-select-option value="banana">Banana</sgds-select-option>
-  </sgds-select>
+    <sit-select-option value="apple">Apple</sit-select-option>
+    <sit-select-option value="apricot">Apricot</sit-select-option>
+    <sit-select-option value="banana">Banana</sit-select-option>
+  </sit-select>
   <button type="submit">Submit</button>
 </form>
 ```
 
-**JavaScript** — validate format on `sgds-change`, check required on submit:
+**JavaScript** — validate format on `Sit-change`, check required on submit:
 
 ```js
 const select = document.querySelector("#my-select");
 const form = document.querySelector("#my-form");
 
-select.addEventListener("sgds-change", e => {
+select.addEventListener("Sit-change", e => {
   if (!e.target.value) {
     // Value cleared (e.g. on reset) — remove any previous error
     e.target.setInvalid(false);

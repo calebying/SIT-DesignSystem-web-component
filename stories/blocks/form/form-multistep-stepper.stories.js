@@ -6,121 +6,119 @@ export default {
 };
 
 const Template = () => html`
-  <div class="sgds-container sgds:py-layout-md">
-    <div class="sgds-grid sgds:gap-layout-md">
-      <form class="sgds-col-4 sgds-col-sm-8 sgds-col-md-8 sgds-col-lg-8 sgds-col-xl-8 sgds-col-2-xl-8">
-        <div class="sgds:flex sgds:flex-col sgds:gap-layout-lg">
+  <div class="sit-container sit:py-layout-md">
+    <div class="sit-grid sit:gap-layout-md">
+      <form class="sit-col-4 sit-col-sm-8 sit-col-md-8 sit-col-lg-8 sit-col-xl-8 sit-col-2-xl-8">
+        <div class="sit:flex sit:flex-col sit:gap-layout-lg">
           <!-- Stepper -->
-          <sgds-stepper id="stepper"></sgds-stepper>
+          <sit-stepper id="stepper"></sit-stepper>
 
           <!-- Step 1: Personal Information -->
-          <div id="step-1" class="sgds:flex sgds:flex-col sgds:gap-layout-md">
-            <h5 class="sgds:text-subtitle-lg sgds:font-semibold sgds:text-heading-default sgds:mb-0">
+          <div id="step-1" class="sit:flex sit:flex-col sit:gap-layout-md">
+            <h5 class="sit:text-subtitle-lg sit:font-semibold sit:text-heading-default sit:mb-0">
               Personal Information
             </h5>
 
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6 sgds-col-xl-6 sgds-col-2-xl-6">
-                <sgds-input
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-4 sit-col-lg-6 sit-col-xl-6 sit-col-2-xl-6">
+                <sit-input
                   label="First name"
                   name="firstName"
                   type="text"
                   required
                   hasFeedback="both"
                   invalidFeedback="First name is required"
-                ></sgds-input>
+                ></sit-input>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6 sgds-col-xl-6 sgds-col-2-xl-6">
-                <sgds-input
+              <div class="sit-col-4 sit-col-sm-4 sit-col-lg-6 sit-col-xl-6 sit-col-2-xl-6">
+                <sit-input
                   label="Last name"
                   name="lastName"
                   type="text"
                   required
                   hasFeedback="both"
                   invalidFeedback="Last name is required"
-                ></sgds-input>
+                ></sit-input>
               </div>
             </div>
 
             <div>
-              <sgds-input
+              <sit-input
                 label="Email"
                 name="email"
                 type="email"
                 required
                 hasFeedback="both"
                 invalidFeedback="Valid email required"
-              ></sgds-input>
+              ></sit-input>
             </div>
 
             <div>
-              <sgds-datepicker
+              <sit-datepicker
                 label="Date of birth"
                 name="birthDate"
                 required
                 hasFeedback="both"
                 invalidFeedback="Birth date required"
-              ></sgds-datepicker>
+              ></sit-datepicker>
             </div>
           </div>
 
           <!-- Step 2: Contact Details -->
-          <div id="step-2" class="sgds:flex sgds:flex-col sgds:gap-layout-md" style="display: none;">
-            <h5 class="sgds:text-subtitle-lg sgds:font-semibold sgds:text-heading-default sgds:mb-0">
-              Contact Details
-            </h5>
+          <div id="step-2" class="sit:flex sit:flex-col sit:gap-layout-md" style="display: none;">
+            <h5 class="sit:text-subtitle-lg sit:font-semibold sit:text-heading-default sit:mb-0">Contact Details</h5>
 
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6 sgds-col-xl-6 sgds-col-2-xl-6">
-                <sgds-input label="Phone" name="phone" type="tel" hasFeedback="text" hintText="Optional"></sgds-input>
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-4 sit-col-lg-6 sit-col-xl-6 sit-col-2-xl-6">
+                <sit-input label="Phone" name="phone" type="tel" hasFeedback="text" hintText="Optional"></sit-input>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6 sgds-col-xl-6 sgds-col-2-xl-6">
-                <sgds-input
+              <div class="sit-col-4 sit-col-sm-4 sit-col-lg-6 sit-col-xl-6 sit-col-2-xl-6">
+                <sit-input
                   label="Mobile"
                   name="mobile"
                   type="tel"
                   required
                   hasFeedback="both"
                   invalidFeedback="Mobile required"
-                ></sgds-input>
+                ></sit-input>
               </div>
             </div>
 
             <div>
-              <sgds-textarea
+              <sit-textarea
                 label="Street address"
                 name="address"
                 required
                 hasFeedback="both"
                 invalidFeedback="Address required"
-              ></sgds-textarea>
+              ></sit-textarea>
             </div>
 
-            <div class="sgds-grid sgds:gap-layout-md">
-              <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6 sgds-col-xl-6 sgds-col-2-xl-6">
-                <sgds-input
+            <div class="sit-grid sit:gap-layout-md">
+              <div class="sit-col-4 sit-col-sm-4 sit-col-lg-6 sit-col-xl-6 sit-col-2-xl-6">
+                <sit-input
                   label="City"
                   name="city"
                   type="text"
                   required
                   hasFeedback="both"
                   invalidFeedback="City required"
-                ></sgds-input>
+                ></sit-input>
               </div>
-              <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-6 sgds-col-xl-6 sgds-col-2-xl-6">
-                <sgds-input
+              <div class="sit-col-4 sit-col-sm-4 sit-col-lg-6 sit-col-xl-6 sit-col-2-xl-6">
+                <sit-input
                   label="Postal code"
                   name="postal"
                   type="text"
                   required
                   hasFeedback="both"
                   invalidFeedback="Postal code required"
-                ></sgds-input>
+                ></sit-input>
               </div>
             </div>
 
             <div>
-              <sgds-select
+              <sit-select
                 label="Country"
                 name="country"
                 placeholder="Select a country"
@@ -128,43 +126,43 @@ const Template = () => html`
                 hasFeedback="both"
                 invalidFeedback="Country required"
               >
-                <sgds-select-option value="sg">Singapore</sgds-select-option>
-                <sgds-select-option value="my">Malaysia</sgds-select-option>
-                <sgds-select-option value="th">Thailand</sgds-select-option>
-              </sgds-select>
+                <sit-select-option value="sg">Singapore</sit-select-option>
+                <sit-select-option value="my">Malaysia</sit-select-option>
+                <sit-select-option value="th">Thailand</sit-select-option>
+              </sit-select>
             </div>
           </div>
 
           <!-- Step 3: Preferences -->
-          <div id="step-3" class="sgds:flex sgds:flex-col sgds:gap-layout-md" style="display: none;">
-            <h5 class="sgds:text-subtitle-lg sgds:font-semibold sgds:text-heading-default sgds:mb-0">
+          <div id="step-3" class="sit:flex sit:flex-col sit:gap-layout-md" style="display: none;">
+            <h5 class="sit:text-subtitle-lg sit:font-semibold sit:text-heading-default sit:mb-0">
               Preferences & Consent
             </h5>
 
             <div>
-              <sgds-radio-group
+              <sit-radio-group
                 label="Delivery method"
                 name="delivery"
                 required
                 hasFeedback="both"
                 invalidFeedback="Select a method"
               >
-                <sgds-radio value="pickup">Pickup</sgds-radio>
-                <sgds-radio value="standard">Standard delivery</sgds-radio>
-                <sgds-radio value="express">Express delivery</sgds-radio>
-              </sgds-radio-group>
+                <sit-radio value="pickup">Pickup</sit-radio>
+                <sit-radio value="standard">Standard delivery</sit-radio>
+                <sit-radio value="express">Express delivery</sit-radio>
+              </sit-radio-group>
             </div>
 
             <div>
-              <sgds-checkbox-group label="Communication preferences" name="communication">
-                <sgds-checkbox value="email">Email updates</sgds-checkbox>
-                <sgds-checkbox value="sms">SMS notifications</sgds-checkbox>
-                <sgds-checkbox value="phone">Phone calls</sgds-checkbox>
-              </sgds-checkbox-group>
+              <sit-checkbox-group label="Communication preferences" name="communication">
+                <sit-checkbox value="email">Email updates</sit-checkbox>
+                <sit-checkbox value="sms">SMS notifications</sit-checkbox>
+                <sit-checkbox value="phone">Phone calls</sit-checkbox>
+              </sit-checkbox-group>
             </div>
 
             <div>
-              <sgds-checkbox
+              <sit-checkbox
                 name="terms"
                 value="agree"
                 required
@@ -172,21 +170,21 @@ const Template = () => html`
                 invalidFeedback="You must agree to proceed"
               >
                 I agree to the terms and conditions
-              </sgds-checkbox>
+              </sit-checkbox>
             </div>
 
             <div>
-              <sgds-checkbox name="newsletter" value="subscribe">Subscribe to our newsletter</sgds-checkbox>
+              <sit-checkbox name="newsletter" value="subscribe">Subscribe to our newsletter</sit-checkbox>
             </div>
           </div>
 
           <!-- Form actions -->
-          <div class="sgds:flex sgds:gap-layout-sm sgds:items-center">
-            <sgds-button type="button" id="prevBtn" variant="ghost" style="display: none;">Previous</sgds-button>
-            <div class="sgds:flex sgds:gap-layout-sm" style="margin-left: auto;">
-              <sgds-button type="reset" variant="ghost">Cancel</sgds-button>
-              <sgds-button type="button" id="nextBtn">Next</sgds-button>
-              <sgds-button type="submit" id="submitBtn" style="display: none;">Submit</sgds-button>
+          <div class="sit:flex sit:gap-layout-sm sit:items-center">
+            <sit-button type="button" id="prevBtn" variant="ghost" style="display: none;">Previous</sit-button>
+            <div class="sit:flex sit:gap-layout-sm" style="margin-left: auto;">
+              <sit-button type="reset" variant="ghost">Cancel</sit-button>
+              <sit-button type="button" id="nextBtn">Next</sit-button>
+              <sit-button type="submit" id="submitBtn" style="display: none;">Submit</sit-button>
             </div>
           </div>
         </div>
@@ -229,7 +227,7 @@ export const FormMultistepStepper = {
       submitBtn.style.display = stepIndex === totalSteps - 1 ? "block" : "none";
     }
 
-    stepper.addEventListener("sgds-arrived", () => {
+    stepper.addEventListener("Sit-arrived", () => {
       showStep(stepper.activeStep);
     });
 

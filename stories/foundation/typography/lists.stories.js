@@ -56,44 +56,36 @@ export const OLists = {
 };
 
 const ListLargeRegularTemplate = () => html`
-  <div class="sgds:flex sgds:gap-2-xl">
-    <ul class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">
-      <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
-        First item
-      </li>
-      <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+  <div class="sit:flex sit:gap-2-xl">
+    <ul class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal">
+      <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">First item</li>
+      <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
         Second item
-        <ul class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">
-          <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+        <ul class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal">
+          <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
             Sub item one
           </li>
-          <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mt-list-lg">
+          <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mt-list-lg">
             Sub item two
           </li>
         </ul>
       </li>
-      <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mt-list-lg">
-        Third item
-      </li>
+      <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mt-list-lg">Third item</li>
     </ul>
-    <ol class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">
-      <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
-        First item
-      </li>
-      <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+    <ol class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal">
+      <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">First item</li>
+      <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
         Second item
-        <ol class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal">
-          <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:my-list-lg">
+        <ol class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal">
+          <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:my-list-lg">
             Sub item one
           </li>
-          <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mt-list-lg">
+          <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mt-list-lg">
             Sub item two
           </li>
         </ol>
       </li>
-      <li class="sgds:text-list-lg sgds:font-regular sgds:leading-md sgds:tracking-normal sgds:mt-list-lg">
-        Third item
-      </li>
+      <li class="sit:text-list-lg sit:font-regular sit:leading-md sit:tracking-normal sit:mt-list-lg">Third item</li>
     </ol>
   </div>
 `;
@@ -104,44 +96,36 @@ export const ListLargeRegular = {
 };
 
 const ListMediumRegularTemplate = () => html`
-  <div class="sgds:flex sgds:gap-2-xl">
-    <ul class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
-      <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
-        First item
-      </li>
-      <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+  <div class="sit:flex sit:gap-2-xl">
+    <ul class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
+      <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">First item</li>
+      <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
         Second item
-        <ul class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
-          <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+        <ul class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
+          <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
             Sub item one
           </li>
-          <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md">
+          <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md">
             Sub item two
           </li>
         </ul>
       </li>
-      <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md">
-        Third item
-      </li>
+      <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md">Third item</li>
     </ul>
-    <ol class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
-      <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
-        First item
-      </li>
-      <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+    <ol class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
+      <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">First item</li>
+      <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
         Second item
-        <ol class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal">
-          <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:my-list-md">
+        <ol class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal">
+          <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:my-list-md">
             Sub item one
           </li>
-          <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md">
+          <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md">
             Sub item two
           </li>
         </ol>
       </li>
-      <li class="sgds:text-list-md sgds:font-regular sgds:leading-xs sgds:tracking-normal sgds:mt-list-md">
-        Third item
-      </li>
+      <li class="sit:text-list-md sit:font-regular sit:leading-xs sit:tracking-normal sit:mt-list-md">Third item</li>
     </ol>
   </div>
 `;
@@ -152,44 +136,36 @@ export const ListMediumRegular = {
 };
 
 const ListSmallRegularTemplate = () => html`
-  <div class="sgds:flex sgds:gap-2-xl">
-    <ul class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">
-      <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
-        First item
-      </li>
-      <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+  <div class="sit:flex sit:gap-2-xl">
+    <ul class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">
+      <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">First item</li>
+      <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
         Second item
-        <ul class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">
-          <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+        <ul class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">
+          <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
             Sub item one
           </li>
-          <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mt-list-sm">
+          <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mt-list-sm">
             Sub item two
           </li>
         </ul>
       </li>
-      <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mt-list-sm">
-        Third item
-      </li>
+      <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mt-list-sm">Third item</li>
     </ul>
-    <ol class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">
-      <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
-        First item
-      </li>
-      <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+    <ol class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">
+      <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">First item</li>
+      <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
         Second item
-        <ol class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">
-          <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:my-list-sm">
+        <ol class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal">
+          <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:my-list-sm">
             Sub item one
           </li>
-          <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mt-list-sm">
+          <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mt-list-sm">
             Sub item two
           </li>
         </ol>
       </li>
-      <li class="sgds:text-list-sm sgds:font-regular sgds:leading-2-xs sgds:tracking-normal sgds:mt-list-sm">
-        Third item
-      </li>
+      <li class="sit:text-list-sm sit:font-regular sit:leading-2-xs sit:tracking-normal sit:mt-list-sm">Third item</li>
     </ol>
   </div>
 `;

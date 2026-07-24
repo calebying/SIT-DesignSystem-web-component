@@ -6,63 +6,63 @@ const ClickableTemplate = args => {
     <div class="d-flex-column">
       <div>
         <h5>Steps indicator are not clickable</h5>
-        <sgds-stepper activeStep="2">
-          <sgds-step stepHeader="Personal Details">
+        <sit-stepper activeStep="2">
+          <sit-step stepHeader="Personal Details">
             <div>Description</div>
-          </sgds-step>
-          <sgds-step stepHeader="Address">
+          </sit-step>
+          <sit-step stepHeader="Address">
             <div>Description</div>
-          </sgds-step>
-          <sgds-step stepHeader="Review">
+          </sit-step>
+          <sit-step stepHeader="Review">
             <div>Description</div>
-          </sgds-step>
-        </sgds-stepper>
+          </sit-step>
+        </sit-stepper>
       </div>
       <br />
       <div>
         <h5>Steps indicator are clickable</h5>
-        <sgds-stepper activeStep="2" clickable>
-          <sgds-step stepHeader="Personal Details">
+        <sit-stepper activeStep="2" clickable>
+          <sit-step stepHeader="Personal Details">
             <div>Description</div>
-          </sgds-step>
-          <sgds-step stepHeader="Address">
+          </sit-step>
+          <sit-step stepHeader="Address">
             <div>Description</div>
-          </sgds-step>
-          <sgds-step stepHeader="Review">
+          </sit-step>
+          <sit-step stepHeader="Review">
             <div>Description</div>
-          </sgds-step>
-        </sgds-stepper>
+          </sit-step>
+        </sit-stepper>
       </div>
     </div>
   `;
 };
 
 const StepComponentTemplate = () => html`
-  <sgds-stepper activeStep="0">
-    <sgds-step stepHeader="Personal Details">
+  <sit-stepper activeStep="0">
+    <sit-step stepHeader="Personal Details">
       <div>Description</div>
-    </sgds-step>
-    <sgds-step stepHeader="Address">
+    </sit-step>
+    <sit-step stepHeader="Address">
       <div>Description</div>
-    </sgds-step>
-    <sgds-step stepHeader="Review">
+    </sit-step>
+    <sit-step stepHeader="Review">
       <div>Description</div>
-    </sgds-step>
-  </sgds-stepper>
+    </sit-step>
+  </sit-stepper>
 `;
 
 const StepComponentClickableTemplate = () => html`
-  <sgds-stepper activeStep="1" clickable>
-    <sgds-step stepHeader="Personal Details">
+  <sit-stepper activeStep="1" clickable>
+    <sit-step stepHeader="Personal Details">
       <div>Description</div>
-    </sgds-step>
-    <sgds-step stepHeader="Address">
+    </sit-step>
+    <sit-step stepHeader="Address">
       <div>Description</div>
-    </sgds-step>
-    <sgds-step stepHeader="Review">
+    </sit-step>
+    <sit-step stepHeader="Review">
       <div>Description</div>
-    </sgds-step>
-  </sgds-stepper>
+    </sit-step>
+  </sit-stepper>
 `;
 
 export const Orientation = {
@@ -81,30 +81,30 @@ export const Clickable = {
 
 export const StepComponent = {
   render: StepComponentTemplate.bind({}),
-  name: "With sgds-step Children",
+  name: "With Sit-step Children",
   args: {},
   parameters: {}
 };
 
 export const StepComponentClickable = {
   render: StepComponentClickableTemplate.bind({}),
-  name: "With sgds-step Children (Clickable)",
+  name: "With Sit-step Children (Clickable)",
   args: {},
   parameters: {}
 };
 
 const StepStatesTemplate = () => html`
-  <sgds-stepper activeStep="1" clickable>
-    <sgds-step stepHeader="Personal Details" completed>
+  <sit-stepper activeStep="1" clickable>
+    <sit-step stepHeader="Personal Details" completed>
       <div>Completed step</div>
-    </sgds-step>
-    <sgds-step stepHeader="Address" active>
+    </sit-step>
+    <sit-step stepHeader="Address" active>
       <div>Active step</div>
-    </sgds-step>
-    <sgds-step stepHeader="Review" disabled>
+    </sit-step>
+    <sit-step stepHeader="Review" disabled>
       <div>Disabled step</div>
-    </sgds-step>
-  </sgds-stepper>
+    </sit-step>
+  </sit-stepper>
 `;
 
 export const StepStates = {
@@ -115,23 +115,23 @@ export const StepStates = {
 };
 
 const SlottedClickableTemplate = () => html`
-  <sgds-stepper activeStep="1" clickable>
-    <sgds-step stepHeader="Personal Details">
+  <sit-stepper activeStep="1" clickable>
+    <sit-step stepHeader="Personal Details">
       <div>
         Description
-        <sgds-link size="sm">
+        <sit-link size="sm">
           <a href="#" data-clickable>Learn more</a>
-        </sgds-link>
+        </sit-link>
       </div>
-    </sgds-step>
-    <sgds-step stepHeader="Address">
+    </sit-step>
+    <sit-step stepHeader="Address">
       <div>Please fill the form with your current address.</div>
-      <sgds-button size="sm" data-clickable @click=${() => alert("Button clicked")}>Action</sgds-button>
-    </sgds-step>
-    <sgds-step stepHeader="Review">
+      <sit-button size="sm" data-clickable @click=${() => alert("Button clicked")}>Action</sit-button>
+    </sit-step>
+    <sit-step stepHeader="Review">
       <div>Description</div>
-    </sgds-step>
-  </sgds-stepper>
+    </sit-step>
+  </sit-stepper>
 `;
 
 export const SlottedClickable = {
@@ -142,17 +142,17 @@ export const SlottedClickable = {
 };
 
 const CustomIconTemplate = () => html`
-  <sgds-stepper activeStep="1">
-    <sgds-step stepHeader="Personal Details" iconName="user-circle">
+  <sit-stepper activeStep="1">
+    <sit-step stepHeader="Personal Details" iconName="user-circle">
       <div>Provide your personal information.</div>
-    </sgds-step>
-    <sgds-step stepHeader="Address" iconName="geo-alt">
+    </sit-step>
+    <sit-step stepHeader="Address" iconName="geo-alt">
       <div>Enter your address and contact details.</div>
-    </sgds-step>
-    <sgds-step stepHeader="Review" iconName="check-circle-fill">
+    </sit-step>
+    <sit-step stepHeader="Review" iconName="check-circle-fill">
       <div>Review all details before submitting.</div>
-    </sgds-step>
-  </sgds-stepper>
+    </sit-step>
+  </sit-stepper>
 `;
 
 export const CustomIcon = {

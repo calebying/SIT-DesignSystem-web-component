@@ -7,17 +7,17 @@ function capitalizeFirstLetter(val) {
 
 const VariantTemplate = args =>
   html`
-    <sgds-toast show variant=${ifDefined(args.variant)} dismissible title=${capitalizeFirstLetter(args.variant)}>
+    <sit-toast show variant=${ifDefined(args.variant)} dismissible title=${capitalizeFirstLetter(args.variant)}>
       ${args.variant === "success"
-        ? html`<sgds-icon slot="icon" name="check-circle-fill" size="md"></sgds-icon>`
+        ? html`<sit-icon slot="icon" name="check-circle-fill" size="md"></sit-icon>`
         : args.variant === "danger"
-        ? html`<sgds-icon slot="icon" name="exclamation-circle-fill" size="md"></sgds-icon>`
+        ? html`<sit-icon slot="icon" name="exclamation-circle-fill" size="md"></sit-icon>`
         : args.variant === "warning"
-        ? html`<sgds-icon slot="icon" name="exclamation-triangle-fill" size="md"></sgds-icon>`
-        : html`<sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>`}
+        ? html`<sit-icon slot="icon" name="exclamation-triangle-fill" size="md"></sit-icon>`
+        : html`<sit-icon slot="icon" name="info-circle-fill" size="md"></sit-icon>`}
       Message
-      <sgds-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sgds-link>
-    </sgds-toast>
+      <sit-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sit-link>
+    </sit-toast>
   `;
 
 export const InfoVariant = {
@@ -54,16 +54,16 @@ export const NeutralVariant = {
 const DismissibleTemplate = args =>
   html`
     <div class="d-flex-column">
-      <sgds-toast show dismissible title="Dismissible">
-        <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
+      <sit-toast show dismissible title="Dismissible">
+        <sit-icon slot="icon" name="info-circle-fill" size="md"></sit-icon>
         Message
-        <sgds-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sgds-link>
-      </sgds-toast>
-      <sgds-toast show title="Not dismissible">
-        <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
+        <sit-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sit-link>
+      </sit-toast>
+      <sit-toast show title="Not dismissible">
+        <sit-icon slot="icon" name="info-circle-fill" size="md"></sit-icon>
         Message
-        <sgds-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sgds-link>
-      </sgds-toast>
+        <sit-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sit-link>
+      </sit-toast>
     </div>
   `;
 
@@ -77,12 +77,12 @@ export const Dismissible = {
 const PositionTemplate = args =>
   html`
     <div style="height:600px;">
-      <sgds-masthead></sgds-masthead>
-      <sgds-mainnav>
-        <img alt="sgds logo" width="130" src="/logo.png" slot="brand" />
-      </sgds-mainnav>
-      <sgds-toast-container position=${ifDefined(args.position)}>
-        <sgds-toast
+      <sit-masthead></sit-masthead>
+      <sit-mainnav>
+        <img alt="Sit logo" width="130" src="/logo.png" slot="brand" />
+      </sit-mainnav>
+      <sit-toast-container position=${ifDefined(args.position)}>
+        <sit-toast
           ?show=${args.show}
           variant=${ifDefined(args.variant)}
           ?autohide=${args.autohide}
@@ -91,11 +91,11 @@ const PositionTemplate = args =>
           ?dismissable=${args.dismissable}
           title=${ifDefined(args.title)}
         >
-          <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
+          <sit-icon slot="icon" name="info-circle-fill" size="md"></sit-icon>
           This is a toast notifications
-          <sgds-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sgds-link>
-        </sgds-toast>
-      </sgds-toast-container>
+          <sit-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sit-link>
+        </sit-toast>
+      </sit-toast-container>
     </div>
   `;
 export const TopCenter = {
@@ -132,18 +132,18 @@ export const BottomEnd = {
 const StackingTemplate = () =>
   html`
     <div style="height:400px;">
-      <sgds-toast-container position=${ifDefined(args.position)}>
-        <sgds-toast show>
-          <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
+      <sit-toast-container position=${ifDefined(args.position)}>
+        <sit-toast show>
+          <sit-icon slot="icon" name="info-circle-fill" size="md"></sit-icon>
           This is a toast notifications
-          <sgds-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sgds-link>
-        </sgds-toast>
-        <sgds-toast show>
-          <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
+          <sit-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sit-link>
+        </sit-toast>
+        <sit-toast show>
+          <sit-icon slot="icon" name="info-circle-fill" size="md"></sit-icon>
           This is a toast notifications
-          <sgds-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sgds-link>
-        </sgds-toast>
-      </sgds-toast-container>
+          <sit-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sit-link>
+        </sit-toast>
+      </sit-toast-container>
     </div>
   `;
 

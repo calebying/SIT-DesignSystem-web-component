@@ -3,67 +3,63 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 const ValidationTemplateGroup = args =>
   html`
-    <form class="sgds:flex sgds:flex-col sgds:gap-layout-xs">
-      <sgds-checkbox-group required hasFeedback id="sameid">
-        <sgds-checkbox value="he">he</sgds-checkbox>
-        <sgds-checkbox value="him">him</sgds-checkbox>
-      </sgds-checkbox-group>
+    <form class="sit:flex sit:flex-col sit:gap-layout-xs">
+      <sit-checkbox-group required hasFeedback id="sameid">
+        <sit-checkbox value="he">he</sit-checkbox>
+        <sit-checkbox value="him">him</sit-checkbox>
+      </sit-checkbox-group>
 
-      <div class="sgds:flex sgds:justify-end sgds:gap-component-xs">
-        <sgds-button type="submit">Submit</sgds-button>
-        <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+      <div class="sit:flex sit:justify-end sit:gap-component-xs">
+        <sit-button type="submit">Submit</sit-button>
+        <sit-button type="reset" variant="ghost">Reset</sit-button>
       </div>
     </form>
   `;
 
 const ValidationTemplateSingle = args =>
   html`
-    <form class="sgds:flex sgds:flex-col sgds:gap-layout-xs">
-      <sgds-checkbox value="marketing" required hasFeedback="both">I acknowledge to receive marketing...</sgds-checkbox>
-      <sgds-checkbox value="subcribe" hasFeedback="both">I agree to subscribe to...</sgds-checkbox>
-      <div class="sgds:flex sgds:justify-end sgds:gap-component-xs">
-        <sgds-button type="submit">Submit</sgds-button>
-        <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+    <form class="sit:flex sit:flex-col sit:gap-layout-xs">
+      <sit-checkbox value="marketing" required hasFeedback="both">I acknowledge to receive marketing...</sit-checkbox>
+      <sit-checkbox value="subcribe" hasFeedback="both">I agree to subscribe to...</sit-checkbox>
+      <div class="sit:flex sit:justify-end sit:gap-component-xs">
+        <sit-button type="submit">Submit</sit-button>
+        <sit-button type="reset" variant="ghost">Reset</sit-button>
       </div>
     </form>
   `;
 
 const InvalidTemplate = () =>
   html`
-    <div class="sgds-grid">
-      <sgds-checkbox
-        class="sgds-col-4 sgds-col-sm-4"
-        invalid
-        hasFeedback="both"
-        invalidFeedback="custom feedback message"
-        >Invalid</sgds-checkbox
+    <div class="sit-grid">
+      <sit-checkbox class="sit-col-4 sit-col-sm-4" invalid hasFeedback="both" invalidFeedback="custom feedback message"
+        >Invalid</sit-checkbox
       >
-      <sgds-checkbox
-        class="sgds-col-4 sgds-col-sm-4"
+      <sit-checkbox
+        class="sit-col-4 sit-col-sm-4"
         invalid
         checked
         hasFeedback="both"
         invalidFeedback="custom feedback message"
-        >Invalid and checked</sgds-checkbox
+        >Invalid and checked</sit-checkbox
       >
-      <sgds-checkbox
-        class="sgds-col-4 sgds-col-sm-4"
+      <sit-checkbox
+        class="sit-col-4 sit-col-sm-4"
         invalid
         indeterminate
         hasFeedback="both"
         invalidFeedback="custom feedback message"
-        >Invalid and indeterminate</sgds-checkbox
+        >Invalid and indeterminate</sit-checkbox
       >
     </div>
   `;
 
 const InvalidGroupTemplate = () =>
   html`
-    <sgds-checkbox-group invalid hasFeedback label="CheckboxGroup label" invalidFeedback="custom feedback message">
-      <sgds-checkbox>Option A </sgds-checkbox>
-      <sgds-checkbox>Option B </sgds-checkbox>
-      <sgds-checkbox>Option C</sgds-checkbox>
-    </sgds-checkbox-group>
+    <sit-checkbox-group invalid hasFeedback label="CheckboxGroup label" invalidFeedback="custom feedback message">
+      <sit-checkbox>Option A </sit-checkbox>
+      <sit-checkbox>Option B </sit-checkbox>
+      <sit-checkbox>Option C</sit-checkbox>
+    </sit-checkbox-group>
   `;
 
 export const Indeterminate = {

@@ -4,7 +4,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 const ValidationTemplate = args =>
   html`
     <form>
-      <sgds-textarea
+      <sit-textarea
         name="textareaValidationExample"
         required
         minLength="5"
@@ -12,23 +12,23 @@ const ValidationTemplate = args =>
         hasFeedback
         label="Textarea label"
         invalidFeedback=${ifDefined(args.invalidFeedback)}
-      ></sgds-textarea>
-      <sgds-button type="submit">Submit</sgds-button>
-      <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+      ></sit-textarea>
+      <sit-button type="submit">Submit</sit-button>
+      <sit-button type="reset" variant="ghost">Reset</sit-button>
     </form>
   `;
 
 const changeValue = e => {
   e.preventDefault();
-  const textarea = document.querySelector("sgds-textarea#default-value-eg");
+  const textarea = document.querySelector("Sit-textarea#default-value-eg");
   textarea.defaultValue = "Default value has changed!";
 };
 
 const DefaultValueTemplate = () => html`
   <form>
-    <sgds-textarea id="default-value-eg" value="The initial value" label="Textarea label"></sgds-textarea>
-    <sgds-button type="reset" class="mt-5">Reset</sgds-button>
-    <sgds-button variant="warning" @click=${e => changeValue(e)}>Click to change the default value</sgds-button>
+    <sit-textarea id="default-value-eg" value="The initial value" label="Textarea label"></sit-textarea>
+    <sit-button type="reset" class="mt-5">Reset</sit-button>
+    <sit-button variant="warning" @click=${e => changeValue(e)}>Click to change the default value</sit-button>
   </form>
 `;
 

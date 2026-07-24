@@ -9,7 +9,7 @@ export const SelectDefaultSlot = {
 
 const SelectMenuListProp = () => {
   return html`
-    <sgds-select id="select-menuList-prop-example" label="Items" placeholder="Select"></sgds-select>
+    <sit-select id="select-menuList-prop-example" label="Items" placeholder="Select"></sit-select>
     <script>
       const select = document.querySelector("#select-menuList-prop-example");
       select.menuList = [
@@ -240,8 +240,8 @@ export const SelectLoading = {
 const NoValidateTemplate = () => {
   return html`
     <form id="novalidate-select-story-form">
-      <sgds-select
-        class="sgds:mb-layout-sm"
+      <sit-select
+        class="sit:mb-layout-sm"
         noValidate
         hasFeedback
         label="Fruit"
@@ -249,18 +249,18 @@ const NoValidateTemplate = () => {
         id="novalidate-select-story"
         placeholder="Select a fruit"
       >
-        <sgds-select-option value="apple">Apple</sgds-select-option>
-        <sgds-select-option value="apricot">Apricot</sgds-select-option>
-        <sgds-select-option value="banana">Banana</sgds-select-option>
-        <sgds-select-option value="durian">Durian</sgds-select-option>
-      </sgds-select>
-      <sgds-button type="submit">Submit</sgds-button>
+        <sit-select-option value="apple">Apple</sit-select-option>
+        <sit-select-option value="apricot">Apricot</sit-select-option>
+        <sit-select-option value="banana">Banana</sit-select-option>
+        <sit-select-option value="durian">Durian</sit-select-option>
+      </sit-select>
+      <sit-button type="submit">Submit</sit-button>
     </form>
     <script>
       const noValidateSelect = document.querySelector("#novalidate-select-story");
       const noValidateFormStory = document.querySelector("#novalidate-select-story-form");
 
-      noValidateSelect.addEventListener("sgds-change", e => {
+      noValidateSelect.addEventListener("Sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(false);
           return;

@@ -6,50 +6,50 @@ export default {
 };
 
 const Template = () => html`
-  <div class="sgds-container sgds:py-layout-md">
-    <div class="sgds-grid sgds:gap-layout-md">
-      <form class="sgds-col-4 sgds-col-sm-8 sgds-col-md-8 sgds-col-lg-8 sgds-col-xl-8 sgds-col-2-xl-8">
-        <div class="sgds:flex sgds:flex-col sgds:gap-layout-lg">
-          <div class="sgds:flex sgds:flex-col sgds:gap-layout-md">
+  <div class="sit-container sit:py-layout-md">
+    <div class="sit-grid sit:gap-layout-md">
+      <form class="sit-col-4 sit-col-sm-8 sit-col-md-8 sit-col-lg-8 sit-col-xl-8 sit-col-2-xl-8">
+        <div class="sit:flex sit:flex-col sit:gap-layout-lg">
+          <div class="sit:flex sit:flex-col sit:gap-layout-md">
             <h5
-              class="sgds:text-subtitle-lg sgds:font-semibold sgds:leading-xs sgds:tracking-normal sgds:text-heading-default sgds:mb-0"
+              class="sit:text-subtitle-lg sit:font-semibold sit:leading-xs sit:tracking-normal sit:text-heading-default sit:mb-0"
             >
               All Full-Width
             </h5>
             <div>
-              <sgds-textarea
+              <sit-textarea
                 label="Description"
                 name="description"
                 placeholder="Enter description..."
                 required
                 hasFeedback="both"
-              ></sgds-textarea>
+              ></sit-textarea>
             </div>
             <div>
-              <sgds-radio-group label="Category" name="category" required hasFeedback="both">
-                <sgds-radio value="category-a">Category A</sgds-radio>
-                <sgds-radio value="category-b">Category B</sgds-radio>
-                <sgds-radio value="category-c">Category C</sgds-radio>
-              </sgds-radio-group>
+              <sit-radio-group label="Category" name="category" required hasFeedback="both">
+                <sit-radio value="category-a">Category A</sit-radio>
+                <sit-radio value="category-b">Category B</sit-radio>
+                <sit-radio value="category-c">Category C</sit-radio>
+              </sit-radio-group>
             </div>
             <div>
-              <sgds-checkbox-group label="Options" name="options" required hasFeedback="both">
-                <sgds-checkbox value="option-1">Option 1</sgds-checkbox>
-                <sgds-checkbox value="option-2">Option 2</sgds-checkbox>
-                <sgds-checkbox value="option-3">Option 3</sgds-checkbox>
-              </sgds-checkbox-group>
+              <sit-checkbox-group label="Options" name="options" required hasFeedback="both">
+                <sit-checkbox value="option-1">Option 1</sit-checkbox>
+                <sit-checkbox value="option-2">Option 2</sit-checkbox>
+                <sit-checkbox value="option-3">Option 3</sit-checkbox>
+              </sit-checkbox-group>
             </div>
             <div>
-              <sgds-textarea
+              <sit-textarea
                 label="Additional comments"
                 name="comments"
                 placeholder="Any additional comments..."
-              ></sgds-textarea>
+              ></sit-textarea>
             </div>
           </div>
-          <div class="sgds:flex sgds:gap-layout-sm sgds:items-center sgds:justify-end">
-            <sgds-button type="reset" variant="ghost">Reset</sgds-button>
-            <sgds-button type="submit">Submit</sgds-button>
+          <div class="sit:flex sit:gap-layout-sm sit:items-center sit:justify-end">
+            <sit-button type="reset" variant="ghost">Reset</sit-button>
+            <sit-button type="submit">Submit</sit-button>
           </div>
         </div>
       </form>

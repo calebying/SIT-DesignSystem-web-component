@@ -2,15 +2,15 @@ import { html } from "lit";
 
 const OverflowTemplate = args => {
   return html`
-    <sgds-breadcrumb>
-      <sgds-breadcrumb-item><a href="#">Home</a></sgds-breadcrumb-item>
-      <sgds-breadcrumb-item><a href="#">About</a></sgds-breadcrumb-item>
-      <sgds-breadcrumb-item><a href="#">Contacts</a></sgds-breadcrumb-item>
-      <sgds-breadcrumb-item><a href="#">Link-1</a></sgds-breadcrumb-item>
-      <sgds-breadcrumb-item><a href="#">Link-2</a></sgds-breadcrumb-item>
-      <sgds-breadcrumb-item><a href="#">Link-3</a></sgds-breadcrumb-item>
-      <sgds-breadcrumb-item><a href="#">Link-4</a></sgds-breadcrumb-item>
-    </sgds-breadcrumb>
+    <sit-breadcrumb>
+      <sit-breadcrumb-item><a href="#">Home</a></sit-breadcrumb-item>
+      <sit-breadcrumb-item><a href="#">About</a></sit-breadcrumb-item>
+      <sit-breadcrumb-item><a href="#">Contacts</a></sit-breadcrumb-item>
+      <sit-breadcrumb-item><a href="#">Link-1</a></sit-breadcrumb-item>
+      <sit-breadcrumb-item><a href="#">Link-2</a></sit-breadcrumb-item>
+      <sit-breadcrumb-item><a href="#">Link-3</a></sit-breadcrumb-item>
+      <sit-breadcrumb-item><a href="#">Link-4</a></sit-breadcrumb-item>
+    </sit-breadcrumb>
   `;
 };
 

@@ -1,24 +1,24 @@
-## Using sgds-step Child Components (Recommended)
+## Using Sit-step Child Components (Recommended)
 
-The preferred way to use `sgds-stepper` is by composing it with `<sgds-step>` child components. This approach provides better flexibility and is the recommended pattern going forward.
+The preferred way to use `Sit-stepper` is by composing it with `<sit-step>` child components. This approach provides better flexibility and is the recommended pattern going forward.
 
 ```tsx
-export interface SgdsStepProperties {
+export interface SitStepProperties {
   stepHeader: string; // The header text for the step
-  iconName?: string; // Optional icon name from SGDS icon set
+  iconName?: string; // Optional icon name from Sit icon set
   component?: unknown; // Optional component reference for this step
   disabled?: boolean; // Whether this step is disabled
   completed?: boolean; // Whether this step is marked as completed
 }
 ```
 
-### Basic Example with sgds-step
+### Basic Example with Sit-step
 
 <Canvas of={StepperStories.StepComponent}>
   <Story of={StepperStories.StepComponent} />
 </Canvas>
 
-### Clickable Steps with sgds-step
+### Clickable Steps with Sit-step
 
 <Canvas of={StepperStories.StepComponentClickable}>
   <Story of={StepperStories.StepComponentClickable} />
@@ -26,7 +26,7 @@ export interface SgdsStepProperties {
 
 ### Custom Icon
 
-Use the `iconName` prop on `<sgds-step>` to replace the default step number with an icon from the SGDS icon set.
+Use the `iconName` prop on `<sit-step>` to replace the default step number with an icon from the Sit icon set.
 
 <Canvas of={StepperStories.CustomIcon}>
   <Story of={StepperStories.CustomIcon} />
@@ -42,9 +42,9 @@ Use the `iconName` prop on `<sgds-step>` to replace the default step number with
 
 ## Using the Deprecated Steps Property
 
-The `steps` property approach is now deprecated in favor of `sgds-step` child components. However, it remains supported for backwards compatibility.
+The `steps` property approach is now deprecated in favor of `Sit-step` child components. However, it remains supported for backwards compatibility.
 
-> **Note:** The legacy `IStepMetaData` (`steps` prop) approach does **not** support newer `sgds-step` capabilities such as slot-based step descriptions/content and related slot interaction patterns. Use `<sgds-step>` children for all new implementations.
+> **Note:** The legacy `IStepMetaData` (`steps` prop) approach does **not** support newer `Sit-step` capabilities such as slot-based step descriptions/content and related slot interaction patterns. Use `<sit-step>` children for all new implementations.
 
 ## Pass IStepsMetadata to steps prop
 
@@ -84,21 +84,21 @@ To allow users to go back and forth, please create the action buttons with the m
 
 ## Slotted clickable items
 
-When a clickable `sgds-step` contains interactive elements in its slot (e.g. links or buttons), clicks on those elements
+When a clickable `Sit-step` contains interactive elements in its slot (e.g. links or buttons), clicks on those elements
 would normally bubble up and also trigger the step's navigation. To prevent this, add the `data-clickable` attribute to
 any slotted element whose click should be handled independently and **not** propagate to the step.
 
 ```html
-<sgds-stepper activeStep="1" clickable>
-  <sgds-step stepHeader="Personal Details">
+<sit-stepper activeStep="1" clickable>
+  <sit-step stepHeader="Personal Details">
     <!-- This link handles its own click; the step will not receive the event -->
     <a href="/details" data-clickable>Learn more</a>
-  </sgds-step>
-  <sgds-step stepHeader="Address">
+  </sit-step>
+  <sit-step stepHeader="Address">
     <!-- This button fires its own handler without navigating the stepper -->
     <button data-clickable>Action</button>
-  </sgds-step>
-</sgds-stepper>
+  </sit-step>
+</sit-stepper>
 ```
 
 <Canvas of={StepperStories.SlottedClickable}>
@@ -122,8 +122,8 @@ Reference the API table and methods table carefully when creating the Stepper co
 
 2. Create the parent component. This is where all the state of `steps` and `activeStep` will be managed and should persist.
    This component should capture and store any user input. This component should handle the dynamic rendering of child components depending on the current `activeStep`.
-   Use SgdsStepper's `getComponent` public method to obtain current component.
-   Make use of the SgdsStepper's public methods to create button actions for next/previous/last/first step or reset.
+   Use SitStepper's `getComponent` public method to obtain current component.
+   Make use of the SitStepper's public methods to create button actions for next/previous/last/first step or reset.
 
 <Canvas of={StepperStories.StepperExample}>
   <Story of={StepperStories.StepperExample} />
@@ -133,7 +133,7 @@ Reference the API table and methods table carefully when creating the Stepper co
 
 ### React
 
-See a <a target="_blank" href="https://stackblitz.com/github/clukhei/sgds-wc-react-stepper?file=src%2FApp.tsx">working example of stepper in a React app</a>
+See a <a target="_blank" href="https://stackblitz.com/github/clukhei/Sit-wc-react-stepper?file=src%2FApp.tsx">working example of stepper in a React app</a>
 
 ### Angular
 
@@ -141,11 +141,11 @@ See a <a target="_blank" href="https://stackblitz.com/github/clukhei/angular-ste
 
 ### Vue
 
-See a <a target="_blank" href="https://stackblitz.com/github/tonghauhive/sgds-vue-stepper?file=src%2Fcomponents%2FStepper.vue">working example of stepper in a Vue app</a>
+See a <a target="_blank" href="https://stackblitz.com/github/tonghauhive/Sit-vue-stepper?file=src%2Fcomponents%2FStepper.vue">working example of stepper in a Vue app</a>
 
 ## Contributions
 
 We accept contributions from the community!
-If you have an SgdsStepper to showcase from a different framework or a better example to showcase,
-raise a PR or raise an issue with your StackBlitz example on our <a href="https://github.com/GovTechSG/sgds-web-component" target="_blank">GitHub page</a>.
+If you have an SitStepper to showcase from a different framework or a better example to showcase,
+raise a PR or raise an issue with your StackBlitz example on our <a href="https://github.com/GovTechSG/Sit-web-component" target="_blank">GitHub page</a>.
 If the examples above are not working, notify us by raising a GitHub issue.

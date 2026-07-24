@@ -1,149 +1,145 @@
 import { html } from "lit";
 
-const SgdsSelectCloseTemplate = args => {
+const SitSelectCloseTemplate = args => {
   return html`
-    <sgds-dropdown close="default">
-      <sgds-button slot="toggler" variant="primary" tone="brand" ariaLabel="Default Close">
+    <sit-dropdown close="default">
+      <sit-button slot="toggler" variant="primary" tone="brand" ariaLabel="Default Close">
         Default Close
-        <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-      </sgds-button>
-      <sgds-dropdown-item ariaLabel="Item #1">Item #1</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Item #2">Item #2</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Item #3">Item #3</sgds-dropdown-item>
-    </sgds-dropdown>
+        <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+      </sit-button>
+      <sit-dropdown-item ariaLabel="Item #1">Item #1</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Item #2">Item #2</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Item #3">Item #3</sit-dropdown-item>
+    </sit-dropdown>
     <br />
-    <sgds-dropdown close="outside">
-      <sgds-button slot="toggler" variant="primary" tone="brand" ariaLabel="Close Outside">
+    <sit-dropdown close="outside">
+      <sit-button slot="toggler" variant="primary" tone="brand" ariaLabel="Close Outside">
         Close Outside
-        <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-      </sgds-button>
-      <sgds-dropdown-item ariaLabel="Item #1">Item #1</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Item #2">Item #2</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Item #3">Item #3</sgds-dropdown-item>
-    </sgds-dropdown>
+        <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+      </sit-button>
+      <sit-dropdown-item ariaLabel="Item #1">Item #1</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Item #2">Item #2</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Item #3">Item #3</sit-dropdown-item>
+    </sit-dropdown>
     <br />
-    <sgds-dropdown close="inside">
-      <sgds-button slot="toggler" variant="primary" tone="brand" ariaLabel="Close Inside">
+    <sit-dropdown close="inside">
+      <sit-button slot="toggler" variant="primary" tone="brand" ariaLabel="Close Inside">
         Close Inside
-        <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-      </sgds-button>
-      <sgds-dropdown-item ariaLabel="Item #1">Item #1</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Item #2">Item #2</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Item #3">Item #3</sgds-dropdown-item>
-    </sgds-dropdown>
+        <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+      </sit-button>
+      <sit-dropdown-item ariaLabel="Item #1">Item #1</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Item #2">Item #2</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Item #3">Item #3</sit-dropdown-item>
+    </sit-dropdown>
   `;
 };
 
-export const SgdsSelectClose = {
-  render: SgdsSelectCloseTemplate.bind({}),
-  name: "sgds-select close",
+export const SitSelectClose = {
+  render: SitSelectCloseTemplate.bind({}),
+  name: "Sit-select close",
   args: {},
   parameters: {
     chromatic: { disableSnapshot: true }
   }
 };
 
-const SgdsSelectEventTemplate = args => {
+const SitSelectEventTemplate = args => {
   return html`
-    <sgds-dropdown id="select-event-dropdown">
-      <sgds-button slot="toggler" variant="primary" tone="brand" ariaLabel="Dynamic Text">
+    <sit-dropdown id="select-event-dropdown">
+      <sit-button slot="toggler" variant="primary" tone="brand" ariaLabel="Dynamic Text">
         <span id="select-toggler-text">Dynamic Text</span>
-        <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-      </sgds-button>
-      <sgds-dropdown-item ariaLabel="Item #1">Item #1</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Item #2">Item #2</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Item #3">Item #3</sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="item #4" disabled>item #4 (disabled)</sgds-dropdown-item>
-    </sgds-dropdown>
+        <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+      </sit-button>
+      <sit-dropdown-item ariaLabel="Item #1">Item #1</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Item #2">Item #2</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Item #3">Item #3</sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="item #4" disabled>item #4 (disabled)</sit-dropdown-item>
+    </sit-dropdown>
 
     <script>
       const dropdown = document.querySelector("#select-event-dropdown");
       const togglerText = document.querySelector("#select-toggler-text");
 
-      dropdown.addEventListener("sgds-select", e => {
+      dropdown.addEventListener("Sit-select", e => {
         togglerText.textContent = e.detail.item.textContent.trim();
       });
     </script>
   `;
 };
 
-export const SgdsSelectEvent = {
-  render: SgdsSelectEventTemplate.bind({}),
-  name: "sgds-select event",
+export const SitSelectEvent = {
+  render: SitSelectEventTemplate.bind({}),
+  name: "Sit-select event",
   args: {},
   parameters: {
     chromatic: { disableSnapshot: true }
   }
 };
 
-const SgdsSelectDropdownItemTemplate = args => {
+const SitSelectDropdownItemTemplate = args => {
   return html`
-    <sgds-dropdown close="outside">
-      <sgds-button slot="toggler" variant="primary" tone="brand" ariaLabel="Dropdown">
+    <sit-dropdown close="outside">
+      <sit-button slot="toggler" variant="primary" tone="brand" ariaLabel="Dropdown">
         Dropdown
-        <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-      </sgds-button>
-      <sgds-dropdown-item ariaLabel="Label">
-        <div class="sgds:grow sgds:items-center">
-          <sgds-icon name="placeholder" size="2-xl"></sgds-icon>
-          <div class="sgds:flex sgds:flex-col sgds:gap-text-2-xs">
-            <span class="sgds:text-label-sm sgds:leading-2-xs sgds:font-regular sgds:tracking-normal">Label</span>
-            <span class="sgds:text-label-xs sgds:leading-3-xs sgds:font-regular sgds:tracking-normal sgds:text-subtle"
+        <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+      </sit-button>
+      <sit-dropdown-item ariaLabel="Label">
+        <div class="sit:grow sit:items-center">
+          <sit-icon name="placeholder" size="2-xl"></sit-icon>
+          <div class="sit:flex sit:flex-col sit:gap-text-2-xs">
+            <span class="sit:text-label-sm sit:leading-2-xs sit:font-regular sit:tracking-normal">Label</span>
+            <span class="sit:text-label-xs sit:leading-3-xs sit:font-regular sit:tracking-normal sit:text-subtle"
               >Secondary text</span
             >
           </div>
-          <sgds-icon name="placeholder"></sgds-icon>
+          <sit-icon name="placeholder"></sit-icon>
         </div>
-      </sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Label">
-        <div class="sgds:grow sgds:items-center">
-          <sgds-icon name="placeholder"></sgds-icon>
-          <span class="sgds:text-label-sm sgds:leading-2-xs sgds:font-regular sgds:tracking-normal sgds:grow"
-            >Label</span
-          >
-          <span class="sgds:text-label-xs sgds:leading-3-xs sgds:font-regular sgds:tracking-normal sgds:text-subtle"
+      </sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Label">
+        <div class="sit:grow sit:items-center">
+          <sit-icon name="placeholder"></sit-icon>
+          <span class="sit:text-label-sm sit:leading-2-xs sit:font-regular sit:tracking-normal sit:grow">Label</span>
+          <span class="sit:text-label-xs sit:leading-3-xs sit:font-regular sit:tracking-normal sit:text-subtle"
             >Secondary text</span
           >
         </div>
-      </sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Label">
-        <div class="sgds:grow sgds:items-center sgds:justify-between">
-          <div class="sgds:flex sgds:flex-col sgds:gap-text-2-xs">
-            <span class="sgds:text-label-sm sgds:leading-2-xs sgds:font-regular sgds:tracking-normal">Label</span>
-            <span class="sgds:text-label-xs sgds:leading-3-xs sgds:font-regular sgds:tracking-normal sgds:text-subtle"
+      </sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Label">
+        <div class="sit:grow sit:items-center sit:justify-between">
+          <div class="sit:flex sit:flex-col sit:gap-text-2-xs">
+            <span class="sit:text-label-sm sit:leading-2-xs sit:font-regular sit:tracking-normal">Label</span>
+            <span class="sit:text-label-xs sit:leading-3-xs sit:font-regular sit:tracking-normal sit:text-subtle"
               >Secondary text</span
             >
           </div>
-          <sgds-badge variant="white" outlined>Badge</sgds-badge>
+          <sit-badge variant="white" outlined>Badge</sit-badge>
         </div>
-      </sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Label">
-        <div class="sgds:grow sgds:items-center">
-          <sgds-icon name="placeholder"></sgds-icon>
-          <span class="sgds:text-label-sm sgds:leading-2-xs sgds:font-regular sgds:tracking-normal sgds:grow"
-            >Label</span
-          >
-          <sgds-switch size="sm"></sgds-switch>
+      </sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Label">
+        <div class="sit:grow sit:items-center">
+          <sit-icon name="placeholder"></sit-icon>
+          <span class="sit:text-label-sm sit:leading-2-xs sit:font-regular sit:tracking-normal sit:grow">Label</span>
+          <sit-switch size="sm"></sit-switch>
         </div>
-      </sgds-dropdown-item>
-      <sgds-dropdown-item ariaLabel="Label">
-        <div class="sgds:grow sgds:items-center sgds:justify-between">
-          <div class="sgds:flex sgds:flex-col sgds:gap-text-2-xs">
-            <span class="sgds:text-label-sm sgds:leading-2-xs sgds:font-regular sgds:tracking-normal">Label</span>
-            <span class="sgds:text-label-xs sgds:leading-3-xs sgds:font-regular sgds:tracking-normal sgds:text-subtle"
+      </sit-dropdown-item>
+      <sit-dropdown-item ariaLabel="Label">
+        <div class="sit:grow sit:items-center sit:justify-between">
+          <div class="sit:flex sit:flex-col sit:gap-text-2-xs">
+            <span class="sit:text-label-sm sit:leading-2-xs sit:font-regular sit:tracking-normal">Label</span>
+            <span class="sit:text-label-xs sit:leading-3-xs sit:font-regular sit:tracking-normal sit:text-subtle"
               >Secondary text</span
             >
           </div>
-          <sgds-button variant="outline" tone="neutral" size="xs">Action</sgds-button>
+          <sit-button variant="outline" tone="neutral" size="xs">Action</sit-button>
         </div>
-      </sgds-dropdown-item>
-    </sgds-dropdown>
+      </sit-dropdown-item>
+    </sit-dropdown>
   `;
 };
 
-export const SgdsSelectDropdownItem = {
-  render: SgdsSelectDropdownItemTemplate.bind({}),
-  name: "sgds-dropdown-item customisation",
+export const SitSelectDropdownItem = {
+  render: SitSelectDropdownItemTemplate.bind({}),
+  name: "Sit-dropdown-item customisation",
   args: {},
   parameters: {
     chromatic: { disableSnapshot: true }

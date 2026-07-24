@@ -6,23 +6,23 @@ export default {
 };
 
 const MARGIN_SCALE = [
-  { name: "none", class: "sgds:m-none", variable: "--sgds-margin-none", value: "0px" },
-  { name: "3-xs", class: "sgds:m-3-xs", variable: "--sgds-margin-3-xs", value: "2px" },
-  { name: "2-xs", class: "sgds:m-2-xs", variable: "--sgds-margin-2-xs", value: "4px" },
-  { name: "xs", class: "sgds:m-xs", variable: "--sgds-margin-xs", value: "8px" },
-  { name: "sm", class: "sgds:m-sm", variable: "--sgds-margin-sm", value: "12px" },
-  { name: "md", class: "sgds:m-md", variable: "--sgds-margin-md", value: "16px" },
-  { name: "lg", class: "sgds:m-lg", variable: "--sgds-margin-lg", value: "20px" },
-  { name: "xl", class: "sgds:m-xl", variable: "--sgds-margin-xl", value: "24px" },
-  { name: "2-xl", class: "sgds:m-2-xl", variable: "--sgds-margin-2-xl", value: "32px" },
-  { name: "3-xl", class: "sgds:m-3-xl", variable: "--sgds-margin-3-xl", value: "48px" },
-  { name: "4-xl", class: "sgds:m-4-xl", variable: "--sgds-margin-4-xl", value: "64px" },
-  { name: "5-xl", class: "sgds:m-5-xl", variable: "--sgds-margin-5-xl", value: "96px" }
+  { name: "none", class: "sit:m-none", variable: "--Sit-margin-none", value: "0px" },
+  { name: "3-xs", class: "sit:m-3-xs", variable: "--Sit-margin-3-xs", value: "2px" },
+  { name: "2-xs", class: "sit:m-2-xs", variable: "--Sit-margin-2-xs", value: "4px" },
+  { name: "xs", class: "sit:m-xs", variable: "--Sit-margin-xs", value: "8px" },
+  { name: "sm", class: "sit:m-sm", variable: "--Sit-margin-sm", value: "12px" },
+  { name: "md", class: "sit:m-md", variable: "--Sit-margin-md", value: "16px" },
+  { name: "lg", class: "sit:m-lg", variable: "--Sit-margin-lg", value: "20px" },
+  { name: "xl", class: "sit:m-xl", variable: "--Sit-margin-xl", value: "24px" },
+  { name: "2-xl", class: "sit:m-2-xl", variable: "--Sit-margin-2-xl", value: "32px" },
+  { name: "3-xl", class: "sit:m-3-xl", variable: "--Sit-margin-3-xl", value: "48px" },
+  { name: "4-xl", class: "sit:m-4-xl", variable: "--Sit-margin-4-xl", value: "64px" },
+  { name: "5-xl", class: "sit:m-5-xl", variable: "--Sit-margin-5-xl", value: "96px" }
 ];
 
 const copyToClipboard = (token, buttonEl) => {
   navigator.clipboard.writeText(token);
-  const icon = buttonEl.querySelector("sgds-icon");
+  const icon = buttonEl.querySelector("Sit-icon");
   icon.setAttribute("name", "check");
   setTimeout(() => {
     icon.setAttribute("name", "files");
@@ -31,45 +31,45 @@ const copyToClipboard = (token, buttonEl) => {
 
 const MarginTableRow = item => {
   return html`
-    <sgds-table-row>
-      <sgds-table-cell>
-        <div class="sgds:flex sgds:items-center sgds:gap-xs">
-          <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.class}</code>
+    <sit-table-row>
+      <sit-table-cell>
+        <div class="sit:flex sit:items-center sit:gap-xs">
+          <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.class}</code>
           <button
-            class="sgds:flex sgds:items-center sgds:justify-center sgds:w-8 sgds:h-8 sgds:cursor-pointer sgds:opacity-60 sgds:bg-transparent sgds:border-none sgds:p-0"
+            class="sit:flex sit:items-center sit:justify-center sit:w-8 sit:h-8 sit:cursor-pointer sit:opacity-60 sit:bg-transparent sit:border-none sit:p-0"
             @click="${e => copyToClipboard(item.class, e.target.closest("button"))}"
             aria-label="Copy token"
           >
-            <sgds-icon name="files"></sgds-icon>
+            <sit-icon name="files"></sit-icon>
           </button>
         </div>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.variable}</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm">${item.value}</code>
-      </sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:bg-primary-default sgds:w-40 sgds:h-40" style="position: relative;">
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.variable}</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">${item.value}</code>
+      </sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:bg-primary-default sit:w-40 sit:h-40" style="position: relative;">
           <div
-            class="sgds:bg-surface-raised sgds:w-12 sgds:h-12 ${item.class}"
+            class="sit:bg-surface-raised sit:w-12 sit:h-12 ${item.class}"
             style="position: absolute; top: 0; left: 0;"
           ></div>
         </div>
-      </sgds-table-cell>
-    </sgds-table-row>
+      </sit-table-cell>
+    </sit-table-row>
   `;
 };
 
 export const Static = () => html`
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Value</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Sit Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Value</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
     ${MARGIN_SCALE.map(item => MarginTableRow(item))}
-  </sgds-table>
+  </sit-table>
 `;

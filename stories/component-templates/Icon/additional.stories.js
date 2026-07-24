@@ -2,7 +2,7 @@ import { html } from "lit";
 
 const SizeTemplate = args => {
   const sizes = ["sm", "md", "lg", "xl", "2-xl", "3-xl"];
-  return html`${sizes.map(s => html` <sgds-icon name="house-door" size=${s}></sgds-icon> `)} `;
+  return html`${sizes.map(s => html` <sit-icon name="house-door" size=${s}></sit-icon> `)} `;
 };
 
 const ColorTemplate = args => {
@@ -11,7 +11,7 @@ const ColorTemplate = args => {
     ${colors.map(
       c => html`
         <span style="color:${c}">
-          <sgds-icon name="house-door"></sgds-icon>
+          <sit-icon name="house-door"></sit-icon>
         </span>
       `
     )}

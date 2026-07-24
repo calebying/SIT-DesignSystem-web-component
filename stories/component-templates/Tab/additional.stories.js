@@ -35,26 +35,26 @@ export const OrientationSolid = {
 const EventsTemplate = () => {
   return html`
     <div>
-      <div id="event-log" class="sgds:mb-lg sgds:p-lg sgds:bg-surface-raised sgds:rounded-md">
+      <div id="event-log" class="sit:mb-lg sit:p-lg sit:bg-surface-raised sit:rounded-md">
         <strong>Event Log:</strong>
-        <div id="log-content" class="sgds:mt-sm sgds:font-mono sgds:text-xs"></div>
+        <div id="log-content" class="sit:mt-sm sit:font-mono sit:text-xs"></div>
       </div>
 
-      <sgds-tab-group id="event-tab-group">
-        <sgds-tab slot="nav" panel="general" ariaLabel="General">General</sgds-tab>
-        <sgds-tab slot="nav" panel="settings" ariaLabel="Settings">Settings</sgds-tab>
-        <sgds-tab slot="nav" panel="advanced" ariaLabel="Advanced">Advanced</sgds-tab>
+      <sit-tab-group id="event-tab-group">
+        <sit-tab slot="nav" panel="general" ariaLabel="General">General</sit-tab>
+        <sit-tab slot="nav" panel="settings" ariaLabel="Settings">Settings</sit-tab>
+        <sit-tab slot="nav" panel="advanced" ariaLabel="Advanced">Advanced</sit-tab>
 
-        <sgds-tab-panel name="general">
+        <sit-tab-panel name="general">
           <p>General tab content. Switch tabs to see the events being triggered.</p>
-        </sgds-tab-panel>
-        <sgds-tab-panel name="settings">
+        </sit-tab-panel>
+        <sit-tab-panel name="settings">
           <p>Settings tab content. The event log above shows which tab is active.</p>
-        </sgds-tab-panel>
-        <sgds-tab-panel name="advanced">
+        </sit-tab-panel>
+        <sit-tab-panel name="advanced">
           <p>Advanced tab content. Use event.detail.name to track tab changes.</p>
-        </sgds-tab-panel>
-      </sgds-tab-group>
+        </sit-tab-panel>
+      </sit-tab-group>
     </div>
 
     <script>
@@ -73,15 +73,15 @@ const EventsTemplate = () => {
         }
       }
 
-      tabGroup.addEventListener("sgds-tab-show", e => {
-        addLog('sgds-tab-show: Panel "' + e.detail.name + '" is now active');
+      tabGroup.addEventListener("Sit-tab-show", e => {
+        addLog('Sit-tab-show: Panel "' + e.detail.name + '" is now active');
 
         // Example side effect: You can perform actions when a tab is shown
         console.log("Tab shown:", e.detail.name);
       });
 
-      tabGroup.addEventListener("sgds-tab-hide", e => {
-        addLog('sgds-tab-hide: Panel "' + e.detail.name + '" was hidden');
+      tabGroup.addEventListener("Sit-tab-hide", e => {
+        addLog('Sit-tab-hide: Panel "' + e.detail.name + '" was hidden');
 
         // Example side effect: You can perform cleanup when a tab is hidden
         console.log("Tab hidden:", e.detail.name);

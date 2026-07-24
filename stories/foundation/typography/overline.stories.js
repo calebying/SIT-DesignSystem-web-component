@@ -9,13 +9,13 @@ export default {
 };
 
 const OverlineSemiboldTemplate = () => html`
-  <div class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase">
+  <div class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase">
     Overline Semibold
   </div>
 `;
 
 const OverlineRegularTemplate = () => html`
-  <div class="sgds:text-overline-md sgds:font-regular sgds:leading-2-xs sgds:tracking-wide sgds:uppercase">
+  <div class="sit:text-overline-md sit:font-regular sit:leading-2-xs sit:tracking-wide sit:uppercase">
     Overline Regular
   </div>
 `;

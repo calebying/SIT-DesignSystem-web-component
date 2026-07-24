@@ -1,25 +1,25 @@
 import { html } from "lit";
 
 const ToneTemplate = () => html`
-  <sgds-spinner variant="primary"></sgds-spinner>
-  <sgds-spinner variant="neutral"></sgds-spinner>
-  <sgds-spinner tone="brand"></sgds-spinner>
-  <sgds-spinner tone="neutral"></sgds-spinner>
-  <sgds-spinner tone="fixed-dark"></sgds-spinner>
+  <sit-spinner variant="primary"></sit-spinner>
+  <sit-spinner variant="neutral"></sit-spinner>
+  <sit-spinner tone="brand"></sit-spinner>
+  <sit-spinner tone="neutral"></sit-spinner>
+  <sit-spinner tone="fixed-dark"></sit-spinner>
 `;
 
 const ToneInverseAndFixedLightTemplate = () => html`
   <div style="padding: 12px; background-color: #222;">
-    <sgds-spinner tone="inverse"></sgds-spinner>
-    <sgds-spinner tone="fixed-light"></sgds-spinner>
+    <sit-spinner tone="inverse"></sit-spinner>
+    <sit-spinner tone="fixed-light"></sit-spinner>
   </div>
 `;
 const SizeTemplate = () => html`
-  <sgds-spinner size="xs"></sgds-spinner>
-  <sgds-spinner size="sm"></sgds-spinner>
-  <sgds-spinner size="md"></sgds-spinner>
-  <sgds-spinner size="lg"></sgds-spinner>
-  <sgds-spinner size="xl"></sgds-spinner>
+  <sit-spinner size="xs"></sit-spinner>
+  <sit-spinner size="sm"></sit-spinner>
+  <sit-spinner size="md"></sit-spinner>
+  <sit-spinner size="lg"></sit-spinner>
+  <sit-spinner size="xl"></sit-spinner>
 `;
 
 export const Tone = {

@@ -1,6 +1,6 @@
 ## Border variant
 
-The default variant for accordion has no border. To enable bordered accordions, set `variant="border"` on `<sgds-accordion>`
+The default variant for accordion has no border. To enable bordered accordions, set `variant="border"` on `<sit-accordion>`
 
 <Canvas of={AccordionStories.BorderVariant} >
   <Story of={AccordionStories.BorderVariant} />
@@ -8,13 +8,13 @@ The default variant for accordion has no border. To enable bordered accordions, 
 
 ## Density
 
-To enable compact density, set `density="compact"` on `<sgds-accordion>`
+To enable compact density, set `density="compact"` on `<sit-accordion>`
 
 <Canvas of={AccordionStories.DensityVariant}>
   <Story of={AccordionStories.DensityVariant} />
 </Canvas>
 
-To enable spacious density, set `density="spacious"` on `<sgds-accordion>`
+To enable spacious density, set `density="spacious"` on `<sit-accordion>`
 
 <Canvas of={AccordionStories.SpaciousDensity}>
   <Story of={AccordionStories.SpaciousDensity} />
@@ -23,7 +23,7 @@ To enable spacious density, set `density="spacious"` on `<sgds-accordion>`
 ## Allow multiple accordion to open together
 
 By default, only one accordion item remains active at a time. To allow multiple accordion items to remain open, set `allowMultiple` 
-prop to `<sgds-accordion>`
+prop to `<sit-accordion>`
 
 <Canvas of={AccordionStories.AllowMultiple}>
   <Story of={AccordionStories.AllowMultiple} />
@@ -31,7 +31,7 @@ prop to `<sgds-accordion>`
 
 ## Disable individual accordion items
 
-To disable individual accordion items, add `disabled` prop to the targeted `<sgds-accordion-item>`
+To disable individual accordion items, add `disabled` prop to the targeted `<sit-accordion-item>`
 
 <Canvas of={AccordionStories.Disabled}>
   <Story of={AccordionStories.Disabled} />
@@ -39,7 +39,7 @@ To disable individual accordion items, add `disabled` prop to the targeted `<sgd
 
 ## Icon slot
 
-Use the `icon` slot to place an icon before the header text. Match the `size` of `<sgds-icon>` to the accordion `density`: `md` for `compact`, `lg` for `default`, `xl` for `spacious`.
+Use the `icon` slot to place an icon before the header text. Match the `size` of `<sit-icon>` to the accordion `density`: `md` for `compact`, `lg` for `default`, `xl` for `spacious`.
 
 <Canvas of={AccordionStories.LeadingIconSlot}>
   <Story of={AccordionStories.LeadingIconSlot} />
@@ -47,7 +47,7 @@ Use the `icon` slot to place an icon before the header text. Match the `size` of
 
 ## Badge slot
 
-Use the `badge` slot to display a `<sgds-badge>` after the header text. The badge is automatically right-aligned via `margin-left: auto`.
+Use the `badge` slot to display a `<sit-badge>` after the header text. The badge is automatically right-aligned via `margin-left: auto`.
 
 <Canvas of={AccordionStories.BadgeSlot}>
   <Story of={AccordionStories.BadgeSlot} />

@@ -119,9 +119,9 @@ const withTheme = (StoryFn: any, context: any) => {
   const html = document.documentElement;
 
   if (colorMode === "night") {
-    html.classList.add("sgds-night-theme");
+    html.classList.add("sit-night-theme");
   } else {
-    html.classList.remove("sgds-night-theme");
+    html.classList.remove("sit-night-theme");
   }
 
   html.classList.remove(...GT_CLASSES);

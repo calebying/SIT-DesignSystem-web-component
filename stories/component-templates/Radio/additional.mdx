@@ -2,8 +2,8 @@
 
 Always label your form components.
 
-Use `label` prop in `sgds-radio-group` to provide a context for the entire radio group.
-Add labels to individual `sgds-radio` through its default slot 
+Use `label` prop in `Sit-radio-group` to provide a context for the entire radio group.
+Add labels to individual `Sit-radio` through its default slot 
 
 <Canvas of={RadioStories.Basic}>
   <Story of={RadioStories.Basic} />
@@ -12,10 +12,10 @@ Add labels to individual `sgds-radio` through its default slot
 ## Invalid
 
 Radio button's invalid styles are controlled by the radio group.
-To enable SGDS form validation styles set `hasFeedback` to true.
+To enable Sit form validation styles set `hasFeedback` to true.
 Add your custom invalid feedback message via `invalidFeedback` and control the stylings of the radio group with `invalid` boolean prop.
 
-`sgds-radio-group` controls and updates the `invalid` prop in its child `sgds-radio` buttons.
+`Sit-radio-group` controls and updates the `invalid` prop in its child `Sit-radio` buttons.
 
 <Canvas of={RadioStories.Invalid}>
   <Story of={RadioStories.Invalid} />
@@ -23,7 +23,7 @@ Add your custom invalid feedback message via `invalidFeedback` and control the s
 
 ## Disabled
 
-Disabled individual `sgds-radio` using the `disabled` prop.
+Disabled individual `Sit-radio` using the `disabled` prop.
 
 <Canvas of={RadioStories.Disabled}>
   <Story of={RadioStories.Disabled} />
@@ -41,7 +41,7 @@ Set `autofocus` on the radio group to automatically focus the checked radio. Thi
 
 HTML form constraint validation is built-in. By default, there is no need to control the `invalid` prop to enable constraint validations.
 
-- To enable invalid styles and feedback message, set `hasFeedback` to true on `sgds-radio-group`.
+- To enable invalid styles and feedback message, set `hasFeedback` to true on `Sit-radio-group`.
 
 In this example, press submit to show constraint validation behaviour for `required` on the radio group.
 Form reset reset's the validity and the value of the input to its initial default value.

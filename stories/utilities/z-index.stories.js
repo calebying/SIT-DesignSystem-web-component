@@ -7,7 +7,7 @@ export default {
 
 const copyToClipboard = (token, buttonEl) => {
   navigator.clipboard.writeText(token);
-  const icon = buttonEl.querySelector("sgds-icon");
+  const icon = buttonEl.querySelector("Sit-icon");
   icon.setAttribute("name", "check");
   setTimeout(() => {
     icon.setAttribute("name", "files");
@@ -16,58 +16,58 @@ const copyToClipboard = (token, buttonEl) => {
 
 const semanticLayers = [
   {
-    token: "sgds:z-base",
-    var: "--sgds-z-index-base",
+    token: "sit:z-base",
+    var: "--Sit-z-index-base",
     value: "0",
     label: "base",
-    zClass: "sgds:z-base",
-    bgClass: "sgds:bg-neutral-surface-default",
-    textClass: "sgds:text-default"
+    zClass: "sit:z-base",
+    bgClass: "sit:bg-neutral-surface-default",
+    textClass: "sit:text-default"
   },
   {
-    token: "sgds:z-raised",
-    var: "--sgds-z-index-raised",
+    token: "sit:z-raised",
+    var: "--Sit-z-index-raised",
     value: "100",
     label: "raised",
-    zClass: "sgds:z-raised",
-    bgClass: "sgds:bg-neutral-surface-emphasis",
-    textClass: "sgds:text-default"
+    zClass: "sit:z-raised",
+    bgClass: "sit:bg-neutral-surface-emphasis",
+    textClass: "sit:text-default"
   },
   {
-    token: "sgds:z-sticky",
-    var: "--sgds-z-index-sticky",
+    token: "sit:z-sticky",
+    var: "--Sit-z-index-sticky",
     value: "200",
     label: "sticky",
-    zClass: "sgds:z-sticky",
-    bgClass: "sgds:bg-neutral-surface-muted",
-    textClass: "sgds:text-default"
+    zClass: "sit:z-sticky",
+    bgClass: "sit:bg-neutral-surface-muted",
+    textClass: "sit:text-default"
   },
   {
-    token: "sgds:z-floating",
-    var: "--sgds-z-index-floating",
+    token: "sit:z-floating",
+    var: "--Sit-z-index-floating",
     value: "400",
     label: "floating",
-    zClass: "sgds:z-floating",
-    bgClass: "sgds:bg-primary-surface-muted",
-    textClass: "sgds:text-primary-default"
+    zClass: "sit:z-floating",
+    bgClass: "sit:bg-primary-surface-muted",
+    textClass: "sit:text-primary-default"
   },
   {
-    token: "sgds:z-overlay",
-    var: "--sgds-z-index-overlay",
+    token: "sit:z-overlay",
+    var: "--Sit-z-index-overlay",
     value: "800",
     label: "overlay",
-    zClass: "sgds:z-overlay",
-    bgClass: "sgds:bg-primary-surface-default",
-    textClass: "sgds:text-primary-default"
+    zClass: "sit:z-overlay",
+    bgClass: "sit:bg-primary-surface-default",
+    textClass: "sit:text-primary-default"
   },
   {
-    token: "sgds:z-modal",
-    var: "--sgds-z-index-modal",
+    token: "sit:z-modal",
+    var: "--Sit-z-index-modal",
     value: "1600",
     label: "modal",
-    zClass: "sgds:z-modal",
-    bgClass: "sgds:bg-primary-default",
-    textClass: "sgds:text-fixed-light"
+    zClass: "sit:z-modal",
+    bgClass: "sit:bg-primary-default",
+    textClass: "sit:text-fixed-light"
   }
 ];
 
@@ -112,7 +112,7 @@ export const ZIndexAllStacks = () => {
           height="${svgH}"
           viewBox="0 0 ${svgW} ${svgH}"
           style="overflow: visible; font-family: system-ui, sans-serif;"
-          aria-label="Isometric diagram of SGDS z-index layers"
+          aria-label="Isometric diagram of Sit z-index layers"
         >
           <defs>
             <marker id="iso-arrow" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
@@ -191,11 +191,11 @@ export const ZIndexAllStacks = () => {
       <div style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 4px;">
         <!-- Header -->
         <div
-          style="display: grid; grid-template-columns: 1fr 1fr 80px 32px; gap: 8px; padding: 0 12px 8px; border-bottom: 1px solid var(--sgds-color-neutral-border-subtle, #e5e7eb);"
+          style="display: grid; grid-template-columns: 1fr 1fr 80px 32px; gap: 8px; padding: 0 12px 8px; border-bottom: 1px solid var(--Sit-color-neutral-border-subtle, #e5e7eb);"
         >
-          <span class="sgds:text-label-xs sgds:text-default sgds:font-semibold">Token</span>
-          <span class="sgds:text-label-xs sgds:text-default sgds:font-semibold">CSS Variable</span>
-          <span class="sgds:text-label-xs sgds:text-default sgds:font-semibold">Value</span>
+          <span class="sit:text-label-xs sit:text-default sit:font-semibold">Token</span>
+          <span class="sit:text-label-xs sit:text-default sit:font-semibold">CSS Variable</span>
+          <span class="sit:text-label-xs sit:text-default sit:font-semibold">Value</span>
           <span></span>
         </div>
         <!-- Rows — highest z-index first -->
@@ -204,17 +204,17 @@ export const ZIndexAllStacks = () => {
             <div
               style="display: grid; grid-template-columns: 1fr 1fr 80px 32px; gap: 8px; align-items: center; padding: 8px 12px; border-radius: 6px;"
             >
-              <code class="sgds:text-label-xs">${token}</code>
-              <code class="sgds:text-label-xs sgds:text-subtle">${cssVar}</code>
-              <code class="sgds:text-label-xs sgds:font-semibold">${value}</code>
+              <code class="sit:text-label-xs">${token}</code>
+              <code class="sit:text-label-xs sit:text-subtle">${cssVar}</code>
+              <code class="sit:text-label-xs sit:font-semibold">${value}</code>
               <button
-                class="sgds:flex sgds:items-center sgds:justify-center sgds:cursor-pointer sgds:opacity-50 sgds:bg-transparent sgds:border-none sgds:p-0"
+                class="sit:flex sit:items-center sit:justify-center sit:cursor-pointer sit:opacity-50 sit:bg-transparent sit:border-none sit:p-0"
                 style="width: 28px; height: 28px;"
                 @click="${e => copyToClipboard(token, e.currentTarget)}"
                 title="Copy ${token}"
                 aria-label="Copy ${token}"
               >
-                <sgds-icon name="files" style="font-size: 14px;"></sgds-icon>
+                <sit-icon name="files" style="font-size: 14px;"></sit-icon>
               </button>
             </div>
           `
