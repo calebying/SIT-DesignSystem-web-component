@@ -173,5 +173,3 @@ describe("<sit-icon-card>", () => {
     expect(card.getAttribute("target")).to.be.null;
   });
 });
-
-

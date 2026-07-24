@@ -26,9 +26,7 @@ describe("FileUpload a11y", () => {
   });
 
   it("custom ariaLabel should be accessible", async () => {
-    const el = await fixture(
-      html` <sit-file-upload label="Upload photo" ariaLabel="Upload photo"></sit-file-upload> `
-    );
+    const el = await fixture(html` <sit-file-upload label="Upload photo" ariaLabel="Upload photo"></sit-file-upload> `);
     await expect(el).to.be.accessible();
   });
 
@@ -58,6 +56,3 @@ describe("FileUpload a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

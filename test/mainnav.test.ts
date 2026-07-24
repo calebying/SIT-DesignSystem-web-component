@@ -11,10 +11,10 @@ import {
 } from "../src/components";
 import "./sit-web-component";
 
-describe("SIT-mainnav", () => {
+describe("sit-mainnav", () => {
   afterEach(() => fixtureCleanup());
   it("is defined", () => {
-    const el = document.createElement("SIT-mainnav");
+    const el = document.createElement("sit-mainnav");
     assert.instanceOf(el, SitMainnav);
   });
 
@@ -68,7 +68,7 @@ describe("SIT-mainnav", () => {
   it("expect div.collapse's id to equal to button's aria-controls", async () => {
     const el = await fixture(html`<sit-mainnav></sit-mainnav>`);
     const collapse = el.shadowRoot?.querySelector("div.navbar-body");
-    const button = el.shadowRoot?.querySelector("SIT-icon-button");
+    const button = el.shadowRoot?.querySelector("sit-icon-button");
     expect(collapse?.getAttribute("id")).to.equal(button?.getAttribute("aria-controls"));
   });
   it("brandHref props forwards to a.navbar-brand  href attribute", async () => {
@@ -108,7 +108,7 @@ describe("SIT-mainnav", () => {
     const mainNavCollapse = el.shadowRoot?.querySelector(".navbar-collapse");
     await el.updateComplete;
     expect(mainNavCollapse).to.have.attribute("hidden");
-    const toggler = el.shadowRoot?.querySelector("SIT-icon-button.navbar-toggler") as HTMLButtonElement;
+    const toggler = el.shadowRoot?.querySelector("sit-icon-button.navbar-toggler") as HTMLButtonElement;
     expect(toggler.getAttribute("aria-expanded")).to.equal("false");
     toggler?.click();
     // await nextFrame();
@@ -240,8 +240,8 @@ describe("SIT-mainnav", () => {
       </sit-mainnav>`
     );
     expect(el.querySelector("div")).not.to.have.attribute("name", "div");
-    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("name", "SIT-mainnav-item");
-    expect(el.querySelector("SIT-button")).to.have.attribute("name", "SIT-button");
+    expect(el.querySelector("sit-mainnav-item")).to.have.attribute("name", "sit-mainnav-item");
+    expect(el.querySelector("sit-button")).to.have.attribute("name", "sit-button");
   });
 
   it("slotchange on default slot sets expand attribute on slotted items using component expand value", async () => {
@@ -252,8 +252,8 @@ describe("SIT-mainnav", () => {
       </sit-mainnav>`
     );
     await el.updateComplete;
-    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("expand", "md");
-    expect(el.querySelector("SIT-mainnav-dropdown")).to.have.attribute("expand", "md");
+    expect(el.querySelector("sit-mainnav-item")).to.have.attribute("expand", "md");
+    expect(el.querySelector("sit-mainnav-dropdown")).to.have.attribute("expand", "md");
   });
 
   it("slotchange on end slot sets both expand and name attributes on slotted items", async () => {
@@ -264,10 +264,10 @@ describe("SIT-mainnav", () => {
       </sit-mainnav>`
     );
     await el.updateComplete;
-    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("expand", "xl");
-    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("name", "SIT-mainnav-item");
-    expect(el.querySelector("SIT-mainnav-dropdown")).to.have.attribute("expand", "xl");
-    expect(el.querySelector("SIT-mainnav-dropdown")).to.have.attribute("name", "SIT-mainnav-dropdown");
+    expect(el.querySelector("sit-mainnav-item")).to.have.attribute("expand", "xl");
+    expect(el.querySelector("sit-mainnav-item")).to.have.attribute("name", "sit-mainnav-item");
+    expect(el.querySelector("sit-mainnav-dropdown")).to.have.attribute("expand", "xl");
+    expect(el.querySelector("sit-mainnav-dropdown")).to.have.attribute("name", "sit-mainnav-dropdown");
   });
 
   it("default slot items do not receive name attribute", async () => {
@@ -277,21 +277,21 @@ describe("SIT-mainnav", () => {
       </sit-mainnav>`
     );
     await el.updateComplete;
-    expect(el.querySelector("SIT-mainnav-item")).to.have.attribute("expand", "lg");
-    expect(el.querySelector("SIT-mainnav-item")).not.to.have.attribute("name");
+    expect(el.querySelector("sit-mainnav-item")).to.have.attribute("expand", "lg");
+    expect(el.querySelector("sit-mainnav-item")).not.to.have.attribute("name");
   });
 });
 
-describe("SIT-mainnav-item", () => {
+describe("sit-mainnav-item", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-mainnav-item");
+    const el = document.createElement("sit-mainnav-item");
     assert.instanceOf(el, SitMainnavItem);
   });
 });
 
-describe("SIT-mainnav-dropdown", () => {
+describe("sit-mainnav-dropdown", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-mainnav-dropdown");
+    const el = document.createElement("sit-mainnav-dropdown");
     assert.instanceOf(el, SitMainnavDropdown);
   });
   it("desktop view: can be semantically compare with shadowDom trees", async () => {
@@ -305,7 +305,7 @@ describe("SIT-mainnav-dropdown", () => {
         </sit-mainnav-dropdown>
       </sit-mainnav>
     `);
-    const dropdown = el.querySelector<SitMainnavDropdown>("SIT-mainnav-dropdown");
+    const dropdown = el.querySelector<SitMainnavDropdown>("sit-mainnav-dropdown");
     await dropdown?.updateComplete;
     assert.shadowDom.equal(
       dropdown as SitMainnavDropdown,
@@ -356,7 +356,7 @@ describe("SIT-mainnav-dropdown", () => {
       </sit-mainnav>
     `);
 
-    const dropdown = el.querySelector<SitMainnavDropdown>("SIT-mainnav-dropdown");
+    const dropdown = el.querySelector<SitMainnavDropdown>("sit-mainnav-dropdown");
     await waitUntil(() => dropdown?.shadowRoot?.querySelector("div.dropdown-items"));
     assert.shadowDom.equal(
       dropdown as SitMainnavDropdown,
@@ -399,7 +399,7 @@ describe("SIT-mainnav-dropdown", () => {
       </sit-mainnav>
     `);
 
-    const dropdown = el.querySelector<SitMainnavDropdown>("SIT-mainnav-dropdown");
+    const dropdown = el.querySelector<SitMainnavDropdown>("sit-mainnav-dropdown");
     await waitUntil(() => dropdown?.shadowRoot?.querySelector("div.dropdown-items"));
     const togglerAnchor = dropdown?.shadowRoot?.querySelector("a.nav-link") as HTMLAnchorElement;
     togglerAnchor.click();
@@ -460,16 +460,16 @@ describe("SIT-mainnav-dropdown", () => {
         </sit-mainnav-dropdown>
       </sit-mainnav>
     `);
-    mainnav.addEventListener("SIT-show", showSpy);
+    mainnav.addEventListener("sit-show", showSpy);
     await mainnav.updateComplete;
-    const hamburgerButton = mainnav.shadowRoot?.querySelector("SIT-icon-button.navbar-toggler") as SitIconButton;
+    const hamburgerButton = mainnav.shadowRoot?.querySelector("sit-icon-button.navbar-toggler") as SitIconButton;
     hamburgerButton.click();
     await elementUpdated(mainnav);
     expect(showSpy.calledOnce).to.be.true;
-    const anchorOne = mainnav.querySelectorAll("SIT-dropdown-item")?.[0] as SitDropdownItem;
+    const anchorOne = mainnav.querySelectorAll("sit-dropdown-item")?.[0] as SitDropdownItem;
     anchorOne.click();
     await elementUpdated(mainnav);
-    const dropdown = mainnav.querySelector<SitMainnavDropdown>("SIT-mainnav-dropdown");
+    const dropdown = mainnav.querySelector<SitMainnavDropdown>("sit-mainnav-dropdown");
 
     await dropdown?.updateComplete;
     await waitUntil(() => stubHide.called);
@@ -477,5 +477,3 @@ describe("SIT-mainnav-dropdown", () => {
     stubHide.restore();
   }); // retries 1 time as occasionally fails with timeout (CI or local)
 });
-
-

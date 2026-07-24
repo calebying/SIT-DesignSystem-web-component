@@ -4,9 +4,9 @@ import { html } from "lit";
 import { SitTooltip, SitButton } from "../src/components";
 import { sendMouse } from "@web/test-runner-commands";
 
-describe("SIT-tooltip", () => {
+describe("sit-tooltip", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-tooltip");
+    const el = document.createElement("sit-tooltip");
     assert.instanceOf(el, SitTooltip);
   });
 
@@ -41,7 +41,7 @@ describe("SIT-tooltip", () => {
     const el = await fixture<SitTooltip>(
       html`<sit-tooltip trigger="click" content="hello"><sit-button>Hover me</sit-button></sit-tooltip>`
     );
-    (el.querySelector("SIT-button") as SitButton).click();
+    (el.querySelector("sit-button") as SitButton).click();
     await el.updateComplete;
     await waitUntil(() => el.shadowRoot?.querySelector(".tooltip"));
     expect(el.shadowRoot?.querySelector("div.tooltip")).to.have.text("hello");
@@ -58,7 +58,7 @@ describe("SIT-tooltip", () => {
         ><sit-button>Hover me</sit-button></sit-tooltip
       >`
     );
-    (el.querySelector("SIT-button") as SitButton).click();
+    (el.querySelector("sit-button") as SitButton).click();
     await el.updateComplete;
 
     const tooltip = el.shadowRoot?.querySelector(".tooltip") as HTMLElement;
@@ -73,10 +73,10 @@ describe("SIT-tooltip", () => {
     );
 
     setTimeout(() => el.show());
-    const showEvent = await oneEvent(el, "SIT-show");
+    const showEvent = await oneEvent(el, "sit-show");
     expect(showEvent).to.exist;
 
-    const afterShowEvent = await oneEvent(el, "SIT-after-show");
+    const afterShowEvent = await oneEvent(el, "sit-after-show");
     expect(afterShowEvent).to.exist;
 
     const tooltip = el.shadowRoot?.querySelector(".tooltip") as HTMLElement;
@@ -93,15 +93,15 @@ describe("SIT-tooltip", () => {
 
     const firedEvents: string[] = [];
 
-    el.addEventListener("SIT-show", () => firedEvents.push("SIT-show"));
-    el.addEventListener("SIT-after-show", () => firedEvents.push("SIT-after-show"));
+    el.addEventListener("sit-show", () => firedEvents.push("sit-show"));
+    el.addEventListener("sit-after-show", () => firedEvents.push("sit-after-show"));
 
     await el.show();
 
     // Wait a frame for events to flush
     await nextFrame();
 
-    expect(firedEvents).to.deep.equal(["SIT-show", "SIT-after-show"]);
+    expect(firedEvents).to.deep.equal(["sit-show", "sit-after-show"]);
   });
 
   it("fires sit-hide and sit-after-hide when menu closes", async () => {
@@ -119,10 +119,10 @@ describe("SIT-tooltip", () => {
 
     setTimeout(() => el.hide());
 
-    const hideEvent = await oneEvent(el, "SIT-hide");
+    const hideEvent = await oneEvent(el, "sit-hide");
     expect(hideEvent).to.exist;
 
-    const afterHideEvent = await oneEvent(el, "SIT-after-hide");
+    const afterHideEvent = await oneEvent(el, "sit-after-hide");
     expect(afterHideEvent).to.exist;
 
     tooltip = el.shadowRoot?.querySelector(".tooltip") as HTMLElement;
@@ -137,15 +137,15 @@ describe("SIT-tooltip", () => {
     await el.show();
 
     const firedEvents: string[] = [];
-    el.addEventListener("SIT-hide", () => firedEvents.push("SIT-hide"));
-    el.addEventListener("SIT-after-hide", () => firedEvents.push("SIT-after-hide"));
+    el.addEventListener("sit-hide", () => firedEvents.push("sit-hide"));
+    el.addEventListener("sit-after-hide", () => firedEvents.push("sit-after-hide"));
 
     el.hide();
 
     // wait for the setTimeout in hide()
     await new Promise(r => setTimeout(r, 0));
 
-    expect(firedEvents).to.deep.equal(["SIT-hide", "SIT-after-hide"]);
+    expect(firedEvents).to.deep.equal(["sit-hide", "sit-after-hide"]);
   });
 });
 
@@ -154,7 +154,7 @@ describe("Tooltip a11y", () => {
     const el = await fixture<SitTooltip>(
       html`<sit-tooltip content="hello"><sit-button>Hover me</sit-button></sit-tooltip>`
     );
-    expect(el.querySelector("SIT-button")).to.have.attribute("data-sit-tooltip", "hello");
+    expect(el.querySelector("sit-button")).to.have.attribute("data-sit-tooltip", "hello");
   });
   it("data-sit-tooltip is added to all elements passed to default slot of tooltip", async () => {
     const el = await fixture<SitTooltip>(
@@ -163,7 +163,7 @@ describe("Tooltip a11y", () => {
         <span></span>
       </sit-tooltip>`
     );
-    expect(el.querySelector("SIT-button")).to.have.attribute("data-sit-tooltip", "hello");
+    expect(el.querySelector("sit-button")).to.have.attribute("data-sit-tooltip", "hello");
     expect(el.querySelector("span")).to.have.attribute("data-sit-tooltip", "hello");
   });
 });
@@ -192,6 +192,3 @@ describe("Tooltip methods", () => {
     expect(el.shadowRoot?.querySelector(".tooltip")).to.be.null;
   });
 });
-
-
-

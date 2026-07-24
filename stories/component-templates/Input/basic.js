@@ -3,7 +3,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args =>
   html`
-    <sgds-input
+    <sit-input
       type=${ifDefined(args.type)}
       label=${ifDefined(args.label)}
       hintText=${ifDefined(args.hintText)}
@@ -28,7 +28,7 @@ export const Template = args =>
       prefix=${ifDefined(args.prefix)}
       suffix=${ifDefined(args.suffix)}
     >
-    </sgds-input>
+    </sit-input>
   `;
 
 export const args = {

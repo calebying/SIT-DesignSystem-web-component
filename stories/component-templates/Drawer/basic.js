@@ -3,8 +3,8 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args => {
   return html`
-    <sgds-button @click=${showDrawer}>Open ${args.placement} Drawer</sgds-button>
-    <sgds-drawer
+    <sit-button @click=${showDrawer}>Open ${args.placement} Drawer</sit-button>
+    <sit-drawer
       ?open=${args.open}
       size=${args.size}
       placement=${ifDefined(args.placement)}
@@ -29,18 +29,18 @@ export const Template = args => {
       turpis quis placerat pharetra, lacus tortor fermentum tortor, a tincidunt mi arcu quis risus. Duis id ultrices
       urna, non placerat ex.
       <div slot="footer">
-        <sgds-button>Button</sgds-button>
+        <sit-button>Button</sit-button>
       </div>
-    </sgds-drawer>
+    </sit-drawer>
   `;
 };
 
 export const showDrawer = () => {
-  const drawer = document.querySelector("sgds-drawer");
+  const drawer = document.querySelector("sit-drawer");
   drawer.show();
 };
 export const closeDrawer = () => {
-  const drawer = document.querySelector("sgds-drawer");
+  const drawer = document.querySelector("sit-drawer");
   drawer.hide();
 };
 

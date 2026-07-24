@@ -3,8 +3,8 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args => {
   return html`
-    <sgds-button @click=${showModal} style="margin:30px;">Open Modal</sgds-button>
-    <sgds-modal
+    <sit-button @click=${showModal} style="margin:30px;">Open Modal</sit-button>
+    <sit-modal
       ?open=${args.open}
       ?noAnimation=${args.noAnimation}
       size=${ifDefined(args.size)}
@@ -18,18 +18,18 @@ export const Template = args => {
         gravida, congue sapien eu, rhoncus ante. Quisque velit est, sodales vitae turpis vitae, hendrerit facilisis
         nulla. Suspendisse potenti. Nulla hendrerit enim sed leo rutrum auctor. Praesent volutpat rutrum purus in
       </p>
-      <sgds-button @click=${closeModal} slot="footer" class="close-modal">Close</sgds-button>
-      <sgds-button slot="footer" variant="primary" type="submit" form="formA">Submit</sgds-button>
-    </sgds-modal>
+      <sit-button @click=${closeModal} slot="footer" class="close-modal">Close</sit-button>
+      <sit-button slot="footer" variant="primary" type="submit" form="formA">Submit</sit-button>
+    </sit-modal>
   `;
 };
 
 export const showModal = () => {
-  const modal = document.querySelector("sgds-modal");
+  const modal = document.querySelector("sit-modal");
   modal.show();
 };
 export const closeModal = () => {
-  const modal = document.querySelector("sgds-modal");
+  const modal = document.querySelector("sit-modal");
   modal.hide();
 };
 

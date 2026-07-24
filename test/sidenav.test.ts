@@ -4,7 +4,7 @@ import sinon from "sinon";
 import { SitSidenavItem, SitSidenavLink } from "../src/components";
 import "./sit-web-component";
 
-describe("SIT-sidenav", () => {
+describe("sit-sidenav", () => {
   it("can be semantically compare with shadowDom trees", async () => {
     const el = await fixture(html`<sit-sidenav></sit-sidenav>`);
     assert.shadowDom.equal(
@@ -29,7 +29,7 @@ describe("SIT-sidenav", () => {
   });
 });
 
-describe("SIT-sidenav-item", () => {
+describe("sit-sidenav-item", () => {
   it("without href, can be semantically compare with shadowDom trees", async () => {
     const el = await fixture(html`<sit-sidenav-item></sit-sidenav-item>`);
     assert.shadowDom.equal(
@@ -96,7 +96,7 @@ describe("SIT-sidenav-item", () => {
   it("should emit sit-toggle event when button is clicked", async () => {
     const el = await fixture(html`<sit-sidenav-item></sit-sidenav-item>`);
     const toggleHandler = sinon.spy();
-    el.addEventListener("SIT-toggle", toggleHandler);
+    el.addEventListener("sit-toggle", toggleHandler);
     el.shadowRoot?.querySelector("button")?.click();
     expect(toggleHandler).to.have.been.calledOnce;
   });
@@ -126,7 +126,7 @@ describe("SIT-sidenav-item", () => {
   // });
 });
 
-describe("SIT-sidenav, -item, -link interactions", () => {
+describe("sit-sidenav, -item, -link interactions", () => {
   it("if 1st level child link is active, sidenav-item parent is active", async () => {
     const el = await fixture(html`<sit-sidenav>
       <sit-sidenav-item class="first-level">
@@ -149,8 +149,8 @@ describe("SIT-sidenav, -item, -link interactions", () => {
       </sit-sidenav-item>
     </sit-sidenav>`);
 
-    expect(el.querySelector("SIT-sidenav-item.first-level")?.hasAttribute("active")).to.be.true;
-    expect(el.querySelector("SIT-sidenav-item.second-level")?.hasAttribute("active")).to.be.false;
+    expect(el.querySelector("sit-sidenav-item.first-level")?.hasAttribute("active")).to.be.true;
+    expect(el.querySelector("sit-sidenav-item.second-level")?.hasAttribute("active")).to.be.false;
   });
   it("if 2nd level child link is active, sidenav-item parent is active", async () => {
     const el = await fixture(html`<sit-sidenav>
@@ -172,8 +172,8 @@ describe("SIT-sidenav, -item, -link interactions", () => {
       </sit-sidenav-item>
     </sit-sidenav>`);
 
-    expect(el.querySelector("SIT-sidenav-item.first-level")?.hasAttribute("active")).to.be.true;
-    expect(el.querySelector("SIT-sidenav-item.second-level")?.hasAttribute("active")).to.be.true;
+    expect(el.querySelector("sit-sidenav-item.first-level")?.hasAttribute("active")).to.be.true;
+    expect(el.querySelector("sit-sidenav-item.second-level")?.hasAttribute("active")).to.be.true;
   });
   it("when clicking on sidenav-link, active sidenav-item remains open", async () => {
     const hideHandler = sinon.spy();
@@ -194,9 +194,9 @@ describe("SIT-sidenav, -item, -link interactions", () => {
         <a href="#">Level 1 item</a>
       </sit-sidenav-item>
     </sit-sidenav>`);
-    el.addEventListener("SIT-hide", hideHandler);
-    const SitSidenavItemOne = el.querySelectorAll("SIT-sidenav-item")[0];
-    const sidenavLinkOne = el.querySelector<SitSidenavLink>("SIT-sidenav-link[data-test='link']");
+    el.addEventListener("sit-hide", hideHandler);
+    const SitSidenavItemOne = el.querySelectorAll("sit-sidenav-item")[0];
+    const sidenavLinkOne = el.querySelector<SitSidenavLink>("sit-sidenav-link[data-test='link']");
     sidenavLinkOne?.click();
     await aTimeout(500);
     expect(hideHandler).not.to.be.called;
@@ -210,9 +210,7 @@ describe("SitSidenavLink", () => {
     assert.shadowDom.equal(el, ` <slot></slot>`);
   });
   it("when disabled is change to true , slot anchor has tabindex=-1", async () => {
-    const el = await fixture<SitSidenavLink>(
-      html`<sit-sidenav-link disabled><a href="#">link</a></sit-sidenav-link>`
-    );
+    const el = await fixture<SitSidenavLink>(html`<sit-sidenav-link disabled><a href="#">link</a></sit-sidenav-link>`);
 
     const anchor = el.querySelector("a");
     expect(anchor).to.have.attribute("tabindex", "-1");
@@ -222,9 +220,7 @@ describe("SitSidenavLink", () => {
     expect(anchor?.hasAttribute("tabindex")).to.be.false;
   });
   it("when disabled true , slot anchor and sidenav-link itself have aria-disabled=true", async () => {
-    const el = await fixture<SitSidenavLink>(
-      html`<sit-sidenav-link disabled><a href="#">link</a></sit-sidenav-link>`
-    );
+    const el = await fixture<SitSidenavLink>(html`<sit-sidenav-link disabled><a href="#">link</a></sit-sidenav-link>`);
 
     const anchor = el.querySelector("a");
     expect(anchor).to.have.attribute("aria-disabled", "true");
@@ -326,6 +322,3 @@ describe("a11y - sit-sidenav-item", () => {
     consoleStub.restore();
   });
 });
-
-
-

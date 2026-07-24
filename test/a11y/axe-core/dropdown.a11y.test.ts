@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Dropdown a11y", () => {
-  it("SIT-dropdown should be accessible", async () => {
+  it("sit-dropdown should be accessible", async () => {
     const el = await fixture(html`
       <sit-dropdown>
         <sit-button slot="toggler">Actions</sit-button>
@@ -15,7 +15,7 @@ describe("Dropdown a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-dropdown should set aria-haspopup and aria-expanded on toggler", async () => {
+  it("sit-dropdown should set aria-haspopup and aria-expanded on toggler", async () => {
     const el = await fixture(html`
       <sit-dropdown>
         <sit-button slot="toggler">Actions</sit-button>
@@ -27,7 +27,7 @@ describe("Dropdown a11y", () => {
     expect(toggler).to.have.attribute("aria-expanded", "false");
   });
 
-  it("SIT-dropdown should update aria-expanded when menu opens", async () => {
+  it("sit-dropdown should update aria-expanded when menu opens", async () => {
     const el = await fixture(html`
       <sit-dropdown menuIsOpen>
         <sit-button slot="toggler">Actions</sit-button>
@@ -38,7 +38,7 @@ describe("Dropdown a11y", () => {
     expect(toggler).to.have.attribute("aria-expanded", "true");
   });
 
-  it("SIT-overflow-menu should be accessible", async () => {
+  it("sit-overflow-menu should be accessible", async () => {
     const el = await fixture(html`
       <sit-overflow-menu>
         <sit-dropdown-item>View</sit-dropdown-item>
@@ -49,6 +49,3 @@ describe("Dropdown a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

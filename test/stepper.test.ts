@@ -35,9 +35,9 @@ const iconStepMetaData = [
     iconName: "placeholder"
   }
 ];
-describe("SIT-stepper", () => {
+describe("sit-stepper", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-stepper");
+    const el = document.createElement("sit-stepper");
     assert.instanceOf(el, SitStepper);
   });
   it("by default should render 3 steps within component", async () => {
@@ -126,15 +126,15 @@ describe("SIT-stepper", () => {
   });
 });
 
-describe("SIT-stepper, sit-button interactions", () => {
+describe("sit-stepper, sit-button interactions", () => {
   it("should increment the active step when the nextStep() method is called", async () => {
     const el = await fixture(html`
       <sit-stepper .steps=${stepMetaData} id="myStepper" activeStep="0"></sit-stepper>
       <sit-button stepperId="myStepper" methodType="increment" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SitStepper>("SIT-stepper");
-    const button = el.querySelector<SitButton>("SIT-button");
+    const stepper = el.querySelector<SitStepper>("sit-stepper");
+    const button = el.querySelector<SitButton>("sit-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[0]).to.have.class("is-active");
@@ -151,8 +151,8 @@ describe("SIT-stepper, sit-button interactions", () => {
       <sit-button stepperId="myStepper" methodType="increment" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SitStepper>("SIT-stepper");
-    const button = el.querySelector<SitButton>("SIT-button");
+    const stepper = el.querySelector<SitStepper>("sit-stepper");
+    const button = el.querySelector<SitButton>("sit-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[0]).to.have.class("is-active");
@@ -170,8 +170,8 @@ describe("SIT-stepper, sit-button interactions", () => {
       <sit-button stepperId="myStepper" methodType="decrement" variant="primary">Back</sit-button>
     `);
 
-    const stepper = el.querySelector<SitStepper>("SIT-stepper");
-    const button = el.querySelector<SitButton>("SIT-button");
+    const stepper = el.querySelector<SitStepper>("sit-stepper");
+    const button = el.querySelector<SitButton>("sit-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[1]).to.have.class("is-active");
@@ -188,8 +188,8 @@ describe("SIT-stepper, sit-button interactions", () => {
       <sit-button stepperId="myStepper" methodType="decrement" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SitStepper>("SIT-stepper");
-    const button = el.querySelector<SitButton>("SIT-button");
+    const stepper = el.querySelector<SitStepper>("sit-stepper");
+    const button = el.querySelector<SitButton>("sit-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[1]).to.have.class("is-active");
@@ -207,8 +207,8 @@ describe("SIT-stepper, sit-button interactions", () => {
       <sit-button stepperId="myStepper" methodType="last" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SitStepper>("SIT-stepper");
-    const button = el.querySelector<SitButton>("SIT-button");
+    const stepper = el.querySelector<SitStepper>("sit-stepper");
+    const button = el.querySelector<SitButton>("sit-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[0]).to.have.class("is-active");
@@ -226,8 +226,8 @@ describe("SIT-stepper, sit-button interactions", () => {
       <sit-button stepperId="myStepper" methodType="first" variant="primary">Next</sit-button>
     `);
 
-    const stepper = el.querySelector<SitStepper>("SIT-stepper");
-    const button = el.querySelector<SitButton>("SIT-button");
+    const stepper = el.querySelector<SitStepper>("sit-stepper");
+    const button = el.querySelector<SitButton>("sit-button");
 
     if (button) {
       expect(stepper?.shadowRoot?.querySelectorAll(".stepper-item")[2]).to.have.class("is-active");
@@ -255,32 +255,30 @@ describe("SIT-stepper, sit-button interactions", () => {
 
 const eventsMetadata = [
   {
-    event: "SIT-next-step",
+    event: "sit-next-step",
     method: "nextStep"
   },
   {
-    event: "SIT-previous-step",
+    event: "sit-previous-step",
     method: "previousStep"
   },
   {
-    event: "SIT-last-step",
+    event: "sit-last-step",
     method: "lastStep"
   },
   {
-    event: "SIT-first-step",
+    event: "sit-first-step",
     method: "firstStep"
   }
 ];
 describe("Stepper events", () => {
   eventsMetadata.forEach(m => {
     it(`${m.event} is fired when method ${m.method}() is called and sit-arrived is called after`, async () => {
-      const el = await fixture<SitStepper>(
-        html` <sit-stepper .steps=${stepMetaData} activeStep="1"></sit-stepper> `
-      );
+      const el = await fixture<SitStepper>(html` <sit-stepper .steps=${stepMetaData} activeStep="1"></sit-stepper> `);
       const eventHandler = sinon.spy();
       const arrivedEventHandler = sinon.spy();
       el.addEventListener(m.event, eventHandler);
-      el.addEventListener("SIT-arrived", arrivedEventHandler);
+      el.addEventListener("sit-arrived", arrivedEventHandler);
       el[m.method]();
       await waitUntil(() => eventHandler.calledOnce);
       expect(eventHandler).to.have.been.calledOnce;
@@ -290,12 +288,12 @@ describe("Stepper events", () => {
     });
   });
 
-  it("SIT-reset is fired when reset method is called, sit-arrived called after", async () => {
+  it("sit-reset is fired when reset method is called, sit-arrived called after", async () => {
     const el = await fixture<SitStepper>(html` <sit-stepper .steps=${stepMetaData}></sit-stepper> `);
     const eventHandler = sinon.spy();
     const arrivedEventHandler = sinon.spy();
-    el.addEventListener("SIT-reset", eventHandler);
-    el.addEventListener("SIT-arrived", arrivedEventHandler);
+    el.addEventListener("sit-reset", eventHandler);
+    el.addEventListener("sit-arrived", arrivedEventHandler);
 
     //setting the stage
     el.nextStep();
@@ -315,7 +313,7 @@ describe("Stepper keyboard interactions", () => {
       html` <sit-stepper activeStep="2" .steps=${stepMetaData} clickable></sit-stepper> `
     );
     const arrivedHandler = sinon.spy();
-    el.addEventListener("SIT-arrived", arrivedHandler);
+    el.addEventListener("sit-arrived", arrivedHandler);
     const markers = el.shadowRoot?.querySelectorAll("div.stepper-item");
     expect(markers?.[0]).to.have.class("is-completed").and.have.class("is-clickable");
     expect(markers?.[1]).to.have.class("is-completed").and.have.class("is-clickable");
@@ -328,7 +326,7 @@ describe("Stepper keyboard interactions", () => {
   });
 });
 
-describe("SIT-stepper accessibility", () => {
+describe("sit-stepper accessibility", () => {
   it("when orientation=horizontal, stepper should be displayed in horizontal orientation", async () => {
     const el = await fixture(
       html` <sit-stepper orientation="horizontal" .steps=${stepMetaData} activeStep="1"></sit-stepper> `
@@ -378,7 +376,7 @@ describe("SIT-stepper accessibility", () => {
   });
 });
 
-describe("SIT-stepper with sit-step child components", () => {
+describe("sit-stepper with sit-step child components", () => {
   it("should render sit-step children when slotted", async () => {
     const el = await fixture(html`
       <sit-stepper>
@@ -387,7 +385,7 @@ describe("SIT-stepper with sit-step child components", () => {
         <sit-step stepHeader="Review"></sit-step>
       </sit-stepper>
     `);
-    const steps = el.querySelectorAll("SIT-step");
+    const steps = el.querySelectorAll("sit-step");
     expect(steps.length).to.equal(3);
   });
 
@@ -425,6 +423,3 @@ describe("SIT-stepper with sit-step child components", () => {
     expect(shadowSteps?.length).to.equal(3);
   });
 });
-
-
-

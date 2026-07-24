@@ -3,7 +3,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args =>
   html`
-    <sgds-quantity-toggle
+    <sit-quantity-toggle
       value=${ifDefined(args.value)}
       step=${ifDefined(args.step)}
       quantityToggleClasses=${ifDefined(args.quantityToggleClasses)}
@@ -16,7 +16,7 @@ export const Template = args =>
       ?invalid=${args.invalid}
       label=${ifDefined(args.label)}
       hintText=${ifDefined(args.hintText)}
-    ></sgds-quantity-toggle>
+    ></sit-quantity-toggle>
   `;
 
 export const args = {};

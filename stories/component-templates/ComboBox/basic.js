@@ -21,7 +21,7 @@ export const Template = ({
   loading
 }) => {
   return html`
-    <sgds-combo-box
+    <sit-combo-box
       label=${ifDefined(label)}
       hintText=${ifDefined(hintText)}
       name=${ifDefined(name)}
@@ -38,10 +38,10 @@ export const Template = ({
       id=${args.id}
       ?loading=${loading}
       >${menuList.map(
-        (m, i) => html`<sgds-combo-box-option value=${m.value} ?disabled=${thirdOptionDisabled && i === 2}
-          >${m.label}</sgds-combo-box-option
+        (m, i) => html`<sit-combo-box-option value=${m.value} ?disabled=${thirdOptionDisabled && i === 2}
+          >${m.label}</sit-combo-box-option
         > `
-      )}</sgds-combo-box
+      )}</sit-combo-box
     >
   `;
 };
@@ -262,7 +262,7 @@ export const args = {
 export const parameters = {};
 
 export const play = async ({ canvasElement }) => {
-  const toggler = canvasElement.querySelector("sgds-combo-box");
+  const toggler = canvasElement.querySelector("sit-combo-box");
   const trigger = toggler.shadowRoot.querySelector(".form-control-group");
   await userEvent.click(trigger);
 };

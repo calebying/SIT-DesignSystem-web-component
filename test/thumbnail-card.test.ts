@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { SitThumbnailCard } from "../src/components";
 import "../src/index";
 
-describe("SIT-thumbnail-card", () => {
+describe("sit-thumbnail-card", () => {
   it("renders by default", async () => {
     const el = await fixture<SitThumbnailCard>(html`<sit-thumbnail-card></sit-thumbnail-card>`);
     expect(el).to.be.accessible;
@@ -177,5 +177,3 @@ describe("SIT-thumbnail-card", () => {
     expect(tintedBg2).to.not.exist;
   });
 });
-
-

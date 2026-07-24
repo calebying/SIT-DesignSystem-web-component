@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Footer a11y", () => {
-  it("SIT-footer should be accessible", async () => {
+  it("sit-footer should be accessible", async () => {
     const el = await fixture(html`
       <sit-footer
         contacthref="https://form.gov.sg/"
@@ -18,6 +18,3 @@ describe("Footer a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

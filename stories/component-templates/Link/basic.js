@@ -2,7 +2,7 @@ import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args => html`
-  <sgds-link
+  <sit-link
     size=${ifDefined(args.size)}
     variant=${ifDefined(args.variant)}
     tone=${ifDefined(args.tone)}
@@ -10,7 +10,7 @@ export const Template = args => html`
     ?disabled=${args.disabled}
   >
     <a href="#">Link</a>
-  </sgds-link>
+  </sit-link>
 `;
 
 export const args = {};

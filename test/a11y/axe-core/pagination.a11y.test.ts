@@ -59,6 +59,3 @@ describe("Pagination a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

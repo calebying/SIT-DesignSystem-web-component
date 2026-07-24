@@ -7,7 +7,7 @@ import "./sit-web-component";
 
 describe("variant=default sit-pagination", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-pagination");
+    const el = document.createElement("sit-pagination");
     assert.instanceOf(el, SitPagination);
   });
 
@@ -49,9 +49,7 @@ describe("variant=default sit-pagination", () => {
     );
   });
   it("can be semantically compared with shadowDom trees when currentPage=2 for 2 pages", async () => {
-    const el = await fixture(
-      html` <sit-pagination dataLength="10" itemsPerPage="5" currentPage="2"></sit-pagination>`
-    );
+    const el = await fixture(html` <sit-pagination dataLength="10" itemsPerPage="5" currentPage="2"></sit-pagination>`);
     assert.shadowDom.equal(
       el,
       `
@@ -145,7 +143,7 @@ describe("variant=default sit-pagination", () => {
         html`<sit-pagination dataLength=${p.dataLength} itemsPerPage=${p.itemsPerPage}></sit-pagination>`
       );
 
-      const nextButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Next']") as SitIconButton;
+      const nextButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Next']") as SitIconButton;
       nextButton.click(); // go to 2
       await el.updateComplete;
       expect(el.shadowRoot?.querySelectorAll(".page-link.ellipsis").length).to.equal(p.expectedEllipsis);
@@ -200,7 +198,7 @@ describe("variant=default sit-pagination", () => {
 
       expect(el.shadowRoot?.querySelectorAll(".page-link.ellipsis").length).to.equal(p.expectedEllipsis);
 
-      const nextButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Next']") as SitIconButton;
+      const nextButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Next']") as SitIconButton;
       nextButton.click(); // go to 6
       await el.updateComplete;
       if (p.expectedLastPage === 10) {
@@ -315,8 +313,8 @@ describe("variant=button sit-pagination", () => {
       html` <sit-pagination dataLength="10" itemsPerPage="5" variant="button" currentPage="2"></sit-pagination>`
     );
 
-    const nextButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Next']");
-    const prevButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Previous']");
+    const nextButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Next']");
+    const prevButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Previous']");
     expect(nextButton).to.have.attribute("disabled");
     expect(prevButton).not.to.have.attribute("disabled");
   });
@@ -325,16 +323,16 @@ describe("variant=button sit-pagination", () => {
       html` <sit-pagination dataLength="5" itemsPerPage="5" variant="button" currentPage="1"></sit-pagination>`
     );
 
-    const nextButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Next']");
-    const prevButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Previous']");
+    const nextButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Next']");
+    const prevButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Previous']");
     expect(nextButton).to.have.attribute("disabled");
     expect(prevButton).to.have.attribute("disabled");
   });
 
   it("when there are no pages, both arrows are disabled", async () => {
     const el = await fixture(html` <sit-pagination></sit-pagination>`);
-    const nextButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Next']");
-    const prevButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Previous']");
+    const nextButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Next']");
+    const prevButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Previous']");
     expect(nextButton).to.have.attribute("disabled");
     expect(prevButton).to.have.attribute("disabled");
   });
@@ -364,8 +362,8 @@ describe("variant=description sit-pagination", () => {
       html` <sit-pagination dataLength="10" itemsPerPage="2" variant="description"></sit-pagination>`
     );
 
-    const nextButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Next']") as SitIconButton;
-    const prevButton = el.shadowRoot?.querySelector("SIT-icon-button[ariaLabel='Previous']") as SitIconButton;
+    const nextButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Next']") as SitIconButton;
+    const prevButton = el.shadowRoot?.querySelector("sit-icon-button[ariaLabel='Previous']") as SitIconButton;
     nextButton.click();
     nextButton.click();
 
@@ -383,7 +381,7 @@ describe("variant=description sit-pagination", () => {
     )) as SitPagination;
 
     const pagesHandler = sinon.spy();
-    el.addEventListener("SIT-page-change", pagesHandler);
+    el.addEventListener("sit-page-change", pagesHandler);
 
     const pageOne = el.shadowRoot?.querySelectorAll(".page-item")[0];
     const pageOneLink = el.shadowRoot?.querySelectorAll(".page-item")[0].querySelector("span");
@@ -412,16 +410,16 @@ describe("variant=description sit-pagination", () => {
     )) as SitPagination;
 
     const pagesHandler = sinon.spy();
-    el.addEventListener("SIT-page-change", pagesHandler);
+    el.addEventListener("sit-page-change", pagesHandler);
 
-    const nextBtn = el.shadowRoot?.querySelectorAll("SIT-icon-button")[1];
+    const nextBtn = el.shadowRoot?.querySelectorAll("sit-icon-button")[1];
     nextBtn?.focus();
     await sendKeys({ press: "Enter" });
 
     await el.updateComplete;
     expect(el.shadowRoot?.querySelector(".page-item.active")?.textContent?.trim()).to.equal("2");
 
-    const prevBtn = el.shadowRoot?.querySelectorAll("SIT-icon-button")[0];
+    const prevBtn = el.shadowRoot?.querySelectorAll("sit-icon-button")[0];
     prevBtn?.focus();
     await sendKeys({ press: "Enter" });
 
@@ -434,7 +432,7 @@ describe("variant=description sit-pagination", () => {
     )) as SitPagination;
 
     const pagesHandler = sinon.spy();
-    el.addEventListener("SIT-page-change", pagesHandler);
+    el.addEventListener("sit-page-change", pagesHandler);
     const pageOne = el.shadowRoot?.querySelectorAll(".page-item")[0];
     const pageTwo = el.shadowRoot?.querySelectorAll(".page-item")[1];
 
@@ -449,6 +447,3 @@ describe("variant=description sit-pagination", () => {
     expect(pagesHandler).to.be.calledOnce;
   });
 });
-
-
-

@@ -166,7 +166,7 @@ describe("<sit-select>", () => {
     it(`MODE: ${mode} , should emit sit-select event when select value is updated`, async () => {
       const el = await fixture<SitSelect>(render);
       const selectHandler = sinon.spy();
-      el?.addEventListener("SIT-select", selectHandler);
+      el?.addEventListener("sit-select", selectHandler);
 
       expect(el.value).to.equal("");
       el.value = "option1";
@@ -177,7 +177,7 @@ describe("<sit-select>", () => {
     it(`MODE: ${mode} ,should emit sit-change event when select value is updated`, async () => {
       const el = await fixture<SitSelect>(render);
       const changeHandler = sinon.spy();
-      el?.addEventListener("SIT-change", changeHandler);
+      el?.addEventListener("sit-change", changeHandler);
 
       expect(el.value).to.equal("");
       el.value = "option1";
@@ -192,10 +192,10 @@ describe("<sit-select>", () => {
       const selectInput = el.shadowRoot?.querySelector("input");
 
       const focusHandler = sinon.spy();
-      el?.addEventListener("SIT-focus", focusHandler);
+      el?.addEventListener("sit-focus", focusHandler);
 
       const blurHandler = sinon.spy();
-      el?.addEventListener("SIT-blur", blurHandler);
+      el?.addEventListener("sit-blur", blurHandler);
 
       selectInput?.focus();
       await waitUntil(() => focusHandler.calledOnce);
@@ -211,7 +211,7 @@ describe("<sit-select>", () => {
       input?.click();
       await waitUntil(() => el.menuIsOpen);
 
-      const item = el.shadowRoot?.querySelectorAll("SIT-select-option")[0] as SitSelectOption;
+      const item = el.shadowRoot?.querySelectorAll("sit-select-option")[0] as SitSelectOption;
       const itemContent = item.shadowRoot?.querySelector("div.normal-item-content") as HTMLDivElement;
       itemContent?.click();
 
@@ -226,7 +226,7 @@ describe("<sit-select>", () => {
       const el = await fixture<SitSelect>(render);
 
       await el.updateComplete;
-      const items = el.shadowRoot?.querySelectorAll("SIT-select-option");
+      const items = el.shadowRoot?.querySelectorAll("sit-select-option");
       expect(items?.length).to.equal(0);
       const emptyMenu = el.shadowRoot?.querySelector(".empty-menu");
       expect(emptyMenu).to.exist;
@@ -240,9 +240,9 @@ describe("<sit-select>", () => {
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
       let durianItem: SitSelectOption;
       if (mode === "slot") {
-        durianItem = el.querySelector("SIT-select-option[value='option3']") as SitSelectOption;
+        durianItem = el.querySelector("sit-select-option[value='option3']") as SitSelectOption;
       } else {
-        durianItem = el.shadowRoot?.querySelector("SIT-select-option[value='option3']") as SitSelectOption;
+        durianItem = el.shadowRoot?.querySelector("sit-select-option[value='option3']") as SitSelectOption;
       }
       await el.updateComplete;
       await waitUntil(() => input.value === "Durian");
@@ -259,14 +259,14 @@ describe("<sit-select>", () => {
       await sendKeys({ press: "ArrowDown" });
       if (mode === "slot") {
         await waitUntil(
-          () => el?.querySelectorAll("SIT-select-option")[0] === document.activeElement,
+          () => el?.querySelectorAll("sit-select-option")[0] === document.activeElement,
           "focus did not move into first select item",
           { timeout: 2000 }
         );
       } else {
         await waitUntil(
           () => {
-            const selectItem1 = el.shadowRoot?.querySelectorAll("SIT-select-option")[0];
+            const selectItem1 = el.shadowRoot?.querySelectorAll("sit-select-option")[0];
             return getRootActiveElement(input) === selectItem1;
           },
           "focus did not move into first select item",
@@ -295,8 +295,8 @@ describe("select >> when submitting a form", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>`
     );
-    const select = form.querySelector<SitSelect>("SIT-select");
-    const button = form.querySelector<SitButton>("SIT-button");
+    const select = form.querySelector<SitSelect>("sit-select");
+    const button = form.querySelector<SitButton>("sit-button");
     form?.addEventListener("submit", e => e.preventDefault());
     expect(select?.value).to.equal("option1");
     expect(select?.invalid).to.be.false;
@@ -316,10 +316,10 @@ describe("select >> when submitting a form", () => {
       </form>`
     );
 
-    const button = form.querySelector<SitButton>("SIT-button");
-    const select = form.querySelector<SitSelect>("SIT-select");
+    const button = form.querySelector<SitButton>("sit-button");
+    const select = form.querySelector<SitSelect>("sit-select");
     const appleItem = form
-      .querySelector<SitSelectOption>("SIT-select-option[value='option1']")
+      .querySelector<SitSelectOption>("sit-select-option[value='option1']")
       ?.shadowRoot?.querySelector("div.normal-item-content") as HTMLElement;
     appleItem?.click();
     await select?.updateComplete;
@@ -344,7 +344,7 @@ describe("select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(false);
     form.addEventListener("submit", submitHandler);
@@ -367,7 +367,7 @@ describe("select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -391,7 +391,7 @@ describe("select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -416,19 +416,19 @@ describe("select >> when submitting a form", () => {
         <sit-button type="reset"></sit-button>
       </form>`
     );
-    const input = () => form.querySelector("SIT-select")?.shadowRoot?.querySelector("input");
-    const select = () => form.querySelector("SIT-select");
+    const input = () => form.querySelector("sit-select")?.shadowRoot?.querySelector("input");
+    const select = () => form.querySelector("sit-select");
     expect(input()?.value).to.equal("Dur");
     // Clear input
     input()?.click();
     await waitUntil(() => select()?.menuIsOpen);
 
-    const itemOne = select()?.shadowRoot?.querySelectorAll("SIT-select-option")[0] as SitSelectOption;
+    const itemOne = select()?.shadowRoot?.querySelectorAll("sit-select-option")[0] as SitSelectOption;
 
     itemOne?.click();
     await waitUntil(() => select()?.value === "option1");
 
-    const resetButton = form.querySelector<SitButton>("SIT-button[type='reset']");
+    const resetButton = form.querySelector<SitButton>("sit-button[type='reset']");
     resetButton?.click();
     // resets value to the defaultValue
     await waitUntil(() => select()?.value === "option3");
@@ -475,7 +475,7 @@ describe("select >> when submitting a form", () => {
     await sendKeys({ press: "ArrowDown" });
     await waitUntil(
       () => {
-        const selectItem1 = el.shadowRoot?.querySelectorAll("SIT-select-option")[0];
+        const selectItem1 = el.shadowRoot?.querySelectorAll("sit-select-option")[0];
         return getRootActiveElement(input) === selectItem1;
       },
       "focus did not move into first select item",
@@ -491,7 +491,7 @@ describe("select >> when submitting a form", () => {
       <sit-select-option value="3">Option 3</sit-select-option>
     </sit-select>`);
     expect(el.value).to.equal("1");
-    const firstOption = el.querySelector<SitSelectOption>("SIT-select-option[value='1']");
+    const firstOption = el.querySelector<SitSelectOption>("sit-select-option[value='1']");
     await waitUntil(() => firstOption?.active);
     expect(firstOption?.active).to.be.true;
     const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
@@ -502,7 +502,7 @@ describe("select >> when submitting a form", () => {
     await waitUntil(() => input.value === "Option 2");
     expect(input.value).to.equal("Option 2");
     expect(firstOption?.active).to.be.false;
-    const secondOption = el.querySelector<SitSelectOption>("SIT-select-option[value='2']");
+    const secondOption = el.querySelector<SitSelectOption>("sit-select-option[value='2']");
     expect(secondOption?.active).to.be.true;
   });
 });
@@ -521,7 +521,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
@@ -584,10 +584,10 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const select = form.querySelector<SitSelect>("SIT-select");
+    const select = form.querySelector<SitSelect>("sit-select");
     await waitUntil(() => select?.value === "option1");
 
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -612,7 +612,7 @@ describe("form novalidate for sit-select", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -631,7 +631,7 @@ describe("form novalidate for sit-select", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const select = form.querySelector<SitSelect>("SIT-select");
+    const select = form.querySelector<SitSelect>("sit-select");
     const input = select?.shadowRoot?.querySelector("input");
     input?.focus();
     select?.blur();
@@ -650,12 +650,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const select = form.querySelector<SitSelect>("SIT-select");
+    const select = form.querySelector<SitSelect>("sit-select");
     select?.setInvalid(true);
     await select?.updateComplete;
     expect(select?.invalid).to.be.true;
 
-    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("sit-button")?.click());
     await waitUntil(() => select?.invalid === false);
     expect(select?.invalid).to.be.false;
   });
@@ -669,12 +669,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const select = form.querySelector<SitSelect>("SIT-select");
+    const select = form.querySelector<SitSelect>("sit-select");
     select?.setInvalid(true);
     await select?.updateComplete;
     expect(select?.invalid).to.be.true;
 
-    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("sit-button")?.click());
     await waitUntil(() => select?.invalid === false);
     expect(select?.invalid).to.be.false;
   });
@@ -689,7 +689,7 @@ describe("setInvalid emits sit-invalid and sit-valid events", () => {
       </sit-select>
     `);
     const handler = sinon.spy();
-    el.addEventListener("SIT-invalid", handler);
+    el.addEventListener("sit-invalid", handler);
 
     el.setInvalid(true);
     await el.updateComplete;
@@ -704,7 +704,7 @@ describe("setInvalid emits sit-invalid and sit-valid events", () => {
       </sit-select>
     `);
     const handler = sinon.spy();
-    el.addEventListener("SIT-valid", handler);
+    el.addEventListener("sit-valid", handler);
 
     el.setInvalid(false);
     await el.updateComplete;
@@ -720,8 +720,8 @@ describe("setInvalid emits sit-invalid and sit-valid events", () => {
     `);
     const invalidHandler = sinon.spy();
     const validHandler = sinon.spy();
-    el.addEventListener("SIT-invalid", invalidHandler);
-    el.addEventListener("SIT-valid", validHandler);
+    el.addEventListener("sit-invalid", invalidHandler);
+    el.addEventListener("sit-valid", validHandler);
 
     el.setInvalid(true);
     await el.updateComplete;
@@ -734,7 +734,7 @@ describe("setInvalid emits sit-invalid and sit-valid events", () => {
   });
 });
 
-describe("SIT-select-option (default)", () => {
+describe("sit-select-option (default)", () => {
   it("matches shadowDom semantically", async () => {
     const el = await fixture<SitSelectOption>(html`<sit-select-option></sit-select-option>`);
     assert.shadowDom.equal(
@@ -795,7 +795,3 @@ describe("SIT-select-option (default)", () => {
     expect(dropdownMenu?.textContent).to.contain("Loading...");
   });
 });
-
-
-
-

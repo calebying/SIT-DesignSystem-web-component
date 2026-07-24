@@ -10,7 +10,7 @@ describe("footer", () => {
       el,
       `
           <footer class="footer">
-          <section class="SIT-container">
+          <section class="sit-container">
             <div class="footer-header">
               <slot name="title"></slot>
               <slot name="description"></slot>
@@ -185,8 +185,8 @@ describe("footer layout prop", () => {
 
     const footerTop = el.shadowRoot?.querySelector(".footer-top");
     const footerBottom = el.shadowRoot?.querySelector(".footer-bottom");
-    expect(footerTop?.classList.contains("SIT-container-sidebar")).to.be.false;
-    expect(footerBottom?.classList.contains("SIT-container-sidebar")).to.be.false;
+    expect(footerTop?.classList.contains("sit-container-sidebar")).to.be.false;
+    expect(footerBottom?.classList.contains("sit-container-sidebar")).to.be.false;
   });
 
   it("adds sit-container-sidebar class to footer-top and footer-bottom when layout='sidebar'", async () => {
@@ -195,8 +195,8 @@ describe("footer layout prop", () => {
 
     const footerTop = el.shadowRoot?.querySelector(".footer-top");
     const footerBottom = el.shadowRoot?.querySelector(".footer-bottom");
-    expect(footerTop?.classList.contains("SIT-container-sidebar")).to.be.true;
-    expect(footerBottom?.classList.contains("SIT-container-sidebar")).to.be.true;
+    expect(footerTop?.classList.contains("sit-container-sidebar")).to.be.true;
+    expect(footerBottom?.classList.contains("sit-container-sidebar")).to.be.true;
   });
 
   it("reflects layout attribute to the host element", async () => {
@@ -211,8 +211,8 @@ describe("footer layout prop", () => {
 
     const footerTop = el.shadowRoot?.querySelector(".footer-top");
     const footerBottom = el.shadowRoot?.querySelector(".footer-bottom");
-    expect(footerTop?.classList.contains("SIT-container-sidebar")).to.be.false;
-    expect(footerBottom?.classList.contains("SIT-container-sidebar")).to.be.false;
+    expect(footerTop?.classList.contains("sit-container-sidebar")).to.be.false;
+    expect(footerBottom?.classList.contains("sit-container-sidebar")).to.be.false;
   });
 });
 
@@ -230,7 +230,7 @@ describe("footer tone prop", () => {
 
   it("renders mandatory links with tone='fixed-light' when tone='fixed-dark'", async () => {
     const el = await fixture<SitFooter>(html`<sit-footer></sit-footer>`);
-    const links = el.shadowRoot?.querySelectorAll<SitLink>("SIT-link");
+    const links = el.shadowRoot?.querySelectorAll<SitLink>("sit-link");
     links?.forEach(link => {
       expect(link.tone).to.equal("fixed-light");
     });
@@ -238,7 +238,7 @@ describe("footer tone prop", () => {
 
   it("renders mandatory links with tone='neutral' when tone='neutral'", async () => {
     const el = await fixture<SitFooter>(html`<sit-footer tone="neutral"></sit-footer>`);
-    const links = el.shadowRoot?.querySelectorAll<SitLink>("SIT-link");
+    const links = el.shadowRoot?.querySelectorAll<SitLink>("sit-link");
     links?.forEach(link => {
       expect(link.tone).to.equal("neutral");
     });
@@ -253,7 +253,7 @@ describe("footer tone prop", () => {
         </sit-footer-item>
       </sit-footer>
     `);
-    const footerItem = el.querySelector<SitFooterItem>("SIT-footer-item");
+    const footerItem = el.querySelector<SitFooterItem>("sit-footer-item");
     expect(footerItem?.tone).to.equal("neutral");
   });
 
@@ -264,7 +264,7 @@ describe("footer tone prop", () => {
         <sit-link><a href="#">Link</a></sit-link>
       </sit-footer-item>
     `);
-    const links = el.querySelectorAll<SitLink>("SIT-link");
+    const links = el.querySelectorAll<SitLink>("sit-link");
     links.forEach(l => {
       expect(l.tone).to.equal("neutral");
     });
@@ -292,13 +292,10 @@ describe("SitFooterItem", () => {
       <sit-link><a href="/application-guidelines/lorem-ipsum-one/part-A/">Second Level B</a></sit-link>
       <sit-link><a href="/application-guidelines/lorem-ipsum-three/">Lorem Ipsum Three</a></sit-link>
     </sit-footer-item>`);
-    const links = el.querySelectorAll<SitLink>("SIT-link");
+    const links = el.querySelectorAll<SitLink>("sit-link");
     links.forEach(l => {
       expect(l.tone).to.equal("fixed-light");
       expect(l.size).to.equal("sm");
     });
   });
 });
-
-
-

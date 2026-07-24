@@ -21,5 +21,3 @@ describe("<sit-progress-bar>", () => {
     );
   });
 });
-
-

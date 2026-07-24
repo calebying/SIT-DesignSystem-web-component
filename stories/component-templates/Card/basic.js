@@ -4,7 +4,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 export const Template = args =>
   html`
     <div class="container">
-      <sgds-card
+      <sit-card
         ?stretchedLink=${ifDefined(args.stretchedLink)}
         ?disabled=${ifDefined(args.disabled)}
         orientation=${ifDefined(args.orientation)}
@@ -23,13 +23,13 @@ export const Template = args =>
         <span slot="description"
           >Some quick example text to build on the card title and make up the bulk of the card's content.</span
         >
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card>
+        </sit-link>
+      </sit-card>
+      <sit-card>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -40,39 +40,39 @@ export const Template = args =>
           >Some quick example text to build on the card title and make up the bulk of the card's content. Some quick
           example text to build on the card title and make up the bulk of the card's content.</span
         >
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card>
-        <sgds-icon slot="icon" name="placeholder" size="3-xl"></sgds-icon>
+        </sit-link>
+      </sit-card>
+      <sit-card>
+        <sit-icon slot="icon" name="placeholder" size="3-xl"></sit-icon>
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Icon card</h3>
         <span slot="description"
           >Some quick example text to build on the card title and make up the bulk of the card's content.</span
         >
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
-      <sgds-card>
-        <sgds-icon slot="icon" name="placeholder" size="3-xl"></sgds-icon>
+        </sit-link>
+      </sit-card>
+      <sit-card>
+        <sit-icon slot="icon" name="placeholder" size="3-xl"></sit-icon>
         <span slot="subtitle">SUBTITLE</span>
         <h3 slot="title">Icon card</h3>
         <span slot="description">
           Some quick example text to build on the card title and make up the bulk of the card's content. Some quick
           example text to build on the card title and make up the bulk of the card's content.
         </span>
-        <sgds-link slot="footer">
+        <sit-link slot="footer">
           <a href="https://google.com" aria-label="Go somewhere"
-            >Go somewhere <sgds-icon name="arrow-right"></sgds-icon
+            >Go somewhere <sit-icon name="arrow-right"></sit-icon
           ></a>
-        </sgds-link>
-      </sgds-card>
+        </sit-link>
+      </sit-card>
     </div>
   `;
 

@@ -105,7 +105,7 @@ async function simulateUserClick(element: HTMLElement) {
   await aTimeout(0);
 }
 
-describe("SIT-combo-box ", () => {
+describe("sit-combo-box ", () => {
   it("matches shadowDom semantically", async () => {
     const el = await fixture<SitComboBox>(html` <sit-combo-box
       .menuList=${[
@@ -177,10 +177,10 @@ describe("SIT-combo-box ", () => {
       <sit-combo-box-option value="option2">Option 2</sit-combo-box-option>
     </sit-combo-box>`);
     const selectHandler = sinon.spy();
-    el?.addEventListener("SIT-select", selectHandler);
+    el?.addEventListener("sit-select", selectHandler);
 
     expect(el.value).to.equal("");
-    const option1 = el.querySelector<SitComboBoxOption>('SIT-combo-box-option[value="option1"]')!;
+    const option1 = el.querySelector<SitComboBoxOption>('sit-combo-box-option[value="option1"]')!;
     option1.click();
     await el.updateComplete;
 
@@ -190,7 +190,7 @@ describe("SIT-combo-box ", () => {
   it("should emit sit-input event when input value changes", async () => {
     const el = await fixture<SitComboBox>(html`<sit-combo-box></sit-combo-box>`);
     const comboBoxInput = el.shadowRoot?.querySelector("input");
-    const listener = oneEvent(el, "SIT-input");
+    const listener = oneEvent(el, "sit-input");
 
     comboBoxInput?.focus();
     await sendKeys({ press: "A" });
@@ -204,10 +204,10 @@ describe("SIT-combo-box ", () => {
       <sit-combo-box-option value="option2">Option 2</sit-combo-box-option>
     </sit-combo-box>`);
     const changeHandler = sinon.spy();
-    el?.addEventListener("SIT-change", changeHandler);
+    el?.addEventListener("sit-change", changeHandler);
 
     expect(el.value).to.equal("");
-    const option1 = el.querySelector<SitComboBoxOption>('SIT-combo-box-option[value="option1"]')!;
+    const option1 = el.querySelector<SitComboBoxOption>('sit-combo-box-option[value="option1"]')!;
     option1.click();
     await el.updateComplete;
 
@@ -219,10 +219,10 @@ describe("SIT-combo-box ", () => {
     const comboBoxInput = el.shadowRoot?.querySelector("input");
 
     const focusHandler = sinon.spy();
-    el?.addEventListener("SIT-focus", focusHandler);
+    el?.addEventListener("sit-focus", focusHandler);
 
     const blurHandler = sinon.spy();
-    el?.addEventListener("SIT-blur", blurHandler);
+    el?.addEventListener("sit-blur", blurHandler);
 
     comboBoxInput?.focus();
     await waitUntil(() => focusHandler.calledOnce);
@@ -240,7 +240,7 @@ describe("SIT-combo-box ", () => {
       const input = el.shadowRoot?.querySelector("input");
       input?.click();
       await waitUntil(() => el.menuIsOpen);
-      const item = el?.querySelectorAll("SIT-combo-box-option")[0] as SitComboBoxOption;
+      const item = el?.querySelectorAll("sit-combo-box-option")[0] as SitComboBoxOption;
       const itemContent = item.shadowRoot?.querySelector("div.normal-item-content") as HTMLDivElement;
       itemContent?.click();
 
@@ -256,7 +256,7 @@ describe("SIT-combo-box ", () => {
 
       el.value = "apples";
       await el.updateComplete;
-      const items = el.shadowRoot?.querySelectorAll("SIT-combox-box-option");
+      const items = el.shadowRoot?.querySelectorAll("sit-combox-box-option");
       expect(items?.length).to.equal(0);
     });
   });
@@ -271,15 +271,15 @@ describe("SIT-combo-box ", () => {
       // should only have "apple", "apricot"
       await el.updateComplete;
       expect(input?.value).to.equal("a");
-      const items = el.querySelectorAll("SIT-combo-box-option:not([hidden])");
+      const items = el.querySelectorAll("sit-combo-box-option:not([hidden])");
       await waitUntil(() => items?.length === 2);
 
       // should only have "apple"
       await sendKeys({ type: "pp" });
       await el.updateComplete;
       expect(input?.value).to.equal("app");
-      await waitUntil(() => el.querySelectorAll("SIT-combo-box-option:not([hidden])").length === 1);
-      const item = el.querySelector("SIT-combo-box-option");
+      await waitUntil(() => el.querySelectorAll("sit-combo-box-option:not([hidden])").length === 1);
+      const item = el.querySelector("sit-combo-box-option");
       const itemVal = (item as SitComboBoxOption).innerText;
       expect(itemVal).to.equal("Apple");
     });
@@ -288,7 +288,7 @@ describe("SIT-combo-box ", () => {
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
       await simulateUserClick(input);
       await waitUntil(() => el.menuIsOpen);
-      expect(el.querySelectorAll("SIT-combo-box-option").length).to.equal(0);
+      expect(el.querySelectorAll("sit-combo-box-option").length).to.equal(0);
       expect(el.shadowRoot?.querySelector("div.empty-menu")?.textContent?.trim()).to.equal("No options");
     });
   });
@@ -305,7 +305,7 @@ describe("SIT-combo-box ", () => {
       await sendKeys({ type: "test" });
       await el.updateComplete;
       expect(input?.value).to.equal("test");
-      const items = el.querySelectorAll("SIT-combo-box-option:not([hidden])");
+      const items = el.querySelectorAll("sit-combo-box-option:not([hidden])");
       expect(items?.length).to.equal(3);
     });
   });
@@ -321,14 +321,14 @@ describe("SIT-combo-box ", () => {
       await el.updateComplete;
 
       // Expect 2 <sit-combo-box-option>
-      const items = () => el.querySelectorAll("SIT-combo-box-option:not([hidden])") || [];
+      const items = () => el.querySelectorAll("sit-combo-box-option:not([hidden])") || [];
       await waitUntil(() => items().length === 2);
       expect(items().length).to.equal(2);
 
       items().forEach(item => {
         // The item’s shadow root should contain <sit-checkbox>
-        const checkboxEl = item.shadowRoot?.querySelector("SIT-checkbox") as HTMLElement;
-        expect(checkboxEl, "SIT-checkbox found").to.exist;
+        const checkboxEl = item.shadowRoot?.querySelector("sit-checkbox") as HTMLElement;
+        expect(checkboxEl, "sit-checkbox found").to.exist;
       });
     });
     it(`MODE=${mode}, empty menu appears when no search options found`, async () => {
@@ -373,7 +373,7 @@ describe("SIT-combo-box ", () => {
 
     const parentWidth = getComputedStyle(parentContainer() as Element).width;
 
-    const badge = el.shadowRoot?.querySelector("SIT-badge") as SitBadge;
+    const badge = el.shadowRoot?.querySelector("sit-badge") as SitBadge;
     const badgeEl = badge.shadowRoot?.querySelector(".badge") as HTMLElement;
 
     const styles = getComputedStyle(badgeEl);
@@ -405,7 +405,7 @@ describe("SIT-combo-box ", () => {
 
     await elementUpdated(el);
     const parentContainer = el.shadowRoot?.querySelector(".combobox-input-container");
-    const badge = el.shadowRoot?.querySelector("SIT-badge");
+    const badge = el.shadowRoot?.querySelector("sit-badge");
     await waitUntil(() => badge?.clientWidth === parentContainer?.clientWidth);
     // should match width parent width
     expect(badge?.clientWidth).to.equal(parentContainer?.clientWidth);
@@ -425,7 +425,7 @@ describe("SIT-combo-box ", () => {
         el.setAttribute("menuList", JSON.stringify(newMenuList));
       } else {
         const newElements = newMenuList.map(list => {
-          const newOption = document.createElement("SIT-combo-box-option");
+          const newOption = document.createElement("sit-combo-box-option");
           newOption.textContent = list.label;
           newOption.setAttribute("value", "option3");
           return newOption;
@@ -436,7 +436,7 @@ describe("SIT-combo-box ", () => {
 
       await el.updateComplete;
       // testing that menu has changed
-      const newMenu = () => el.querySelectorAll("SIT-combo-box-option")[0];
+      const newMenu = () => el.querySelectorAll("sit-combo-box-option")[0];
       await waitUntil(() => newMenu()?.textContent.trim() === "Durian");
       expect(newMenu()?.textContent.trim()).to.equal("Durian");
       await waitUntil(() => el.value === "");
@@ -455,7 +455,7 @@ describe("SIT-combo-box ", () => {
       expect(input instanceof HTMLInputElement, "Input should be HTMLInputElement").to.be.true;
 
       // Verify initial values
-      const badges = () => el.shadowRoot?.querySelectorAll("SIT-badge");
+      const badges = () => el.shadowRoot?.querySelectorAll("sit-badge");
       await waitUntil(() => badges()?.length === 2);
       expect(badges()?.length).to.equal(2);
       expect(badges()?.[0].textContent?.trim()).to.equal("Apple");
@@ -569,7 +569,7 @@ describe("single select combobox", () => {
     it(`MODE=${mode} when initial value is specified, input is populated, item is active`, async () => {
       const el = await fixture<SitComboBox>(render({ value: "option3" }));
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
-      const durianItem = () => el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
+      const durianItem = () => el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
       await waitUntil(() => input.value === "Durian");
       expect(input.value).to.equal("Durian");
       expect(el.value).to.equal("option3");
@@ -602,7 +602,7 @@ describe("single select combobox", () => {
           value="option3"
         ></sit-combo-box>`
       );
-      const durianItem = el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
+      const durianItem = el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
       expect(durianItem.active).to.be.true;
 
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
@@ -611,7 +611,7 @@ describe("single select combobox", () => {
       await sendKeys({ press: "Backspace" });
       await sendKeys({ press: "Backspace" });
       await waitUntil(() => el.value === "");
-      const updatedDurianItem = el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
+      const updatedDurianItem = el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
       expect(updatedDurianItem.active).to.be.false;
     });
 
@@ -625,7 +625,7 @@ describe("single select combobox", () => {
       input.blur();
       await waitUntil(() => input.value === "");
       expect(el.value).to.equal("");
-      const durItem = el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
+      const durItem = el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
       expect(durItem.active).to.be.false;
     });
 
@@ -661,10 +661,10 @@ describe("single select combobox", () => {
       const el = await fixture<SitComboBox>(render({}));
 
       const spySelect = sinon.spy();
-      el.addEventListener("SIT-select", spySelect);
+      el.addEventListener("sit-select", spySelect);
 
       const spyChange = sinon.spy();
-      el.addEventListener("SIT-change", spyChange);
+      el.addEventListener("sit-change", spyChange);
 
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
       await simulateUserClick(input);
@@ -683,12 +683,12 @@ describe("single select combobox", () => {
       const input = () => el.shadowRoot?.querySelector("input") as HTMLInputElement;
       input().focus();
       await sendKeys({ type: "D" });
-      await waitUntil(() => el.querySelectorAll("SIT-combo-box-option:not([hidden])").length === 1);
-      expect(el.querySelectorAll("SIT-combo-box-option:not([hidden])").length).to.equal(1);
-      expect(el.querySelectorAll("SIT-combo-box-option:not([hidden])")[0].textContent?.trim()).to.equal("Durian");
+      await waitUntil(() => el.querySelectorAll("sit-combo-box-option:not([hidden])").length === 1);
+      expect(el.querySelectorAll("sit-combo-box-option:not([hidden])").length).to.equal(1);
+      expect(el.querySelectorAll("sit-combo-box-option:not([hidden])")[0].textContent?.trim()).to.equal("Durian");
 
       const item = el
-        ?.querySelectorAll("SIT-combo-box-option:not([hidden])")[0]
+        ?.querySelectorAll("sit-combo-box-option:not([hidden])")[0]
         .shadowRoot?.querySelector(".normal-item-content") as HTMLElement;
       item.click();
 
@@ -699,8 +699,8 @@ describe("single select combobox", () => {
       input().click();
 
       await waitUntil(() => el.menuIsOpen);
-      expect(el.querySelectorAll("SIT-combo-box-option:not([hidden])").length).to.equal(3);
-      expect(el.querySelector("SIT-combo-box-option[value='option3']")).to.have.attribute("active");
+      expect(el.querySelectorAll("sit-combo-box-option:not([hidden])").length).to.equal(3);
+      expect(el.querySelector("sit-combo-box-option[value='option3']")).to.have.attribute("active");
     });
 
     it(`MODE=${mode}, when menu is close, focused is brought back to input`, async () => {
@@ -717,7 +717,7 @@ describe("single select combobox", () => {
 
       await waitUntil(
         () => {
-          const comboItem1 = el.querySelectorAll("SIT-combo-box-option")[0];
+          const comboItem1 = el.querySelectorAll("sit-combo-box-option")[0];
           return document.activeElement === comboItem1;
         },
         "focus did not move into first combo item",
@@ -750,7 +750,7 @@ describe("single select combobox", () => {
         el.setAttribute("menuList", JSON.stringify(newMenuList));
       } else {
         const newElements = newMenuList.map(list => {
-          const newOption = document.createElement("SIT-combo-box-option");
+          const newOption = document.createElement("sit-combo-box-option");
           newOption.textContent = list.label;
           newOption.setAttribute("value", "option3");
           return newOption;
@@ -830,10 +830,10 @@ describe("multi select combobox", () => {
       <sit-combo-box-option value="option2">Apricot</sit-combo-box-option>
       <sit-combo-box-option value="option3">Durian</sit-combo-box-option>
     </sit-combo-box>`);
-    const badges = () => el.shadowRoot?.querySelector("SIT-badge") as SitBadge;
+    const badges = () => el.shadowRoot?.querySelector("sit-badge") as SitBadge;
     await waitUntil(() => badges());
     expect(badges()).to.exist;
-    const closeButton = badges().shadowRoot?.querySelector<SitCloseButton>("SIT-close-button");
+    const closeButton = badges().shadowRoot?.querySelector<SitCloseButton>("sit-close-button");
     expect(closeButton).not.to.exist;
   });
   it("when combobox is readonly with a value, badges cannot be removed", async () => {
@@ -842,16 +842,16 @@ describe("multi select combobox", () => {
       <sit-combo-box-option value="option2">Apricot</sit-combo-box-option>
       <sit-combo-box-option value="option3">Durian</sit-combo-box-option>
     </sit-combo-box>`);
-    const badges = () => el.shadowRoot?.querySelector("SIT-badge") as SitBadge;
+    const badges = () => el.shadowRoot?.querySelector("sit-badge") as SitBadge;
     await waitUntil(() => badges());
     expect(badges()).to.exist;
-    const closeButton = badges().shadowRoot?.querySelector<SitCloseButton>("SIT-close-button");
+    const closeButton = badges().shadowRoot?.querySelector<SitCloseButton>("sit-close-button");
     expect(closeButton).not.to.exist;
   });
   ThreeOptionsComboBox.forEach(({ render, mode }) => {
     it(`MODE=${mode}, when badge dismissed by keyboard, menu is synced`, async () => {
       const el = await fixture<SitComboBox>(render({ value: "option3", multiSelect: true }));
-      const option3 = () => el.querySelector<SitComboBoxOption>("SIT-combo-box-option[value='option3']");
+      const option3 = () => el.querySelector<SitComboBoxOption>("sit-combo-box-option[value='option3']");
       await option3()?.updateComplete;
       await waitUntil(() => option3());
 
@@ -866,10 +866,10 @@ describe("multi select combobox", () => {
     it(`MODE=${mode}, when badge dismissed by mouseclick, menu and badges are sync`, async () => {
       const el = await fixture<SitComboBox>(render({ value: "option1;option2;option3", multiSelect: true }));
 
-      const badges = () => el.shadowRoot?.querySelectorAll("SIT-badge") as NodeListOf<SitBadge>;
+      const badges = () => el.shadowRoot?.querySelectorAll("sit-badge") as NodeListOf<SitBadge>;
       await waitUntil(() => badges().length === 3);
       expect(badges().length).to.equal(3);
-      const appleBadgeCloseButton = badges()[0].shadowRoot?.querySelector<SitCloseButton>("SIT-close-button");
+      const appleBadgeCloseButton = badges()[0].shadowRoot?.querySelector<SitCloseButton>("sit-close-button");
       appleBadgeCloseButton?.click();
       await waitUntil(() => el.value === "option2;option3");
       expect(badges()?.length).to.equal(2);
@@ -878,21 +878,21 @@ describe("multi select combobox", () => {
 
       await el.updateComplete;
       await waitUntil(() =>
-        expect(el.querySelector("SIT-combo-box-option[value='option1']")).not.to.have.attribute("active")
+        expect(el.querySelector("sit-combo-box-option[value='option1']")).not.to.have.attribute("active")
       );
       await waitUntil(() =>
-        expect(el.querySelector("SIT-combo-box-option[value='option2']")).to.have.attribute("active")
+        expect(el.querySelector("sit-combo-box-option[value='option2']")).to.have.attribute("active")
       );
       await waitUntil(() =>
-        expect(el.querySelector("SIT-combo-box-option[value='option3']")).to.have.attribute("active")
+        expect(el.querySelector("sit-combo-box-option[value='option3']")).to.have.attribute("active")
       );
     });
     it(`MODE=${mode}, when initial value is specified, input is populated, item is active`, async () => {
       const el = await fixture<SitComboBox>(render({ value: "option3", multiSelect: true }));
 
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
-      const badges = () => el.shadowRoot?.querySelectorAll("SIT-badge") as NodeListOf<SitBadge>;
-      const durianItem = () => el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
+      const badges = () => el.shadowRoot?.querySelectorAll("sit-badge") as NodeListOf<SitBadge>;
+      const durianItem = () => el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
 
       await durianItem().updateComplete;
       await waitUntil(() => durianItem());
@@ -910,10 +910,10 @@ describe("multi select combobox", () => {
       const el = await fixture<SitComboBox>(render({ value: "option1;option3", multiSelect: true }));
 
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
-      const badges = () => el.shadowRoot?.querySelectorAll("SIT-badge");
-      const durianItem = () => el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
-      const appleItem = () => el.querySelector("SIT-combo-box-option[value='option1']") as SitComboBoxOption;
-      const apricotItem = () => el.querySelector("SIT-combo-box-option[value='option2']") as SitComboBoxOption;
+      const badges = () => el.shadowRoot?.querySelectorAll("sit-badge");
+      const durianItem = () => el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
+      const appleItem = () => el.querySelector("sit-combo-box-option[value='option1']") as SitComboBoxOption;
+      const apricotItem = () => el.querySelector("sit-combo-box-option[value='option2']") as SitComboBoxOption;
       await waitUntil(() => durianItem());
       await waitUntil(() => appleItem());
       await waitUntil(() => apricotItem());
@@ -944,20 +944,20 @@ describe("multi select combobox", () => {
 
     it(`MODE=${mode}, When input is cleared, the active item is no longer active, badge is removed`, async () => {
       const el = await fixture<SitComboBox>(render({ multiSelect: true, value: "option3" }));
-      const durianItem = () => el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
+      const durianItem = () => el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
       await durianItem().updateComplete;
       await waitUntil(() => durianItem());
       expect(durianItem().active).to.be.true;
 
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
-      const badge = () => el.shadowRoot?.querySelector("SIT-badge") as SitBadge;
+      const badge = () => el.shadowRoot?.querySelector("sit-badge") as SitBadge;
       await waitUntil(() => badge());
       expect(badge().innerText).to.equal("Durian");
       input.focus();
       await sendKeys({ press: "Backspace" });
       await waitUntil(() => el.value === "");
 
-      const updatedDurianItem = () => el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
+      const updatedDurianItem = () => el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
       await updatedDurianItem().updateComplete;
       expect(updatedDurianItem().active).to.be.false;
       await el.updateComplete;
@@ -975,7 +975,7 @@ describe("multi select combobox", () => {
       input.blur();
       await waitUntil(() => input.value === "");
       expect(el.value).to.equal("");
-      const durItem = el.querySelector("SIT-combo-box-option[value='option3']") as SitComboBoxOption;
+      const durItem = el.querySelector("sit-combo-box-option[value='option3']") as SitComboBoxOption;
       expect(durItem.active).to.be.false;
     });
     it("Keyboard arrowDown and enter populates the input with badge", async () => {
@@ -988,7 +988,7 @@ describe("multi select combobox", () => {
       await sendKeys({ press: "Enter" });
 
       expect(el.value).to.equal("option1");
-      const badge = el.shadowRoot?.querySelector("SIT-badge") as SitBadge;
+      const badge = el.shadowRoot?.querySelector("sit-badge") as SitBadge;
       expect(badge.innerText).to.equal("Apple");
     });
 
@@ -996,10 +996,10 @@ describe("multi select combobox", () => {
       const el = await fixture<SitComboBox>(render({ multiSelect: true }));
 
       const spySelect = sinon.spy();
-      el.addEventListener("SIT-select", spySelect);
+      el.addEventListener("sit-select", spySelect);
 
       const spyChange = sinon.spy();
-      el.addEventListener("SIT-change", spyChange);
+      el.addEventListener("sit-change", spyChange);
 
       const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
       await simulateUserClick(input);
@@ -1015,16 +1015,16 @@ describe("multi select combobox", () => {
       const el = await fixture<SitComboBox>(render({ multiSelect: true, value: "option1" }));
 
       const spySelect = sinon.spy();
-      el.addEventListener("SIT-select", spySelect);
+      el.addEventListener("sit-select", spySelect);
 
       const spyChange = sinon.spy();
-      el.addEventListener("SIT-change", spyChange);
+      el.addEventListener("sit-change", spyChange);
 
-      const badges = () => el.shadowRoot?.querySelectorAll("SIT-badge") as NodeListOf<SitBadge>;
+      const badges = () => el.shadowRoot?.querySelectorAll("sit-badge") as NodeListOf<SitBadge>;
       await waitUntil(() => badges().length === 1);
       expect(badges().length).to.equal(1);
 
-      const badgeCloseBtn = badges()[0].shadowRoot?.querySelector<SitCloseButton>("SIT-close-button");
+      const badgeCloseBtn = badges()[0].shadowRoot?.querySelector<SitCloseButton>("sit-close-button");
       badgeCloseBtn?.click();
 
       await waitUntil(() => spyChange.called);
@@ -1039,13 +1039,13 @@ describe("multi select combobox", () => {
       const input = () => el.shadowRoot?.querySelector("input") as HTMLInputElement;
       input().focus();
       await sendKeys({ type: "D" });
-      await waitUntil(() => el.querySelectorAll("SIT-combo-box-option:not([hidden])").length === 1);
-      expect(el.querySelectorAll("SIT-combo-box-option:not([hidden])")[0].textContent?.trim()).to.equal("Durian");
+      await waitUntil(() => el.querySelectorAll("sit-combo-box-option:not([hidden])").length === 1);
+      expect(el.querySelectorAll("sit-combo-box-option:not([hidden])")[0].textContent?.trim()).to.equal("Durian");
 
-      el.querySelectorAll("SIT-combo-box-option:not([hidden])")[0].shadowRoot?.querySelector("SIT-checkbox")?.click();
+      el.querySelectorAll("sit-combo-box-option:not([hidden])")[0].shadowRoot?.querySelector("sit-checkbox")?.click();
 
       await el.updateComplete;
-      expect(el.shadowRoot?.querySelector("SIT-badge")?.textContent?.trim()).to.equal("Durian");
+      expect(el.shadowRoot?.querySelector("sit-badge")?.textContent?.trim()).to.equal("Durian");
 
       // to trigger closing of menu
       input().click();
@@ -1055,8 +1055,8 @@ describe("multi select combobox", () => {
       input().click();
       await waitUntil(() => el.menuIsOpen);
 
-      expect(el.querySelectorAll("SIT-combo-box-option:not([hidden])").length).to.equal(3);
-      expect(el.querySelector("SIT-combo-box-option[value='option3']")).to.have.attribute("active");
+      expect(el.querySelectorAll("sit-combo-box-option:not([hidden])").length).to.equal(3);
+      expect(el.querySelector("sit-combo-box-option[value='option3']")).to.have.attribute("active");
     });
     it("when menu is close, focused is brought back to input", async () => {
       const el = await fixture<SitComboBox>(render({ multiSelect: true }));
@@ -1073,7 +1073,7 @@ describe("multi select combobox", () => {
       await sendKeys({ press: "ArrowDown" });
       await waitUntil(
         () => {
-          const comboItem1 = el.querySelectorAll("SIT-combo-box-option")[0];
+          const comboItem1 = el.querySelectorAll("sit-combo-box-option")[0];
           return document.activeElement === comboItem1;
         },
         "focus did not move into first combo item",
@@ -1088,7 +1088,7 @@ describe("multi select combobox", () => {
     });
   });
   it("when there is value, and on focus, it should show clearable button when enabled and can clear value", async () => {
-    const closeButtonClass = "SIT-icon[name='xcircle-fill']";
+    const closeButtonClass = "sit-icon[name='xcircle-fill']";
     const el = await fixture<SitComboBox>(html` <sit-combo-box value="1;2" clearable multiSelect>
       <sit-combo-box-option value="1">Afghanistan</sit-combo-box-option>
       <sit-combo-box-option value="2">Zimbabwe</sit-combo-box-option>
@@ -1115,7 +1115,7 @@ describe("multi select combobox", () => {
     expect(el.value).to.equal("");
   });
   it("when there is value, and on focus, it should not show clearable button when disabled", async () => {
-    const closeButtonClass = "SIT-icon[name='xcircle-fill']";
+    const closeButtonClass = "sit-icon[name='xcircle-fill']";
     const el = await fixture<SitComboBox>(html` <sit-combo-box value="1;2" multiSelect>
       <sit-combo-box-option value="1">Afghanistan</sit-combo-box-option>
       <sit-combo-box-option value="2">Zimbabwe</sit-combo-box-option>
@@ -1149,7 +1149,7 @@ describe("single select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(false);
     form.addEventListener("submit", submitHandler);
@@ -1172,7 +1172,7 @@ describe("single select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     await waitUntil(() => form.reportValidity());
     expect(form.reportValidity()).to.equal(true);
@@ -1197,7 +1197,7 @@ describe("single select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -1222,8 +1222,8 @@ describe("single select >> when submitting a form", () => {
         <sit-button type="reset"></sit-button>
       </form>`
     );
-    const input = () => form.querySelector("SIT-combo-box")?.shadowRoot?.querySelector("input");
-    const comboBox = () => form.querySelector("SIT-combo-box");
+    const input = () => form.querySelector("sit-combo-box")?.shadowRoot?.querySelector("input");
+    const comboBox = () => form.querySelector("sit-combo-box");
     expect(input()?.value).to.equal("Dur");
     // Clear input
     input()?.focus();
@@ -1232,13 +1232,13 @@ describe("single select >> when submitting a form", () => {
     await sendKeys({ press: "Backspace" });
     await waitUntil(() => input()?.value === "");
 
-    const submitButton = form.querySelector<SitButton>("SIT-button[type='submit']");
+    const submitButton = form.querySelector<SitButton>("sit-button[type='submit']");
     submitButton?.click();
     //submitting empty combobox value triggers invalid
     await waitUntil(() => comboBox()?.invalid);
     expect(comboBox()?.invalid).to.be.true;
 
-    const resetButton = form.querySelector<SitButton>("SIT-button[type='reset']");
+    const resetButton = form.querySelector<SitButton>("sit-button[type='reset']");
     resetButton?.click();
     // resets value to the defaultValue and removes the invalid state
     await waitUntil(() => !comboBox()?.invalid);
@@ -1257,8 +1257,8 @@ describe("single select >> when submitting a form", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>`
     );
-    const combobox = form.querySelector<SitComboBox>("SIT-combo-box");
-    const button = form.querySelector<SitButton>("SIT-button");
+    const combobox = form.querySelector<SitComboBox>("sit-combo-box");
+    const button = form.querySelector<SitButton>("sit-button");
     form?.addEventListener("submit", e => e.preventDefault());
     expect(combobox?.value).to.equal("option1");
     expect(combobox?.invalid).to.be.false;
@@ -1279,10 +1279,10 @@ describe("single select >> when submitting a form", () => {
       </form>`
     );
 
-    const button = form.querySelector<SitButton>("SIT-button");
-    const combobox = form.querySelector<SitComboBox>("SIT-combo-box");
+    const button = form.querySelector<SitButton>("sit-button");
+    const combobox = form.querySelector<SitComboBox>("sit-combo-box");
     const appleItem = form
-      .querySelector<SitComboBoxOption>("SIT-combo-box-option[value='option1']")
+      .querySelector<SitComboBoxOption>("sit-combo-box-option[value='option1']")
       ?.shadowRoot?.querySelector("div.normal-item-content") as HTMLElement;
     appleItem?.click();
     await combobox?.updateComplete;
@@ -1361,7 +1361,7 @@ describe("single select >> when submitting a form", () => {
     await sendKeys({ press: "ArrowDown" });
     await waitUntil(
       () => {
-        const comboItem1 = el.querySelectorAll("SIT-combo-box-option")[0];
+        const comboItem1 = el.querySelectorAll("sit-combo-box-option")[0];
         return document.activeElement === comboItem1;
       },
       "focus did not move into first combo item",
@@ -1379,12 +1379,12 @@ describe("single select >> when submitting a form", () => {
       <sit-combo-box-option value="4">Zzzbabwe</sit-combo-box-option>
     </sit-combo-box>`);
 
-    const comboBoxOptionOne = el.querySelector<SitComboBoxOption>("SIT-combo-box-option[value='1']");
+    const comboBoxOptionOne = el.querySelector<SitComboBoxOption>("sit-combo-box-option[value='1']");
     const clickDiv1 = comboBoxOptionOne?.shadowRoot?.querySelector("div.normal-item-content") as HTMLDivElement;
     clickDiv1?.click();
     await waitUntil(() => comboBoxOptionOne?.active);
 
-    const comboBoxOptionTwo = el.querySelector<SitComboBoxOption>("SIT-combo-box-option[value='2']");
+    const comboBoxOptionTwo = el.querySelector<SitComboBoxOption>("sit-combo-box-option[value='2']");
     const clickDiv2 = comboBoxOptionTwo?.shadowRoot?.querySelector("div.normal-item-content") as HTMLDivElement;
     clickDiv2?.click();
     await waitUntil(() => comboBoxOptionTwo?.active);
@@ -1392,7 +1392,7 @@ describe("single select >> when submitting a form", () => {
   });
 
   it("when there is value, and on focus, it should show clearable button when enabled and can clear value", async () => {
-    const closeButtonClass = "SIT-icon[name='xcircle-fill']";
+    const closeButtonClass = "sit-icon[name='xcircle-fill']";
     const el = await fixture<SitComboBox>(html` <sit-combo-box value="1" clearable>
       <sit-combo-box-option value="1">Afghanistan</sit-combo-box-option>
       <sit-combo-box-option value="2">Zimbabwe</sit-combo-box-option>
@@ -1420,7 +1420,7 @@ describe("single select >> when submitting a form", () => {
   });
 
   it("when there is value, and on focus, it should not show clearable button when disabled", async () => {
-    const closeButtonClass = "SIT-icon[name='xcircle-fill']";
+    const closeButtonClass = "sit-icon[name='xcircle-fill']";
     const el = await fixture<SitComboBox>(html` <sit-combo-box value="1">
       <sit-combo-box-option value="1">Afghanistan</sit-combo-box-option>
       <sit-combo-box-option value="2">Zimbabwe</sit-combo-box-option>
@@ -1455,7 +1455,7 @@ describe("multi select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(false);
     form.addEventListener("submit", submitHandler);
@@ -1479,7 +1479,7 @@ describe("multi select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -1504,7 +1504,7 @@ describe("multi select >> when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>`
     );
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -1530,9 +1530,9 @@ describe("multi select >> when submitting a form", () => {
         <sit-button type="reset"></sit-button>
       </form>`
     );
-    const input = () => form.querySelector("SIT-combo-box")?.shadowRoot?.querySelector("input");
-    const comboBox = () => form.querySelector("SIT-combo-box");
-    const badge = () => comboBox()?.shadowRoot?.querySelector("SIT-badge");
+    const input = () => form.querySelector("sit-combo-box")?.shadowRoot?.querySelector("input");
+    const comboBox = () => form.querySelector("sit-combo-box");
+    const badge = () => comboBox()?.shadowRoot?.querySelector("sit-badge");
 
     expect(badge()?.textContent).to.equal("Dur");
     // Clear input
@@ -1540,13 +1540,13 @@ describe("multi select >> when submitting a form", () => {
     await sendKeys({ press: "Backspace" });
     await waitUntil(() => !badge());
 
-    const submitButton = form.querySelector<SitButton>("SIT-button[type='submit']");
+    const submitButton = form.querySelector<SitButton>("sit-button[type='submit']");
     submitButton?.click();
     //submitting empty combobox value triggers invalid
     await waitUntil(() => comboBox()?.invalid);
     expect(comboBox()?.invalid).to.be.true;
 
-    const resetButton = form.querySelector<SitButton>("SIT-button[type='reset']");
+    const resetButton = form.querySelector<SitButton>("sit-button[type='reset']");
     resetButton?.click();
     // resets value to the defaultValue and removes the invalid state
     await waitUntil(() => !comboBox()?.invalid);
@@ -1624,7 +1624,7 @@ describe("multi select >> when submitting a form", () => {
     await sendKeys({ press: "ArrowDown" });
     await waitUntil(
       () => {
-        const comboItem1 = el.querySelectorAll("SIT-combo-box-option")[0];
+        const comboItem1 = el.querySelectorAll("sit-combo-box-option")[0];
         return document.activeElement === comboItem1;
       },
       "focus did not move into first combo item",
@@ -1634,7 +1634,7 @@ describe("multi select >> when submitting a form", () => {
     expect(el.invalid).to.be.false;
   });
   it("for clearable combobox, when there is value, and on form reset, it should not restore values of combobox with no error", async () => {
-    const closeButtonClass = "SIT-icon[name='xcircle-fill']";
+    const closeButtonClass = "sit-icon[name='xcircle-fill']";
     const el = await fixture<HTMLFormElement>(html`
       <form>
         <sit-combo-box value="1;2" multiSelect clearable required hasFeedback>
@@ -1646,7 +1646,7 @@ describe("multi select >> when submitting a form", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const combobox = el.querySelector<SitComboBox>("SIT-combo-box");
+    const combobox = el.querySelector<SitComboBox>("sit-combo-box");
     const comboboxInput = combobox?.shadowRoot?.querySelector<HTMLInputElement>("input.form-control");
     comboboxInput?.focus();
 
@@ -1659,7 +1659,7 @@ describe("multi select >> when submitting a form", () => {
     await combobox?.updateComplete;
     expect(combobox?.value).to.equal("");
 
-    const resetButton = el.querySelector<SitButton>("SIT-button[type='reset']");
+    const resetButton = el.querySelector<SitButton>("sit-button[type='reset']");
     resetButton?.click();
 
     await combobox?.updateComplete;
@@ -1698,7 +1698,7 @@ describe("multi select >> when submitting a form", () => {
 // 6. Keyboard arrowdown and enter populates the input with badge (DONE)
 // 8. Menu filters while typing, but when reopen should show the full menu again
 
-describe("SIT-combo-box-option (default)", () => {
+describe("sit-combo-box-option (default)", () => {
   it("matches shadowDom semantically", async () => {
     const el = await fixture<SitComboBoxOption>(html`<sit-combo-box-option></sit-combo-box-option>`);
     assert.shadowDom.equal(
@@ -1741,7 +1741,7 @@ describe("SIT-combo-box-option (default)", () => {
   });
 });
 
-describe("SIT-combo-box-option (checkbox)", () => {
+describe("sit-combo-box-option (checkbox)", () => {
   it("matches shadowDom semantically ", async () => {
     const el = await fixture<SitComboBoxOption>(html`<sit-combo-box-option checkbox></sit-combo-box-option>`);
     assert.shadowDom.equal(
@@ -1758,7 +1758,7 @@ describe("SIT-combo-box-option (checkbox)", () => {
   });
   it("when checkbox and active is true, checkbox is checked", async () => {
     const el = await fixture<SitComboBoxOption>(html`<sit-combo-box-option checkbox active></sit-combo-box-option>`);
-    const checkbox = el.shadowRoot?.querySelector<SitCheckbox>("SIT-checkbox");
+    const checkbox = el.shadowRoot?.querySelector<SitCheckbox>("sit-checkbox");
     expect(checkbox?.checked).to.be.true;
   });
 });
@@ -1771,7 +1771,7 @@ describe("async combobox", () => {
     const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
     await simulateUserClick(input);
     await waitUntil(() => el.menuIsOpen);
-    expect(el.querySelectorAll("SIT-combo-box-option").length).to.equal(1);
+    expect(el.querySelectorAll("sit-combo-box-option").length).to.equal(1);
     expect(el.shadowRoot?.querySelector("div.empty-menu")?.textContent?.trim()).to.equal("No options");
   });
   it("when options are empty, returns empty menu", async () => {
@@ -1779,7 +1779,7 @@ describe("async combobox", () => {
     const input = el.shadowRoot?.querySelector("input") as HTMLInputElement;
     await simulateUserClick(input);
     await waitUntil(() => el.menuIsOpen);
-    expect(el.querySelectorAll("SIT-combo-box-option").length).to.equal(0);
+    expect(el.querySelectorAll("sit-combo-box-option").length).to.equal(0);
     expect(el.shadowRoot?.querySelector("div.empty-menu")?.textContent?.trim()).to.equal("No options");
   });
   it("filterFunction returns true", async () => {
@@ -1803,7 +1803,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
@@ -1866,7 +1866,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -1890,12 +1890,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const comboBox = form.querySelector<SitComboBox>("SIT-combo-box");
+    const comboBox = form.querySelector<SitComboBox>("sit-combo-box");
     comboBox?.setInvalid(true);
     await comboBox?.updateComplete;
     expect(comboBox?.invalid).to.be.true;
 
-    form.querySelector<SitButton>("SIT-button")?.click();
+    form.querySelector<SitButton>("sit-button")?.click();
     await waitUntil(() => comboBox?.invalid === false);
     expect(comboBox?.invalid).to.be.false;
   });
@@ -1909,12 +1909,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const comboBox = form.querySelector<SitComboBox>("SIT-combo-box");
+    const comboBox = form.querySelector<SitComboBox>("sit-combo-box");
     comboBox?.setInvalid(true);
     await comboBox?.updateComplete;
     expect(comboBox?.invalid).to.be.true;
 
-    form.querySelector<SitButton>("SIT-button")?.click();
+    form.querySelector<SitButton>("sit-button")?.click();
     await waitUntil(() => comboBox?.invalid === false);
     expect(comboBox?.invalid).to.be.false;
   });
@@ -1931,7 +1931,7 @@ describe("form novalidate for combo-box", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -1950,7 +1950,7 @@ describe("form novalidate for combo-box", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const comboBox = form.querySelector<SitComboBox>("SIT-combo-box");
+    const comboBox = form.querySelector<SitComboBox>("sit-combo-box");
     const input = comboBox?.shadowRoot?.querySelector("input");
     input?.focus();
     comboBox?.blur();
@@ -1968,7 +1968,7 @@ describe("setInvalid emits sit-invalid and sit-valid events", () => {
       </sit-combo-box>
     `);
     const handler = sinon.spy();
-    el.addEventListener("SIT-invalid", handler);
+    el.addEventListener("sit-invalid", handler);
 
     el.setInvalid(true);
     await el.updateComplete;
@@ -1983,7 +1983,7 @@ describe("setInvalid emits sit-invalid and sit-valid events", () => {
       </sit-combo-box>
     `);
     const handler = sinon.spy();
-    el.addEventListener("SIT-valid", handler);
+    el.addEventListener("sit-valid", handler);
 
     el.setInvalid(false);
     await el.updateComplete;
@@ -1999,8 +1999,8 @@ describe("setInvalid emits sit-invalid and sit-valid events", () => {
     `);
     const invalidHandler = sinon.spy();
     const validHandler = sinon.spy();
-    el.addEventListener("SIT-invalid", invalidHandler);
-    el.addEventListener("SIT-valid", validHandler);
+    el.addEventListener("sit-invalid", invalidHandler);
+    el.addEventListener("sit-valid", validHandler);
 
     el.setInvalid(true);
     await el.updateComplete;
@@ -2013,7 +2013,7 @@ describe("setInvalid emits sit-invalid and sit-valid events", () => {
   });
 });
 
-describe("SIT-scroll-end event", () => {
+describe("sit-scroll-end event", () => {
   const manyOptionsFixture = () => html`
     <sit-combo-box menuIsOpen style="--sit-combo-box-menu-max-height:100px">
       <sit-combo-box-option value="a">Afghanistan</sit-combo-box-option>
@@ -2035,7 +2035,7 @@ describe("SIT-scroll-end event", () => {
 
     const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
     const handler = sinon.spy();
-    el.addEventListener("SIT-scroll-end", handler);
+    el.addEventListener("sit-scroll-end", handler);
 
     menu.scrollTop = menu.scrollHeight - menu.clientHeight;
     menu.dispatchEvent(new Event("scroll"));
@@ -2050,7 +2050,7 @@ describe("SIT-scroll-end event", () => {
 
     const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
     const handler = sinon.spy();
-    el.addEventListener("SIT-scroll-end", handler);
+    el.addEventListener("sit-scroll-end", handler);
 
     menu.scrollTop = menu.scrollHeight - menu.clientHeight;
     menu.dispatchEvent(new Event("scroll"));
@@ -2067,7 +2067,7 @@ describe("SIT-scroll-end event", () => {
 
     const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
     const handler = sinon.spy();
-    el.addEventListener("SIT-scroll-end", handler);
+    el.addEventListener("sit-scroll-end", handler);
 
     menu.scrollTop = menu.scrollHeight - menu.clientHeight;
     menu.dispatchEvent(new Event("scroll"));
@@ -2103,7 +2103,7 @@ describe("SIT-scroll-end event", () => {
 
     const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
     const handler = sinon.spy();
-    el.addEventListener("SIT-scroll-end", handler);
+    el.addEventListener("sit-scroll-end", handler);
 
     const endOfScroll = menu.scrollHeight - menu.clientHeight;
     menu.scrollTop = endOfScroll - 50;
@@ -2132,7 +2132,7 @@ describe("SIT-scroll-end event", () => {
 
     const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
     const handler = sinon.spy();
-    el.addEventListener("SIT-scroll-end", handler);
+    el.addEventListener("sit-scroll-end", handler);
 
     // Scroll to the exact bottom — should fire because offset is clamped to 0
     const endOfScroll = menu.scrollHeight - menu.clientHeight;
@@ -2155,20 +2155,20 @@ describe("reset does not emit sit-change for combo-box", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const combobox = form.querySelector<SitComboBox>("SIT-combo-box")!;
+    const combobox = form.querySelector<SitComboBox>("sit-combo-box")!;
     await combobox.updateComplete;
 
     // Select a different option to change value
-    const option2 = combobox.querySelector<SitComboBoxOption>('SIT-combo-box-option[value="2"]')!;
+    const option2 = combobox.querySelector<SitComboBoxOption>('sit-combo-box-option[value="2"]')!;
     option2.click();
     await combobox.updateComplete;
     expect(combobox.value).to.equal("2");
 
     const changeHandler = sinon.spy();
-    combobox.addEventListener("SIT-change", changeHandler);
+    combobox.addEventListener("sit-change", changeHandler);
 
     // Reset the form
-    const resetButton = form.querySelector<SitButton>("SIT-button[type='reset']")!;
+    const resetButton = form.querySelector<SitButton>("sit-button[type='reset']")!;
     resetButton.click();
     await combobox.updateComplete;
     await waitUntil(() => combobox.value === "1");
@@ -2187,20 +2187,20 @@ describe("reset does not emit sit-change for combo-box", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const combobox = form.querySelector<SitComboBox>("SIT-combo-box")!;
+    const combobox = form.querySelector<SitComboBox>("sit-combo-box")!;
     await combobox.updateComplete;
 
     // Select an additional option to change value
-    const option2 = combobox.querySelector<SitComboBoxOption>('SIT-combo-box-option[value="2"]')!;
+    const option2 = combobox.querySelector<SitComboBoxOption>('sit-combo-box-option[value="2"]')!;
     option2.click();
     await combobox.updateComplete;
     expect(combobox.value).to.equal("1;2");
 
     const changeHandler = sinon.spy();
-    combobox.addEventListener("SIT-change", changeHandler);
+    combobox.addEventListener("sit-change", changeHandler);
 
     // Reset the form
-    const resetButton = form.querySelector<SitButton>("SIT-button[type='reset']")!;
+    const resetButton = form.querySelector<SitButton>("sit-button[type='reset']")!;
     resetButton.click();
     await combobox.updateComplete;
     await waitUntil(() => combobox.value === "1");
@@ -2218,9 +2218,9 @@ describe("reset does not emit sit-change for combo-box", () => {
     await el.updateComplete;
 
     const changeHandler = sinon.spy();
-    el.addEventListener("SIT-change", changeHandler);
+    el.addEventListener("sit-change", changeHandler);
 
-    const option1 = el.querySelector<SitComboBoxOption>('SIT-combo-box-option[value="1"]')!;
+    const option1 = el.querySelector<SitComboBoxOption>('sit-combo-box-option[value="1"]')!;
     option1.click();
     await el.updateComplete;
 
@@ -2238,11 +2238,11 @@ describe("reset does not emit sit-change for combo-box", () => {
     await el.updateComplete;
 
     // Wait for async initialization to set active on options
-    const option1 = el.querySelector<SitComboBoxOption>('SIT-combo-box-option[value="1"]')!;
+    const option1 = el.querySelector<SitComboBoxOption>('sit-combo-box-option[value="1"]')!;
     await waitUntil(() => option1.active, "option1 should be active after initialization");
 
     const changeHandler = sinon.spy();
-    el.addEventListener("SIT-change", changeHandler);
+    el.addEventListener("sit-change", changeHandler);
 
     // Unselect option 1
     option1.click();
@@ -2252,7 +2252,3 @@ describe("reset does not emit sit-change for combo-box", () => {
     expect(el.value).to.equal("2");
   });
 });
-
-
-
-

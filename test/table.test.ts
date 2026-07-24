@@ -191,7 +191,7 @@ describe("Table", () => {
     // const slotContent = slot?.assignedElements() as HTMLSlotElement[];
     // expect(slotContent?.length).to.equal(4);
 
-    // const headerCells = slotContent?.[0].querySelectorAll("SIT-table-head");
+    // const headerCells = slotContent?.[0].querySelectorAll("sit-table-head");
     // expect(headerCells.length).to.equal(5);
     // expect(headerCells?.[0].innerHTML).to.include("#");
     // expect(headerCells?.[1].innerHTML).to.include("First name");
@@ -199,13 +199,13 @@ describe("Table", () => {
     // expect(headerCells?.[3].innerHTML).to.include("Username");
     // expect(headerCells?.[4].innerHTML).to.include("Action");
 
-    // const secondRowCells = slotContent?.[2].querySelectorAll("SIT-table-cell");
+    // const secondRowCells = slotContent?.[2].querySelectorAll("sit-table-cell");
     // expect(secondRowCells.length).to.equal(5);
     // expect(secondRowCells?.[0].innerHTML).to.include("2");
     // expect(secondRowCells?.[1].innerHTML).to.include("Jane");
     // expect(secondRowCells?.[2].innerHTML).to.include("Doe");
     // expect(secondRowCells?.[3].innerHTML).to.include("janedoe");
-    // expect(secondRowCells?.[4].innerHTML).to.include("SIT-icon-button");
+    // expect(secondRowCells?.[4].innerHTML).to.include("sit-icon-button");
   });
 
   it("Should render all content when passed into a sit-table-row", async () => {
@@ -230,6 +230,3 @@ describe("Table", () => {
 });
 
 //TODO: Test cases needs to be revised :3
-
-
-

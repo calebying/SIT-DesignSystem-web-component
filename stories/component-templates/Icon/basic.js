@@ -8,7 +8,7 @@ const toReadableLabel = iconName =>
     .join(" ");
 
 const iconDocsSource = Object.keys(iconRegistry)
-  .map(iconName => `          <sgds-icon name="${iconName}" ariaLabel="${toReadableLabel(iconName)}"></sgds-icon>`)
+  .map(iconName => `          <sit-icon name="${iconName}" ariaLabel="${toReadableLabel(iconName)}"></sit-icon>`)
   .join("\n\n");
 
 const filterIcons = event => {
@@ -49,25 +49,25 @@ export const Template = () => {
       .icon-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
-        gap: var(--sgds-gap-sm);
-        margin-top: var(--sgds-margin-lg);
+        gap: var(--sit-gap-sm);
+        margin-top: var(--sit-margin-lg);
       }
     </style>
 
     <div data-icon-explorer>
-      <sgds-input
+      <sit-input
         type="search"
         hintText="Search for an icon name, then click an icon to copy its name to your clipboard."
         placeholder="Search icon name"
-        @sgds-input=${filterIcons}
-      ></sgds-input>
+        @sit-input=${filterIcons}
+      ></sit-input>
 
       <div class="icon-grid">
         ${Object.keys(iconRegistry).map(
           iconName => html`
             <div data-icon-name=${iconName}>
-              <sgds-tooltip content=${iconName}>
-                <sgds-icon-button
+              <sit-tooltip content=${iconName}>
+                <sit-icon-button
                   name=${iconName}
                   size="md"
                   variant="ghost"
@@ -75,8 +75,8 @@ export const Template = () => {
                   title="Click to copy"
                   ariaLabel=${iconName}
                   @click=${e => copyIconName(iconName, e)}
-                ></sgds-icon-button>
-              </sgds-tooltip>
+                ></sit-icon-button>
+              </sit-tooltip>
             </div>
           `
         )}

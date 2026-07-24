@@ -60,11 +60,11 @@ describe("dropdown-element generic keyboard interactions", () => {
     await el.updateComplete;
     expect(el.nextDropdownItemNo).to.equal(1);
     expect(el.prevDropdownItemNo).to.equal(1);
-    expect(el.querySelectorAll("SIT-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
-    expect(el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "-1"
     );
@@ -73,11 +73,11 @@ describe("dropdown-element generic keyboard interactions", () => {
     await el.updateComplete;
     expect(el.nextDropdownItemNo).to.equal(0);
     expect(el.prevDropdownItemNo).to.equal(0);
-    expect(el.querySelectorAll("SIT-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "-1"
     );
-    expect(el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
@@ -86,11 +86,11 @@ describe("dropdown-element generic keyboard interactions", () => {
     await el.updateComplete;
     expect(el.nextDropdownItemNo).to.equal(1);
     expect(el.prevDropdownItemNo).to.equal(1);
-    expect(el.querySelectorAll("SIT-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
-    expect(el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "-1"
     );
@@ -110,11 +110,11 @@ describe("dropdown-element generic keyboard interactions", () => {
     await el.updateComplete;
     expect(el.nextDropdownItemNo).to.equal(0);
     expect(el.prevDropdownItemNo).to.equal(0);
-    expect(el.querySelectorAll("SIT-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "-1"
     );
-    expect(el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
@@ -123,11 +123,11 @@ describe("dropdown-element generic keyboard interactions", () => {
     await el.updateComplete;
     expect(el.nextDropdownItemNo).to.equal(1);
     expect(el.prevDropdownItemNo).to.equal(1);
-    expect(el.querySelectorAll("SIT-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
-    expect(el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "-1"
     );
@@ -136,11 +136,11 @@ describe("dropdown-element generic keyboard interactions", () => {
     await el.updateComplete;
     expect(el.nextDropdownItemNo).to.equal(0);
     expect(el.prevDropdownItemNo).to.equal(0);
-    expect(el.querySelectorAll("SIT-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "-1"
     );
-    expect(el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
@@ -152,10 +152,10 @@ describe("dropdown-element generic keyboard interactions", () => {
     expect(el.nextDropdownItemNo).to.equal(0);
     expect(el.prevDropdownItemNo).to.equal(-1);
     expect(
-      el.querySelectorAll("SIT-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")
+      el.querySelectorAll("sit-dropdown-item")[0].shadowRoot?.querySelector(".dropdown-item")
     ).not.to.have.attribute("tabindex");
     expect(
-      el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")
+      el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")
     ).not.to.have.attribute("tabindex");
   }).retries(1);
   it("keyboard navigation skips disabled items", async () => {
@@ -169,21 +169,21 @@ describe("dropdown-element generic keyboard interactions", () => {
     );
     el.shadowRoot?.querySelector("button")?.focus();
     await sendKeys({ press: "ArrowDown" });
-    expect(el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
     await sendKeys({ press: "ArrowDown" });
-    expect(el.querySelectorAll("SIT-dropdown-item")[2].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[2].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
     await sendKeys({ press: "ArrowDown" });
-    expect(el.querySelectorAll("SIT-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[1].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "0"
     );
-    expect(el.querySelectorAll("SIT-dropdown-item")[3].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+    expect(el.querySelectorAll("sit-dropdown-item")[3].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
       "tabindex",
       "-1"
     );
@@ -198,35 +198,35 @@ describe("dropdown-element generic keyboard interactions", () => {
   //       <sit-dropdown-item>slot 4</sit-dropdown-item>
   //     </mock-dropdown> `
   //   );
-  //   const itemOne = el.querySelectorAll("SIT-dropdown-item")[0] as SitDropdownItem;
+  //   const itemOne = el.querySelectorAll("sit-dropdown-item")[0] as SitDropdownItem;
   //   itemOne.click();
   //   await sendKeys({ press: "ArrowDown" });
-  //   expect(el.querySelectorAll("SIT-dropdown-item")[2].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+  //   expect(el.querySelectorAll("sit-dropdown-item")[2].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
   //     "tabindex",
   //     "0"
   //   );
   //   await sendKeys({ press: "ArrowDown" });
-  //   expect(el.querySelectorAll("SIT-dropdown-item")[2].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+  //   expect(el.querySelectorAll("sit-dropdown-item")[2].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
   //     "tabindex",
   //     "-1"
   //   );
-  //   expect(el.querySelectorAll("SIT-dropdown-item")[3].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+  //   expect(el.querySelectorAll("sit-dropdown-item")[3].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
   //     "tabindex",
   //     "0"
   //   );
 
   //   itemOne.click();
   //   await sendKeys({ press: "ArrowUp" });
-  //   expect(el.querySelectorAll("SIT-dropdown-item")[3].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
+  //   expect(el.querySelectorAll("sit-dropdown-item")[3].shadowRoot?.querySelector(".dropdown-item")).to.have.attribute(
   //     "tabindex",
   //     "0"
   //   );
   // }).retries(1);
 });
 
-describe("SIT-dropdown", () => {
+describe("sit-dropdown", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-dropdown");
+    const el = document.createElement("sit-dropdown");
     assert.instanceOf(el, SitDropdown);
   });
 
@@ -251,10 +251,10 @@ describe("SIT-dropdown", () => {
     const el = await fixture<SitDropdown>(html` <sit-dropdown disabled>
       <sit-button slot="toggler">Dropdown</sit-button>
     </sit-dropdown>`);
-    expect(el.querySelector("SIT-button")).to.have.attribute("disabled");
+    expect(el.querySelector("sit-button")).to.have.attribute("disabled");
     el.disabled = false;
     await el.updateComplete;
-    expect(el.querySelector("SIT-button")).not.to.have.attribute("disabled");
+    expect(el.querySelector("sit-button")).not.to.have.attribute("disabled");
   });
   it("when menuAlignRight is false (default) on default dropdown, floatingOpts.placement is bottom-start", async () => {
     const el = await fixture<SitDropdown>(
@@ -382,10 +382,10 @@ describe("SIT-dropdown", () => {
     );
 
     setTimeout(() => el.showMenu());
-    const showEvent = await oneEvent(el, "SIT-show");
+    const showEvent = await oneEvent(el, "sit-show");
     expect(showEvent).to.exist;
 
-    const afterShowEvent = await oneEvent(el, "SIT-after-show");
+    const afterShowEvent = await oneEvent(el, "sit-after-show");
     expect(afterShowEvent).to.exist;
 
     expect(el.menuIsOpen).to.be.true;
@@ -397,15 +397,15 @@ describe("SIT-dropdown", () => {
 
     const firedEvents: string[] = [];
 
-    el.addEventListener("SIT-show", () => firedEvents.push("SIT-show"));
-    el.addEventListener("SIT-after-show", () => firedEvents.push("SIT-after-show"));
+    el.addEventListener("sit-show", () => firedEvents.push("sit-show"));
+    el.addEventListener("sit-after-show", () => firedEvents.push("sit-after-show"));
 
     await el.showMenu();
 
     // Wait a frame for events to flush
     await nextFrame();
 
-    expect(firedEvents).to.deep.equal(["SIT-show", "SIT-after-show"]);
+    expect(firedEvents).to.deep.equal(["sit-show", "sit-after-show"]);
   });
   it("fires sit-hide and sit-after-hide when menu closes", async () => {
     const el = await fixture<SitDropdown>(
@@ -416,10 +416,10 @@ describe("SIT-dropdown", () => {
     expect(el.menuIsOpen).to.be.true;
 
     setTimeout(() => el.hideMenu());
-    const hideEvent = await oneEvent(el, "SIT-hide");
+    const hideEvent = await oneEvent(el, "sit-hide");
     expect(hideEvent).to.exist;
 
-    const afterHideEvent = await oneEvent(el, "SIT-after-hide");
+    const afterHideEvent = await oneEvent(el, "sit-after-hide");
     expect(afterHideEvent).to.exist;
 
     expect(el.menuIsOpen).to.be.false;
@@ -432,15 +432,15 @@ describe("SIT-dropdown", () => {
     await el.showMenu();
 
     const firedEvents: string[] = [];
-    el.addEventListener("SIT-hide", () => firedEvents.push("SIT-hide"));
-    el.addEventListener("SIT-after-hide", () => firedEvents.push("SIT-after-hide"));
+    el.addEventListener("sit-hide", () => firedEvents.push("sit-hide"));
+    el.addEventListener("sit-after-hide", () => firedEvents.push("sit-after-hide"));
 
     await el.hideMenu();
 
     // wait for the setTimeout in hideMenu()
     await new Promise(r => setTimeout(r, 0));
 
-    expect(firedEvents).to.deep.equal(["SIT-hide", "SIT-after-hide"]);
+    expect(firedEvents).to.deep.equal(["sit-hide", "sit-after-hide"]);
   });
   it("showMenu/hideMenu method opens/closes menu", async () => {
     const el = await fixture<SitDropdown>(html`<sit-dropdown>
@@ -468,8 +468,8 @@ describe("SIT-dropdown", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
-    const item = el.querySelector("SIT-dropdown-item");
+    el.addEventListener("sit-select", selectHandler);
+    const item = el.querySelector("sit-dropdown-item");
     item?.click();
     await el.updateComplete;
     expect(selectHandler).to.be.calledOnce;
@@ -482,9 +482,9 @@ describe("SIT-dropdown", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
+    el.addEventListener("sit-select", selectHandler);
 
-    const item = el.querySelector("SIT-dropdown-item");
+    const item = el.querySelector("sit-dropdown-item");
     item?.click();
     await el.updateComplete;
     expect(selectHandler).not.to.be.called;
@@ -497,8 +497,8 @@ describe("SIT-dropdown", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
-    const item = el.querySelector("SIT-dropdown-item");
+    el.addEventListener("sit-select", selectHandler);
+    const item = el.querySelector("sit-dropdown-item");
     item?.click();
     await el.updateComplete;
     expect(selectHandler).to.be.calledOnce;
@@ -511,13 +511,13 @@ describe("SIT-dropdown", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
-    const item = el.querySelector("SIT-dropdown-item");
+    el.addEventListener("sit-select", selectHandler);
+    const item = el.querySelector("sit-dropdown-item");
     item?.click();
     await el.updateComplete;
     expect(selectHandler).to.be.calledOnce;
   });
-  it("SIT-select event detail contains the clicked dropdown-item", async () => {
+  it("sit-select event detail contains the clicked dropdown-item", async () => {
     const el = await fixture<SitDropdown>(
       html`<sit-dropdown menuIsOpen>
         <sit-button slot="toggler">Dropdown</sit-button>
@@ -526,8 +526,8 @@ describe("SIT-dropdown", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
-    const items = el.querySelectorAll("SIT-dropdown-item");
+    el.addEventListener("sit-select", selectHandler);
+    const items = el.querySelectorAll("sit-dropdown-item");
     items[1].click();
     await el.updateComplete;
     expect(selectHandler).to.be.calledOnce;
@@ -543,7 +543,7 @@ describe("SIT-dropdown", () => {
     );
     const menuEl = el.shadowRoot?.querySelector(".dropdown-menu") as HTMLUListElement;
     expect(getComputedStyle(menuEl).display).to.equal("block");
-    const item = el.querySelector("SIT-dropdown-item");
+    const item = el.querySelector("sit-dropdown-item");
     item?.click();
     await el.updateComplete;
     expect(getComputedStyle(menuEl).display).to.equal("none");
@@ -554,7 +554,7 @@ describe("SIT-dropdown", () => {
       <sit-dropdown-item>item 1</sit-dropdown-item>
     </sit-dropdown>`);
     expect(el.menuIsOpen).to.be.false;
-    const button = el.querySelector("SIT-button") as HTMLElement;
+    const button = el.querySelector("sit-button") as HTMLElement;
     button.click();
     await el.updateComplete;
     expect(el.menuIsOpen).to.be.true;
@@ -566,7 +566,7 @@ describe("SIT-dropdown", () => {
       <sit-dropdown-item>item 1</sit-dropdown-item>
     </sit-dropdown>`);
     expect(el.menuIsOpen).to.be.true;
-    const button = el.querySelector("SIT-button") as HTMLElement;
+    const button = el.querySelector("sit-button") as HTMLElement;
     button.click();
     await el.updateComplete;
     expect(el.menuIsOpen).to.be.false;
@@ -603,7 +603,7 @@ describe("SIT-dropdown", () => {
       <sit-dropdown-item>item 1</sit-dropdown-item>
     </sit-dropdown>`);
     expect(el.menuIsOpen).to.be.true;
-    const item = el.querySelector("SIT-dropdown-item") as HTMLElement;
+    const item = el.querySelector("sit-dropdown-item") as HTMLElement;
     item.click();
     await el.updateComplete;
     expect(el.menuIsOpen).to.be.false;
@@ -642,7 +642,7 @@ describe("SIT-dropdown", () => {
   //   await el.updateComplete;
   //   expect(el.shadowRoot?.querySelector("div.dropdown-menu")).to.have.class("show");
   //   expect(el.menuIsOpen).to.be.true;
-  //   const itemOne = el.querySelectorAll("SIT-dropdown-item")[0] as SitDropdownItem;
+  //   const itemOne = el.querySelectorAll("sit-dropdown-item")[0] as SitDropdownItem;
   //   itemOne.click();
   //   await el.updateComplete;
   //   expect(el.shadowRoot?.querySelector("div.dropdown-menu")).not.to.have.class("show");
@@ -658,7 +658,7 @@ describe("SIT-dropdown", () => {
   //   expect(el.menuIsOpen).to.be.true;
   //   expect(el.shadowRoot?.querySelector("div.dropdown-menu")).to.have.class("show");
   //   // proving that clicking inside menu item will not close the menu
-  //   const itemOne = el.querySelectorAll("SIT-dropdown-item")[0] as SitDropdownItem;
+  //   const itemOne = el.querySelectorAll("sit-dropdown-item")[0] as SitDropdownItem;
   //   itemOne.click();
   //   await el.updateComplete;
   //   expect(el.shadowRoot?.querySelector("div.dropdown-menu")).to.have.class("show");
@@ -681,7 +681,7 @@ describe("SIT-dropdown", () => {
   //     );
   //     expect(el.menuIsOpen).to.be.true;
   //     expect(el.shadowRoot?.querySelector("div.dropdown-menu")).to.have.class("show");
-  //     (el.shadowRoot?.querySelector("SIT-button") as SitButton).click();
+  //     (el.shadowRoot?.querySelector("sit-button") as SitButton).click();
   //     // proving that clicking inside menu item will not close the menu
   //     await el.updateComplete;
   //     expect(el.shadowRoot?.querySelector("div.dropdown-menu")).not.to.have.class("show");
@@ -690,9 +690,9 @@ describe("SIT-dropdown", () => {
   // });
 });
 
-describe("SIT-dropdown-item", () => {
+describe("sit-dropdown-item", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-dropdown-item");
+    const el = document.createElement("sit-dropdown-item");
     assert.instanceOf(el, SitDropdownItem);
   });
   it("can be semantically compare with shadowDom trees", async () => {
@@ -732,9 +732,9 @@ describe("handleSelectSlot with nested elements", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
+    el.addEventListener("sit-select", selectHandler);
 
-    const anchor = el.querySelector("SIT-dropdown-item a") as HTMLAnchorElement;
+    const anchor = el.querySelector("sit-dropdown-item a") as HTMLAnchorElement;
     anchor.click();
     await el.updateComplete;
 
@@ -754,14 +754,14 @@ describe("handleSelectSlot with nested elements", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
+    el.addEventListener("sit-select", selectHandler);
 
-    const strong = el.querySelector("SIT-dropdown-item strong") as HTMLElement;
+    const strong = el.querySelector("sit-dropdown-item strong") as HTMLElement;
     strong.click();
     await el.updateComplete;
 
     expect(selectHandler).to.be.calledOnce;
-    expect(selectHandler.firstCall.args[0].detail.item).to.equal(el.querySelector("SIT-dropdown-item"));
+    expect(selectHandler.firstCall.args[0].detail.item).to.equal(el.querySelector("sit-dropdown-item"));
   });
 
   it("returns correct SitDropdownItem when multiple items exist and nested content is clicked", async () => {
@@ -774,14 +774,14 @@ describe("handleSelectSlot with nested elements", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
+    el.addEventListener("sit-select", selectHandler);
 
-    const secondItemAnchor = el.querySelectorAll("SIT-dropdown-item")[1].querySelector("a") as HTMLAnchorElement;
+    const secondItemAnchor = el.querySelectorAll("sit-dropdown-item")[1].querySelector("a") as HTMLAnchorElement;
     secondItemAnchor.click();
     await el.updateComplete;
 
     expect(selectHandler).to.be.calledOnce;
-    expect(selectHandler.firstCall.args[0].detail.item).to.equal(el.querySelectorAll("SIT-dropdown-item")[1]);
+    expect(selectHandler.firstCall.args[0].detail.item).to.equal(el.querySelectorAll("sit-dropdown-item")[1]);
   });
 
   it("does not emit sit-select when disabled item's nested content is clicked", async () => {
@@ -792,9 +792,9 @@ describe("handleSelectSlot with nested elements", () => {
       </sit-dropdown>`
     );
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
+    el.addEventListener("sit-select", selectHandler);
 
-    const anchor = el.querySelector("SIT-dropdown-item a") as HTMLAnchorElement;
+    const anchor = el.querySelector("sit-dropdown-item a") as HTMLAnchorElement;
     anchor.click();
     await el.updateComplete;
 
@@ -812,10 +812,10 @@ describe("handleSelectSlot with nested elements", () => {
     );
 
     const selectHandler = sinon.spy();
-    el.addEventListener("SIT-select", selectHandler);
+    el.addEventListener("sit-select", selectHandler);
 
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const SitButton = el.querySelector("SIT-button")!;
+    const SitButton = el.querySelector("sit-button")!;
     expect(SitButton).to.be.not.null;
 
     SitButton.shadowRoot?.querySelector("button")?.focus();
@@ -828,6 +828,3 @@ describe("handleSelectSlot with nested elements", () => {
     expect(selectHandler.firstCall.args[0].detail.item).to.be.instanceOf(SitDropdownItem);
   }).retries(1);
 });
-
-
-

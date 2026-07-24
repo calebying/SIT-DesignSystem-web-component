@@ -13,7 +13,7 @@ describe("<sit-subnav>", () => {
       </sit-subnav>
     `);
 
-    const item = el.querySelector("SIT-subnav-item");
+    const item = el.querySelector("sit-subnav-item");
     expect(item).to.exist;
     const anchor = item?.querySelector("a");
     expect(anchor).to.exist;
@@ -27,7 +27,7 @@ describe("<sit-subnav>", () => {
       </sit-subnav>
     `);
 
-    const item = el.querySelector("SIT-subnav-item");
+    const item = el.querySelector("sit-subnav-item");
     const anchor = item?.querySelector("a");
     expect(anchor).to.exist;
     expect(anchor?.textContent?.trim()).to.equal("Dashboard");
@@ -73,7 +73,7 @@ describe("<sit-subnav>", () => {
 
     const headerSlot = el.querySelector('[slot="header"]');
     const actionsSlot = el.querySelector('[slot="actions"]');
-    const button = actionsSlot?.querySelector("SIT-button");
+    const button = actionsSlot?.querySelector("sit-button");
 
     expect(headerSlot).to.exist;
     expect(headerSlot?.textContent?.trim()).to.equal("Subnav Header");
@@ -101,6 +101,3 @@ describe("<sit-subnav>", () => {
     expect(el.hasActionsSlot).to.be.false;
   });
 });
-
-
-

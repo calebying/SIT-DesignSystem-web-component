@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("OverflowMenu a11y", () => {
-  it("SIT-overflow-menu should be accessible", async () => {
+  it("sit-overflow-menu should be accessible", async () => {
     const el = await fixture(html`
       <sit-overflow-menu>
         <sit-dropdown-item>View</sit-dropdown-item>
@@ -14,6 +14,3 @@ describe("OverflowMenu a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

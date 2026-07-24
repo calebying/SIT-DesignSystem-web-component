@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Breadcrumb a11y", () => {
-  it("SIT-breadcrumb should be accessible", async () => {
+  it("sit-breadcrumb should be accessible", async () => {
     const el = await fixture(html`
       <sit-breadcrumb>
         <sit-breadcrumb-item><a href="#">Home</a></sit-breadcrumb-item>
@@ -14,6 +14,3 @@ describe("Breadcrumb a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

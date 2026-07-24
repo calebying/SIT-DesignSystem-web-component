@@ -8,11 +8,11 @@ import { setTimeToNoon } from "../src/utils/time";
 import { sendKeys } from "@web/test-runner-commands";
 import sinon, { type SinonFakeTimers } from "sinon";
 
-customElements.define("SIT-datepicker-header", DatepickerHeader);
-customElements.define("SIT-datepicker-calendar", DatepickerCalendar);
-customElements.define("SIT-datepicker-input", DatepickerInput);
+customElements.define("sit-datepicker-header", DatepickerHeader);
+customElements.define("sit-datepicker-calendar", DatepickerCalendar);
+customElements.define("sit-datepicker-input", DatepickerInput);
 
-describe("SIT-datepicker", () => {
+describe("sit-datepicker", () => {
   it("renders sit-datepicker component correctly", async () => {
     const el = await fixture<SitDatepicker>(html` <sit-datepicker></sit-datepicker> `);
 
@@ -23,7 +23,7 @@ describe("SIT-datepicker", () => {
   it("opens the datepicker menu when sit-icon-button is clicked", async () => {
     const el = await fixture<SitDatepicker>(html` <sit-datepicker></sit-datepicker> `);
 
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
     const menuEl = el.shadowRoot?.querySelector("div.datepicker") as HTMLElement;
 
     expect(getComputedStyle(menuEl).display).to.equal("none");
@@ -38,7 +38,7 @@ describe("SIT-datepicker", () => {
 
   it("when menu is open, closes the datepicker menu when sit-icon-button is clicked", async () => {
     const el = await fixture<SitDatepicker>(html` <sit-datepicker menuIsOpen></sit-datepicker> `);
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
     const menuEl = el.shadowRoot?.querySelector("div.datepicker") as HTMLButtonElement;
     expect(getComputedStyle(menuEl).display).to.equal("flex");
     expect(calendarBtnEl?.getAttribute("aria-expanded")).to.be.equal("true");
@@ -53,9 +53,9 @@ describe("SIT-datepicker", () => {
   // it("closes the menu when reset button is clicked", async () => {
   //   const el = await fixture(html` <sit-datepicker menuIsOpen></sit-datepicker> `);
 
-  //   const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+  //   const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
   //   const menuEl = el.shadowRoot?.querySelector("div.datepicker") as HTMLButtonElement;
-  //   const resetButton = el.shadowRoot?.querySelector("SIT-icon-button.reset-btn") as HTMLButtonElement;
+  //   const resetButton = el.shadowRoot?.querySelector("sit-icon-button.reset-btn") as HTMLButtonElement;
 
   //   expect(menuEl?.classList.contains("show")).to.be.true;
   //   expect(calendarBtnEl?.getAttribute("aria-expanded")).to.be.equal("true");
@@ -71,17 +71,15 @@ describe("SIT-datepicker", () => {
   it("should pass the initialvalue to sit-datepicker-input for single mode", async () => {
     const initialDate = '["23/11/2023"]';
     const initialValueArray = JSON.parse(initialDate) as string[];
-    const el = await fixture<SitDatepicker>(
-      html`<sit-datepicker .initialValue=${initialValueArray}></sit-datepicker>`
-    );
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const el = await fixture<SitDatepicker>(html`<sit-datepicker .initialValue=${initialValueArray}></sit-datepicker>`);
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     await el.updateComplete;
     expect(inputEl?.value).to.equal("23/11/2023");
   });
   it("should pass the default value to sit-datepicker-input for single mode", async () => {
     const value = "23/11/2023";
     const el = await fixture<SitDatepicker>(html`<sit-datepicker value=${value}></sit-datepicker>`);
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     await el.updateComplete;
     expect(inputEl?.value).to.equal("23/11/2023");
   });
@@ -92,14 +90,14 @@ describe("SIT-datepicker", () => {
     const el = await fixture<SitDatepicker>(
       html`<sit-datepicker mode="range" .initialValue=${initialValueArray}></sit-datepicker>`
     );
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     await el.updateComplete;
     expect(inputEl?.value).to.equal("23/11/2023 - 25/11/2023");
   });
   it("should pass the default value to sit-datepicker-input for range mode", async () => {
     const value = "23/11/2023 - 25/11/2023";
     const el = await fixture<SitDatepicker>(html`<sit-datepicker mode="range" value=${value}></sit-datepicker>`);
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     await el.updateComplete;
     expect(inputEl?.value).to.equal("23/11/2023 - 25/11/2023");
   });
@@ -107,7 +105,7 @@ describe("SIT-datepicker", () => {
   it("closes the menu when outside of the element sit-datepicker is clicked", async () => {
     const el = await fixture<SitDatepicker>(html` <sit-datepicker menuIsOpen></sit-datepicker> `);
 
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
     const menuEl = el.shadowRoot?.querySelector("div.datepicker") as HTMLButtonElement;
 
     expect(getComputedStyle(menuEl).display).to.be.equal("flex");
@@ -124,8 +122,8 @@ describe("SIT-datepicker", () => {
 
   it("should be able to select and display a date in single mode and close menu", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker></sit-datepicker>`);
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     const menuEl = el.shadowRoot?.querySelector("div.datepicker") as HTMLElement;
     const calendarEl = el.shadowRoot?.querySelector("div.datepicker sit-datepicker-calendar") as HTMLElement;
     const tdButtonOne = calendarEl.shadowRoot?.querySelector("tbody td[data-day='1']") as HTMLTableCellElement;
@@ -152,9 +150,9 @@ describe("SIT-datepicker", () => {
 
   it("should be able to select and display 2 dates in range mode and close menu only after 2 dates", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker mode="range"></sit-datepicker>`);
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
     calendarBtnEl?.click();
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     const menuEl = el.shadowRoot?.querySelector("div.datepicker") as HTMLElement;
     const calendarEl = el.shadowRoot?.querySelector("div.datepicker sit-datepicker-calendar") as HTMLElement;
     const tdButtonOne = calendarEl.shadowRoot?.querySelector("tbody td[data-day='1']") as HTMLTableCellElement;
@@ -190,14 +188,12 @@ describe("SIT-datepicker", () => {
 
     // 1. click the input to open, check the menu has open
 
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
     const menuElement = el.shadowRoot?.querySelector("div.datepicker") as HTMLButtonElement;
-    const datepickerHeader = el?.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const datepickerCalendar = el?.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const datepickerHeader = el?.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const datepickerCalendar = el?.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
 
-    const headerPreviousElement = datepickerHeader.shadowRoot?.querySelectorAll(
-      "SIT-icon-button"
-    )[0] as SitIconButton;
+    const headerPreviousElement = datepickerHeader.shadowRoot?.querySelectorAll("sit-icon-button")[0] as SitIconButton;
 
     const calendarTdElement = datepickerCalendar.shadowRoot?.querySelectorAll(
       "tbody td"
@@ -258,15 +254,13 @@ describe("SIT-datepicker", () => {
     );
 
     // 1. click the input to open, check the menu has open
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
     const menuElement = el.shadowRoot?.querySelector("div.datepicker") as HTMLButtonElement;
-    const datepickerHeader = el?.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const datepickerCalendar = el?.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const datepickerHeader = el?.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const datepickerCalendar = el?.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
 
-    const headerPreviousElement = datepickerHeader.shadowRoot?.querySelectorAll(
-      "SIT-icon-button"
-    )[0] as SitIconButton;
+    const headerPreviousElement = datepickerHeader.shadowRoot?.querySelectorAll("sit-icon-button")[0] as SitIconButton;
 
     const calendarTdElement = datepickerCalendar.shadowRoot?.querySelectorAll(
       "tbody td"
@@ -323,12 +317,12 @@ describe("SIT-datepicker", () => {
 
     // 1.  click the input to open menu, check menu should open
     const calendarBtnElement = el.shadowRoot?.querySelector(
-      "SIT-icon-button[aria-haspopup='dialog']"
+      "sit-icon-button[aria-haspopup='dialog']"
     ) as HTMLButtonElement;
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     const menuElement = el.shadowRoot?.querySelector("div.datepicker") as HTMLButtonElement;
-    const datepickerHeader = el?.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const datepickerCalendar = el?.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const datepickerHeader = el?.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const datepickerCalendar = el?.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
 
     const headerButtonElement = datepickerHeader.shadowRoot?.querySelector(
       "div.datepicker-header>sit-button"
@@ -387,7 +381,7 @@ describe("SIT-datepicker", () => {
   //   const dateFormat = "DD/MM/YYYY";
   //   const el = await fixture<SitDatepicker>(html`<sit-datepicker dateFormat=${dateFormat}></sit-datepicker>`);
   //   await el.updateComplete
-  //   const SitInput = el.shadowRoot?.querySelector("SIT-datepicker-input");
+  //   const SitInput = el.shadowRoot?.querySelector("sit-datepicker-input");
   //   const input = SitInput?.shadowRoot?.querySelector("input")
   //   const inputShadowDiv = input?.shadowRoot?.querySelectorAll("div")[1]
   //   expect(inputShadowDiv?.textContent).to.equal("dd/mm/yyyy");
@@ -396,7 +390,7 @@ describe("SIT-datepicker", () => {
   // it("updates the input value with the correct date format when dateFormat changes", async () => {
   //   const dateFormat = "MM/DD/YYYY";
   //   const el = await fixture<SitDatepicker>(html`<sit-datepicker dateFormat=${dateFormat}></sit-datepicker>`);
-  //   const input = el.shadowRoot?.querySelector("SIT-datepicker-input");
+  //   const input = el.shadowRoot?.querySelector("sit-datepicker-input");
   //   expect(input?.value).to.equal("mm/dd/yyyy");
   //   el.dateFormat = "YYYY/MM/DD";
   //   await el.updateComplete;
@@ -405,9 +399,9 @@ describe("SIT-datepicker", () => {
 
   it("disables the component when disabled property is true", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker disabled></sit-datepicker>`);
-    const input = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const input = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     const calendarBtnElement = el.shadowRoot?.querySelector(
-      "SIT-icon-button[aria-haspopup='dialog']"
+      "sit-icon-button[aria-haspopup='dialog']"
     ) as HTMLButtonElement;
     expect(input).to.have.attribute("disabled");
     expect(calendarBtnElement).to.have.attribute("disabled");
@@ -415,7 +409,7 @@ describe("SIT-datepicker", () => {
 
   it("should add the required attribute to sit-datepicker-input when required is true", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker required></sit-datepicker>`);
-    const input = el.shadowRoot?.querySelector("SIT-datepicker-input");
+    const input = el.shadowRoot?.querySelector("sit-datepicker-input");
 
     expect(input).to.have.attribute("required");
   });
@@ -425,7 +419,7 @@ describe("Datepicker keyboard accesibility", () => {
   it("when calendar is open, calendar's today's date is focused", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker menuIsOpen></sit-datepicker>`);
     const todayDateISO = setTimeToNoon(new Date()).toISOString();
-    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("SIT-datepicker-calendar");
+    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("sit-datepicker-calendar");
     const tdElement = calendar?.shadowRoot?.querySelector(`td[data-date="${todayDateISO}"]`);
 
     await waitUntil(() => calendar?.shadowRoot?.activeElement);
@@ -459,7 +453,7 @@ describe("Datepicker keyboard accesibility", () => {
       const todayDate = setTimeToNoon(new Date(2023, 5, 29));
       const todayDateISO = todayDate.toISOString();
 
-      const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("SIT-datepicker-calendar");
+      const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("sit-datepicker-calendar");
       const tdElement = calendar?.shadowRoot?.querySelector(`td[data-date="${todayDateISO}"]`);
 
       await waitUntil(() => calendar?.shadowRoot?.activeElement === tdElement);
@@ -482,11 +476,11 @@ describe("Datepicker keyboard accesibility", () => {
     );
     const changeDateHandler = sinon.spy();
 
-    el.addEventListener("SIT-change-date", changeDateHandler);
+    el.addEventListener("sit-change-date", changeDateHandler);
     await elementUpdated(el);
     const todayDate = setTimeToNoon(new Date(2023, 5, 29));
     const todayDateISO = todayDate.toISOString();
-    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("SIT-datepicker-calendar");
+    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("sit-datepicker-calendar");
     const tdElement = () => calendar?.shadowRoot?.querySelector(`td[data-date="${todayDateISO}"]`);
     expect(el.value).to.equal("29/06/2023");
     await elementUpdated(calendar as DatepickerCalendar);
@@ -509,7 +503,7 @@ describe("Datepicker keyboard accesibility", () => {
     await elementUpdated(el);
     const todayDate = setTimeToNoon(new Date(2023, 5, 29));
     const todayDateISO = todayDate.toISOString();
-    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("SIT-datepicker-calendar");
+    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("sit-datepicker-calendar");
     await elementUpdated(calendar as DatepickerCalendar);
     const tdElement = calendar?.shadowRoot?.querySelector(`td[data-date="${todayDateISO}"]`);
 
@@ -523,7 +517,7 @@ describe("Datepicker keyboard accesibility", () => {
     const todayDate = setTimeToNoon(new Date(2023, 5, 29));
     const todayDateISO = todayDate.toISOString();
     const prevDateISO = setTimeToNoon(new Date(2023, 5, 28)).toISOString();
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await elementUpdated(calendar);
     const tdElement = () => calendar?.shadowRoot?.querySelector(`td[data-date="${todayDateISO}"]`);
     const prevTdElement = () => calendar?.shadowRoot?.querySelector(`td[data-date="${prevDateISO}"]`);
@@ -549,10 +543,10 @@ describe("Datepicker keyboard accesibility", () => {
     await elementUpdated(el);
     const todayDate = setTimeToNoon(new Date(2023, 5, 29));
     const todayDateISO = todayDate.toISOString();
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header");
-    const nextButtonElement = () => header?.shadowRoot?.querySelectorAll("SIT-icon-button")[1] as SitIconButton;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header");
+    const nextButtonElement = () => header?.shadowRoot?.querySelectorAll("sit-icon-button")[1] as SitIconButton;
 
-    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("SIT-datepicker-calendar");
+    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("sit-datepicker-calendar");
     await elementUpdated(calendar as DatepickerCalendar);
     const tdElement = () => calendar?.shadowRoot?.querySelector(`td[data-date="${todayDateISO}"]`);
 
@@ -574,9 +568,9 @@ describe("Datepicker keyboard accesibility", () => {
     await elementUpdated(el);
     const todayDate = setTimeToNoon(new Date(2023, 5, 29));
     const todayDateISO = todayDate.toISOString();
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header");
-    const nextButtonElement = header?.shadowRoot?.querySelectorAll("SIT-icon-button")[1] as SitIconButton;
-    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("SIT-datepicker-calendar");
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header");
+    const nextButtonElement = header?.shadowRoot?.querySelectorAll("sit-icon-button")[1] as SitIconButton;
+    const calendar = el.shadowRoot?.querySelector<DatepickerCalendar>("sit-datepicker-calendar");
     await elementUpdated(calendar as DatepickerCalendar);
     const tdElement = calendar?.shadowRoot?.querySelector(`td[data-date="${todayDateISO}"]`);
 
@@ -596,14 +590,14 @@ describe("Datepicker keyboard accesibility", () => {
   });
   it("today's year will be pegged to top left most of grid", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker menuIsOpen></sit-datepicker>`);
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const headerBtn = header.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const headerBtn = header.shadowRoot?.querySelector("sit-button") as SitButton;
     // configure to year view
     headerBtn.click();
     headerBtn.click();
 
     const todayYear = new Date().getFullYear();
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await waitUntil(() => calendar.view === "years");
     const yearButtons = calendar?.shadowRoot?.querySelectorAll("button");
     expect(yearButtons?.[0].innerText).to.equal(todayYear.toString());
@@ -616,14 +610,14 @@ describe("Datepicker keyboard accesibility", () => {
 
     await elementUpdated(el);
 
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await elementUpdated(calendar);
     const thirtyFirstTd = calendar.shadowRoot?.querySelector("td[data-day='31']");
 
     await waitUntil(() => calendar?.shadowRoot?.activeElement);
     expect(calendar.shadowRoot?.activeElement === thirtyFirstTd).to.be.true;
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const prevBtn = header.shadowRoot?.querySelectorAll("SIT-icon-button")[0] as SitIconButton;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const prevBtn = header.shadowRoot?.querySelectorAll("sit-icon-button")[0] as SitIconButton;
 
     prevBtn.click();
 
@@ -640,14 +634,14 @@ describe("Datepicker keyboard accesibility", () => {
       html`<sit-datepicker menuIsOpen .initialValue=${["31/01/2024"]}></sit-datepicker>`
     );
     await elementUpdated(el);
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await elementUpdated(calendar);
     const thirtyFirstTd = calendar.shadowRoot?.querySelector("td[data-day='31']");
 
     await waitUntil(() => calendar?.shadowRoot?.activeElement);
     expect(calendar.shadowRoot?.activeElement === thirtyFirstTd).to.be.true;
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const nextBtn = header.shadowRoot?.querySelectorAll("SIT-icon-button")[1] as SitIconButton;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const nextBtn = header.shadowRoot?.querySelectorAll("sit-icon-button")[1] as SitIconButton;
 
     nextBtn.click();
 
@@ -666,14 +660,14 @@ describe("calendar month keyboard navigation", async () => {
     const el = await fixture<SitDatepicker>(
       html`<sit-datepicker .initialValue=${initialValue} menuIsOpen mode=${mode}></sit-datepicker>`
     );
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
     const [prevHeaderBtn, nextHeaderBtn] = header.shadowRoot?.querySelectorAll(
-      "SIT-icon-button"
+      "sit-icon-button"
     ) as NodeListOf<SitIconButton>;
-    const headerBtn = header.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const headerBtn = header.shadowRoot?.querySelector("sit-button") as SitButton;
     // configure to year view
     headerBtn.click();
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await waitUntil(() => calendar.view === "months");
     const months = calendar.shadowRoot?.querySelectorAll("button.month");
     return { el, header, headerBtn, prevHeaderBtn, nextHeaderBtn, calendar, months };
@@ -815,15 +809,15 @@ describe("calendar year keyboard navigation", async () => {
     const el = await fixture<SitDatepicker>(
       html`<sit-datepicker .initialValue=${initialValue} menuIsOpen mode=${mode}></sit-datepicker>`
     );
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
     const [prevHeaderBtn, nextHeaderBtn] = header.shadowRoot?.querySelectorAll(
-      "SIT-icon-button"
+      "sit-icon-button"
     ) as NodeListOf<SitIconButton>;
-    const headerBtn = header.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const headerBtn = header.shadowRoot?.querySelector("sit-button") as SitButton;
     // configure to year view
     headerBtn.click();
     headerBtn.click();
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await waitUntil(() => calendar.view === "years");
     const years = calendar.shadowRoot?.querySelectorAll("button.year");
     return { el, header, headerBtn, prevHeaderBtn, nextHeaderBtn, calendar, years };
@@ -889,10 +883,10 @@ describe("focus loop between header buttons and calendar days/months/years", asy
       const day = todayDate.getDate();
       const month = todayDate.getMonth();
       const year = todayDate.getFullYear();
-      const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
-      const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-      const [prevBtn, nextBtn] = header.shadowRoot?.querySelectorAll("SIT-icon-button") as NodeListOf<SitIconButton>;
-      const headerBtn = header.shadowRoot?.querySelector("SIT-button") as SitButton;
+      const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
+      const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+      const [prevBtn, nextBtn] = header.shadowRoot?.querySelectorAll("sit-icon-button") as NodeListOf<SitIconButton>;
+      const headerBtn = header.shadowRoot?.querySelector("sit-button") as SitButton;
       if (v === "months") {
         headerBtn.click();
       } else if (v === "years") {
@@ -957,29 +951,29 @@ describe("focus loop between header buttons and calendar days/months/years", asy
 //     const el = await fixture<SitDatepicker>(html`<sit-datepicker menuIsOpen></sit-datepicker>`);
 //     const today = new Date();
 //     //change to month view
-//     const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
+//     const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
 //     const headerBtn = header.shadowRoot?.querySelectorAll("button")?.[1] as HTMLButtonElement;
 //     headerBtn.click();
 //     await header.updateComplete;
 //     // affirms its month view
 //     expect(headerBtn.innerText).to.equal(`${today.getFullYear()}`);
-//     const resetBtn = el.shadowRoot?.querySelector("SIT-icon-button.reset-btn") as HTMLButtonElement;
+//     const resetBtn = el.shadowRoot?.querySelector("sit-icon-button.reset-btn") as HTMLButtonElement;
 //     resetBtn?.click();
 
 //     await el.updateComplete;
 
-//     const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+//     const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
 //     calendarBtnEl.click();
 //     await waitUntil(() => el.menuIsOpen);
 //     expect(headerBtn.innerText).to.equal(`${MONTH_LABELS[today.getMonth()]} ${today.getFullYear()}`);
 //   });
 //   it("when clicked, initialValue clears and input clears", async () => {
 //     const el = await fixture<SitDatepicker>(html`<sit-datepicker .initialValue=${["29/03/2020"]}></sit-datepicker>`);
-//     const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+//     const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
 
 //     expect(el.value).to.equal("29/03/2020");
 //     expect(el.value).to.equal(inputEl.value);
-//     const resetBtn = el.shadowRoot?.querySelector("SIT-icon-button.reset-btn") as HTMLButtonElement;
+//     const resetBtn = el.shadowRoot?.querySelector("sit-icon-button.reset-btn") as HTMLButtonElement;
 //     resetBtn?.click();
 
 //     await waitUntil(() => el.value === "");
@@ -992,13 +986,13 @@ describe("focus loop between header buttons and calendar days/months/years", asy
 //       html`<sit-datepicker menuIsOpen .initialValue=${["29/03/2020"]}></sit-datepicker>`
 //     );
 //     await elementUpdated(el);
-//     const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
+//     const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
 //     await elementUpdated(header);
 //     const headerBtn = header.shadowRoot?.querySelectorAll("button")[1] as HTMLButtonElement;
-//     const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+//     const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
 
 //     expect(headerBtn.innerText).to.equal("March 2020");
-//     const resetBtn = el.shadowRoot?.querySelector("SIT-icon-button.reset-btn") as HTMLButtonElement;
+//     const resetBtn = el.shadowRoot?.querySelector("sit-icon-button.reset-btn") as HTMLButtonElement;
 //     resetBtn?.click();
 
 //     await el.updateComplete;
@@ -1018,7 +1012,7 @@ describe("datepicker stylings", () => {
       html`<sit-datepicker menuIsOpen .initialValue=${["01/03/2020"]}></sit-datepicker>`
     );
     await elementUpdated(el);
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await elementUpdated(calendar);
     const selectedDateEl = calendar.shadowRoot?.querySelector("td[data-day='1']") as HTMLElement;
     expect(selectedDateEl.classList.contains("selected-ends")).to.be.true;
@@ -1030,7 +1024,7 @@ describe("datepicker stylings", () => {
     );
     await elementUpdated(el);
 
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await elementUpdated(calendar);
     const firstSelectedDateEl = calendar.shadowRoot?.querySelector("td[data-day='1']") as HTMLElement;
     const lastSelectedDateEl = calendar.shadowRoot?.querySelector("td[data-day='20']") as HTMLElement;
@@ -1040,23 +1034,23 @@ describe("datepicker stylings", () => {
   });
   it("current month should have today stylings", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker menuIsOpen></sit-datepicker>`);
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const headerBtn = header.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const headerBtn = header.shadowRoot?.querySelector("sit-button") as SitButton;
     headerBtn.click();
     await waitUntil(() => header.view === "months");
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar");
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar");
     const currentMonth = new Date().getMonth();
     expect(calendar?.shadowRoot?.querySelector(`button[data-month="${currentMonth}"]`)?.classList.contains("today")).to
       .be.true;
   });
   it("current year should have today stylings", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker menuIsOpen></sit-datepicker>`);
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const headerBtn = header.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const headerBtn = header.shadowRoot?.querySelector("sit-button") as SitButton;
     headerBtn.click();
     headerBtn.click();
     await waitUntil(() => header.view === "years");
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar");
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar");
     const currentYear = new Date().getFullYear();
     expect(calendar?.shadowRoot?.querySelector(`button[data-year="${currentYear}"]`)?.classList.contains("today")).to.be
       .true;
@@ -1064,8 +1058,8 @@ describe("datepicker stylings", () => {
   it("if today's date is selected, selected styles takes precedence over today date styles", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker menuIsOpen></sit-datepicker>`);
     const todayDate = new Date().getDate();
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
     const todayDateEl = calendar.shadowRoot?.querySelector(`td[data-day="${todayDate}"]`) as HTMLElement;
     expect(todayDateEl.classList.contains("today")).to.be.true;
     expect(todayDateEl.classList.contains("selected-ends")).to.be.false;
@@ -1084,15 +1078,15 @@ describe("datepicker stylings", () => {
   });
 });
 
-describe("SIT-datepicker close and open menu behaviours", async () => {
+describe("sit-datepicker close and open menu behaviours", async () => {
   const dayViewSetup = async (initialValue: string[] = []) => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker .initialValue=${initialValue}></sit-datepicker>`);
-    const calendarBtnEl = el.shadowRoot?.querySelector("SIT-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
+    const calendarBtnEl = el.shadowRoot?.querySelector("sit-icon-button[aria-haspopup='dialog']") as HTMLButtonElement;
     calendarBtnEl.click();
     await el.updateComplete;
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
-    const input = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
+    const input = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     const getCalendarActiveElement = () => calendar.shadowRoot?.activeElement;
     await waitUntil(() => getCalendarActiveElement());
     const getDateInputActiveElement = () => input.shadowRoot?.activeElement;
@@ -1100,8 +1094,8 @@ describe("SIT-datepicker close and open menu behaviours", async () => {
   };
   const monthViewSetup = async (initialValue: string[] = []) => {
     const { header, ...etc } = await dayViewSetup(initialValue);
-    const [prevBtn, nextBtn] = header.shadowRoot?.querySelectorAll("SIT-icon-button") as NodeListOf<SitIconButton>;
-    const headerBtn = header.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const [prevBtn, nextBtn] = header.shadowRoot?.querySelectorAll("sit-icon-button") as NodeListOf<SitIconButton>;
+    const headerBtn = header.shadowRoot?.querySelector("sit-button") as SitButton;
     headerBtn.click();
 
     await waitUntil(() => header.view === "months");
@@ -1203,7 +1197,7 @@ describe("SIT-datepicker close and open menu behaviours", async () => {
 });
 
 describe("datepicker input masking", () => {
-  it("SIT-datepicker-input has an input masked", async () => {
+  it("sit-datepicker-input has an input masked", async () => {
     const inputEl = await fixture<DatepickerInput>(html`<sit-datepicker-input></sit-datepicker-input>`);
     expect(inputEl?.value).to.equal("");
 
@@ -1245,7 +1239,7 @@ describe("datepicker input masking", () => {
       const inputEl = await fixture<DatepickerInput>(
         html`<sit-datepicker-input value=${value} mode=${mode as "single" | "range"}></sit-datepicker-input>`
       );
-      // const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+      // const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
       expect(inputEl?.value).to.equal(value);
 
       inputEl.focus();
@@ -1302,7 +1296,7 @@ describe("datepicker input masking", () => {
       expect(shadowInput?.classList.contains("is-invalid")).to.be.false;
       const changeHandler = sinon.spy();
 
-      inputEl.addEventListener("SIT-change", changeHandler);
+      inputEl.addEventListener("sit-change", changeHandler);
       inputEl.focus();
       await sendKeys({ press: "Backspace" });
       expect(inputEl.value).to.equal(editValue);
@@ -1393,7 +1387,7 @@ describe("datepicker input masking", () => {
         html`<sit-datepicker-input mode=${mode as "single" | "range"} hasFeedback="both"></sit-datepicker-input>`
       );
       const blurHandler = sinon.spy();
-      inputEl.addEventListener("SIT-blur", blurHandler);
+      inputEl.addEventListener("sit-blur", blurHandler);
 
       const shadowInput = inputEl?.shadowRoot?.querySelector(".form-control-group");
       expect(inputEl.value).to.equal("");
@@ -1423,7 +1417,7 @@ describe("datepicker input masking", () => {
 describe("error message", () => {
   it("default error message can be override by user", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker hasFeedback></sit-datepicker>`);
-    const input = el.shadowRoot?.querySelector<DatepickerInput>("SIT-datepicker-input");
+    const input = el.shadowRoot?.querySelector<DatepickerInput>("sit-datepicker-input");
     input?.focus();
     await elementUpdated(el);
     expect(el?.reportValidity()).to.equal(true);
@@ -1452,34 +1446,34 @@ describe("datepicker calendar will not show before 1900", () => {
       html`<sit-datepicker menuIsOpen .initialValue=${["01/01/1900"]}></sit-datepicker>`
     );
     await elementUpdated(el);
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
     await elementUpdated(header);
-    expect(header.shadowRoot?.querySelector("SIT-icon-button.invisible")).to.exist;
+    expect(header.shadowRoot?.querySelector("sit-icon-button.invisible")).to.exist;
   });
   it("in month view , 1900 header  previousButton is invisble", async () => {
     const el = await fixture<SitDatepicker>(
       html`<sit-datepicker menuIsOpen .initialValue=${["01/01/1900"]}></sit-datepicker>`
     );
     await elementUpdated(el);
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
     await elementUpdated(header);
-    (header.shadowRoot?.querySelector("SIT-button") as SitButton).click();
+    (header.shadowRoot?.querySelector("sit-button") as SitButton).click();
     await el.updateComplete;
-    expect(header.shadowRoot?.querySelector("SIT-icon-button.invisible")).to.exist;
+    expect(header.shadowRoot?.querySelector("sit-icon-button.invisible")).to.exist;
   });
   it("in year view , 1900 header  previousButton is invisble", async () => {
     const el = await fixture<SitDatepicker>(
       html`<sit-datepicker menuIsOpen .initialValue=${["01/01/1900"]}></sit-datepicker>`
     );
     await elementUpdated(el);
-    const header = el.shadowRoot?.querySelector("SIT-datepicker-header") as DatepickerHeader;
+    const header = el.shadowRoot?.querySelector("sit-datepicker-header") as DatepickerHeader;
     await elementUpdated(header);
-    (header.shadowRoot?.querySelector("SIT-button") as SitButton).click();
-    (header.shadowRoot?.querySelector("SIT-button") as SitButton).click();
+    (header.shadowRoot?.querySelector("sit-button") as SitButton).click();
+    (header.shadowRoot?.querySelector("sit-button") as SitButton).click();
     await elementUpdated(el);
     await elementUpdated(header);
-    expect(header.shadowRoot?.querySelectorAll("SIT-icon-button.invisible")).to.exist;
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar");
+    expect(header.shadowRoot?.querySelectorAll("sit-icon-button.invisible")).to.exist;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar");
     const disabledButtons = calendar?.shadowRoot?.querySelectorAll("button.year[disabled]");
     expect(disabledButtons?.length).to.equal(6);
     expect(calendar?.shadowRoot?.querySelector("button.year[data-year='1900']")?.hasAttribute("disabled")).to.be.false;
@@ -1490,8 +1484,8 @@ describe("datepicker calendar will not show before 1900", () => {
     );
     await elementUpdated(el);
     const changeCalendarViewHandler = sinon.spy();
-    el.addEventListener("SIT-change-calendar", changeCalendarViewHandler);
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar") as DatepickerCalendar;
+    el.addEventListener("sit-change-calendar", changeCalendarViewHandler);
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar") as DatepickerCalendar;
     await elementUpdated(calendar);
     const firstTd = calendar?.shadowRoot?.querySelector("td[data-day='1']");
     await waitUntil(() => calendar?.shadowRoot?.activeElement);
@@ -1509,9 +1503,9 @@ describe("datepicker calendar will not show before 1900", () => {
     const el = await fixture<SitDatepicker>(
       html`<sit-datepicker menuIsOpen .initialValue=${["01/01/1900"]}></sit-datepicker>`
     );
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar");
-    const header = () => el.shadowRoot?.querySelector("SIT-datepicker-header");
-    const headerBtn = () => header()?.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar");
+    const header = () => el.shadowRoot?.querySelector("sit-datepicker-header");
+    const headerBtn = () => header()?.shadowRoot?.querySelector("sit-button") as SitButton;
 
     headerBtn()?.click();
     await el.updateComplete;
@@ -1532,9 +1526,9 @@ describe("datepicker calendar will not show before 1900", () => {
 describe("datepicker behavour on invalid input", () => {
   it("datepicker resets to initial displayDate when invalid input", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker .initialValue=${["23/03/2020"]}></sit-datepicker>`);
-    const input = el.shadowRoot?.querySelector<DatepickerInput>("SIT-datepicker-input");
-    const header = el.shadowRoot?.querySelector<DatepickerHeader>("SIT-datepicker-header");
-    expect(header?.shadowRoot?.querySelector("SIT-button")?.textContent).to.contain("March 2020");
+    const input = el.shadowRoot?.querySelector<DatepickerInput>("sit-datepicker-input");
+    const header = el.shadowRoot?.querySelector<DatepickerHeader>("sit-datepicker-header");
+    expect(header?.shadowRoot?.querySelector("sit-button")?.textContent).to.contain("March 2020");
 
     input?.focus();
     await waitUntil(() => el.shadowRoot?.activeElement === input);
@@ -1549,15 +1543,15 @@ describe("datepicker behavour on invalid input", () => {
     el.showMenu();
     await el.updateComplete;
     const initialDisplayDate = `${MONTH_LABELS[new Date().getMonth()]} ${new Date().getFullYear()}`;
-    expect(header?.shadowRoot?.querySelector("SIT-button")?.textContent).to.contain(initialDisplayDate);
+    expect(header?.shadowRoot?.querySelector("sit-button")?.textContent).to.contain(initialDisplayDate);
   });
   it("datepicker resets to initial displayDate when invalid input", async () => {
     const el = await fixture<SitDatepicker>(
       html`<sit-datepicker .initialValue=${["23/03/2020"]} .displayDate=${new Date("01/01/2025")}></sit-datepicker>`
     );
-    const input = el.shadowRoot?.querySelector<DatepickerInput>("SIT-datepicker-input");
-    const header = el.shadowRoot?.querySelector<DatepickerHeader>("SIT-datepicker-header");
-    expect(header?.shadowRoot?.querySelector("SIT-button")?.textContent).to.contain("March 2020");
+    const input = el.shadowRoot?.querySelector<DatepickerInput>("sit-datepicker-input");
+    const header = el.shadowRoot?.querySelector<DatepickerHeader>("sit-datepicker-header");
+    expect(header?.shadowRoot?.querySelector("sit-button")?.textContent).to.contain("March 2020");
 
     input?.focus();
     await waitUntil(() => el.shadowRoot?.activeElement === input);
@@ -1571,29 +1565,29 @@ describe("datepicker behavour on invalid input", () => {
     expect(el?.reportValidity()).to.equal(false);
     el.showMenu();
     await el.updateComplete;
-    expect(header?.shadowRoot?.querySelector("SIT-button")?.textContent).to.contain("January 2025");
+    expect(header?.shadowRoot?.querySelector("sit-button")?.textContent).to.contain("January 2025");
   });
   // it("datepicker resets to initial specified displayDate when reset ", async () => {
   //   const el = await fixture<SitDatepicker>(
   //     html`<sit-datepicker .initialValue=${["23/03/2020"]} .displayDate=${new Date("01/01/2025")}></sit-datepicker>`
   //   );
-  //   const header = el.shadowRoot?.querySelector<DatepickerHeader>("SIT-datepicker-header") as DatepickerHeader;
-  //   expect(header?.shadowRoot?.querySelector("SIT-button")?.textContent).to.contain("March 2020");
-  //   const resetBtn = el.shadowRoot?.querySelector("SIT-icon-button.reset-btn") as HTMLButtonElement;
+  //   const header = el.shadowRoot?.querySelector<DatepickerHeader>("sit-datepicker-header") as DatepickerHeader;
+  //   expect(header?.shadowRoot?.querySelector("sit-button")?.textContent).to.contain("March 2020");
+  //   const resetBtn = el.shadowRoot?.querySelector("sit-icon-button.reset-btn") as HTMLButtonElement;
   //   resetBtn?.click();
 
   //   el.showMenu();
   //   await elementUpdated(el);
   //   await elementUpdated(header);
-  //   expect(header?.shadowRoot?.querySelector("SIT-button")?.textContent).to.contain("January 2025");
+  //   expect(header?.shadowRoot?.querySelector("sit-button")?.textContent).to.contain("January 2025");
   // });
 
   it("emits sit-invalid event when an invalid date 30/20/2026 is entered", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker></sit-datepicker>`);
     const invalidHandler = sinon.spy();
-    el.addEventListener("SIT-invalid", invalidHandler);
+    el.addEventListener("sit-invalid", invalidHandler);
 
-    const input = el.shadowRoot?.querySelector<DatepickerInput>("SIT-datepicker-input");
+    const input = el.shadowRoot?.querySelector<DatepickerInput>("sit-datepicker-input");
     input?.focus();
     await waitUntil(() => el.shadowRoot?.activeElement === input);
 
@@ -1609,7 +1603,7 @@ describe("datepicker behavour on invalid input", () => {
 
   it("clears invalid date 30/30/2026 on blur even with noValidate", async () => {
     const el = await fixture<SitDatepicker>(html`<sit-datepicker noValidate></sit-datepicker>`);
-    const input = el.shadowRoot?.querySelector<DatepickerInput>("SIT-datepicker-input");
+    const input = el.shadowRoot?.querySelector<DatepickerInput>("sit-datepicker-input");
 
     input?.focus();
     await waitUntil(() => el.shadowRoot?.activeElement === input);
@@ -1647,19 +1641,15 @@ describe("datepicker in form context", () => {
     expect(el.checkValidity()).to.be.true;
   });
   it("should be valid when  value is valid", async () => {
-    const el = await fixture<HTMLFormElement>(
-      html`<form><sit-datepicker value="23/03/2020"></sit-datepicker></form>`
-    );
+    const el = await fixture<HTMLFormElement>(html`<form><sit-datepicker value="23/03/2020"></sit-datepicker></form>`);
     expect(el.checkValidity()).to.be.true;
   });
   it("should be invalid when  value is invalid", async () => {
-    const el = await fixture<HTMLFormElement>(
-      html`<form><sit-datepicker value="23/03/2020"></sit-datepicker></form>`
-    );
-    const datepicker = el.querySelector("SIT-datepicker") as SitDatepicker;
+    const el = await fixture<HTMLFormElement>(html`<form><sit-datepicker value="23/03/2020"></sit-datepicker></form>`);
+    const datepicker = el.querySelector("sit-datepicker") as SitDatepicker;
     const input = el
-      .querySelector("SIT-datepicker")
-      ?.shadowRoot?.querySelector("SIT-datepicker-input")
+      .querySelector("sit-datepicker")
+      ?.shadowRoot?.querySelector("sit-datepicker-input")
       ?.shadowRoot?.querySelector("input");
 
     input?.focus();
@@ -1682,8 +1672,8 @@ describe("datepicker in form context", () => {
     const el = await fixture<HTMLFormElement>(
       html`<form><sit-datepicker value="23/03/2020" name="myDatepicker"></sit-datepicker></form>`
     );
-    const datepicker = el.querySelector("SIT-datepicker") as SitDatepicker;
-    const input = datepicker?.shadowRoot?.querySelector("SIT-datepicker-input")?.shadowRoot?.querySelector("input");
+    const datepicker = el.querySelector("sit-datepicker") as SitDatepicker;
+    const input = datepicker?.shadowRoot?.querySelector("sit-datepicker-input")?.shadowRoot?.querySelector("input");
     input?.focus();
     for (let i = 0; i < 8; i++) {
       await sendKeys({ press: "Backspace" });
@@ -1697,8 +1687,8 @@ describe("datepicker in form context", () => {
     const el = await fixture<HTMLFormElement>(
       html`<form><sit-datepicker name="myDatepicker" required></sit-datepicker></form>`
     );
-    const datepicker = el.querySelector("SIT-datepicker") as SitDatepicker;
-    const input = datepicker?.shadowRoot?.querySelector("SIT-datepicker-input")?.shadowRoot?.querySelector("input");
+    const datepicker = el.querySelector("sit-datepicker") as SitDatepicker;
+    const input = datepicker?.shadowRoot?.querySelector("sit-datepicker-input")?.shadowRoot?.querySelector("input");
     expect(datepicker.invalid).to.be.false;
     input?.focus();
     input?.blur();
@@ -1711,8 +1701,8 @@ describe("datepicker in form context", () => {
         <sit-datepicker name="myDatepicker" value="23/03/2020" required></sit-datepicker>
       </form>`
     );
-    const datepicker = el.querySelector("SIT-datepicker") as SitDatepicker;
-    const input = datepicker?.shadowRoot?.querySelector("SIT-datepicker-input")?.shadowRoot?.querySelector("input");
+    const datepicker = el.querySelector("sit-datepicker") as SitDatepicker;
+    const input = datepicker?.shadowRoot?.querySelector("sit-datepicker-input")?.shadowRoot?.querySelector("input");
     expect(datepicker.invalid).to.be.false;
 
     input?.focus();
@@ -1730,8 +1720,8 @@ describe("datepicker in form context", () => {
         <sit-datepicker name="myDatepicker" value="23/03/2020" required></sit-datepicker>
       </form>`
     );
-    const datepicker = el.querySelector("SIT-datepicker") as SitDatepicker;
-    const input = datepicker?.shadowRoot?.querySelector("SIT-datepicker-input")?.shadowRoot?.querySelector("input");
+    const datepicker = el.querySelector("sit-datepicker") as SitDatepicker;
+    const input = datepicker?.shadowRoot?.querySelector("sit-datepicker-input")?.shadowRoot?.querySelector("input");
 
     datepicker.value = "24/03/2020";
     await waitUntil(() => input?.value === "24/03/2020");
@@ -1793,7 +1783,7 @@ describe("datepicker noValidate and setInvalid", () => {
     await elementUpdated(el);
     el.setInvalid(true);
     await elementUpdated(el);
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     expect(inputEl.invalid).to.be.true;
   });
 
@@ -1804,7 +1794,7 @@ describe("datepicker noValidate and setInvalid", () => {
     await elementUpdated(el);
     el.setInvalid(true);
     await elementUpdated(el);
-    const inputEl = el.shadowRoot?.querySelector("SIT-datepicker-input") as DatepickerInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-datepicker-input") as DatepickerInput;
     const feedbackEl = inputEl?.shadowRoot?.querySelector(".invalid-feedback");
     expect(feedbackEl?.textContent?.trim()).to.equal("Custom error");
   });
@@ -1813,9 +1803,9 @@ describe("datepicker noValidate and setInvalid", () => {
     const form = await fixture<HTMLFormElement>(
       html`<form><sit-datepicker noValidate name="apptDate"></sit-datepicker></form>`
     );
-    const datepicker = form.querySelector("SIT-datepicker") as SitDatepicker;
+    const datepicker = form.querySelector("sit-datepicker") as SitDatepicker;
     const calendarBtnEl = datepicker.shadowRoot?.querySelector(
-      "SIT-icon-button[aria-haspopup='dialog']"
+      "sit-icon-button[aria-haspopup='dialog']"
     ) as HTMLButtonElement;
 
     calendarBtnEl?.click();
@@ -1839,12 +1829,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const datepicker = form.querySelector("SIT-datepicker") as SitDatepicker;
+    const datepicker = form.querySelector("sit-datepicker") as SitDatepicker;
     datepicker.setInvalid(true);
     await datepicker.updateComplete;
     expect(datepicker.invalid).to.be.true;
 
-    form.querySelector("SIT-button")?.click();
+    form.querySelector("sit-button")?.click();
     await waitUntil(() => datepicker.invalid === false);
     expect(datepicker.invalid).to.be.false;
   });
@@ -1856,12 +1846,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const datepicker = form.querySelector("SIT-datepicker") as SitDatepicker;
+    const datepicker = form.querySelector("sit-datepicker") as SitDatepicker;
     datepicker.setInvalid(true);
     await datepicker.updateComplete;
     expect(datepicker.invalid).to.be.true;
 
-    form.querySelector("SIT-button")?.click();
+    form.querySelector("sit-button")?.click();
     await waitUntil(() => datepicker.invalid === false);
     expect(datepicker.invalid).to.be.false;
   });
@@ -1888,8 +1878,8 @@ describe("datepicker a11y labels", () => {
         focusedTabIndex=${0}
       ></sit-datepicker-header>`
     );
-    const [prev, next] = el.shadowRoot?.querySelectorAll("SIT-icon-button") as NodeListOf<SitIconButton>;
-    const header = el.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const [prev, next] = el.shadowRoot?.querySelectorAll("sit-icon-button") as NodeListOf<SitIconButton>;
+    const header = el.shadowRoot?.querySelector("sit-button") as SitButton;
     expect(prev.ariaLabel).to.equal("Show previous month");
     expect(header.getAttribute("aria-disabled")).to.equal("false");
     expect(next.ariaLabel).to.equal("Show next month");
@@ -1905,8 +1895,8 @@ describe("datepicker a11y labels", () => {
         focusedTabIndex=${0}
       ></sit-datepicker-header>`
     );
-    const [prev, next] = el.shadowRoot?.querySelectorAll("SIT-icon-button") as NodeListOf<SitIconButton>;
-    const header = el.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const [prev, next] = el.shadowRoot?.querySelectorAll("sit-icon-button") as NodeListOf<SitIconButton>;
+    const header = el.shadowRoot?.querySelector("sit-button") as SitButton;
     expect(prev.ariaLabel).to.equal("Show previous year");
     expect(header.getAttribute("aria-disabled")).to.equal("false");
     expect(next.ariaLabel).to.equal("Show next year");
@@ -1922,8 +1912,8 @@ describe("datepicker a11y labels", () => {
         focusedTabIndex=${0}
       ></sit-datepicker-header>`
     );
-    const [prev, next] = el.shadowRoot?.querySelectorAll("SIT-icon-button") as NodeListOf<SitIconButton>;
-    const header = el.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const [prev, next] = el.shadowRoot?.querySelectorAll("sit-icon-button") as NodeListOf<SitIconButton>;
+    const header = el.shadowRoot?.querySelector("sit-button") as SitButton;
     expect(prev.ariaLabel).to.equal("Show previous 12 years");
     expect(next.ariaLabel).to.equal("Show next 12 years");
 
@@ -2044,8 +2034,8 @@ describe("datepicker a11y labels", () => {
       html`<sit-datepicker .displayDate=${mockDate} menuIsOpen></sit-datepicker>`
     );
     const dialog = () => el.shadowRoot?.querySelector("div[role='dialog']");
-    const header = el.shadowRoot?.querySelector<DatepickerHeader>("SIT-datepicker-header");
-    const headerButton = header?.shadowRoot?.querySelector("SIT-button") as SitButton;
+    const header = el.shadowRoot?.querySelector<DatepickerHeader>("sit-datepicker-header");
+    const headerButton = header?.shadowRoot?.querySelector("sit-button") as SitButton;
     expect(dialog()?.getAttribute("aria-label")).to.equal(`Choose date`);
     headerButton?.click();
     await header?.updateComplete;
@@ -2085,7 +2075,7 @@ describe("datepicker a11y labels", () => {
         maxDate=${mockMaxDate}
       ></sit-datepicker>`
     );
-    const calendar = el.shadowRoot?.querySelector("SIT-datepicker-calendar");
+    const calendar = el.shadowRoot?.querySelector("sit-datepicker-calendar");
     const tds = calendar?.shadowRoot?.querySelectorAll("td[data-day]");
     expect(tds?.[0].getAttribute("aria-disabled")).to.equal("true");
   });
@@ -2138,6 +2128,3 @@ describe("aria-current in calendar", () => {
     expect(currentMonthButtonAriaLabel).to.include("Current year");
   });
 });
-
-
-

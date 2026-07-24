@@ -45,5 +45,3 @@ describe("<sit-spinner>", () => {
     expect(wrapper).to.have.class("horizontal");
   });
 });
-
-

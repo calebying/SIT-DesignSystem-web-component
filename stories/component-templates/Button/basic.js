@@ -3,7 +3,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args =>
   html`
-    <sgds-button
+    <sit-button
       variant=${ifDefined(args.variant)}
       size=${ifDefined(args.size)}
       ?active=${args.active}
@@ -21,7 +21,7 @@ export const Template = args =>
       ariaLabel="Button"
     >
       Button
-    </sgds-button>
+    </sit-button>
   `;
 export const args = {};
 

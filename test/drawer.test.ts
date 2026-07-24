@@ -32,8 +32,8 @@ describe("<sit-drawer>", () => {
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("SIT-show", showHandler);
-    el.addEventListener("SIT-after-show", afterShowHandler);
+    el.addEventListener("sit-show", showHandler);
+    el.addEventListener("sit-after-show", afterShowHandler);
     el.show();
 
     await waitUntil(() => showHandler.calledOnce);
@@ -52,8 +52,8 @@ describe("<sit-drawer>", () => {
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("SIT-hide", hideHandler);
-    el.addEventListener("SIT-after-hide", afterHideHandler);
+    el.addEventListener("sit-hide", hideHandler);
+    el.addEventListener("sit-after-hide", afterHideHandler);
     el.hide();
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -72,8 +72,8 @@ describe("<sit-drawer>", () => {
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("SIT-show", showHandler);
-    el.addEventListener("SIT-after-show", afterShowHandler);
+    el.addEventListener("sit-show", showHandler);
+    el.addEventListener("sit-after-show", afterShowHandler);
     el.open = true;
 
     await waitUntil(() => showHandler.calledOnce);
@@ -92,8 +92,8 @@ describe("<sit-drawer>", () => {
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("SIT-hide", hideHandler);
-    el.addEventListener("SIT-after-hide", afterHideHandler);
+    el.addEventListener("sit-hide", hideHandler);
+    el.addEventListener("sit-after-hide", afterHideHandler);
     el.open = false;
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -110,7 +110,7 @@ describe("<sit-drawer>", () => {
     `);
     const overlay = el.shadowRoot?.querySelector<HTMLElement>(".drawer-overlay");
 
-    el.addEventListener("SIT-request-close", event => {
+    el.addEventListener("sit-request-close", event => {
       event.preventDefault();
     });
     overlay?.click();
@@ -126,7 +126,7 @@ describe("<sit-drawer>", () => {
       input?.focus();
     });
 
-    el.addEventListener("SIT-initial-focus", initialFocusHandler);
+    el.addEventListener("sit-initial-focus", initialFocusHandler);
     el.show();
 
     await waitUntil(() => initialFocusHandler.calledOnce);
@@ -139,7 +139,7 @@ describe("<sit-drawer>", () => {
     const el = await fixture<SitDrawer>(html` <sit-drawer open></sit-drawer> `);
     const hideHandler = sinon.spy();
 
-    el.addEventListener("SIT-hide", hideHandler);
+    el.addEventListener("sit-hide", hideHandler);
 
     await sendKeys({ press: "Escape" });
     await waitUntil(() => hideHandler.calledOnce);
@@ -154,7 +154,7 @@ describe("<sit-drawer>", () => {
     expect(document.body.style.overflow).to.equal("hidden");
 
     const afterHideHandler = sinon.spy();
-    el.addEventListener("SIT-after-hide", afterHideHandler);
+    el.addEventListener("sit-after-hide", afterHideHandler);
     el.open = false;
 
     await waitUntil(() => afterHideHandler.calledOnce);
@@ -180,6 +180,3 @@ describe("<sit-drawer>", () => {
     expect((assigned[0] as HTMLElement).id).to.equal("footer-content");
   });
 });
-
-
-

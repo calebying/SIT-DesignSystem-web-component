@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Card a11y", () => {
-  it("SIT-card should be accessible", async () => {
+  it("sit-card should be accessible", async () => {
     const el = await fixture(html`
       <sit-card>
         <span slot="title">Card title</span>
@@ -13,7 +13,7 @@ describe("Card a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-icon-card should be accessible", async () => {
+  it("sit-icon-card should be accessible", async () => {
     const el = await fixture(html`
       <sit-icon-card>
         <sit-icon slot="icon" name="box-seam" size="3-xl"></sit-icon>
@@ -24,7 +24,7 @@ describe("Card a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-image-card should be accessible", async () => {
+  it("sit-image-card should be accessible", async () => {
     const el = await fixture(html`
       <sit-image-card>
         <img slot="image" alt="Sample image" src="https://placehold.co/467x300" />
@@ -35,7 +35,7 @@ describe("Card a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-thumbnail-card should be accessible", async () => {
+  it("sit-thumbnail-card should be accessible", async () => {
     const el = await fixture(html`
       <sit-thumbnail-card>
         <img slot="thumbnail" alt="Thumbnail" width="64" height="64" src="https://placehold.co/64x64" />
@@ -46,6 +46,3 @@ describe("Card a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

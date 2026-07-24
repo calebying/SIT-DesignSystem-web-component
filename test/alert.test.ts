@@ -125,9 +125,9 @@ describe("<Alert>", () => {
   it("Should emit the sit-hide event on dismiss click of close button", async () => {
     const el = await fixture<SitAlert>(html`<sit-alert show dismissible></sit-alert>`);
     const onCloseSpy = sinon.spy();
-    el.addEventListener("SIT-hide", onCloseSpy);
+    el.addEventListener("sit-hide", onCloseSpy);
 
-    const closeButton = el.shadowRoot?.querySelector("SIT-close-button") as SitCloseButton;
+    const closeButton = el.shadowRoot?.querySelector("sit-close-button") as SitCloseButton;
     closeButton?.click();
     await el.updateComplete;
     expect(el.show).to.be.false;
@@ -137,7 +137,7 @@ describe("<Alert>", () => {
   it("Should emit the sit-show event when alert show state is true", async () => {
     const el = await fixture<SitAlert>(html`<sit-alert></sit-alert>`);
     const onShowSpy = sinon.spy();
-    el.addEventListener("SIT-show", onShowSpy);
+    el.addEventListener("sit-show", onShowSpy);
 
     el.show = true;
     await el.updateComplete;
@@ -165,32 +165,32 @@ describe("<Alert>", () => {
   describe("close button tone", () => {
     it("should have tone='fixed-light' by default (non-outlined, non-warning variant)", async () => {
       const el = await fixture<SitAlert>(html`<sit-alert show dismissible></sit-alert>`);
-      const closeButton = el.shadowRoot?.querySelector("SIT-close-button");
+      const closeButton = el.shadowRoot?.querySelector("sit-close-button");
       expect(closeButton?.getAttribute("tone")).to.equal("fixed-light");
     });
 
     it("should have tone='fixed-dark' when outlined is true", async () => {
       const el = await fixture<SitAlert>(html`<sit-alert show dismissible outlined></sit-alert>`);
-      const closeButton = el.shadowRoot?.querySelector("SIT-close-button");
+      const closeButton = el.shadowRoot?.querySelector("sit-close-button");
       expect(closeButton?.getAttribute("tone")).to.equal("fixed-dark");
     });
 
     it("should have tone='fixed-dark' when variant is 'warning'", async () => {
       const el = await fixture<SitAlert>(html`<sit-alert show dismissible variant="warning"></sit-alert>`);
-      const closeButton = el.shadowRoot?.querySelector("SIT-close-button");
+      const closeButton = el.shadowRoot?.querySelector("sit-close-button");
       expect(closeButton?.getAttribute("tone")).to.equal("fixed-dark");
     });
 
     it("should have tone='fixed-dark' when both outlined and variant='warning'", async () => {
       const el = await fixture<SitAlert>(html`<sit-alert show dismissible outlined variant="warning"></sit-alert>`);
-      const closeButton = el.shadowRoot?.querySelector("SIT-close-button");
+      const closeButton = el.shadowRoot?.querySelector("sit-close-button");
       expect(closeButton?.getAttribute("tone")).to.equal("fixed-dark");
     });
 
     it("should have tone='fixed-light' for non-warning variants without outlined", async () => {
       for (const variant of ["info", "success", "danger", "neutral"] as const) {
         const el = await fixture<SitAlert>(html`<sit-alert show dismissible variant=${variant}></sit-alert>`);
-        const closeButton = el.shadowRoot?.querySelector("SIT-close-button");
+        const closeButton = el.shadowRoot?.querySelector("sit-close-button");
         expect(closeButton?.getAttribute("tone"), `variant="${variant}"`).to.equal("fixed-light");
       }
     });
@@ -204,6 +204,3 @@ describe("<Alert>", () => {
     });
   });
 });
-
-
-

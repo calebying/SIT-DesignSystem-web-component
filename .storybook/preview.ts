@@ -8,7 +8,7 @@ import "../lib/css/sgds.css";
 import "./utility.css";
 import "./gt-themes.css";
 import "./global.css";
-import sgdsTheme from "./sgdsTheme";
+import sitTheme from "./sitTheme";
 
 export const setCustomElementsManifestWithOptions = (
   customElements: any,
@@ -38,7 +38,7 @@ export const parameters = {
   viewMode: "docs",
   docs: {
     //@ts-ignore
-    theme: sgdsTheme,
+    theme: sitTheme,
     toc: {
       headingSelector: "h1, h2, h3",
       title: "Table of Contents",

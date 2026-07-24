@@ -3,13 +3,13 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args =>
   html`
-    <sgds-spinner
+    <sit-spinner
       label=${ifDefined(args.label)}
       tone=${ifDefined(args.tone)}
       size=${ifDefined(args.size)}
       orientation=${ifDefined(args.orientation)}
     >
-    </sgds-spinner>
+    </sit-spinner>
   `;
 
 export const args = {};

@@ -72,20 +72,20 @@
   --gt-color-900: #531115;
 }
 
-/* Map --gt-color-* to --sgds-product-primary-* for all GT themes */
+/* Map --gt-color-* to --sit-product-primary-* for all GT themes */
 .gt-blue-theme,
 .gt-cyan-theme,
 .gt-magenta-theme,
 .gt-pink-theme,
 .gt-purple-theme,
 .gt-red-theme {
-  --sgds-product-primary-100: var(--gt-color-100);
-  --sgds-product-primary-200: var(--gt-color-200);
-  --sgds-product-primary-300: var(--gt-color-300);
-  --sgds-product-primary-400: var(--gt-color-400);
-  --sgds-product-primary-500: var(--gt-color-500);
-  --sgds-product-primary-600: var(--gt-color-600);
-  --sgds-product-primary-700: var(--gt-color-700);
-  --sgds-product-primary-800: var(--gt-color-800);
-  --sgds-product-primary-900: var(--gt-color-900);
+  --sit-product-primary-100: var(--gt-color-100);
+  --sit-product-primary-200: var(--gt-color-200);
+  --sit-product-primary-300: var(--gt-color-300);
+  --sit-product-primary-400: var(--gt-color-400);
+  --sit-product-primary-500: var(--gt-color-500);
+  --sit-product-primary-600: var(--gt-color-600);
+  --sit-product-primary-700: var(--gt-color-700);
+  --sit-product-primary-800: var(--gt-color-800);
+  --sit-product-primary-900: var(--gt-color-900);
 }

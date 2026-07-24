@@ -2,44 +2,44 @@ import { html } from "lit";
 
 export const Template = ({ active, activeSNL, activeSNIAsLink, disabledSNL, disabledSNI, sticky }) => {
   return html`
-    <sgds-sidenav ?sticky=${sticky}>
-      <sgds-sidenav-item ariaLabel="SideNavItem L1 label (menu)" ?active=${active} ?disabled=${disabledSNI}>
+    <sit-sidenav ?sticky=${sticky}>
+      <sit-sidenav-item ariaLabel="SideNavItem L1 label (menu)" ?active=${active} ?disabled=${disabledSNI}>
           <span slot="title">SideNavItem L1 label (menu) </span>
-          <sgds-sidenav-link
+          <sit-sidenav-link
             ?active=${activeSNL}
             ?disabled=${disabledSNL}
-            ><a href="#">SidenavLink L2 label</a></sgds-sidenav-link
+            ><a href="#">SidenavLink L2 label</a></sit-sidenav-link
           >
-          <sgds-sidenav-link>
+          <sit-sidenav-link>
             <a href="#">SidenavLink L2 label</a>
-          </sgds-sidenav-link>
-          <sgds-sidenav-link>
+          </sit-sidenav-link>
+          <sit-sidenav-link>
             <a href="#">SidenavLink L2 label</a>
-          </sgds-sidenav-link>
-          <sgds-sidenav-item ariaLabel="SidenavItem L2 label">
+          </sit-sidenav-link>
+          <sit-sidenav-item ariaLabel="SidenavItem L2 label">
             <span slot="title">
             SidenavItem L2 label
             </span>
-            <sgds-sidenav-link>
+            <sit-sidenav-link>
               <a href="#"> SidenavLink L3 label</a>
-            </sgds-sidenav-link>
-            <sgds-sidenav-link>
+            </sit-sidenav-link>
+            <sit-sidenav-link>
               <a href="#">SidenavLink L3 label</a>
-            </sgds-sidenav-link>
-          </sgds-sidenav-item>
-      </sgds-sidenav-item>
-      <sgds-sidenav-item ariaLabel="SideNavItem L1 label (menu)">
+            </sit-sidenav-link>
+          </sit-sidenav-item>
+      </sit-sidenav-item>
+      <sit-sidenav-item ariaLabel="SideNavItem L1 label (menu)">
         <span slot="title">SideNavItem L1 label (menu)</span>
-        <sgds-sidenav-link>
+        <sit-sidenav-link>
             <a href="#">SidenavLink L2 label</a>
-          <sgds-sidenav-link>
+          <sit-sidenav-link>
             <a href="#">SidenavLink L2 label</a>
-          </sgds-sidenav-link>
-      </sgds-sidenav-item>
-      <sgds-sidenav-item ariaLabel="SidenavItem L1 label (link)" ?active=${activeSNIAsLink}>
+          </sit-sidenav-link>
+      </sit-sidenav-item>
+      <sit-sidenav-item ariaLabel="SidenavItem L1 label (link)" ?active=${activeSNIAsLink}>
         <a href="#">SidenavItem L1 label (link)</a>
-      </sgds-sidenav-item>
-    </sgds-sidenav>
+      </sit-sidenav-item>
+    </sit-sidenav>
   `;
 };
 

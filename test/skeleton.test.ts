@@ -71,5 +71,3 @@ describe("<sit-skeleton>", () => {
     skeletonRowStyles.forEach(s => expect(s).to.contain("border-radius: 5px"));
   });
 });
-
-

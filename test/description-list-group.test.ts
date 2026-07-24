@@ -70,5 +70,3 @@ describe("<sit-description-list-group>", () => {
     expect(assigned.length).to.equal(0);
   });
 });
-
-

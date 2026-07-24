@@ -3,11 +3,11 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args =>
   html`
-    <sgds-breadcrumb>
-      <sgds-breadcrumb-item><a href="#">Home</a></sgds-breadcrumb-item>
-      <sgds-breadcrumb-item><a href="#">About</a></sgds-breadcrumb-item>
-      <sgds-breadcrumb-item active><a href="https://www.google.com/">Contacts</a></sgds-breadcrumb-item>
-    </sgds-breadcrumb>
+    <sit-breadcrumb>
+      <sit-breadcrumb-item><a href="#">Home</a></sit-breadcrumb-item>
+      <sit-breadcrumb-item><a href="#">About</a></sit-breadcrumb-item>
+      <sit-breadcrumb-item active><a href="https://www.google.com/">Contacts</a></sit-breadcrumb-item>
+    </sit-breadcrumb>
   `;
 export const args = {};
 

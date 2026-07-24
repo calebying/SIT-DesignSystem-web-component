@@ -4,7 +4,7 @@ import sinon from "sinon";
 import type { SitSidebar, SitSidebarGroup, SitSidebarItem, SitSidebarSection } from "../src/components/Sidebar";
 import "./sit-web-component";
 
-describe("SIT-sidebar", () => {
+describe("sit-sidebar", () => {
   let innerWidthStub: sinon.SinonStub;
 
   beforeEach(() => {
@@ -58,7 +58,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const groups = el.querySelectorAll("SIT-sidebar-group");
+      const groups = el.querySelectorAll("sit-sidebar-group");
       expect(groups.length).to.equal(2);
     });
 
@@ -75,7 +75,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const items = el.querySelectorAll("SIT-sidebar-item");
+      const items = el.querySelectorAll("sit-sidebar-item");
       expect(items.length).to.equal(2);
     });
   });
@@ -126,7 +126,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       expect(group).to.exist;
       expect(group).to.have.attribute("title", "Dashboard");
       expect(group).to.have.attribute("name", "dashboard");
@@ -142,8 +142,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const icon = group.querySelector("SIT-icon[slot='icon']");
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const icon = group.querySelector("sit-icon[slot='icon']");
       expect(icon).to.exist;
     });
 
@@ -158,7 +158,7 @@ describe("SIT-sidebar", () => {
         </sit-sidebar>
       `);
 
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const groupDiv = group.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
       groupDiv.click();
@@ -185,7 +185,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const nestedGroups = rootGroup.querySelectorAll(":scope > sit-sidebar-group");
       expect(nestedGroups.length).to.equal(2);
     });
@@ -201,8 +201,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const nestedGroup = rootGroup.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const nestedGroup = rootGroup.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const chevronIcon = nestedGroup.shadowRoot?.querySelector(".sidebar-item-indicator sit-icon");
       expect(chevronIcon).to.exist;
     });
@@ -224,8 +224,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const nestedGroup = rootGroup.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const nestedGroup = rootGroup.querySelector("sit-sidebar-group") as SitSidebarGroup;
 
       // Initially submenu should be closed
       expect(nestedGroup.showMenu).to.be.false;
@@ -254,10 +254,10 @@ describe("SIT-sidebar", () => {
         </sit-sidebar>
       `);
       const selectHandler = sinon.spy();
-      el.addEventListener("SIT-select", selectHandler);
+      el.addEventListener("sit-select", selectHandler);
 
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const nestedGroup = rootGroup.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const nestedGroup = rootGroup.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const nestedGroupDiv = nestedGroup.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
       nestedGroupDiv.click();
@@ -287,8 +287,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const level2Group = rootGroup.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const level2Group = rootGroup.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const level3Items = level2Group.querySelectorAll(":scope > sit-sidebar-item");
       expect(level3Items.length).to.equal(2);
     });
@@ -310,8 +310,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const level2Group = rootGroup.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const level2Group = rootGroup.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const level3Items = level2Group.querySelectorAll(":scope > sit-sidebar-item");
 
       // Level 2 group should contain 2 items at level 3
@@ -335,8 +335,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const l2 = rootGroup.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const l2 = rootGroup.querySelector("sit-sidebar-group") as SitSidebarGroup;
 
       // Initially level 2 group menu should be closed
       expect(l2.showMenu).to.be.false;
@@ -362,7 +362,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const item = el.querySelector("SIT-sidebar-item") as SitSidebarItem;
+      const item = el.querySelector("sit-sidebar-item") as SitSidebarItem;
       expect(item).to.have.attribute("title", "Dashboard");
       expect(item).to.have.attribute("name", "dashboard");
     });
@@ -378,9 +378,9 @@ describe("SIT-sidebar", () => {
         </sit-sidebar>
       `);
       const selectHandler = sinon.spy();
-      el.addEventListener("SIT-select", selectHandler);
+      el.addEventListener("sit-select", selectHandler);
 
-      const item = el.querySelector("SIT-sidebar-item") as SitSidebarItem;
+      const item = el.querySelector("sit-sidebar-item") as SitSidebarItem;
       const itemDiv = item.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
       itemDiv.click();
 
@@ -398,7 +398,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const item = el.querySelector("SIT-sidebar-item") as SitSidebarItem;
+      const item = el.querySelector("sit-sidebar-item") as SitSidebarItem;
       const itemDiv = item.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
       itemDiv.click();
@@ -421,15 +421,12 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const items = group.querySelectorAll("SIT-sidebar-item");
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const items = group.querySelectorAll("sit-sidebar-item");
 
       expect(items.length).to.equal(2);
       items.forEach((item: Element) => {
-        expect((item as SitSidebarItem).shadowRoot?.querySelector(".sidebar-item")).to.have.attribute(
-          "tabindex",
-          "-1"
-        );
+        expect((item as SitSidebarItem).shadowRoot?.querySelector(".sidebar-item")).to.have.attribute("tabindex", "-1");
       });
     });
 
@@ -441,8 +438,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-item>
         </sit-sidebar>
       `);
-      const item = el.querySelector("SIT-sidebar-item") as SitSidebarItem;
-      const icon = item.querySelector("SIT-icon[slot='icon']");
+      const item = el.querySelector("sit-sidebar-item") as SitSidebarItem;
+      const icon = item.querySelector("sit-icon[slot='icon']");
       expect(icon).to.exist;
     });
   });
@@ -462,9 +459,9 @@ describe("SIT-sidebar", () => {
         </sit-sidebar>
       `);
       const selectHandler = sinon.spy();
-      el.addEventListener("SIT-select", selectHandler);
+      el.addEventListener("sit-select", selectHandler);
 
-      const items = el.querySelectorAll("SIT-sidebar-item");
+      const items = el.querySelectorAll("sit-sidebar-item");
       const firstItemDiv = (items[0] as SitSidebarItem).shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
       firstItemDiv.click();
       await elementUpdated(el);
@@ -485,7 +482,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const groups = el.querySelectorAll("SIT-sidebar-group");
+      const groups = el.querySelectorAll("sit-sidebar-group");
       const dashboardDiv = (groups[0] as SitSidebarGroup).shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
       const reportsDiv = (groups[1] as SitSidebarGroup).shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
@@ -513,9 +510,9 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const nestedGroup = rootGroup.querySelector("SIT-sidebar-group") as SitSidebarGroup;
-      const item = nestedGroup.querySelector("SIT-sidebar-item") as SitSidebarItem;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const nestedGroup = rootGroup.querySelector("sit-sidebar-group") as SitSidebarGroup;
+      const item = nestedGroup.querySelector("sit-sidebar-item") as SitSidebarItem;
 
       el.active = "sales";
       await elementUpdated(el);
@@ -536,7 +533,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const nestedGroup = el.querySelector('SIT-sidebar-group[name="overview"]') as SitSidebarGroup;
+      const nestedGroup = el.querySelector('sit-sidebar-group[name="overview"]') as SitSidebarGroup;
 
       el.active = "sales";
       await elementUpdated(el);
@@ -683,7 +680,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const toggleButton = el.shadowRoot?.querySelector("SIT-icon-button");
+      const toggleButton = el.shadowRoot?.querySelector("sit-icon-button");
       expect(toggleButton).not.to.exist;
     });
 
@@ -697,7 +694,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const toggleButton = el.shadowRoot?.querySelector("SIT-icon-button");
+      const toggleButton = el.shadowRoot?.querySelector("sit-icon-button");
       expect(toggleButton).to.exist;
     });
   });
@@ -813,7 +810,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const groupDiv = group.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
       expect(groupDiv).to.have.class("sidebar-item--collapsed");
     });
@@ -831,7 +828,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const message = rootGroup.shadowRoot?.querySelector(".sidebar-item");
 
       el.collapsed = true;
@@ -853,7 +850,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const rootGroup = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const rootGroup = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const message = rootGroup.shadowRoot?.querySelector(".sidebar-item");
 
       el.collapsed = true;
@@ -872,7 +869,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const item = el.querySelector("SIT-sidebar-item") as SitSidebarItem;
+      const item = el.querySelector("sit-sidebar-item") as SitSidebarItem;
       expect(item.shadowRoot?.querySelector(".sidebar-item")).to.have.class("sidebar-item--collapsed");
     });
 
@@ -886,7 +883,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const item = el.querySelector("SIT-sidebar-item") as SitSidebarItem;
+      const item = el.querySelector("sit-sidebar-item") as SitSidebarItem;
       expect(item.shadowRoot?.querySelector(".sidebar-item")).not.to.have.class("sidebar-item--collapsed");
     });
   });
@@ -908,7 +905,7 @@ describe("SIT-sidebar", () => {
       el.active = "reports";
       await elementUpdated(el);
 
-      const items = el.querySelectorAll("SIT-sidebar-item");
+      const items = el.querySelectorAll("sit-sidebar-item");
       const reportsItem = items[1] as SitSidebarItem;
       expect(reportsItem.shadowRoot?.querySelector(".sidebar-item")).to.have.class("active");
     });
@@ -926,7 +923,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const items = el.querySelectorAll("SIT-sidebar-item");
+      const items = el.querySelectorAll("sit-sidebar-item");
 
       el.active = "dashboard";
       await elementUpdated(el);
@@ -956,9 +953,9 @@ describe("SIT-sidebar", () => {
       el.active = "sales";
       await elementUpdated(el);
 
-      const rootGroup = el.querySelector('SIT-sidebar-group[name="dashboard"]') as SitSidebarGroup;
-      const nestedGroup = rootGroup?.querySelector('SIT-sidebar-group[name="overview"]') as SitSidebarGroup;
-      const item = nestedGroup?.querySelector('SIT-sidebar-item[name="sales"]') as SitSidebarItem;
+      const rootGroup = el.querySelector('sit-sidebar-group[name="dashboard"]') as SitSidebarGroup;
+      const nestedGroup = rootGroup?.querySelector('sit-sidebar-group[name="overview"]') as SitSidebarGroup;
+      const item = nestedGroup?.querySelector('sit-sidebar-item[name="sales"]') as SitSidebarItem;
 
       if (item) {
         expect(item.shadowRoot?.querySelector(".sidebar-item")).to.have.class("active");
@@ -989,9 +986,9 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      expect(el.querySelector("SIT-sidebar-group")).to.exist;
-      expect(el.querySelector("SIT-sidebar-item")).to.exist;
-      const nestedItem = el.querySelector("SIT-sidebar-group sit-sidebar-item");
+      expect(el.querySelector("sit-sidebar-group")).to.exist;
+      expect(el.querySelector("sit-sidebar-item")).to.exist;
+      const nestedItem = el.querySelector("sit-sidebar-group sit-sidebar-item");
       expect(nestedItem).to.exist;
     });
 
@@ -1014,8 +1011,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const dashboardGroup = el.querySelector('SIT-sidebar-group[name="dashboard"]') as SitSidebarGroup;
-      const reportsGroup = el.querySelector('SIT-sidebar-group[name="reports"]') as SitSidebarGroup;
+      const dashboardGroup = el.querySelector('sit-sidebar-group[name="dashboard"]') as SitSidebarGroup;
+      const reportsGroup = el.querySelector('sit-sidebar-group[name="reports"]') as SitSidebarGroup;
       expect(dashboardGroup).to.exist;
       expect(reportsGroup).to.exist;
 
@@ -1048,8 +1045,8 @@ describe("SIT-sidebar", () => {
         </sit-sidebar>
       `);
 
-      const l1a = el.querySelector('SIT-sidebar-group[name="l1a"]') as SitSidebarGroup;
-      const l1b = el.querySelector('SIT-sidebar-group[name="l1b"]') as SitSidebarGroup;
+      const l1a = el.querySelector('sit-sidebar-group[name="l1a"]') as SitSidebarGroup;
+      const l1b = el.querySelector('sit-sidebar-group[name="l1b"]') as SitSidebarGroup;
 
       // Click L1-A to make it active
       const l1aDiv = l1a.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
@@ -1078,13 +1075,13 @@ describe("SIT-sidebar", () => {
       `);
 
       // Grab references before the drawer moves them out of the light DOM
-      const meetings = el.querySelector('SIT-sidebar-item[name="meetings"]') as SitSidebarItem;
-      const refunds = el.querySelector('SIT-sidebar-item[name="refunds"]') as SitSidebarItem;
-      const summaryGroup = el.querySelector('SIT-sidebar-group[name="summary"]') as SitSidebarGroup;
+      const meetings = el.querySelector('sit-sidebar-item[name="meetings"]') as SitSidebarItem;
+      const refunds = el.querySelector('sit-sidebar-item[name="refunds"]') as SitSidebarItem;
+      const summaryGroup = el.querySelector('sit-sidebar-group[name="summary"]') as SitSidebarGroup;
 
       // Open drawer by clicking Dashboard
       const dashboardDiv = (
-        el.querySelector('SIT-sidebar-group[name="dashboard"]') as SitSidebarGroup
+        el.querySelector('sit-sidebar-group[name="dashboard"]') as SitSidebarGroup
       ).shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
       dashboardDiv.click();
       await elementUpdated(el);
@@ -1113,8 +1110,8 @@ describe("SIT-sidebar", () => {
     it("handles empty sidebar without errors", async () => {
       const el = await fixture<SitSidebar>(html`<sit-sidebar></sit-sidebar>`);
       expect(el).to.exist;
-      expect(el.querySelectorAll("SIT-sidebar-group").length).to.equal(0);
-      expect(el.querySelectorAll("SIT-sidebar-item").length).to.equal(0);
+      expect(el.querySelectorAll("sit-sidebar-group").length).to.equal(0);
+      expect(el.querySelectorAll("sit-sidebar-item").length).to.equal(0);
     });
 
     it("renders elements gracefully when required attributes are missing", async () => {
@@ -1126,8 +1123,8 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      expect(el.querySelector("SIT-sidebar-group")).to.exist;
-      expect(el.querySelector("SIT-sidebar-item")).to.exist;
+      expect(el.querySelector("sit-sidebar-group")).to.exist;
+      expect(el.querySelector("sit-sidebar-item")).to.exist;
     });
 
     it("deselects all items when active is set to non-existent name", async () => {
@@ -1143,7 +1140,7 @@ describe("SIT-sidebar", () => {
       el.active = "non-existent";
       await elementUpdated(el);
       // Should not throw and should deselect current item
-      const item = el.querySelector("SIT-sidebar-item") as SitSidebarItem;
+      const item = el.querySelector("sit-sidebar-item") as SitSidebarItem;
       expect(item.shadowRoot?.querySelector(".sidebar-item")).not.to.have.class("active");
     });
 
@@ -1160,7 +1157,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const items = el.querySelectorAll("SIT-sidebar-item");
+      const items = el.querySelectorAll("sit-sidebar-item");
       const dashboardDiv = (items[0] as SitSidebarItem).shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
       const reportsDiv = (items[1] as SitSidebarItem).shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
@@ -1201,7 +1198,7 @@ describe("SIT-sidebar", () => {
         </sit-sidebar>
       `);
       const scrimDiv = el.shadowRoot?.querySelector(".sidebar--overlay");
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const groupDiv = group.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
       groupDiv.click();
@@ -1251,14 +1248,14 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const groupDiv = group.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
       groupDiv.click();
       await elementUpdated(el);
 
       const drawer = el.shadowRoot?.querySelector(".sidebar-nested-overlay");
-      const drawerItems = drawer?.querySelectorAll("SIT-sidebar-item");
+      const drawerItems = drawer?.querySelectorAll("sit-sidebar-item");
       expect(drawerItems?.length).to.equal(2);
     });
 
@@ -1274,18 +1271,18 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-group>
         </sit-sidebar>
       `);
-      const groups = el.querySelectorAll("SIT-sidebar-group");
+      const groups = el.querySelectorAll("sit-sidebar-group");
       const dashboardDiv = (groups[0] as SitSidebarGroup).shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
       const reportsDiv = (groups[1] as SitSidebarGroup).shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
       dashboardDiv.click();
       await elementUpdated(el);
       const drawer = el.shadowRoot?.querySelector(".sidebar-nested-overlay");
-      expect(drawer?.querySelectorAll("SIT-sidebar-item").length).to.equal(1);
+      expect(drawer?.querySelectorAll("sit-sidebar-item").length).to.equal(1);
 
       reportsDiv.click();
       await elementUpdated(el);
-      expect(drawer?.querySelectorAll("SIT-sidebar-item").length).to.equal(2);
+      expect(drawer?.querySelectorAll("sit-sidebar-item").length).to.equal(2);
     });
   });
 
@@ -1304,7 +1301,7 @@ describe("SIT-sidebar", () => {
         </sit-sidebar>
       `);
       const scrimDiv = el.shadowRoot?.querySelector(".sidebar--overlay");
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const groupDiv = group.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
       groupDiv.click();
@@ -1326,7 +1323,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const group = el.querySelector("SIT-sidebar-group") as SitSidebarGroup;
+      const group = el.querySelector("sit-sidebar-group") as SitSidebarGroup;
       const groupDiv = group.shadowRoot?.querySelector(".sidebar-item") as HTMLElement;
 
       groupDiv.click();
@@ -1390,7 +1387,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main Navigation" name="main"></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       expect(section).to.exist;
       expect(section).to.have.attribute("title", "Main Navigation");
     });
@@ -1401,7 +1398,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main"></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       const titleText = section?.shadowRoot?.querySelector(".sidebar-section-label span");
       expect(titleText?.textContent).to.include("Main");
     });
@@ -1412,7 +1409,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main"></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section") as SitSidebarSection;
+      const section = el.querySelector("sit-sidebar-section") as SitSidebarSection;
       expect(section.collapsed).to.be.false;
     });
 
@@ -1422,7 +1419,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main"></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section") as SitSidebarSection;
+      const section = el.querySelector("sit-sidebar-section") as SitSidebarSection;
       expect(section.collapsible).to.be.false;
     });
 
@@ -1432,7 +1429,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main" collapsible></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       const chevron = section?.shadowRoot?.querySelector(".sidebar-section-label sit-icon");
       expect(chevron).to.exist;
     });
@@ -1443,7 +1440,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main"></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       const chevron = section?.shadowRoot?.querySelector(".sidebar-section-label sit-icon");
       expect(chevron).not.to.exist;
     });
@@ -1454,7 +1451,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main" collapsible></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section") as SitSidebarSection;
+      const section = el.querySelector("sit-sidebar-section") as SitSidebarSection;
       const sectionLabel = section.shadowRoot?.querySelector(".sidebar-section-label") as HTMLElement;
 
       expect(section.collapsed).to.be.false;
@@ -1476,7 +1473,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main" collapsible collapsed></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       const sectionLabel = section?.shadowRoot?.querySelector(".sidebar-section-label") as HTMLElement;
 
       expect(sectionLabel).to.have.attribute("aria-expanded", "false");
@@ -1495,9 +1492,9 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
-      const items = section?.querySelectorAll("SIT-sidebar-item");
-      const groups = section?.querySelectorAll("SIT-sidebar-group");
+      const section = el.querySelector("sit-sidebar-section");
+      const items = section?.querySelectorAll("sit-sidebar-item");
+      const groups = section?.querySelectorAll("sit-sidebar-group");
 
       expect(items?.length).to.equal(1);
       expect(groups?.length).to.equal(1);
@@ -1513,7 +1510,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       const content = section?.shadowRoot?.querySelector(".sidebar-section-content");
 
       expect(content).to.have.class("sidebar-section-content--collapsed");
@@ -1529,7 +1526,7 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       const content = section?.shadowRoot?.querySelector(".sidebar-section-content");
 
       expect(content).not.to.have.class("sidebar-section-content--collapsed");
@@ -1541,7 +1538,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main" collapsible></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section") as SitSidebarSection;
+      const section = el.querySelector("sit-sidebar-section") as SitSidebarSection;
 
       expect(section).not.to.have.attribute("collapsed");
 
@@ -1557,7 +1554,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main"></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
 
       expect(section).to.have.attribute("role", "group");
     });
@@ -1570,7 +1567,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Configuration" name="config"></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const sections = el.querySelectorAll("SIT-sidebar-section");
+      const sections = el.querySelectorAll("sit-sidebar-section");
 
       expect(sections.length).to.equal(3);
     });
@@ -1581,7 +1578,7 @@ describe("SIT-sidebar", () => {
           <sit-sidebar-section title="Main" name="main" collapsible></sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       const sectionLabel = section?.shadowRoot?.querySelector(".sidebar-section-label") as HTMLElement;
       const chevronIcon = section?.shadowRoot?.querySelector(".sidebar-section-label sit-icon");
 
@@ -1603,13 +1600,10 @@ describe("SIT-sidebar", () => {
           </sit-sidebar-section>
         </sit-sidebar>
       `);
-      const section = el.querySelector("SIT-sidebar-section");
+      const section = el.querySelector("sit-sidebar-section");
       const sectionDiv = section?.shadowRoot?.querySelector(".sidebar-section");
 
       expect(sectionDiv).to.have.class("sidebar-section--collapsed");
     });
   });
 });
-
-
-

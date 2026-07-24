@@ -4,7 +4,7 @@ import { expect, fixture, html, oneEvent, waitUntil, assert, elementUpdated } fr
 import sinon from "sinon";
 import { sendKeys, sendMouse } from "@web/test-runner-commands";
 
-describe("SIT-input", () => {
+describe("sit-input", () => {
   it("renders with default values", async () => {
     const el = await fixture(html`<sit-input inputId="test-id" label="label" hintText="hello"></sit-input>`);
     assert.shadowDom.equal(
@@ -102,9 +102,7 @@ describe("SIT-input", () => {
     expect(hintText?.getAttribute("id")).to.contain(input?.getAttribute("id"));
   });
   it("input's aria-describedby points to hint text id and invalid-feedback id", async () => {
-    const el = await fixture<SitInput>(
-      html`<sit-input label="label" hintText="hello" hasFeedback="both"></sit-input>`
-    );
+    const el = await fixture<SitInput>(html`<sit-input label="label" hintText="hello" hasFeedback="both"></sit-input>`);
     const input = el.shadowRoot?.querySelector("input");
     const hintText = el.shadowRoot?.querySelector("div.form-text");
     expect(input?.getAttribute("aria-describedby")).to.contain(hintText?.getAttribute("id"));
@@ -220,7 +218,7 @@ describe("SIT-input", () => {
     const label = el.shadowRoot?.querySelector("label");
     const submitHandler = sinon.spy();
 
-    el.addEventListener("SIT-focus", submitHandler);
+    el.addEventListener("sit-focus", submitHandler);
     (label as HTMLElement).click();
     await waitUntil(() => submitHandler.calledOnce);
 
@@ -228,15 +226,15 @@ describe("SIT-input", () => {
   });
 });
 
-describe("SIT-input type='password'", () => {
+describe("sit-input type='password'", () => {
   it("when type=password, eye-fill icon should appear", async () => {
     const el = await fixture<SitInput>(html` <sit-input type="password"></sit-input> `);
-    const icon = el.shadowRoot?.querySelector<SitIcon>("SIT-icon");
+    const icon = el.shadowRoot?.querySelector<SitIcon>("sit-icon");
     expect(icon?.name).to.equal("eye-fill");
   });
   it("when eye-fill icon is clicked, it becomes eye-slash-fill icon", async () => {
     const el = await fixture<SitInput>(html` <sit-input type="password"></sit-input> `);
-    const icon = el.shadowRoot?.querySelector<SitIcon>("SIT-icon");
+    const icon = el.shadowRoot?.querySelector<SitIcon>("sit-icon");
     expect(icon?.name).to.equal("eye-fill");
 
     icon?.click();
@@ -245,7 +243,7 @@ describe("SIT-input type='password'", () => {
   });
   it("when eye-fill icon is clicked, shadow dom input's type becomes text to show password", async () => {
     const el = await fixture<SitInput>(html` <sit-input type="password"></sit-input> `);
-    const icon = el.shadowRoot?.querySelector<SitIcon>("SIT-icon");
+    const icon = el.shadowRoot?.querySelector<SitIcon>("sit-icon");
     expect(icon?.name).to.equal("eye-fill");
 
     icon?.click();
@@ -460,7 +458,7 @@ describe("when calling HTMLFormElement.reportValidity()", () => {
     const el = await fixture<SitInput>(html` <sit-input></sit-input> `);
     const inputHandler = sinon.spy();
     el.focus();
-    el.addEventListener("SIT-input", inputHandler);
+    el.addEventListener("sit-input", inputHandler);
     await sendKeys({ press: "A" });
     waitUntil(() => inputHandler.calledOnce);
     expect(inputHandler).to.have.been.calledOnce;
@@ -475,7 +473,7 @@ describe("when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
 
     form.addEventListener("submit", submitHandler);
@@ -491,7 +489,7 @@ describe("when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -507,7 +505,7 @@ describe("when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(false);
     form.addEventListener("submit", submitHandler);
@@ -522,7 +520,7 @@ describe("when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -544,8 +542,8 @@ describe("when resetting a form", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const button = form.querySelector<SitButton>("SIT-button");
-    const input = form.querySelector<SitInput>("SIT-input");
+    const button = form.querySelector<SitButton>("sit-button");
+    const input = form.querySelector<SitInput>("sit-input");
     expect(input?.defaultValue).to.equal("test");
     if (input) input.value = "1234";
     // defaultValue should still be test as set when first created
@@ -574,8 +572,8 @@ describe("when resetting a form", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const button = form.querySelector<SitButton>("SIT-button");
-    const input = form.querySelector<SitInput>("SIT-input");
+    const button = form.querySelector<SitButton>("sit-button");
+    const input = form.querySelector<SitInput>("sit-input");
     expect(input?.invalid).to.equal(true);
 
     setTimeout(() => button?.click());
@@ -597,7 +595,7 @@ describe("noValidate disables native and sit validation behaviours", async () =>
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
@@ -612,7 +610,7 @@ describe("noValidate disables native and sit validation behaviours", async () =>
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
@@ -624,13 +622,13 @@ describe("noValidate disables native and sit validation behaviours", async () =>
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const input = form.querySelector<SitInput>("SIT-input");
+    const input = form.querySelector<SitInput>("sit-input");
     if (input) input.value = "tes";
     await input?.updateComplete;
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
@@ -642,7 +640,7 @@ describe("noValidate disables native and sit validation behaviours", async () =>
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const input = form.querySelector<SitInput>("SIT-input");
+    const input = form.querySelector<SitInput>("sit-input");
     input?.focus();
     input?.blur();
     await input?.updateComplete;
@@ -656,8 +654,8 @@ describe("noValidate disables native and sit validation behaviours", async () =>
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const input = form.querySelector<SitInput>("SIT-input");
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const input = form.querySelector<SitInput>("sit-input");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -676,12 +674,12 @@ describe("noValidate disables native and sit validation behaviours", async () =>
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const input = form.querySelector<SitInput>("SIT-input");
+    const input = form.querySelector<SitInput>("sit-input");
 
     if (input) input.value = "updated-value";
     await input?.updateComplete;
 
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy(async (event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -703,12 +701,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const input = form.querySelector<SitInput>("SIT-input");
+    const input = form.querySelector<SitInput>("sit-input");
     input?.setInvalid(true);
     await input?.updateComplete;
     expect(input?.invalid).to.be.true;
 
-    form.querySelector<SitButton>("SIT-button")?.click();
+    form.querySelector<SitButton>("sit-button")?.click();
     await waitUntil(() => input?.invalid === false);
     expect(input?.invalid).to.be.false;
   });
@@ -720,12 +718,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const input = form.querySelector<SitInput>("SIT-input");
+    const input = form.querySelector<SitInput>("sit-input");
     input?.setInvalid(true);
     await input?.updateComplete;
     expect(input?.invalid).to.be.true;
 
-    form.querySelector<SitButton>("SIT-button")?.click();
+    form.querySelector<SitButton>("sit-button")?.click();
     await waitUntil(() => input?.invalid === false);
     expect(input?.invalid).to.be.false;
   });
@@ -739,7 +737,7 @@ describe("form novalidate", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -754,7 +752,7 @@ describe("form novalidate", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const input = form.querySelector<SitInput>("SIT-input");
+    const input = form.querySelector<SitInput>("sit-input");
     input?.focus();
     input?.blur();
     await input?.updateComplete;
@@ -768,7 +766,7 @@ describe("form novalidate", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -787,12 +785,12 @@ describe("form novalidate", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const input = form.querySelector<SitInput>("SIT-input");
+    const input = form.querySelector<SitInput>("sit-input");
 
     if (input) input.value = "updated-value";
     await input?.updateComplete;
 
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy(async (event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -805,7 +803,3 @@ describe("form novalidate", () => {
     expect(submitHandler).to.have.been.calledOnce;
   });
 });
-
-
-
-

@@ -3,8 +3,8 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args => {
   return html`
-    <div class="sgds:flex sgds:flex-col sgds:gap-layout-xs">
-      <sgds-checkbox-group
+    <div class="sit:flex sit:flex-col sit:gap-layout-xs">
+      <sit-checkbox-group
         label=${ifDefined(args.label)}
         invalidFeedback=${ifDefined(args.invalidFeedback)}
         ?hasFeedback=${args.hasFeedback}
@@ -14,11 +14,11 @@ export const Template = args => {
         name=${ifDefined(args.name)}
         ?invalid=${args.invalid}
       >
-        <sgds-checkbox value="watermelon">Watermelon</sgds-checkbox>
-        <sgds-checkbox value="apple">Apple</sgds-checkbox>
-        <sgds-checkbox value="lychee">Lychee</sgds-checkbox>
-      </sgds-checkbox-group>
-      <sgds-checkbox
+        <sit-checkbox value="watermelon">Watermelon</sit-checkbox>
+        <sit-checkbox value="apple">Apple</sit-checkbox>
+        <sit-checkbox value="lychee">Lychee</sit-checkbox>
+      </sit-checkbox-group>
+      <sit-checkbox
         name=${ifDefined(args.name)}
         ?disabled=${args.disabled}
         value=${ifDefined(args.value)}
@@ -28,7 +28,7 @@ export const Template = args => {
         ?indeterminate=${args.indeterminate}
         >Individual Checkbox. I agree to ...Lorem ipsum dolor sit amet. Et itaque natus sit laborum voluptatem aut rerum
         ducimus eum tenetur molestias quo reiciendis ratione aut eaque voluptates est
-      </sgds-checkbox>
+      </sit-checkbox>
     </div>
   `;
 };

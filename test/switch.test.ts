@@ -41,7 +41,7 @@ describe("<sit-switch>", () => {
   it("emits sit-change event on toggle", async () => {
     const el = await fixture<SitSwitch>(html`<sit-switch></sit-switch>`);
     const input = el.shadowRoot?.querySelector("input");
-    const listener = oneEvent(el, "SIT-change");
+    const listener = oneEvent(el, "sit-change");
 
     input?.click();
 
@@ -119,6 +119,3 @@ describe("<sit-switch>", () => {
     expect(el.checked).to.be.true;
   });
 });
-
-
-

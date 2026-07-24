@@ -2,7 +2,7 @@ import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args => html`
-  <sgds-file-upload
+  <sit-file-upload
     variant=${ifDefined(args.variant)}
     ?disabled=${args.disabled}
     accept=${ifDefined(args.accept)}
@@ -15,7 +15,7 @@ export const Template = args => html`
     invalidFeedback=${ifDefined(args.invalidFeedback)}
     ?required=${args.required}
     ?noValidate=${args.noValidate}
-    >${args.multiple ? "Choose files" : "Choose file"}</sgds-file-upload
+    >${args.multiple ? "Choose files" : "Choose file"}</sit-file-upload
   >
 `;
 

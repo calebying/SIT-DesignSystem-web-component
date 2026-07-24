@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { SitImageCard } from "../src/components";
 import "../src/index";
 
-describe("SIT-image-card", () => {
+describe("sit-image-card", () => {
   it("renders with default properties", async () => {
     const el = await fixture<SitImageCard>(html`<sit-image-card></sit-image-card>`);
     expect(el).to.exist;
@@ -164,5 +164,3 @@ describe("SIT-image-card", () => {
     expect(tinted).to.exist;
   });
 });
-
-

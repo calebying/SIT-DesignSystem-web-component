@@ -31,7 +31,7 @@ export const Template = args => {
   }[headerPositionVal];
 
   return html`
-    <sgds-table
+    <sit-table
       headerPosition=${headerPositionVal}
       responsive=${args.responsive}
       layout=${args.layout}
@@ -41,7 +41,7 @@ export const Template = args => {
       ?headerBackground=${args.headerBackground}
       ?tableBorder=${args.tableBorder}
     >
-    </sgds-table>
+    </sit-table>
   `;
 };
 

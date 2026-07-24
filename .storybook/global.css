@@ -11,19 +11,19 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
 }
-sgds-card.intro::part(base) {
+sit-card.intro::part(base) {
   border: none;
   background-color: #f6f7fb;
   border-radius: 24px;
   height: 100%;
 }
 /* FAQ stylings */
-sgds-card.faq::part(base) {
+sit-card.faq::part(base) {
   border: none;
   background-color: #f6f7fb;
   border-radius: 24px;
 }
-sgds-faq-grid {
+sit-faq-grid {
   display: grid;
   grid-template-columns: 3fr 1fr;
   row-gap: 1rem;
@@ -33,34 +33,34 @@ sgds-faq-grid {
 .d-flex-column {
   display: flex;
   flex-direction: column;
-  gap: var(--sgds-gap-sm);
+  gap: var(--sit-gap-sm);
 }
 .d-flex-row {
   display: flex;
   flex-direction: row;
-  gap: var(--sgds-gap-sm);
+  gap: var(--sit-gap-sm);
 }
 .flex-wrap {
   flex-wrap: wrap;
 }
 .docs-story{
-  background: var(--sgds-bg-default);
+  background: var(--sit-bg-default);
 }
 .sb-story{
-  padding: var(--sgds-padding-xs);
-  margin: calc(var(--sgds-margin-xs) * -1);
+  padding: var(--sit-padding-xs);
+  margin: calc(var(--sit-margin-xs) * -1);
 }
 ul.toc-list > * {
-  font-size: var(--sgds-font-size-14);
+  font-size: var(--sit-font-size-14);
 }
 .grid-item {
-  background-color: var(--sgds-product-primary-600);
+  background-color: var(--sit-product-primary-600);
   color: white;
   text-align: center;
   padding: 16px;
   border-radius: 4px;
 }
 /* https://github.com/storybookjs/storybook/issues/23586 */
-.docs-story :not(.sb-story *):not(:has(sgds-toast-container)) {
+.docs-story :not(.sb-story *):not(:has(sit-toast-container)) {
   transform: none;
 }

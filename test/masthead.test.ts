@@ -3,13 +3,13 @@ import type { SitMasthead } from "../src/components";
 import { fixture, assert, expect, elementUpdated } from "@open-wc/testing";
 import { html } from "lit";
 
-describe("SIT-masthead", () => {
+describe("sit-masthead", () => {
   it("renders with default values", async () => {
     const el = await fixture(html`<sit-masthead></sit-masthead>`);
     assert.shadowDom.equal(
       el,
       ` 
-    <div id="SIT-masthead" class="SIT-masthead">
+    <div id="sit-masthead" class="sit-masthead">
         <div class="banner">
           <div class="container">
             <div class="masthead-layout">
@@ -49,12 +49,12 @@ describe("SIT-masthead", () => {
               <div class="masthead-text-layout">
                 <span>A Singapore Government Agency Website</span>
                 <div
-                  class="SIT-masthead-button"
-                  id="SIT-masthead-identify"
+                  class="sit-masthead-button"
+                  id="sit-masthead-identify"
                   role="button"
                   tabindex="0"
                   aria-expanded="false"
-                  aria-controls="SIT-masthead-content"
+                  aria-controls="sit-masthead-content"
                 >
                   <span>How to identify</span>
                   <svg
@@ -63,7 +63,7 @@ describe("SIT-masthead", () => {
                     height="20"
                     viewBox="0 0 20 20"
                     fill="currentColor"
-                    class="SIT-masthead-identify-icon"
+                    class="sit-masthead-identify-icon"
                   >
                     <path
                       fill-rule="evenodd"
@@ -80,7 +80,7 @@ describe("SIT-masthead", () => {
 
         <div class="panel">
           <div
-            id="SIT-masthead-content"
+            id="sit-masthead-content"
             class="container sit-masthead-content"
           >
             <div class="content-grid">
@@ -164,10 +164,10 @@ describe("SIT-masthead", () => {
 
   it("when clicked on #sit-masthead-identify, shows #sit-masthead-content", async () => {
     const el = await fixture<SitMasthead>(html`<sit-masthead></sit-masthead>`);
-    expect(el.shadowRoot?.getElementById("SIT-masthead-content")?.classList.value).not.to.contain("show");
-    el.shadowRoot?.getElementById("SIT-masthead-identify")?.click();
+    expect(el.shadowRoot?.getElementById("sit-masthead-content")?.classList.value).not.to.contain("show");
+    el.shadowRoot?.getElementById("sit-masthead-identify")?.click();
     await elementUpdated(el);
-    expect(el.shadowRoot?.getElementById("SIT-masthead-content")).to.have.class("show");
+    expect(el.shadowRoot?.getElementById("sit-masthead-content")).to.have.class("show");
   });
 
   it("toggles panel with keyboard (Enter)", async () => {
@@ -208,6 +208,3 @@ describe("SIT-masthead", () => {
     });
   });
 });
-
-
-

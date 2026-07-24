@@ -46,5 +46,3 @@ describe("<sit-table-of-contents>", () => {
     expect(el.textContent).to.include("Section 2");
   });
 });
-
-

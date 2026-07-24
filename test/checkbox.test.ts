@@ -7,9 +7,7 @@ import "./sit-web-component";
 
 describe("<sit-checkbox>", () => {
   it("can be semantically compare with shadowDom trees (default)", async () => {
-    const el = await fixture<SitCheckbox>(
-      html`<sit-checkbox name="testname" value="testvalue">label</sit-checkbox>`
-    );
+    const el = await fixture<SitCheckbox>(html`<sit-checkbox name="testname" value="testvalue">label</sit-checkbox>`);
     assert.shadowDom.equal(
       el,
       `
@@ -114,7 +112,7 @@ describe("<sit-checkbox>", () => {
   it("should emit sit-change event when input is clicked", async () => {
     const el = await fixture(html`<sit-checkbox></sit-checkbox>`);
     const toggleHandler = Sinon.spy();
-    el.addEventListener("SIT-change", toggleHandler);
+    el.addEventListener("sit-change", toggleHandler);
     el.shadowRoot?.querySelector("input")?.click();
     expect(toggleHandler).to.have.been.calledOnce;
   });
@@ -122,7 +120,7 @@ describe("<sit-checkbox>", () => {
   it("should emit sit-change event when label is clicked", async () => {
     const el = await fixture(html`<sit-checkbox></sit-checkbox>`);
     const toggleHandler = Sinon.spy();
-    el.addEventListener("SIT-change", toggleHandler);
+    el.addEventListener("sit-change", toggleHandler);
     el.shadowRoot?.querySelector("label")?.click();
     expect(toggleHandler).to.have.been.calledOnce;
   });
@@ -239,8 +237,8 @@ describe("<sit-checkbox>", () => {
     const form = await fixture<HTMLFormElement>(
       html` <form><sit-checkbox required></sit-checkbox><sit-button type="submit"></sit-button></form> `
     );
-    const button = form.querySelector<SitButton>("SIT-button");
-    const checkbox = form.querySelector<SitCheckbox>("SIT-checkbox");
+    const button = form.querySelector<SitButton>("sit-button");
+    const checkbox = form.querySelector<SitCheckbox>("sit-checkbox");
 
     const clickSpy = Sinon.spy();
 
@@ -329,7 +327,7 @@ describe("<sit-checkbox>", () => {
       </sit-checkbox-group>
     `);
 
-    const checkbox = group.querySelector<SitCheckbox>("SIT-checkbox");
+    const checkbox = group.querySelector<SitCheckbox>("sit-checkbox");
     if (checkbox) {
       checkbox.invalid = false;
       await elementUpdated(checkbox);
@@ -346,7 +344,7 @@ describe("<sit-checkbox>", () => {
       </sit-checkbox-group>
     `);
 
-    const checkbox = group.querySelector<SitCheckbox>("SIT-checkbox");
+    const checkbox = group.querySelector<SitCheckbox>("sit-checkbox");
     if (checkbox) {
       checkbox.invalid = true;
       await elementUpdated(checkbox);
@@ -368,8 +366,8 @@ describe("<sit-checkbox>", () => {
       event.preventDefault(); // Prevent page navigation
     });
 
-    const checkbox = form.querySelector<SitCheckbox>("SIT-checkbox");
-    const button = form.querySelector<SitButton>("SIT-button");
+    const checkbox = form.querySelector<SitCheckbox>("sit-checkbox");
+    const button = form.querySelector<SitButton>("sit-button");
 
     if (checkbox) {
       checkbox.checked = false;
@@ -391,8 +389,8 @@ describe("<sit-checkbox>", () => {
       event.preventDefault(); // Prevent page navigation
     });
 
-    const checkbox = form.querySelector<SitCheckbox>("SIT-checkbox");
-    const button = form.querySelector<SitButton>("SIT-button");
+    const checkbox = form.querySelector<SitCheckbox>("sit-checkbox");
+    const button = form.querySelector<SitButton>("sit-button");
 
     if (checkbox) {
       checkbox.checked = false;
@@ -412,8 +410,8 @@ describe("<sit-checkbox>", () => {
     form.addEventListener("submit", submitHandler);
     expect(form.reportValidity()).to.equal(true);
 
-    const checkbox = form.querySelector<SitCheckbox>("SIT-checkbox");
-    const button = form.querySelector<SitButton>("SIT-button");
+    const checkbox = form.querySelector<SitCheckbox>("sit-checkbox");
+    const button = form.querySelector<SitButton>("sit-button");
 
     if (checkbox) {
       await elementUpdated(checkbox);
@@ -433,8 +431,8 @@ describe("<sit-checkbox>", () => {
     form.addEventListener("submit", submitHandler);
     expect(form.reportValidity()).to.equal(false);
 
-    const checkbox = form.querySelector<SitCheckbox>("SIT-checkbox");
-    const button = form.querySelector<SitButton>("SIT-button");
+    const checkbox = form.querySelector<SitCheckbox>("sit-checkbox");
+    const button = form.querySelector<SitButton>("sit-button");
 
     if (checkbox) {
       await elementUpdated(checkbox);
@@ -454,8 +452,8 @@ describe("<sit-checkbox>", () => {
     form.addEventListener("submit", submitHandler);
     expect(form.reportValidity()).to.equal(true);
 
-    const checkbox = form.querySelector<SitCheckbox>("SIT-checkbox");
-    const button = form.querySelector<SitButton>("SIT-button");
+    const checkbox = form.querySelector<SitCheckbox>("sit-checkbox");
+    const button = form.querySelector<SitButton>("sit-button");
 
     if (checkbox) {
       await elementUpdated(checkbox);
@@ -470,7 +468,7 @@ describe("<sit-checkbox>", () => {
         <sit-checkbox></sit-checkbox>
       </form>
     `);
-    const checkbox = form.querySelector<SitCheckbox>("SIT-checkbox");
+    const checkbox = form.querySelector<SitCheckbox>("sit-checkbox");
     checkbox?.click();
     await checkbox?.updateComplete;
     expect(checkbox?.checked).to.be.true;
@@ -485,7 +483,7 @@ describe("<sit-checkbox>", () => {
         <sit-checkbox required></sit-checkbox>
       </form>
     `);
-    const checkbox = form.querySelector<SitCheckbox>("SIT-checkbox");
+    const checkbox = form.querySelector<SitCheckbox>("sit-checkbox");
     await checkbox?.updateComplete;
     checkbox?.reportValidity();
     expect(checkbox?.invalid).to.be.true;
@@ -522,7 +520,7 @@ describe("<sit-checkbox>", () => {
   });
 });
 
-describe("SIT-checkbox-group", () => {
+describe("sit-checkbox-group", () => {
   it("on initial render, if any checkboxes are checked, value is saved in checkboxgroup", async () => {
     const el = await fixture<SitCheckboxGroup>(html`
       <sit-checkbox-group>
@@ -530,7 +528,7 @@ describe("SIT-checkbox-group", () => {
         <sit-checkbox value="him" checked>him</sit-checkbox>
       </sit-checkbox-group>
     `);
-    const checkboxes = el.querySelectorAll<SitCheckbox>("SIT-checkbox");
+    const checkboxes = el.querySelectorAll<SitCheckbox>("sit-checkbox");
     await elementUpdated(el);
     checkboxes.forEach(async c => await elementUpdated(c));
 
@@ -544,7 +542,7 @@ describe("SIT-checkbox-group", () => {
         <sit-checkbox value="him">him</sit-checkbox>
       </sit-checkbox-group>
     `);
-    const checkboxes = el.querySelectorAll("SIT-checkbox");
+    const checkboxes = el.querySelectorAll("sit-checkbox");
     checkboxes.forEach(c => expect(c.disabled).to.be.true);
   });
   it("on initial render, if a child has required set to true, delete the checkbox and send console error", async () => {
@@ -558,7 +556,7 @@ describe("SIT-checkbox-group", () => {
     await el.updateComplete;
     await waitUntil(() => consoleStub.calledOnce);
     expect(consoleStub.calledOnce).to.be.true;
-    expect(el.querySelectorAll("SIT-checkbox").length).to.equal(1);
+    expect(el.querySelectorAll("sit-checkbox").length).to.equal(1);
   });
   it("on initial render, if invalid prop is set to true, should reflect checkboxes child invalid state", async () => {
     const el = await fixture<SitCheckboxGroup>(html`
@@ -567,7 +565,7 @@ describe("SIT-checkbox-group", () => {
         <sit-checkbox value="him">him</sit-checkbox>
       </sit-checkbox-group>
     `);
-    const checkboxes = el.querySelectorAll("SIT-checkbox") as NodeListOf<SitCheckbox>;
+    const checkboxes = el.querySelectorAll("sit-checkbox") as NodeListOf<SitCheckbox>;
     checkboxes.forEach(c => expect(c.invalid).to.be.true);
 
     expect(el.shadowRoot?.querySelector(".invalid-feedback-container")).to.exist;
@@ -582,7 +580,7 @@ describe("SIT-checkbox-group", () => {
 
     el.value = "he";
     await el.updateComplete;
-    const heCheckbox = el.querySelector<SitCheckbox>("SIT-checkbox[value='he']");
+    const heCheckbox = el.querySelector<SitCheckbox>("sit-checkbox[value='he']");
     expect(heCheckbox?.checked).to.be.true;
   });
   it("value prop should properly reflect checked children in initial render", async () => {
@@ -594,7 +592,7 @@ describe("SIT-checkbox-group", () => {
       </sit-checkbox-group>
     `);
     await el.updateComplete;
-    const [one, two, three] = el.querySelectorAll<SitCheckbox>("SIT-checkbox") as NodeListOf<SitCheckbox>;
+    const [one, two, three] = el.querySelectorAll<SitCheckbox>("sit-checkbox") as NodeListOf<SitCheckbox>;
     expect(one.checked).to.be.true;
     expect(two.checked).to.be.true;
     expect(three.checked).to.be.false;
@@ -608,7 +606,7 @@ describe("SIT-checkbox-group", () => {
       </sit-checkbox-group>
     `);
     expect(el.value).to.equal("");
-    const [one, two, three] = el.querySelectorAll<SitCheckbox>("SIT-checkbox") as NodeListOf<SitCheckbox>;
+    const [one, two, three] = el.querySelectorAll<SitCheckbox>("sit-checkbox") as NodeListOf<SitCheckbox>;
     //checking
     one.click();
     await elementUpdated(el);
@@ -645,15 +643,15 @@ describe("SIT-checkbox-group", () => {
       </form>
     `);
     const submitHandler = Sinon.spy((event: SubmitEvent) => event.preventDefault());
-    const submitButton = form.querySelector<SitButton>("SIT-button[type='submit']");
-    const resetButton = form.querySelector<SitButton>("SIT-button[type='reset']");
+    const submitButton = form.querySelector<SitButton>("sit-button[type='submit']");
+    const resetButton = form.querySelector<SitButton>("sit-button[type='reset']");
 
     form.addEventListener("submit", submitHandler);
     submitButton?.click();
     expect(submitHandler).not.to.have.been.calledOnce;
 
-    const checkboxGroup = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group");
-    const checkbox = form.querySelectorAll<SitCheckbox>("SIT-checkbox");
+    const checkboxGroup = form.querySelector<SitCheckboxGroup>("sit-checkbox-group");
+    const checkbox = form.querySelectorAll<SitCheckbox>("sit-checkbox");
     await waitUntil(() => checkboxGroup?.invalid);
     expect(checkboxGroup?.invalid).to.be.true;
     Array.from(checkbox).map(c => expect(c.invalid).to.be.true);
@@ -679,13 +677,13 @@ describe("SIT-checkbox-group", () => {
       </form>
     `);
     const submitHandler = Sinon.spy((event: SubmitEvent) => event.preventDefault());
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     form.addEventListener("submit", submitHandler);
     submitButton?.click();
     expect(submitHandler).not.to.have.been.calledOnce;
 
-    const checkboxGroup = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group");
-    const checkbox = form.querySelectorAll<SitCheckbox>("SIT-checkbox");
+    const checkboxGroup = form.querySelector<SitCheckboxGroup>("sit-checkbox-group");
+    const checkbox = form.querySelectorAll<SitCheckbox>("sit-checkbox");
     await waitUntil(() => checkboxGroup?.invalid);
     expect(checkboxGroup?.invalid).to.be.true;
     Array.from(checkbox).map(c => expect(c.invalid).to.be.true);
@@ -723,9 +721,9 @@ describe("SIT-checkbox-group", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const checkbox = form.querySelectorAll<SitCheckbox>("SIT-checkbox");
-    const checkboxGroup = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group");
-    const resetButton = form.querySelector<SitButton>("SIT-button[type='reset']");
+    const checkbox = form.querySelectorAll<SitCheckbox>("sit-checkbox");
+    const checkboxGroup = form.querySelector<SitCheckboxGroup>("sit-checkbox-group");
+    const resetButton = form.querySelector<SitButton>("sit-button[type='reset']");
 
     checkbox[0].click();
     await waitUntil(() => checkbox[0].checked);
@@ -763,7 +761,7 @@ describe("SIT-checkbox-group", () => {
       </form>
     `);
 
-    const group = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group") as SitCheckboxGroup;
+    const group = form.querySelector<SitCheckboxGroup>("sit-checkbox-group") as SitCheckboxGroup;
     expect(group.checkValidity()).to.be.false;
     expect(form.checkValidity()).to.be.false;
 
@@ -785,8 +783,8 @@ describe("SIT-checkbox-group", () => {
       </form>
     `);
 
-    const group = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group") as SitCheckboxGroup;
-    const checkboxes = form.querySelectorAll("SIT-checkbox") as NodeListOf<SitCheckbox>;
+    const group = form.querySelector<SitCheckboxGroup>("sit-checkbox-group") as SitCheckboxGroup;
+    const checkboxes = form.querySelectorAll("sit-checkbox") as NodeListOf<SitCheckbox>;
     group!.value = "he;him";
     await elementUpdated(group);
 
@@ -794,7 +792,7 @@ describe("SIT-checkbox-group", () => {
     expect(checkboxes[1].checked).to.be.true;
     expect(checkboxes[2].checked).to.be.false;
 
-    const reset = form.querySelector("SIT-button[type='reset']") as SitButton;
+    const reset = form.querySelector("sit-button[type='reset']") as SitButton;
     reset.click();
 
     await waitUntil(() => group!.value === "he");
@@ -815,8 +813,8 @@ describe("SIT-checkbox-group", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const group = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group");
-    const [one, two, three] = form.querySelectorAll("SIT-checkbox");
+    const group = form.querySelector<SitCheckboxGroup>("sit-checkbox-group");
+    const [one, two, three] = form.querySelectorAll("sit-checkbox");
     one.focus();
     await waitUntil(() => one.shadowRoot?.activeElement === one.shadowRoot?.querySelector("input"));
     await sendKeys({ press: "Tab" });
@@ -841,7 +839,7 @@ describe("noValidate disables native and sit validation for standalone checkbox"
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = Sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
     submitButton?.click();
@@ -872,7 +870,7 @@ describe("noValidate disables native and sit validation for standalone checkbox"
   it("setInvalid(true) emits sit-invalid event", async () => {
     const el = await fixture<SitCheckbox>(html` <sit-checkbox noValidate value="terms">I agree</sit-checkbox> `);
     const handler = Sinon.spy();
-    el.addEventListener("SIT-invalid", handler);
+    el.addEventListener("sit-invalid", handler);
     el.setInvalid(true);
     await el.updateComplete;
     expect(handler).to.have.been.calledOnce;
@@ -881,7 +879,7 @@ describe("noValidate disables native and sit validation for standalone checkbox"
   it("setInvalid(false) emits sit-valid event", async () => {
     const el = await fixture<SitCheckbox>(html` <sit-checkbox noValidate value="terms">I agree</sit-checkbox> `);
     const handler = Sinon.spy();
-    el.addEventListener("SIT-valid", handler);
+    el.addEventListener("sit-valid", handler);
     el.setInvalid(false);
     await el.updateComplete;
     expect(handler).to.have.been.calledOnce;
@@ -901,7 +899,7 @@ describe("noValidate disables native and sit validation for checkbox-group", () 
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = Sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
     submitButton?.click();
@@ -916,8 +914,8 @@ describe("noValidate disables native and sit validation for checkbox-group", () 
         <sit-checkbox value="b">B</sit-checkbox>
       </sit-checkbox-group>
     `);
-    const checkboxes = el.querySelectorAll("SIT-checkbox");
-    checkboxes.forEach(cb => cb.dispatchEvent(new Event("SIT-blur", { bubbles: true })));
+    const checkboxes = el.querySelectorAll("sit-checkbox");
+    checkboxes.forEach(cb => cb.dispatchEvent(new Event("sit-blur", { bubbles: true })));
     await el.updateComplete;
     expect(el.invalid).to.be.false;
   });
@@ -942,7 +940,7 @@ describe("noValidate disables native and sit validation for checkbox-group", () 
       </sit-checkbox-group>
     `);
     const handler = Sinon.spy();
-    el.addEventListener("SIT-invalid", handler);
+    el.addEventListener("sit-invalid", handler);
     el.setInvalid(true);
     await el.updateComplete;
     expect(handler).to.have.been.calledOnce;
@@ -955,7 +953,7 @@ describe("noValidate disables native and sit validation for checkbox-group", () 
       </sit-checkbox-group>
     `);
     const handler = Sinon.spy();
-    el.addEventListener("SIT-valid", handler);
+    el.addEventListener("sit-valid", handler);
     el.setInvalid(false);
     await el.updateComplete;
     expect(handler).to.have.been.calledOnce;
@@ -975,7 +973,7 @@ describe("form novalidate for checkbox-group", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = Sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
     submitButton?.click();
@@ -996,12 +994,12 @@ describe("reset clears invalid state when noValidate is true for checkbox-group"
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const group = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group");
+    const group = form.querySelector<SitCheckboxGroup>("sit-checkbox-group");
     group?.setInvalid(true);
     await group?.updateComplete;
     expect(group?.invalid).to.be.true;
 
-    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("sit-button")?.click());
     await waitUntil(() => group?.invalid === false);
     expect(group?.invalid).to.be.false;
   });
@@ -1015,12 +1013,12 @@ describe("reset clears invalid state when noValidate is true for checkbox-group"
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const group = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group");
+    const group = form.querySelector<SitCheckboxGroup>("sit-checkbox-group");
     group?.setInvalid(true);
     await group?.updateComplete;
     expect(group?.invalid).to.be.true;
 
-    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("sit-button")?.click());
     await waitUntil(() => group?.invalid === false);
     expect(group?.invalid).to.be.false;
   });
@@ -1038,17 +1036,17 @@ describe("FormData is correct when sit-change fires for checkbox-group", () => {
         </sit-checkbox-group>
       </form>
     `);
-    const group = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group")!;
+    const group = form.querySelector<SitCheckboxGroup>("sit-checkbox-group")!;
     await group.updateComplete;
 
     let formDataValue: string | null = null;
-    group.addEventListener("SIT-change", () => {
+    group.addEventListener("sit-change", () => {
       const formData = new FormData(form);
       formDataValue = formData.get("colors") as string;
     });
 
     // Simulate user clicking "red" checkbox
-    const redCheckbox = group.querySelector<SitCheckbox>('SIT-checkbox[value="red"]')!;
+    const redCheckbox = group.querySelector<SitCheckbox>('sit-checkbox[value="red"]')!;
     redCheckbox.click();
     await group.updateComplete;
 
@@ -1069,26 +1067,22 @@ describe("reset does not emit sit-change for checkbox-group", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const group = form.querySelector<SitCheckboxGroup>("SIT-checkbox-group")!;
+    const group = form.querySelector<SitCheckboxGroup>("sit-checkbox-group")!;
     await group.updateComplete;
 
     // Check "b" to change the value from default
-    const bCheckbox = group.querySelector<SitCheckbox>('SIT-checkbox[value="b"]')!;
+    const bCheckbox = group.querySelector<SitCheckbox>('sit-checkbox[value="b"]')!;
     bCheckbox.click();
     await group.updateComplete;
 
     const changeHandler = Sinon.spy();
-    group.addEventListener("SIT-change", changeHandler);
+    group.addEventListener("sit-change", changeHandler);
 
     // Reset the form
-    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("sit-button")?.click());
     await waitUntil(() => group.value === "a");
     await group.updateComplete;
 
     expect(changeHandler).to.not.have.been.called;
   });
 });
-
-
-
-

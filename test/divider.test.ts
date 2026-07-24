@@ -11,5 +11,3 @@ describe("<sit-divider>", () => {
     expect(el.getAttribute("thickness")).to.equal("thin");
   });
 });
-
-

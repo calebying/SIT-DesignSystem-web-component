@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Sidebar a11y", () => {
-  it("SIT-sidebar should be accessible", async () => {
+  it("sit-sidebar should be accessible", async () => {
     const el = await fixture(html`
       <sit-sidebar>
         <sit-sidebar-item title="Dashboard">
@@ -17,6 +17,3 @@ describe("Sidebar a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

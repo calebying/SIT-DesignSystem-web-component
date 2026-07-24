@@ -3,14 +3,14 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args =>
   html`
-    <sgds-alert
+    <sit-alert
       title=${ifDefined(args.title)}
       ?dismissible=${args.dismissible}
       variant=${ifDefined(args.variant)}
       ?show=${args.show}
-      ><sgds-icon slot="icon" name="exclamation-circle-fill" size="md"></sgds-icon> Description with
+      ><sit-icon slot="icon" name="exclamation-circle-fill" size="md"></sit-icon> Description with
       <a href="#">link</a> and more details here
-    </sgds-alert>
+    </sit-alert>
   `;
 export const args = {
   href: "#",

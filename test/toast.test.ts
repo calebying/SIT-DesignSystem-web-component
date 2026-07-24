@@ -10,11 +10,11 @@ describe("SitToast component", () => {
     const el = await fixture<SitToast>(html`<sit-toast show dismissible></sit-toast>`);
     el.dismissible = true;
     await elementUpdated(el);
-    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.exist;
+    expect(el.shadowRoot?.querySelector("sit-close-button")).to.exist;
   });
   it("should not render the close button when dismissible is false", async () => {
     const el = await fixture<SitToast>(html`<sit-toast></sit-toast>`);
-    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.not.exist;
+    expect(el.shadowRoot?.querySelector("sit-close-button")).to.not.exist;
   });
 
   it("toast is hidden by default", async () => {
@@ -29,14 +29,14 @@ describe("SitToast component", () => {
     const el = await fixture<SitToast>(html`<sit-toast></sit-toast>`);
     const showHandler = sinon.spy();
     const shownHandler = sinon.spy();
-    el.addEventListener("SIT-show", showHandler);
-    el.addEventListener("SIT-after-show", shownHandler);
+    el.addEventListener("sit-show", showHandler);
+    el.addEventListener("sit-after-show", shownHandler);
     await el.updateComplete;
 
     el.show = true;
     await el.updateComplete;
 
-    await waitForEvent(el, "SIT-after-show");
+    await waitForEvent(el, "sit-after-show");
 
     expect(showHandler).to.be.calledOnce;
     await aTimeout(500);
@@ -47,8 +47,8 @@ describe("SitToast component", () => {
     const el = await fixture<SitToast>(html`<sit-toast show></sit-toast>`);
     const hideHandler = sinon.spy();
     const hiddenHandler = sinon.spy();
-    el.addEventListener("SIT-hide", hideHandler);
-    el.addEventListener("SIT-after-hide", hiddenHandler);
+    el.addEventListener("sit-hide", hideHandler);
+    el.addEventListener("sit-after-hide", hiddenHandler);
     expect(hideHandler).not.to.be.called;
     expect(hiddenHandler).not.to.be.called;
 
@@ -72,8 +72,8 @@ describe("SitToast component", () => {
     const el = await fixture<SitToast>(html`<sit-toast></sit-toast>`);
     const showHandler = sinon.spy();
     const shownHandler = sinon.spy();
-    el.addEventListener("SIT-show", showHandler);
-    el.addEventListener("SIT-after-show", shownHandler);
+    el.addEventListener("sit-show", showHandler);
+    el.addEventListener("sit-after-show", shownHandler);
 
     await el.showToast();
     expect(showHandler).to.be.called;
@@ -84,8 +84,8 @@ describe("SitToast component", () => {
     const el = await fixture<SitToast>(html`<sit-toast show></sit-toast>`);
     const hideHandler = sinon.spy();
     const hiddenHandler = sinon.spy();
-    el.addEventListener("SIT-hide", hideHandler);
-    el.addEventListener("SIT-after-hide", hiddenHandler);
+    el.addEventListener("sit-hide", hideHandler);
+    el.addEventListener("sit-after-hide", hiddenHandler);
 
     await el.hideToast();
     expect(hideHandler).to.be.called;
@@ -103,6 +103,3 @@ describe("SitToast component", () => {
     expect(el.shadowRoot?.querySelector(".toast-action.d-none")).to.exist;
   });
 });
-
-
-

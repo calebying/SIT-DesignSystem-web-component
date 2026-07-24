@@ -41,7 +41,7 @@ describe("<sit-icon-button>", () => {
       const el = await fixture<SitIconButton>(
         html`<sit-icon-button size=${btnSize} name="placeholder"></sit-icon-button>`
       );
-      const icon = el.shadowRoot?.querySelector("SIT-icon") as SitIcon;
+      const icon = el.shadowRoot?.querySelector("sit-icon") as SitIcon;
       expect(icon.size).to.equal(iconSize);
     });
   });
@@ -57,7 +57,7 @@ describe("<sit-icon-button>", () => {
       const el = await fixture<SitIconButton>(
         html`<sit-icon-button size=${btnSize} loading name="placeholder"></sit-icon-button>`
       );
-      const spinner = el.shadowRoot?.querySelector("SIT-spinner") as SitSpinner;
+      const spinner = el.shadowRoot?.querySelector("sit-spinner") as SitSpinner;
       expect(spinner.size).to.equal(spinnerSize);
     });
   });
@@ -150,8 +150,8 @@ describe("<sit-icon-button>", () => {
     const button = el.shadowRoot?.querySelector("button");
     let focused = false;
     let blurred = false;
-    el.addEventListener("SIT-focus", () => (focused = true));
-    el.addEventListener("SIT-blur", () => (blurred = true));
+    el.addEventListener("sit-focus", () => (focused = true));
+    el.addEventListener("sit-blur", () => (blurred = true));
 
     button?.focus();
     expect(focused).to.be.true;
@@ -161,8 +161,8 @@ describe("<sit-icon-button>", () => {
   });
   it("loading is true, spinner replaces the icon", async () => {
     const el = await fixture(html`<sit-icon-button name="placeholder" loading></sit-icon-button>`);
-    const icon = el.shadowRoot?.querySelector("SIT-icon");
-    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
+    const icon = el.shadowRoot?.querySelector("sit-icon");
+    const spinner = el.shadowRoot?.querySelector("sit-spinner");
     expect(spinner).to.exist;
     expect(icon).not.to.exist;
   });
@@ -220,5 +220,3 @@ describe("<sit-icon-button>", () => {
     expect(enter).to.be.true;
   });
 });
-
-

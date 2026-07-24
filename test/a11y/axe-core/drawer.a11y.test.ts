@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Drawer a11y", () => {
-  it("SIT-drawer should be accessible", async () => {
+  it("sit-drawer should be accessible", async () => {
     const el = await fixture(html`
       <sit-drawer open ariaLabel="Drawer title">
         <p>Drawer content here</p>
@@ -12,6 +12,3 @@ describe("Drawer a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

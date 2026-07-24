@@ -16,7 +16,7 @@ export const Template = ({
   autofocus
 }) => {
   return html`
-    <sgds-radio-group
+    <sit-radio-group
       name=${ifDefined(name)}
       value=${ifDefined(defaultValue)}
       ?required=${required}
@@ -27,12 +27,12 @@ export const Template = ({
       label=${ifDefined(label)}
       ?autofocus=${autofocus}
     >
-      <sgds-radio value=${ifDefined(radioValue)} ?disabled=${disabled} ?checked=${checked} ?invalid=${invalid}
-        >Option 1</sgds-radio
+      <sit-radio value=${ifDefined(radioValue)} ?disabled=${disabled} ?checked=${checked} ?invalid=${invalid}
+        >Option 1</sit-radio
       >
-      <sgds-radio value="2">Option 2</sgds-radio>
-      <sgds-radio value="3">Option 3</sgds-radio>
-    </sgds-radio-group>
+      <sit-radio value="2">Option 2</sit-radio>
+      <sit-radio value="3">Option 3</sit-radio>
+    </sit-radio-group>
   `;
 };
 

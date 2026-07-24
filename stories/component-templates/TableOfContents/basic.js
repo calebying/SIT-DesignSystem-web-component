@@ -1,15 +1,15 @@
 import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 
-export const Template = args => html`<sgds-table-of-contents>
+export const Template = args => html`<sit-table-of-contents>
   <h5>${ifDefined(args.title)}</h5>
   ${args.contents?.map(
     item =>
       html`<li slot="contents">
-        <sgds-link><a href=${ifDefined(item.href)}>${item.label}</a></sgds-link>
+        <sit-link><a href=${ifDefined(item.href)}>${item.label}</a></sit-link>
       </li>`
   )}
-</sgds-table-of-contents>`;
+</sit-table-of-contents>`;
 
 export const args = {
   title: "Table of Contents",

@@ -4,8 +4,8 @@ import { ifDefined } from "lit/directives/if-defined.js";
 export const Template = args =>
   html`
     <div style="height:400px;">
-      <sgds-toast-container position=${ifDefined(args.position)}>
-        <sgds-toast
+      <sit-toast-container position=${ifDefined(args.position)}>
+        <sit-toast
           ?show=${args.show}
           variant=${ifDefined(args.variant)}
           ?autohide=${args.autohide}
@@ -14,11 +14,11 @@ export const Template = args =>
           ?dismissable=${args.dismissable}
           title=${ifDefined(args.title)}
         >
-          <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
+          <sit-icon slot="icon" name="info-circle-fill" size="md"></sit-icon>
           This is a toast notifications
-          <sgds-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sgds-link>
-        </sgds-toast>
-      </sgds-toast-container>
+          <sit-link slot="action" size="sm"><a href="#" target="_blank">Action</a></sit-link>
+        </sit-toast>
+      </sit-toast-container>
     </div>
   `;
 

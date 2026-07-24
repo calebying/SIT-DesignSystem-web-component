@@ -27,7 +27,7 @@ describe("<sit-link>", () => {
         ></sit-link>`
       );
       await el.updateComplete;
-      const icon = el.querySelector<SitIcon>("SIT-icon");
+      const icon = el.querySelector<SitIcon>("sit-icon");
       await icon?.updateComplete;
       expect(icon?.getAttribute("size")).to.equal(value);
     });
@@ -46,6 +46,3 @@ describe("<sit-link>", () => {
     expect(getComputedStyle(el.querySelector("a")!).pointerEvents).to.equal("none");
   });
 });
-
-
-

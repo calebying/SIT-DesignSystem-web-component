@@ -1,11 +1,11 @@
 import { html } from "lit";
 
 export const Template = args => html`
-  <sgds-icon-list>
-    <div role="listitem"><sgds-icon name="placeholder"></sgds-icon>item 1</div>
-    <div role="listitem"><sgds-icon name="placeholder"></sgds-icon>item 2</div>
-    <div role="listitem"><sgds-icon name="placeholder"></sgds-icon>item 3</div>
-  </sgds-icon-list>
+  <sit-icon-list>
+    <div role="listitem"><sit-icon name="placeholder"></sit-icon>item 1</div>
+    <div role="listitem"><sit-icon name="placeholder"></sit-icon>item 2</div>
+    <div role="listitem"><sit-icon name="placeholder"></sit-icon>item 3</div>
+  </sit-icon-list>
 `;
 
 export const args = {};

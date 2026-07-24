@@ -15,4 +15,3 @@ describe("custom element registration is correct", () => {
     });
   }
 });
-

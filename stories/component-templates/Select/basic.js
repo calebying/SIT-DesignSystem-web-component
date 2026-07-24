@@ -4,7 +4,7 @@ import { userEvent } from "@storybook/test";
 
 export const Template = args =>
   html`
-    <sgds-select
+    <sit-select
       id="select-example"
       ?required=${args.required}
       .menuList=${args.menuList}
@@ -16,10 +16,10 @@ export const Template = args =>
       ?menuIsOpen=${args.menuIsOpen}
     >
       ${args.menuList.map(
-        (m, i) => html`<sgds-select-option value=${m.value} ?disabled=${args.thirdOptionDisabled && i === 2}
-          >${m.label}</sgds-select-option
+        (m, i) => html`<sit-select-option value=${m.value} ?disabled=${args.thirdOptionDisabled && i === 2}
+          >${m.label}</sit-select-option
         > `
-      )}</sgds-select
+      )}</sit-select
     >
   `;
 
@@ -239,7 +239,7 @@ export const args = {
 export const parameters = {};
 
 export const play = async ({ canvasElement }) => {
-  const toggler = canvasElement.querySelector("sgds-select");
+  const toggler = canvasElement.querySelector("sit-select");
   const trigger = toggler.shadowRoot.querySelector(".form-control-group");
   await userEvent.click(trigger);
 };

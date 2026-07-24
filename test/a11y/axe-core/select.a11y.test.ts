@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Select a11y", () => {
-  it("SIT-select with slot children should be accessible", async () => {
+  it("sit-select with slot children should be accessible", async () => {
     const el = await fixture(html`
       <sit-select label="Choose a country">
         <sit-select-option value="sg">Singapore</sit-select-option>
@@ -14,7 +14,7 @@ describe("Select a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-select required should be accessible", async () => {
+  it("sit-select required should be accessible", async () => {
     const el = await fixture(html`
       <sit-select label="Choose a country" required>
         <sit-select-option value="sg">Singapore</sit-select-option>
@@ -25,7 +25,7 @@ describe("Select a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-select readonly should be accessible", async () => {
+  it("sit-select readonly should be accessible", async () => {
     const el = await fixture(html`
       <sit-select label="Choose a country" readonly value="sg">
         <sit-select-option value="sg">Singapore</sit-select-option>
@@ -36,7 +36,7 @@ describe("Select a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-select with hintText should be accessible", async () => {
+  it("sit-select with hintText should be accessible", async () => {
     const el = await fixture(html`
       <sit-select label="Choose a country" hintText="Select your country of residence">
         <sit-select-option value="sg">Singapore</sit-select-option>
@@ -47,7 +47,7 @@ describe("Select a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-select invalid with feedback should be accessible", async () => {
+  it("sit-select invalid with feedback should be accessible", async () => {
     const el = await fixture(html`
       <sit-select label="Choose a country" invalid hasFeedback invalidFeedback="Please select a country">
         <sit-select-option value="sg">Singapore</sit-select-option>
@@ -58,6 +58,3 @@ describe("Select a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

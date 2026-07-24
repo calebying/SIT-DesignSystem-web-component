@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Radio a11y", () => {
-  it("SIT-radio-group should be accessible", async () => {
+  it("sit-radio-group should be accessible", async () => {
     const el = await fixture(html`
       <sit-radio-group label="Choose an option" name="option">
         <sit-radio value="a">Option A</sit-radio>
@@ -14,7 +14,7 @@ describe("Radio a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-radio-group required should be accessible", async () => {
+  it("sit-radio-group required should be accessible", async () => {
     const el = await fixture(html`
       <sit-radio-group label="Choose an option" name="option-required" required>
         <sit-radio value="a">Option A</sit-radio>
@@ -25,7 +25,7 @@ describe("Radio a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-radio-group with pre-selected value should be accessible", async () => {
+  it("sit-radio-group with pre-selected value should be accessible", async () => {
     const el = await fixture(html`
       <sit-radio-group label="Choose an option" name="option-preselected" value="b">
         <sit-radio value="a">Option A</sit-radio>
@@ -36,7 +36,7 @@ describe("Radio a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-radio-group with hintText should be accessible", async () => {
+  it("sit-radio-group with hintText should be accessible", async () => {
     const el = await fixture(html`
       <sit-radio-group label="Choose an option" name="option-hint" hintText="Select one option only">
         <sit-radio value="a">Option A</sit-radio>
@@ -47,7 +47,7 @@ describe("Radio a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-radio-group invalid with feedback should be accessible", async () => {
+  it("sit-radio-group invalid with feedback should be accessible", async () => {
     const el = await fixture(html`
       <sit-radio-group
         label="Choose an option"
@@ -64,6 +64,3 @@ describe("Radio a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

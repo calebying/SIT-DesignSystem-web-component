@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("TableOfContents a11y", () => {
-  it("SIT-table-of-contents should be accessible", async () => {
+  it("sit-table-of-contents should be accessible", async () => {
     const el = await fixture(html`
       <sit-table-of-contents>
         <sit-table-of-contents-item href="#section1">Section 1</sit-table-of-contents-item>
@@ -13,6 +13,3 @@ describe("TableOfContents a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

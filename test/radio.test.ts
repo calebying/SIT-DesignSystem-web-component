@@ -9,7 +9,7 @@ import { SitRadio, SitRadioGroup } from "../src/components";
 describe("<sit-radio>", () => {
   afterEach(() => fixtureCleanup());
   it("is defined", () => {
-    const el = document.createElement("SIT-radio");
+    const el = document.createElement("sit-radio");
     assert.instanceOf(el, SitRadio);
   });
 
@@ -41,7 +41,7 @@ describe("<sit-radio>", () => {
 
 describe("<sit-radio-group>", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-radio-group");
+    const el = document.createElement("sit-radio-group");
     assert.instanceOf(el, SitRadioGroup);
   });
 
@@ -58,8 +58,8 @@ describe("<sit-radio-group>", () => {
         ><sit-radio id="radio2" value="2">two</sit-radio></sit-radio-group
       >`
     );
-    const radio1 = <SitRadio>el.querySelector("SIT-radio#radio1");
-    const radio2 = <SitRadio>el.querySelector("SIT-radio#radio2");
+    const radio1 = <SitRadio>el.querySelector("sit-radio#radio1");
+    const radio2 = <SitRadio>el.querySelector("sit-radio#radio2");
     expect(radio1.checked).to.be.false;
     expect(radio2.checked).to.be.false;
 
@@ -75,8 +75,8 @@ describe("<sit-radio-group>", () => {
       html`<sit-radio-group name="option"> <sit-radio id="radio2" value="2">two</sit-radio></sit-radio-group>`
     );
     const toggleHandler = sinon.spy();
-    el.addEventListener("SIT-change", toggleHandler);
-    const radio2 = <SitRadio>el.querySelector("SIT-radio#radio2");
+    el.addEventListener("sit-change", toggleHandler);
+    const radio2 = <SitRadio>el.querySelector("sit-radio#radio2");
     radio2.click();
     await Promise.all([elementUpdated(el)]);
     expect(toggleHandler).to.have.been.calledOnce;
@@ -91,7 +91,7 @@ describe("<sit-radio-group>", () => {
 
     expect(el).to.have.attribute("value", undefined);
 
-    const radio = el.querySelector("SIT-radio");
+    const radio = el.querySelector("sit-radio");
     radio?.click();
     await el.updateComplete;
     expect(el).to.have.attribute("value", "1");
@@ -107,11 +107,11 @@ describe("<sit-radio-group>", () => {
       </form>`
     );
 
-    const button = <SitButton>el.querySelector("SIT-button");
+    const button = <SitButton>el.querySelector("sit-button");
     button?.click();
     await el.updateComplete;
     expect(el.reportValidity()).to.be.false;
-    const radioGroup = <SitRadioGroup>el.querySelector("SIT-radio-group");
+    const radioGroup = <SitRadioGroup>el.querySelector("sit-radio-group");
     expect(radioGroup.invalid).to.be.true;
     expect(el.reportValidity()).to.be.false;
   });
@@ -124,7 +124,7 @@ describe("<sit-radio-group>", () => {
         <sit-button type="submit">Submit</sit-button>
       `
     );
-    const radio = el.querySelector("SIT-radio");
+    const radio = el.querySelector("sit-radio");
     radio?.focus();
     radio?.blur();
     await waitUntil(() => el?.invalid);
@@ -149,9 +149,9 @@ describe("<sit-radio-group>", () => {
       <sit-radio value="3">three</sit-radio>
     </sit-radio-group>`);
 
-    expect(el.querySelectorAll("SIT-radio")[0]).to.have.attribute("tabindex", "0");
-    expect(el.querySelectorAll("SIT-radio")[1]).to.have.attribute("tabindex", "-1");
-    expect(el.querySelectorAll("SIT-radio")[2]).to.have.attribute("tabindex", "-1");
+    expect(el.querySelectorAll("sit-radio")[0]).to.have.attribute("tabindex", "0");
+    expect(el.querySelectorAll("sit-radio")[1]).to.have.attribute("tabindex", "-1");
+    expect(el.querySelectorAll("sit-radio")[2]).to.have.attribute("tabindex", "-1");
   });
 
   it("should toggle tabindex 0 for checked radio & tabindex -1 when unchecked upon clicking", async () => {
@@ -161,9 +161,9 @@ describe("<sit-radio-group>", () => {
       <sit-radio value="3">three</sit-radio>
     </sit-radio-group>`);
 
-    const radio1 = el.querySelectorAll("SIT-radio")[0];
-    const radio2 = el.querySelectorAll("SIT-radio")[1];
-    const radio3 = el.querySelectorAll("SIT-radio")[2];
+    const radio1 = el.querySelectorAll("sit-radio")[0];
+    const radio2 = el.querySelectorAll("sit-radio")[1];
+    const radio3 = el.querySelectorAll("sit-radio")[2];
 
     radio1.click();
     await el.updateComplete;
@@ -187,7 +187,7 @@ describe("<sit-radio-group>", () => {
       <sit-radio value="3">three</sit-radio>
     </sit-radio-group>`);
 
-    const radio1 = el.querySelectorAll("SIT-radio")[0];
+    const radio1 = el.querySelectorAll("sit-radio")[0];
 
     const label = <HTMLLabelElement>el.shadowRoot?.querySelector("label.form-label");
     label.click();
@@ -203,7 +203,7 @@ describe("<sit-radio-group>", () => {
       <sit-radio value="3">three</sit-radio>
     </sit-radio-group>`);
 
-    const radio2 = <SitRadio>el.querySelectorAll("SIT-radio")[1];
+    const radio2 = <SitRadio>el.querySelectorAll("sit-radio")[1];
 
     radio2.click();
     await Promise.all([el.updateComplete, radio2.updateComplete]);
@@ -220,7 +220,7 @@ describe("<sit-radio-group>", () => {
       <sit-radio value="3">three</sit-radio>
     </sit-radio-group>`);
 
-    const radio2 = el.querySelectorAll("SIT-radio")[1];
+    const radio2 = el.querySelectorAll("sit-radio")[1];
 
     radio2.click();
     await el.updateComplete;
@@ -239,9 +239,9 @@ describe("<sit-radio-group>", () => {
       <sit-radio value="3">three</sit-radio>
     </sit-radio-group>`);
 
-    const radio1 = el.querySelectorAll("SIT-radio")[0];
-    const radio2 = el.querySelectorAll("SIT-radio")[1];
-    const radio3 = el.querySelectorAll("SIT-radio")[2];
+    const radio1 = el.querySelectorAll("sit-radio")[0];
+    const radio2 = el.querySelectorAll("sit-radio")[1];
+    const radio3 = el.querySelectorAll("sit-radio")[2];
 
     const label = <HTMLLabelElement>el.shadowRoot?.querySelector("label.form-label");
     label.click();
@@ -293,7 +293,7 @@ describe("<sit-radio-group>", () => {
       <sit-radio>one</sit-radio>
       <sit-radio>two</sit-radio>
     </sit-radio-group>`);
-    const radios = el.querySelectorAll("SIT-radio");
+    const radios = el.querySelectorAll("sit-radio");
     radios.forEach(r => expect(r.disabled).to.be.true);
   });
   it("subsequent disable, all child are disabled", async () => {
@@ -303,7 +303,7 @@ describe("<sit-radio-group>", () => {
     </sit-radio-group>`);
     el.disabled = true;
     await el.updateComplete;
-    const radios = el.querySelectorAll("SIT-radio");
+    const radios = el.querySelectorAll("sit-radio");
     radios.forEach(r => expect(r.disabled).to.be.true);
   });
 });
@@ -321,7 +321,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
     submitButton?.click();
@@ -336,7 +336,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-radio value="b">B</sit-radio>
       </sit-radio-group>
     `);
-    el.dispatchEvent(new Event("SIT-blur"));
+    el.dispatchEvent(new Event("sit-blur"));
     await el.updateComplete;
     expect(el.invalid).to.be.false;
   });
@@ -363,7 +363,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
     `);
     el.setInvalid(true);
     await el.updateComplete;
-    el.dispatchEvent(new Event("SIT-blur"));
+    el.dispatchEvent(new Event("sit-blur"));
     await el.updateComplete;
     expect(el.invalid).to.be.true;
   });
@@ -378,7 +378,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -405,7 +405,7 @@ describe("form novalidate for sit-radio-group", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
     submitButton?.click();
@@ -422,8 +422,8 @@ describe("form novalidate for sit-radio-group", () => {
         </sit-radio-group>
       </form>
     `);
-    const radioGroup = form.querySelector<SitRadioGroup>("SIT-radio-group");
-    radioGroup?.dispatchEvent(new Event("SIT-blur"));
+    const radioGroup = form.querySelector<SitRadioGroup>("sit-radio-group");
+    radioGroup?.dispatchEvent(new Event("sit-blur"));
     await radioGroup?.updateComplete;
     expect(radioGroup?.invalid).to.be.false;
   });
@@ -442,12 +442,12 @@ describe("reset clears invalid state when noValidate is true for radio-group", (
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const radioGroup = form.querySelector<SitRadioGroup>("SIT-radio-group");
+    const radioGroup = form.querySelector<SitRadioGroup>("sit-radio-group");
     radioGroup?.setInvalid(true);
     await radioGroup?.updateComplete;
     expect(radioGroup?.invalid).to.be.true;
 
-    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("sit-button")?.click());
     await waitUntil(() => radioGroup?.invalid === false);
     expect(radioGroup?.invalid).to.be.false;
   });
@@ -462,12 +462,12 @@ describe("reset clears invalid state when noValidate is true for radio-group", (
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const radioGroup = form.querySelector<SitRadioGroup>("SIT-radio-group");
+    const radioGroup = form.querySelector<SitRadioGroup>("sit-radio-group");
     radioGroup?.setInvalid(true);
     await radioGroup?.updateComplete;
     expect(radioGroup?.invalid).to.be.true;
 
-    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("sit-button")?.click());
     await waitUntil(() => radioGroup?.invalid === false);
     expect(radioGroup?.invalid).to.be.false;
   });
@@ -486,7 +486,7 @@ describe("reset does not emit sit-change for radio-group", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const radioGroup = form.querySelector<SitRadioGroup>("SIT-radio-group")!;
+    const radioGroup = form.querySelector<SitRadioGroup>("sit-radio-group")!;
     await radioGroup.updateComplete;
 
     // Change value to "b" first
@@ -494,11 +494,11 @@ describe("reset does not emit sit-change for radio-group", () => {
     await radioGroup.updateComplete;
 
     const changeHandler = sinon.spy();
-    radioGroup.addEventListener("SIT-change", changeHandler);
+    radioGroup.addEventListener("sit-change", changeHandler);
 
     // Reset the form
     changeHandler.resetHistory();
-    setTimeout(() => form.querySelector<SitButton>("SIT-button")?.click());
+    setTimeout(() => form.querySelector<SitButton>("sit-button")?.click());
     await waitUntil(() => radioGroup.value === "a");
 
     expect(changeHandler).to.not.have.been.called;
@@ -516,7 +516,7 @@ describe("setInvalid emits sit-invalid and sit-valid events for radio-group", ()
       </sit-radio-group>
     `);
     const handler = sinon.spy();
-    el.addEventListener("SIT-invalid", handler);
+    el.addEventListener("sit-invalid", handler);
     el.setInvalid(true);
     await el.updateComplete;
     expect(handler).to.have.been.calledOnce;
@@ -530,7 +530,7 @@ describe("setInvalid emits sit-invalid and sit-valid events for radio-group", ()
       </sit-radio-group>
     `);
     const handler = sinon.spy();
-    el.addEventListener("SIT-valid", handler);
+    el.addEventListener("sit-valid", handler);
     el.setInvalid(false);
     await el.updateComplete;
     expect(handler).to.have.been.calledOnce;
@@ -538,7 +538,3 @@ describe("setInvalid emits sit-invalid and sit-valid events for radio-group", ()
 });
 
 // Keyboard interactions (arrowdown, arrowup) --> to keep check on the handleKeyDown() you wrote --> and that it updates the sit-radio-group
-
-
-
-

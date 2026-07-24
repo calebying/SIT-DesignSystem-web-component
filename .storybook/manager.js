@@ -1,7 +1,7 @@
 import { addons } from "@storybook/manager-api";
-import sgdsTheme from "./sgdsTheme";
+import sitTheme from "./sitTheme";
 
 addons.setConfig({
-  theme: sgdsTheme,
+  theme: sitTheme,
   enableShortcuts: false
 });

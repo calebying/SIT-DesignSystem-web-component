@@ -3,7 +3,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args => {
   return html`
-    <sgds-footer
+    <sit-footer
       lastUpdatedDate=${ifDefined(args.lastUpdatedDate)}
       contactHref=${ifDefined(args.contactHref)}
       feedbackHref=${ifDefined(args.feedbackHref)}
@@ -14,7 +14,7 @@ export const Template = args => {
       sitemapHref=${ifDefined(args.sitemapHref)}
       tone=${ifDefined(args.tone)}
       layout=${ifDefined(args.layout)}
-    ></sgds-footer>
+    ></sit-footer>
   `;
 };
 

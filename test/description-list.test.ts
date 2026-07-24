@@ -29,5 +29,3 @@ describe("<sit-description-list>", () => {
     expect(el.shadowRoot?.querySelector(".data-container")).to.exist;
   });
 });
-
-

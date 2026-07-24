@@ -4,7 +4,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 export const Template = args =>
   html`
     <div class="container">
-      <sgds-image-card
+      <sit-image-card
         ?stretchedLink=${ifDefined(args.stretchedLink)}
         ?disabled=${ifDefined(args.disabled)}
         ?noPadding=${ifDefined(args.noPadding)}
@@ -21,26 +21,26 @@ export const Template = args =>
           height="80"
           src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
         />
-        <sgds-badge variant="primary" slot="image-badge">New</sgds-badge>
-        <sgds-icon-button name="heart" size="sm" slot="image-action"></sgds-icon-button>
-        <sgds-badge variant="primary" slot="upper">Limited seat</sgds-badge>
+        <sit-badge variant="primary" slot="image-badge">New</sit-badge>
+        <sit-icon-button name="heart" size="sm" slot="image-action"></sit-icon-button>
+        <sit-badge variant="primary" slot="upper">Limited seat</sit-badge>
         <span slot="subtitle">EVENTS</span>
         <span slot="title">Innovative solutions for you</span>
-        <sgds-icon-list size="sm">
-          <div role="listitem"><sgds-icon size="md" name="calendar"></sgds-icon>12 September</div>
-          <div role="listitem"><sgds-icon size="md" name="laptop"></sgds-icon>Online</div>
-        </sgds-icon-list>
+        <sit-icon-list size="sm">
+          <div role="listitem"><sit-icon size="md" name="calendar"></sit-icon>12 September</div>
+          <div role="listitem"><sit-icon size="md" name="laptop"></sit-icon>Online</div>
+        </sit-icon-list>
         <span slot="description"
           >Discover how our platform can streamline your workflow and enhance productivity. With cutting-edge technology
           and user-friendly design, we empower you to achieve more.</span
         >
         <div slot="lower">
-          <sgds-badge variant="neutral" outlined>Design</sgds-badge>
+          <sit-badge variant="neutral" outlined>Design</sit-badge>
         </div>
-        <sgds-link slot="footer">
-          <a href="#" aria-label="Register now">Register now <sgds-icon name="arrow-right"></sgds-icon></a>
-        </sgds-link>
-      </sgds-image-card>
+        <sit-link slot="footer">
+          <a href="#" aria-label="Register now">Register now <sit-icon name="arrow-right"></sit-icon></a>
+        </sit-link>
+      </sit-image-card>
     </div>
   `;
 

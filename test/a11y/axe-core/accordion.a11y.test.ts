@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Accordion a11y", () => {
-  it("SIT-accordion should be accessible", async () => {
+  it("sit-accordion should be accessible", async () => {
     const el = await fixture(html`
       <sit-accordion>
         <sit-accordion-item ariaLabel="Accordion title #1">
@@ -23,7 +23,7 @@ describe("Accordion a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-accordion-item (open) should be accessible", async () => {
+  it("sit-accordion-item (open) should be accessible", async () => {
     const el = await fixture(html`
       <sit-accordion-item open ariaLabel="Accordion title">
         <div slot="header">Accordion title</div>
@@ -33,7 +33,7 @@ describe("Accordion a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-accordion-item (closed) should be accessible", async () => {
+  it("sit-accordion-item (closed) should be accessible", async () => {
     const el = await fixture(html`
       <sit-accordion-item ariaLabel="Accordion title">
         <div slot="header">Accordion title</div>
@@ -43,7 +43,7 @@ describe("Accordion a11y", () => {
     await expect(el).to.be.accessible();
   });
 
-  it("SIT-accordion-item (disabled) should be accessible", async () => {
+  it("sit-accordion-item (disabled) should be accessible", async () => {
     const el = await fixture(html`
       <sit-accordion-item disabled ariaLabel="Disabled accordion">
         <div slot="header">Disabled accordion</div>
@@ -53,6 +53,3 @@ describe("Accordion a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

@@ -79,7 +79,7 @@ describe("<sit-tab-panel>", () => {
   it("default properties", async () => {
     const el = await fixture<SitTabPanel>(html` <sit-tab-panel>Test</sit-tab-panel> `);
 
-    expect(el.id).to.equal("SIT-tab-panel-2");
+    expect(el.id).to.equal("sit-tab-panel-2");
     expect(el.name).to.equal("");
     expect(el.active).to.equal(false);
     expect(el.getAttribute("role")).to.equal("tabpanel");
@@ -168,13 +168,11 @@ describe("<sit-tab-group>", () => {
         <sit-tab-group>
           <sit-tab slot="nav" panel="general">General</sit-tab>
           <sit-tab slot="nav" panel="custom">Custom</sit-tab>
-          <sit-tab-panel name="general" data-testid="general-tab-content"
-            >This is the general tab panel.</sit-tab-panel
-          >
+          <sit-tab-panel name="general" data-testid="general-tab-content">This is the general tab panel.</sit-tab-panel>
           <sit-tab-panel name="custom">This is the custom tab panel.</sit-tab-panel>
         </sit-tab-group>
       `);
-      const tabs = tabGroup.querySelectorAll("SIT-tab") as NodeListOf<SitTab>;
+      const tabs = tabGroup.querySelectorAll("sit-tab") as NodeListOf<SitTab>;
       tabs.forEach(tab => expect(tab.getAttribute(name)).to.equal(defaultValue));
       tabGroup[name] = changedValue;
       await tabGroup.updateComplete;
@@ -191,11 +189,11 @@ const expectHeaderToBeVisible = (container: HTMLElement, dataTestId: string): vo
 
 const expectOnlyOneTabPanelToBeActive = async (container: HTMLElement, dataTestIdOfActiveTab: string) => {
   await waitUntil(() => {
-    const tabPanels = Array.from(container.getElementsByTagName("SIT-tab-panel"));
+    const tabPanels = Array.from(container.getElementsByTagName("sit-tab-panel"));
     const activeTabPanels = tabPanels.filter((element: Element) => element.hasAttribute("active"));
     return activeTabPanels.length === 1;
   });
-  const tabPanels = Array.from(container.getElementsByTagName("SIT-tab-panel"));
+  const tabPanels = Array.from(container.getElementsByTagName("sit-tab-panel"));
   const activeTabPanels = tabPanels.filter((element: Element) => element.hasAttribute("active"));
   expect(activeTabPanels).to.have.lengthOf(1);
   expect(activeTabPanels[0]).to.have.attribute("data-testid", dataTestIdOfActiveTab);
@@ -223,7 +221,7 @@ const expectCustomTabToBeActiveAfter = async (tabGroup: SitTabGroup, action: () 
   const customHeader = tabGroup.querySelector<SitTab>('[data-testid="custom-header"]');
   expect(customHeader).not.to.have.attribute("active");
 
-  const showEventPromise = oneEvent(tabGroup, "SIT-tab-show") as Promise<CustomEvent>;
+  const showEventPromise = oneEvent(tabGroup, "sit-tab-show") as Promise<CustomEvent>;
 
   await action();
 
@@ -248,8 +246,8 @@ const expectGeneralTabToBeStillActiveAfter = async (
 
   let showEventFired = false;
   let hideEventFired = false;
-  oneEvent(tabGroup, "SIT-tab-show").then(() => (showEventFired = true));
-  oneEvent(tabGroup, "SIT-tab-hide").then(() => (hideEventFired = true));
+  oneEvent(tabGroup, "sit-tab-show").then(() => (showEventFired = true));
+  oneEvent(tabGroup, "sit-tab-hide").then(() => (hideEventFired = true));
   await action();
 
   expect(generalHeader).to.have.attribute("active");
@@ -261,7 +259,7 @@ const expectGeneralTabToBeStillActiveAfter = async (
 describe("tab selection", () => {
   it("should render default tab", async () => {
     const el = await fixture(html`<sit-tab-group><sit-tab>Test</sit-tab></sit-tab-group>`);
-    const SitTab = el.querySelector("SIT-tab") as SitTab;
+    const SitTab = el.querySelector("sit-tab") as SitTab;
 
     // Wait for updates to complete
     await SitTab.updateComplete;
@@ -329,6 +327,3 @@ describe("tab selection", () => {
     });
   });
 });
-
-
-

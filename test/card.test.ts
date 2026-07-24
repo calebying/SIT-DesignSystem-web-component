@@ -74,9 +74,7 @@ describe("<sit-card>", () => {
     );
   });
   it("when icon slot is specified, can be semantically compare with shadowDom trees", async () => {
-    const el = await fixture<SitCard>(
-      html`<sit-card><sit-icon slot="icon" name="box-seam"></sit-icon></sit-card>`
-    );
+    const el = await fixture<SitCard>(html`<sit-card><sit-icon slot="icon" name="box-seam"></sit-icon></sit-card>`);
     assert.shadowDom.equal(
       el,
       `
@@ -293,5 +291,3 @@ describe("SitCard error logging", () => {
     expect(consoleStub.calledOnce).to.be.true;
   });
 });
-
-

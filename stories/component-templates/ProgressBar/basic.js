@@ -2,7 +2,7 @@ import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args => html`
-  <sgds-progress-bar
+  <sit-progress-bar
     label=${ifDefined(args.label)}
     variant=${ifDefined(args.variant)}
     value=${ifDefined(args.value)}
@@ -10,7 +10,7 @@ export const Template = args => html`
     ariamax=${ifDefined(args.ariamax)}
     arialabel=${ifDefined(args.arialabel)}
   >
-  </sgds-progress-bar>
+  </sit-progress-bar>
 `;
 
 export const args = {

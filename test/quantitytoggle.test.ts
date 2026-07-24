@@ -8,7 +8,7 @@ import { SitIconButton, SitInput, SitQuantityToggle } from "../src/components";
 describe("visual appearance", () => {
   it("minus button has variant=outline, tone=neutral, size=md and class minus-btn", async () => {
     const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle></sit-quantity-toggle>`);
-    const minusBtn = el.shadowRoot?.querySelector("SIT-icon-button.minus-btn") as HTMLElement;
+    const minusBtn = el.shadowRoot?.querySelector("sit-icon-button.minus-btn") as HTMLElement;
 
     expect(minusBtn).to.exist;
     expect(minusBtn.getAttribute("variant")).to.equal("outline");
@@ -18,7 +18,7 @@ describe("visual appearance", () => {
 
   it("plus button has variant=outline, tone=neutral, size=md and class plus-btn", async () => {
     const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle></sit-quantity-toggle>`);
-    const plusBtn = el.shadowRoot?.querySelector("SIT-icon-button.plus-btn") as HTMLElement;
+    const plusBtn = el.shadowRoot?.querySelector("sit-icon-button.plus-btn") as HTMLElement;
 
     expect(plusBtn).to.exist;
     expect(plusBtn.getAttribute("variant")).to.equal("outline");
@@ -30,8 +30,8 @@ describe("visual appearance", () => {
 describe("when minusBtn or plusBtn is clicked", () => {
   it("should decrease and increase the value by 1 respectively", async () => {
     const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle value="10"></sit-quantity-toggle>`);
-    const minusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
-    const plusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='increase by']") as HTMLButtonElement;
+    const minusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
+    const plusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='increase by']") as HTMLButtonElement;
 
     minusBtn.click();
     await waitUntil(() => el.value === 9);
@@ -44,7 +44,7 @@ describe("when minusBtn or plusBtn is clicked", () => {
 
   it("minusBtn is disabled when reaches 0 without minimum value set", async () => {
     const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle value="1"></sit-quantity-toggle>`);
-    const minusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
+    const minusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
 
     minusBtn.click();
     await waitUntil(() => el.value === 0);
@@ -54,10 +54,8 @@ describe("when minusBtn or plusBtn is clicked", () => {
   });
 
   it("minusBtn is disabled when reaches minimum value", async () => {
-    const el = await fixture<SitQuantityToggle>(
-      html`<sit-quantity-toggle value="10" min="8"></sit-quantity-toggle>`
-    );
-    const minusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
+    const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle value="10" min="8"></sit-quantity-toggle>`);
+    const minusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
 
     minusBtn.click();
     await waitUntil(() => el.value === 9);
@@ -72,10 +70,8 @@ describe("when minusBtn or plusBtn is clicked", () => {
   });
 
   it("minusBtn is disabled when reaches maximum value", async () => {
-    const el = await fixture<SitQuantityToggle>(
-      html`<sit-quantity-toggle value="10" max="11"></sit-quantity-toggle>`
-    );
-    const plusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='increase by']") as HTMLButtonElement;
+    const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle value="10" max="11"></sit-quantity-toggle>`);
+    const plusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='increase by']") as HTMLButtonElement;
 
     plusBtn.click();
     await waitUntil(() => el.value === 11);
@@ -88,10 +84,10 @@ describe("when minusBtn or plusBtn is clicked", () => {
 describe("when value change", () => {
   it("fires sit-input event when value is entered", async () => {
     const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle value="10"></sit-quantity-toggle>`);
-    const inputEl = el.shadowRoot?.querySelector("SIT-input") as SitInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-input") as SitInput;
     const inputHandler = sinon.spy();
     inputEl.focus();
-    el.addEventListener("SIT-input", inputHandler);
+    el.addEventListener("sit-input", inputHandler);
     await sendKeys({ press: "0" });
     waitUntil(() => inputHandler.calledOnce);
     expect(inputHandler).to.have.been.calledOnce;
@@ -99,10 +95,10 @@ describe("when value change", () => {
 
   it("prevent from entering special characters", async () => {
     const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle value="15"></sit-quantity-toggle>`);
-    const inputEl = el.shadowRoot?.querySelector("SIT-input") as SitInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-input") as SitInput;
     const inputHandler = sinon.spy();
     inputEl.focus();
-    el.addEventListener("SIT-input", inputHandler);
+    el.addEventListener("sit-input", inputHandler);
     await sendKeys({ press: "ArrowLeft" });
     await sendKeys({ press: "ArrowLeft" });
     waitUntil(() => inputHandler.calledTwice);
@@ -113,10 +109,10 @@ describe("when value change", () => {
 
   it("resets value to 0 when delete the value", async () => {
     const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle value="15"></sit-quantity-toggle>`);
-    const inputEl = el.shadowRoot?.querySelector("SIT-input") as SitInput;
+    const inputEl = el.shadowRoot?.querySelector("sit-input") as SitInput;
     const inputHandler = sinon.spy();
     inputEl.focus();
-    el.addEventListener("SIT-input", inputHandler);
+    el.addEventListener("sit-input", inputHandler);
     await sendKeys({ press: "Backspace" });
     waitUntil(() => inputHandler.calledOnce);
     expect(inputEl.value).to.equal(1);
@@ -129,11 +125,9 @@ describe("when value change", () => {
 
 describe("when step", () => {
   it("should decrease and increase with steps", async () => {
-    const el = await fixture<SitQuantityToggle>(
-      html`<sit-quantity-toggle value="10" step="91"></sit-quantity-toggle>`
-    );
-    const minusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
-    const plusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='increase by']") as HTMLButtonElement;
+    const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle value="10" step="91"></sit-quantity-toggle>`);
+    const minusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
+    const plusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='increase by']") as HTMLButtonElement;
 
     minusBtn.click();
     await waitUntil(() => el.value === 0);
@@ -150,8 +144,8 @@ describe("when step", () => {
 describe("when step changes", () => {
   it("should change arialabel accordingly", async () => {
     const el = await fixture<SitQuantityToggle>(html`<sit-quantity-toggle step="5"></sit-quantity-toggle>`);
-    const minusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
-    const plusBtn = el.shadowRoot?.querySelector("SIT-icon-button[arialabel^='increase by']") as HTMLButtonElement;
+    const minusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='decrease by']") as HTMLButtonElement;
+    const plusBtn = el.shadowRoot?.querySelector("sit-icon-button[arialabel^='increase by']") as HTMLButtonElement;
 
     expect(minusBtn).to.not.be.undefined;
     expect(minusBtn.getAttribute("arialabel")).to.equal("decrease by 5");
@@ -183,7 +177,7 @@ describe("in form context", () => {
         <sit-quantity-toggle name="a" value="5"></sit-quantity-toggle>
       </form>
     `);
-    const qtyToggle = form.querySelector<SitQuantityToggle>("SIT-quantity-toggle");
+    const qtyToggle = form.querySelector<SitQuantityToggle>("sit-quantity-toggle");
     expect(qtyToggle?.defaultValue).to.equal(5);
     //force a random value different from default value
     if (qtyToggle) qtyToggle.value = 10;
@@ -227,7 +221,7 @@ describe("in form context", () => {
     const el = await fixture<SitQuantityToggle>(
       html`<sit-quantity-toggle hasFeedback="both" min="3"></sit-quantity-toggle>`
     );
-    const input = el.shadowRoot?.querySelector<SitInput>("SIT-input");
+    const input = el.shadowRoot?.querySelector<SitInput>("sit-input");
     input?.focus();
     expect(el.shadowRoot?.querySelector(".invalid-feedback")).to.be.null;
     await sendKeys({ press: "2" });
@@ -241,7 +235,7 @@ describe("in form context", () => {
     const el = await fixture<SitQuantityToggle>(
       html`<sit-quantity-toggle hasFeedback="both" min="2"></sit-quantity-toggle>`
     );
-    const plusBtn = el.shadowRoot?.querySelectorAll("SIT-icon-button")[1] as SitIconButton;
+    const plusBtn = el.shadowRoot?.querySelectorAll("sit-icon-button")[1] as SitIconButton;
     expect(el.value).to.equal(0);
     expect(el.shadowRoot?.querySelector(".invalid-feedback")).to.be.null;
     plusBtn?.click();
@@ -261,7 +255,7 @@ describe("in form context", () => {
       html`<sit-quantity-toggle hasFeedback="both" min="2" value="1"></sit-quantity-toggle>`
     );
     expect(el.invalid).to.equal(false);
-    const input = el.shadowRoot?.querySelector<SitInput>("SIT-input");
+    const input = el.shadowRoot?.querySelector<SitInput>("sit-input");
     input?.focus();
     input?.blur();
     await input?.updateComplete;
@@ -274,7 +268,7 @@ describe("in form context", () => {
     );
 
     expect(el.shadowRoot?.querySelector(".invalid-feedback")?.textContent).to.contain("test");
-    expect(el.shadowRoot?.querySelector<SitInput>("SIT-input")?.hasFeedback).to.equal("style");
+    expect(el.shadowRoot?.querySelector<SitInput>("sit-input")?.hasFeedback).to.equal("style");
   });
 
   it("hasFeedback=text provides error message and sit-input hasFeedback will be set as style", async () => {
@@ -283,7 +277,7 @@ describe("in form context", () => {
     );
 
     expect(el.shadowRoot?.querySelector(".invalid-feedback")?.textContent).to.contain("test");
-    expect(el.shadowRoot?.querySelector<SitInput>("SIT-input")?.getAttribute("hasfeedback")).to.be.null;
+    expect(el.shadowRoot?.querySelector<SitInput>("sit-input")?.getAttribute("hasfeedback")).to.be.null;
   });
 
   it("hasFeedback=style provides error message and sit-input hasFeedback will be set as style", async () => {
@@ -292,7 +286,7 @@ describe("in form context", () => {
     );
 
     expect(el.shadowRoot?.querySelector(".invalid-feedback")).to.be.null;
-    expect(el.shadowRoot?.querySelector<SitInput>("SIT-input")?.getAttribute("hasfeedback")).to.equal("style");
+    expect(el.shadowRoot?.querySelector<SitInput>("sit-input")?.getAttribute("hasfeedback")).to.equal("style");
   });
 
   it("when disabled, invalid state is removed", async () => {
@@ -307,6 +301,3 @@ describe("in form context", () => {
     expect(el.invalid).to.be.false;
   });
 });
-
-
-

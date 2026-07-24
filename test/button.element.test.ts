@@ -5,7 +5,7 @@ import sinon from "sinon";
 import type { SitButton } from "../src/components";
 import { sendKeys } from "@web/test-runner-commands";
 
-describe("SIT-button", () => {
+describe("sit-button", () => {
   it("renders with default values", async () => {
     const el = await fixture(html`<sit-button></sit-button>`);
     assert.shadowDom.equal(
@@ -73,7 +73,7 @@ describe("when submitting a form", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     const handleSubmit = sinon.spy((event: SubmitEvent) => event.preventDefault());
 
     form.addEventListener("submit", handleSubmit);
@@ -89,7 +89,7 @@ describe("when submitting a form", () => {
       </div>
     `);
     const form = el.querySelector<HTMLFormElement>("form");
-    const button = el.querySelector<SitButton>("SIT-button");
+    const button = el.querySelector<SitButton>("sit-button");
     const handleSubmit = sinon.spy((event: SubmitEvent) => event.preventDefault());
 
     form?.addEventListener("submit", handleSubmit);
@@ -106,7 +106,7 @@ describe("when submitting a form", () => {
         </sit-button>
       </form>
     `);
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     let submitter: HTMLButtonElement;
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       submitter = event.submitter as HTMLButtonElement;
@@ -133,7 +133,7 @@ describe("when submitting a form", () => {
       </div>
     `);
     const form = el.querySelector<HTMLFormElement>("form");
-    const button = el.querySelector<SitButton>("SIT-button");
+    const button = el.querySelector<SitButton>("sit-button");
 
     let submitter: HTMLButtonElement;
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
@@ -157,7 +157,7 @@ describe("when submitting a form", () => {
         <sit-button type="submit" name="action" value="save">Save</sit-button>
       </form>
     `);
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     let formData: FormData;
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
@@ -182,7 +182,7 @@ describe("when submitting a form", () => {
         <sit-button type="submit" value="save">Save</sit-button>
       </form>
     `);
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const submitter = event.submitter as HTMLButtonElement;
@@ -202,7 +202,7 @@ describe("when submitting a form", () => {
         <sit-button type="submit" name="action" value="delete">Delete</sit-button>
       </form>
     `);
-    const deleteButton = form.querySelectorAll<SitButton>("SIT-button")[1];
+    const deleteButton = form.querySelectorAll<SitButton>("sit-button")[1];
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const submitter = event.submitter as HTMLButtonElement;
@@ -223,7 +223,7 @@ describe("when submitting a form", () => {
         <sit-button type="reset" name="action" value="reset">Reset</sit-button>
       </form>
     `);
-    const resetButton = form.querySelectorAll<SitButton>("SIT-button")[1];
+    const resetButton = form.querySelectorAll<SitButton>("sit-button")[1];
     const handleSubmit = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
     });
@@ -242,8 +242,8 @@ describe("when using methods", () => {
     const focusHandler = sinon.spy();
     const blurHandler = sinon.spy();
 
-    el.addEventListener("SIT-focus", focusHandler);
-    el.addEventListener("SIT-blur", blurHandler);
+    el.addEventListener("sit-focus", focusHandler);
+    el.addEventListener("sit-blur", blurHandler);
 
     el.focus();
     await waitUntil(() => focusHandler.calledOnce);
@@ -269,7 +269,7 @@ describe("when using methods", () => {
   it("loading is true, spinner replaces the icon", async () => {
     const el = await fixture(html`<sit-button loading>hello</sit-button>`);
     const button = el.shadowRoot?.querySelector("button");
-    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
+    const spinner = el.shadowRoot?.querySelector("sit-spinner");
     expect(spinner).to.exist;
     expect(button?.textContent).not.to.equal("hello");
   });
@@ -324,49 +324,46 @@ describe("when using methods", () => {
     const el = await fixture<SitButton>(
       html`<sit-button variant="primary" tone="fixed-light" ?loading=${true}>hello</sit-button>`
     );
-    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
+    const spinner = el.shadowRoot?.querySelector("sit-spinner");
     expect(spinner?.tone).to.equal("fixed-dark");
   });
   it("should assign spinner tone=inverse when button tone=neutral and button variant=primary", async () => {
     const el = await fixture<SitButton>(
       html`<sit-button variant="primary" tone="neutral" ?loading=${true}>hello</sit-button>`
     );
-    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
+    const spinner = el.shadowRoot?.querySelector("sit-spinner");
     expect(spinner?.tone).to.equal("inverse");
   });
   it("should assign spinner tone=fixed-light when button tone=fixed-light or button variant=primary", async () => {
     const el1 = await fixture<SitButton>(
       html`<sit-button variant="ghost" tone="fixed-light" ?loading=${true}>hello</sit-button>`
     );
-    const spinner1 = el1.shadowRoot?.querySelector("SIT-spinner");
+    const spinner1 = el1.shadowRoot?.querySelector("sit-spinner");
     expect(spinner1?.tone).to.equal("fixed-light");
 
     const el2 = await fixture<SitButton>(
       html`<sit-button variant="primary" tone="brand" ?loading=${true}>hello</sit-button>`
     );
-    const spinner2 = el2.shadowRoot?.querySelector("SIT-spinner");
+    const spinner2 = el2.shadowRoot?.querySelector("sit-spinner");
     expect(spinner2?.tone).to.equal("fixed-light");
   });
   it("should assign spinner tone=neutral when button tone=neutral and button variant=outline or ghost", async () => {
     const el = await fixture<SitButton>(
       html`<sit-button variant="ghost" tone="neutral" ?loading=${true}>hello</sit-button>`
     );
-    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
+    const spinner = el.shadowRoot?.querySelector("sit-spinner");
     expect(spinner?.tone).to.equal("neutral");
   });
   it("should assign spinner tone=brand when variant=outline tone is default", async () => {
     const el = await fixture<SitButton>(
       html`<sit-button variant="outline" tone="brand" ?loading=${true}>hello</sit-button>`
     );
-    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
+    const spinner = el.shadowRoot?.querySelector("sit-spinner");
     expect(spinner?.tone).to.equal("brand");
   });
   it("should assign spinner tone=fixed-light by default", async () => {
     const el = await fixture<SitButton>(html`<sit-button ?loading=${true}>hello</sit-button>`);
-    const spinner = el.shadowRoot?.querySelector("SIT-spinner");
+    const spinner = el.shadowRoot?.querySelector("sit-spinner");
     expect(spinner?.tone).to.equal("fixed-light");
   });
 });
-
-
-

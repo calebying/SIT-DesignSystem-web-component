@@ -70,7 +70,7 @@ for (const [key, value] of Object.entries(groupedComponents)) {
   const mdxFilePath = path.join(storiesDir, `${key}.mdx`);
   const reactComponentPaths = value
     .map(v => {
-      const folderName = v.tagName.replace("sgds-", "");
+      const folderName = v.tagName.replace("sit-", "");
       return `
     \`\`\` jsx
     import ${v.name}  from "@govtechsg/sgds-web-component/react/${folderName}/index.js";
@@ -83,9 +83,9 @@ for (const [key, value] of Object.entries(groupedComponents)) {
   // Sort by tagName length (shorter first) so parent components appear before sub-components
   const sortedValue = [...value].sort((a, b) => a.tagName.length - b.tagName.length);
   const ArgsType = sortedValue.map(component => {
-    const deprecatedLabel = component.deprecated ? ` <sgds-badge variant="warning">deprecated</sgds-badge>` : "";
+    const deprecatedLabel = component.deprecated ? ` <sit-badge variant="warning">deprecated</sit-badge>` : "";
     const deprecatedNotice = component.deprecated
-      ? `<div class="sb-unstyled sgds:text-label-xs sgds:font-regular sgds:leading-3-xs sgds:tracking-normal sgds:text-fixed-dark">${component.deprecated}</div>\n`
+      ? `<div class="sb-unstyled sit:text-label-xs sit:font-regular sit:leading-3-xs sit:tracking-normal sit:text-fixed-dark">${component.deprecated}</div>\n`
       : "";
     return component.attributes || component.slots || component.events
       ? `### ${component.tagName}${deprecatedLabel}
@@ -161,7 +161,7 @@ ${methodsMeta
     { parser: "mdx" }
   );
   const csfFilePath = path.join(storiesDir, `${key}.stories.js`);
-  const componentTagName = `sgds-${pascalToKebab(key)}`;
+  const componentTagName = `sit-${pascalToKebab(key)}`;
   const storiesSource = `
     import { Template, args, parameters, play } from "../component-templates/${key}/basic.js";
 

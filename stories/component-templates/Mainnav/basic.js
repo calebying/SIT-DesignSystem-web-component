@@ -5,36 +5,36 @@ import { userEvent } from "@storybook/test";
 
 export const Template = ({ expand, brandHref, active, href, disabled, menuIsOpen, close, target, fluid }) => {
   return html`
-    <sgds-mainnav expand=${ifDefined(expand)} brandHref=${ifDefined(brandHref)} ?fluid=${fluid}>
-      <img alt="sgds logo" width="130" src="/logo.png" slot="brand" />
-      <sgds-mainnav-item ?active=${active} ?disabled=${disabled}>
+    <sit-mainnav expand=${ifDefined(expand)} brandHref=${ifDefined(brandHref)} ?fluid=${fluid}>
+      <img alt="Canvas logo" width="130" src="/logo.png" slot="brand" />
+      <sit-mainnav-item ?active=${active} ?disabled=${disabled}>
         <a href="#">ArgsTable Controlled</a>
-      </sgds-mainnav-item>
-      <sgds-mainnav-item>
+      </sit-mainnav-item>
+      <sit-mainnav-item>
         <a href="#">About</a>
-      </sgds-mainnav-item>
-      <sgds-mainnav-dropdown
+      </sit-mainnav-item>
+      <sit-mainnav-dropdown
         ?active=${active}
         ?menuIsOpen=${menuIsOpen}
         close=${ifDefined(close)}
         ariaLabel="Dropdown menu"
       >
         <span slot="toggler">Dropdown</span>
-        <sgds-dropdown-item ariaLabel="Item 1"><a href="https://google.com">Item 1</a></sgds-dropdown-item>
-        <sgds-dropdown-item ariaLabel="Item 2"><a href="#">Item 2</a></sgds-dropdown-item>
-        <sgds-dropdown-item ariaLabel="Item 3"><a href="#">Item 3</a></sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
-      <sgds-mainnav-item slot="end">
+        <sit-dropdown-item ariaLabel="Item 1"><a href="https://google.com">Item 1</a></sit-dropdown-item>
+        <sit-dropdown-item ariaLabel="Item 2"><a href="#">Item 2</a></sit-dropdown-item>
+        <sit-dropdown-item ariaLabel="Item 3"><a href="#">Item 3</a></sit-dropdown-item>
+      </sit-mainnav-dropdown>
+      <sit-mainnav-item slot="end">
         <a href="#">Contact Us</a>
-      </sgds-mainnav-item>
-      <sgds-button slot="end">Login</sgds-button>
+      </sit-mainnav-item>
+      <sit-button slot="end">Login</sit-button>
       <dev-console-widget
         slot="non-collapsible"
         iconColor="black"
         iconWidth="28px"
         iconHeight="28px"
       ></dev-console-widget>
-    </sgds-mainnav>
+    </sit-mainnav>
   `;
 };
 
@@ -51,7 +51,7 @@ export const parameters = {
 };
 
 export const play = async ({ canvasElement }) => {
-  const dropdown = canvasElement.querySelector("sgds-mainnav-dropdown");
+  const dropdown = canvasElement.querySelector("sit-mainnav-dropdown");
   const trigger = dropdown.shadowRoot.querySelector(".nav-link");
   await userEvent.click(trigger);
 };

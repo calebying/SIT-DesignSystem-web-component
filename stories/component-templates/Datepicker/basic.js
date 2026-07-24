@@ -23,7 +23,7 @@ export const Template = ({
   noValidate
 }) =>
   html`
-    <sgds-datepicker
+    <sit-datepicker
       ?noFlip=${noFlip}
       .initialValue=${initialValue}
       value=${ifDefined(value)}
@@ -43,7 +43,7 @@ export const Template = ({
       ?menuIsOpen=${menuIsOpen}
       ?noValidate=${noValidate}
     >
-    </sgds-datepicker>
+    </sit-datepicker>
   `;
 
 export const args = {
@@ -56,7 +56,7 @@ export const args = {
 export const parameters = {};
 
 export const play = async ({ canvasElement }) => {
-  const toggler = canvasElement.querySelector("sgds-datepicker");
-  const trigger = toggler.shadowRoot.querySelector("sgds-icon-button");
+  const toggler = canvasElement.querySelector("sit-datepicker");
+  const trigger = toggler.shadowRoot.querySelector("sit-icon-button");
   await userEvent.click(trigger);
 };

@@ -16,4 +16,3 @@ describe("generateId function", () => {
     expect(generateId("test", "test")).to.equal("id-3456-sit-test-test");
   });
 });
-

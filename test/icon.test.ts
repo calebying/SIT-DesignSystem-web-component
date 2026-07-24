@@ -45,5 +45,3 @@ describe("<sit-icon>", () => {
     expect(el.shadowRoot?.querySelector("svg > path")?.getAttribute("d")).to.equal(calendarSvgD);
   });
 });
-
-

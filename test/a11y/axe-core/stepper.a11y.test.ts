@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Stepper a11y", () => {
-  it("SIT-stepper should be accessible", async () => {
+  it("sit-stepper should be accessible", async () => {
     const el = await fixture(html`
       <sit-stepper
         .steps=${[
@@ -16,6 +16,3 @@ describe("Stepper a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

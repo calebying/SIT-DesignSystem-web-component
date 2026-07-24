@@ -3,14 +3,14 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args =>
   html`
-    <sgds-badge
+    <sit-badge
       variant=${ifDefined(args.variant)}
       ?dismissible=${args.dismissible}
       ?outlined=${args.outlined}
       ?show=${args.show}
     >
       Badge label
-    </sgds-badge>
+    </sit-badge>
   `;
 export const args = {};
 

@@ -21,5 +21,3 @@ describe("<sit-overflow-menu>", () => {
     );
   });
 });
-
-

@@ -30,7 +30,7 @@ describe("<sit-system-banner>", () => {
   });
   it("when dimissible is true, close button is rendered", async () => {
     const el = await fixture<SitSystemBanner>(html`<sit-system-banner show dismissible></sit-system-banner>`);
-    const closeButton = el.shadowRoot?.querySelector("SIT-close-button[tone='fixed-light']");
+    const closeButton = el.shadowRoot?.querySelector("sit-close-button[tone='fixed-light']");
     expect(closeButton).to.exist;
   });
   it("when more than one child, pagination is rendered, matches shadowDOM", async () => {
@@ -76,24 +76,18 @@ describe("<sit-system-banner>", () => {
       <sit-system-banner-item>three</sit-system-banner-item>
     </sit-system-banner>`);
 
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     clock.tick(5000);
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "two"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("two");
     clock.tick(5000);
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal(
       "three"
     );
     clock.tick(5000);
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     clock.restore();
   });
   it("mouse enter the banner, pauses the interval", async () => {
@@ -107,24 +101,18 @@ describe("<sit-system-banner>", () => {
     </sit-system-banner>`);
     el.addEventListener("mouseenter", mouseEnterHandler);
     el.addEventListener("mouseleave", mouseLeaveHandler);
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     await moveMouseOnElement(el);
     expect(mouseEnterHandler).to.have.been.called;
     clock.tick(5000);
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     //mouseleaves clock ticks rotation resumes
     await moveMouseOutOfElement(el);
     expect(mouseLeaveHandler).to.have.been.called;
     clock.tick(5000);
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "two"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("two");
     clock.restore();
   });
   it("keyboard focuses the elements , pauses the interval", async () => {
@@ -134,23 +122,17 @@ describe("<sit-system-banner>", () => {
       <sit-system-banner-item>two</sit-system-banner-item>
       <sit-system-banner-item>three</sit-system-banner-item>
     </sit-system-banner>`);
-    const paginationButton = el.shadowRoot?.querySelector("SIT-icon-button[name='chevron-right']") as SitIconButton;
+    const paginationButton = el.shadowRoot?.querySelector("sit-icon-button[name='chevron-right']") as SitIconButton;
     paginationButton.focus();
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     clock.tick(5000);
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     //mouseleaves clock ticks rotation resumes
     paginationButton.blur();
     clock.tick(5000);
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "two"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("two");
     clock.restore();
   });
   it("clicking next button loops the items and page indicator", async () => {
@@ -159,21 +141,17 @@ describe("<sit-system-banner>", () => {
       <sit-system-banner-item>two</sit-system-banner-item>
       <sit-system-banner-item>three</sit-system-banner-item>
     </sit-system-banner>`);
-    const nextBtn = el.shadowRoot?.querySelector("SIT-icon-button[name='chevron-right']") as SitIconButton;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    const nextBtn = el.shadowRoot?.querySelector("sit-icon-button[name='chevron-right']") as SitIconButton;
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     expect(el.shadowRoot?.querySelector("span")?.textContent.trim()).to.equal("1/3");
     nextBtn.click();
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "two"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("two");
     expect(el.shadowRoot?.querySelector("span")?.textContent.trim()).to.equal("2/3");
 
     nextBtn.click();
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal(
       "three"
     );
     expect(el.shadowRoot?.querySelector("span")?.textContent.trim()).to.equal("3/3");
@@ -181,9 +159,7 @@ describe("<sit-system-banner>", () => {
     nextBtn.click();
 
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     expect(el.shadowRoot?.querySelector("span")?.textContent.trim()).to.equal("1/3");
   });
   it("clicking prev button loops the items and page indicator", async () => {
@@ -192,31 +168,25 @@ describe("<sit-system-banner>", () => {
       <sit-system-banner-item>two</sit-system-banner-item>
       <sit-system-banner-item>three</sit-system-banner-item>
     </sit-system-banner>`);
-    const prevBtn = el.shadowRoot?.querySelector("SIT-icon-button[name='chevron-left']") as SitIconButton;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    const prevBtn = el.shadowRoot?.querySelector("sit-icon-button[name='chevron-left']") as SitIconButton;
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     expect(el.shadowRoot?.querySelector("span")?.textContent.trim()).to.equal("1/3");
     prevBtn.click();
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal(
       "three"
     );
     expect(el.shadowRoot?.querySelector("span")?.textContent.trim()).to.equal("3/3");
 
     prevBtn.click();
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "two"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("two");
     expect(el.shadowRoot?.querySelector("span")?.textContent.trim()).to.equal("2/3");
 
     prevBtn.click();
 
     await el.updateComplete;
-    expect(el.querySelector<SitSystemBannerItem>("SIT-system-banner-item[active]")?.textContent.trim()).to.equal(
-      "one"
-    );
+    expect(el.querySelector<SitSystemBannerItem>("sit-system-banner-item[active]")?.textContent.trim()).to.equal("one");
     expect(el.shadowRoot?.querySelector("span")?.textContent.trim()).to.equal("1/3");
   });
 
@@ -307,7 +277,7 @@ describe("<sit-system-banner>", () => {
     </sit-system-banner-item>`);
 
     const showMoreHandler = sinon.spy();
-    el.addEventListener("SIT-show-more", showMoreHandler);
+    el.addEventListener("sit-show-more", showMoreHandler);
 
     await el.updateComplete;
     // Force clamping
@@ -344,6 +314,3 @@ describe("<sit-system-banner>", () => {
     consoleErrorStub.restore();
   });
 });
-
-
-

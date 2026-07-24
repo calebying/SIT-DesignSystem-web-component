@@ -3,11 +3,11 @@ import { ifDefined } from "lit/directives/if-defined.js";
 import { userEvent } from "@storybook/test";
 
 export const Template = args => html`
-  <sgds-overflow-menu size=${ifDefined(args.size)}>
-    <sgds-dropdown-item ariaLabel="View">View</sgds-dropdown-item>
-    <sgds-dropdown-item ariaLabel="Edit">Edit</sgds-dropdown-item>
-    <sgds-dropdown-item ariaLabel="Delete">Delete</sgds-dropdown-item>
-  </sgds-overflow-menu>
+  <sit-overflow-menu size=${ifDefined(args.size)}>
+    <sit-dropdown-item ariaLabel="View">View</sit-dropdown-item>
+    <sit-dropdown-item ariaLabel="Edit">Edit</sit-dropdown-item>
+    <sit-dropdown-item ariaLabel="Delete">Delete</sit-dropdown-item>
+  </sit-overflow-menu>
 `;
 
 export const args = {
@@ -17,7 +17,7 @@ export const args = {
 export const parameters = {};
 
 export const play = async ({ canvasElement }) => {
-  const host = canvasElement.querySelector("sgds-overflow-menu");
+  const host = canvasElement.querySelector("sit-overflow-menu");
   const trigger = host.shadowRoot.querySelector(".overflow-btn");
   await userEvent.click(trigger);
 };

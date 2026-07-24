@@ -1,40 +1,40 @@
 import { html } from "lit";
 import { allModes } from "../../../.storybook/modes";
 
-export const Template = args => html`<sgds-system-banner
+export const Template = args => html`<sit-system-banner
   ?dismissible=${args.dismissible}
   ?show=${args.show}
   ?noClampAction=${args.noClampAction}
   ?fluid=${args.fluid}
 >
-  <sgds-system-banner-item>
-    <sgds-icon slot="icon" name="placeholder" size="md"></sgds-icon>
+  <sit-system-banner-item>
+    <sit-icon slot="icon" name="placeholder" size="md"></sit-icon>
     Etiam suscipit nisi eget porta cursus. Ut sit amet felis aliquet, pellentesque mi at, vulputate nunc. Vivamus ac
     facilisis tellus.
-    <sgds-link size="sm" variant="light" slot="action"
-      ><a href="#">Action link<sgds-icon name="arrow-right"></sgds-icon></a
-    ></sgds-link>
-  </sgds-system-banner-item>
-  <sgds-system-banner-item>
-    <sgds-icon slot="icon" name="placeholder" size="md"></sgds-icon>
+    <sit-link size="sm" variant="light" slot="action"
+      ><a href="#">Action link<sit-icon name="arrow-right"></sit-icon></a
+    ></sit-link>
+  </sit-system-banner-item>
+  <sit-system-banner-item>
+    <sit-icon slot="icon" name="placeholder" size="md"></sit-icon>
     Etiam suscipit nisi eget porta cursus. Ut sit amet felis aliquet, pellentesque mi at, vulputate nunc. Vivamus ac
     facilisis tellus. Maecenas ac libero scelerisque tellus maximus accumsan a vehicula arcu. Aenean quis leo gravida,
     congue sapien eu, rhoncus
-    <sgds-button href="#" slot="action" size="sm" tone="fixed-light" variant="outline">
+    <sit-button href="#" slot="action" size="sm" tone="fixed-light" variant="outline">
       Action button
-      <sgds-icon name="arrow-right" slot="rightIcon" size="md"></sgds-icon>
-    </sgds-button>
-  </sgds-system-banner-item>
-  <sgds-system-banner-item>
-    <sgds-icon slot="icon" name="placeholder" size="md"></sgds-icon>
+      <sit-icon name="arrow-right" slot="rightIcon" size="md"></sit-icon>
+    </sit-button>
+  </sit-system-banner-item>
+  <sit-system-banner-item>
+    <sit-icon slot="icon" name="placeholder" size="md"></sit-icon>
     Etiam suscipit nisi eget porta cursus. Ut sit amet felis aliquet, pellentesque mi at, vulputate nunc. Vivamus ac
     facilisis tellus. Maecenas ac libero scelerisque tellus maximus accumsan a vehicula arcu. Aenean quis leo gravida,
     congue sapien eu, rhoncus
-    <sgds-link size="sm" variant="light" slot="action"
-      ><a href="#">Action link<sgds-icon name="arrow-right" size="md"></sgds-icon></a
-    ></sgds-link>
-  </sgds-system-banner-item>
-</sgds-system-banner>`;
+    <sit-link size="sm" variant="light" slot="action"
+      ><a href="#">Action link<sit-icon name="arrow-right" size="md"></sit-icon></a
+    ></sit-link>
+  </sit-system-banner-item>
+</sit-system-banner>`;
 
 export const args = {
   show: true

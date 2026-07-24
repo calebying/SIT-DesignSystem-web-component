@@ -23,5 +23,3 @@ describe("<sit-icon-list>", () => {
     expect(el.shadowRoot?.querySelector("div")?.classList.value).to.contain("sm");
   });
 });
-
-

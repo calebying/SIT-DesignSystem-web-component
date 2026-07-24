@@ -76,8 +76,8 @@ describe("<sit-modal>", () => {
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("SIT-show", showHandler);
-    el.addEventListener("SIT-after-show", afterShowHandler);
+    el.addEventListener("sit-show", showHandler);
+    el.addEventListener("sit-after-show", afterShowHandler);
     el.show();
 
     await waitUntil(() => showHandler.calledOnce);
@@ -96,8 +96,8 @@ describe("<sit-modal>", () => {
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("SIT-hide", hideHandler);
-    el.addEventListener("SIT-after-hide", afterHideHandler);
+    el.addEventListener("sit-hide", hideHandler);
+    el.addEventListener("sit-after-hide", afterHideHandler);
     el.hide();
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -116,8 +116,8 @@ describe("<sit-modal>", () => {
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("SIT-show", showHandler);
-    el.addEventListener("SIT-after-show", afterShowHandler);
+    el.addEventListener("sit-show", showHandler);
+    el.addEventListener("sit-after-show", afterShowHandler);
     el.open = true;
 
     await waitUntil(() => showHandler.calledOnce);
@@ -136,8 +136,8 @@ describe("<sit-modal>", () => {
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("SIT-hide", hideHandler);
-    el.addEventListener("SIT-after-hide", afterHideHandler);
+    el.addEventListener("sit-hide", hideHandler);
+    el.addEventListener("sit-after-hide", afterHideHandler);
     el.open = false;
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -154,7 +154,7 @@ describe("<sit-modal>", () => {
     `);
     const overlay = el.shadowRoot?.querySelector<HTMLElement>(".modal-overlay");
 
-    el.addEventListener("SIT-close", event => {
+    el.addEventListener("sit-close", event => {
       event.preventDefault();
     });
     overlay?.click();
@@ -166,7 +166,7 @@ describe("<sit-modal>", () => {
     const el = await fixture<SitModal>(html` <sit-modal open></sit-modal> `);
     const hideHandler = sinon.spy();
 
-    el.addEventListener("SIT-hide", hideHandler);
+    el.addEventListener("sit-hide", hideHandler);
 
     await sendKeys({ press: "Escape" });
     await waitUntil(() => hideHandler.calledOnce);
@@ -176,27 +176,27 @@ describe("<sit-modal>", () => {
 
   it("should render close button by default", async () => {
     const el = await fixture<SitModal>(html`<sit-modal></sit-modal>`);
-    const closeBtn = el.shadowRoot?.querySelector("SIT-close-button");
+    const closeBtn = el.shadowRoot?.querySelector("sit-close-button");
     expect(closeBtn).to.not.be.null;
   });
 
   it("should not render close button when noCloseButton is set", async () => {
     const el = await fixture<SitModal>(html`<sit-modal noCloseButton></sit-modal>`);
-    const closeBtn = el.shadowRoot?.querySelector("SIT-close-button");
+    const closeBtn = el.shadowRoot?.querySelector("sit-close-button");
     expect(closeBtn).to.be.null;
   });
 
   it("should toggle close button when noCloseButton changes dynamically", async () => {
     const el = await fixture<SitModal>(html`<sit-modal></sit-modal>`);
-    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.not.be.null;
+    expect(el.shadowRoot?.querySelector("sit-close-button")).to.not.be.null;
 
     el.noCloseButton = true;
     await el.updateComplete;
-    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.be.null;
+    expect(el.shadowRoot?.querySelector("sit-close-button")).to.be.null;
 
     el.noCloseButton = false;
     await el.updateComplete;
-    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.not.be.null;
+    expect(el.shadowRoot?.querySelector("sit-close-button")).to.not.be.null;
   });
 
   it("should lock or unlock scrolling on body when modal opens or closes respectively", async () => {
@@ -206,13 +206,10 @@ describe("<sit-modal>", () => {
     expect(document.body.style.overflow).to.equal("hidden");
 
     const afterHideHandler = sinon.spy();
-    el.addEventListener("SIT-after-hide", afterHideHandler);
+    el.addEventListener("sit-after-hide", afterHideHandler);
     el.open = false;
 
     await waitUntil(() => afterHideHandler.calledOnce);
     expect(document.body.style.overflow).to.not.equal("hidden");
   });
 });
-
-
-

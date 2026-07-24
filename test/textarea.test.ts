@@ -4,7 +4,7 @@ import type { SitButton, SitTextarea } from "../src/components";
 import "./sit-web-component";
 import { sendKeys } from "@web/test-runner-commands";
 
-describe("SIT-textarea", () => {
+describe("sit-textarea", () => {
   it("renders with default values", async () => {
     const el = await fixture<SitTextarea>(html`<sit-textarea maxlength="10" required></sit-textarea>`);
     assert.shadowDom.equal(
@@ -47,7 +47,7 @@ describe("SIT-textarea", () => {
     const label = el.shadowRoot?.querySelector(".form-label");
     const submitHandler = sinon.spy();
 
-    el.addEventListener("SIT-focus", submitHandler);
+    el.addEventListener("sit-focus", submitHandler);
     (label as HTMLLabelElement).click();
     await waitUntil(() => submitHandler.calledOnce);
 
@@ -112,8 +112,8 @@ describe("when resetting a form", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const button = form.querySelector<SitButton>("SIT-button");
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
+    const button = form.querySelector<SitButton>("sit-button");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
     if (textarea) textarea.value = "1234";
 
     await textarea?.updateComplete;
@@ -222,7 +222,7 @@ describe("Validaiton", () => {
       </form>
     `);
 
-    const textarea = form.querySelector("SIT-textarea");
+    const textarea = form.querySelector("sit-textarea");
     textarea?.focus();
     await sendKeys({ press: "A" });
     await waitUntil(() => textarea?.value === "A");
@@ -238,7 +238,7 @@ describe("Validaiton", () => {
         <sit-textarea invalid invalidFeedback="test" hasFeedback></sit-textarea>
       </form>
     `);
-    const textarea = form.querySelector("SIT-textarea");
+    const textarea = form.querySelector("sit-textarea");
     form.reset();
 
     await waitUntil(() => !textarea?.invalid);
@@ -257,7 +257,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
@@ -273,7 +273,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
@@ -286,13 +286,13 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
     if (textarea) textarea.value = "short";
     await textarea?.updateComplete;
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     form.addEventListener("submit", submitHandler);
 
-    const button = form.querySelector<SitButton>("SIT-button");
+    const button = form.querySelector<SitButton>("sit-button");
     button?.click();
     await waitUntil(() => submitHandler.calledOnce);
     expect(submitHandler).to.have.been.calledOnce;
@@ -305,7 +305,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
     textarea?.focus();
     textarea?.blur();
     await textarea?.updateComplete;
@@ -320,8 +320,8 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -341,12 +341,12 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
 
     if (textarea) textarea.value = "updated-value";
     await textarea?.updateComplete;
 
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy(async (event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -368,12 +368,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
     textarea?.setInvalid(true);
     await textarea?.updateComplete;
     expect(textarea?.invalid).to.be.true;
 
-    form.querySelector<SitButton>("SIT-button")?.click();
+    form.querySelector<SitButton>("sit-button")?.click();
     await waitUntil(() => textarea?.invalid === false);
     expect(textarea?.invalid).to.be.false;
   });
@@ -385,12 +385,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
     textarea?.setInvalid(true);
     await textarea?.updateComplete;
     expect(textarea?.invalid).to.be.true;
 
-    form.querySelector<SitButton>("SIT-button")?.click();
+    form.querySelector<SitButton>("sit-button")?.click();
     await waitUntil(() => textarea?.invalid === false);
     expect(textarea?.invalid).to.be.false;
   });
@@ -404,7 +404,7 @@ describe("form novalidate", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => event.preventDefault());
     expect(form.reportValidity()).to.equal(true);
     form.addEventListener("submit", submitHandler);
@@ -420,7 +420,7 @@ describe("form novalidate", () => {
         <sit-button type="submit"></sit-button>
       </form>
     `);
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
     textarea?.focus();
     textarea?.blur();
     await textarea?.updateComplete;
@@ -435,7 +435,7 @@ describe("form novalidate", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy((event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -455,12 +455,12 @@ describe("form novalidate", () => {
         <sit-button type="submit">Submit</sit-button>
       </form>
     `);
-    const textarea = form.querySelector<SitTextarea>("SIT-textarea");
+    const textarea = form.querySelector<SitTextarea>("sit-textarea");
 
     if (textarea) textarea.value = "updated-value";
     await textarea?.updateComplete;
 
-    const submitButton = form.querySelector<SitButton>("SIT-button");
+    const submitButton = form.querySelector<SitButton>("sit-button");
     const submitHandler = sinon.spy(async (event: SubmitEvent) => {
       event.preventDefault();
       const formData = new FormData(form);
@@ -473,6 +473,3 @@ describe("form novalidate", () => {
     expect(submitHandler).to.have.been.calledOnce;
   });
 });
-
-
-

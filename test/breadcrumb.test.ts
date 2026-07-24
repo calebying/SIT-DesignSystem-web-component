@@ -4,7 +4,7 @@ import { html } from "lit";
 import { SitBreadcrumb, SitBreadcrumbItem } from "../src/components";
 import Sinon from "sinon";
 
-describe("SIT-breadcrumb", () => {
+describe("sit-breadcrumb", () => {
   it("renders with default values", async () => {
     const el = await fixture<SitBreadcrumb>(html`<sit-breadcrumb></sit-breadcrumb>`);
     assert.shadowDom.equal(
@@ -109,14 +109,14 @@ describe("SIT-breadcrumb", () => {
       <sit-breadcrumb-item><a href="https://www.google.com/">Contacts</a></sit-breadcrumb-item>
     </sit-breadcrumb>`);
 
-    const lastItem = el.querySelectorAll("SIT-breadcrumb-item")[2];
+    const lastItem = el.querySelectorAll("sit-breadcrumb-item")[2];
     expect(lastItem.active).to.equal(true);
   });
 });
 
-describe("SIT-breadcrumb-item", () => {
+describe("sit-breadcrumb-item", () => {
   it("is defined", () => {
-    const el = document.createElement("SIT-breadcrumb-item");
+    const el = document.createElement("sit-breadcrumb-item");
     assert.instanceOf(el, SitBreadcrumbItem);
   });
   it("renders with default values", async () => {
@@ -144,7 +144,7 @@ describe("SIT-breadcrumb-item", () => {
         <sit-breadcrumb-item><a href="#">Current</a></sit-breadcrumb-item>
       </sit-breadcrumb>
     `);
-    const lastItem = el.querySelectorAll("SIT-breadcrumb-item")[1];
+    const lastItem = el.querySelectorAll("sit-breadcrumb-item")[1];
     expect(lastItem.querySelector("a")?.getAttribute("tabindex")).to.equal("-1");
   });
   it("does not set tabindex=-1 on non-active item anchors", async () => {
@@ -154,7 +154,7 @@ describe("SIT-breadcrumb-item", () => {
         <sit-breadcrumb-item><a href="#">Current</a></sit-breadcrumb-item>
       </sit-breadcrumb>
     `);
-    const firstItem = el.querySelectorAll("SIT-breadcrumb-item")[0];
+    const firstItem = el.querySelectorAll("sit-breadcrumb-item")[0];
     expect(firstItem.querySelector("a")?.getAttribute("tabindex")).to.not.equal("-1");
   });
   it("prevents mouse click navigation on the active anchor", async () => {
@@ -164,7 +164,7 @@ describe("SIT-breadcrumb-item", () => {
         <sit-breadcrumb-item><a href="#">Current</a></sit-breadcrumb-item>
       </sit-breadcrumb>
     `);
-    const lastItem = el.querySelectorAll("SIT-breadcrumb-item")[1];
+    const lastItem = el.querySelectorAll("sit-breadcrumb-item")[1];
     const clickEvent = new MouseEvent("click", { bubbles: true, cancelable: true });
     lastItem.querySelector("a")?.dispatchEvent(clickEvent);
     expect(clickEvent.defaultPrevented).to.be.true;
@@ -176,7 +176,7 @@ describe("SIT-breadcrumb-item", () => {
         <sit-breadcrumb-item><a href="#">Current</a></sit-breadcrumb-item>
       </sit-breadcrumb>
     `);
-    const lastItem = el.querySelectorAll("SIT-breadcrumb-item")[1];
+    const lastItem = el.querySelectorAll("sit-breadcrumb-item")[1];
     // browsers fire a click event on a focused anchor when Enter is pressed
     const clickEvent = new MouseEvent("click", { bubbles: true, cancelable: true });
     lastItem.querySelector("a")?.dispatchEvent(clickEvent);
@@ -189,11 +189,9 @@ describe("SIT-breadcrumb-item", () => {
         <sit-breadcrumb-item><a href="#">Current</a></sit-breadcrumb-item>
       </sit-breadcrumb>
     `);
-    const firstItem = el.querySelectorAll("SIT-breadcrumb-item")[0];
+    const firstItem = el.querySelectorAll("sit-breadcrumb-item")[0];
     const clickEvent = new MouseEvent("click", { bubbles: true, cancelable: true });
     firstItem.querySelector("a")?.dispatchEvent(clickEvent);
     expect(clickEvent.defaultPrevented).to.be.false;
   });
 });
-
-

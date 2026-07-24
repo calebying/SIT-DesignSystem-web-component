@@ -1,10 +1,10 @@
 import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 
-export const Template = args => html` <sgds-divider
+export const Template = args => html` <sit-divider
   thickness=${ifDefined(args.thickness)}
   orientation=${ifDefined(args.orientation)}
-></sgds-divider>`;
+></sit-divider>`;
 
 export const args = {};
 

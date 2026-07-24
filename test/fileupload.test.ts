@@ -4,7 +4,7 @@ import { html } from "lit";
 import type { SitFileUpload, SitButton, SitIcon } from "../src/components";
 import SitCloseButton from "../src/components/CloseButton/sit-close-button";
 
-describe("SIT-file-upload", () => {
+describe("sit-file-upload", () => {
   it("should be able to pass in content in between the slot", async () => {
     const el = await fixture<SitFileUpload>(html` <sit-file-upload>Hello</sit-file-upload> `);
 
@@ -22,14 +22,14 @@ describe("SIT-file-upload", () => {
 
   it("Should output a child sit-button element", async () => {
     const el = await fixture(html`<sit-file-upload></sit-file-upload>`);
-    expect(el.shadowRoot?.querySelector("SIT-button")).to.exist;
+    expect(el.shadowRoot?.querySelector("sit-button")).to.exist;
   });
 
   it("Should not display the input element modal popup when disabled prop is true", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload disabled></sit-file-upload>`);
 
     // simulate click on the button
-    (el.shadowRoot?.querySelector("SIT-button") as SitButton)?.click();
+    (el.shadowRoot?.querySelector("sit-button") as SitButton)?.click();
 
     // check if the input element modal popup is not displayed
     const inputEl = el.shadowRoot?.querySelector("input") as HTMLInputElement;
@@ -83,7 +83,7 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected"); // add event listener to the component
+      const promise = oneEvent(el, "sit-files-selected"); // add event listener to the component
       input.files = dt.files;
       const changeEvent = new Event("change");
       input.dispatchEvent(changeEvent);
@@ -107,7 +107,7 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected"); // add event listener to the component
+      const promise = oneEvent(el, "sit-files-selected"); // add event listener to the component
       input.files = dt.files;
       const changeEvent = new Event("change");
       input.dispatchEvent(changeEvent);
@@ -117,7 +117,7 @@ describe("SIT-file-upload", () => {
       expect(listItems?.length).to.equal(2);
 
       // Verify exit animation is applied to the correct file (file1.txt)
-      const removeBtn = listItems?.[0].querySelector("SIT-close-button");
+      const removeBtn = listItems?.[0].querySelector("sit-close-button");
       removeBtn?.dispatchEvent(new Event("click"));
       await el.updateComplete;
 
@@ -161,13 +161,13 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
 
       let containers = el.shadowRoot?.querySelectorAll(".file-upload-list-item-container");
-      const removeBtn = containers?.[0].querySelector("SIT-close-button");
+      const removeBtn = containers?.[0].querySelector("sit-close-button");
 
       removeBtn?.dispatchEvent(new Event("click"));
       await el.updateComplete;
@@ -188,13 +188,13 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
 
       const listItems = el.shadowRoot?.querySelectorAll(".file-upload-list-item");
-      const removeBtn = listItems?.[0].querySelector("SIT-close-button");
+      const removeBtn = listItems?.[0].querySelector("sit-close-button");
       removeBtn?.dispatchEvent(new Event("click"));
 
       // After animation completes
@@ -214,7 +214,7 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -237,7 +237,7 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -261,7 +261,7 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -271,7 +271,7 @@ describe("SIT-file-upload", () => {
       await el.updateComplete;
 
       const errorContainer = el.shadowRoot?.querySelector(".invalid-feedback-container");
-      const icon = errorContainer?.querySelector('SIT-icon[name="exclamation-circle-fill"]');
+      const icon = errorContainer?.querySelector('sit-icon[name="exclamation-circle-fill"]');
       expect(icon).to.exist;
     }
   });
@@ -285,7 +285,7 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -294,7 +294,7 @@ describe("SIT-file-upload", () => {
       el.setFileUploadState(0, "loading");
       await el.updateComplete;
 
-      const closeBtn = el.shadowRoot?.querySelector("SIT-close-button");
+      const closeBtn = el.shadowRoot?.querySelector("sit-close-button");
       expect(closeBtn?.hasAttribute("disabled")).to.be.true;
     }
   });
@@ -308,7 +308,7 @@ describe("SIT-file-upload", () => {
       dt1.items.add(new File(["file1"], "file1.txt"));
       dt1.items.add(new File(["file2"], "file2.txt"));
 
-      const promise1 = oneEvent(el, "SIT-files-selected");
+      const promise1 = oneEvent(el, "sit-files-selected");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -322,7 +322,7 @@ describe("SIT-file-upload", () => {
       dt2.items.add(new File(["file3"], "file3.txt"));
       dt2.items.add(new File(["file4"], "file4.txt"));
 
-      const promise2 = oneEvent(el, "SIT-files-selected");
+      const promise2 = oneEvent(el, "sit-files-selected");
       input.files = dt2.files;
       input.dispatchEvent(new Event("change"));
       await promise2;
@@ -348,7 +348,7 @@ describe("SIT-file-upload", () => {
       dt1.items.add(new File(["file2"], "file2.txt"));
       dt1.items.add(new File(["file3"], "file3.txt"));
 
-      const promise1 = oneEvent(el, "SIT-files-selected");
+      const promise1 = oneEvent(el, "sit-files-selected");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -358,7 +358,7 @@ describe("SIT-file-upload", () => {
       expect(listItems?.length).to.equal(3);
 
       // Delete the middle file (file2)
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -384,7 +384,7 @@ describe("SIT-file-upload", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -397,18 +397,18 @@ describe("SIT-file-upload", () => {
       await el.updateComplete;
 
       // Remove first file
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
 
       // Files 1 and 2 should still be loading (now at indices 0 and 1)
-      const spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
+      const spinners = el.shadowRoot?.querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(2);
     }
   });
 
-  it("SIT-files-selected event detail files should sync with UI across selections and removals", async () => {
+  it("sit-files-selected event detail files should sync with UI across selections and removals", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
@@ -418,7 +418,7 @@ describe("SIT-file-upload", () => {
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
 
-      const promise1 = oneEvent(el, "SIT-files-selected");
+      const promise1 = oneEvent(el, "sit-files-selected");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       const event1 = (await promise1) as CustomEvent;
@@ -437,7 +437,7 @@ describe("SIT-file-upload", () => {
       dt2.items.add(new File(["content3"], "file3.txt"));
       dt2.items.add(new File(["content4"], "file4.txt"));
 
-      const promise2 = oneEvent(el, "SIT-files-selected");
+      const promise2 = oneEvent(el, "sit-files-selected");
       input.files = dt2.files;
       input.dispatchEvent(new Event("change"));
       const event2 = (await promise2) as CustomEvent;
@@ -454,7 +454,7 @@ describe("SIT-file-upload", () => {
       expect(eventFiles[3].name).to.equal("file4.txt");
 
       // Remove the second file (file2.txt)
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -473,13 +473,13 @@ describe("SIT-file-upload", () => {
     }
   });
 
-  it("SIT-add-files fires ONLY when files are added, not when removed", async () => {
+  it("sit-add-files fires ONLY when files are added, not when removed", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let addFilesEventCount = 0;
-      el.addEventListener("SIT-add-files", () => {
+      el.addEventListener("sit-add-files", () => {
         addFilesEventCount++;
       });
 
@@ -495,7 +495,7 @@ describe("SIT-file-upload", () => {
       expect(addFilesEventCount).to.equal(1);
 
       // Delete one file - should NOT fire sit-add-files
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -504,13 +504,13 @@ describe("SIT-file-upload", () => {
     }
   });
 
-  it("SIT-remove-file fires ONLY when files are removed, not when added", async () => {
+  it("sit-remove-file fires ONLY when files are removed, not when added", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let removeFilesEventCount = 0;
-      el.addEventListener("SIT-remove-file", () => {
+      el.addEventListener("sit-remove-file", () => {
         removeFilesEventCount++;
       });
 
@@ -526,7 +526,7 @@ describe("SIT-file-upload", () => {
       expect(removeFilesEventCount).to.equal(0); // Not fired
 
       // Delete one file - should fire sit-remove-file
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -535,13 +535,13 @@ describe("SIT-file-upload", () => {
     }
   });
 
-  it("SIT-files-selected fires every time file set changes (backwards compatible)", async () => {
+  it("sit-files-selected fires every time file set changes (backwards compatible)", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let filesSelectedEventCount = 0;
-      el.addEventListener("SIT-files-selected", () => {
+      el.addEventListener("sit-files-selected", () => {
         filesSelectedEventCount++;
       });
 
@@ -557,7 +557,7 @@ describe("SIT-file-upload", () => {
       expect(filesSelectedEventCount).to.equal(1);
 
       // Delete one file - should also fire sit-files-selected (backwards compatible)
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -566,13 +566,13 @@ describe("SIT-file-upload", () => {
     }
   });
 
-  it("SIT-change fires every time file set changes (add or remove)", async () => {
+  it("sit-change fires every time file set changes (add or remove)", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let changeEventCount = 0;
-      el.addEventListener("SIT-change", () => {
+      el.addEventListener("sit-change", () => {
         changeEventCount++;
       });
 
@@ -588,7 +588,7 @@ describe("SIT-file-upload", () => {
       expect(changeEventCount).to.equal(1);
 
       // Delete one file - should fire sit-change again
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -613,7 +613,7 @@ describe("SIT-file-upload", () => {
 
     if (input) {
       let addFilesEventCount = 0;
-      el.addEventListener("SIT-add-files", () => {
+      el.addEventListener("sit-add-files", () => {
         addFilesEventCount++;
       });
 
@@ -637,7 +637,7 @@ describe("SIT-file-upload", () => {
       await el.updateComplete;
 
       // Delete file2 (the one in success state, close button is enabled)
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       expect(closeButtons?.[1].hasAttribute("disabled")).to.be.false; // file2 is not disabled (success state)
       closeButtons?.[1].click();
       await aTimeout(300);
@@ -647,23 +647,23 @@ describe("SIT-file-upload", () => {
       expect(addFilesEventCount).to.equal(1);
 
       // Remaining files (file1 and file3) should still have loading state
-      const spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
+      const spinners = el.shadowRoot?.querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(2);
 
       // Close buttons for loading files should still be disabled
-      const remainingCloseButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const remainingCloseButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       expect(remainingCloseButtons?.[0].hasAttribute("disabled")).to.be.true; // file1 still loading
       expect(remainingCloseButtons?.[1].hasAttribute("disabled")).to.be.true; // file3 still loading
     }
   });
 
-  it("SIT-remove-file fires with deleted file and remaining file list", async () => {
+  it("sit-remove-file fires with deleted file and remaining file list", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let removeFilesEventDetail: any = null;
-      el.addEventListener("SIT-remove-file", (e: any) => {
+      el.addEventListener("sit-remove-file", (e: any) => {
         removeFilesEventDetail = e.detail;
       });
 
@@ -681,7 +681,7 @@ describe("SIT-file-upload", () => {
       expect(removeFilesEventDetail).to.be.null;
 
       // Delete file2 (middle file)
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -712,7 +712,7 @@ describe("SIT-file-upload", () => {
       dt.items.add(new File(["content2"], "file2.txt"));
       dt.items.add(new File(["content3"], "file3.txt"));
 
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -722,7 +722,7 @@ describe("SIT-file-upload", () => {
       expect(listItems?.length).to.equal(3);
 
       // Delete middle file (file2.txt)
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[1].click();
       await el.updateComplete;
       await aTimeout(300); // ← Wait for animation to finish
@@ -762,7 +762,7 @@ describe("SIT-file-upload", () => {
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -771,44 +771,44 @@ describe("SIT-file-upload", () => {
       // State 1: Set file1 to loading
       el.setFileUploadState(0, "loading");
       await el.updateComplete;
-      let spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
+      let spinners = el.shadowRoot?.querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(1);
 
       // During loading, close button should be disabled (not clickable)
-      let closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      let closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       expect(closeButtons?.[0].hasAttribute("disabled")).to.be.true;
 
       // State 2: Set file1 to success
       el.setFileUploadState(0, "success");
       await el.updateComplete;
-      spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
+      spinners = el.shadowRoot?.querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(0);
 
       // After success, close button should be enabled again
-      closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       expect(closeButtons?.[0].hasAttribute("disabled")).to.be.false;
 
-      const checkIcons = el.shadowRoot?.querySelectorAll('SIT-icon[name="check-circle-fill"]');
+      const checkIcons = el.shadowRoot?.querySelectorAll('sit-icon[name="check-circle-fill"]');
       expect(checkIcons?.length).to.be.greaterThan(0);
 
       // State 3: Set file2 to loading
       el.setFileUploadState(1, "loading");
       await el.updateComplete;
-      spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
+      spinners = el.shadowRoot?.querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(1);
 
       // During loading, close button should be disabled
-      closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       expect(closeButtons?.[1].hasAttribute("disabled")).to.be.true;
 
       // State 4: Set file2 to error
       el.setFileUploadState(1, "error", "Upload failed");
       await el.updateComplete;
-      spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
+      spinners = el.shadowRoot?.querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(0);
 
       // After error, close button should be enabled again
-      closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       expect(closeButtons?.[1].hasAttribute("disabled")).to.be.false;
 
       const errorMessages = el.shadowRoot?.querySelectorAll(".invalid-feedback");
@@ -832,7 +832,7 @@ describe("SIT-file-upload", () => {
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
 
-      const promise1 = oneEvent(el, "SIT-files-selected");
+      const promise1 = oneEvent(el, "sit-files-selected");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -846,7 +846,7 @@ describe("SIT-file-upload", () => {
       el.setFileUploadState(1, "loading");
       await el.updateComplete;
 
-      const spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
+      const spinners = el.shadowRoot?.querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(2);
 
       // Second selection: add 2 more files (should combine, not replace)
@@ -854,7 +854,7 @@ describe("SIT-file-upload", () => {
       dt2.items.add(new File(["content3"], "file3.txt"));
       dt2.items.add(new File(["content4"], "file4.txt"));
 
-      const promise2 = oneEvent(el, "SIT-files-selected");
+      const promise2 = oneEvent(el, "sit-files-selected");
       input.files = dt2.files;
       input.dispatchEvent(new Event("change"));
       await promise2;
@@ -870,7 +870,7 @@ describe("SIT-file-upload", () => {
       expect(listItems?.[3].querySelector(".filename")?.textContent).to.include("file4.txt");
 
       // Delete middle file (file2.txt) - should NOT duplicate
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -894,7 +894,7 @@ describe("SIT-file-upload", () => {
       dt.items.add(new File(["content2"], "file2.txt"));
       dt.items.add(new File(["content3"], "file3.txt"));
 
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -913,7 +913,7 @@ describe("SIT-file-upload", () => {
       expect(listItems?.[2].querySelector(".filename")?.textContent).to.include("file3.txt");
 
       // Delete file2 (the loading one in the middle)
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -924,7 +924,7 @@ describe("SIT-file-upload", () => {
 
       // file1 should still be in success state (no spinner, has checkmark)
       expect(listItems?.[0].querySelector(".filename")?.textContent).to.include("file1.txt");
-      let spinners = listItems?.[0].querySelectorAll("SIT-spinner");
+      let spinners = listItems?.[0].querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(0);
 
       // file3 should still be in error state (not success state from old index 1)
@@ -934,7 +934,7 @@ describe("SIT-file-upload", () => {
       expect(errorContainer?.[0].textContent).to.include("File too large");
 
       // Verify no spinner exists (file3 is error, not loading)
-      spinners = el.shadowRoot?.querySelectorAll("SIT-spinner");
+      spinners = el.shadowRoot?.querySelectorAll("sit-spinner");
       expect(spinners?.length).to.equal(0);
     }
   });
@@ -951,7 +951,7 @@ describe("SIT-file-upload", () => {
       dt1.items.add(new File(["content1"], "file1.txt"));
       dt1.items.add(new File(["content2"], "file2.txt"));
 
-      const promise1 = oneEvent(el, "SIT-add-files");
+      const promise1 = oneEvent(el, "sit-add-files");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -974,7 +974,7 @@ describe("SIT-file-upload", () => {
         dataTransfer: dt2
       });
 
-      const promise2 = oneEvent(el, "SIT-add-files");
+      const promise2 = oneEvent(el, "sit-add-files");
       dragDropZone.dispatchEvent(dropEvent);
       await promise2;
       await el.updateComplete;
@@ -1000,7 +1000,7 @@ describe("SIT-file-upload", () => {
       const dt1 = new DataTransfer();
       dt1.items.add(new File(["content1"], "file1.txt"));
 
-      const promise1 = oneEvent(el, "SIT-add-files");
+      const promise1 = oneEvent(el, "sit-add-files");
       input.files = dt1.files;
       input.dispatchEvent(new Event("change"));
       await promise1;
@@ -1023,7 +1023,7 @@ describe("SIT-file-upload", () => {
         dataTransfer: dt2
       });
 
-      const promise2 = oneEvent(el, "SIT-add-files");
+      const promise2 = oneEvent(el, "sit-add-files");
       dragDropZone.dispatchEvent(dropEvent);
       await promise2;
       await el.updateComplete;
@@ -1050,8 +1050,8 @@ describe("SIT-file-upload", () => {
 
       let changeCount = 0;
       let filesSelectedCount = 0;
-      el.addEventListener("SIT-change", () => changeCount++);
-      el.addEventListener("SIT-files-selected", () => filesSelectedCount++);
+      el.addEventListener("sit-change", () => changeCount++);
+      el.addEventListener("sit-files-selected", () => filesSelectedCount++);
 
       // Simulate cancel: browser resets input.files to empty and fires change in some browsers
       const emptyDt = new DataTransfer();
@@ -1089,7 +1089,7 @@ describe("SIT-file-upload", () => {
       await el.updateComplete;
 
       // Remove the second file
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[1].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -1102,13 +1102,13 @@ describe("SIT-file-upload", () => {
     }
   });
 
-  it("SIT-change event detail contains current file list after deletion", async () => {
+  it("sit-change event detail contains current file list after deletion", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload multiple>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (input) {
       let lastChangeEventFiles: FileList | null = null;
-      el.addEventListener("SIT-change", (e: any) => {
+      el.addEventListener("sit-change", (e: any) => {
         lastChangeEventFiles = e.detail;
       });
 
@@ -1124,7 +1124,7 @@ describe("SIT-file-upload", () => {
       expect(lastChangeEventFiles?.length).to.equal(2);
 
       // Delete one file
-      const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+      const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
       closeButtons?.[0].click();
       await aTimeout(300);
       await el.updateComplete;
@@ -1143,7 +1143,7 @@ describe("Fileupload validation", () => {
         <sit-file-upload required hasFeedback></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector("SIT-file-upload");
+    const upload = form.querySelector("sit-file-upload");
     expect(form.reportValidity()).to.be.false;
     await waitUntil(() => upload?.invalid);
 
@@ -1161,10 +1161,10 @@ describe("Fileupload validation", () => {
         <sit-file-upload required hasFeedback></sit-file-upload>
       </form>
     `);
-    const fileupload = form.querySelector<SitFileUpload>("SIT-file-upload");
+    const fileupload = form.querySelector<SitFileUpload>("sit-file-upload");
     const input = fileupload?.shadowRoot?.querySelector("input");
     if (input && fileupload) {
-      const promise = oneEvent(fileupload, "SIT-files-selected"); // add event listener to the component
+      const promise = oneEvent(fileupload, "sit-files-selected"); // add event listener to the component
       input.files = dt.files;
       const changeEvent = new Event("change");
       input.dispatchEvent(changeEvent);
@@ -1193,10 +1193,10 @@ describe("Fileupload validation", () => {
       </form>
     `);
     expect(form.reportValidity()).to.be.false;
-    const fileupload = form.querySelector<SitFileUpload>("SIT-file-upload");
+    const fileupload = form.querySelector<SitFileUpload>("sit-file-upload");
     const input = fileupload?.shadowRoot?.querySelector("input");
     if (input && fileupload) {
-      const promise = oneEvent(fileupload, "SIT-files-selected"); // add event listener to the component
+      const promise = oneEvent(fileupload, "sit-files-selected"); // add event listener to the component
       input.files = dt.files;
       const changeEvent = new Event("change");
       input.dispatchEvent(changeEvent);
@@ -1205,7 +1205,7 @@ describe("Fileupload validation", () => {
       expect(listItems?.length).to.equal(1);
       expect(form.reportValidity()).to.be.true;
 
-      const cancelButtonOnListItems = fileupload?.shadowRoot?.querySelector<SitCloseButton>("SIT-close-button");
+      const cancelButtonOnListItems = fileupload?.shadowRoot?.querySelector<SitCloseButton>("sit-close-button");
       cancelButtonOnListItems?.click();
       await aTimeout(300); // wait for animation to complete
       await fileupload?.updateComplete;
@@ -1214,7 +1214,7 @@ describe("Fileupload validation", () => {
   });
 });
 
-describe("SIT-file-upload upload state", () => {
+describe("sit-file-upload upload state", () => {
   it("should show spinner when file is in loading state", async () => {
     const fileList = [new File(["file1"], "file1.txt")];
     const dt = new DataTransfer();
@@ -1225,7 +1225,7 @@ describe("SIT-file-upload upload state", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -1236,7 +1236,7 @@ describe("SIT-file-upload upload state", () => {
       await el.updateComplete;
 
       const listItem = el.shadowRoot?.querySelector(".file-upload-list-item");
-      const spinner = listItem?.querySelector("SIT-spinner");
+      const spinner = listItem?.querySelector("sit-spinner");
       expect(spinner).to.exist;
     }
   });
@@ -1251,7 +1251,7 @@ describe("SIT-file-upload upload state", () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload>Hello</sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
     if (input) {
-      const promise = oneEvent(el, "SIT-files-selected");
+      const promise = oneEvent(el, "sit-files-selected");
       input.files = dt.files;
       input.dispatchEvent(new Event("change"));
       await promise;
@@ -1260,24 +1260,24 @@ describe("SIT-file-upload upload state", () => {
       el.setFileUploadState(0, "loading");
       await el.updateComplete;
 
-      const closeBtn = el.shadowRoot?.querySelector("SIT-close-button");
+      const closeBtn = el.shadowRoot?.querySelector("sit-close-button");
       expect(closeBtn?.hasAttribute("disabled")).to.be.true;
     }
   });
 });
 
-describe("SIT-file-upload variant prop", () => {
+describe("sit-file-upload variant prop", () => {
   it("renders default variant with button when variant is 'default'", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="default"></sit-file-upload>`);
 
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
     expect(button).to.exist;
   });
 
   it("renders default variant by default when variant prop is not specified", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload></sit-file-upload>`);
 
-    const button = el.shadowRoot?.querySelector<HTMLElement>("SIT-button");
+    const button = el.shadowRoot?.querySelector<HTMLElement>("sit-button");
     expect(button).to.exist;
   });
 
@@ -1288,7 +1288,7 @@ describe("SIT-file-upload variant prop", () => {
     expect(dragDropDiv).to.exist;
 
     // Check for icon
-    const icon = dragDropDiv?.querySelector<SitIcon>("SIT-icon");
+    const icon = dragDropDiv?.querySelector<SitIcon>("sit-icon");
     expect(icon).to.exist;
     expect(icon?.getAttribute("name")).to.equal("upload");
     expect(icon?.getAttribute("size")).to.equal("lg");
@@ -1306,7 +1306,7 @@ describe("SIT-file-upload variant prop", () => {
   });
 });
 
-describe("SIT-file-upload drag-and-drop interactions", () => {
+describe("sit-file-upload drag-and-drop interactions", () => {
   function makeDragEvent(type: string, files: File[] = []): DragEvent {
     const dt = new DataTransfer();
     files.forEach(f => dt.items.add(f));
@@ -1335,9 +1335,7 @@ describe("SIT-file-upload drag-and-drop interactions", () => {
   });
 
   it("drop appends files to the file list", async () => {
-    const el = await fixture<SitFileUpload>(
-      html`<sit-file-upload variant="drag-and-drop" multiple></sit-file-upload>`
-    );
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop" multiple></sit-file-upload>`);
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     const file = new File(["content"], "test.pdf", { type: "application/pdf" });
     zone?.dispatchEvent(makeDragEvent("drop", [file]));
@@ -1363,9 +1361,7 @@ describe("SIT-file-upload drag-and-drop interactions", () => {
   });
 
   it("drop does nothing when disabled", async () => {
-    const el = await fixture<SitFileUpload>(
-      html`<sit-file-upload variant="drag-and-drop" disabled></sit-file-upload>`
-    );
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop" disabled></sit-file-upload>`);
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
     const file = new File(["content"], "test.pdf", { type: "application/pdf" });
     zone?.dispatchEvent(makeDragEvent("drop", [file]));
@@ -1383,7 +1379,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-file-upload noValidate required hasFeedback name="doc"></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector("SIT-file-upload");
+    const upload = form.querySelector("sit-file-upload");
 
     // Try to submit empty form
     const canSubmit = form.reportValidity();
@@ -1400,7 +1396,7 @@ describe("noValidate disables native and sit validation behaviours", () => {
         <sit-file-upload noValidate required hasFeedback name="doc"></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector<SitFileUpload>("SIT-file-upload");
+    const upload = form.querySelector<SitFileUpload>("sit-file-upload");
     const input = upload?.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (!input) return;
@@ -1432,12 +1428,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const upload = form.querySelector<SitFileUpload>("SIT-file-upload");
+    const upload = form.querySelector<SitFileUpload>("sit-file-upload");
     upload?.setInvalid(true);
     await upload?.updateComplete;
     expect(upload?.invalid).to.be.true;
 
-    form.querySelector<SitButton>("SIT-button")?.click();
+    form.querySelector<SitButton>("sit-button")?.click();
     await waitUntil(() => upload?.invalid === false);
     expect(upload?.invalid).to.be.false;
   });
@@ -1449,12 +1445,12 @@ describe("reset clears invalid state when noValidate is true", () => {
         <sit-button type="reset">Reset</sit-button>
       </form>
     `);
-    const upload = form.querySelector<SitFileUpload>("SIT-file-upload");
+    const upload = form.querySelector<SitFileUpload>("sit-file-upload");
     upload?.setInvalid(true);
     await upload?.updateComplete;
     expect(upload?.invalid).to.be.true;
 
-    form.querySelector<SitButton>("SIT-button")?.click();
+    form.querySelector<SitButton>("sit-button")?.click();
     await waitUntil(() => upload?.invalid === false);
     expect(upload?.invalid).to.be.false;
   });
@@ -1467,7 +1463,7 @@ describe("form novalidate disables sit validation on all children", () => {
         <sit-file-upload required hasFeedback name="doc"></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector("SIT-file-upload");
+    const upload = form.querySelector("sit-file-upload");
 
     // Try to submit empty form
     const canSubmit = form.reportValidity();
@@ -1483,7 +1479,7 @@ describe("form novalidate disables sit validation on all children", () => {
         <sit-file-upload required hasFeedback name="doc"></sit-file-upload>
       </form>
     `);
-    const upload = form.querySelector<SitFileUpload>("SIT-file-upload");
+    const upload = form.querySelector<SitFileUpload>("sit-file-upload");
     const input = upload?.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     if (!input) return;
@@ -1506,7 +1502,7 @@ describe("form novalidate disables sit validation on all children", () => {
     expect(upload.invalid).to.be.true;
   });
 });
-describe("SIT-file-upload touched validation (blur-triggered)", () => {
+describe("sit-file-upload touched validation (blur-triggered)", () => {
   it("should NOT show invalid feedback on required field until blur (touched behavior)", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
 
@@ -1521,14 +1517,14 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
     const el = await fixture<SitFileUpload>(
       html`<sit-file-upload required hasFeedback variant="default"></sit-file-upload>`
     );
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     // Focus the button
     button?.focus();
     await el.updateComplete;
 
     // Simulate blur by emitting sit-blur event on the button
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
 
     // Now should show invalid feedback
@@ -1562,7 +1558,7 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
       html`<sit-file-upload required hasFeedback variant="default"></sit-file-upload>`
     );
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     // Add a file
     const dt = new DataTransfer();
@@ -1574,7 +1570,7 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
     await el.updateComplete;
 
     // Blur the button
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
 
     // Should NOT be invalid (files are present)
@@ -1586,10 +1582,10 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
   it("should clear invalid state when files are added after blur", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     // Blur without files (should become invalid)
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
     expect(el.invalid).to.be.true;
 
@@ -1611,7 +1607,7 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
   it("should show invalid feedback when all files are removed after blur", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback multiple></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     // Add a file
     const dt = new DataTransfer();
@@ -1624,12 +1620,12 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
     expect(el.invalid).to.be.false;
 
     // Blur (should remain valid since file is present)
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
     expect(el.invalid).to.be.false;
 
     // Remove the file
-    const closeButtons = el.shadowRoot?.querySelectorAll("SIT-close-button");
+    const closeButtons = el.shadowRoot?.querySelectorAll("sit-close-button");
     closeButtons?.[0].click();
     await aTimeout(300);
     await el.updateComplete;
@@ -1642,28 +1638,26 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
 
   it("should emit sit-blur event when button loses focus", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     let blurEventFired = false;
-    el.addEventListener("SIT-blur", () => {
+    el.addEventListener("sit-blur", () => {
       blurEventFired = true;
     });
 
     // Emit blur on button
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
 
     expect(blurEventFired).to.be.true;
   });
 
   it("should not show invalid state when noValidate is true, even after blur", async () => {
-    const el = await fixture<SitFileUpload>(
-      html`<sit-file-upload required hasFeedback noValidate></sit-file-upload>`
-    );
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback noValidate></sit-file-upload>`);
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     // Blur without files
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
 
     // Should NOT be invalid (noValidate skips validation)
@@ -1702,10 +1696,10 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
   it("should NOT show validation when user cancels file picker after being touched and having a file selected", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     // Step 1: Blur to mark as touched → invalid (no file yet)
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
     expect(el.invalid).to.be.true;
 
@@ -1738,10 +1732,10 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
   it("should re-validate after file is removed via close button", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     // Step 1: Blur without files → invalid
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
     expect(el.invalid).to.be.true;
 
@@ -1756,7 +1750,7 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
     expect(el.invalid).to.be.false;
 
     // Step 3: Remove the file via close button (simulates _removeFileHandler)
-    const closeButton = el.shadowRoot?.querySelector<HTMLElement>("SIT-close-button");
+    const closeButton = el.shadowRoot?.querySelector<HTMLElement>("sit-close-button");
     closeButton?.click();
 
     // Wait for the 300ms exit animation timeout
@@ -1769,7 +1763,7 @@ describe("SIT-file-upload touched validation (blur-triggered)", () => {
   });
 });
 
-describe("SIT-file-upload dialog and drop validation behavior", () => {
+describe("sit-file-upload dialog and drop validation behavior", () => {
   function makeDragEvent(type: string, files: File[] = []): DragEvent {
     const dt = new DataTransfer();
     files.forEach(f => dt.items.add(f));
@@ -1778,7 +1772,7 @@ describe("SIT-file-upload dialog and drop validation behavior", () => {
 
   it("should NOT show validation when clicking the upload button (dialog opens)", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback></sit-file-upload>`);
-    const button = el.shadowRoot?.querySelector<SitButton>("SIT-button");
+    const button = el.shadowRoot?.querySelector<SitButton>("sit-button");
 
     // Simulate clicking the button (which sets _isDialogOpen = true)
     // then the blur that follows when the dialog steals focus
@@ -1786,7 +1780,7 @@ describe("SIT-file-upload dialog and drop validation behavior", () => {
     await el.updateComplete;
 
     // Simulate the blur that happens when dialog opens
-    button?.dispatchEvent(new CustomEvent("SIT-blur", { bubbles: true }));
+    button?.dispatchEvent(new CustomEvent("sit-blur", { bubbles: true }));
     await el.updateComplete;
 
     // Should NOT show invalid — dialog is open, blur should be ignored
@@ -1810,9 +1804,7 @@ describe("SIT-file-upload dialog and drop validation behavior", () => {
   });
 
   it("should NOT show validation on cancel when noValidate is set", async () => {
-    const el = await fixture<SitFileUpload>(
-      html`<sit-file-upload required hasFeedback noValidate></sit-file-upload>`
-    );
+    const el = await fixture<SitFileUpload>(html`<sit-file-upload required hasFeedback noValidate></sit-file-upload>`);
     const input = el.shadowRoot?.querySelector<HTMLInputElement>("input");
 
     // Simulate cancel event
@@ -1892,7 +1884,7 @@ describe("SIT-file-upload dialog and drop validation behavior", () => {
     expect(el.invalid).to.be.false;
 
     // Remove the file via close button
-    const closeButton = el.shadowRoot?.querySelector<HTMLElement>("SIT-close-button");
+    const closeButton = el.shadowRoot?.querySelector<HTMLElement>("sit-close-button");
     closeButton?.click();
     await new Promise(resolve => setTimeout(resolve, 350));
     await el.updateComplete;
@@ -1901,7 +1893,3 @@ describe("SIT-file-upload dialog and drop validation behavior", () => {
     expect(el.invalid).to.be.true;
   });
 });
-
-
-
-

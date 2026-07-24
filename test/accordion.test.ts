@@ -4,8 +4,8 @@ import { fixture, expect, waitUntil } from "@open-wc/testing";
 import { html } from "lit";
 import sinon from "sinon";
 
-// customElements.define("SIT-accordion", SitAccordion);
-// customElements.define("SIT-accordion-item", SitAccordionItem);
+// customElements.define("sit-accordion", SitAccordion);
+// customElements.define("sit-accordion-item", SitAccordionItem);
 
 describe("<sit-accordion>", () => {
   it("accordion items should contain the attribute [first,nth,last]-of-type if items is more than 2", async () => {
@@ -69,8 +69,8 @@ describe("<sit-accordion-item>", () => {
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("SIT-show", showHandler);
-    el.addEventListener("SIT-after-show", afterShowHandler);
+    el.addEventListener("sit-show", showHandler);
+    el.addEventListener("sit-after-show", afterShowHandler);
     el.show();
 
     await waitUntil(() => showHandler.calledOnce);
@@ -93,8 +93,8 @@ describe("<sit-accordion-item>", () => {
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("SIT-hide", hideHandler);
-    el.addEventListener("SIT-after-hide", afterHideHandler);
+    el.addEventListener("sit-hide", hideHandler);
+    el.addEventListener("sit-after-hide", afterHideHandler);
     el.hide();
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -117,8 +117,8 @@ describe("<sit-accordion-item>", () => {
     const showHandler = sinon.spy();
     const afterShowHandler = sinon.spy();
 
-    el.addEventListener("SIT-show", showHandler);
-    el.addEventListener("SIT-after-show", afterShowHandler);
+    el.addEventListener("sit-show", showHandler);
+    el.addEventListener("sit-after-show", afterShowHandler);
     el.open = true;
 
     await waitUntil(() => showHandler.calledOnce);
@@ -141,8 +141,8 @@ describe("<sit-accordion-item>", () => {
     const hideHandler = sinon.spy();
     const afterHideHandler = sinon.spy();
 
-    el.addEventListener("SIT-hide", hideHandler);
-    el.addEventListener("SIT-after-hide", afterHideHandler);
+    el.addEventListener("sit-hide", hideHandler);
+    el.addEventListener("sit-after-hide", afterHideHandler);
     el.open = false;
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -163,7 +163,7 @@ describe("<sit-accordion-item>", () => {
     `);
     const showHandler = sinon.spy((event: Event) => event.preventDefault());
 
-    el.addEventListener("SIT-show", showHandler);
+    el.addEventListener("sit-show", showHandler);
     el.open = true;
 
     await waitUntil(() => showHandler.calledOnce);
@@ -182,7 +182,7 @@ describe("<sit-accordion-item>", () => {
     `);
     const hideHandler = sinon.spy((event: Event) => event.preventDefault());
 
-    el.addEventListener("SIT-hide", hideHandler);
+    el.addEventListener("sit-hide", hideHandler);
     el.open = false;
 
     await waitUntil(() => hideHandler.calledOnce);
@@ -201,7 +201,7 @@ describe("<sit-accordion-item>", () => {
         >
       </sit-accordion-item>
     </sit-accordion>`);
-    expect(el.querySelectorAll("SIT-accordion-item")[0]).to.have.attribute("variant", "border");
+    expect(el.querySelectorAll("sit-accordion-item")[0]).to.have.attribute("variant", "border");
   });
 
   it("density prop is forwarded to density prop of sit-accordion-item element", async () => {
@@ -214,7 +214,7 @@ describe("<sit-accordion-item>", () => {
         >
       </sit-accordion-item>
     </sit-accordion>`);
-    expect(el.querySelectorAll("SIT-accordion-item")[0]).to.have.attribute("density", "compact");
+    expect(el.querySelectorAll("sit-accordion-item")[0]).to.have.attribute("density", "compact");
   });
 
   it("should be disabled when disabled = true", async () => {
@@ -278,6 +278,3 @@ describe("<sit-accordion-item>", () => {
     expect(trailing?.querySelector("slot[name='badge']")).to.exist;
   });
 });
-
-
-

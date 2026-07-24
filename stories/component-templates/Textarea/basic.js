@@ -3,7 +3,7 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args =>
   html`
-    <sgds-textarea
+    <sit-textarea
       label=${ifDefined(args.label)}
       hintText=${ifDefined(args.hintText)}
       name=${ifDefined(args.name)}
@@ -25,7 +25,7 @@ export const Template = args =>
       defaultValue=${ifDefined(args.defaultValue)}
       inputmode=${ifDefined(args.inputmode)}
     >
-    </sgds-textarea>
+    </sit-textarea>
   `;
 
 export const args = { name: "textarea", label: "Label", maxlength: 100 };

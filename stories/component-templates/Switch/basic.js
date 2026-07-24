@@ -1,13 +1,13 @@
 import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 
-export const Template = args => html` <sgds-switch
+export const Template = args => html` <sit-switch
   size=${ifDefined(args.size)}
   ?icon=${args.icon}
   ?checked=${args.checked}
   ?disabled=${args.disabled}
 >
-</sgds-switch>`;
+</sit-switch>`;
 
 export const args = {};
 

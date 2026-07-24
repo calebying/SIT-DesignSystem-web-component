@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Modal a11y", () => {
-  it("SIT-modal should be accessible", async () => {
+  it("sit-modal should be accessible", async () => {
     const el = await fixture(html`
       <sit-modal open>
         <span slot="title">Modal title</span>
@@ -14,6 +14,3 @@ describe("Modal a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

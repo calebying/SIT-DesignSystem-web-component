@@ -3,7 +3,7 @@ import { fixture, expect } from "@open-wc/testing";
 import { html } from "lit";
 
 describe("Tooltip a11y", () => {
-  it("SIT-tooltip should be accessible", async () => {
+  it("sit-tooltip should be accessible", async () => {
     const el = await fixture(html`
       <sit-tooltip content="Helpful tooltip text">
         <sit-button>Hover me</sit-button>
@@ -12,6 +12,3 @@ describe("Tooltip a11y", () => {
     await expect(el).to.be.accessible();
   });
 });
-
-
-

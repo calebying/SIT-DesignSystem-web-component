@@ -58,7 +58,7 @@ describe("<sit-close-button>", () => {
     expect(button).to.exist;
 
     // Wait for the icon inside to load asynchronously
-    const icon = button.querySelector("SIT-icon");
+    const icon = button.querySelector("sit-icon");
     await waitUntil(() => icon?.shadowRoot?.querySelector("svg"), "Icon SVG should render");
 
     expect(getComputedStyle(button).width).to.equal("24px");
@@ -77,7 +77,7 @@ describe("<sit-close-button>", () => {
     expect(button).to.exist;
 
     // Wait for the icon inside to load asynchronously
-    const icon = button.querySelector("SIT-icon");
+    const icon = button.querySelector("sit-icon");
     await waitUntil(() => icon?.shadowRoot?.querySelector("svg"), "Icon SVG should render");
 
     expect(getComputedStyle(button).width).to.equal("32px");
@@ -140,6 +140,3 @@ describe("<sit-close-button>", () => {
     expect(clickHandler).to.have.been.called;
   });
 });
-
-
-

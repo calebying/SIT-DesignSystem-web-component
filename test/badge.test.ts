@@ -16,7 +16,7 @@ describe("SitBadge component", () => {
   it("should render a close button when dismissible is true", async () => {
     const el = await fixture<SitBadge>(html`<sit-badge show dismissible></sit-badge>`);
     await elementUpdated(el);
-    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.exist;
+    expect(el.shadowRoot?.querySelector("sit-close-button")).to.exist;
   });
 
   it("should render the icon slot", async () => {
@@ -41,7 +41,7 @@ describe("SitBadge component", () => {
   it("should not render a close button when dismissible is false", async () => {
     const el = await fixture<SitBadge>(html`<sit-badge show></sit-badge>`);
     await elementUpdated(el);
-    expect(el.shadowRoot?.querySelector("SIT-close-button")).to.not.exist;
+    expect(el.shadowRoot?.querySelector("sit-close-button")).to.not.exist;
   });
 
   it("should render with the 'outlined' class when outlined is true", async () => {
@@ -65,7 +65,7 @@ describe("SitBadge component", () => {
 
   it("default prevented in sit-hide will prevent dismissible badge from closing", async () => {
     const el = await fixture<SitBadge>(html`<sit-badge show dismissible></sit-badge>`);
-    el.addEventListener("SIT-hide", e => e.preventDefault());
+    el.addEventListener("sit-hide", e => e.preventDefault());
     el.close();
     expect(el.shadowRoot?.querySelector("div.badge")).to.exist;
   });
@@ -73,8 +73,8 @@ describe("SitBadge component", () => {
   it("mouse click badge close button emits sit-hide and removes shadowDom contents of badge", async () => {
     const el = await fixture<SitBadge>(html`<sit-badge show dismissible></sit-badge>`);
     const spyHide = Sinon.spy();
-    el.addEventListener("SIT-hide", spyHide);
-    const closeBtn = el.shadowRoot?.querySelector<SitCloseButton>("SIT-close-button");
+    el.addEventListener("sit-hide", spyHide);
+    const closeBtn = el.shadowRoot?.querySelector<SitCloseButton>("sit-close-button");
     closeBtn?.click();
     await waitUntil(() => spyHide.calledOnce);
     expect(spyHide).to.be.calledOnce;
@@ -85,7 +85,7 @@ describe("SitBadge component", () => {
   it("when show is true, emits sit-show event", async () => {
     const el = await fixture<SitBadge>(html`<sit-badge dismissible></sit-badge>`);
     const spyShow = Sinon.spy();
-    el.addEventListener("SIT-show", spyShow);
+    el.addEventListener("sit-show", spyShow);
     el.show = true;
     await el.updateComplete;
     expect(spyShow).to.be.calledOnce;
@@ -95,8 +95,8 @@ describe("SitBadge component", () => {
   it("when default prevented for sit-show, sit-after-show is emitted and show cannot be set to true", async () => {
     const el = await fixture<SitBadge>(html`<sit-badge dismissible></sit-badge>`);
     const afterShowSpy = Sinon.spy();
-    el.addEventListener("SIT-show", e => e.preventDefault());
-    el.addEventListener("SIT-after-show", afterShowSpy);
+    el.addEventListener("sit-show", e => e.preventDefault());
+    el.addEventListener("sit-after-show", afterShowSpy);
     el.show = true;
     await el.updateComplete;
     expect(afterShowSpy).not.to.be.called;
@@ -107,8 +107,8 @@ describe("SitBadge component", () => {
     const el = await fixture<SitBadge>(html`<sit-badge show dismissible></sit-badge>`);
     const afterHideSpy = Sinon.spy();
 
-    el.addEventListener("SIT-hide", e => e.preventDefault());
-    el.addEventListener("SIT-after-hide", afterHideSpy);
+    el.addEventListener("sit-hide", e => e.preventDefault());
+    el.addEventListener("sit-after-hide", afterHideSpy);
 
     el.show = false;
     await el.updateComplete;
@@ -127,7 +127,7 @@ describe("SitBadge component", () => {
     const badge = el.shadowRoot?.querySelector(".badge");
     expect(badge).to.exist;
 
-    const tooltip = el.shadowRoot?.querySelector("SIT-tooltip");
+    const tooltip = el.shadowRoot?.querySelector("sit-tooltip");
     expect(tooltip).to.not.exist;
   });
 
@@ -141,7 +141,7 @@ describe("SitBadge component", () => {
     const badge = el.shadowRoot?.querySelector(".badge");
     expect(badge).to.exist;
 
-    const tooltip = el.shadowRoot?.querySelector("SIT-tooltip");
+    const tooltip = el.shadowRoot?.querySelector("sit-tooltip");
     expect(tooltip).to.exist;
   });
 
@@ -156,14 +156,14 @@ describe("SitBadge component", () => {
     );
 
     const spyHide = Sinon.spy();
-    el.addEventListener("SIT-hide", spyHide);
+    el.addEventListener("sit-hide", spyHide);
 
     await elementUpdated(el);
 
     const badge = el.shadowRoot?.querySelector(".badge");
     expect(badge).to.exist;
 
-    const tooltip = el.shadowRoot?.querySelector("SIT-tooltip");
+    const tooltip = el.shadowRoot?.querySelector("sit-tooltip");
 
     expect(tooltip).to.exist;
 
@@ -179,6 +179,3 @@ describe("SitBadge component", () => {
     expect(spyHide).not.to.be.called;
   });
 });
-
-
-
