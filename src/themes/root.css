@@ -2,15 +2,15 @@
 
 :root {
   /* Primitive - Product Primary Color */
-  --sit-product-primary-100: #f4f2fe;
-  --sit-product-primary-200: #e1dbfb;
-  --sit-product-primary-300: #c8bdf7;
-  --sit-product-primary-400: #a999f3;
-  --sit-product-primary-500: #8a72ef;
-  --sit-product-primary-600: #6b4feb;
-  --sit-product-primary-700: #523abc;
-  --sit-product-primary-800: #3c2b8a;
-  --sit-product-primary-900: #2a1e61;
+  --sit-product-primary-100: #fdebea;
+  --sit-product-primary-200: #fbcac6;
+  --sit-product-primary-300: #f79d97;
+  --sit-product-primary-400: #f3685e;
+  --sit-product-primary-500: #f04d42;
+  --sit-product-primary-600: #ee3124;
+  --sit-product-primary-700: #c71b0f;
+  --sit-product-primary-800: #97150c;
+  --sit-product-primary-900: #680e08;
 
   /* Primitive - Purple Color */
   --sit-purple-100: #fbf0fe;

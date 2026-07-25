@@ -13,8 +13,8 @@ export default create({
   brandTarget: "_self",
 
   //
-  colorPrimary: "#5925dc",
-  colorSecondary: "#5925dc",
+  colorPrimary: "#ee3124",
+  colorSecondary: "#ee3124",
 
   // UI
   appBg: "#f8fafc",
@@ -29,7 +29,7 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: "#9E9E9E",
-  barSelectedColor: "#5925dc",
+  barSelectedColor: "#ee3124",
   barBg: "#ffffff",
 
   // Form colors

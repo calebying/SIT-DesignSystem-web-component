@@ -217,7 +217,7 @@ export const Primary = () => html`
         <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-primary-color-default</code>
       </sit-table-cell>
       <sit-table-cell>
-        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">#6b4feb / #a999f3</code>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">#ee3124 / #f3685e</code>
       </sit-table-cell>
       <sit-table-cell>
         <span class="sit:text-primary-default">Standard primary text color</span>
@@ -263,7 +263,7 @@ export const Primary = () => html`
         <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-primary-color-fixed-light</code>
       </sit-table-cell>
       <sit-table-cell>
-        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">#a999f3</code>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">#f3685e</code>
       </sit-table-cell>
       <sit-table-cell>
         <div class="sit:bg-fixed-dark sit:p-md sit:rounded-sm">
@@ -288,7 +288,7 @@ export const Primary = () => html`
         <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">--Sit-primary-color-fixed-dark</code>
       </sit-table-cell>
       <sit-table-cell>
-        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">#6b4feb</code>
+        <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm">#ee3124</code>
       </sit-table-cell>
       <sit-table-cell>
         <div class="sit:bg-fixed-light sit:p-md sit:rounded-sm">
@@ -1538,7 +1538,7 @@ export const FormTextColor = () => html`
       </sit-table-cell>
       <sit-table-cell
         ><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm"
-          >#6b4feb / #a999f3</code
+          >#ee3124 / #f3685e</code
         ></sit-table-cell
       >
       <sit-table-cell>
