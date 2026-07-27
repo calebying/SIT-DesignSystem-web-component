@@ -33,7 +33,7 @@ jobs:
             | map(select(.created_at > $since and .label == "Components published"))
             | if length == 0 then empty
               else
-                "📐 *SGDS Figma Library Updates (last 7 days)*\n\n" +
+                "📐 *Canvas Figma Library Updates (last 7 days)*\n\n" +
                 (map("• *" + .label + "* — " + (.description // "no description") + "\n  _by " + .user.handle + " on " + (.created_at | split("T")[0]) + "_") | join("\n\n"))
               end
           ')

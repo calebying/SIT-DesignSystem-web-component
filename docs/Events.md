@@ -4,15 +4,15 @@ While you can listen for common HTML events like onclick, onmouseover etc., it i
 
 Tl;Dr: This may result in, for example, multiple click handlers executing even if the user clicks just once or no events emitted for certain events. 
 
-As such, we recommend you to listen for custom events emitted by SGDS web components over the native HTML events. The emitted custom events, if present, are specified for each component under API table.
+As such, we recommend you to listen for custom events emitted by Canvas web components over the native HTML events. The emitted custom events, if present, are specified for each component under API table.
 
 ```html
 
-<sgds-checkbox>Check me</sgds-checkbox>
+<sit-checkbox>Check me</sit-checkbox>
 
 <script>
-  const checkbox = document.querySelector('sgds-checkbox');
-  checkbox.addEventListener('sgds-change', event => {
+  const checkbox = document.querySelector('sit-checkbox');
+  checkbox.addEventListener('sit-change', event => {
     console.log(event.target.checked ? 'checked' : 'not checked');
   });
 </script>

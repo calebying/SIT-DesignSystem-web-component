@@ -1,8 +1,8 @@
-# `sgds-web-components` coding style guide
+# `sit-web-components` coding style guide
 
 ## Table of contents
 
-- [sgds-web-components coding style guide](#typescript-coding-style-guide)
+- [sit-web-components coding style guide](#typescript-coding-style-guide)
   - [Naming](#naming)
     - [Naming Variables](#naming-variables)
     - [Naming Conventions](#naming-conventions)
@@ -311,19 +311,19 @@ class Alert extends LitElement {
 
 ### Naming Events
 
-1. Events should be named with an action word , prefix with `sgds-`
+1. Events should be named with an action word , prefix with `sit-`
 
 :x: Bad: `hide`, `show`
 
-:white_check_mark: Good: `sgds-hide, sgds-show, sgds-after-show, sgds-toggle`
+:white_check_mark: Good: `sit-hide, sit-show, sit-after-show, sit-toggle`
 
-2. Internal events (not intended for consumers) must be prefixed with `i-sgds-`
+2. Internal events (not intended for consumers) must be prefixed with `i-sit-`
 
-:white_check_mark: Good: `i-sgds-change, i-sgds-select`
+:white_check_mark: Good: `i-sit-change, i-sit-select`
 
 3. Before creating a new event name, check if there are existing names for the same purposed.
 
-4. Use the `emit` method of SgdsElement class to emit a custom event
+4. Use the `emit` method of SitElement class to emit a custom event
 
 ---
 
@@ -358,18 +358,18 @@ Slots name should be concise and straight to the point. No need to add component
 :white_check_mark: Good:
 
 ```html
-<sgds-footer>
+<sit-footer>
 <h2 slot="title"></h2>
-</sgds-footer>
+</sit-footer>
 ```
 
 
 :x: Bad:
 
 ```html
-<sgds-footer>
+<sit-footer>
 <h2 slot="footer-title"></h2>
-</sgds-footer>
+</sit-footer>
 ```
 
 When a slot name requires more than one word, use kebab-case.
@@ -377,17 +377,17 @@ When a slot name requires more than one word, use kebab-case.
 :white_check_mark: Good:
 
 ```html
-<sgds-input>
-  <sgds-icon slot="trailing-icon"></sgds-icon>
-</sgds-input>
+<sit-input>
+  <sit-icon slot="trailing-icon"></sit-icon>
+</sit-input>
 ```
 
 :x: Bad:
 
 ```html
-<sgds-input>
-  <sgds-icon slot="trailingIcon"></sgds-icon>
-</sgds-input>
+<sit-input>
+  <sit-icon slot="trailingIcon"></sit-icon>
+</sit-input>
 ```
 
 ## Typescript
@@ -414,7 +414,7 @@ All variables, properties and functions should be typed. The Tscompiler can infe
 
 ## jsdoc
 
-jsdoc annotations is used to generate the custom-element.json, the metadata of sgds-web-components. The metadata is then used in generating the react package and storybook documentations
+jsdoc annotations is used to generate the custom-element.json, the metadata of sit-web-components. The metadata is then used in generating the react package and storybook documentations
 
 1.  All main component should have a @summary description of the component that will be rendered in the storybook docs. Annotate them above the component code
 
@@ -422,7 +422,7 @@ jsdoc annotations is used to generate the custom-element.json, the metadata of s
 /**
  * @summary A dropdown mechanism that allow users to either show or hide related content.
  */
-export class SgdsAccordion extends SgdsElement {}
+export class SitAccordion extends SitElement {}
 ```
 
 2. Include `@slots`, `@event`, `@csspart` , `@cssproperty` and their respective name whenever present in the component.
@@ -431,10 +431,10 @@ export class SgdsAccordion extends SgdsElement {}
 /**
  * @slot default - content of the accordion item
  *
- * @event sgds-show - Emitted on show.
- * @event sgds-after-show - Emitted on show after animation has completed.
- * @event sgds-hide - Emitted on hide.
- * @event sgds-after-hide - Emitted on hide after animation has completed.
+ * @event sit-show - Emitted on show.
+ * @event sit-after-show - Emitted on show after animation has completed.
+ * @event sit-hide - Emitted on hide.
+ * @event sit-after-hide - Emitted on hide after animation has completed.
  *
  * @csspart base - The accordion-item base wrapper
  * @csspart header - The accordion-item button header
@@ -444,7 +444,7 @@ export class SgdsAccordion extends SgdsElement {}
  * @cssproperty --mainnav-item-color - Text color of nav item.
  * @cssproperty --mainnav-item-borderBottom-width - border bottom width for hover and active state for nav item
  */
-export class SgdsAccordionItem extends SgdsElement {
+export class SitAccordionItem extends SitElement {
 ```
 
 3. Annotate Lit's property decorator, @property, with jsdocs comments. Custom-element Analyzer is able to parse Lit's @property decorator as params.
@@ -473,12 +473,12 @@ export class SgdsAccordionItem extends SgdsElement {
 
 ### Lit
 
-1. Avoid sgds specific querying of children components to allow reusability and implementation of our Lit components by other users. [Example](https://github.com/GovTechSG/sgds-web-component/commit/2c30a4dcfab31f52074dec6dde3446356da33373)
+1. Avoid component-specific querying of children components to allow reusability and implementation of our Lit components by other users.
 
 :x: Bad:
 
 ```typescript
-const children = this.querySelectorAll("sgds-sidenav-item");
+const children = this.querySelectorAll("sit-sidenav-item");
 ```
 
 :white_check_mark: Good:
@@ -494,14 +494,14 @@ const children = this.shadowRoot.querySelector('slot').assignedElements({flatten
 ### Dependencies
 
 Register the dependencies when the component has a dependency on another component.
-Example: In FileUpload case, SgdsButton is used within it.
+Example: In FileUpload case, SitButton is used within it.
 
 ```jsx
-import { SgdsButton } from "../Button";
+import { SitButton } from "../Button";
 
-export class SgdsFileUpload extends SgdsElement {
+export class SitFileUpload extends SitElement {
   static dependencies = {
-      "sgds-button": SgdsButton
+      "sit-button": SitButton
   }
 }
 ```
@@ -510,9 +510,9 @@ export class SgdsFileUpload extends SgdsElement {
 
 In order to minimise the usage of ScopedElementsMixin dependency we try to use slots as much as possible. 
 
-The general rule of thumb of when to use svg directly in code or sgds-icon
+The general rule of thumb of when to use svg directly in code or sit-icon
 
-Use sgds-icon when: 
+Use sit-icon when: 
 
 - Icons are prone to be changed, user can customise the type of icon to pass in 
 - In that case, create a slot="icon" for user to pass in 
@@ -520,9 +520,9 @@ Use sgds-icon when:
 e.g. 
 
 ```html
-<sgds-alert>
-  <sgds-icon slot="icon" ...></sgds-icon>
-</sgds-alert>
+<sit-alert>
+  <sit-icon slot="icon" ...></sit-icon>
+</sit-alert>
 ```
 
 Use hard coded svg when:
@@ -562,4 +562,4 @@ expect(el.collapsed).to.be.false;
 el.toggleCollapsed();
 ```
 
-Last resort is to introduce sgds-icon as an internal dependency, to avoid usage of the ScopedElementMixin as much as possible  -->
+Last resort is to introduce sit-icon as an internal dependency, to avoid usage of the ScopedElementMixin as much as possible  -->

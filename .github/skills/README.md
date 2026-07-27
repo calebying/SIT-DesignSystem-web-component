@@ -1,15 +1,15 @@
-# SGDS Agent Skills
+# Canvas Agent Skills
 
-Agent skills are specialized knowledge modules that teach AI assistants how to work with the Singapore Design System.
+Agent skills are specialized knowledge modules that teach AI assistants how to work with Canvas.
 
 ## Available Skills
 
 ### Internal Development Skills
 
-Skills that help with building and maintaining the SGDS library:
+Skills that help with building and maintaining the Canvas library:
 
-- **[component-authoring](component-authoring/)** - End-to-end workflow for composing or extending an SGDS component (scaffold, TDD, conventions, ADRs, playground, stories)
-- **[tailwind-mapping](tailwind-mapping/)** - Converting SGDS CSS variables to Tailwind v4 utilities
+- **[component-authoring](component-authoring/)** - End-to-end workflow for composing or extending a Canvas component (scaffold, TDD, conventions, ADRs, playground, stories)
+- **[tailwind-mapping](tailwind-mapping/)** - Converting Canvas CSS variables to Tailwind v4 utilities
 - **[token-workflow](token-workflow/)** - Maintaining design token architecture across theme layers
 - **[storybook-stories](storybook-stories/)** - Writing Storybook stories following project patterns
 - **[agent-skills-writing](agent-skills-writing/)** - Standards and patterns for authoring new agent skills
@@ -18,7 +18,7 @@ Skills that help with building and maintaining the SGDS library:
 
 ### As a Library Maintainer
 
-When contributing to SGDS, AI assistants use these skills to help you:
+When contributing to Canvas, AI assistants use these skills to help you:
 
 - Generate Tailwind utility mappings from CSS variables
 - Add new design tokens following the three-layer architecture
@@ -27,7 +27,7 @@ When contributing to SGDS, AI assistants use these skills to help you:
 
 ## Shipping Your Own Skills
 
-If you're building a design system inspired by SGDS, consider creating your own agent skills:
+If you're building a design system of your own, consider creating your own agent skills:
 
 ### 1. Create User-Facing Skills
 
@@ -104,9 +104,9 @@ Agent skills transform design system maintenance from **manual processes** to **
 ## Related
 
 - [Copilot Instructions](../copilot-instructions.md) - Main project context for AI agents
-- [Contributing Guide](../../CONTRIBUTING.md) - How to contribute to SGDS
+- [Contributing Guide](../../CONTRIBUTING.md) - How to contribute to Canvas
 - [Documentation](../../docs/) - Traditional documentation files
 
 ---
 
-**Note**: These skills are internal tools for SGDS maintainers to work more efficiently with AI assistance during development.
+**Note**: These skills are internal tools for Canvas maintainers to work more efficiently with AI assistance during development.

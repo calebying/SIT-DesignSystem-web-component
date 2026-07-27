@@ -477,7 +477,7 @@ The references/ directory has additional documentation:
 
 ## Related
 
-- **[agent-skills-writing](../agent-skills-writing/SKILL.md)** — SGDS-specific conventions for skill authoring (folder naming, frontmatter schema, HTML example hygiene, registration checklist). Use alongside `skill-creator`: this skill covers the process, `agent-skills-writing` covers the house-style rules for this repository.
+- **[agent-skills-writing](../agent-skills-writing/SKILL.md)** — Canvas-specific conventions for skill authoring (folder naming, frontmatter schema, HTML example hygiene, registration checklist). Use alongside `skill-creator`: this skill covers the process, `agent-skills-writing` covers the house-style rules for this repository.
 
 ---
 

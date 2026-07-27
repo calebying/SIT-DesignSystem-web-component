@@ -19,10 +19,10 @@ const VariantTemplate = args => {
   return html`
     <div class="d-flex-column">
       ${variants.map(v => html`
-        <sgds-alert variant=${v.variant.toLowerCase()} show title="${v.variant} alert">
-          <sgds-icon slot="icon" name=${v.icon}></sgds-icon>
+        <sit-alert variant=${v.variant.toLowerCase()} show title="${v.variant} alert">
+          <sit-icon slot="icon" name=${v.icon}></sit-icon>
           <div>Description</div>
-        </sgds-alert>
+        </sit-alert>
       `)}
     </div>
   `;
@@ -46,17 +46,17 @@ Uses `<script>` inside the template for interactive demos that require DOM event
 import { html } from "lit";
 
 const ShowMoreHookTemplate = args => html`
-  <sgds-system-banner show id="banner-example" dismissible>
-    <sgds-system-banner-item>
+  <sit-system-banner show id="banner-example" dismissible>
+    <sit-system-banner-item>
       Long content that will be truncated...
-    </sgds-system-banner-item>
-  </sgds-system-banner>
-  <sgds-modal></sgds-modal>
+    </sit-system-banner-item>
+  </sit-system-banner>
+  <sit-modal></sit-modal>
 
   <script>
     const banner = document.querySelector("#banner-example");
-    const modal = document.querySelector("sgds-modal");
-    banner.addEventListener("sgds-show-more", () => {
+    const modal = document.querySelector("sit-modal");
+    banner.addEventListener("sit-show-more", () => {
       modal.show();
     });
   </script>
@@ -99,7 +99,7 @@ Each additional story should have a matching doc section:
 Triggered when the banner content overflows the clamped area. Connects to a modal.
 
 **Key behaviors:**
-- Event `sgds-show-more` fires when user clicks "Show more"
+- Event `sit-show-more` fires when user clicks "Show more"
 - Host page decides what to do in the event handler
 
 <Canvas of={SystemBannerStories.ShowMore}>

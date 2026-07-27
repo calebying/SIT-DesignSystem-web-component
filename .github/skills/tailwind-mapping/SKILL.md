@@ -1,8 +1,8 @@
 ---
 name: tailwind-mapping
-description: Converts SGDS CSS variables to Tailwind v4 utility classes in src/css/utility.css and creates playground documentation in playground/utility/ HTML files. Use when adding Tailwind mappings, creating utility class documentation, or implementing new color/spacing/typography utilities with proper preview examples. IMPORTANT - adding a mapping to utility.css alone is incomplete. Every new token mapping MUST also be accompanied by (1) a playground HTML demo in playground/utility/ and (2) a Storybook story in stories/utilities/.
+description: Converts Canvas CSS variables to Tailwind v4 utility classes in src/css/utility.css and creates playground documentation in playground/utility/ HTML files. Use when adding Tailwind mappings, creating utility class documentation, or implementing new color/spacing/typography utilities with proper preview examples. IMPORTANT - adding a mapping to utility.css alone is incomplete. Every new token mapping MUST also be accompanied by (1) a playground HTML demo in playground/utility/ and (2) a Storybook story in stories/utilities/.
 metadata:
-  author: singapore-design-system
+  author: sit-canvas
   version: "0.0.0"
   internal: true
 ---
@@ -12,18 +12,18 @@ metadata:
 ## Conversion Pattern
 
 ```
---sgds-{category} → --{property}-{category} → sgds:{property}-{category}
+--sit-{category} → --{property}-{category} → sit:{property}-{category}
 ```
 
-| SGDS Variable Pattern | Tailwind Property | Generated Class |
+| Canvas Variable Pattern | Tailwind Property | Generated Class |
 |---|---|---|
-| `--sgds-{v}-bg-{m}` | `--background-color-{v}-{m}` | `sgds:bg-{v}-{m}` |
-| `--sgds-{v}-surface-{m}` | `--background-color-{v}-surface-{m}` | `sgds:bg-{v}-surface-{m}` |
-| `--sgds-{v}-color-{m}` | `--text-color-{v}-{m}` | `sgds:text-{v}-{m}` |
-| `--sgds-{v}-border-color-{m}` | `--border-color-{v}-{m}` | `sgds:border-{v}-{m}` |
-| `--sgds-line-height-{m}` | `--leading-{m}` | `sgds:leading-{m}` |
-| `--sgds-font-size-{m}` | `--text-{m}` | `sgds:text-{m}` |
-| `--sgds-spacer-{m}` | `--spacing-{m}` | `sgds:m-{m}`, `sgds:p-{m}`, etc. |
+| `--sit-{v}-bg-{m}` | `--background-color-{v}-{m}` | `sit:bg-{v}-{m}` |
+| `--sit-{v}-surface-{m}` | `--background-color-{v}-surface-{m}` | `sit:bg-{v}-surface-{m}` |
+| `--sit-{v}-color-{m}` | `--text-color-{v}-{m}` | `sit:text-{v}-{m}` |
+| `--sit-{v}-border-color-{m}` | `--border-color-{v}-{m}` | `sit:border-{v}-{m}` |
+| `--sit-line-height-{m}` | `--leading-{m}` | `sit:leading-{m}` |
+| `--sit-font-size-{m}` | `--text-{m}` | `sit:text-{m}` |
+| `--sit-spacer-{m}` | `--spacing-{m}` | `sit:m-{m}`, `sit:p-{m}`, etc. |
 
 See [reference/conversion-rules.md](reference/conversion-rules.md) for full per-category details (form colors, typography types, modifiers).
 
@@ -32,28 +32,28 @@ See [reference/conversion-rules.md](reference/conversion-rules.md) for full per-
 Each `playground/utility/*.html` table section follows this structure:
 
 ```html
-<section class="sgds:mb-2-xl">
+<section class="sit:mb-2-xl">
   <h2>Category Name</h2>
-  <sgds-table>
-    <sgds-table-row>
-      <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-      <sgds-table-head>CSS Variable</sgds-table-head>
-      <sgds-table-head>Preview</sgds-table-head>
-    </sgds-table-row>
-    <sgds-table-row>
-      <sgds-table-cell><code>sgds:bg-primary-default</code></sgds-table-cell>
-      <sgds-table-cell><code>--sgds-primary-bg-default</code></sgds-table-cell>
-      <sgds-table-cell>
-        <div class="sgds:bg-primary-default sgds:text-fixed-light sgds:p-md">
+  <sit-table>
+    <sit-table-row>
+      <sit-table-head>Canvas Tailwind Token</sit-table-head>
+      <sit-table-head>CSS Variable</sit-table-head>
+      <sit-table-head>Preview</sit-table-head>
+    </sit-table-row>
+    <sit-table-row>
+      <sit-table-cell><code>sit:bg-primary-default</code></sit-table-cell>
+      <sit-table-cell><code>--sit-primary-bg-default</code></sit-table-cell>
+      <sit-table-cell>
+        <div class="sit:bg-primary-default sit:text-fixed-light sit:p-md">
           Primary background
         </div>
-      </sgds-table-cell>
-    </sgds-table-row>
-  </sgds-table>
+      </sit-table-cell>
+    </sit-table-row>
+  </sit-table>
 </section>
 ```
 
-**Contrast rules:** Fixed-light surfaces → `sgds:text-fixed-dark`. Fixed-dark/dark surfaces → `sgds:text-fixed-light`. Warning/yellow → `sgds:text-fixed-dark`. Borders → use `sgds:border-2 sgds:border-{color} sgds:p-md`.
+**Contrast rules:** Fixed-light surfaces → `sit:text-fixed-dark`. Fixed-dark/dark surfaces → `sit:text-fixed-light`. Warning/yellow → `sit:text-fixed-dark`. Borders → use `sit:border-2 sit:border-{color} sit:p-md`.
 
 ## Workflow: Adding a New Token Mapping
 

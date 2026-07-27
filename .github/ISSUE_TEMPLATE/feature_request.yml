@@ -1,5 +1,5 @@
 name: Feature request
-description: Suggest new or updated features to include in @govtechsg/sgds-web-component.
+description: Suggest new or updated features to include in @sit-canvas/canvas-web-component.
 title: "Suggest a new feature"
 labels: [feature]
 assignees: []
@@ -9,9 +9,9 @@ body:
       label: Prerequisites
       description: Take a couple minutes to help our maintainers work faster.
       options:
-        - label: I have [searched](https://github.com/GovTechSG/sgds-web-component/issues) for duplicate or closed feature requests
+        - label: I have [searched](https://github.com/calebying/SIT-DesignSystem-web-component/issues) for duplicate or closed feature requests
           required: true
-        - label: I have read the [contributing guidelines](https://github.com/GovTechSG/sgds-web-component/blob/master/CONTRIBUTING.md)
+        - label: I have read the [contributing guidelines](https://github.com/calebying/SIT-DesignSystem-web-component/blob/master/CONTRIBUTING.md)
           required: true
   - type: textarea
     id: proposal

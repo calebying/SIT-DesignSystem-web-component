@@ -1,6 +1,6 @@
 # Conversion Rules Reference
 
-Full per-category details for SGDS → Tailwind custom property mappings.
+Full per-category details for Canvas → Tailwind custom property mappings.
 
 ## Table of Contents
 
@@ -34,13 +34,13 @@ Applicable to background, surface, text, and border patterns:
 
 ## Background Colors
 
-**SGDS Pattern:** `--sgds-{variant}-bg-{modifier}`  
+**Canvas Pattern:** `--sit-{variant}-bg-{modifier}`  
 **Tailwind Property:** `--background-color-{variant}-{modifier}`  
-**Generated Class:** `sgds:bg-{variant}-{modifier}`
+**Generated Class:** `sit:bg-{variant}-{modifier}`
 
 ```css
---background-color-primary-default: var(--sgds-primary-bg-default);
-/* Generates: sgds:bg-primary-default */
+--background-color-primary-default: var(--sit-primary-bg-default);
+/* Generates: sit:bg-primary-default */
 ```
 
 ---
@@ -49,48 +49,48 @@ Applicable to background, surface, text, and border patterns:
 
 Surfaces are backgrounds with a semantic "raised" or "layered" meaning.
 
-**SGDS Pattern:** `--sgds-{variant}-surface-{modifier}`  
+**Canvas Pattern:** `--sit-{variant}-surface-{modifier}`  
 **Tailwind Property:** `--background-color-{variant}-surface-{modifier}`  
-**Generated Class:** `sgds:bg-{variant}-surface-{modifier}`
+**Generated Class:** `sit:bg-{variant}-surface-{modifier}`
 
 ```css
---background-color-primary-surface-default: var(--sgds-primary-surface-default);
-/* Generates: sgds:bg-primary-surface-default */
+--background-color-primary-surface-default: var(--sit-primary-surface-default);
+/* Generates: sit:bg-primary-surface-default */
 ```
 
 ---
 
 ## Text Colors
 
-**SGDS Pattern:** `--sgds-{variant}-color-{modifier}`  
+**Canvas Pattern:** `--sit-{variant}-color-{modifier}`  
 **Tailwind Property:** `--text-color-{variant}-{modifier}`  
-**Generated Class:** `sgds:text-{variant}-{modifier}`
+**Generated Class:** `sit:text-{variant}-{modifier}`
 
 ```css
---text-color-primary-default: var(--sgds-primary-color-default);
-/* Generates: sgds:text-primary-default */
+--text-color-primary-default: var(--sit-primary-color-default);
+/* Generates: sit:text-primary-default */
 ```
 
 ---
 
 ## Border Colors
 
-**SGDS Pattern:** `--sgds-{variant}-border-color-{modifier}`  
+**Canvas Pattern:** `--sit-{variant}-border-color-{modifier}`  
 **Tailwind Property:** `--border-color-{variant}-{modifier}`  
-**Generated Class:** `sgds:border-{variant}-{modifier}`
+**Generated Class:** `sit:border-{variant}-{modifier}`
 
 ```css
---border-color-primary-default: var(--sgds-primary-border-color-default);
-/* Generates: sgds:border-primary-default */
+--border-color-primary-default: var(--sit-primary-border-color-default);
+/* Generates: sit:border-primary-default */
 ```
 
 ---
 
 ## Typography Colors
 
-**SGDS Pattern:** `--sgds-{type}-color-{modifier}`  
+**Canvas Pattern:** `--sit-{type}-color-{modifier}`  
 **Tailwind Property:** `--text-color-{type}-{modifier}`  
-**Generated Class:** `sgds:text-{type}-{modifier}`
+**Generated Class:** `sit:text-{type}-{modifier}`
 
 | Typography Type | Modifiers |
 |---|---|
@@ -101,8 +101,8 @@ Surfaces are backgrounds with a semantic "raised" or "layered" meaning.
 | `link` | `default`, `emphasis` |
 
 ```css
---text-color-display-default: var(--sgds-display-color-default);
-/* Generates: sgds:text-display-default */
+--text-color-display-default: var(--sit-display-color-default);
+/* Generates: sit:text-display-default */
 ```
 
 ---
@@ -113,17 +113,17 @@ Form colors use a compound `form-{subcategory}` structure.
 
 ### Form Surface / Background
 
-**SGDS Pattern:** `--sgds-form-surface-{modifier}`  
+**Canvas Pattern:** `--sit-form-surface-{modifier}`  
 **Tailwind Property:** `--background-color-form-surface-{modifier}`  
-**Generated Class:** `sgds:bg-form-surface-{modifier}`
+**Generated Class:** `sit:bg-form-surface-{modifier}`
 
 **Modifiers:** `default`, `raised`, `emphasis`, `subtle`, `muted`, `inverse`, `fixed-light`, `fixed-dark`
 
 ### Form Text
 
-**SGDS Pattern:** `--sgds-form-color-{modifier}`  
+**Canvas Pattern:** `--sit-form-color-{modifier}`  
 **Tailwind Property:** `--text-color-form-{modifier}`  
-**Generated Class:** `sgds:text-form-{modifier}`
+**Generated Class:** `sit:text-form-{modifier}`
 
 **Modifiers:** `default`, `subtle`, `muted`, `inverse`, `fixed-light`, `fixed-dark`
 
@@ -131,20 +131,20 @@ Form colors use a compound `form-{subcategory}` structure.
 
 ```css
 /* Surface */
---background-color-form-primary-surface-default: var(--sgds-form-primary-surface-default);
+--background-color-form-primary-surface-default: var(--sit-form-primary-surface-default);
 
 /* Text */
---text-color-form-success-default: var(--sgds-form-success-color-default);
+--text-color-form-success-default: var(--sit-form-success-color-default);
 
 /* Border */
---border-color-form-danger-default: var(--sgds-form-danger-border-color-default);
+--border-color-form-danger-default: var(--sit-form-danger-border-color-default);
 ```
 
 ---
 
 ## Naming Convention Rules
 
-1. **Drop `--sgds-` prefix** from the source variable
+1. **Drop `--sit-` prefix** from the source variable
 2. **Add property type prefix** (`background-color`, `text-color`, or `border-color`)
 3. **Keep category and modifier** structure intact
 4. **Special keyword mappings:**

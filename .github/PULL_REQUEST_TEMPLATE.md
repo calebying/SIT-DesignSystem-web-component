@@ -24,7 +24,7 @@ Please describe the tests that you ran to verify your changes. Provide instructi
 
 ## :white_check_mark: Checklist:
 
-- [ ] My code follows the SGDS style guidelines and naming conventions
+- [ ] My code follows the Canvas style guidelines and naming conventions
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation

@@ -14,7 +14,7 @@ To mitigate FOUC, our library provides an opt-in CSS that hides the Web Componen
 
 ```css
 // global.css
-@import url("@govtechsg/sgds-web-component/css/fouc.css");
+@import url("@sit-canvas/canvas-web-component/css/fouc.css");
 
 ```
 2. Import global.css at your entry point 
@@ -28,5 +28,5 @@ or you can directly import the css in the entry point of your application
 
 ```js
 //entry point
-import "@govtechsg/sgds-web-component/css/fouc.css";
+import "@sit-canvas/canvas-web-component/css/fouc.css";
 ```

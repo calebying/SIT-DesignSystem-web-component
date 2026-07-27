@@ -9,18 +9,18 @@ Are you a react user? If so, skip to the <a href="/docs/frameworks-react--docs" 
 Once imported, the custom elements can be used throughout the project.
 
 ```js
-import "@govtechsg/sgds-web-component/themes/day.css";
-import "@govtechsg/sgds-web-component";
+import "@sit-canvas/canvas-web-component/themes/day.css";
+import "@sit-canvas/canvas-web-component";
 
 //usage
-// <sgds-button>Hello World</sgds-button>
+// <sit-button>Hello World</sit-button>
 ```
 
 ## TypeScript: using the component's class object
 
 When writing with Typescript, you might be required to type the components in certain cases. Import the component class like so. 
-Each component's Class is exported via named exports, prefixed with `Sgds`.
+Each component's Class is exported via named exports, prefixed with `Sit`.
 
 ```js
-import { SgdsButton, SgdsMainnav } from "@govtechsg/sgds-web-component/components";
+import { SitButton, SitMainnav } from "@sit-canvas/canvas-web-component/components";
 ```

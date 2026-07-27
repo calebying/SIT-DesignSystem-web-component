@@ -4,11 +4,11 @@
 
 ### Framework agnostic
 
-SGDS chooses web components as the the sole form of technical distribution of the components in our design system since version 3. The decision stems from the fact that the frontend landscape is everchanging and new frameworks are popping up now and then, making it hard to keep up with the trend. Web components provide a future-proof solution as they are framework agnostic providing compatibility with modern popular frontend libraries like react\*\*, vue, angular etc or even just plain vanilla javascript. As long as the browser exists, web component can run! That way, we also have a single source of truth when it comes to constructing the styles and interactions of components.
+Canvas chooses web components as the the sole form of technical distribution of the components in our design system since version 3. The decision stems from the fact that the frontend landscape is everchanging and new frameworks are popping up now and then, making it hard to keep up with the trend. Web components provide a future-proof solution as they are framework agnostic providing compatibility with modern popular frontend libraries like react\*\*, vue, angular etc or even just plain vanilla javascript. As long as the browser exists, web component can run! That way, we also have a single source of truth when it comes to constructing the styles and interactions of components.
 
 ### Style encapsulation
 
-Another main feature of web components its the usage of a shadow DOM. The shadow DOM helps to prevent leakage of styles to the light DOM which resolves a common problem of style clashes, where one styling framework library clashes with same name CSS selectors with another styling framework library. With web components, the styles for each component are secured in the shadow DOM of each component and will not be affected with any CSS loaded from the light DOM. This is good news for developers who wish to use other styling framework like tailwind, chakra, bootstrap together with SGDS web components, or for teams who are looking to integrate new components into legacy applications without having to do a styling overhaul.
+Another main feature of web components its the usage of a shadow DOM. The shadow DOM helps to prevent leakage of styles to the light DOM which resolves a common problem of style clashes, where one styling framework library clashes with same name CSS selectors with another styling framework library. With web components, the styles for each component are secured in the shadow DOM of each component and will not be affected with any CSS loaded from the light DOM. This is good news for developers who wish to use other styling framework like tailwind, chakra, bootstrap together with Canvas web components, or for teams who are looking to integrate new components into legacy applications without having to do a styling overhaul.
 
 ### Growing community
 
@@ -19,7 +19,7 @@ While web components might still sound foreign to some, it has some notable big 
 
 ## The how
 
-SGDS web components is built with Google's Lit 3 library.
+Canvas web components is built with Google's Lit 3 library.
 
 ## Addressing the concerns
 

@@ -5,7 +5,7 @@
 The web components uses attributes to set the properties. For example, the variant attribute is used to set the variant property of the button and in turn alters its class and changes its colour
 
 ```html
-<sgds-button variant="secondary"></sgds-button>
+<sit-button variant="secondary"></sit-button>
 ```
 
 ## Boolean
@@ -13,9 +13,9 @@ The web components uses attributes to set the properties. For example, the varia
 Boolean properties are usually false by default. To set it to true, add it as an attribute with no value on the custom element
 
 ```html
-<sgds-accordion allowMultiple> ... </sgds-accordion>
+<sit-accordion allowMultiple> ... </sit-accordion>
 
-<sgds-input disabled></sgds-input>
+<sit-input disabled></sit-input>
 ```
 
 ## Objects, arrays, and functions
@@ -24,11 +24,11 @@ Functions have to be passed in via javascript. For attributes that accepts Objec
 
 ```html
 //via JSON string
-<sgds-table rowHeader='["Name", "BirthDate"]'></sgds-table>
+<sit-table rowHeader='["Name", "BirthDate"]'></sit-table>
 
 // via Javascript
 <script>
-  const table = document.querySelector("sgds-table");
+  const table = document.querySelector("sit-table");
   table.rowHeader = ["Name", "Birthdate"];
 </script>
 ```

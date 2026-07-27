@@ -10,7 +10,7 @@ There are two kinds of slots: default and named slots. In the storybook document
 
    ```html
 
-   <sgds-button><span>Hello World</span></sgds-button>
+   <sit-button><span>Hello World</span></sit-button>
 
    ```
 
@@ -20,10 +20,10 @@ There are two kinds of slots: default and named slots. In the storybook document
 
 ```html
 
-<sgds-button>
+<sit-button>
   <span>Hello World</span>
   <svg slot="icon"></svg>
-</sgds-button>
+</sit-button>
 
 ```
 

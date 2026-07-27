@@ -1,13 +1,13 @@
 ---
-description: 'AI agent guide for contributing to and navigating the sgds-web-component monorepo.'
+description: 'AI agent guide for contributing to and navigating the canvas-web-component monorepo.'
 ---
 
-# Copilot Instructions for sgds-web-component
+# Copilot Instructions for canvas-web-component
 
 ## Architecture Overview
-- **Monorepo** for Singapore Design System web components and related tooling.
+- **Monorepo** for Canvas web components and related tooling.
 - **Core library**: `src/` (source for all web components, built with LitElement, TypeScript, and Sass)
-- **Skills**: `skills/` (AI agent skills for teaching developers how to use SGDS — split into `utilities-*` foundation style skills and `components-*` component usage skills)
+- **Skills**: `skills/` (AI agent skills for teaching developers how to use Canvas — split into `utilities-*` foundation style skills and `components-*` component usage skills)
 - **Distribution**: `lib/` (compiled JS, CSS, and type declarations)
 - **Docs**: `docs/` (Markdown documentation for usage, migration, and framework integration)
 - **Playground**: `playground/` (HTML demos for each component)
@@ -23,13 +23,13 @@ description: 'AI agent guide for contributing to and navigating the sgds-web-com
 - **Docs**: Edit Markdown in `docs/` and run `pnpm docs:dev` if available
 
 ## Project Conventions
-- **Component naming**: All custom elements use the `sgds-` prefix (e.g., `<sgds-button>`)
+- **Component naming**: All custom elements use the `sit-` prefix (e.g., `<sit-button>`)
 - **React exports**: React wrappers in `lib/react/` and `src/react/`
 - **Scoped custom elements**: Uses OpenWC's `ScopedElementsMixin` for library composability
 - **Styling**: CSS custom properties and parts are documented per component; see `docs/FoundationalStyles.md`
-- **Events**: Prefer custom events (e.g., `sgds-change`) over native DOM events
+- **Events**: Prefer custom events (e.g., `sit-change`) over native DOM events
 - **Testing**: Use `@open-wc/testing` for unit tests; see `test/`
-- **Skill eval workspaces**: Place all skill evaluation workspaces under `test/skills/<skill-name>-workspace/` (e.g. `test/skills/sgds-pattern-block-templates-workspace/`). Never place them beside the skill folder in `skills/`.
+- **Skill eval workspaces**: Place all skill evaluation workspaces under `test/skills/<skill-name>-workspace/` (e.g. `test/skills/sit-pattern-block-templates-workspace/`). Never place them beside the skill folder in `skills/`.
 
 ## Integration Points
 - **Frameworks**: See `docs/Angular.md`, `docs/React.md`, `docs/Vue.md` for usage in Angular, React, and Vue
@@ -73,7 +73,7 @@ description: 'AI agent guide for contributing to and navigating the sgds-web-com
 Specialized knowledge for specific development tasks:
 
 ### Internal Skills (Maintainer tools in .github/skills/)
-- [component-authoring](.github/skills/component-authoring/SKILL.md) - End-to-end workflow for composing a new or extending an existing SGDS component: scaffolding, TDD, code conventions, ADRs, playground preview, and Storybook stories
+- [component-authoring](.github/skills/component-authoring/SKILL.md) - End-to-end workflow for composing a new or extending an existing Canvas component: scaffolding, TDD, code conventions, ADRs, playground preview, and Storybook stories
 - [storybook-stories](.github/skills/storybook-stories/SKILL.md) - Storybook story writing patterns for templates folder
 - [agent-skills-writing](.github/skills/agent-skills-writing/SKILL.md) - Standards and patterns for authoring new agent skills
 - [token-workflow](.github/skills/token-workflow/SKILL.md) - Design token architecture and documentation workflows
@@ -84,24 +84,24 @@ Specialized knowledge for specific development tasks:
 These skills cover two domains. Each domain uses a folder naming prefix so agents and users can identify them at a glance:
 
 #### Workflow
-- [sgds-workflow](../skills/sgds-workflow/SKILL.md) - **Start here when unsure.** Maps all SGDS skills and the order to use them — new app path (setup → components/utilities → theming → patterns → data-viz) and existing app navigation. Read before any other skill when the user's intent is unclear.
+- [sit-workflow](../skills/sit-workflow/SKILL.md) - **Start here when unsure.** Maps all Canvas skills and the order to use them — new app path (setup → components/utilities → theming → patterns → data-viz) and existing app navigation. Read before any other skill when the user's intent is unclear.
 
 #### Getting Started
-- [getting-started](../skills/sgds-getting-started/SKILL.md) - Technical setup for a new SGDS application: Inter font, foundation CSS imports, component registration, and app layout. Read after sgds-workflow confirms this is a new app.
+- [getting-started](../skills/sit-getting-started/SKILL.md) - Technical setup for a new Canvas application: Inter font, foundation CSS imports, component registration, and app layout. Read after sit-workflow confirms this is a new app.
 
-#### Utilities Skills — Foundational styles via the `sgds:` Tailwind prefix
-- [sgds-utilities](../skills/sgds-utilities/SKILL.md) — All SGDS utility classes (grid, spacing, dimension, color-semantics, background-color, text-color, border-color, border-width, border-radius, typography, opacity) plus Tailwind v4 setup, theme switching, and framework integration. Each utility category has a dedicated reference file in `skills/sgds-utilities/reference/`.
+#### Utilities Skills — Foundational styles via the `sit:` Tailwind prefix
+- [sit-utilities](../skills/sit-utilities/SKILL.md) — All Canvas utility classes (grid, spacing, dimension, color-semantics, background-color, text-color, border-color, border-width, border-radius, typography, opacity) plus Tailwind v4 setup, theme switching, and framework integration. Each utility category has a dedicated reference file in `skills/sit-utilities/reference/`.
 
-#### Component Skills — How to use SGDS web components
-- [sgds-components](../skills/sgds-components/SKILL.md) — All 46 `<sgds-*>` components (accordion through tooltip) plus installation and framework integration for React, Vue, Angular, and Next.js. Each component has a dedicated reference file in `skills/sgds-components/reference/`.
+#### Component Skills — How to use Canvas web components
+- [sit-components](../skills/sit-components/SKILL.md) — All 46 `<sit-*>` components (accordion through tooltip) plus installation and framework integration for React, Vue, Angular, and Next.js. Each component has a dedicated reference file in `skills/sit-components/reference/`.
 
 #### Pattern Skills (`pattern-*`) — Cross-cutting implementation patterns
-- [sgds-forms](../skills/sgds-forms/SKILL.md) - Form validation using ElementInternals API, hasFeedback, constraint validation per component, FormData, custom validation with noValidate and setInvalid (Input/Textarea only)
-- [Application Shell](../skills/sgds-pattern-block-templates/reference/application-shell.md) - Mandatory page chrome (masthead, mainnav, footer) and layout templates: simple app (sgds-container, public-facing) and sidebar app (sgds-container-sidebar, dashboards/internal tools)
-- [sgds-data-visualisation](../skills/sgds-data-visualisation/SKILL.md) - Data visualisation with ECharts and the SGDS colour palette; charts, graphs, dashboards
+- [sit-forms](../skills/sit-forms/SKILL.md) - Form validation using ElementInternals API, hasFeedback, constraint validation per component, FormData, custom validation with noValidate and setInvalid (Input/Textarea only)
+- [Application Shell](../skills/sit-blocks/reference/application-shell.md) - Mandatory page chrome (masthead, mainnav, footer) and layout templates: simple app (sit-container, public-facing) and sidebar app (sit-container-sidebar, dashboards/internal tools)
+- [sit-data-visualisation](../skills/sit-data-visualisation/SKILL.md) - Data visualisation with ECharts and the Canvas colour palette; charts, graphs, dashboards
 
 #### Theming Skills — Visual customisation
-- [sgds-theming](../skills/sgds-theming/SKILL.md) - Product brand colour overrides, day/night mode setup, and font customisation via CSS token overrides
+- [sit-theming](../skills/sit-theming/SKILL.md) - Product brand colour overrides, day/night mode setup, and font customisation via CSS token overrides
 
 ## Instruction Files
 Detailed guidelines for specific aspects of development:
@@ -111,7 +111,7 @@ Detailed guidelines for specific aspects of development:
 ---
 For AI agents: Follow project conventions, prefer custom events, and reference docs for framework-specific integration. Use plop templates for new components. See `lib/` for build outputs.
 
-**Token rule:** Whenever new `--sgds-*` design tokens are added, ALL THREE of the following must be completed — never do a partial implementation:
+**Token rule:** Whenever new `--sit-*` design tokens are added, ALL THREE of the following must be completed — never do a partial implementation:
 1. Add the Tailwind mapping to `src/css/utility.css`
 2. Create a playground HTML demo in `playground/utility/`
 3. Create a Storybook story in `stories/utilities/`

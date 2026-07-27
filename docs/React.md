@@ -2,15 +2,15 @@
 
 ## Recommended: React wrapper components
 
-For **Next.js** and other SSR frameworks, we recommend using the React-wrapped SGDS components (e.g. `<SgdsInput>`) over the native custom element tags (e.g. `<sgds-input>`). The React wrappers resolve hydration timing issues that cause event listeners to fail on initial page load.
+For **Next.js** and other SSR frameworks, we recommend using the React-wrapped Canvas components (e.g. `<SitInput>`) over the native custom element tags (e.g. `<sit-input>`). The React wrappers resolve hydration timing issues that cause event listeners to fail on initial page load.
 
 For **client-side only** React 19+ apps (e.g. Vite), both approaches work equally well. You may use either the native custom element tags or the React wrappers.
 
 ```jsx
-import { SgdsInput } from "@govtechsg/sgds-web-component/react";
+import { SitInput } from "@sit-canvas/canvas-web-component/react";
 
 function MyComponent() {
-  return <SgdsInput label="Name" onSgdsChange={(e) => console.log(e)} />;
+  return <SitInput label="Name" onSitChange={(e) => console.log(e)} />;
 }
 ```
 
@@ -21,31 +21,31 @@ function MyComponent() {
 You can directly use the native web components
 
 ```jsx
-import "@govtechsg/sgds-web-component";
+import "@sit-canvas/canvas-web-component";
 
-const SgdsSelect = () => {
-  return <sgds-select></sgds-select>;
+const SitSelect = () => {
+  return <sit-select></sit-select>;
 };
-export default SgdsSelect;
+export default SitSelect;
 ```
 
 ### Events
 
-React 19 has a new syntax for custom events. For example, a custom event `sgds-change` should be written prefixed with an `on`
+React 19 has a new syntax for custom events. For example, a custom event `sit-change` should be written prefixed with an `on`
 
 ```jsx
-const SgdsSelect = () => {
-  return <sgds-select onsgds-change={(e: CustomEvent) => console.log(e)}></sgds-select>;
+const SitSelect = () => {
+  return <sit-select onsit-change={(e: CustomEvent) => console.log(e)}></sit-select>;
 };
 ```
 
 ### TypeScript support
 
-Add a `types.d.ts` file at the project root and import the SGDS React type definitions. This gives full IntelliSense for props and typed `CustomEvent` detail payloads on all `sgds-*` elements:
+Add a `types.d.ts` file at the project root and import the Canvas React type definitions. This gives full IntelliSense for props and typed `CustomEvent` detail payloads on all `sit-*` elements:
 
 ```ts
 // types.d.ts
-import "@govtechsg/sgds-web-component/types/react";
+import "@sit-canvas/canvas-web-component/types/react";
 ```
 
 Ensure it is included by your `tsconfig.json`:
@@ -59,7 +59,7 @@ Ensure it is included by your `tsconfig.json`:
 With this in place, event handlers are fully typed with no manual casting needed:
 
 ```tsx
-<sgds-switch onsgds-change={(e: CustomEvent<ISgdsSwitchChangeEventDetail>) => console.log(e.detail.checked)} />
+<sit-switch onsit-change={(e: CustomEvent<ISitSwitchChangeEventDetail>) => console.log(e.detail.checked)} />
 ```
 
 ### Complex props
@@ -68,7 +68,7 @@ Complex properties like arrays and objects can now be declaratively defined in R
 
 ```jsx
 
-const SgdsStepper = () => {
+const SitStepper = () => {
     const step = [
     {
       component: <PersonalDetails setData={setData} data={data} />,
@@ -80,7 +80,7 @@ const SgdsStepper = () => {
     },
     { component: <Review data={data} />, stepHeader: "Review" },
   ];
-  return <sgds-stepper steps={step}></sgds-stepper>;
+  return <sit-stepper steps={step}></sit-stepper>;
 };
 ```
 
@@ -97,10 +97,10 @@ Our components are exported via named exports. Import the components like so
 
 ```js
 
-import { SgdsButton, SgdsTooltip } from "@govtechsg/sgds-web-component/react";
+import { SitButton, SitTooltip } from "@sit-canvas/canvas-web-component/react";
 // or default exports when importing from the subfolders
-import SgdsButton  from "@govtechsg/sgds-web-component/react/button/index.js";
-import SgdsTooltip  from "@govtechsg/sgds-web-component/react/tooltip/index.js";
+import SitButton  from "@sit-canvas/canvas-web-component/react/button/index.js";
+import SitTooltip  from "@sit-canvas/canvas-web-component/react/tooltip/index.js";
 
 ```
 
@@ -108,17 +108,17 @@ The components follow React naming convention, using pascal case as the componen
 
 | Web Components    | React           |
 | ----------------- | --------------- |
-| sgds-button       | SgdsButton      |
-| sgds-mainnav      | SgdsMainnav     |
-| sgds-mainnav-item | SgdsMainnavItem |
-| sgds-textarea     | SgdsTextarea    |
+| sit-button       | SitButton      |
+| sit-mainnav      | SitMainnav     |
+| sit-mainnav-item | SitMainnavItem |
+| sit-textarea     | SitTextarea    |
 
 ```jsx
 //Button.ts
-import { SgdsButton } from "@govtechsg/sgds-web-component/react";
+import { SitButton } from "@sit-canvas/canvas-web-component/react";
 
 const ButtonWc = () => {
-  return <SgdsButton>Button</SgdsButton>;
+  return <SitButton>Button</SitButton>;
 };
 export default ButtonWc;
 ```
@@ -131,22 +131,22 @@ For example:
 
 | Web Components  | React           |
 | --------------- | --------------- |
-| sgds-change     | onSgdsChange    |
-| sgds-toggle     | onSgdsToggle    |
-| sgds-after-show | onSgdsAfterShow |
-| sgds-after-hide | onSgdsAfterHide |
+| sit-change     | onSitChange    |
+| sit-toggle     | onSitToggle    |
+| sit-after-show | onSitAfterShow |
+| sit-after-hide | onSitAfterHide |
 
 If you are using Typescript, note that `event.target` refers to the underlying custom element. 
 
 ```tsx
 import { useState } from 'react';
-import { SgdsInput } from '@govtechsg/sgds-web-component/react';
-import type { SgdsInput as SgdsInputElement } from '@govtechsg/sgds-web-component';
+import { SitInput } from '@sit-canvas/canvas-web-component/react';
+import type { SitInput as SitInputElement } from '@sit-canvas/canvas-web-component';
 
 function MyComponent() {
   const [value, setValue] = useState('');
 
-  return <SgdsInput value={value} onSgdsInput={event => setValue((event.target as SgdsInputElement).value)} />;
+  return <SitInput value={value} onSitInput={event => setValue((event.target as SitInputElement).value)} />;
 }
 
 export default MyComponent;
@@ -157,12 +157,12 @@ export default MyComponent;
 
 Each web components are build from class objects and some have public methods exposed. To access the component's method in react, you would required to get the reference of the component using React 's `useRef()` hook. See individual component API documentation for the available methods. 
 
-For example, SgdsStepper exposes public methods like `getComponent()`
+For example, SitStepper exposes public methods like `getComponent()`
 
 ```tsx
 import { useRef } from 'react';
-import type { SgdsStepper as SStep } from '@govtechsg/sgds-web-component/components';
-import SgdsStepper  from "@govtechsg/sgds-web-component/react/stepper/index.js";
+import type { SitStepper as SStep } from '@sit-canvas/canvas-web-component/components';
+import SitStepper  from "@sit-canvas/canvas-web-component/react/stepper/index.js";
 
 function StepperComponent() {
   ...
@@ -173,7 +173,7 @@ function StepperComponent() {
     return childComponent
  }
  return <>
- <SgdsStepper steps={step} ref={stepperRef} activeStep={stepNo}></SgdsStepper>
+ <SitStepper steps={step} ref={stepperRef} activeStep={stepNo}></SitStepper>
  <ChildComponent/>
  </>
 }

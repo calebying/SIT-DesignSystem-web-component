@@ -2,7 +2,7 @@
 name: storybook-stories
 description: Writes Storybook stories following the templates folder pattern with automatic file concatenation. Use when creating or updating component stories in stories/component-templates/, organizing story variants, or documenting component usage in Storybook.
 metadata:
-  author: singapore-design-system
+  author: sit-canvas
   version: "0.0.0"
   internal: true
 ---
@@ -11,7 +11,7 @@ metadata:
 
 ## Writing style
 
-All prose in `additional.mdx` files and story display names MUST follow the [sgds-writing skill](../../../skills/sgds-writing/SKILL.md). Before writing or editing any `.mdx` documentation, read the sgds-writing skill and apply its rules:
+All prose in `additional.mdx` files and story display names MUST follow the [sit-writing skill](../../../skills/sit-writing/SKILL.md). Before writing or editing any `.mdx` documentation, read the sit-writing skill and apply its rules:
 
 - **Sentence case** for all headings (capitalise first word and proper nouns only)
 - **UK English** spelling (colour, behaviour, organisation, customise)
@@ -42,7 +42,7 @@ import { html } from "lit";
 import { ifDefined } from "lit/directives/if-defined.js";
 
 export const Template = args => html`
-  <sgds-component ?prop=${args.prop} attribute=${ifDefined(args.attribute)}></sgds-component>
+  <sit-component ?prop=${args.prop} attribute=${ifDefined(args.attribute)}></sit-component>
 `;
 
 export const args = { prop: true, attribute: "value" };
@@ -69,11 +69,11 @@ For complex stories, define a local template inline:
 
 ```javascript
 const ShowMoreTemplate = args => html`
-  <sgds-system-banner show id="banner" dismissible>
-    <sgds-system-banner-item>Long content...</sgds-system-banner-item>
-  </sgds-system-banner>
+  <sit-system-banner show id="banner" dismissible>
+    <sit-system-banner-item>Long content...</sit-system-banner-item>
+  </sit-system-banner>
   <script>
-    document.querySelector("#banner").addEventListener("sgds-show-more", () => modal.show());
+    document.querySelector("#banner").addEventListener("sit-show-more", () => modal.show());
   </script>
 `;
 

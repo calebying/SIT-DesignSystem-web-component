@@ -1,7 +1,7 @@
 {
   "name": "@sit-canvas/canvas-web-component",
   "version": "3.25.0",
-  "description": "Canvas Web Component — Singapore Institute of Technology's design system components, written in Lit 3. Adapted from GovTechSG/sgds-web-component.",
+  "description": "Canvas Web Component — Singapore Institute of Technology's design system components, written in Lit 3.",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "VITE_ENV=development vite --open",
     "preview": "VITE_ENV=production vite --open",
-    "build": "npm run cem && npm run build:react && rm -rf lib && rollup --config rollup.config.mjs && node ./scripts/generateSgdsTypes.mjs && node ./scripts/frankBuild.js && npm run generate:icons && npm run build:fouc",
+    "build": "npm run cem && npm run build:react && rm -rf lib && rollup --config rollup.config.mjs && node ./scripts/generateSitTypes.mjs && node ./scripts/frankBuild.js && npm run generate:icons && npm run build:fouc",
     "build:react": "node ./scripts/makeReact.mjs",
     "build:readme": "gulp build-readme",
     "build:fouc": "node ./scripts/generateFoucStyle.mjs",
@@ -35,9 +35,7 @@
     "chromatic": "chromatic",
     "utility:dev": "tailwindcss -i ./src/css/utility.css -o ./playground/css/utility.css --config tailwind.config.js --watch",
     "utility:storybook": "tailwindcss -i ./src/css/utility.css -o ./.storybook/utility.css --config tailwind.config.js",
-    "scan:snyk-agent": "tsx scripts/snyk-agent-scan/index.ts",
-    "test:a11y": "tsx scripts/oobee-a11y-scan/index.ts",
-    "test:a11y:setup": "cd node_modules/@govtechsg/oobee && npm install && npm run build"
+    "scan:snyk-agent": "tsx scripts/snyk-agent-scan/index.ts"
   },
   "author": "Singapore Institute of Technology",
   "contributors": [
@@ -81,7 +79,6 @@
     "@commitlint/config-conventional": "^17.1.0",
     "@custom-elements-manifest/analyzer": "^0.6.4",
     "@figma/rest-api-spec": "^0.33.0",
-    "@govtechsg/oobee": "^0.10.86",
     "@open-wc/testing": "^3.0.0-next.5",
     "@playwright/test": "^1.45.1",
     "@rollup/plugin-node-resolve": "^11.2.1",

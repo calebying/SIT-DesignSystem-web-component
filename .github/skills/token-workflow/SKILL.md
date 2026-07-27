@@ -1,6 +1,6 @@
 ---
 name: token-workflow
-description: Maintains SGDS design token architecture across three layers (primitive tokens in root.css, semantic mappings in day.css/night.css, and Tailwind utilities in utility.css). Use when adding/modifying design tokens, creating new utilities, updating Storybook documentation, or ensuring token consistency across theme files. IMPORTANT - whenever new tokens are requested, ALWAYS complete all three deliverables - (1) utility.css mapping, (2) playground HTML demo in playground/utility/, (3) Storybook story in stories/utilities/. Never do just one without the others.
+description: Maintains Canvas design token architecture across three layers (primitive tokens in root.css, semantic mappings in day.css/night.css, and Tailwind utilities in utility.css). Use when adding/modifying design tokens, creating new utilities, updating Storybook documentation, or ensuring token consistency across theme files. IMPORTANT - whenever new tokens are requested, ALWAYS complete all three deliverables - (1) utility.css mapping, (2) playground HTML demo in playground/utility/, (3) Storybook story in stories/utilities/. Never do just one without the others.
 metadata:
   author: singapore-design-system
   version: "0.0.0"
@@ -11,7 +11,7 @@ metadata:
 
 ## Non-negotiable Rule
 
-Every new `--sgds-*` design token requires ALL THREE deliverables — never partial:
+Every new `--sit-*` design token requires ALL THREE deliverables — never partial:
 
 1. **`src/css/utility.css`** — Tailwind custom property mapping
 2. **`playground/utility/[name].html`** — Live HTML demo
@@ -24,7 +24,7 @@ src/themes/root.css             Primitive tokens — base values, no theme varia
         ↓
 src/themes/day.css + night.css  Semantic mappings — theme-aware, references primitives
         ↓
-src/css/utility.css             Tailwind @theme — generates sgds: utility classes
+src/css/utility.css             Tailwind @theme — generates sit: utility classes
 ```
 
 ## Checklist: Adding New Tokens
@@ -43,7 +43,7 @@ Update all five layers in one commit:
 
 - [ ] `day.css` + `night.css` — rename token definition
 - [ ] `src/css/utility.css` — rename custom property and its reference
-- [ ] `playground/css/utility.css` — rename CSS variable mapping and `.sgds\:` class
+- [ ] `playground/css/utility.css` — rename CSS variable mapping and `.sit\:` class
 - [ ] `playground/utility/*.html` — update table cell, CSS variable cell, utility class on preview div, and label text
 - [ ] `stories/utilities/*.stories.js` — update `ColorItem(...)` call with new token name and variable
 

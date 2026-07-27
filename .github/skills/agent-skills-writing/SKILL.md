@@ -2,7 +2,7 @@
 name: agent-skills-writing
 description: Guidelines for writing new agent skills in skills/ (user-facing) and .github/skills/ (internal). Use when creating a new skill, adding a reference file, or refactoring an existing skill that has grown too large.
 metadata:
-  author: singapore-design-system
+  author: sit-canvas
   version: "0.0.0"
   internal: true
 ---
@@ -15,29 +15,29 @@ Standards and patterns for authoring AI agent skills in this repository.
 
 | Location | Purpose | Audience |
 |----------|---------|---------|
-| `skills/sgds-utilities/` | All SGDS utility classes in one consolidated skill with a reference file per utility category | `external` |
-| `skills/sgds-components/` | All 46 SGDS web components in one consolidated skill with a reference file per component | `external` |
-| `.github/skills/` | Internal tools for SGDS maintainers | `internal` (no `audience` field) |
+| `skills/sit-utilities/` | All Canvas utility classes in one consolidated skill with a reference file per utility category | `external` |
+| `skills/sit-components/` | All 46 Canvas web components in one consolidated skill with a reference file per component | `external` |
+| `.github/skills/` | Internal tools for Canvas maintainers | `internal` (no `audience` field) |
 
 **Folder naming convention**: All `skills/` folders use a domain prefix so agents and users can discover them by category:
-- `sgds-utilities` — consolidated skill for all SGDS utility classes (`sgds:` Tailwind prefix); reference files in `sgds-utilities/reference/`
-- `sgds-components` — consolidated skill for all SGDS web components (`<sgds-*>`); reference files in `sgds-components/reference/`
+- `sit-utilities` — consolidated skill for all Canvas utility classes (`sit:` Tailwind prefix); reference files in `sit-utilities/reference/`
+- `sit-components` — consolidated skill for all Canvas web components (`<sit-*>`); reference files in `sit-components/reference/`
 
 ## SKILL.md Frontmatter
 
 ```yaml
 ---
-name: sgds-utilities-{skill-name}   # or sgds-components-{skill-name}
+name: sit-utilities-{skill-name}   # or sit-components-{skill-name}
 description: "One sentence. What the skill teaches. Include trigger keywords (Use when users ask about...)."
 metadata:
-  author: singapore-design-system
+  author: sit-canvas
   version: "0.0.0"
   audience: external       # external skills only; omit for internal skills
   category: {category}     # e.g. color, border, spacing, typography, component
 ---
 ```
 
-> **Important**: Always quote the `description` value. YAML will error if the value contains a colon (e.g., `sgds: prefix`).
+> **Important**: Always quote the `description` value. YAML will error if the value contains a colon (e.g., `sit: prefix`).
 
 - File starts directly with `---` — no wrapping code fences
 - Version stays `"0.0.0"` until officially released; bump major version on breaking changes
@@ -66,7 +66,7 @@ skills/utilities-{name}/
 
 **Consolidated skill** (many related items grouped into one skill with a reference file per item):
 ```
-skills/sgds-components/
+skills/sit-components/
 ├── SKILL.md          ← setup content + component index table with links to reference/
 └── reference/
     ├── accordion.md
@@ -75,7 +75,7 @@ skills/sgds-components/
     └── ...            ← one file per component, no frontmatter, no Prerequisites section
 ```
 
-Use the consolidated pattern when a domain has many parallel items (e.g., all SGDS web components) that would otherwise create dozens of top-level skill folders. The consolidated SKILL.md acts as both the setup guide and the navigation index.
+Use the consolidated pattern when a domain has many parallel items (e.g., all Canvas web components) that would otherwise create dozens of top-level skill folders. The consolidated SKILL.md acts as both the setup guide and the navigation index.
 
 ## When to Extract Reference Files
 
@@ -125,12 +125,12 @@ One-line description of what it helps with.
 
 ## Component Skill Structure
 
-Model: see `skills/sgds-components/reference/button.md`.
+Model: see `skills/sit-components/reference/button.md`.
 
-Component skills document an `<sgds-*>` element's usage. Their SKILL.md structure differs from utility skills:
+Component skills document an `<sit-*>` element's usage. Their SKILL.md structure differs from utility skills:
 
 ```
-# SGDS {Name} Component Skill
+# Canvas {Name} Component Skill
 
 One-line role of the component and when to prefer it over a native element.
 
@@ -147,11 +147,11 @@ One-line role of the component and when to prefer it over a native element.
 ```
 
 ### Rules specific to component skills
-- **Lead with the element tag, not attribute tables** — the first code example in Quick Decision Guide must be `<sgds-{name}>` HTML
+- **Lead with the element tag, not attribute tables** — the first code example in Quick Decision Guide must be `<sit-{name}>` HTML
 - **Slots get a dedicated table** in the hub — they are not optional documentation
-- **Events table** lists event name and when it fires only — framework-specific syntax (React prop names, Vue `@event`, Angular `(event)`) belongs in **sgds-components-setup**, not the individual component skill
-- **Reference `components-setup` in Prerequisites** — every component skill's Prerequisites section links to **sgds-components-setup**
-- **Mention sibling components** where relevant (e.g., `<sgds-icon-button>` from a `<sgds-button>` skill)
+- **Events table** lists event name and when it fires only — framework-specific syntax (React prop names, Vue `@event`, Angular `(event)`) belongs in **sit-components-setup**, not the individual component skill
+- **Reference `components-setup` in Prerequisites** — every component skill's Prerequisites section links to **sit-components-setup**
+- **Mention sibling components** where relevant (e.g., `<sit-icon-button>` from a `<sit-button>` skill)
 - **No library-first note** needed — this skill *is* the library component; instead, note when to use raw utilities to *extend* it
 - HTML examples in `reference/` may combine the component's own attributes freely — the single-token isolation rule applies to utility skills only
 
@@ -173,14 +173,14 @@ Model: see any file in `skills/utilities-background-color/reference/`.
 
 ## Available Tokens
 
-### `sgds:{prefix}-{category}-{modifier}`
+### `sit:{prefix}-{category}-{modifier}`
 **One-line description.**
 
 **When to use:**
 - Bullet list of specific use cases
 
 ```html
-<div class="sgds:{THIS-TOKEN-ONLY}">
+<div class="sit:{THIS-TOKEN-ONLY}">
   label
 </div>
 ```
@@ -189,7 +189,7 @@ Model: see any file in `skills/utilities-background-color/reference/`.
 
 ## Common Patterns
 
-> **Note**: Use library components like `<sgds-alert>`, `<sgds-badge>` when available.
+> **Note**: Use library components like `<sit-alert>`, `<sit-badge>` when available.
 > {Category} tokens are for creating custom components when library components don't meet your needs.
 
 ### Pattern Name
@@ -212,12 +212,12 @@ HTML examples must contain **only the token(s) being documented in that file** �
 
 ```html
 <!-- ✅ Correct — only the token under documentation -->
-<div class="sgds:bg-danger-surface-default">
+<div class="sit:bg-danger-surface-default">
   Error message
 </div>
 
 <!-- ❌ Wrong — noise from other utility categories -->
-<div class="sgds:bg-danger-surface-default sgds:p-4 sgds:rounded-lg sgds:text-sm">
+<div class="sit:bg-danger-surface-default sit:p-4 sit:rounded-lg sit:text-sm">
   Error message
 </div>
 ```
@@ -244,11 +244,11 @@ Apply this pattern whenever you notice the same conceptual definitions appearing
 Every `reference/` file **must** include a library-first note at the top of the Common Patterns section:
 
 ```markdown
-> **Note**: Use library components like `<sgds-{component}>` when available.
+> **Note**: Use library components like `<sit-{component}>` when available.
 > {Category} tokens are for creating custom components when library components don't meet your needs.
 ```
 
-Name specific relevant library components (e.g., `<sgds-alert>` in danger/warning files, `<sgds-badge>` in neutral/purple/cyan files). This reminds developers to check the component library before reaching for raw utility tokens.
+Name specific relevant library components (e.g., `<sit-alert>` in danger/warning files, `<sit-badge>` in neutral/purple/cyan files). This reminds developers to check the component library before reaching for raw utility tokens.
 
 ## Eval Workspace Convention
 
@@ -270,22 +270,22 @@ This keeps generated eval artefacts (iteration dirs, benchmark.json, grading fil
 
 ### Utilities skills
 
-All SGDS utility categories live in the consolidated `skills/sgds-utilities/` skill. To add a new utility category reference:
+All Canvas utility categories live in the consolidated `skills/sit-utilities/` skill. To add a new utility category reference:
 
-1. Create `skills/sgds-utilities/reference/{category-name}.md` — no frontmatter, no Prerequisites section.
+1. Create `skills/sit-utilities/reference/{category-name}.md` — no frontmatter, no Prerequisites section.
    - If the category has multiple sub-topics, create a hub file `reference/{category-name}.md` + a subfolder `reference/{category-name}/` with individual topic files.
-2. Add a row for the category in the `## Available Utilities` table in `skills/sgds-utilities/SKILL.md`.
-3. Update the `description` frontmatter of `skills/sgds-utilities/SKILL.md` to include the new category.
-4. Update `CLAUDE.md` if the description blurb for `sgds-utilities` needs updating.
+2. Add a row for the category in the `## Available Utilities` table in `skills/sit-utilities/SKILL.md`.
+3. Update the `description` frontmatter of `skills/sit-utilities/SKILL.md` to include the new category.
+4. Update `CLAUDE.md` if the description blurb for `sit-utilities` needs updating.
 
 ### Component skills
 
-All SGDS web components live in the consolidated `skills/sgds-components/` skill. To add a new component reference:
+All Canvas web components live in the consolidated `skills/sit-components/` skill. To add a new component reference:
 
-1. Create `skills/sgds-components/reference/{component-name}.md` — no frontmatter, no Prerequisites section.
-2. Add a row for the component in the `## Available Components` table in `skills/sgds-components/SKILL.md`.
-3. Update the `description` frontmatter of `skills/sgds-components/SKILL.md` to include the new component name.
-4. Update `CLAUDE.md` if the description blurb for `sgds-components` needs updating.
+1. Create `skills/sit-components/reference/{component-name}.md` — no frontmatter, no Prerequisites section.
+2. Add a row for the component in the `## Available Components` table in `skills/sit-components/SKILL.md`.
+3. Update the `description` frontmatter of `skills/sit-components/SKILL.md` to include the new component name.
+4. Update `CLAUDE.md` if the description blurb for `sit-components` needs updating.
 
 ## Checklist for New Skills
 
@@ -303,11 +303,11 @@ Before considering a skill complete:
 - [ ] All HTML examples contain only the token(s) for that file's category
 - [ ] Every Common Patterns section has a library-first note
 - [ ] Shared modifier definitions link to `color-semantics.md`, not duplicated
-- [ ] Row added to `## Available Utilities` table in `skills/sgds-utilities/SKILL.md`
-- [ ] Category name added to `sgds-utilities` frontmatter `description`
+- [ ] Row added to `## Available Utilities` table in `skills/sit-utilities/SKILL.md`
+- [ ] Category name added to `sit-utilities` frontmatter `description`
 
 **Component skills only**
-- [ ] First code example in hub is raw `<sgds-*>` HTML
+- [ ] First code example in hub is raw `<sit-*>` HTML
 - [ ] Slots documented in a table in the hub
 - [ ] Events table includes React prop name
 - [ ] React import path mentioned if wrapper exists in `lib/react/`
@@ -315,7 +315,7 @@ Before considering a skill complete:
 
 ## Related
 
-- **[skill-creator](../skill-creator/SKILL.md)** — General methodology for drafting, evaluating, and iterating on any skill. Use alongside this guide: `skill-creator` covers the process, `agent-skills-writing` covers SGDS-specific conventions
+- **[skill-creator](../skill-creator/SKILL.md)** — General methodology for drafting, evaluating, and iterating on any skill. Use alongside this guide: `skill-creator` covers the process, `agent-skills-writing` covers Canvas-specific conventions
 - **[token-workflow](../token-workflow/SKILL.md)** — Adding or modifying design tokens
 - **[tailwind-mapping](../tailwind-mapping/SKILL.md)** — Mapping CSS variables to Tailwind utilities
 - [Copilot Instructions](../../.github/copilot-instructions.md) — Where skills are registered

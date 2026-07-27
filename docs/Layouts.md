@@ -12,11 +12,11 @@ For more details, see the [Utilities documentation](/docs/utilities-introduction
 
 ```javascript
 // Theme files
-import '@govtechsg/sgds-web-component/themes/day.css'; // day theme
-import '@govtechsg/sgds-web-component/themes/night.css'; // night theme (optional)
+import '@sit-canvas/canvas-web-component/themes/day.css'; // day theme
+import '@sit-canvas/canvas-web-component/themes/night.css'; // night theme (optional)
 
-import '@govtechsg/sgds-web-component/css/sgds.css'; // foundation and grid styles
-import '@govtechsg/sgds-web-component/css/utility.css'; // utility
+import '@sit-canvas/canvas-web-component/css/sgds.css'; // foundation and grid styles
+import '@sit-canvas/canvas-web-component/css/utility.css'; // utility
 ```
 
 

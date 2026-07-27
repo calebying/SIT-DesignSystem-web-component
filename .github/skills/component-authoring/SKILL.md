@@ -1,6 +1,6 @@
 ---
 name: component-authoring
-description: End-to-end workflow for composing or extending an SGDS web component. Use this skill whenever the user says "create a new component", "build a new sgds-* element", "add a feature to an existing component", "I want to contribute a component", or asks how to structure, scaffold, test, or write a Lit component for the design system. Also apply when the user asks about TDD workflow, code conventions, or ADRs in the context of component development.
+description: End-to-end workflow for composing or extending a Canvas web component. Use this skill whenever the user says "create a new component", "build a new sit-* element", "add a feature to an existing component", "I want to contribute a component", or asks how to structure, scaffold, test, or write a Lit component for the design system. Also apply when the user asks about TDD workflow, code conventions, or ADRs in the context of component development.
 metadata:
   author: singapore-design-system
   version: "0.0.0"
@@ -9,7 +9,7 @@ metadata:
 
 # Component Authoring
 
-A guided workflow for building or extending SGDS web components correctly.
+A guided workflow for building or extending Canvas web components correctly.
 
 ---
 
@@ -36,7 +36,7 @@ Tell the author to run the command and follow the prompts (component name, etc.)
 
 ```
 src/components/<ComponentName>/
-  sgds-<component-name>.ts     # LitElement source
+  sit-<component-name>.ts     # LitElement source
   <component-name>.css         # Component styles
 
 test/
@@ -103,8 +103,8 @@ Read `CODE_CONVENTIONS.md` while writing component code. Key rules to check:
 - **Naming**: all internal methods and `@state()` fields must be prefixed with `_`
 - **Access modifiers**: use `private`/`protected`/`public` on all methods; `@watch`-decorated methods have no access modifier (TypeScript constraint)
 - **`@property` decorators**: must have a jsdoc block above each one
-- **Events**: use custom events with the `sgds-` prefix (e.g. `sgds-change`)
-- **Queries**: use slot-based querying, not `querySelectorAll("sgds-*")` tag names
+- **Events**: use custom events with the `sit-` prefix (e.g. `sit-change`)
+- **Queries**: use slot-based querying, not `querySelectorAll("sit-*")` tag names
 
 Also read the Architecture Decision Records in `contributing/architecture-decision-record/` before making structural decisions. These encode resolved tradeoffs for the project:
 

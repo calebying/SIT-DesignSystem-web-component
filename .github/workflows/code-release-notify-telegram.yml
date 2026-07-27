@@ -31,7 +31,7 @@ jobs:
             map(select(.published_at > $since and .draft == false and .prerelease == false))
             | if length == 0 then empty
               else
-                "📦 *SGDS Web Component Releases (last 7 days)*\n\n" +
+                "📦 *Canvas Web Component Releases (last 7 days)*\n\n" +
                 (map("• *" + .name + "*\n" + (.body | split("\n") | map(select(length > 0)) | first // "No description") + "\n  [View on GitHub](" + .html_url + ")") | join("\n\n"))
               end
           ')

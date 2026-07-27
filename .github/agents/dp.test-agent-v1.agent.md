@@ -73,14 +73,14 @@ When testing Lit components, focus on component-specific behavior, not Lit frame
 ```typescript
 // ✅ GOOD: Test component-specific behavior
 it("when fluid is true, .navbar has no max-width constraint", async () => {
-  const el = await fixture<SgdsMainnav>(html`<sgds-mainnav fluid></sgds-mainnav>`);
+  const el = await fixture<SitMainnav>(html`<sit-mainnav fluid></sit-mainnav>`);
   const navbar = el.shadowRoot?.querySelector(".navbar") as HTMLElement;
   expect(getComputedStyle(navbar).maxWidth).to.equal("none");
 });
 
 // ❌ BAD: Testing Lit's reactive properties (out of scope)
 it("can toggle fluid property", async () => {
-  const el = await fixture<SgdsMainnav>(html`<sgds-mainnav></sgds-mainnav>`);
+  const el = await fixture<SitMainnav>(html`<sit-mainnav></sit-mainnav>`);
   el.fluid = true;
   await el.updateComplete;
   expect(el.hasAttribute("fluid")).to.be.true; // Testing framework behavior

@@ -40,12 +40,12 @@ import { ifDefined } from "lit/directives/if-defined.js";
 
 // Main template function
 export const Template = args => html`
-  <sgds-component 
+  <sit-component 
     ?prop=${args.prop} 
     attribute=${ifDefined(args.attribute)}
   >
     Component content
-  </sgds-component>
+  </sit-component>
 `;
 
 // Default args for the template
@@ -76,9 +76,9 @@ import { html } from "lit";
 // Custom template for specific story variant
 const CustomTemplate = args => {
   return html`
-    <sgds-component>
+    <sit-component>
       Custom implementation
-    </sgds-component>
+    </sit-component>
   `;
 };
 
@@ -156,11 +156,11 @@ export const Dismissible = {
 ```javascript
 const ComplexTemplate = args => {
   return html`
-    <sgds-component id="example" ?show=${args.show}>
+    <sit-component id="example" ?show=${args.show}>
       <slot-content>Complex content</slot-content>
-    </sgds-component>
+    </sit-component>
     
-    <sgds-other-component></sgds-other-component>
+    <sit-other-component></sit-other-component>
 
     <script>
       // Event listeners or complex interactions
@@ -195,10 +195,10 @@ const VariantTemplate = args => {
   return html`
     <div class="d-flex-column">
       ${variants.map(v => html`
-        <sgds-component variant=${v.variant}>
-          <sgds-icon slot="icon" name=${v.icon}></sgds-icon>
+        <sit-component variant=${v.variant}>
+          <sit-icon slot="icon" name=${v.icon}></sit-icon>
           Content for ${v.variant}
-        </sgds-component>
+        </sit-component>
       `)}
     </div>
   `;
@@ -286,7 +286,7 @@ Description of the feature.
 ### Usage Example
 
 \`\`\`javascript
-const component = document.querySelector('sgds-component');
+const component = document.querySelector('sit-component');
 component.addEventListener('custom-event', (e) => {
   console.log('Event data:', e.detail);
 });
@@ -314,10 +314,10 @@ const VariantTemplate = args => {
   return html`
     <div class="d-flex-column">
       ${variants.map(v => html`
-        <sgds-alert variant=${v.variant.toLowerCase()} show title="${v.variant} alert">
-          <sgds-icon slot="icon" name=${v.icon}></sgds-icon>
+        <sit-alert variant=${v.variant.toLowerCase()} show title="${v.variant} alert">
+          <sit-icon slot="icon" name=${v.icon}></sit-icon>
           <div>Description</div>
-        </sgds-alert>
+        </sit-alert>
       `)}
     </div>
   `;
@@ -340,17 +340,17 @@ import { html } from "lit";
 
 const ShowMoreHookTemplate = args => {
   return html`
-    <sgds-system-banner show id="banner-example" dismissible>
-      <sgds-system-banner-item>
+    <sit-system-banner show id="banner-example" dismissible>
+      <sit-system-banner-item>
         Long content that will be truncated...
-      </sgds-system-banner-item>
-    </sgds-system-banner>
-    <sgds-modal></sgds-modal>
+      </sit-system-banner-item>
+    </sit-system-banner>
+    <sit-modal></sit-modal>
 
     <script>
       const banner = document.querySelector("#banner-example");
-      const modal = document.querySelector("sgds-modal");
-      banner.addEventListener("sgds-show-more", () => {
+      const modal = document.querySelector("sit-modal");
+      banner.addEventListener("sit-show-more", () => {
         modal.show();
       });
     </script>
