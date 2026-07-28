@@ -14,7 +14,7 @@ npm install @sit-canvas/canvas-web-component@3.25.0
 
 ```js
 import "@sit-canvas/canvas-web-component/themes/day.css";
-import "@sit-canvas/canvas-web-component/css/sgds.css";
+import "@sit-canvas/canvas-web-component/css/canvas.css";
 import "@sit-canvas/canvas-web-component";
 ```
 
@@ -37,7 +37,7 @@ Are you a react user? If so, skip to the <a href="/docs/frameworks-react--docs#i
 
 ```js
 import "@sit-canvas/canvas-web-component/themes/day.css";
-import "@sit-canvas/canvas-web-component/css/sgds.css";
+import "@sit-canvas/canvas-web-component/css/canvas.css";
 import "@sit-canvas/canvas-web-component";
 ```
 
@@ -54,7 +54,7 @@ This method registers all Canvas elements up front in the Custom Elements Regist
 ```js
 // Load global css file
 <link href='https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0/themes/day.css' rel='stylesheet' type='text/css' />
-<link href='https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0/css/sgds.css' rel='stylesheet' type='text/css' />
+<link href='https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0/css/canvas.css' rel='stylesheet' type='text/css' />
 
 // it is recommended to load a particular version when using cdn e.g. https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@1.0.2
 <script src="https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0" async crossorigin="anonymous"></script>

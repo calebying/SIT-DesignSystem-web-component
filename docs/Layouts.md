@@ -15,7 +15,7 @@ For more details, see the [Utilities documentation](/docs/utilities-introduction
 import '@sit-canvas/canvas-web-component/themes/day.css'; // day theme
 import '@sit-canvas/canvas-web-component/themes/night.css'; // night theme (optional)
 
-import '@sit-canvas/canvas-web-component/css/sgds.css'; // foundation and grid styles
+import '@sit-canvas/canvas-web-component/css/canvas.css'; // foundation and grid styles
 import '@sit-canvas/canvas-web-component/css/utility.css'; // utility
 ```
 

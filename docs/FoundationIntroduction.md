@@ -47,5 +47,5 @@ The colors assigned to elements and class selectors will switch depending on day
 /* optional: if you are doing night mode */
 @import "@sit-canvas/canvas-web-component/themes/night.css";
 /* import foundational styles and grid system */
-@import "@sit-canvas/canvas-web-component/css/sgds.css";
+@import "@sit-canvas/canvas-web-component/css/canvas.css";
 ```
