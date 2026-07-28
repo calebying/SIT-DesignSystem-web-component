@@ -272,7 +272,9 @@ const Template = () => html`
             <div class="sit-col-4 sit-col-md-4 sit-col-lg-4 sit:flex sit:flex-col">
               <sit-card stretchedLink style="height: 100%;">
                 <sit-badge slot="upper" outlined>Keynote</sit-badge>
-                <span slot="title" class="title-clamp">The Future of GovTech: People, Process and Platform</span>
+                <span slot="title" class="title-clamp"
+                  >The Future of Digital Learning: People, Process and Platform</span
+                >
                 <span slot="description"
                   >How people-centred design and agile delivery are shaping the next wave of government
                   technology.</span
