@@ -10,21 +10,21 @@ We provide an opinionated native validation behaviour using ElementInternals but
 
 ## Decision
 
-Add noValidate prop in form components. When true, constraint validation and SGDS validation behaviours are disabled. Users can then call `setInvalid(bool)` and set `invalidFeedback` programmatically.
+Add noValidate prop in form components. When true, constraint validation and Canvas validation behaviours are disabled. Users can then call `setInvalid(bool)` and set `invalidFeedback` programmatically.
 
-Additionally the validatorMixin will detect closest `<form novalidate>` and disables constraint and sgds validation. This helps to make it easier for users to set noValidate once.
+Additionally the validatorMixin will detect closest `<form novalidate>` and disables constraint and Canvas validation. This helps to make it easier for users to set noValidate once.
 
 ### Revised approach to InputValidationController instantiation
 
 **Original decision (23/09/2025):** When `noValidate` is true, skip creating `InputValidationController` entirely in `connectedCallback`.
 
-**Revised decision (26/06/2026):** Always create `InputValidationController` regardless of `noValidate`. Instead, guard each validation call site individually with `_mixinShouldSkipSgdsValidation()`.
+**Revised decision (26/06/2026):** Always create `InputValidationController` regardless of `noValidate`. Instead, guard each validation call site individually with `_mixinShouldSkipSitValidation()`.
 
 **Reason for revision:** The original approach broke form reset. When a user sets `setInvalid(true)` programmatically and then resets the form, `_mixinResetValidity` needs the controller to call `resetValidity()` and `updateInvalidState()` to clear the invalid state. Without the controller, the form could not return to a pristine state after reset.
 
 ### How validation is prevented with noValidate
 
-The `_mixinShouldSkipSgdsValidation()` check gates every validation entry point in the mixin:
+The `_mixinShouldSkipSitValidation()` check gates every validation entry point in the mixin:
 
 - `_mixinHandleChange()` — returns early
 - `_mixinHandleInputChange()` — returns early
@@ -44,7 +44,7 @@ Then `validateInput()` is skipped when noValidate is active (no need to re-valid
 
 ## Consequences
 
-It is easier to implement custom validation without the interference of sgds opinionated validation behaviour. Form reset always returns the component to a pristine state regardless of validation mode.
+It is easier to implement custom validation without the interference of Canvas opinionated validation behaviour. Form reset always returns the component to a pristine state regardless of validation mode.
 
 Components requiring the update:
 1. Input (Done on 23/09/2025)

@@ -11,7 +11,7 @@ When web components are SSR, slotchange is not called in the first render/update
 
 ## Decision
 
-In SgdsElement, set up a boolean prop `ssr` which checks environment. 
+In SitElement, set up a boolean prop `ssr` which checks environment. 
 When ssr is true, force dispatch a slotchange event once. This makes sure in CSR, nothing has changed.
 
 ## Consequences

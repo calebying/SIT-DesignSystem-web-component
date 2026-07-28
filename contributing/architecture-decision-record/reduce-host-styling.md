@@ -10,7 +10,7 @@ Web components apply styling to the `:host` pseudo-element to define default app
 
 ### Example
 
-The `sgds-table` component had `:host` padding and margin styles defined. When a consuming application applied a global CSS reset rule (`* { margin: 0; padding: 0; }`), the component's intended spacing was lost due to CSS cascade conflicts. The application had to override or work around the component's `:host` styles, creating unnecessary complexity. By keeping `:host` styles minimal, the component would have worked seamlessly with the application's reset styles without conflicts.
+The `sit-table` component had `:host` padding and margin styles defined. When a consuming application applied a global CSS reset rule (`* { margin: 0; padding: 0; }`), the component's intended spacing was lost due to CSS cascade conflicts. The application had to override or work around the component's `:host` styles, creating unnecessary complexity. By keeping `:host` styles minimal, the component would have worked seamlessly with the application's reset styles without conflicts.
 
 ## Decision
 
@@ -26,7 +26,7 @@ This approach includes:
 
 **Positive:**
 - Reduced CSS specificity conflicts
-- Isolate the CSS within SGDS components
+- Isolate the CSS within Canvas components
 
 ## Date of proposal
 

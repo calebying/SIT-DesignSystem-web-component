@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-The SGDS icon set consists of hundreds of SVG files.
+The Canvas icon set consists of hundreds of SVG files.
 Manually converting each SVG into a Lit-compatible TypeScript template and registering it in `icon-registry.ts` is:
 
 - Time-consuming
@@ -35,7 +35,7 @@ We standardise the icon workflow using **two Node.js scripts**:
 
 When adding or updating icons:
 
-1. Place new or updated SVG files into the `sgds-icons` (source SVG) folder in `src/components/Icon/` folder
+1. Place new or updated SVG files into the `sit-icons` (source SVG) folder in `src/components/Icon/` folder
 2. Run the **SVG → TS conversion script**
 3. Run the **icon registry generation script**
 4. Check if there is any name changes in existing icon name to prevent breaking changes unless it's intended

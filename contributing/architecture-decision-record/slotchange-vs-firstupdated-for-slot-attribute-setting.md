@@ -6,11 +6,11 @@ Accepted
 
 ## Context
 
-Several components (`SgdsAccordion`, `SgdsMainnav`) need to perform initialisation work on their slotted child elements. Examples include:
+Several components (`SitAccordion`, `SitMainnav`) need to perform initialisation work on their slotted child elements. Examples include:
 
-- `SgdsAccordion` setting `variant`, `density`, `first-of-type`, `nth-of-type`, and `last-of-type` attributes on each `sgds-accordion-item`.
-- `SgdsMainnav` setting the `expand` attribute on every slotted `sgds-mainnav-item` and `sgds-mainnav-dropdown`.
-- `SgdsMainnavItem` adding click event listeners to anchor elements found inside its slot.
+- `SitAccordion` setting `variant`, `density`, `first-of-type`, `nth-of-type`, and `last-of-type` attributes on each `sit-accordion-item`.
+- `SitMainnav` setting the `expand` attribute on every slotted `sit-mainnav-item` and `sit-mainnav-dropdown`.
+- `SitMainnavItem` adding click event listeners to anchor elements found inside its slot.
 
 The original implementation performed these mutations (attributes, event listeners, property assignments, style changes) inside Lit's `firstUpdated` lifecycle hook, iterating over slot-assigned elements retrieved via `@queryAssignedElements`.
 
