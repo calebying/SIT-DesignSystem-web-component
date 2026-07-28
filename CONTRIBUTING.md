@@ -41,7 +41,7 @@ Place common/reusable functions and global stylings in utils folder
 
 ### Filename
 
-Custom elements must be in kebab case. Prefix the files with sgds-\*.ts
+Custom elements must be in kebab case. Prefix the files with sit-\*.ts
 
 ## Testing
 
@@ -68,7 +68,7 @@ The basic storybook documentation is auto-generated from the cem metadata. Write
 import { html } from "lit";
 
 export const Template = args =>
-      html`<sgds-{{kebabCase main-component-name}}></sgds-{{kebabCase main-component-name}}>`
+      html`<sit-{{kebabCase main-component-name}}></sit-{{kebabCase main-component-name}}>`
 
 
 export const args = {};

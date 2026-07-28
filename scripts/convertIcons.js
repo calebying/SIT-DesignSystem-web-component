@@ -3,7 +3,7 @@ const path = require("path");
 const prettier = require("prettier");
 
 // Paths
-const svgDir = path.resolve(__dirname, "../src/components/Icon/sgds-icons"); // folder with SVGs
+const svgDir = path.resolve(__dirname, "../src/components/Icon/sit-icons"); // folder with SVGs
 const iconsDir = path.resolve(__dirname, "../src/components/Icon/icons"); // output TS files
 
 // Ensure output folder exists

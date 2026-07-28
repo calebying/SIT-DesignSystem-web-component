@@ -89,7 +89,7 @@ const buildUMDComponentBundles = () => {
     plugins: [...umdPlugins, terser()]
   }));
 };
-const buildSgdsPackage = () => {
+const buildSitPackage = () => {
   const esmModules = [
     //generate subpath entry points for individual components side effects ce file
     {
@@ -163,4 +163,4 @@ const buildSgdsPackage = () => {
   return [...reactPackage, ...esmModules, ...umdBundles];
 };
 
-export default buildSgdsPackage;
+export default buildSitPackage;

@@ -18,7 +18,7 @@ export default function (plop) {
       },
       {
         type: "add",
-        path: "src/components/{{main-component-name}}/sgds-{{kebabCase main-component-name}}.ts",
+        path: "src/components/{{main-component-name}}/sit-{{kebabCase main-component-name}}.ts",
         templateFile: "plop-templates/component.hbs"
       },
       {
@@ -40,7 +40,7 @@ export default function (plop) {
         type: 'modify',
         path: 'src/components/index.ts',
         pattern: /(\/\/ COMPONENT EXPORTS)/g,
-        template: 'export * from "./{{main-component-name}}/sgds-{{kebabCase main-component-name}}";\n$1',
+        template: 'export * from "./{{main-component-name}}/sit-{{kebabCase main-component-name}}";\n$1',
     },
       {
         type: 'modify',

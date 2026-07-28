@@ -60,12 +60,12 @@
   position: absolute;
 }
 
-.sgds.navbar .dropdown-menu.megamenu {
+.sit.navbar .dropdown-menu.megamenu {
   left: 0;
   right: 0;
   width: 100%;
 }
 
-.sgds.combobox > .dropdown-menu {
+.sit.combobox > .dropdown-menu {
   min-width: 100%;
 }

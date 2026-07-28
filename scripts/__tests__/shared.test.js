@@ -1,4 +1,4 @@
-import { getSgdsComponents } from "../shared.mjs";
+import { getSitComponents } from "../shared.mjs";
 import { fixture, expect, waitUntil } from "@open-wc/testing";
 
 /**
@@ -67,16 +67,16 @@ import { fixture, expect, waitUntil } from "@open-wc/testing";
       fieldName: 'trigger'
     }
   ],
-  superclass: { name: 'SgdsElement', module: '/src/base/sgds-element' },
-  tagName: 'sgds-tooltip',
+  superclass: { name: 'SitElement', module: '/src/base/sit-element' },
+  tagName: 'sit-tooltip',
   customElement: true,
-  modulePath: 'src/Tooltip/sgds-tooltip.ts'
+  modulePath: 'src/Tooltip/sit-tooltip.ts'
 }
  */
-describe("getSgdsComponents()", () => {
+describe("getSitComponents()", () => {
   const input = [
     {
-      modulePath: "src/components/Tooltip/sgds-tooltip.ts"
+      modulePath: "src/components/Tooltip/sit-tooltip.ts"
     },
     {
       modulePath: "rubbish/test"
@@ -87,10 +87,10 @@ describe("getSgdsComponents()", () => {
   ];
 
   it("returns an array", () => {
-    expect(Array.isArray(getSgdsComponents(input))).to.be.true;
+    expect(Array.isArray(getSitComponents(input))).to.be.true;
   });
-  it("should output components starting with sgds-* only", () => {
-    const expected = [{ modulePath: "src/components/Tooltip/sgds-tooltip.ts" }];
-    expect(JSON.stringify(getSgdsComponents(input))).to.equal(JSON.stringify(expected));
+  it("should output components starting with sit-* only", () => {
+    const expected = [{ modulePath: "src/components/Tooltip/sit-tooltip.ts" }];
+    expect(JSON.stringify(getSitComponents(input))).to.equal(JSON.stringify(expected));
   });
 });

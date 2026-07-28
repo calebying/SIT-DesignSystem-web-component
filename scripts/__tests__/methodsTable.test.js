@@ -15,11 +15,11 @@ const metadata = [
       { kind: "method", privacy: "private" }
     ],
     attributes: [[Object], [Object]],
-    superclass: { name: "SgdsElement", module: "/src/base/sgds-element" },
+    superclass: { name: "SitElement", module: "/src/base/sit-element" },
     summary: "Tab panels are used inside [tab groups](/components/tab-group) to display tabbed content.",
-    tagName: "sgds-tab-panel",
+    tagName: "sit-tab-panel",
     customElement: true,
-    modulePath: "src/Tab/sgds-tabpanel.ts"
+    modulePath: "src/Tab/sit-tabpanel.ts"
   }
 ];
 describe("MethodsTable", () => {
@@ -28,7 +28,7 @@ describe("MethodsTable", () => {
   });
   it("takes in metadata and returns tagName and methods keys", () => {
     const expected = {
-      tagName: "sgds-tab-panel",
+      tagName: "sit-tab-panel",
       methods: [{ kind: "method", privacy: "public" }]
     };
     expect(Object.keys(methodsTable(metadata)[0])).to.deep.equal(["tagName", "methods"]);
@@ -36,7 +36,7 @@ describe("MethodsTable", () => {
   it("filters out public methods only", () => {
     const expected = [
       {
-        tagName: "sgds-tab-panel",
+        tagName: "sit-tab-panel",
         methods: [{ kind: "method", privacy: "public" }]
       }
     ];

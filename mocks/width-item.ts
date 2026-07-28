@@ -25,8 +25,8 @@ export class WidthItem extends LitElement {
       justify-content: center;
       width: 100%;
       height: 120px;
-      background-color: var(--sgds-bg-alternate, #f5f5f5);
-      border: 2px solid var(--sgds-border-color-default, #dcdcdc);
+      background-color: var(--sit-bg-alternate, #f5f5f5);
+      border: 2px solid var(--sit-border-color-default, #dcdcdc);
       transition: all 200ms ease-in-out;
     }
 
@@ -47,13 +47,13 @@ export class WidthItem extends LitElement {
       font-size: 14px;
       font-weight: 600;
       word-break: break-word;
-      color: var(--sgds-text-default, #000);
+      color: var(--sit-text-default, #000);
       flex: 1;
     }
 
     .token-variable {
       font-size: 12px;
-      color: var(--sgds-text-subtle, #666);
+      color: var(--sit-text-subtle, #666);
     }
 
     .copy-button {
@@ -75,7 +75,7 @@ export class WidthItem extends LitElement {
       opacity: 1;
     }
 
-    .copy-button sgds-icon {
+    .copy-button sit-icon {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -103,13 +103,13 @@ export class WidthItem extends LitElement {
         <div
           class="width-box"
           style="border-width: var(${this
-            .widthValue}); border-style: solid; border-color: var(--sgds-primary-bg-default, #0066cc);"
+            .widthValue}); border-style: solid; border-color: var(--sit-primary-bg-default, #0066cc);"
         ></div>
         <div class="token-info">
           <div class="token-header">
             <div class="token-name">${this.token}</div>
             <button class="copy-button" @click=${this.copyToClipboard} aria-label="Copy token to clipboard">
-              <sgds-icon name="${this.isCopied ? "check" : "files"}"></sgds-icon>
+              <sit-icon name="${this.isCopied ? "check" : "files"}"></sit-icon>
             </button>
           </div>
           <div class="token-variable">${this.variable}</div>

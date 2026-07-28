@@ -1,6 +1,6 @@
 ---
-name: sgds-typography
-description: Teaches AI agents how to help developers use SGDS typography utilities (font-size, font-weight, line-height, letter-spacing) with the sgds: prefix. Use when users ask about text sizing, font weights, line spacing, or typography styling in SGDS designs.
+name: sit-typography
+description: Teaches AI agents how to help developers use Canvas typography utilities (font-size, font-weight, line-height, letter-spacing) with the sit: prefix. Use when users ask about text sizing, font weights, line spacing, or typography styling in Canvas designs.
 metadata:
   author: singapore-design-system
   version: "0.0.0"
@@ -8,35 +8,35 @@ metadata:
   category: typography
 ---
 
-# SGDS Typography Utilities Skill
+# Canvas Typography Utilities Skill
 
-Helps developers use SGDS typography utilities for consistent text sizing, weights, spacing, and formatting.
+Helps developers use Canvas typography utilities for consistent text sizing, weights, spacing, and formatting.
 
 ## Prerequisites
 
-**Required**: Complete setup from **sgds-utilities-setup** skill first.
+**Required**: Complete setup from **sit-utilities-setup** skill first.
 
 Typography utilities require the utility CSS import but do NOT require theme files.
 
 ## Core Concept
 
-All SGDS typography utilities use the `sgds:` prefix for font sizes, weights, line heights, and letter spacing.
+All Canvas typography utilities use the `sit:` prefix for font sizes, weights, line heights, and letter spacing.
 
 ## Font Size
 
-Apply text sizes using `sgds:text-{size}` where the number matches the pixel value:
+Apply text sizes using `sit:text-{size}` where the number matches the pixel value:
 
 ```html
-<p class="sgds:text-12">12px — captions, fine print</p>
-<p class="sgds:text-14">14px — labels, helper text</p>
-<p class="sgds:text-16">16px — default body text</p>
-<p class="sgds:text-20">20px — lead paragraphs, intro text</p>
-<h4 class="sgds:text-24">24px — H4 / card headings</h4>
-<h3 class="sgds:text-28">28px — H3</h3>
-<h2 class="sgds:text-32">32px — H2</h2>
-<h1 class="sgds:text-40">40px — H1</h1>
-<h1 class="sgds:text-48">48px — page titles</h1>
-<h1 class="sgds:text-56">56px — hero display</h1>
+<p class="sit:text-12">12px — captions, fine print</p>
+<p class="sit:text-14">14px — labels, helper text</p>
+<p class="sit:text-16">16px — default body text</p>
+<p class="sit:text-20">20px — lead paragraphs, intro text</p>
+<h4 class="sit:text-24">24px — H4 / card headings</h4>
+<h3 class="sit:text-28">28px — H3</h3>
+<h2 class="sit:text-32">32px — H2</h2>
+<h1 class="sit:text-40">40px — H1</h1>
+<h1 class="sit:text-48">48px — page titles</h1>
+<h1 class="sit:text-56">56px — hero display</h1>
 ```
 
 ### Font Size Scale
@@ -56,13 +56,13 @@ Sizes outside this base scale (18, 22, 26, 30, 36, 44, 52) are available for res
 
 ## Font Weight
 
-Apply font weights using `sgds:font-{weight}`:
+Apply font weights using `sit:font-{weight}`:
 
 ```html
-<p class="sgds:font-light">Light weight (300)</p>
-<p class="sgds:font-regular">Regular weight (400) - default</p>
-<p class="sgds:font-semibold">Semibold weight (600)</p>
-<p class="sgds:font-bold">Bold weight (700)</p>
+<p class="sit:font-light">Light weight (300)</p>
+<p class="sit:font-regular">Regular weight (400) - default</p>
+<p class="sit:font-semibold">Semibold weight (600)</p>
+<p class="sit:font-bold">Bold weight (700)</p>
 ```
 
 ### Font Weight Scale
@@ -74,14 +74,14 @@ Apply font weights using `sgds:font-{weight}`:
 
 ## Line Height
 
-Apply line heights using `sgds:leading-{scale}`:
+Apply line heights using `sit:leading-{scale}`:
 
 ```html
 <!-- Body text (default) -->
-<p class="sgds:leading-normal">Normal line height (1.5)</p>
+<p class="sit:leading-normal">Normal line height (1.5)</p>
 
 <!-- Display, headings, and subheadings -->
-<h1 class="sgds:leading-tight">Tight line height (1.2)</h1>
+<h1 class="sit:leading-tight">Tight line height (1.2)</h1>
 ```
 
 ### Line Height Scale
@@ -91,20 +91,20 @@ Apply line heights using `sgds:leading-{scale}`:
 
 ## Letter Spacing
 
-Apply letter spacing using `sgds:tracking-{size}`:
+Apply letter spacing using `sit:tracking-{size}`:
 
 ```html
 <!-- Tighter spacing -->
-<p class="sgds:tracking-tighter">Tighter letter spacing (-0.05em)</p>
-<p class="sgds:tracking-tight">Tight letter spacing (-0.025em)</p>
+<p class="sit:tracking-tighter">Tighter letter spacing (-0.05em)</p>
+<p class="sit:tracking-tight">Tight letter spacing (-0.025em)</p>
 
 <!-- Normal spacing -->
-<p class="sgds:tracking-normal">Normal letter spacing (0em)</p>
+<p class="sit:tracking-normal">Normal letter spacing (0em)</p>
 
 <!-- Wider spacing -->
-<p class="sgds:tracking-wide">Wide letter spacing (0.025em)</p>
-<p class="sgds:tracking-wider">Wider letter spacing (0.05em)</p>
-<p class="sgds:tracking-widest">Widest letter spacing (0.1em)</p>
+<p class="sit:tracking-wide">Wide letter spacing (0.025em)</p>
+<p class="sit:tracking-wider">Wider letter spacing (0.05em)</p>
+<p class="sit:tracking-widest">Widest letter spacing (0.1em)</p>
 ```
 
 ### Letter Spacing Scale
@@ -117,16 +117,16 @@ Apply letter spacing using `sgds:tracking-{size}`:
 
 ## Font Family
 
-Apply font families using `sgds:font-{family}`:
+Apply font families using `sit:font-{family}`:
 
 ```html
 <!-- Sans-serif (default) -->
-<p class="sgds:font-sans">
+<p class="sit:font-sans">
   System sans-serif font stack
 </p>
 
 <!-- Monospace (code) -->
-<code class="sgds:font-mono">
+<code class="sit:font-mono">
   Monospace font for code
 </code>
 ```
@@ -141,11 +141,11 @@ Apply font families using `sgds:font-{family}`:
 ### Display Headings (Hero Text)
 
 ```html
-<h1 class="sgds:text-display-default sgds:text-48 sgds:font-bold sgds:leading-tight sgds:tracking-tight">
+<h1 class="sit:text-display-default sit:text-48 sit:font-bold sit:leading-tight sit:tracking-tight">
   Hero Display Heading
 </h1>
 
-<h1 class="sgds:text-display-default sgds:text-56 sgds:font-bold sgds:leading-tight">
+<h1 class="sit:text-display-default sit:text-56 sit:font-bold sit:leading-tight">
   Extra Large Hero
 </h1>
 ```
@@ -154,17 +154,17 @@ Apply font families using `sgds:font-{family}`:
 
 ```html
 <!-- H2 -->
-<h2 class="sgds:text-heading-default sgds:text-32 sgds:font-semibold sgds:leading-tight sgds:mb-6">
+<h2 class="sit:text-heading-default sit:text-32 sit:font-semibold sit:leading-tight sit:mb-6">
   Section Heading
 </h2>
 
 <!-- H3 -->
-<h3 class="sgds:text-heading-default sgds:text-24 sgds:font-semibold sgds:leading-tight sgds:mb-4">
+<h3 class="sit:text-heading-default sit:text-24 sit:font-semibold sit:leading-tight sit:mb-4">
   Subsection Heading
 </h3>
 
 <!-- H4 -->
-<h4 class="sgds:text-heading-default sgds:text-20 sgds:font-semibold sgds:leading-tight sgds:mb-3">
+<h4 class="sit:text-heading-default sit:text-20 sit:font-semibold sit:leading-tight sit:mb-3">
   Minor Heading
 </h4>
 ```
@@ -173,22 +173,22 @@ Apply font families using `sgds:font-{family}`:
 
 ```html
 <!-- Large body text (lead paragraph) -->
-<p class="sgds:text-body-default sgds:text-20 sgds:leading-normal sgds:mb-4">
+<p class="sit:text-body-default sit:text-20 sit:leading-normal sit:mb-4">
   Lead paragraph with larger text for better readability.
 </p>
 
 <!-- Standard body text -->
-<p class="sgds:text-body-default sgds:text-16 sgds:leading-normal sgds:mb-4">
+<p class="sit:text-body-default sit:text-16 sit:leading-normal sit:mb-4">
   Regular body text for main content.
 </p>
 
 <!-- Small body text (captions, metadata) -->
-<p class="sgds:text-body-subtle sgds:text-14 sgds:leading-normal">
+<p class="sit:text-body-subtle sit:text-14 sit:leading-normal">
   Caption or metadata text.
 </p>
 
 <!-- Extra small (fine print) -->
-<p class="sgds:text-body-subtle sgds:text-12 sgds:leading-normal">
+<p class="sit:text-body-subtle sit:text-12 sit:leading-normal">
   Fine print or legal text.
 </p>
 ```
@@ -196,11 +196,11 @@ Apply font families using `sgds:font-{family}`:
 ### Form Labels
 
 ```html
-<label class="sgds:text-label-default sgds:text-14 sgds:font-semibold sgds:block sgds:mb-2">
+<label class="sit:text-label-default sit:text-14 sit:font-semibold sit:block sit:mb-2">
   Form Field Label
 </label>
 
-<label class="sgds:text-label-default sgds:text-16 sgds:font-semibold sgds:block sgds:mb-2">
+<label class="sit:text-label-default sit:text-16 sit:font-semibold sit:block sit:mb-2">
   Larger Form Label
 </label>
 ```
@@ -208,11 +208,11 @@ Apply font families using `sgds:font-{family}`:
 ### Links
 
 ```html
-<a href="#" class="sgds:text-link-default sgds:text-16 sgds:font-regular">
+<a href="#" class="sit:text-link-default sit:text-16 sit:font-regular">
   Standard link
 </a>
 
-<a href="#" class="sgds:text-link-default sgds:text-16 sgds:font-semibold">
+<a href="#" class="sit:text-link-default sit:text-16 sit:font-semibold">
   Semibold weight link
 </a>
 ```
@@ -221,12 +221,12 @@ Apply font families using `sgds:font-{family}`:
 
 ```html
 <!-- Inline code -->
-<p class="sgds:text-body-default">
-  Use the <code class="sgds:font-mono sgds:text-14 sgds:bg-surface-raised sgds:px-1">import</code> statement.
+<p class="sit:text-body-default">
+  Use the <code class="sit:font-mono sit:text-14 sit:bg-surface-raised sit:px-1">import</code> statement.
 </p>
 
 <!-- Code block -->
-<pre class="sgds:font-mono sgds:text-14 sgds:leading-normal sgds:bg-surface-raised sgds:p-4 sgds:rounded">
+<pre class="sit:font-mono sit:text-14 sit:leading-normal sit:bg-surface-raised sit:p-4 sit:rounded">
   function hello() {
     console.log('Hello, world!');
   }
@@ -236,12 +236,12 @@ Apply font families using `sgds:font-{family}`:
 ### Emphasized Text
 
 ```html
-<p class="sgds:text-body-default sgds:text-16 sgds:leading-normal">
-  This is <strong class="sgds:font-semibold">important text</strong> that needs emphasis.
+<p class="sit:text-body-default sit:text-16 sit:leading-normal">
+  This is <strong class="sit:font-semibold">important text</strong> that needs emphasis.
 </p>
 
-<p class="sgds:text-body-default sgds:text-16 sgds:leading-normal">
-  This is <em class="sgds:font-regular sgds:italic">emphasized text</em> with style.
+<p class="sit:text-body-default sit:text-16 sit:leading-normal">
+  This is <em class="sit:font-regular sit:italic">emphasized text</em> with style.
 </p>
 ```
 
@@ -249,17 +249,17 @@ Apply font families using `sgds:font-{family}`:
 
 ```html
 <!-- Uppercase (e.g., labels, badges) -->
-<span class="sgds:text-12 sgds:font-semibold sgds:uppercase sgds:tracking-wider">
+<span class="sit:text-12 sit:font-semibold sit:uppercase sit:tracking-wider">
   Badge Label
 </span>
 
 <!-- Capitalize -->
-<h3 class="sgds:text-20 sgds:font-semibold sgds:capitalize">
+<h3 class="sit:text-20 sit:font-semibold sit:capitalize">
   capitalize each word
 </h3>
 
 <!-- Lowercase -->
-<p class="sgds:text-14 sgds:lowercase">
+<p class="sit:text-14 sit:lowercase">
   ALL LOWERCASE TEXT
 </p>
 ```
@@ -267,7 +267,7 @@ Apply font families using `sgds:font-{family}`:
 ### Blockquotes
 
 ```html
-<blockquote class="sgds:text-body-default sgds:text-20 sgds:font-regular sgds:leading-normal sgds:italic sgds:border-l-4 sgds:border-primary-default sgds:pl-6 sgds:my-6">
+<blockquote class="sit:text-body-default sit:text-20 sit:font-regular sit:leading-normal sit:italic sit:border-l-4 sit:border-primary-default sit:pl-6 sit:my-6">
   "This is an inspiring quote that stands out from the main content."
 </blockquote>
 ```
@@ -275,11 +275,11 @@ Apply font families using `sgds:font-{family}`:
 ### Statistics/Numbers
 
 ```html
-<div class="sgds:text-center">
-  <p class="sgds:text-primary-default sgds:text-48 sgds:font-bold sgds:leading-tight sgds:mb-2">
+<div class="sit:text-center">
+  <p class="sit:text-primary-default sit:text-48 sit:font-bold sit:leading-tight sit:mb-2">
     1,234
   </p>
-  <p class="sgds:text-body-subtle sgds:text-14 sgds:font-semibold sgds:uppercase sgds:tracking-wide">
+  <p class="sit:text-body-subtle sit:text-14 sit:font-semibold sit:uppercase sit:tracking-wide">
     Active Users
   </p>
 </div>
@@ -289,17 +289,17 @@ Apply font families using `sgds:font-{family}`:
 
 ```html
 <!-- Standard button -->
-<button class="sgds:bg-primary-default sgds:text-white sgds:text-16 sgds:font-semibold sgds:px-6 sgds:py-3 sgds:rounded">
+<button class="sit:bg-primary-default sit:text-white sit:text-16 sit:font-semibold sit:px-6 sit:py-3 sit:rounded">
   Button Text
 </button>
 
 <!-- Small button -->
-<button class="sgds:bg-primary-default sgds:text-white sgds:text-14 sgds:font-semibold sgds:px-4 sgds:py-2 sgds:rounded">
+<button class="sit:bg-primary-default sit:text-white sit:text-14 sit:font-semibold sit:px-4 sit:py-2 sit:rounded">
   Small Button
 </button>
 
 <!-- Large button -->
-<button class="sgds:bg-primary-default sgds:text-white sgds:text-20 sgds:font-semibold sgds:px-8 sgds:py-4 sgds:rounded">
+<button class="sit:bg-primary-default sit:text-white sit:text-20 sit:font-semibold sit:px-8 sit:py-4 sit:rounded">
   Large Button
 </button>
 ```
@@ -307,17 +307,17 @@ Apply font families using `sgds:font-{family}`:
 ### Card with Typography Hierarchy
 
 ```html
-<div class="sgds:bg-surface-raised sgds:p-6 sgds:rounded-lg">
-  <h3 class="sgds:text-heading-default sgds:text-24 sgds:font-semibold sgds:leading-tight sgds:mb-2">
+<div class="sit:bg-surface-raised sit:p-6 sit:rounded-lg">
+  <h3 class="sit:text-heading-default sit:text-24 sit:font-semibold sit:leading-tight sit:mb-2">
     Card Title
   </h3>
-  <p class="sgds:text-body-subtle sgds:text-14 sgds:leading-normal sgds:mb-4">
+  <p class="sit:text-body-subtle sit:text-14 sit:leading-normal sit:mb-4">
     Updated 2 hours ago
   </p>
-  <p class="sgds:text-body-default sgds:text-16 sgds:leading-normal sgds:mb-4">
+  <p class="sit:text-body-default sit:text-16 sit:leading-normal sit:mb-4">
     Main card description with good readability.
   </p>
-  <a href="#" class="sgds:text-link-default sgds:text-14 sgds:font-regular">
+  <a href="#" class="sit:text-link-default sit:text-14 sit:font-regular">
     Read more →
   </a>
 </div>
@@ -329,12 +329,12 @@ Combine with responsive prefixes for adaptive sizing:
 
 ```html
 <!-- Mobile: 24px, Tablet: 32px, Desktop: 40px -->
-<h1 class="sgds:text-24 md:sgds:text-32 lg:sgds:text-40 sgds:font-bold">
+<h1 class="sit:text-24 md:sit:text-32 lg:sit:text-40 sit:font-bold">
   Responsive Heading
 </h1>
 
 <!-- Adjust line height at different breakpoints -->
-<p class="sgds:text-16 sgds:leading-normal md:sgds:text-20">
+<p class="sit:text-16 sit:leading-normal md:sit:text-20">
   Responsive body text
 </p>
 ```
@@ -345,59 +345,59 @@ Combine with responsive prefixes for adaptive sizing:
 
 ```html
 <!-- ✅ Good - appropriate size hierarchy -->
-<h2 class="sgds:text-32 sgds:font-semibold sgds:mb-4">Section Title</h2>
-<p class="sgds:text-16 sgds:leading-relaxed">Body content</p>
+<h2 class="sit:text-32 sit:font-semibold sit:mb-4">Section Title</h2>
+<p class="sit:text-16 sit:leading-relaxed">Body content</p>
 
 <!-- ❌ Avoid - poor hierarchy -->
-<h2 class="sgds:text-16 sgds:font-regular">Section Title</h2>
-<p class="sgds:text-32">Body content</p>
+<h2 class="sit:text-16 sit:font-regular">Section Title</h2>
+<p class="sit:text-32">Body content</p>
 ```
 
 ### DO: Pair Font Size with Line Height
 
 ```html
 <!-- ✅ Good - headings with tight leading (1.2) -->
-<h1 class="sgds:text-48 sgds:leading-tight">Display Heading</h1>
+<h1 class="sit:text-48 sit:leading-tight">Display Heading</h1>
 
 <!-- ✅ Good - body text with normal leading (1.5) -->
-<p class="sgds:text-16 sgds:leading-normal">Body text</p>
+<p class="sit:text-16 sit:leading-normal">Body text</p>
 
 <!-- ❌ Avoid - heading without tight leading -->
-<h1 class="sgds:text-48 sgds:leading-normal">Poor heading spacing</h1>
+<h1 class="sit:text-48 sit:leading-normal">Poor heading spacing</h1>
 ```
 
 ### DO: Use Appropriate Weights for Emphasis
 
 ```html
 <!-- ✅ Good - clear visual hierarchy -->
-<h2 class="sgds:font-bold">Bold Heading</h2>
-<p class="sgds:font-regular">Regular body text</p>
+<h2 class="sit:font-bold">Bold Heading</h2>
+<p class="sit:font-regular">Regular body text</p>
 
 <!-- ❌ Avoid - everything too bold -->
-<h2 class="sgds:font-bold">Bold Heading</h2>
-<p class="sgds:font-bold">Bold body text (too heavy)</p>
+<h2 class="sit:font-bold">Bold Heading</h2>
+<p class="sit:font-bold">Bold body text (too heavy)</p>
 ```
 
 ### DO: Use Monospace for Code
 
 ```html
 <!-- ✅ Good - monospace for code -->
-<code class="sgds:font-mono sgds:text-14">const foo = 'bar';</code>
+<code class="sit:font-mono sit:text-14">const foo = 'bar';</code>
 
 <!-- ❌ Avoid - sans-serif for code -->
-<code class="sgds:font-sans sgds:text-14">const foo = 'bar';</code>
+<code class="sit:font-sans sit:text-14">const foo = 'bar';</code>
 ```
 
 ### DO: Adjust Tracking for Large Text
 
 ```html
 <!-- ✅ Good - tighter tracking for display text -->
-<h1 class="sgds:text-56 sgds:font-bold sgds:tracking-tight">
+<h1 class="sit:text-56 sit:font-bold sit:tracking-tight">
   Hero Heading
 </h1>
 
 <!-- ✅ Good - wider tracking for small caps -->
-<span class="sgds:text-12 sgds:font-semibold sgds:uppercase sgds:tracking-wider">
+<span class="sit:text-12 sit:font-semibold sit:uppercase sit:tracking-wider">
   Label
 </span>
 ```
@@ -410,7 +410,7 @@ Combine with responsive prefixes for adaptive sizing:
 
 **Solutions**:
 1. Only base sizes are utility classes: 12, 14, 16, 20, 24, 28, 32, 40, 48, 56
-2. Check that `sgds:` prefix is included
+2. Check that `sit:` prefix is included
 3. Verify no CSS specificity conflicts from other stylesheets
 4. Check for `!important` rules overriding the utility
 
@@ -420,7 +420,7 @@ Combine with responsive prefixes for adaptive sizing:
 
 **Solutions**:
 1. Remember font size utilities include default line heights
-2. Override with explicit `sgds:leading-*` classes if needed
+2. Override with explicit `sit:leading-*` classes if needed
 3. Check for inherited line-height values from parent elements
 
 ### Font Weight Not Changing
@@ -438,8 +438,8 @@ Combine with responsive prefixes for adaptive sizing:
 **Problem**: Letter spacing looks wrong
 
 **Solutions**:
-1. Use `sgds:tracking-tight` for large headings
-2. Use `sgds:tracking-wider` for small uppercase text
+1. Use `sit:tracking-tight` for large headings
+2. Use `sit:tracking-wider` for small uppercase text
 3. Leave normal tracking for body text
 4. Avoid extreme tracking values
 
@@ -447,48 +447,48 @@ Combine with responsive prefixes for adaptive sizing:
 
 ### Font Size
 ```html
-sgds:text-12   /* 12px */
-sgds:text-14   /* 14px */
-sgds:text-16   /* 16px (default) */
-sgds:text-20   /* 20px */
-sgds:text-24   /* 24px */
-sgds:text-28   /* 28px */
-sgds:text-32   /* 32px */
-sgds:text-40   /* 40px */
-sgds:text-48   /* 48px */
-sgds:text-56   /* 56px */
+sit:text-12   /* 12px */
+sit:text-14   /* 14px */
+sit:text-16   /* 16px (default) */
+sit:text-20   /* 20px */
+sit:text-24   /* 24px */
+sit:text-28   /* 28px */
+sit:text-32   /* 32px */
+sit:text-40   /* 40px */
+sit:text-48   /* 48px */
+sit:text-56   /* 56px */
 ```
 
 ### Font Weight
 ```html
-sgds:font-light        /* 300 */
-sgds:font-regular      /* 400 (default) */
-sgds:font-semibold     /* 600 */
-sgds:font-bold         /* 700 */
+sit:font-light        /* 300 */
+sit:font-regular      /* 400 (default) */
+sit:font-semibold     /* 600 */
+sit:font-bold         /* 700 */
 ```
 
 ### Line Height
 ```html
-sgds:leading-normal    /* 1.5 (default — body text) */
-sgds:leading-tight     /* 1.2 (display, headings, subheadings) */
+sit:leading-normal    /* 1.5 (default — body text) */
+sit:leading-tight     /* 1.2 (display, headings, subheadings) */
 ```
 
 ### Letter Spacing
 ```html
-sgds:tracking-tighter  /* -0.05em */
-sgds:tracking-tight    /* -0.025em */
-sgds:tracking-normal   /* 0em (default) */
-sgds:tracking-wide     /* 0.025em */
-sgds:tracking-wider    /* 0.05em */
-sgds:tracking-widest   /* 0.1em */
+sit:tracking-tighter  /* -0.05em */
+sit:tracking-tight    /* -0.025em */
+sit:tracking-normal   /* 0em (default) */
+sit:tracking-wide     /* 0.025em */
+sit:tracking-wider    /* 0.05em */
+sit:tracking-widest   /* 0.1em */
 ```
 
 ### Font Family
 ```html
-sgds:font-sans  /* System sans-serif */
-sgds:font-mono  /* Monospace */
+sit:font-sans  /* System sans-serif */
+sit:font-mono  /* Monospace */
 ```
 
 ---
 
-**For AI Agents**: Use only the 10 base font sizes — 12, 14, 16, 20, 24, 28, 32, 40, 48, 56. Use `sgds:text-16` for body, `sgds:text-32` for H2, `sgds:text-40`–`sgds:text-48` for H1, `sgds:text-56` for hero display. Use `sgds:leading-tight` (1.2) for display text and all headings; use `sgds:leading-normal` (1.5) for all body text. Use semibold (600) or bold (700) for headings, regular (400) for body text. Always use monospace font for code.
+**For AI Agents**: Use only the 10 base font sizes — 12, 14, 16, 20, 24, 28, 32, 40, 48, 56. Use `sit:text-16` for body, `sit:text-32` for H2, `sit:text-40`–`sit:text-48` for H1, `sit:text-56` for hero display. Use `sit:leading-tight` (1.2) for display text and all headings; use `sit:leading-normal` (1.5) for all body text. Use semibold (600) or bold (700) for headings, regular (400) for body text. Always use monospace font for code.

@@ -10,21 +10,21 @@ export class MockSearchInput extends LitElement {
 
   render() {
     return html`
-      <sgds-combo-box
+      <sit-combo-box
         ?emptyMenuAsync=${this.empty}
         clearable
         placeholder="Type fruits to search e.g. 'app'"
         async
         multiSelect
         label="Multi select async combo box"
-        @sgds-input=${this.onInput}
+        @sit-input=${this.onInput}
         ?loading=${this.loading}
-        @sgds-change=${this.onChange}
+        @sit-change=${this.onChange}
         >${repeat(
           this.options,
           opt => opt.value,
-          opt => html` <sgds-combo-box-option value=${opt.value}>${opt.label}</sgds-combo-box-option> `
-        )}</sgds-combo-box
+          opt => html` <sit-combo-box-option value=${opt.value}>${opt.label}</sit-combo-box-option> `
+        )}</sit-combo-box
       >
     `;
   }

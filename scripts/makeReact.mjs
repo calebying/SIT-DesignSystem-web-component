@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import prettier from 'prettier';
 import prettierConfig from '../prettier.config.js';
-import { getAllComponents, getSgdsComponents } from './shared.mjs';
+import { getAllComponents, getSitComponents } from './shared.mjs';
 
 const reactDir = path.join('src/react');
 
@@ -18,11 +18,11 @@ const metadata = JSON.parse(fs.readFileSync(path.join("./", 'custom-elements.jso
 // Wrap components
 console.log('Wrapping components for React...');
 
-const components = getSgdsComponents(getAllComponents(metadata))
+const components = getSitComponents(getAllComponents(metadata))
 const index = [];
 
 components.map(component => {
-  const tagWithoutPrefix = component.tagName.replace(/^sgds-/, '');
+  const tagWithoutPrefix = component.tagName.replace(/^sit-/, '');
   const componentDir = path.join(reactDir, tagWithoutPrefix);
   const componentFile = path.join(componentDir, 'index.ts');
   const importPath = component.modulePath.replace(/^src\/components\//, '').replace(/\.ts$/, '')

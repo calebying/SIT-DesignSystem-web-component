@@ -44,7 +44,7 @@ async function includeFileInBuild(file, targetFolder = distPath) {
 }
 /**
  * Copying Masthead umd file to root Masthead for backward compatibility of CDN users (version <1.0.0) of Masthead
- *  <script type="module" src="https://cdn.jsdelivr.net/npm/@govtechsg/sgds-web-component/Masthead/index.js">
+ *  <script type="module" src="https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component/Masthead/index.js">
  */
 async function copyMastheadCdnToRoot() {
   await mkdir("./lib/Masthead");

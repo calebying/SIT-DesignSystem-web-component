@@ -21,17 +21,17 @@ export class ColorItem extends LitElement {
     .color-item {
       display: flex;
       flex-direction: column;
-      gap: 8px; /* sgds:gap-xs */
+      gap: 8px; /* sit:gap-xs */
     }
 
     .color-box {
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 96px; /* sgds:min-h-24 */
-      padding: 20px; /* sgds:p-lg */
-      border-radius: 6px; /* sgds:rounded-md */
-      border: 1px solid var(--sgds-border-default, #dcdcdc);
+      min-height: 96px; /* sit:min-h-24 */
+      padding: 20px; /* sit:p-lg */
+      border-radius: 6px; /* sit:rounded-md */
+      border: 1px solid var(--sit-border-default, #dcdcdc);
       transition: opacity 200ms ease-in-out;
     }
 
@@ -48,7 +48,7 @@ export class ColorItem extends LitElement {
       opacity: 1;
     }
 
-    .copy-button sgds-icon {
+    .copy-button sit-icon {
       width: 100%;
       height: 100%;
     }
@@ -63,12 +63,12 @@ export class ColorItem extends LitElement {
       font-size: 14px; /* text-1 */
       font-weight: 600; /* font-weight-semibold */
       word-break: break-word;
-      color: var(--sgds-color-default);
+      color: var(--sit-color-default);
     }
 
     .token-variable {
       font-size: 12px; /* text-0 */
-      color: var(--sgds-color-subtle, #666);
+      color: var(--sit-color-subtle, #666);
     }
   `;
 
@@ -97,7 +97,7 @@ export class ColorItem extends LitElement {
           <div class="token-name">
             ${this.token}
             <button class="copy-button" @click=${this.copyToClipboard} aria-label="Copy token to clipboard">
-              <sgds-icon name="${this.isCopied ? "check" : "files"}"></sgds-icon>
+              <sit-icon name="${this.isCopied ? "check" : "files"}"></sit-icon>
             </button>
           </div>
           <div class="token-variable">${this.variable}</div>

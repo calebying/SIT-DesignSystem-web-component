@@ -16,43 +16,43 @@
       }
     </style>
   </head>
-  <body class="sgds:bg-default sgds:text-default">
-    <sgds-masthead fluid></sgds-masthead>
-    <sgds-mainnav fluid id="main-nav">
+  <body class="sit:bg-default sit:text-default">
+    <sit-masthead fluid></sit-masthead>
+    <sit-mainnav fluid id="main-nav">
       <strong slot="brand">SGDS Playground</strong>
-    </sgds-mainnav>
+    </sit-mainnav>
 
-    <div class="sgds-container sgds:min-h-[calc(100vh-108px)]">
-      <div class="sgds:py-xl">
-        <div class="sgds:mb-xl">
-          <h1 class="sgds:text-5-xl sgds:font-bold sgds:mb-4">Component Examples</h1>
-          <p class="sgds:text-lg sgds:text-subtle">
+    <div class="sit-container sit:min-h-[calc(100vh-108px)]">
+      <div class="sit:py-xl">
+        <div class="sit:mb-xl">
+          <h1 class="sit:text-5-xl sit:font-bold sit:mb-4">Component Examples</h1>
+          <p class="sit:text-lg sit:text-subtle">
             Explore all available Singapore Design System web components. Click on any component below to view
             interactive examples, code samples, and usage patterns.
           </p>
         </div>
 
-        <div class="sgds:flex sgds:gap-md sgds:items-end sgds:mb-2-xl">
-          <sgds-input
-            class="sgds:w-full"
+        <div class="sit:flex sit:gap-md sit:items-end sit:mb-2-xl">
+          <sit-input
+            class="sit:w-full"
             id="search-input"
             type="search"
             label="Search"
             placeholder="Search by title..."
             clearable
           >
-            <sgds-icon slot="prefix" name="search"></sgds-icon>
-          </sgds-input>
-          <sgds-select id="category-filter" label="Category" placeholder="All categories" clearable> </sgds-select>
+            <sit-icon slot="prefix" name="search"></sit-icon>
+          </sit-input>
+          <sit-select id="category-filter" label="Category" placeholder="All categories" clearable> </sit-select>
         </div>
 
-        <div id="search-results" class="sgds-grid" style="display: none"></div>
+        <div id="search-results" class="sit-grid" style="display: none"></div>
 
         <div id="content"></div>
       </div>
     </div>
 
-    <sgds-footer></sgds-footer>
+    <sit-footer></sit-footer>
 
     <script type="module">
       const categoryDescriptions = {
@@ -120,7 +120,7 @@
         }
 
         if (rootFiles.length > 0) {
-          const dropdown = document.createElement("sgds-mainnav-dropdown");
+          const dropdown = document.createElement("sit-mainnav-dropdown");
           dropdown.setAttribute("ariaLabel", "Components menu");
           const toggler = document.createElement("span");
           toggler.setAttribute("slot", "toggler");
@@ -128,7 +128,7 @@
           dropdown.appendChild(toggler);
 
           for (const file of rootFiles) {
-            const item = document.createElement("sgds-dropdown-item");
+            const item = document.createElement("sit-dropdown-item");
             const link = document.createElement("a");
             link.href = `./${file.url}`;
             link.textContent = file.title;
@@ -145,7 +145,7 @@
           const folderFiles = folders[folder];
           if (!folderFiles || folderFiles.length === 0) continue;
 
-          const dropdown = document.createElement("sgds-mainnav-dropdown");
+          const dropdown = document.createElement("sit-mainnav-dropdown");
           const folderLabel = folder.charAt(0).toUpperCase() + folder.slice(1);
           dropdown.setAttribute("ariaLabel", `${folderLabel} menu`);
           const toggler = document.createElement("span");
@@ -154,7 +154,7 @@
           dropdown.appendChild(toggler);
 
           for (const file of folderFiles) {
-            const item = document.createElement("sgds-dropdown-item");
+            const item = document.createElement("sit-dropdown-item");
             const link = document.createElement("a");
             link.href = file.url;
             link.textContent = file.title;
@@ -176,12 +176,12 @@
           : "Components";
 
         const col = document.createElement("div");
-        col.className = "sgds-col-3 sgds-col-sm-3 sgds-col-md-3 sgds-col-lg-3 sgds-col-xl-3 sgds-col-2-xl-3";
+        col.className = "sit-col-3 sit-col-sm-3 sit-col-md-3 sit-col-lg-3 sit-col-xl-3 sit-col-2-xl-3";
 
-        const card = document.createElement("sgds-card");
+        const card = document.createElement("sit-card");
         card.setAttribute("stretchedLink", "");
 
-        const categoryTag = document.createElement("sgds-badge");
+        const categoryTag = document.createElement("sit-badge");
         categoryTag.setAttribute("outlined", "");
         categoryTag.setAttribute("slot", "upper");
         categoryTag.textContent = folderDisplayName;
@@ -194,11 +194,11 @@
         description.setAttribute("slot", "description");
         description.textContent = generateDescription(file.title);
 
-        const footer = document.createElement("sgds-link");
+        const footer = document.createElement("sit-link");
         footer.setAttribute("slot", "footer");
         const link = document.createElement("a");
         link.href = file.url;
-        link.innerHTML = 'View Examples <sgds-icon name="arrow-right"></sgds-icon>';
+        link.innerHTML = 'View Examples <sit-icon name="arrow-right"></sit-icon>';
         footer.appendChild(link);
 
         card.appendChild(categoryTag);
@@ -234,7 +234,7 @@
 
         if (matched.length === 0) {
           searchResults.style.display = "block";
-          searchResults.innerHTML = '<p class="sgds:text-subtle">No results found.</p>';
+          searchResults.innerHTML = '<p class="sit:text-subtle">No results found.</p>';
           return;
         }
 
@@ -263,31 +263,31 @@
 
           const categories = [...new Set(files.map(f => f.folder || "components"))];
           const categoryFilter = document.getElementById("category-filter");
-          const allOption = document.createElement("sgds-select-option");
+          const allOption = document.createElement("sit-select-option");
           allOption.setAttribute("value", "");
           allOption.textContent = "All";
           categoryFilter.appendChild(allOption);
           for (const cat of categories) {
-            const option = document.createElement("sgds-select-option");
+            const option = document.createElement("sit-select-option");
             option.setAttribute("value", cat);
             option.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
             categoryFilter.appendChild(option);
           }
 
           const searchInput = document.getElementById("search-input");
-          searchInput.addEventListener("sgds-input", e => {
+          searchInput.addEventListener("sit-input", e => {
             activeQuery = e.target.value;
             applyFilters();
           });
-          searchInput.addEventListener("sgds-clear", () => {
+          searchInput.addEventListener("sit-clear", () => {
             activeQuery = "";
             applyFilters();
           });
-          categoryFilter.addEventListener("sgds-change", e => {
+          categoryFilter.addEventListener("sit-change", e => {
             activeCategory = e.target.value || "";
             applyFilters();
           });
-          categoryFilter.addEventListener("sgds-clear", () => {
+          categoryFilter.addEventListener("sit-clear", () => {
             activeCategory = "";
             applyFilters();
           });
@@ -322,11 +322,11 @@
           // Render content
           const contentContainer = document.getElementById("content");
           if (sortedCategories.length === 0) {
-            contentContainer.innerHTML = '<div class="sgds:text-muted">No playground files found</div>';
+            contentContainer.innerHTML = '<div class="sit:text-muted">No playground files found</div>';
             return;
           }
 
-          const accordion = document.createElement("sgds-accordion");
+          const accordion = document.createElement("sit-accordion");
           accordion.setAttribute("allowMultiple", "");
           accordion.setAttribute("variant", "border");
 
@@ -334,7 +334,7 @@
             const filesInCategory = groupedByFolder[folder];
             const folderDisplayName = folder ? folder.charAt(0).toUpperCase() + folder.slice(1) : "Components";
 
-            const accordionItem = document.createElement("sgds-accordion-item");
+            const accordionItem = document.createElement("sit-accordion-item");
             accordionItem.setAttribute("open", "");
 
             const header = document.createElement("div");
@@ -345,7 +345,7 @@
             content.setAttribute("slot", "content");
 
             const grid = document.createElement("div");
-            grid.className = "sgds-grid";
+            grid.className = "sit-grid";
 
             for (const file of filesInCategory) {
               grid.appendChild(buildCardElement(file));
@@ -361,7 +361,7 @@
         } catch (error) {
           console.error("Failed to load playground files:", error);
           const contentContainer = document.getElementById("content");
-          const alert = document.createElement("sgds-alert");
+          const alert = document.createElement("sit-alert");
           alert.setAttribute("variant", "danger");
           alert.setAttribute("dismissible", "false");
           const title = document.createElement("span");
