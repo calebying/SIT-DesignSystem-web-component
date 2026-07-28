@@ -8,7 +8,7 @@ Locally install the library or use CDN by adding the script tag to entry point o
 
 ## Configuration
 
-Angular requires `CUSTOM_ELEMENTS_SCHEMA` to recognise custom element tags. Add it to the `schemas` array of any standalone component that uses SGDS web components.
+Angular requires `CUSTOM_ELEMENTS_SCHEMA` to recognise custom element tags. Add it to the `schemas` array of any standalone component that uses Canvas web components.
 
 ```typescript
 // app.component.ts
@@ -29,7 +29,7 @@ Import the library once in your root component (or in `main.ts`) to register all
 ```typescript
 // app.component.ts
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import "@govtechsg/sgds-web-component";
+import "@sit-canvas/canvas-web-component";
 
 @Component({
   selector: "app-root",
@@ -44,8 +44,8 @@ Alternatively, import individual components for smaller bundles:
 ```typescript
 // app.component.ts
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import "@govtechsg/sgds-web-component/components/Button";
-import "@govtechsg/sgds-web-component/components/Alert";
+import "@sit-canvas/canvas-web-component/components/Button";
+import "@sit-canvas/canvas-web-component/components/Alert";
 
 @Component({
   selector: "app-root",
@@ -61,7 +61,7 @@ See Angular's documentation on [using custom elements](https://angular.dev/guide
 
 ### Binding Attributes and Properties
 
-Use Angular's property binding syntax to bind attributes and properties to SGDS web components:
+Use Angular's property binding syntax to bind attributes and properties to Canvas web components:
 
 ```typescript
 // footer.component.ts
@@ -73,7 +73,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FooterComponent {
-  footerTitle = "Singapore Design System";
+  footerTitle = "Canvas";
   footerDescription = "this is a description";
   lastUpdatedDate = new Date().toDateString();
   links = [
@@ -97,17 +97,17 @@ export class FooterComponent {
 
 ```html
 <!-- footer.component.html -->
-<sgds-footer
+<sit-footer
   [title]="footerTitle"
   [description]="footerDescription"
   [lastUpdatedDate]="lastUpdatedDate"
   [links]="links"
-></sgds-footer>
+></sit-footer>
 ```
 
 ### Listening to Events
 
-Use Angular's event binding syntax with SGDS custom events:
+Use Angular's event binding syntax with Canvas custom events:
 
 ```typescript
 // input.component.ts
@@ -130,11 +130,11 @@ export class InputComponent {
 
 ```html
 <!-- input.component.html -->
-<sgds-input
+<sit-input
   [value]="inputValue"
-  (sgds-input)="onInput($event)"
+  (sit-input)="onInput($event)"
   placeholder="Enter your name"
-></sgds-input>
+></sit-input>
 <div>Name: {{ inputValue }}</div>
 ```
 
@@ -144,32 +144,32 @@ Pass content into named or default slots using standard HTML:
 
 ```html
 <!-- sidenav.component.html -->
-<sgds-sidenav>
-  <sgds-sidenav-item>
+<sit-sidenav>
+  <sit-sidenav-item>
     <span slot="title">SideNav Item #1</span>
-    <sgds-sidenav-link>sgds-sidenav-link</sgds-sidenav-link>
-    <sgds-sidenav-link href="#" disabled>sgds-sidenav-link</sgds-sidenav-link>
-    <sgds-sidenav-link href="#">sgds-sidenav-link</sgds-sidenav-link>
-  </sgds-sidenav-item>
-  <sgds-sidenav-item>
+    <sit-sidenav-link>sit-sidenav-link</sit-sidenav-link>
+    <sit-sidenav-link href="#" disabled>sit-sidenav-link</sit-sidenav-link>
+    <sit-sidenav-link href="#">sit-sidenav-link</sit-sidenav-link>
+  </sit-sidenav-item>
+  <sit-sidenav-item>
     <span slot="title">SideNav Item #2</span>
-    <sgds-sidenav-link href="#">sgds-sidenav-link</sgds-sidenav-link>
-    <sgds-sidenav-link href="#">sgds-sidenav-link</sgds-sidenav-link>
-  </sgds-sidenav-item>
-  <sgds-sidenav-item href="#">
+    <sit-sidenav-link href="#">sit-sidenav-link</sit-sidenav-link>
+    <sit-sidenav-link href="#">sit-sidenav-link</sit-sidenav-link>
+  </sit-sidenav-item>
+  <sit-sidenav-item href="#">
     <span slot="title">SideNav Item #3</span>
-  </sgds-sidenav-item>
-</sgds-sidenav>
+  </sit-sidenav-item>
+</sit-sidenav>
 ```
 
-### Referencing sgds-web-components with ViewChild
+### Referencing sit-web-components with ViewChild
 
 Use `ViewChild` with a template reference to access component properties and methods programmatically:
 
 ```typescript
 // alert.component.ts
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild } from "@angular/core";
-import SgdsAlert from "@govtechsg/sgds-web-component/components/Alert/sgds-alert.js";
+import SitAlert from "@sit-canvas/canvas-web-component/components/Alert/sit-alert.js";
 
 @Component({
   selector: "app-alert",
@@ -178,7 +178,7 @@ import SgdsAlert from "@govtechsg/sgds-web-component/components/Alert/sgds-alert
 })
 export class AlertComponent {
   @ViewChild("alert")
-  alert?: ElementRef<SgdsAlert>;
+  alert?: ElementRef<SitAlert>;
 
   showAlert() {
     if (this.alert) {
@@ -194,7 +194,7 @@ export class AlertComponent {
 
 ```html
 <!-- alert.component.html -->
-<sgds-button (click)="showAlert()">Show Alert</sgds-button>
-<sgds-button (click)="closeAlert()">Close Alert</sgds-button>
-<sgds-alert #alert>This is an alert</sgds-alert>
+<sit-button (click)="showAlert()">Show Alert</sit-button>
+<sit-button (click)="closeAlert()">Close Alert</sit-button>
+<sit-alert #alert>This is an alert</sit-alert>
 ```

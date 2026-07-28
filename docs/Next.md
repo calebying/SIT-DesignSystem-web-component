@@ -1,32 +1,32 @@
 # Next.js integration
 
-SGDS web components are fully supported in Next.js with React 19+.
+Canvas web components are fully supported in Next.js with React 19+.
 
 ## Recommended: Use React wrapper components
 
-For Next.js projects, we recommend importing the **React-wrapped** SGDS components instead of using the native `<sgds-*>` custom element tags directly. The React wrappers resolve hydration timing issues that cause event listeners to fail on initial page load — you get working events declaratively without needing `useEffect` + `addEventListener` workarounds.
+For Next.js projects, we recommend importing the **React-wrapped** Canvas components instead of using the native `<sit-*>` custom element tags directly. The React wrappers resolve hydration timing issues that cause event listeners to fail on initial page load — you get working events declaratively without needing `useEffect` + `addEventListener` workarounds.
 
 ```tsx
 'use client';
-import { SgdsInput, SgdsButton } from "@govtechsg/sgds-web-component/react";
+import { SitInput, SitButton } from "@sit-canvas/canvas-web-component/react";
 
 export default function MyForm() {
   return (
     <>
-      <SgdsInput label="Name" onSgdsChange={(e) => console.log(e)} />
-      <SgdsButton variant="primary" onSgdsBlur={(e) => console.log(e)}>Submit</SgdsButton>
+      <SitInput label="Name" onSitChange={(e) => console.log(e)} />
+      <SitButton variant="primary" onSitBlur={(e) => console.log(e)}>Submit</SitButton>
     </>
   );
 }
 ```
 
-Event naming follows the camelCase convention: `sgds-change` → `onSgdsChange`, `sgds-after-show` → `onSgdsAfterShow`.
+Event naming follows the camelCase convention: `sit-change` → `onSitChange`, `sit-after-show` → `onSitAfterShow`.
 
 See the [React integration guide](/docs/frameworks-react--docs) for full import paths and TypeScript usage.
 
 ## Prerequisites
 
-Before integrating SGDS with Next.js, read the [React integration guide](/docs/frameworks-react--docs) for foundational concepts.
+Before integrating Canvas with Next.js, read the [React integration guide](/docs/frameworks-react--docs) for foundational concepts.
 
 Web components work best as client components because they rely on browser APIs (`document` and `window`).
 
@@ -34,16 +34,16 @@ Web components work best as client components because they rely on browser APIs 
 
 ### 1. Event listeners not firing on first load
 
-**Problem:** Custom event listeners fail to attach due to Next.js hydration timing when using native `<sgds-*>` tags.
+**Problem:** Custom event listeners fail to attach due to Next.js hydration timing when using native `<sit-*>` tags.
 
 **Recommended solution:** Use the React wrapper components which handle this automatically:
 
 ```tsx
 'use client';
-import { SgdsInput } from "@govtechsg/sgds-web-component/react";
+import { SitInput } from "@sit-canvas/canvas-web-component/react";
 
 export default function MyInput() {
-  return <SgdsInput label="Search" onSgdsInput={(e) => console.log(e)} />;
+  return <SitInput label="Search" onSitInput={(e) => console.log(e)} />;
 }
 ```
 
@@ -62,7 +62,7 @@ interface Props {
   onInput?: (value: string) => void;
 }
 
-const SgdsInput = ({
+const SitInput = ({
   className,
   label,
   placeholder,
@@ -80,15 +80,15 @@ const SgdsInput = ({
       onInput(inputElement.value);
     };
 
-    input.addEventListener('sgds-input', handleInput);
+    input.addEventListener('sit-input', handleInput);
     
     return () => {
-      input.removeEventListener('sgds-input', handleInput);
+      input.removeEventListener('sit-input', handleInput);
     };
   }, [onInput]);
 
   return (
-    <sgds-input
+    <sit-input
       ref={inputRef}
       className={className}
       label={label}
@@ -96,12 +96,12 @@ const SgdsInput = ({
       value={value}
       suppressHydrationWarning
     >
-      <sgds-icon slot="icon" name="search" suppressHydrationWarning />
-    </sgds-input>
+      <sit-icon slot="icon" name="search" suppressHydrationWarning />
+    </sit-input>
   );
 };
 
-export default SgdsInput;
+export default SitInput;
 ```
 
 ### 2. Hydration mismatch warnings
@@ -113,18 +113,18 @@ export default SgdsInput;
 **Solution:** Add `suppressHydrationWarning` to web component elements:
 
 ```tsx
-<sgds-input suppressHydrationWarning>
-  <sgds-icon slot="icon" name="search" suppressHydrationWarning />
-</sgds-input>
+<sit-input suppressHydrationWarning>
+  <sit-icon slot="icon" name="search" suppressHydrationWarning />
+</sit-input>
 ```
 
 ### 3. TypeScript support
 
-Add a `types.d.ts` file at the project root and import the SGDS React type definitions. This gives full IntelliSense for props and typed `CustomEvent` detail payloads on all `sgds-*` elements without manual per-component declarations:
+Add a `types.d.ts` file at the project root and import the Canvas React type definitions. This gives full IntelliSense for props and typed `CustomEvent` detail payloads on all `sit-*` elements without manual per-component declarations:
 
 ```ts
 // types.d.ts
-import "@govtechsg/sgds-web-component/types/react";
+import "@sit-canvas/canvas-web-component/types/react";
 ```
 
 Ensure the file is picked up by your `tsconfig.json`:

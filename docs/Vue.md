@@ -8,7 +8,7 @@ Locally install the library or use CDN by adding the script tag to entry point o
 
 ## Configuration
 
-Tell Vue to ignore sgds web components and skip component resolution.
+Tell Vue to ignore sit web components and skip component resolution.
 
 ### Vite config
 
@@ -22,8 +22,8 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          // treat all tags that starts with sgds as custom elements
-          isCustomElement: tag => tag.includes("sgds-")
+          // treat all tags that starts with sit as custom elements
+          isCustomElement: tag => tag.includes("sit-")
         }
       }
     })
@@ -38,8 +38,8 @@ Import the library and its theme once in your entry point and use it throughout 
 ```html
 <!-- App.vue -->
 <script setup lang="ts">
-import "@govtechsg/sgds-web-component/themes/day.css";
-import "@govtechsg/sgds-web-component";
+import "@sit-canvas/canvas-web-component/themes/day.css";
+import "@sit-canvas/canvas-web-component";
 </script>
 ```
 
@@ -51,19 +51,19 @@ See Vue's documentation on usage with [custom elements](https://vuejs.org/guide/
 
 ```html
 <template>
-  <sgds-footer
+  <sit-footer
     :title="footerAttr.title"
     :description="footerAttr.description"
     :lastUpdatedDate="footerAttr.date"
     .:links="footerAttr.links"
-  ></sgds-footer>
+  ></sit-footer>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
 
 const footerAttr = computed(() => ({
-  title: "Singapore Design System",
+  title: "Canvas",
   description: "this is a description",
   date: new Date().toDateString(),
   links: [
@@ -93,11 +93,11 @@ const footerAttr = computed(() => ({
 ```html
 <template>
   <form>
-    <sgds-input
-      @sgds-input="onInput"
+    <sit-input
+      @sit-input="onInput"
       v-model="inputValue"
       placeholder="Enter your name"
-    ></sgds-input>
+    ></sit-input>
     <div>Name: {{ inputValue }}</div>
   </form>
 </template>
@@ -117,21 +117,21 @@ const onInput = () => {
 
 ```html
 <template>
-  <sgds-sidenav>
-    <sgds-sidenav-item>
+  <sit-sidenav>
+    <sit-sidenav-item>
       <span slot="title">SideNav Item #1</span>
-      <sgds-sidenav-link>sgds-sidenav-link</sgds-sidenav-link>
-      <sgds-sidenav-link href="#" disabled="">sgds-sidenav-link</sgds-sidenav-link>
-      <sgds-sidenav-link href="#">sgds-sidenav-link</sgds-sidenav-link>
-    </sgds-sidenav-item>
-    <sgds-sidenav-item>
+      <sit-sidenav-link>sit-sidenav-link</sit-sidenav-link>
+      <sit-sidenav-link href="#" disabled="">sit-sidenav-link</sit-sidenav-link>
+      <sit-sidenav-link href="#">sit-sidenav-link</sit-sidenav-link>
+    </sit-sidenav-item>
+    <sit-sidenav-item>
       <span slot="title">SideNav Item #2</span>
-      <sgds-sidenav-link href="#">sgds-sidenav-link</sgds-sidenav-link>
-      <sgds-sidenav-link href="#">sgds-sidenav-link</sgds-sidenav-link>
-    </sgds-sidenav-item>
-    <sgds-sidenav-item href="#">
+      <sit-sidenav-link href="#">sit-sidenav-link</sit-sidenav-link>
+      <sit-sidenav-link href="#">sit-sidenav-link</sit-sidenav-link>
+    </sit-sidenav-item>
+    <sit-sidenav-item href="#">
       <span slot="title">SideNav Item #3</span>
-    </sgds-sidenav-item>
-  </sgds-sidenav>
+    </sit-sidenav-item>
+  </sit-sidenav>
 </template>
 ```

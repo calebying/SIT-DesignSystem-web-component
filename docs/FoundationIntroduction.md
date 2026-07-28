@@ -1,12 +1,12 @@
 # Introduction
 
-The library also provides styles for SGDS foundation to help users style your application wholistically with SGDS.
-The styles help to override the default browser's native styles with SGDS.
+The library also provides styles for Canvas foundation to help users style your application wholistically with Canvas.
+The styles help to override the default browser's native styles with Canvas.
 
 These files are distributed as CSS files and are optional to import. These styles do not affect the web components and are not required in the web component.
 However, do note that the CSS styles the light dom and may causes clash of styles if there are other styling libraries (for example, tailwind, bootstrap, sgds v1 and v2 css, etc.) used in your app.
 
-Foundation aspects of SGDS includes:
+Foundation aspects of Canvas includes:
 
 - [typography](?path=/docs/foundation-typography-introduction--docs)
 - body `<body>`
@@ -20,7 +20,7 @@ Foundation aspects of SGDS includes:
 
 ## Font Import
 
-SGDS foundation styles use the **Inter** typeface for typography. Import the Inter Google Font in your HTML `<head>` to ensure all foundation elements (headings, paragraphs, labels, etc.) display correctly.
+Canvas foundation styles use the **Inter** typeface for typography. Import the Inter Google Font in your HTML `<head>` to ensure all foundation elements (headings, paragraphs, labels, etc.) display correctly.
 
 <strong>HTML</strong>
 
@@ -33,7 +33,7 @@ SGDS foundation styles use the **Inter** typeface for typography. Import the Int
 />
 ```
 
-Add this in the `<head>` section of your HTML document before importing SGDS styles. The font-display swap parameter ensures text remains visible while the font loads.
+Add this in the `<head>` section of your HTML document before importing Canvas styles. The font-display swap parameter ensures text remains visible while the font loads.
 
 ## Import
 
@@ -43,9 +43,9 @@ The colors assigned to elements and class selectors will switch depending on day
 <strong>CSS imports</strong>
 
 ```css
-@import "@govtechsg/sgds-web-component/themes/day.css";
+@import "@sit-canvas/canvas-web-component/themes/day.css";
 /* optional: if you are doing night mode */
-@import "@govtechsg/sgds-web-component/themes/night.css";
+@import "@sit-canvas/canvas-web-component/themes/night.css";
 /* import foundational styles and grid system */
-@import "@govtechsg/sgds-web-component/css/sgds.css";
+@import "@sit-canvas/canvas-web-component/css/sgds.css";
 ```
