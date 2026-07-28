@@ -4,173 +4,173 @@
 <link href="../../src/css/canvas.css" rel="stylesheet" type="text/css" />
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
-<body class="sgds:p-2-xl sgds:bg-default sgds:text-default">
-  <div class="sgds:sticky sgds:top-0 sgds:flex sgds:justify-between sgds:items-center sgds:mb-2-xl sgds:bg-default sgds:py-2-xl">
+<body class="sit:p-2-xl sit:bg-default sit:text-default">
+  <div class="sit:sticky sit:top-0 sit:flex sit:justify-between sit:items-center sit:mb-2-xl sit:bg-default sit:py-2-xl">
     <h1>Line Height</h1>
-    <sgds-button id="night-theme" variant="ghost">
-      <sgds-icon name="lightbulb"></sgds-icon>
+    <sit-button id="night-theme" variant="ghost">
+      <sit-icon name="lightbulb"></sit-icon>
       Toggle Theme
-    </sgds-button>
+    </sit-button>
   </div>
   
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Line Height</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-16</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-16</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-16 sgds:text-sm">Line height 16px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-20</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-20</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-20 sgds:text-sm">Line height 20px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-24</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-24</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-24">Line height 24px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-28</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-28</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-28">Line height 28px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-32</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-32</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-32 sgds:text-lg">Line height 32px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-36</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-36</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-36 sgds:text-lg">Line height 36px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-40</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-40</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-40 sgds:text-xl">Line height 40px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-44</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-44</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-44 sgds:text-2xl">Line height 44px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-48</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-48</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-48 sgds:text-2xl">Line height 48px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-52</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-52</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-52 sgds:text-3xl">Line height 52px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-56</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-56</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-56 sgds:text-3xl">Line height 56px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-60</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-60</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-60 sgds:text-4xl">Line height 60px</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-64</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-64</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-64 sgds:text-4xl">Line height 64px</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-16</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-16</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-16 sit:text-sm">Line height 16px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-20</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-20</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-20 sit:text-sm">Line height 20px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-24</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-24</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-24">Line height 24px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-28</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-28</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-28">Line height 28px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-32</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-32</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-32 sit:text-lg">Line height 32px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-36</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-36</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-36 sit:text-lg">Line height 36px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-40</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-40</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-40 sit:text-xl">Line height 40px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-44</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-44</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-44 sit:text-2xl">Line height 44px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-48</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-48</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-48 sit:text-2xl">Line height 48px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-52</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-52</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-52 sit:text-3xl">Line height 52px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-56</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-56</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-56 sit:text-3xl">Line height 56px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-60</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-60</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-60 sit:text-4xl">Line height 60px</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-64</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-64</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-64 sit:text-4xl">Line height 64px</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Responsive Line Height</h2>
-    <p class="sgds:mb-md sgds:text-md">These tokens are responsive — values change across mobile, tablet (≥1024px), and desktop (≥1440px) breakpoints.</p>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-3-xs</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-3-xs</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-3-xs sgds:text-sm">Line height 3-xs (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-2-xs</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-2-xs</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-2-xs sgds:text-sm">Line height 2-xs (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-xs</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-xs</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-xs">Line height xs (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-sm</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-sm</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-sm">Line height sm (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-md</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-md</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-md sgds:text-lg">Line height md (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-lg</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-lg</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-lg sgds:text-xl">Line height lg (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-xl</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-xl</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-xl sgds:text-2xl">Line height xl (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-2-xl</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-2-xl</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-2-xl sgds:text-3xl">Line height 2-xl (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:leading-3-xl</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-line-height-3-xl</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:leading-3-xl sgds:text-4xl">Line height 3-xl (responsive)</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <p class="sit:mb-md sit:text-md">These tokens are responsive — values change across mobile, tablet (≥1024px), and desktop (≥1440px) breakpoints.</p>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-3-xs</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-3-xs</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-3-xs sit:text-sm">Line height 3-xs (responsive)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-2-xs</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-2-xs</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-2-xs sit:text-sm">Line height 2-xs (responsive)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-xs</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-xs</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-xs">Line height xs (responsive)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-sm</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-sm</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-sm">Line height sm (responsive)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-md</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-md</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-md sit:text-lg">Line height md (responsive)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-lg</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-lg</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-lg sit:text-xl">Line height lg (responsive)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-xl</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-xl</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-xl sit:text-2xl">Line height xl (responsive)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-2-xl</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-2-xl</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-2-xl sit:text-3xl">Line height 2-xl (responsive)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:leading-3-xl</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-line-height-3-xl</code></sit-table-cell>
+        <sit-table-cell><div class="sit:leading-3-xl sit:text-4xl">Line height 3-xl (responsive)</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
   <section>
     <h2>Combined Examples</h2>
     
-    <div class="sgds:mb-md">
-      <h3 class="sgds:mb-sm">Tight Line Height</h3>
-      <div class="sgds:bg-surface-raised sgds:p-lg">
-        <p class="sgds:leading-20 sgds:text-md">
+    <div class="sit:mb-md">
+      <h3 class="sit:mb-sm">Tight Line Height</h3>
+      <div class="sit:bg-surface-raised sit:p-lg">
+        <p class="sit:leading-20 sit:text-md">
           This paragraph uses a tight line height (20px). Notice how the lines are closer together, which can be useful for compact layouts or headings. The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs.
         </p>
       </div>
     </div>
 
-    <div class="sgds:mb-md">
-      <h3 class="sgds:mb-sm">Comfortable Reading</h3>
-      <div class="sgds:bg-surface-raised sgds:p-lg">
-        <p class="sgds:leading-32 sgds:text-md">
+    <div class="sit:mb-md">
+      <h3 class="sit:mb-sm">Comfortable Reading</h3>
+      <div class="sit:bg-surface-raised sit:p-lg">
+        <p class="sit:leading-32 sit:text-md">
           This paragraph uses a comfortable line height (32px) ideal for body text. The increased spacing between lines improves readability and reduces eye strain. The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs. How vexingly quick daft zebras jump.
         </p>
       </div>
     </div>
 
-    <div class="sgds:mb-md">
-      <h3 class="sgds:mb-sm">Generous Spacing</h3>
-      <div class="sgds:bg-surface-raised sgds:p-lg">
-        <p class="sgds:leading-48 sgds:text-lg">
+    <div class="sit:mb-md">
+      <h3 class="sit:mb-sm">Generous Spacing</h3>
+      <div class="sit:bg-surface-raised sit:p-lg">
+        <p class="sit:leading-48 sit:text-lg">
           This paragraph uses generous line height (48px). The extra vertical space creates a more open, airy feel that can work well for large text or emphasis sections. The quick brown fox jumps over the lazy dog.
         </p>
       </div>
@@ -182,10 +182,10 @@
     nightBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const html = document.querySelector("html");
-      if (html.classList.contains("sgds-night-theme")) {
-        html.classList.remove("sgds-night-theme");
+      if (html.classList.contains("sit-night-theme")) {
+        html.classList.remove("sit-night-theme");
       } else {
-        html.classList.add("sgds-night-theme");
+        html.classList.add("sit-night-theme");
       }
     });
   </script>

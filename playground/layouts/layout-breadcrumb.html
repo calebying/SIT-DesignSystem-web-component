@@ -12,7 +12,7 @@
     top: 0;
     z-index: 100;
     padding: 8px 16px;
-    background: var(--sgds-color-primary-default);
+    background: var(--sit-color-primary-default);
     color: #fff;
     font-weight: 600;
     font-size: 0.875rem;
@@ -42,8 +42,8 @@
       -45deg,
       transparent,
       transparent 6px,
-      var(--sgds-color-border-muted, #e5e7eb) 6px,
-      var(--sgds-color-border-muted, #e5e7eb) 7px
+      var(--sit-color-border-muted, #e5e7eb) 6px,
+      var(--sit-color-border-muted, #e5e7eb) 7px
     );
   }
 </style>
@@ -55,54 +55,54 @@
 
   <!-- ── TOP BAR: Masthead + Mainnav (sticky) ── -->
   <div class="shell-nav">
-    <sgds-masthead fluid></sgds-masthead>
-    <sgds-mainnav fluid>
+    <sit-masthead fluid></sit-masthead>
+    <sit-mainnav fluid>
       <strong slot="brand">My App</strong>
 
-      <sgds-mainnav-dropdown ariaLabel="Workspace menu">
+      <sit-mainnav-dropdown ariaLabel="Workspace menu">
         <span slot="toggler">Workspace</span>
-        <sgds-dropdown-item><a href="#">Dashboard</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Analytics</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Projects</a></sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
+        <sit-dropdown-item><a href="#">Dashboard</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Analytics</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Projects</a></sit-dropdown-item>
+      </sit-mainnav-dropdown>
 
-      <sgds-mainnav-dropdown ariaLabel="Manage menu">
+      <sit-mainnav-dropdown ariaLabel="Manage menu">
         <span slot="toggler">Manage</span>
-        <sgds-dropdown-item><a href="#">Team</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Reports</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Billing</a></sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
+        <sit-dropdown-item><a href="#">Team</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Reports</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Billing</a></sit-dropdown-item>
+      </sit-mainnav-dropdown>
 
       <div slot="end">
-        <sgds-button variant="primary" size="sm">New</sgds-button>
+        <sit-button variant="primary" size="sm">New</sit-button>
       </div>
-    </sgds-mainnav>
+    </sit-mainnav>
   </div>
 
   <!-- ── MAIN ── -->
   <div class="shell-main">
 
-    <main id="main-content" tabindex="-1" class="sgds:flex-1">
+    <main id="main-content" tabindex="-1" class="sit:flex-1">
 
       <!-- BREADCRUMB -->
-      <div class="sgds:border-b sgds:border-muted sgds:text-body-sm">
-        <div class="sgds-container sgds:py-md">
-          <sgds-breadcrumb>
-            <sgds-breadcrumb-item><a href="#">Home</a></sgds-breadcrumb-item>
-            <sgds-breadcrumb-item><a href="#">Section</a></sgds-breadcrumb-item>
-            <sgds-breadcrumb-item active><a href="#">Current Page</a></sgds-breadcrumb-item>
-          </sgds-breadcrumb>
+      <div class="sit:border-b sit:border-muted sit:text-body-sm">
+        <div class="sit-container sit:py-md">
+          <sit-breadcrumb>
+            <sit-breadcrumb-item><a href="#">Home</a></sit-breadcrumb-item>
+            <sit-breadcrumb-item><a href="#">Section</a></sit-breadcrumb-item>
+            <sit-breadcrumb-item active><a href="#">Current Page</a></sit-breadcrumb-item>
+          </sit-breadcrumb>
         </div>
       </div>
 
       <!-- CONTENT -->
-      <div class="sgds-container sgds:py-layout-md sgds:flex-1 sgds:flex sgds:flex-col">
-        <div class="content-placeholder sgds:border sgds:border-muted"></div>
+      <div class="sit-container sit:py-layout-md sit:flex-1 sit:flex sit:flex-col">
+        <div class="content-placeholder sit:border sit:border-muted"></div>
       </div>
 
     </main>
 
-    <sgds-footer
+    <sit-footer
       privacyhref="#"
       termsofusehref="#"
       contacthref="#"
@@ -110,7 +110,7 @@
     >
       <h2 slot="title">My App</h2>
       <p slot="description">A Singapore Government digital service.</p>
-    </sgds-footer>
+    </sit-footer>
 
   </div>
 

@@ -4,34 +4,34 @@
 <link href="../../src/css/canvas.css" rel="stylesheet" type="text/css" />
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
-<body class="sgds:p-2-xl sgds:bg-default sgds:text-default">
-  <div class="sgds:sticky sgds:top-0 sgds:flex sgds:justify-between sgds:items-center sgds:mb-2-xl sgds:bg-default sgds:py-2-xl">
+<body class="sit:p-2-xl sit:bg-default sit:text-default">
+  <div class="sit:sticky sit:top-0 sit:flex sit:justify-between sit:items-center sit:mb-2-xl sit:bg-default sit:py-2-xl">
     <h1>Typography — Captions</h1>
-    <sgds-button id="night-theme" variant="ghost">
-      <sgds-icon name="lightbulb"></sgds-icon>
+    <sit-button id="night-theme" variant="ghost">
+      <sit-icon name="lightbulb"></sit-icon>
       Toggle Theme
-    </sgds-button>
+    </sit-button>
   </div>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Caption Medium</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>Name</sgds-table-head>
-        <sgds-table-head>SGDS Tailwind Tokens</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell>Caption Semibold</sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:text-caption-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-normal</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:text-caption-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-normal">Caption semibold</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell>Caption Regular</sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:text-caption-md sgds:font-regular sgds:leading-2-xs sgds:tracking-normal</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:text-caption-md sgds:font-regular sgds:leading-2-xs sgds:tracking-normal">Caption regular</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Name</sit-table-head>
+        <sit-table-head>Canvas Tailwind Tokens</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell>Caption Semibold</sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:text-caption-md sit:font-semibold sit:leading-2-xs sit:tracking-normal</code></sit-table-cell>
+        <sit-table-cell><div class="sit:text-caption-md sit:font-semibold sit:leading-2-xs sit:tracking-normal">Caption semibold</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell>Caption Regular</sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:text-caption-md sit:font-regular sit:leading-2-xs sit:tracking-normal</code></sit-table-cell>
+        <sit-table-cell><div class="sit:text-caption-md sit:font-regular sit:leading-2-xs sit:tracking-normal">Caption regular</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
   <script>
@@ -39,10 +39,10 @@
     nightBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const html = document.querySelector("html");
-      if (html.classList.contains("sgds-night-theme")) {
-        html.classList.remove("sgds-night-theme");
+      if (html.classList.contains("sit-night-theme")) {
+        html.classList.remove("sit-night-theme");
       } else {
-        html.classList.add("sgds-night-theme");
+        html.classList.add("sit-night-theme");
       }
     });
   </script>

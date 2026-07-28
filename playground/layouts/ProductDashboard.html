@@ -9,419 +9,419 @@
 
   <body>
     <!-- Sticky top bar -->
-    <div class="sgds:sticky sgds:top-0 sgds:z-10">
-      <sgds-masthead fluid></sgds-masthead>
-      <sgds-mainnav fluid>
+    <div class="sit:sticky sit:top-0 sit:z-10">
+      <sit-masthead fluid></sit-masthead>
+      <sit-mainnav fluid>
         <strong slot="brand">ShopAdmin</strong>
-        <div slot="end" class="sgds:flex sgds:items-center sgds:gap-sm">
-          <sgds-button variant="ghost" size="sm" id="night-toggle">
-            <sgds-icon name="lightbulb" slot="leftIcon"></sgds-icon>
+        <div slot="end" class="sit:flex sit:items-center sit:gap-sm">
+          <sit-button variant="ghost" size="sm" id="night-toggle">
+            <sit-icon name="lightbulb" slot="leftIcon"></sit-icon>
             Toggle Theme
-          </sgds-button>
-          <sgds-button variant="ghost" size="sm">
-            <sgds-icon name="bell" slot="leftIcon"></sgds-icon>
-          </sgds-button>
-          <sgds-button variant="ghost" size="sm">Jane Lim</sgds-button>
+          </sit-button>
+          <sit-button variant="ghost" size="sm">
+            <sit-icon name="bell" slot="leftIcon"></sit-icon>
+          </sit-button>
+          <sit-button variant="ghost" size="sm">Jane Lim</sit-button>
         </div>
-      </sgds-mainnav>
+      </sit-mainnav>
     </div>
 
     <!-- Two-column layout -->
-    <div class="sgds:flex sgds:flex-row sgds:bg-surface-default">
+    <div class="sit:flex sit:flex-row sit:bg-surface-default">
       <!-- Sticky sidebar -->
-      <div class="sgds:sticky sgds:top-27 sgds:h-[calc(100vh-108px)]">
-        <sgds-sidebar active="overview">
+      <div class="sit:sticky sit:top-27 sit:h-[calc(100vh-108px)]">
+        <sit-sidebar active="overview">
           <div slot="brandName">ShopAdmin</div>
 
-          <sgds-sidebar-section title="Catalogue" name="catalogue">
-            <sgds-sidebar-item name="overview" title="Overview">
-              <sgds-icon name="grid-fill" slot="leadingIcon"></sgds-icon>
-            </sgds-sidebar-item>
-            <sgds-sidebar-group name="products" title="Products">
-              <sgds-icon name="box-seam" slot="leadingIcon"></sgds-icon>
-              <sgds-sidebar-item name="all-products" title="All Products">
-                <sgds-icon name="list-ul" slot="leadingIcon"></sgds-icon>
-              </sgds-sidebar-item>
-              <sgds-sidebar-item name="inventory" title="Inventory">
-                <sgds-icon name="archive" slot="leadingIcon"></sgds-icon>
-              </sgds-sidebar-item>
-              <sgds-sidebar-item name="categories" title="Categories">
-                <sgds-icon name="tag" slot="leadingIcon"></sgds-icon>
-              </sgds-sidebar-item>
-            </sgds-sidebar-group>
-            <sgds-sidebar-item name="orders" title="Orders">
-              <sgds-icon name="receipt" slot="leadingIcon"></sgds-icon>
-            </sgds-sidebar-item>
-          </sgds-sidebar-section>
+          <sit-sidebar-section title="Catalogue" name="catalogue">
+            <sit-sidebar-item name="overview" title="Overview">
+              <sit-icon name="grid-fill" slot="leadingIcon"></sit-icon>
+            </sit-sidebar-item>
+            <sit-sidebar-group name="products" title="Products">
+              <sit-icon name="box-seam" slot="leadingIcon"></sit-icon>
+              <sit-sidebar-item name="all-products" title="All Products">
+                <sit-icon name="list-ul" slot="leadingIcon"></sit-icon>
+              </sit-sidebar-item>
+              <sit-sidebar-item name="inventory" title="Inventory">
+                <sit-icon name="archive" slot="leadingIcon"></sit-icon>
+              </sit-sidebar-item>
+              <sit-sidebar-item name="categories" title="Categories">
+                <sit-icon name="tag" slot="leadingIcon"></sit-icon>
+              </sit-sidebar-item>
+            </sit-sidebar-group>
+            <sit-sidebar-item name="orders" title="Orders">
+              <sit-icon name="receipt" slot="leadingIcon"></sit-icon>
+            </sit-sidebar-item>
+          </sit-sidebar-section>
 
-          <sgds-sidebar-section title="Analytics" name="analytics">
-            <sgds-sidebar-item name="sales" title="Sales">
-              <sgds-icon name="graph-up" slot="leadingIcon"></sgds-icon>
-            </sgds-sidebar-item>
-            <sgds-sidebar-item name="customers" title="Customers">
-              <sgds-icon name="people-fill" slot="leadingIcon"></sgds-icon>
-            </sgds-sidebar-item>
-          </sgds-sidebar-section>
+          <sit-sidebar-section title="Analytics" name="analytics">
+            <sit-sidebar-item name="sales" title="Sales">
+              <sit-icon name="graph-up" slot="leadingIcon"></sit-icon>
+            </sit-sidebar-item>
+            <sit-sidebar-item name="customers" title="Customers">
+              <sit-icon name="people-fill" slot="leadingIcon"></sit-icon>
+            </sit-sidebar-item>
+          </sit-sidebar-section>
 
-          <sgds-sidebar-section title="Settings" name="config">
-            <sgds-sidebar-item name="settings" title="Settings">
-              <sgds-icon name="gear" slot="leadingIcon"></sgds-icon>
-            </sgds-sidebar-item>
-          </sgds-sidebar-section>
-        </sgds-sidebar>
+          <sit-sidebar-section title="Settings" name="config">
+            <sit-sidebar-item name="settings" title="Settings">
+              <sit-icon name="gear" slot="leadingIcon"></sit-icon>
+            </sit-sidebar-item>
+          </sit-sidebar-section>
+        </sit-sidebar>
       </div>
 
       <!-- Main content -->
-      <div class="sgds:flex sgds:flex-col sgds:w-full">
-        <div class="sgds-container-sidebar sgds:py-layout-md">
+      <div class="sit:flex sit:flex-col sit:w-full">
+        <div class="sit-container-sidebar sit:py-layout-md">
 
           <!-- Page header -->
-          <div class="sgds:flex sgds:items-start sgds:justify-between sgds:mb-layout-sm">
+          <div class="sit:flex sit:items-start sit:justify-between sit:mb-layout-sm">
             <div>
-              <div class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-muted sgds:mb-xs">
+              <div class="sit:text-overline-md sit:font-semibold sit:leading-2-xs sit:tracking-wide sit:uppercase sit:text-muted sit:mb-xs">
                 Overview
               </div>
-              <h1 class="sgds:text-heading-xl sgds:font-bold sgds:leading-xl sgds:tracking-tight">
+              <h1 class="sit:text-heading-xl sit:font-bold sit:leading-xl sit:tracking-tight">
                 Product Dashboard
               </h1>
-              <p class="sgds:text-body-md sgds:text-muted sgds:mt-xs">
+              <p class="sit:text-body-md sit:text-muted sit:mt-xs">
                 Wednesday, 9 April 2026
               </p>
             </div>
-            <div class="sgds:flex sgds:gap-sm">
-              <sgds-button variant="outline" size="sm">
-                <sgds-icon name="download" slot="leftIcon"></sgds-icon>
+            <div class="sit:flex sit:gap-sm">
+              <sit-button variant="outline" size="sm">
+                <sit-icon name="download" slot="leftIcon"></sit-icon>
                 Export
-              </sgds-button>
-              <sgds-button variant="primary" size="sm">
-                <sgds-icon name="plus" slot="leftIcon"></sgds-icon>
+              </sit-button>
+              <sit-button variant="primary" size="sm">
+                <sit-icon name="plus" slot="leftIcon"></sit-icon>
                 Add Product
-              </sgds-button>
+              </sit-button>
             </div>
           </div>
 
           <!-- System alert -->
-          <sgds-alert variant="warning" class="sgds:mb-layout-sm" dismissible>
-            <sgds-icon name="exclamation-triangle-fill" slot="icon"></sgds-icon>
-            <strong>Low stock alert:</strong> 6 products are below their reorder threshold. <a href="#" class="sgds:underline">Review inventory</a>
-          </sgds-alert>
+          <sit-alert variant="warning" class="sit:mb-layout-sm" dismissible>
+            <sit-icon name="exclamation-triangle-fill" slot="icon"></sit-icon>
+            <strong>Low stock alert:</strong> 6 products are below their reorder threshold. <a href="#" class="sit:underline">Review inventory</a>
+          </sit-alert>
 
           <!-- KPI cards -->
-          <div class="sgds-grid sgds:gap-layout-sm sgds:mb-layout-md">
+          <div class="sit-grid sit:gap-layout-sm sit:mb-layout-md">
             <!-- Total Products -->
-            <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-3 sgds:bg-surface-raised sgds:rounded-lg sgds:p-component-xs sgds:shadow-card">
-              <div class="sgds:flex sgds:items-center sgds:justify-between sgds:mb-sm">
-                <p class="sgds:text-label-sm sgds:text-muted">Total Products</p>
-                <div class="sgds:bg-surface-default sgds:rounded-md sgds:p-xs">
-                  <sgds-icon name="box-seam" size="md"></sgds-icon>
+            <div class="sit-col-4 sit-col-sm-4 sit-col-lg-3 sit:bg-surface-raised sit:rounded-lg sit:p-component-xs sit:shadow-card">
+              <div class="sit:flex sit:items-center sit:justify-between sit:mb-sm">
+                <p class="sit:text-label-sm sit:text-muted">Total Products</p>
+                <div class="sit:bg-surface-default sit:rounded-md sit:p-xs">
+                  <sit-icon name="box-seam" size="md"></sit-icon>
                 </div>
               </div>
-              <p class="sgds:text-heading-lg sgds:font-bold sgds:leading-lg sgds:tabular-nums">1,284</p>
-              <div class="sgds:flex sgds:items-center sgds:gap-xs sgds:mt-sm">
-                <sgds-icon name="arrow-up" size="sm" class="sgds:text-success-default"></sgds-icon>
-                <span class="sgds:text-label-sm sgds:text-success-default">+12 this week</span>
+              <p class="sit:text-heading-lg sit:font-bold sit:leading-lg sit:tabular-nums">1,284</p>
+              <div class="sit:flex sit:items-center sit:gap-xs sit:mt-sm">
+                <sit-icon name="arrow-up" size="sm" class="sit:text-success-default"></sit-icon>
+                <span class="sit:text-label-sm sit:text-success-default">+12 this week</span>
               </div>
             </div>
 
             <!-- Monthly Revenue -->
-            <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-3 sgds:bg-surface-raised sgds:rounded-lg sgds:p-component-xs sgds:shadow-card">
-              <div class="sgds:flex sgds:items-center sgds:justify-between sgds:mb-sm">
-                <p class="sgds:text-label-sm sgds:text-muted">Monthly Revenue</p>
-                <div class="sgds:bg-surface-default sgds:rounded-md sgds:p-xs">
-                  <sgds-icon name="currency-dollar" size="md"></sgds-icon>
+            <div class="sit-col-4 sit-col-sm-4 sit-col-lg-3 sit:bg-surface-raised sit:rounded-lg sit:p-component-xs sit:shadow-card">
+              <div class="sit:flex sit:items-center sit:justify-between sit:mb-sm">
+                <p class="sit:text-label-sm sit:text-muted">Monthly Revenue</p>
+                <div class="sit:bg-surface-default sit:rounded-md sit:p-xs">
+                  <sit-icon name="currency-dollar" size="md"></sit-icon>
                 </div>
               </div>
-              <p class="sgds:text-heading-lg sgds:font-bold sgds:leading-lg sgds:tabular-nums">$84,320</p>
-              <div class="sgds:flex sgds:items-center sgds:gap-xs sgds:mt-sm">
-                <sgds-icon name="arrow-up" size="sm" class="sgds:text-success-default"></sgds-icon>
-                <span class="sgds:text-label-sm sgds:text-success-default">+6.4% vs last month</span>
+              <p class="sit:text-heading-lg sit:font-bold sit:leading-lg sit:tabular-nums">$84,320</p>
+              <div class="sit:flex sit:items-center sit:gap-xs sit:mt-sm">
+                <sit-icon name="arrow-up" size="sm" class="sit:text-success-default"></sit-icon>
+                <span class="sit:text-label-sm sit:text-success-default">+6.4% vs last month</span>
               </div>
             </div>
 
             <!-- Orders Today -->
-            <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-3 sgds:bg-surface-raised sgds:rounded-lg sgds:p-component-xs sgds:shadow-card">
-              <div class="sgds:flex sgds:items-center sgds:justify-between sgds:mb-sm">
-                <p class="sgds:text-label-sm sgds:text-muted">Orders Today</p>
-                <div class="sgds:bg-surface-default sgds:rounded-md sgds:p-xs">
-                  <sgds-icon name="receipt" size="md"></sgds-icon>
+            <div class="sit-col-4 sit-col-sm-4 sit-col-lg-3 sit:bg-surface-raised sit:rounded-lg sit:p-component-xs sit:shadow-card">
+              <div class="sit:flex sit:items-center sit:justify-between sit:mb-sm">
+                <p class="sit:text-label-sm sit:text-muted">Orders Today</p>
+                <div class="sit:bg-surface-default sit:rounded-md sit:p-xs">
+                  <sit-icon name="receipt" size="md"></sit-icon>
                 </div>
               </div>
-              <p class="sgds:text-heading-lg sgds:font-bold sgds:leading-lg sgds:tabular-nums">137</p>
-              <div class="sgds:flex sgds:items-center sgds:gap-xs sgds:mt-sm">
-                <sgds-icon name="arrow-down" size="sm" class="sgds:text-danger-default"></sgds-icon>
-                <span class="sgds:text-label-sm sgds:text-danger-default">-3.1% vs yesterday</span>
+              <p class="sit:text-heading-lg sit:font-bold sit:leading-lg sit:tabular-nums">137</p>
+              <div class="sit:flex sit:items-center sit:gap-xs sit:mt-sm">
+                <sit-icon name="arrow-down" size="sm" class="sit:text-danger-default"></sit-icon>
+                <span class="sit:text-label-sm sit:text-danger-default">-3.1% vs yesterday</span>
               </div>
             </div>
 
             <!-- Low Stock -->
-            <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-3 sgds:bg-surface-raised sgds:rounded-lg sgds:p-component-xs sgds:shadow-card">
-              <div class="sgds:flex sgds:items-center sgds:justify-between sgds:mb-sm">
-                <p class="sgds:text-label-sm sgds:text-muted">Low Stock Items</p>
-                <div class="sgds:bg-surface-default sgds:rounded-md sgds:p-xs">
-                  <sgds-icon name="exclamation-triangle" size="md"></sgds-icon>
+            <div class="sit-col-4 sit-col-sm-4 sit-col-lg-3 sit:bg-surface-raised sit:rounded-lg sit:p-component-xs sit:shadow-card">
+              <div class="sit:flex sit:items-center sit:justify-between sit:mb-sm">
+                <p class="sit:text-label-sm sit:text-muted">Low Stock Items</p>
+                <div class="sit:bg-surface-default sit:rounded-md sit:p-xs">
+                  <sit-icon name="exclamation-triangle" size="md"></sit-icon>
                 </div>
               </div>
-              <p class="sgds:text-heading-lg sgds:font-bold sgds:leading-lg sgds:tabular-nums">6</p>
-              <div class="sgds:flex sgds:items-center sgds:gap-xs sgds:mt-sm">
-                <sgds-badge variant="warning">Reorder needed</sgds-badge>
+              <p class="sit:text-heading-lg sit:font-bold sit:leading-lg sit:tabular-nums">6</p>
+              <div class="sit:flex sit:items-center sit:gap-xs sit:mt-sm">
+                <sit-badge variant="warning">Reorder needed</sit-badge>
               </div>
             </div>
           </div>
 
           <!-- Charts row -->
-          <div class="sgds-grid sgds:gap-layout-md sgds:mb-layout-md">
+          <div class="sit-grid sit:gap-layout-md sit:mb-layout-md">
             <!-- Revenue trend line chart -->
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:bg-surface-raised sgds:rounded-lg sgds:border sgds:border-muted sgds:p-component-xs">
-              <div class="sgds:flex sgds:items-center sgds:justify-between sgds:mb-component-sm">
-                <h2 class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs">Revenue Trend</h2>
-                <div class="sgds:flex sgds:gap-xs">
-                  <sgds-button variant="ghost" size="sm">7D</sgds-button>
-                  <sgds-button variant="outline" size="sm">30D</sgds-button>
-                  <sgds-button variant="ghost" size="sm">90D</sgds-button>
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8 sit:bg-surface-raised sit:rounded-lg sit:border sit:border-muted sit:p-component-xs">
+              <div class="sit:flex sit:items-center sit:justify-between sit:mb-component-sm">
+                <h2 class="sit:text-subtitle-md sit:font-semibold sit:leading-xs">Revenue Trend</h2>
+                <div class="sit:flex sit:gap-xs">
+                  <sit-button variant="ghost" size="sm">7D</sit-button>
+                  <sit-button variant="outline" size="sm">30D</sit-button>
+                  <sit-button variant="ghost" size="sm">90D</sit-button>
                 </div>
               </div>
-              <div id="chart-revenue" class="sgds:h-[260px] sgds:w-full"></div>
+              <div id="chart-revenue" class="sit:h-[260px] sit:w-full"></div>
             </div>
 
             <!-- Category donut -->
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4 sgds:bg-surface-raised sgds:rounded-lg sgds:border sgds:border-muted sgds:p-component-xs">
-              <h2 class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs sgds:mb-component-sm">Sales by Category</h2>
-              <div id="chart-category" class="sgds:h-[220px] sgds:w-full"></div>
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4 sit:bg-surface-raised sit:rounded-lg sit:border sit:border-muted sit:p-component-xs">
+              <h2 class="sit:text-subtitle-md sit:font-semibold sit:leading-xs sit:mb-component-sm">Sales by Category</h2>
+              <div id="chart-category" class="sit:h-[220px] sit:w-full"></div>
               <!-- Legend with progress bars -->
-              <div class="sgds:flex sgds:flex-col sgds:gap-sm sgds:mt-sm">
+              <div class="sit:flex sit:flex-col sit:gap-sm sit:mt-sm">
                 <div>
-                  <div class="sgds:flex sgds:justify-between sgds:mb-3-xs">
-                    <span class="sgds:text-label-sm">Electronics</span>
-                    <span class="sgds:text-label-sm sgds:font-semibold">38%</span>
+                  <div class="sit:flex sit:justify-between sit:mb-3-xs">
+                    <span class="sit:text-label-sm">Electronics</span>
+                    <span class="sit:text-label-sm sit:font-semibold">38%</span>
                   </div>
-                  <sgds-progress-bar value="38" variant="primary"></sgds-progress-bar>
+                  <sit-progress-bar value="38" variant="primary"></sit-progress-bar>
                 </div>
                 <div>
-                  <div class="sgds:flex sgds:justify-between sgds:mb-3-xs">
-                    <span class="sgds:text-label-sm">Apparel</span>
-                    <span class="sgds:text-label-sm sgds:font-semibold">24%</span>
+                  <div class="sit:flex sit:justify-between sit:mb-3-xs">
+                    <span class="sit:text-label-sm">Apparel</span>
+                    <span class="sit:text-label-sm sit:font-semibold">24%</span>
                   </div>
-                  <sgds-progress-bar value="24" variant="success"></sgds-progress-bar>
+                  <sit-progress-bar value="24" variant="success"></sit-progress-bar>
                 </div>
                 <div>
-                  <div class="sgds:flex sgds:justify-between sgds:mb-3-xs">
-                    <span class="sgds:text-label-sm">Home & Living</span>
-                    <span class="sgds:text-label-sm sgds:font-semibold">21%</span>
+                  <div class="sit:flex sit:justify-between sit:mb-3-xs">
+                    <span class="sit:text-label-sm">Home & Living</span>
+                    <span class="sit:text-label-sm sit:font-semibold">21%</span>
                   </div>
-                  <sgds-progress-bar value="21" variant="warning"></sgds-progress-bar>
+                  <sit-progress-bar value="21" variant="warning"></sit-progress-bar>
                 </div>
                 <div>
-                  <div class="sgds:flex sgds:justify-between sgds:mb-3-xs">
-                    <span class="sgds:text-label-sm">Others</span>
-                    <span class="sgds:text-label-sm sgds:font-semibold">17%</span>
+                  <div class="sit:flex sit:justify-between sit:mb-3-xs">
+                    <span class="sit:text-label-sm">Others</span>
+                    <span class="sit:text-label-sm sit:font-semibold">17%</span>
                   </div>
-                  <sgds-progress-bar value="17" variant="info"></sgds-progress-bar>
+                  <sit-progress-bar value="17" variant="info"></sit-progress-bar>
                 </div>
               </div>
             </div>
 
             <!-- Orders by status bar chart -->
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-12 sgds:bg-surface-raised sgds:rounded-lg sgds:border sgds:border-muted sgds:p-component-xs">
-              <h2 class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs sgds:mb-component-sm">Weekly Orders by Status</h2>
-              <div id="chart-orders" class="sgds:h-[200px] sgds:w-full"></div>
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-12 sit:bg-surface-raised sit:rounded-lg sit:border sit:border-muted sit:p-component-xs">
+              <h2 class="sit:text-subtitle-md sit:font-semibold sit:leading-xs sit:mb-component-sm">Weekly Orders by Status</h2>
+              <div id="chart-orders" class="sit:h-[200px] sit:w-full"></div>
             </div>
           </div>
 
           <!-- Bottom row: Recent Orders + Top Products -->
-          <div class="sgds-grid sgds:gap-layout-md">
+          <div class="sit-grid sit:gap-layout-md">
 
             <!-- Recent Orders table -->
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:bg-surface-raised sgds:rounded-lg sgds:border sgds:border-muted sgds:overflow-hidden">
-              <div class="sgds:flex sgds:items-center sgds:justify-between sgds:p-component-xs sgds:border-b sgds:border-muted">
-                <h2 class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs">Recent Orders</h2>
-                <div class="sgds:flex sgds:gap-sm sgds:items-center">
-                  <sgds-input placeholder="Search orders…" size="sm">
-                    <sgds-icon name="search" slot="prefix"></sgds-icon>
-                  </sgds-input>
-                  <sgds-button variant="outline" size="sm">
-                    <sgds-icon name="bi-funnel" slot="leftIcon"></sgds-icon>
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-8 sit:bg-surface-raised sit:rounded-lg sit:border sit:border-muted sit:overflow-hidden">
+              <div class="sit:flex sit:items-center sit:justify-between sit:p-component-xs sit:border-b sit:border-muted">
+                <h2 class="sit:text-subtitle-md sit:font-semibold sit:leading-xs">Recent Orders</h2>
+                <div class="sit:flex sit:gap-sm sit:items-center">
+                  <sit-input placeholder="Search orders…" size="sm">
+                    <sit-icon name="search" slot="prefix"></sit-icon>
+                  </sit-input>
+                  <sit-button variant="outline" size="sm">
+                    <sit-icon name="bi-funnel" slot="leftIcon"></sit-icon>
                     Filter
-                  </sgds-button>
+                  </sit-button>
                 </div>
               </div>
-              <sgds-table>
-                <sgds-table-row>
-                  <sgds-table-head>Order ID</sgds-table-head>
-                  <sgds-table-head>Customer</sgds-table-head>
-                  <sgds-table-head>Product</sgds-table-head>
-                  <sgds-table-head>Amount</sgds-table-head>
-                  <sgds-table-head>Status</sgds-table-head>
-                  <sgds-table-head>Date</sgds-table-head>
-                  <sgds-table-head></sgds-table-head>
-                </sgds-table-row>
-                <sgds-table-row>
-                  <sgds-table-cell><code class="sgds:text-caption-md sgds:font-mono">#ORD-4821</code></sgds-table-cell>
-                  <sgds-table-cell>Alice Tan</sgds-table-cell>
-                  <sgds-table-cell>Wireless Earbuds Pro</sgds-table-cell>
-                  <sgds-table-cell class="sgds:tabular-nums">$129.00</sgds-table-cell>
-                  <sgds-table-cell><sgds-badge variant="success">Shipped</sgds-badge></sgds-table-cell>
-                  <sgds-table-cell class="sgds:text-muted sgds:text-label-sm">9 Apr 2026</sgds-table-cell>
-                  <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-                </sgds-table-row>
-                <sgds-table-row>
-                  <sgds-table-cell><code class="sgds:text-caption-md sgds:font-mono">#ORD-4820</code></sgds-table-cell>
-                  <sgds-table-cell>Bob Lim</sgds-table-cell>
-                  <sgds-table-cell>Standing Desk Frame</sgds-table-cell>
-                  <sgds-table-cell class="sgds:tabular-nums">$549.00</sgds-table-cell>
-                  <sgds-table-cell><sgds-badge variant="warning">Processing</sgds-badge></sgds-table-cell>
-                  <sgds-table-cell class="sgds:text-muted sgds:text-label-sm">9 Apr 2026</sgds-table-cell>
-                  <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-                </sgds-table-row>
-                <sgds-table-row>
-                  <sgds-table-cell><code class="sgds:text-caption-md sgds:font-mono">#ORD-4819</code></sgds-table-cell>
-                  <sgds-table-cell>Carol Ng</sgds-table-cell>
-                  <sgds-table-cell>Cotton Tee (3-pack)</sgds-table-cell>
-                  <sgds-table-cell class="sgds:tabular-nums">$59.90</sgds-table-cell>
-                  <sgds-table-cell><sgds-badge variant="success">Delivered</sgds-badge></sgds-table-cell>
-                  <sgds-table-cell class="sgds:text-muted sgds:text-label-sm">8 Apr 2026</sgds-table-cell>
-                  <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-                </sgds-table-row>
-                <sgds-table-row>
-                  <sgds-table-cell><code class="sgds:text-caption-md sgds:font-mono">#ORD-4818</code></sgds-table-cell>
-                  <sgds-table-cell>David Koh</sgds-table-cell>
-                  <sgds-table-cell>Smart LED Bulb 4-pk</sgds-table-cell>
-                  <sgds-table-cell class="sgds:tabular-nums">$39.00</sgds-table-cell>
-                  <sgds-table-cell><sgds-badge variant="danger">Cancelled</sgds-badge></sgds-table-cell>
-                  <sgds-table-cell class="sgds:text-muted sgds:text-label-sm">8 Apr 2026</sgds-table-cell>
-                  <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-                </sgds-table-row>
-                <sgds-table-row>
-                  <sgds-table-cell><code class="sgds:text-caption-md sgds:font-mono">#ORD-4817</code></sgds-table-cell>
-                  <sgds-table-cell>Eva Wong</sgds-table-cell>
-                  <sgds-table-cell>Yoga Mat Premium</sgds-table-cell>
-                  <sgds-table-cell class="sgds:tabular-nums">$88.00</sgds-table-cell>
-                  <sgds-table-cell><sgds-badge variant="info">Pending</sgds-badge></sgds-table-cell>
-                  <sgds-table-cell class="sgds:text-muted sgds:text-label-sm">7 Apr 2026</sgds-table-cell>
-                  <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-                </sgds-table-row>
-              </sgds-table>
-              <div class="sgds:flex sgds:justify-between sgds:items-center sgds:p-component-xs sgds:border-t sgds:border-muted">
-                <span class="sgds:text-caption-md sgds:text-muted">Showing 5 of 137 orders</span>
-                <sgds-pagination length="28" limit="5"></sgds-pagination>
+              <sit-table>
+                <sit-table-row>
+                  <sit-table-head>Order ID</sit-table-head>
+                  <sit-table-head>Customer</sit-table-head>
+                  <sit-table-head>Product</sit-table-head>
+                  <sit-table-head>Amount</sit-table-head>
+                  <sit-table-head>Status</sit-table-head>
+                  <sit-table-head>Date</sit-table-head>
+                  <sit-table-head></sit-table-head>
+                </sit-table-row>
+                <sit-table-row>
+                  <sit-table-cell><code class="sit:text-caption-md sit:font-mono">#ORD-4821</code></sit-table-cell>
+                  <sit-table-cell>Alice Tan</sit-table-cell>
+                  <sit-table-cell>Wireless Earbuds Pro</sit-table-cell>
+                  <sit-table-cell class="sit:tabular-nums">$129.00</sit-table-cell>
+                  <sit-table-cell><sit-badge variant="success">Shipped</sit-badge></sit-table-cell>
+                  <sit-table-cell class="sit:text-muted sit:text-label-sm">9 Apr 2026</sit-table-cell>
+                  <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+                </sit-table-row>
+                <sit-table-row>
+                  <sit-table-cell><code class="sit:text-caption-md sit:font-mono">#ORD-4820</code></sit-table-cell>
+                  <sit-table-cell>Bob Lim</sit-table-cell>
+                  <sit-table-cell>Standing Desk Frame</sit-table-cell>
+                  <sit-table-cell class="sit:tabular-nums">$549.00</sit-table-cell>
+                  <sit-table-cell><sit-badge variant="warning">Processing</sit-badge></sit-table-cell>
+                  <sit-table-cell class="sit:text-muted sit:text-label-sm">9 Apr 2026</sit-table-cell>
+                  <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+                </sit-table-row>
+                <sit-table-row>
+                  <sit-table-cell><code class="sit:text-caption-md sit:font-mono">#ORD-4819</code></sit-table-cell>
+                  <sit-table-cell>Carol Ng</sit-table-cell>
+                  <sit-table-cell>Cotton Tee (3-pack)</sit-table-cell>
+                  <sit-table-cell class="sit:tabular-nums">$59.90</sit-table-cell>
+                  <sit-table-cell><sit-badge variant="success">Delivered</sit-badge></sit-table-cell>
+                  <sit-table-cell class="sit:text-muted sit:text-label-sm">8 Apr 2026</sit-table-cell>
+                  <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+                </sit-table-row>
+                <sit-table-row>
+                  <sit-table-cell><code class="sit:text-caption-md sit:font-mono">#ORD-4818</code></sit-table-cell>
+                  <sit-table-cell>David Koh</sit-table-cell>
+                  <sit-table-cell>Smart LED Bulb 4-pk</sit-table-cell>
+                  <sit-table-cell class="sit:tabular-nums">$39.00</sit-table-cell>
+                  <sit-table-cell><sit-badge variant="danger">Cancelled</sit-badge></sit-table-cell>
+                  <sit-table-cell class="sit:text-muted sit:text-label-sm">8 Apr 2026</sit-table-cell>
+                  <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+                </sit-table-row>
+                <sit-table-row>
+                  <sit-table-cell><code class="sit:text-caption-md sit:font-mono">#ORD-4817</code></sit-table-cell>
+                  <sit-table-cell>Eva Wong</sit-table-cell>
+                  <sit-table-cell>Yoga Mat Premium</sit-table-cell>
+                  <sit-table-cell class="sit:tabular-nums">$88.00</sit-table-cell>
+                  <sit-table-cell><sit-badge variant="info">Pending</sit-badge></sit-table-cell>
+                  <sit-table-cell class="sit:text-muted sit:text-label-sm">7 Apr 2026</sit-table-cell>
+                  <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+                </sit-table-row>
+              </sit-table>
+              <div class="sit:flex sit:justify-between sit:items-center sit:p-component-xs sit:border-t sit:border-muted">
+                <span class="sit:text-caption-md sit:text-muted">Showing 5 of 137 orders</span>
+                <sit-pagination length="28" limit="5"></sit-pagination>
               </div>
             </div>
 
             <!-- Top Products + Low Stock -->
-            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4 sgds:flex sgds:flex-col sgds:gap-layout-sm">
+            <div class="sit-col-4 sit-col-sm-8 sit-col-lg-4 sit:flex sit:flex-col sit:gap-layout-sm">
 
               <!-- Top Products -->
-              <div class="sgds:bg-surface-raised sgds:rounded-lg sgds:border sgds:border-muted sgds:overflow-hidden">
-                <div class="sgds:p-component-xs sgds:border-b sgds:border-muted">
-                  <h2 class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs">Top Products</h2>
-                  <p class="sgds:text-caption-md sgds:text-muted">By revenue this month</p>
+              <div class="sit:bg-surface-raised sit:rounded-lg sit:border sit:border-muted sit:overflow-hidden">
+                <div class="sit:p-component-xs sit:border-b sit:border-muted">
+                  <h2 class="sit:text-subtitle-md sit:font-semibold sit:leading-xs">Top Products</h2>
+                  <p class="sit:text-caption-md sit:text-muted">By revenue this month</p>
                 </div>
-                <div class="sgds:flex sgds:flex-col sgds:divide-y sgds:divide-muted">
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
-                    <div class="sgds:flex sgds:items-center sgds:gap-sm">
-                      <div class="sgds:w-8 sgds:h-8 sgds:bg-surface-default sgds:rounded sgds:flex sgds:items-center sgds:justify-center sgds:text-label-xs sgds:font-bold">1</div>
+                <div class="sit:flex sit:flex-col sit:divide-y sit:divide-muted">
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
+                    <div class="sit:flex sit:items-center sit:gap-sm">
+                      <div class="sit:w-8 sit:h-8 sit:bg-surface-default sit:rounded sit:flex sit:items-center sit:justify-center sit:text-label-xs sit:font-bold">1</div>
                       <div>
-                        <p class="sgds:text-label-md sgds:font-semibold">Wireless Earbuds Pro</p>
-                        <p class="sgds:text-caption-md sgds:text-muted">Electronics</p>
+                        <p class="sit:text-label-md sit:font-semibold">Wireless Earbuds Pro</p>
+                        <p class="sit:text-caption-md sit:text-muted">Electronics</p>
                       </div>
                     </div>
-                    <span class="sgds:text-label-md sgds:font-semibold sgds:tabular-nums">$12,840</span>
+                    <span class="sit:text-label-md sit:font-semibold sit:tabular-nums">$12,840</span>
                   </div>
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
-                    <div class="sgds:flex sgds:items-center sgds:gap-sm">
-                      <div class="sgds:w-8 sgds:h-8 sgds:bg-surface-default sgds:rounded sgds:flex sgds:items-center sgds:justify-center sgds:text-label-xs sgds:font-bold">2</div>
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
+                    <div class="sit:flex sit:items-center sit:gap-sm">
+                      <div class="sit:w-8 sit:h-8 sit:bg-surface-default sit:rounded sit:flex sit:items-center sit:justify-center sit:text-label-xs sit:font-bold">2</div>
                       <div>
-                        <p class="sgds:text-label-md sgds:font-semibold">Standing Desk Frame</p>
-                        <p class="sgds:text-caption-md sgds:text-muted">Home & Living</p>
+                        <p class="sit:text-label-md sit:font-semibold">Standing Desk Frame</p>
+                        <p class="sit:text-caption-md sit:text-muted">Home & Living</p>
                       </div>
                     </div>
-                    <span class="sgds:text-label-md sgds:font-semibold sgds:tabular-nums">$9,330</span>
+                    <span class="sit:text-label-md sit:font-semibold sit:tabular-nums">$9,330</span>
                   </div>
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
-                    <div class="sgds:flex sgds:items-center sgds:gap-sm">
-                      <div class="sgds:w-8 sgds:h-8 sgds:bg-surface-default sgds:rounded sgds:flex sgds:items-center sgds:justify-center sgds:text-label-xs sgds:font-bold">3</div>
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
+                    <div class="sit:flex sit:items-center sit:gap-sm">
+                      <div class="sit:w-8 sit:h-8 sit:bg-surface-default sit:rounded sit:flex sit:items-center sit:justify-center sit:text-label-xs sit:font-bold">3</div>
                       <div>
-                        <p class="sgds:text-label-md sgds:font-semibold">Smart LED Bulb 4-pk</p>
-                        <p class="sgds:text-caption-md sgds:text-muted">Home & Living</p>
+                        <p class="sit:text-label-md sit:font-semibold">Smart LED Bulb 4-pk</p>
+                        <p class="sit:text-caption-md sit:text-muted">Home & Living</p>
                       </div>
                     </div>
-                    <span class="sgds:text-label-md sgds:font-semibold sgds:tabular-nums">$7,410</span>
+                    <span class="sit:text-label-md sit:font-semibold sit:tabular-nums">$7,410</span>
                   </div>
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
-                    <div class="sgds:flex sgds:items-center sgds:gap-sm">
-                      <div class="sgds:w-8 sgds:h-8 sgds:bg-surface-default sgds:rounded sgds:flex sgds:items-center sgds:justify-center sgds:text-label-xs sgds:font-bold">4</div>
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
+                    <div class="sit:flex sit:items-center sit:gap-sm">
+                      <div class="sit:w-8 sit:h-8 sit:bg-surface-default sit:rounded sit:flex sit:items-center sit:justify-center sit:text-label-xs sit:font-bold">4</div>
                       <div>
-                        <p class="sgds:text-label-md sgds:font-semibold">Cotton Tee (3-pack)</p>
-                        <p class="sgds:text-caption-md sgds:text-muted">Apparel</p>
+                        <p class="sit:text-label-md sit:font-semibold">Cotton Tee (3-pack)</p>
+                        <p class="sit:text-caption-md sit:text-muted">Apparel</p>
                       </div>
                     </div>
-                    <span class="sgds:text-label-md sgds:font-semibold sgds:tabular-nums">$6,190</span>
+                    <span class="sit:text-label-md sit:font-semibold sit:tabular-nums">$6,190</span>
                   </div>
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
-                    <div class="sgds:flex sgds:items-center sgds:gap-sm">
-                      <div class="sgds:w-8 sgds:h-8 sgds:bg-surface-default sgds:rounded sgds:flex sgds:items-center sgds:justify-center sgds:text-label-xs sgds:font-bold">5</div>
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
+                    <div class="sit:flex sit:items-center sit:gap-sm">
+                      <div class="sit:w-8 sit:h-8 sit:bg-surface-default sit:rounded sit:flex sit:items-center sit:justify-center sit:text-label-xs sit:font-bold">5</div>
                       <div>
-                        <p class="sgds:text-label-md sgds:font-semibold">Yoga Mat Premium</p>
-                        <p class="sgds:text-caption-md sgds:text-muted">Sports</p>
+                        <p class="sit:text-label-md sit:font-semibold">Yoga Mat Premium</p>
+                        <p class="sit:text-caption-md sit:text-muted">Sports</p>
                       </div>
                     </div>
-                    <span class="sgds:text-label-md sgds:font-semibold sgds:tabular-nums">$5,720</span>
+                    <span class="sit:text-label-md sit:font-semibold sit:tabular-nums">$5,720</span>
                   </div>
                 </div>
               </div>
 
               <!-- Low Stock Alerts -->
-              <div class="sgds:bg-surface-raised sgds:rounded-lg sgds:border sgds:border-muted sgds:overflow-hidden">
-                <div class="sgds:p-component-xs sgds:border-b sgds:border-muted sgds:flex sgds:items-center sgds:justify-between">
+              <div class="sit:bg-surface-raised sit:rounded-lg sit:border sit:border-muted sit:overflow-hidden">
+                <div class="sit:p-component-xs sit:border-b sit:border-muted sit:flex sit:items-center sit:justify-between">
                   <div>
-                    <h2 class="sgds:text-subtitle-md sgds:font-semibold sgds:leading-xs">Low Stock</h2>
-                    <p class="sgds:text-caption-md sgds:text-muted">Items needing reorder</p>
+                    <h2 class="sit:text-subtitle-md sit:font-semibold sit:leading-xs">Low Stock</h2>
+                    <p class="sit:text-caption-md sit:text-muted">Items needing reorder</p>
                   </div>
-                  <sgds-badge variant="danger">6 items</sgds-badge>
+                  <sit-badge variant="danger">6 items</sit-badge>
                 </div>
-                <div class="sgds:flex sgds:flex-col sgds:divide-y sgds:divide-muted">
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
+                <div class="sit:flex sit:flex-col sit:divide-y sit:divide-muted">
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
                     <div>
-                      <p class="sgds:text-label-md sgds:font-semibold">USB-C Hub 7-in-1</p>
-                      <p class="sgds:text-caption-md sgds:text-muted">SKU: ELEC-0042</p>
+                      <p class="sit:text-label-md sit:font-semibold">USB-C Hub 7-in-1</p>
+                      <p class="sit:text-caption-md sit:text-muted">SKU: ELEC-0042</p>
                     </div>
-                    <div class="sgds:text-right">
-                      <p class="sgds:text-label-sm sgds:font-semibold sgds:text-danger-default">3 left</p>
-                      <p class="sgds:text-caption-md sgds:text-muted">Min: 20</p>
+                    <div class="sit:text-right">
+                      <p class="sit:text-label-sm sit:font-semibold sit:text-danger-default">3 left</p>
+                      <p class="sit:text-caption-md sit:text-muted">Min: 20</p>
                     </div>
                   </div>
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
                     <div>
-                      <p class="sgds:text-label-md sgds:font-semibold">Linen Throw Pillow</p>
-                      <p class="sgds:text-caption-md sgds:text-muted">SKU: HOME-0118</p>
+                      <p class="sit:text-label-md sit:font-semibold">Linen Throw Pillow</p>
+                      <p class="sit:text-caption-md sit:text-muted">SKU: HOME-0118</p>
                     </div>
-                    <div class="sgds:text-right">
-                      <p class="sgds:text-label-sm sgds:font-semibold sgds:text-danger-default">7 left</p>
-                      <p class="sgds:text-caption-md sgds:text-muted">Min: 25</p>
+                    <div class="sit:text-right">
+                      <p class="sit:text-label-sm sit:font-semibold sit:text-danger-default">7 left</p>
+                      <p class="sit:text-caption-md sit:text-muted">Min: 25</p>
                     </div>
                   </div>
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
                     <div>
-                      <p class="sgds:text-label-md sgds:font-semibold">Running Shorts (L)</p>
-                      <p class="sgds:text-caption-md sgds:text-muted">SKU: APP-0307</p>
+                      <p class="sit:text-label-md sit:font-semibold">Running Shorts (L)</p>
+                      <p class="sit:text-caption-md sit:text-muted">SKU: APP-0307</p>
                     </div>
-                    <div class="sgds:text-right">
-                      <p class="sgds:text-label-sm sgds:font-semibold sgds:text-warning-default">12 left</p>
-                      <p class="sgds:text-caption-md sgds:text-muted">Min: 30</p>
+                    <div class="sit:text-right">
+                      <p class="sit:text-label-sm sit:font-semibold sit:text-warning-default">12 left</p>
+                      <p class="sit:text-caption-md sit:text-muted">Min: 30</p>
                     </div>
                   </div>
-                  <div class="sgds:flex sgds:items-center sgds:justify-between sgds:px-component-xs sgds:py-sm">
+                  <div class="sit:flex sit:items-center sit:justify-between sit:px-component-xs sit:py-sm">
                     <div>
-                      <p class="sgds:text-label-md sgds:font-semibold">Bamboo Cutting Board</p>
-                      <p class="sgds:text-caption-md sgds:text-muted">SKU: HOME-0204</p>
+                      <p class="sit:text-label-md sit:font-semibold">Bamboo Cutting Board</p>
+                      <p class="sit:text-caption-md sit:text-muted">SKU: HOME-0204</p>
                     </div>
-                    <div class="sgds:text-right">
-                      <p class="sgds:text-label-sm sgds:font-semibold sgds:text-warning-default">15 left</p>
-                      <p class="sgds:text-caption-md sgds:text-muted">Min: 40</p>
+                    <div class="sit:text-right">
+                      <p class="sit:text-label-sm sit:font-semibold sit:text-warning-default">15 left</p>
+                      <p class="sit:text-caption-md sit:text-muted">Min: 40</p>
                     </div>
                   </div>
                 </div>
-                <div class="sgds:p-component-xs sgds:border-t sgds:border-muted">
-                  <sgds-button variant="outline" size="sm" class="sgds:w-full">View all low stock items</sgds-button>
+                <div class="sit:p-component-xs sit:border-t sit:border-muted">
+                  <sit-button variant="outline" size="sm" class="sit:w-full">View all low stock items</sit-button>
                 </div>
               </div>
 
@@ -429,7 +429,7 @@
           </div>
         </div>
 
-        <sgds-footer></sgds-footer>
+        <sit-footer></sit-footer>
       </div>
     </div>
   </body>
@@ -437,13 +437,13 @@
   <script>
     // Night theme toggle
     document.querySelector("#night-toggle").addEventListener("click", () => {
-      document.documentElement.classList.toggle("sgds-night-theme");
+      document.documentElement.classList.toggle("sit-night-theme");
     });
 
     // Chart colours
     const COLORS = ["#ac1cdb", "#00758d", "#0e7c3d", "#0269d0", "#7e6917"];
 
-    const isNight = () => document.documentElement.classList.contains("sgds-night-theme");
+    const isNight = () => document.documentElement.classList.contains("sit-night-theme");
 
     function theme() {
       const n = isNight();

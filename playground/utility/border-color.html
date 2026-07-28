@@ -4,358 +4,358 @@
 <link href="../../src/css/canvas.css" rel="stylesheet" type="text/css" />
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
-<body class="sgds:p-2-xl sgds:bg-default sgds:text-default">
-  <div class="sgds:sticky sgds:top-0 sgds:flex sgds:justify-between sgds:items-center sgds:mb-2-xl sgds:bg-default sgds:py-2-xl">
+<body class="sit:p-2-xl sit:bg-default sit:text-default">
+  <div class="sit:sticky sit:top-0 sit:flex sit:justify-between sit:items-center sit:mb-2-xl sit:bg-default sit:py-2-xl">
     <h1>Border Colors</h1>
-    <sgds-button id="night-theme" variant="ghost">
-      <sgds-icon name="lightbulb"></sgds-icon>
+    <sit-button id="night-theme" variant="ghost">
+      <sit-icon name="lightbulb"></sit-icon>
       Toggle Theme
-    </sgds-button>
+    </sit-button>
   </div>
   
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Basic Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-default sgds:p-md">Standard border color</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-emphasis sgds:p-md">Emphasized border for focus states</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-muted sgds:p-md">Muted border for minimal separation</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-transparent</code></sgds-table-cell>
-        <sgds-table-cell><code>transparent</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-transparent sgds:p-md">Fully transparent border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-default sit:p-md">Standard border color</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-emphasis sit:p-md">Emphasized border for focus states</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-muted sit:p-md">Muted border for minimal separation</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-transparent</code></sit-table-cell>
+        <sit-table-cell><code>transparent</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-transparent sit:p-md">Fully transparent border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Fixed Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-border-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-fixed-light sgds:bg-fixed-dark sgds:text-fixed-light sgds:p-md">Always light border (on dark bg)</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-border-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-fixed-dark sgds:bg-fixed-light sgds:text-fixed-dark sgds:p-md">Always dark border (on light bg)</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-border-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-fixed-light sit:bg-fixed-dark sit:text-fixed-light sit:p-md">Always light border (on dark bg)</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-border-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-fixed-dark sit:bg-fixed-light sit:text-fixed-dark sit:p-md">Always dark border (on light bg)</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Translucent Border</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-translucent</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-border-color-translucent</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-translucent sgds:p-md">Semi-transparent border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-translucent</code></sit-table-cell>
+        <sit-table-cell><code>--sit-border-color-translucent</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-translucent sit:p-md">Semi-transparent border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Primary Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-primary-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-primary-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-primary-default sgds:p-md">Standard primary border</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-primary-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-primary-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-primary-emphasis sgds:p-md">Emphasized primary border for focus</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-primary-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-primary-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-primary-muted sgds:p-md">Muted primary border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-primary-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-primary-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-primary-default sit:p-md">Standard primary border</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-primary-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-primary-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-primary-emphasis sit:p-md">Emphasized primary border for focus</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-primary-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-primary-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-primary-muted sit:p-md">Muted primary border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Accent Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-accent-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-accent-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-accent-default sgds:p-md">Standard accent border</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-accent-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-accent-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-accent-emphasis sgds:p-md">Emphasized accent border for focus</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-accent-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-accent-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-accent-muted sgds:p-md">Muted accent border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-accent-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-accent-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-accent-default sit:p-md">Standard accent border</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-accent-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-accent-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-accent-emphasis sit:p-md">Emphasized accent border for focus</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-accent-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-accent-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-accent-muted sit:p-md">Muted accent border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Success Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-success-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-success-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-success-default sgds:p-md">Standard success border</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-success-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-success-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-success-emphasis sgds:p-md">Emphasized success border for focus</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-success-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-success-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-success-muted sgds:p-md">Muted success border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-success-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-success-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-success-default sit:p-md">Standard success border</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-success-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-success-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-success-emphasis sit:p-md">Emphasized success border for focus</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-success-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-success-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-success-muted sit:p-md">Muted success border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Danger Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-danger-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-danger-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-danger-default sgds:p-md">Standard danger border</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-danger-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-danger-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-danger-emphasis sgds:p-md">Emphasized danger border for focus</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-danger-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-danger-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-danger-muted sgds:p-md">Muted danger border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-danger-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-danger-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-danger-default sit:p-md">Standard danger border</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-danger-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-danger-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-danger-emphasis sit:p-md">Emphasized danger border for focus</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-danger-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-danger-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-danger-muted sit:p-md">Muted danger border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Warning Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-warning-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-warning-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-warning-default sgds:p-md">Standard warning border</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-warning-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-warning-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-warning-emphasis sgds:p-md">Emphasized warning border for focus</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-warning-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-warning-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-warning-muted sgds:p-md">Muted warning border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-warning-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-warning-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-warning-default sit:p-md">Standard warning border</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-warning-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-warning-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-warning-emphasis sit:p-md">Emphasized warning border for focus</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-warning-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-warning-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-warning-muted sit:p-md">Muted warning border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Purple Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-purple-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-purple-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-purple-default sgds:p-md">Standard purple border</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-purple-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-purple-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-purple-emphasis sgds:p-md">Emphasized purple border for focus</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-purple-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-purple-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-purple-muted sgds:p-md">Muted purple border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-purple-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-purple-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-purple-default sit:p-md">Standard purple border</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-purple-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-purple-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-purple-emphasis sit:p-md">Emphasized purple border for focus</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-purple-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-purple-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-purple-muted sit:p-md">Muted purple border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Cyan Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-cyan-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-cyan-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-cyan-default sgds:p-md">Standard cyan border</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-cyan-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-cyan-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-cyan-emphasis sgds:p-md">Emphasized cyan border for focus</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-cyan-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-cyan-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-cyan-muted sgds:p-md">Muted cyan border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-cyan-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-cyan-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-cyan-default sit:p-md">Standard cyan border</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-cyan-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-cyan-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-cyan-emphasis sit:p-md">Emphasized cyan border for focus</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-cyan-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-cyan-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-cyan-muted sit:p-md">Muted cyan border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Neutral Border Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-neutral-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-neutral-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-neutral-default sgds:p-md">Standard neutral border</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-neutral-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-neutral-border-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-neutral-emphasis sgds:p-md">Emphasized neutral border for focus</div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-neutral-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-neutral-border-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-neutral-muted sgds:p-md">Muted neutral border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-neutral-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-neutral-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-neutral-default sit:p-md">Standard neutral border</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-neutral-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-neutral-border-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-neutral-emphasis sit:p-md">Emphasized neutral border for focus</div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-neutral-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-neutral-border-color-muted</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-neutral-muted sit:p-md">Muted neutral border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
   <section>
     <h2>Combined Examples</h2>
     
-    <div class="sgds:mb-md">
-      <h3 class="sgds:mb-sm">Card with Default Border</h3>
-      <div class="sgds:border-2 sgds:border-default sgds:bg-surface-raised sgds:p-lg">
-        <h4 class="sgds:text-default">Card Title</h4>
-        <p class="sgds:text-subtle">A card with a default border color that adapts to the theme.</p>
+    <div class="sit:mb-md">
+      <h3 class="sit:mb-sm">Card with Default Border</h3>
+      <div class="sit:border-2 sit:border-default sit:bg-surface-raised sit:p-lg">
+        <h4 class="sit:text-default">Card Title</h4>
+        <p class="sit:text-subtle">A card with a default border color that adapts to the theme.</p>
       </div>
     </div>
 
-    <div class="sgds:mb-md">
-      <h3 class="sgds:mb-sm">Input-like Component with Emphasis Border</h3>
-      <div class="sgds:border-2 sgds:border-emphasis sgds:bg-surface-default sgds:p-md">
+    <div class="sit:mb-md">
+      <h3 class="sit:mb-sm">Input-like Component with Emphasis Border</h3>
+      <div class="sit:border-2 sit:border-emphasis sit:bg-surface-default sit:p-md">
         Focus state with emphasis border
       </div>
     </div>
 
-    <div class="sgds:mb-md">
-      <h3 class="sgds:mb-sm">Divider with Muted Border</h3>
-      <div class="sgds:bg-surface-raised sgds:p-lg">
+    <div class="sit:mb-md">
+      <h3 class="sit:mb-sm">Divider with Muted Border</h3>
+      <div class="sit:bg-surface-raised sit:p-lg">
         <p>Content section 1</p>
-        <hr class="sgds:border-muted sgds:my-md" style="border-width: 1px; border-style: solid; border-bottom: none;">
+        <hr class="sit:border-muted sit:my-md" style="border-width: 1px; border-style: solid; border-bottom: none;">
         <p>Content section 2</p>
       </div>
     </div>
 
-    <div class="sgds:mb-md">
-      <h3 class="sgds:mb-sm">Mixed Border Styles</h3>
-      <div class="sgds:bg-surface-raised sgds:p-lg">
-        <div class="sgds:border-2 sgds:border-default sgds:p-md sgds:mb-sm">Default border</div>
-        <div class="sgds:border-2 sgds:border-emphasis sgds:p-md sgds:mb-sm">Emphasis border</div>
-        <div class="sgds:border-2 sgds:border-muted sgds:p-md">Muted border</div>
+    <div class="sit:mb-md">
+      <h3 class="sit:mb-sm">Mixed Border Styles</h3>
+      <div class="sit:bg-surface-raised sit:p-lg">
+        <div class="sit:border-2 sit:border-default sit:p-md sit:mb-sm">Default border</div>
+        <div class="sit:border-2 sit:border-emphasis sit:p-md sit:mb-sm">Emphasis border</div>
+        <div class="sit:border-2 sit:border-muted sit:p-md">Muted border</div>
       </div>
     </div>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Form Success Border Color</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-form-success-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-success-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-form-success-default sgds:p-md">Form success border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-form-success-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-success-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-form-success-default sit:p-md">Form success border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Form Danger Border Color</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:border-form-danger-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-danger-border-color-default</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:border-2 sgds:border-form-danger-default sgds:p-md">Form danger border</div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:border-form-danger-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-danger-border-color-default</code></sit-table-cell>
+        <sit-table-cell><div class="sit:border-2 sit:border-form-danger-default sit:p-md">Form danger border</div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
   <script>
@@ -363,10 +363,10 @@
     nightBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const html = document.querySelector("html");
-      if (html.classList.contains("sgds-night-theme")) {
-        html.classList.remove("sgds-night-theme");
+      if (html.classList.contains("sit-night-theme")) {
+        html.classList.remove("sit-night-theme");
       } else {
-        html.classList.add("sgds-night-theme");
+        html.classList.add("sit-night-theme");
       }
     });
   </script>

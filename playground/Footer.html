@@ -9,106 +9,106 @@
 
   <body>
     <div style="padding: 16px;">
-      <button onclick="document.documentElement.classList.toggle('sgds-night-theme')">
+      <button onclick="document.documentElement.classList.toggle('sit-night-theme')">
         Toggle Day/Night
       </button>
     </div>
 
     <h3>tone="fixed-dark" (default)</h3>
-    <sgds-footer>
+    <sit-footer>
       <h3 slot="title">Site title</h3>
       <p slot="description">Site description</p>
-    </sgds-footer>
+    </sit-footer>
     <br/>
 
     <h3>tone="neutral"</h3>
-    <sgds-footer tone="neutral">
+    <sit-footer tone="neutral">
       <h3 slot="title">Site title</h3>
       <p slot="description">Site description</p>
-    </sgds-footer>
+    </sit-footer>
     <br/>
 
     <h3>tone="neutral" with footer items</h3>
-    <sgds-footer tone="neutral">
+    <sit-footer tone="neutral">
       <h3 slot="title">Name of portal/digital service</h3>
       <p slot="description">Description of portal/digital service</p>
-      <sgds-footer-item slot="items">
+      <sit-footer-item slot="items">
         <div slot="title">Application Guidelines</div>
-        <sgds-link><a href="#">Lorem Ipsum One</a></sgds-link>
-        <sgds-link><a href="#">Second Level B</a></sgds-link>
-        <sgds-link><a href="#">Lorem Ipsum Three</a></sgds-link>
-      </sgds-footer-item>
-      <sgds-footer-item slot="items">
+        <sit-link><a href="#">Lorem Ipsum One</a></sit-link>
+        <sit-link><a href="#">Second Level B</a></sit-link>
+        <sit-link><a href="#">Lorem Ipsum Three</a></sit-link>
+      </sit-footer-item>
+      <sit-footer-item slot="items">
         <div slot="title">Legislation</div>
-        <sgds-link><a href="#">Legislation</a></sgds-link>
-        <sgds-link><a href="#">External Link One</a></sgds-link>
-      </sgds-footer-item>
-      <sgds-footer-item slot="items">
+        <sit-link><a href="#">Legislation</a></sit-link>
+        <sit-link><a href="#">External Link One</a></sit-link>
+      </sit-footer-item>
+      <sit-footer-item slot="items">
         <div slot="title">Resources</div>
-        <sgds-link><a href="#">All</a></sgds-link>
-        <sgds-link><a href="#">Forms and Templates</a></sgds-link>
-        <sgds-link><a href="#">Guides</a></sgds-link>
-      </sgds-footer-item>
-    </sgds-footer>
+        <sit-link><a href="#">All</a></sit-link>
+        <sit-link><a href="#">Forms and Templates</a></sit-link>
+        <sit-link><a href="#">Guides</a></sit-link>
+      </sit-footer-item>
+    </sit-footer>
     <br/>
 
     <h3>tone="fixed-dark" (default) with items</h3>
 
-    <sgds-footer contacthref="https://form.gov.sg/" feedbackhref="https://form.gov.sg/" faqhref="https://form.gov.sg/" privacyhref="https://www.designsystem.tech.gov.sg/privacy/" termsofusehref="https://www.designsystem.tech.gov.sg/terms-of-use/">
+    <sit-footer contacthref="https://example.com/" feedbackhref="https://example.com/" faqhref="https://example.com/" privacyhref="https://example.com/privacy/" termsofusehref="https://example.com/terms-of-use/">
         <h3 slot="title">Name of portal/digital service</h3>
         <p slot="description">Description of portal/digital service</p>
-        <sgds-footer-item slot="items">
+        <sit-footer-item slot="items">
           <div slot="title">Application Guidelines</div>
-          <sgds-link><a href="/application-guidelines/lorem-ipsum-one/second-level-a/">hello world</a></sgds-link>
-           <sgds-link><a href="/application-guidelines/lorem-ipsum-one/part-A/">Second Level B</a></sgds-link>
-           <sgds-link><a href="/application-guidelines/lorem-ipsum-three/">Lorem Ipsum Three</a></sgds-link>
-        </sgds-footer-item>
-        <sgds-footer-item slot="items">
+          <sit-link><a href="/application-guidelines/lorem-ipsum-one/second-level-a/">hello world</a></sit-link>
+           <sit-link><a href="/application-guidelines/lorem-ipsum-one/part-A/">Second Level B</a></sit-link>
+           <sit-link><a href="/application-guidelines/lorem-ipsum-three/">Lorem Ipsum Three</a></sit-link>
+        </sit-footer-item>
+        <sit-footer-item slot="items">
           <div slot="title">Legislation</div>
-          <sgds-link><a href="#">Legislation</a></sgds-link>
-          <sgds-link><a href="https://en.wikipedia.org/wiki/Year" target="_blank">External Link One</a></sgds-link>
-          <sgds-link><a href="https://en.wikipedia.org/wiki/Spring_(season)" target="_blank">External Link Two</a></sgds-link>
-        </sgds-footer-item>
-        <sgds-footer-item slot="items">
+          <sit-link><a href="#">Legislation</a></sit-link>
+          <sit-link><a href="https://en.wikipedia.org/wiki/Year" target="_blank">External Link One</a></sit-link>
+          <sit-link><a href="https://en.wikipedia.org/wiki/Spring_(season)" target="_blank">External Link Two</a></sit-link>
+        </sit-footer-item>
+        <sit-footer-item slot="items">
           <div slot="title">Resources</div>
-          <sgds-link><a href="/resource_room/">All</a></sgds-link>
-          <sgds-link><a href="/resource_room/forms-and-templates/" target="_blank">Forms and Templates</a></sgds-link>
-          <sgds-link><a href="/resource_room/guides/" target="_blank">Guides</a></sgds-link>
-        </sgds-footer-item>
-        <sgds-footer-item slot="items">
+          <sit-link><a href="/resource_room/">All</a></sit-link>
+          <sit-link><a href="/resource_room/forms-and-templates/" target="_blank">Forms and Templates</a></sit-link>
+          <sit-link><a href="/resource_room/guides/" target="_blank">Guides</a></sit-link>
+        </sit-footer-item>
+        <sit-footer-item slot="items">
           <div slot="title">Resources</div>
-          <sgds-link><a href="/resource_room/">All</a></sgds-link>
-          <sgds-link><a href="/resource_room/forms-and-templates/" target="_blank">Forms and Templates</a></sgds-link>
-          <sgds-link><a href="/resource_room/guides/" target="_blank">Guides</a></sgds-link>
-        </sgds-footer-item>
-        <sgds-footer-item slot="items">
+          <sit-link><a href="/resource_room/">All</a></sit-link>
+          <sit-link><a href="/resource_room/forms-and-templates/" target="_blank">Forms and Templates</a></sit-link>
+          <sit-link><a href="/resource_room/guides/" target="_blank">Guides</a></sit-link>
+        </sit-footer-item>
+        <sit-footer-item slot="items">
           <div slot="title">Resources</div>
-          <sgds-link><a href="/resource_room/">All</a></sgds-link>
-          <sgds-link><a href="/resource_room/forms-and-templates/" target="_blank">Forms and Templates</a></sgds-link>
-          <sgds-link><a href="/resource_room/guides/" target="_blank">Guides</a></sgds-link>
-        </sgds-footer-item>
-        <sgds-footer-item slot="items">
+          <sit-link><a href="/resource_room/">All</a></sit-link>
+          <sit-link><a href="/resource_room/forms-and-templates/" target="_blank">Forms and Templates</a></sit-link>
+          <sit-link><a href="/resource_room/guides/" target="_blank">Guides</a></sit-link>
+        </sit-footer-item>
+        <sit-footer-item slot="items">
           <div slot="title">Resources</div>
-          <sgds-link><a href="/resource_room/">All</a></sgds-link>
-          <sgds-link><a href="/resource_room/forms-and-templates/" target="_blank">Forms and Templates</a></sgds-link>
-          <sgds-link><a href="/resource_room/guides/" target="_blank">Guides</a></sgds-link>
-        </sgds-footer-item>
+          <sit-link><a href="/resource_room/">All</a></sit-link>
+          <sit-link><a href="/resource_room/forms-and-templates/" target="_blank">Forms and Templates</a></sit-link>
+          <sit-link><a href="/resource_room/guides/" target="_blank">Guides</a></sit-link>
+        </sit-footer-item>
 
         <a slot="social-media" href="https://www.facebook.com">
-          <sgds-icon name="facebook"></sgds-icon>
+          <sit-icon name="facebook"></sit-icon>
         </a>
         <a slot="social-media" href="https://www.instagram.com">
-          <sgds-icon name="instagram"></sgds-icon>
+          <sit-icon name="instagram"></sit-icon>
         </a>
         <a slot="social-media" href="https://www.linkedin.com">
-          <sgds-icon name="linkedin"></sgds-icon>
+          <sit-icon name="linkedin"></sit-icon>
         </a>
         <a slot="social-media" href="https://www.x.com">
-          <sgds-icon name="twitter-x"></sgds-icon>
+          <sit-icon name="twitter-x"></sit-icon>
         </a>
         <a slot="social-media" href="https://www.youtube.com">
-          <sgds-icon name="youtube"></sgds-icon>
+          <sit-icon name="youtube"></sit-icon>
         </a>
-      </sgds-footer>
+      </sit-footer>
   </body>
 </html>

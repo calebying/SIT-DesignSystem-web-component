@@ -4,38 +4,38 @@
 <link href="../../src/css/canvas.css" rel="stylesheet" type="text/css" />
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
-<body class="sgds:p-2-xl sgds:bg-default sgds:text-default">
-  <div class="sgds:sticky sgds:top-0 sgds:flex sgds:justify-between sgds:items-center sgds:mb-2-xl sgds:bg-default sgds:py-2-xl">
+<body class="sit:p-2-xl sit:bg-default sit:text-default">
+  <div class="sit:sticky sit:top-0 sit:flex sit:justify-between sit:items-center sit:mb-2-xl sit:bg-default sit:py-2-xl">
     <h1>Text Max Width</h1>
-    <sgds-button id="night-theme" variant="ghost">
-      <sgds-icon name="lightbulb"></sgds-icon>
+    <sit-button id="night-theme" variant="ghost">
+      <sit-icon name="lightbulb"></sit-icon>
       Toggle Theme
-    </sgds-button>
+    </sit-button>
   </div>
 
-  <p class="sgds:mb-2-xl sgds:text-subtle">A single max-width token for constraining text content areas to an optimal reading width.</p>
+  <p class="sit:mb-2-xl sit:text-subtle">A single max-width token for constraining text content areas to an optimal reading width.</p>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Token</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Value</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:max-w-text</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-text-max-width</code></sgds-table-cell>
-        <sgds-table-cell>864px</sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Value</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:max-w-text</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-text-max-width</code></sit-table-cell>
+        <sit-table-cell>864px</sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Preview</h2>
-    <p class="sgds:mb-md sgds:text-subtle">The paragraph below is constrained to <code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:max-w-text</code> (864px) for comfortable reading.</p>
-    <div class="sgds:max-w-text sgds:bg-primary-surface-muted sgds:p-md sgds:rounded-md">
-      <p class="sgds:text-label-sm sgds:text-subtle sgds:mb-xs">max-w-text — 864px</p>
+    <p class="sit:mb-md sit:text-subtle">The paragraph below is constrained to <code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:max-w-text</code> (864px) for comfortable reading.</p>
+    <div class="sit:max-w-text sit:bg-primary-surface-muted sit:p-md sit:rounded-md">
+      <p class="sit:text-label-sm sit:text-subtle sit:mb-xs">max-w-text — 864px</p>
       <p>This paragraph is constrained to the text max-width token, keeping line lengths within a comfortable reading range regardless of the viewport width.</p>
     </div>
   </section>

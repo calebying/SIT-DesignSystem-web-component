@@ -4,8 +4,8 @@
 <link href="../../src/css/canvas.css" rel="stylesheet" type="text/css" />
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
-<!-- sgds-sidebar (RC) loaded from CDN -->
-<script src="https://cdn.jsdelivr.net/npm/@govtechsg/sgds-web-component@3.14.1-rc.0/components/Sidebar/index.umd.min.js"></script>
+<!-- sit-sidebar (RC) loaded from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0/components/Sidebar/index.umd.min.js"></script>
 
 <style>
   .content-placeholder {
@@ -14,8 +14,8 @@
       -45deg,
       transparent,
       transparent 6px,
-      var(--sgds-color-border-muted, #e5e7eb) 6px,
-      var(--sgds-color-border-muted, #e5e7eb) 7px
+      var(--sit-color-border-muted, #e5e7eb) 6px,
+      var(--sit-color-border-muted, #e5e7eb) 7px
     );
   }
 
@@ -30,104 +30,104 @@
 
   <!-- ── STICKY TOP: Masthead + Mainnav ── -->
   <div class="shell-nav">
-    <sgds-masthead fluid></sgds-masthead>
-    <sgds-mainnav fluid>
+    <sit-masthead fluid></sit-masthead>
+    <sit-mainnav fluid>
       <strong slot="brand">My App</strong>
 
-      <sgds-mainnav-dropdown ariaLabel="Workspace menu">
+      <sit-mainnav-dropdown ariaLabel="Workspace menu">
         <span slot="toggler">Workspace</span>
-        <sgds-dropdown-item><a href="#">Dashboard</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Analytics</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Projects</a></sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
+        <sit-dropdown-item><a href="#">Dashboard</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Analytics</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Projects</a></sit-dropdown-item>
+      </sit-mainnav-dropdown>
 
-      <sgds-mainnav-dropdown ariaLabel="Manage menu">
+      <sit-mainnav-dropdown ariaLabel="Manage menu">
         <span slot="toggler">Manage</span>
-        <sgds-dropdown-item><a href="#">Team</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Reports</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Billing</a></sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
+        <sit-dropdown-item><a href="#">Team</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Reports</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Billing</a></sit-dropdown-item>
+      </sit-mainnav-dropdown>
 
       <div slot="end">
-        <sgds-button variant="primary" size="sm">New</sgds-button>
+        <sit-button variant="primary" size="sm">New</sit-button>
       </div>
-    </sgds-mainnav>
+    </sit-mainnav>
   </div>
 
   <!-- ── SHELL BODY: Sidebar + Main ── -->
-  <div class="sgds:flex sgds:flex-row">
+  <div class="sit:flex sit:flex-row">
 
     <!-- SIDE NAVIGATION -->
-    <div class="sgds:sticky sgds:top-27 sgds:h-[calc(100vh-108px)]">
-      <sgds-sidebar active="dashboard">
+    <div class="sit:sticky sit:top-27 sit:h-[calc(100vh-108px)]">
+      <sit-sidebar active="dashboard">
         <div slot="brandName">My App</div>
 
-        <sgds-sidebar-section title="Workspace" name="workspace">
-          <sgds-sidebar-item name="dashboard" title="Dashboard">
-            <sgds-icon name="grid-fill" slot="icon"></sgds-icon>
+        <sit-sidebar-section title="Workspace" name="workspace">
+          <sit-sidebar-item name="dashboard" title="Dashboard">
+            <sit-icon name="grid-fill" slot="icon"></sit-icon>
             <a href="#"></a>
-          </sgds-sidebar-item>
-          <sgds-sidebar-item name="analytics" title="Analytics">
-            <sgds-icon name="trend-up" slot="icon"></sgds-icon>
+          </sit-sidebar-item>
+          <sit-sidebar-item name="analytics" title="Analytics">
+            <sit-icon name="trend-up" slot="icon"></sit-icon>
             <a href="#"></a>
-          </sgds-sidebar-item>
-          <sgds-sidebar-group name="projects" title="Projects">
-            <sgds-icon name="folder-plus" slot="icon"></sgds-icon>
-            <sgds-sidebar-item name="active-projects" title="Active">
-              <sgds-icon name="folder-check" slot="icon"></sgds-icon>
-            </sgds-sidebar-item>
-            <sgds-sidebar-item name="archived-projects" title="Archived">
-              <sgds-icon name="folder-minus" slot="icon"></sgds-icon>
-            </sgds-sidebar-item>
-          </sgds-sidebar-group>
-        </sgds-sidebar-section>
+          </sit-sidebar-item>
+          <sit-sidebar-group name="projects" title="Projects">
+            <sit-icon name="folder-plus" slot="icon"></sit-icon>
+            <sit-sidebar-item name="active-projects" title="Active">
+              <sit-icon name="folder-check" slot="icon"></sit-icon>
+            </sit-sidebar-item>
+            <sit-sidebar-item name="archived-projects" title="Archived">
+              <sit-icon name="folder-minus" slot="icon"></sit-icon>
+            </sit-sidebar-item>
+          </sit-sidebar-group>
+        </sit-sidebar-section>
 
-        <sgds-sidebar-section title="Manage" name="manage">
-          <sgds-sidebar-item name="team" title="Team">
-            <sgds-icon name="user-circle" slot="icon"></sgds-icon>
+        <sit-sidebar-section title="Manage" name="manage">
+          <sit-sidebar-item name="team" title="Team">
+            <sit-icon name="user-circle" slot="icon"></sit-icon>
             <a href="#"></a>
-          </sgds-sidebar-item>
-          <sgds-sidebar-item name="reports" title="Reports">
-            <sgds-icon name="file-earmark-text" slot="icon"></sgds-icon>
+          </sit-sidebar-item>
+          <sit-sidebar-item name="reports" title="Reports">
+            <sit-icon name="file-earmark-text" slot="icon"></sit-icon>
             <a href="#"></a>
-          </sgds-sidebar-item>
-          <sgds-sidebar-item name="messages" title="Messages">
-            <sgds-icon name="chat-dots" slot="icon"></sgds-icon>
+          </sit-sidebar-item>
+          <sit-sidebar-item name="messages" title="Messages">
+            <sit-icon name="chat-dots" slot="icon"></sit-icon>
             <a href="#"></a>
-          </sgds-sidebar-item>
-        </sgds-sidebar-section>
+          </sit-sidebar-item>
+        </sit-sidebar-section>
 
-        <sgds-sidebar-section title="System" name="system">
-          <sgds-sidebar-item name="settings" title="Settings">
-            <sgds-icon name="laptop-gear" slot="icon"></sgds-icon>
+        <sit-sidebar-section title="System" name="system">
+          <sit-sidebar-item name="settings" title="Settings">
+            <sit-icon name="laptop-gear" slot="icon"></sit-icon>
             <a href="#"></a>
-          </sgds-sidebar-item>
-        </sgds-sidebar-section>
-      </sgds-sidebar>
+          </sit-sidebar-item>
+        </sit-sidebar-section>
+      </sit-sidebar>
     </div>
 
     <!-- MAIN CONTENT -->
-    <main class="sgds:flex sgds:flex-col sgds:w-full sgds:min-h-[calc(100vh-108px)]" id="main-content" tabindex="-1">
-      <div class="sgds-container-sidebar sgds:py-layout-md sgds:flex-1">
-        <div class="sgds-grid">
+    <main class="sit:flex sit:flex-col sit:w-full sit:min-h-[calc(100vh-108px)]" id="main-content" tabindex="-1">
+      <div class="sit-container-sidebar sit:py-layout-md sit:flex-1">
+        <div class="sit-grid">
           <!-- CONTENT — 8 cols -->
-          <div class="content-placeholder sgds:border sgds:border-muted sgds-col-4 sgds-col-sm-8 sgds-col-lg-8"></div>
+          <div class="content-placeholder sit:border sit:border-muted sit-col-4 sit-col-sm-8 sit-col-lg-8"></div>
           <!-- ASIDE — 4 cols -->
-          <aside class="content-placeholder sgds:border sgds:border-muted sgds-col-4 sgds-col-sm-8 sgds-col-lg-4"></aside>
+          <aside class="content-placeholder sit:border sit:border-muted sit-col-4 sit-col-sm-8 sit-col-lg-4"></aside>
         </div>
       </div>
 
       <!-- Footer -->
-      <footer class="sgds:bg-default">
-        <div class="sgds-container-sidebar sgds:py-layout-md">
-          <div class="sgds:flex sgds:flex-wrap sgds:justify-between sgds:items-center sgds:gap-md">
-            <div class="sgds:flex sgds:flex-wrap sgds:gap-xl">
-              <sgds-link variant="neutral" size="sm"><a href="#">Privacy</a></sgds-link>
-              <sgds-link variant="neutral" size="sm"><a href="#">Terms of Use</a></sgds-link>
-              <sgds-link variant="neutral" size="sm"><a href="#">Contact Us</a></sgds-link>
-              <sgds-link variant="neutral" size="sm"><a href="#">Report Vulnerability</a></sgds-link>
+      <footer class="sit:bg-default">
+        <div class="sit-container-sidebar sit:py-layout-md">
+          <div class="sit:flex sit:flex-wrap sit:justify-between sit:items-center sit:gap-md">
+            <div class="sit:flex sit:flex-wrap sit:gap-xl">
+              <sit-link variant="neutral" size="sm"><a href="#">Privacy</a></sit-link>
+              <sit-link variant="neutral" size="sm"><a href="#">Terms of Use</a></sit-link>
+              <sit-link variant="neutral" size="sm"><a href="#">Contact Us</a></sit-link>
+              <sit-link variant="neutral" size="sm"><a href="#">Report Vulnerability</a></sit-link>
             </div>
-            <p class="sgds:text-label-sm sgds:text-subtle sgds:m-0">&copy; <span id="footer-year"></span>, Government of Singapore</p>
+            <p class="sit:text-label-sm sit:text-subtle sit:m-0">&copy; <span id="footer-year"></span>, Government of Singapore</p>
           </div>
         </div>
       </footer>

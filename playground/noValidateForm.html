@@ -24,7 +24,7 @@
       validation logic.
     </p>
     <form id="custom-validation-form">
-      <sgds-input
+      <sit-input
         noValidate
         name="username"
         label="Username"
@@ -32,9 +32,9 @@
         hasFeedback="both"
         placeholder="Enter username"
         id="custom-username-input"
-      ></sgds-input>
+      ></sit-input>
 
-      <sgds-input
+      <sit-input
         noValidate
         name="age"
         type="number"
@@ -43,9 +43,9 @@
         hasFeedback="both"
         placeholder="Enter age"
         id="custom-age-input"
-      ></sgds-input>
+      ></sit-input>
 
-      <sgds-textarea
+      <sit-textarea
         noValidate
         name="bio"
         label="Bio"
@@ -53,9 +53,9 @@
         hasFeedback
         placeholder="Enter bio"
         id="custom-bio-textarea"
-      ></sgds-textarea>
+      ></sit-textarea>
 
-      <sgds-radio-group
+      <sit-radio-group
         noValidate
         required
         label="Gender"
@@ -64,11 +64,11 @@
         hasFeedback
         id="custom-gender-radio"
       >
-        <sgds-radio value="male">Male</sgds-radio>
-        <sgds-radio value="female">Female</sgds-radio>
-        <sgds-radio value="other">Other</sgds-radio>
-      </sgds-radio-group>
-      <sgds-checkbox-group
+        <sit-radio value="male">Male</sit-radio>
+        <sit-radio value="female">Female</sit-radio>
+        <sit-radio value="other">Other</sit-radio>
+      </sit-radio-group>
+      <sit-checkbox-group
         noValidate
         required
         label="Interests"
@@ -77,12 +77,12 @@
         hasFeedback
         id="custom-interests-checkbox-group"
       >
-        <sgds-checkbox value="sports">Sports</sgds-checkbox>
-        <sgds-checkbox value="music">Music</sgds-checkbox>
-        <sgds-checkbox value="reading">Reading</sgds-checkbox>
-      </sgds-checkbox-group>
+        <sit-checkbox value="sports">Sports</sit-checkbox>
+        <sit-checkbox value="music">Music</sit-checkbox>
+        <sit-checkbox value="reading">Reading</sit-checkbox>
+      </sit-checkbox-group>
 
-      <sgds-checkbox
+      <sit-checkbox
         noValidate
         required
         hasFeedback="both"
@@ -91,34 +91,34 @@
         id="custom-terms-checkbox"
       >
         I agree to the Terms and Conditions
-      </sgds-checkbox>
+      </sit-checkbox>
 
-      <sgds-button type="submit">Submit</sgds-button>
-      <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+      <sit-button type="submit">Submit</sit-button>
+      <sit-button type="reset" variant="ghost">Reset</sit-button>
     </form>
 
     <h2>novalidate - Form Level</h2>
     <p>Use <code>novalidate</code> attribute on the form to disable all validation for child components.</p>
     <form id="no-validation-form" novalidate>
-      <sgds-input
+      <sit-input
         name="email"
         required
         label="Email"
         hintText="This required field will not show validation errors"
         hasFeedback="both"
         placeholder="Enter email"
-      ></sgds-input>
+      ></sit-input>
 
-      <sgds-input
+      <sit-input
         name="phone"
         pattern="[0-9]{8}"
         label="Phone"
         hintText="This pattern validation is disabled"
         hasFeedback="both"
         placeholder="Enter phone"
-      ></sgds-input>
+      ></sit-input>
 
-      <sgds-textarea
+      <sit-textarea
         name="notes"
         required
         minlength="5"
@@ -126,41 +126,41 @@
         hintText="This required and minlength validation is disabled"
         hasFeedback
         placeholder="Enter notes"
-      ></sgds-textarea>
+      ></sit-textarea>
 
-      <sgds-radio-group
+      <sit-radio-group
         required
         label="Priority"
         hintText="This required validation is disabled by form novalidate"
         name="priority"
         hasFeedback
       >
-        <sgds-radio value="low">Low</sgds-radio>
-        <sgds-radio value="medium">Medium</sgds-radio>
-        <sgds-radio value="high">High</sgds-radio>
-      </sgds-radio-group>
-      <sgds-checkbox-group
+        <sit-radio value="low">Low</sit-radio>
+        <sit-radio value="medium">Medium</sit-radio>
+        <sit-radio value="high">High</sit-radio>
+      </sit-radio-group>
+      <sit-checkbox-group
         required
         label="Preferences"
         hintText="This required validation is disabled by form novalidate"
         name="preferences"
         hasFeedback
       >
-        <sgds-checkbox value="newsletter">Newsletter</sgds-checkbox>
-        <sgds-checkbox value="updates">Product updates</sgds-checkbox>
-      </sgds-checkbox-group>
+        <sit-checkbox value="newsletter">Newsletter</sit-checkbox>
+        <sit-checkbox value="updates">Product updates</sit-checkbox>
+      </sit-checkbox-group>
 
-      <sgds-checkbox
+      <sit-checkbox
         required
         hasFeedback="both"
         name="consent"
         value="yes"
       >
         I consent to data collection (required but validation disabled)
-      </sgds-checkbox>
+      </sit-checkbox>
 
-      <sgds-button type="submit">Submit (No Validation)</sgds-button>
-      <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+      <sit-button type="submit">Submit (No Validation)</sit-button>
+      <sit-button type="reset" variant="ghost">Reset</sit-button>
     </form>
 
     <script>
@@ -169,7 +169,7 @@
       const ageInput = document.getElementById("custom-age-input");
       const bioTextarea = document.getElementById("custom-bio-textarea");
 
-      usernameInput.addEventListener("sgds-input", e => {
+      usernameInput.addEventListener("sit-input", e => {
         const value = e.target.value;
         // Username must start with a letter
         if (!value || /^[a-zA-Z]/.test(value)) {
@@ -180,7 +180,7 @@
         }
       });
 
-      ageInput.addEventListener("sgds-input", e => {
+      ageInput.addEventListener("sit-input", e => {
         const value = parseInt(e.target.value);
         // Age must be between 18 and 100
         if (!e.target.value || (value >= 18 && value <= 100)) {
@@ -191,7 +191,7 @@
         }
       });
 
-        bioTextarea.addEventListener("sgds-input", e => {
+        bioTextarea.addEventListener("sit-input", e => {
           const value = e.target.value;
           // Bio must be at least 10 characters
           if (!value || value.length >= 10) {
@@ -203,7 +203,7 @@
         });
 
       const interestsGroup = document.getElementById("custom-interests-checkbox-group");
-      interestsGroup.addEventListener("sgds-change", e => {
+      interestsGroup.addEventListener("sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Please select at least one interest";
@@ -213,7 +213,7 @@
       });
 
       const termsCheckbox = document.getElementById("custom-terms-checkbox");
-      termsCheckbox.addEventListener("sgds-change", e => {
+      termsCheckbox.addEventListener("sit-change", e => {
         if (!e.target.checked) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "You must agree to the terms";
@@ -223,7 +223,7 @@
       });
 
       const genderRadio = document.getElementById("custom-gender-radio");
-      genderRadio.addEventListener("sgds-change", e => {
+      genderRadio.addEventListener("sit-change", e => {
         if (!e.target.value) {
           e.target.setInvalid(true);
           e.target.invalidFeedback = "Please select a gender";
@@ -247,7 +247,7 @@
         }
 
         // Check if any field is invalid
-        const components = e.target.querySelectorAll("sgds-input, sgds-textarea, sgds-checkbox-group, sgds-checkbox");
+        const components = e.target.querySelectorAll("sit-input, sit-textarea, sit-checkbox-group, sit-checkbox");
         const hasInvalid = Array.from(components).some(c => c.invalid);
         if (hasInvalid) return;
 
@@ -272,15 +272,15 @@
       });
 
       // Debug: Log when inputs change
-      usernameInput.addEventListener("sgds-change", e => {
+      usernameInput.addEventListener("sit-change", e => {
         console.log("Username changed:", e.target.value);
       });
 
-      ageInput.addEventListener("sgds-change", e => {
+      ageInput.addEventListener("sit-change", e => {
         console.log("Age changed:", e.target.value);
       });
 
-      bioTextarea.addEventListener("sgds-change", e => {
+      bioTextarea.addEventListener("sit-change", e => {
         console.log("Bio changed:", e.target.value);
       });
     </script>

@@ -10,450 +10,450 @@
     <link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
     <link href="./css/utility.css" rel="stylesheet" type="text/css" />
   </head>
-  <body class="sgds:bg-default">
-    <sgds-mainnav>
-      <img width="130" src="https://www.designsystem.tech.gov.sg/assets/img/logo-sgds.svg" slot="brand" />
-      <sgds-mainnav-item active><a href="#">Home</a></sgds-mainnav-item>
-      <sgds-mainnav-item><a href="#">About</a></sgds-mainnav-item>
-      <sgds-mainnav-dropdown ariaLabel="Services menu">
+  <body class="sit:bg-default">
+    <sit-mainnav>
+      <img width="130" src="https://example.com/logo.svg" slot="brand" />
+      <sit-mainnav-item active><a href="#">Home</a></sit-mainnav-item>
+      <sit-mainnav-item><a href="#">About</a></sit-mainnav-item>
+      <sit-mainnav-dropdown ariaLabel="Services menu">
         <span slot="toggler">Services</span>
-        <sgds-dropdown-item><a href="#">Option 1</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Option 2</a></sgds-dropdown-item>
-        <sgds-dropdown-item><a href="#">Option 3</a></sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
-      <sgds-button slot="end" variant="ghost" size="sm">Login</sgds-button>
-    </sgds-mainnav>
+        <sit-dropdown-item><a href="#">Option 1</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Option 2</a></sit-dropdown-item>
+        <sit-dropdown-item><a href="#">Option 3</a></sit-dropdown-item>
+      </sit-mainnav-dropdown>
+      <sit-button slot="end" variant="ghost" size="sm">Login</sit-button>
+    </sit-mainnav>
 
-    <sgds-subnav>
+    <sit-subnav>
       <h5 slot="header">Section Title</h5>
-      <sgds-subnav-item active><sgds-link size="sm"><a href="#">Overview</a></sgds-link></sgds-subnav-item>
-      <sgds-subnav-item><sgds-link size="sm"><a href="#">Details</a></sgds-link></sgds-subnav-item>
-      <sgds-subnav-item><sgds-link size="sm"><a href="#">Settings</a></sgds-link></sgds-subnav-item>
-      <sgds-button slot="actions" size="sm">Action</sgds-button>
-    </sgds-subnav>
+      <sit-subnav-item active><sit-link size="sm"><a href="#">Overview</a></sit-link></sit-subnav-item>
+      <sit-subnav-item><sit-link size="sm"><a href="#">Details</a></sit-link></sit-subnav-item>
+      <sit-subnav-item><sit-link size="sm"><a href="#">Settings</a></sit-link></sit-subnav-item>
+      <sit-button slot="actions" size="sm">Action</sit-button>
+    </sit-subnav>
 
-    <div class="sgds:px-layout-sm sgds:pt-layout-sm sgds:pb-layout-xl">
-      <h1 class="sgds:text-heading-xl sgds:font-bold sgds:mb-2">Z-Index Stacking Playground</h1>
-      <p class="sgds:text-body-md sgds:text-subtle sgds:mb-layout-xs">All overlaying components on one page — verify stacking order at a glance.</p>
+    <div class="sit:px-layout-sm sit:pt-layout-sm sit:pb-layout-xl">
+      <h1 class="sit:text-heading-xl sit:font-bold sit:mb-2">Z-Index Stacking Playground</h1>
+      <p class="sit:text-body-md sit:text-subtle sit:mb-layout-xs">All overlaying components on one page — verify stacking order at a glance.</p>
 
       <!-- Legend -->
-      <div class="sgds:flex sgds:flex-wrap sgds:gap-component-sm sgds:mb-layout-xs sgds:p-component-md sgds:bg-surface-raised sgds:rounded-md sgds:border sgds:border-muted">
-        <div class="sgds:flex sgds:items-center sgds:gap-component-xs sgds:text-body-sm">
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-primary-surface-muted sgds:text-primary-default">z-index: 200</code>
+      <div class="sit:flex sit:flex-wrap sit:gap-component-sm sit:mb-layout-xs sit:p-component-md sit:bg-surface-raised sit:rounded-md sit:border sit:border-muted">
+        <div class="sit:flex sit:items-center sit:gap-component-xs sit:text-body-sm">
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-primary-surface-muted sit:text-primary-default">z-index: 200</code>
           <span>floating — Mainnav, Subnav, Dropdown</span>
         </div>
-        <div class="sgds:flex sgds:items-center sgds:gap-component-xs sgds:text-body-sm">
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-warning-muted sgds:text-warning-emphasis">z-index: 400</code>
+        <div class="sit:flex sit:items-center sit:gap-component-xs sit:text-body-sm">
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-warning-muted sit:text-warning-emphasis">z-index: 400</code>
           <span>overlay — Tooltip, Toast</span>
         </div>
-        <div class="sgds:flex sgds:items-center sgds:gap-component-xs sgds:text-body-sm">
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-danger-muted sgds:text-danger-emphasis">z-index: 800</code>
+        <div class="sit:flex sit:items-center sit:gap-component-xs sit:text-body-sm">
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-danger-muted sit:text-danger-emphasis">z-index: 800</code>
           <span>modal — Modal, Drawer</span>
         </div>
       </div>
 
       <!-- Dropdown -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Dropdown
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-primary-surface-muted sgds:text-primary-default">--sgds-z-index-floating (200)</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-primary-surface-muted sit:text-primary-default">--sit-z-index-floating (200)</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Opens below the trigger. Should sit above static content but below tooltips and toasts.</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Click to open</div>
-            <sgds-dropdown id="demo-dropdown">
-              <sgds-button slot="toggler">
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Opens below the trigger. Should sit above static content but below tooltips and toasts.</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Click to open</div>
+            <sit-dropdown id="demo-dropdown">
+              <sit-button slot="toggler">
                 Dropdown Menu
-                <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-              </sgds-button>
-              <sgds-dropdown-item><a href="#">Option A</a></sgds-dropdown-item>
-              <sgds-dropdown-item><a href="#">Option B</a></sgds-dropdown-item>
-              <sgds-dropdown-item><a href="#">Option C</a></sgds-dropdown-item>
-              <sgds-dropdown-item><a href="#">Option D</a></sgds-dropdown-item>
-              <sgds-dropdown-item><a href="#">Option E</a></sgds-dropdown-item>
-            </sgds-dropdown>
+                <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+              </sit-button>
+              <sit-dropdown-item><a href="#">Option A</a></sit-dropdown-item>
+              <sit-dropdown-item><a href="#">Option B</a></sit-dropdown-item>
+              <sit-dropdown-item><a href="#">Option C</a></sit-dropdown-item>
+              <sit-dropdown-item><a href="#">Option D</a></sit-dropdown-item>
+              <sit-dropdown-item><a href="#">Option E</a></sit-dropdown-item>
+            </sit-dropdown>
           </div>
         </div>
       </div>
 
       <!-- Tooltip -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Tooltip
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-warning-muted sgds:text-warning-emphasis">--sgds-z-index-overlay (400)</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-warning-muted sit:text-warning-emphasis">--sit-z-index-overlay (400)</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Appears on hover. Should sit above dropdowns (200) but below modal and drawer (800).</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Hover to show</div>
-            <sgds-tooltip content="I am a tooltip at z-index 400" placement="top">
-              <sgds-button variant="outline">Hover for Tooltip</sgds-button>
-            </sgds-tooltip>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Appears on hover. Should sit above dropdowns (200) but below modal and drawer (800).</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Hover to show</div>
+            <sit-tooltip content="I am a tooltip at z-index 400" placement="top">
+              <sit-button variant="outline">Hover for Tooltip</sit-button>
+            </sit-tooltip>
           </div>
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Hover — right placement</div>
-            <sgds-tooltip content="Tooltip appears to the right" placement="right">
-              <sgds-button variant="outline">Hover me</sgds-button>
-            </sgds-tooltip>
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Hover — right placement</div>
+            <sit-tooltip content="Tooltip appears to the right" placement="right">
+              <sit-button variant="outline">Hover me</sit-button>
+            </sit-tooltip>
           </div>
         </div>
       </div>
 
       <!-- Toast -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Toast
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-warning-muted sgds:text-warning-emphasis">--sgds-z-index-overlay (400)</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-warning-muted sit:text-warning-emphasis">--sit-z-index-overlay (400)</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">
           Fixed position, top-right. Should appear above dropdowns and tooltips (both 400, DOM order wins),
           but be hidden behind modal and drawer (800).
         </p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Click to show / dismiss</div>
-            <sgds-button id="btn-toast-info">Show Info Toast</sgds-button>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Click to show / dismiss</div>
+            <sit-button id="btn-toast-info">Show Info Toast</sit-button>
           </div>
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Warning variant</div>
-            <sgds-button id="btn-toast-warning" variant="outline">Show Warning Toast</sgds-button>
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Warning variant</div>
+            <sit-button id="btn-toast-warning" variant="outline">Show Warning Toast</sit-button>
           </div>
         </div>
       </div>
 
       <!-- Drawer -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Drawer
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-danger-muted sgds:text-danger-emphasis">--sgds-z-index-modal (800)</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-danger-muted sit:text-danger-emphasis">--sit-z-index-modal (800)</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Slides in from the side. Covers toast, tooltip, and dropdown. Shares z-index with Modal — the one opened later wins.</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">End (right)</div>
-            <sgds-button id="btn-drawer-end">Open Drawer</sgds-button>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Slides in from the side. Covers toast, tooltip, and dropdown. Shares z-index with Modal — the one opened later wins.</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">End (right)</div>
+            <sit-button id="btn-drawer-end">Open Drawer</sit-button>
           </div>
         </div>
       </div>
 
       <!-- Modal -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Modal
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-danger-muted sgds:text-danger-emphasis">--sgds-z-index-modal (800)</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-danger-muted sit:text-danger-emphasis">--sit-z-index-modal (800)</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Full-screen overlay. Covers toast, tooltip, and dropdown. Shares z-index with Drawer — DOM order determines which is on top when both are open.</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Default size</div>
-            <sgds-button id="btn-modal">Open Modal</sgds-button>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Full-screen overlay. Covers toast, tooltip, and dropdown. Shares z-index with Drawer — DOM order determines which is on top when both are open.</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Default size</div>
+            <sit-button id="btn-modal">Open Modal</sit-button>
           </div>
         </div>
       </div>
 
       <!-- Tooltip inside Modal -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Tooltip inside Modal
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-danger-muted sgds:text-danger-emphasis">Modal: 800</code>
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-warning-muted sgds:text-warning-emphasis">Tooltip: 400</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-danger-muted sit:text-danger-emphasis">Modal: 800</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-warning-muted sit:text-warning-emphasis">Tooltip: 400</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Open the modal, then hover the button inside. Does the tooltip appear above the modal panel?</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Open modal with tooltip inside</div>
-            <sgds-button id="btn-modal-tooltip">Open Modal</sgds-button>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Open the modal, then hover the button inside. Does the tooltip appear above the modal panel?</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Open modal with tooltip inside</div>
+            <sit-button id="btn-modal-tooltip">Open Modal</sit-button>
           </div>
         </div>
       </div>
 
       <!-- Tooltip inside Drawer -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Tooltip inside Drawer
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-danger-muted sgds:text-danger-emphasis">Drawer: 800</code>
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-warning-muted sgds:text-warning-emphasis">Tooltip: 400</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-danger-muted sit:text-danger-emphasis">Drawer: 800</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-warning-muted sit:text-warning-emphasis">Tooltip: 400</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Open the drawer, then hover the button inside. Does the tooltip appear above the drawer panel?</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Open drawer with tooltip inside</div>
-            <sgds-button id="btn-drawer-tooltip">Open Drawer</sgds-button>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Open the drawer, then hover the button inside. Does the tooltip appear above the drawer panel?</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Open drawer with tooltip inside</div>
+            <sit-button id="btn-drawer-tooltip">Open Drawer</sit-button>
           </div>
         </div>
       </div>
 
       <!-- Tooltip vs Toast -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Tooltip vs Toast
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-warning-muted sgds:text-warning-emphasis">Both: 400</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-warning-muted sit:text-warning-emphasis">Both: 400</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Both are at z-index 400. Show the toast, then hover the tooltip trigger inside it — which appears on top?</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Click to show toast (tooltip trigger is inside the toast)</div>
-            <sgds-button id="btn-toast-vs-tooltip">Show Toast</sgds-button>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Both are at z-index 400. Show the toast, then hover the tooltip trigger inside it — which appears on top?</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Click to show toast (tooltip trigger is inside the toast)</div>
+            <sit-button id="btn-toast-vs-tooltip">Show Toast</sit-button>
           </div>
         </div>
       </div>
 
       <!-- Dropdown elements inside Modal -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Dropdown elements inside Modal
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-danger-muted sgds:text-danger-emphasis">Modal: 800</code>
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-primary-surface-muted sgds:text-primary-default">Dropdowns: 200</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-danger-muted sit:text-danger-emphasis">Modal: 800</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-primary-surface-muted sit:text-primary-default">Dropdowns: 200</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Open the modal and interact with each dropdown-type component. Do their menus escape above the modal panel?</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <sgds-button id="btn-modal-dropdowns">Open Modal</sgds-button>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Open the modal and interact with each dropdown-type component. Do their menus escape above the modal panel?</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <sit-button id="btn-modal-dropdowns">Open Modal</sit-button>
           </div>
         </div>
       </div>
 
       <!-- Dropdown elements inside Drawer -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">
           Dropdown elements inside Drawer
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-danger-muted sgds:text-danger-emphasis">Drawer: 800</code>
-          <code class="sgds:inline-block sgds:px-component-xs sgds:rounded sgds:text-label-xs sgds:font-semibold sgds:whitespace-nowrap sgds:bg-primary-surface-muted sgds:text-primary-default">Dropdowns: 200</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-danger-muted sit:text-danger-emphasis">Drawer: 800</code>
+          <code class="sit:inline-block sit:px-component-xs sit:rounded sit:text-label-xs sit:font-semibold sit:whitespace-nowrap sit:bg-primary-surface-muted sit:text-primary-default">Dropdowns: 200</code>
         </div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Open the drawer and interact with each dropdown-type component. Do their menus escape above the drawer panel?</p>
-        <div class="sgds:p-component-lg sgds:border sgds:border-muted sgds:rounded-md sgds:bg-surface-default sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <sgds-button id="btn-drawer-dropdowns">Open Drawer</sgds-button>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Open the drawer and interact with each dropdown-type component. Do their menus escape above the drawer panel?</p>
+        <div class="sit:p-component-lg sit:border sit:border-muted sit:rounded-md sit:bg-surface-default sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <sit-button id="btn-drawer-dropdowns">Open Drawer</sit-button>
           </div>
         </div>
       </div>
 
       <!-- Combined scenario -->
-      <div class="sgds:mb-layout-sm">
-        <div class="sgds:text-heading-sm sgds:font-semibold sgds:mb-component-md sgds:flex sgds:items-center sgds:gap-component-sm">Combined Scenario</div>
-        <p class="sgds:text-body-md sgds:text-subtle sgds:mb-component-md">Open everything at once to verify the full stacking hierarchy.</p>
-        <div class="sgds:text-body-sm sgds:text-muted sgds:italic sgds:py-component-xs sgds:px-component-md sgds:bg-surface-raised sgds:border-l-2 sgds:border-muted sgds:rounded-r sgds:mb-component-md">
+      <div class="sit:mb-layout-sm">
+        <div class="sit:text-heading-sm sit:font-semibold sit:mb-component-md sit:flex sit:items-center sit:gap-component-sm">Combined Scenario</div>
+        <p class="sit:text-body-md sit:text-subtle sit:mb-component-md">Open everything at once to verify the full stacking hierarchy.</p>
+        <div class="sit:text-body-sm sit:text-muted sit:italic sit:py-component-xs sit:px-component-md sit:bg-surface-raised sit:border-l-2 sit:border-muted sit:rounded-r sit:mb-component-md">
           Expected order (top to bottom): Modal / Drawer (800) → Toast (400) → Tooltip (400) → Dropdown (200) → Mainnav / Subnav (200)
         </div>
-        <div class="sgds:p-component-lg sgds:border-2 sgds:border-dashed sgds:border-muted sgds:rounded-md sgds:bg-surface-raised sgds:flex sgds:flex-wrap sgds:gap-component-md sgds:items-start sgds:relative sgds:overflow-visible">
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Step 1 — open dropdown</div>
-            <sgds-dropdown id="combined-dropdown">
-              <sgds-button slot="toggler" variant="outline">
+        <div class="sit:p-component-lg sit:border-2 sit:border-dashed sit:border-muted sit:rounded-md sit:bg-surface-raised sit:flex sit:flex-wrap sit:gap-component-md sit:items-start sit:relative sit:overflow-visible">
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Step 1 — open dropdown</div>
+            <sit-dropdown id="combined-dropdown">
+              <sit-button slot="toggler" variant="outline">
                 Dropdown
-                <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-              </sgds-button>
-              <sgds-dropdown-item><a href="#">Item 1</a></sgds-dropdown-item>
-              <sgds-dropdown-item><a href="#">Item 2</a></sgds-dropdown-item>
-              <sgds-dropdown-item><a href="#">Item 3</a></sgds-dropdown-item>
-            </sgds-dropdown>
+                <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+              </sit-button>
+              <sit-dropdown-item><a href="#">Item 1</a></sit-dropdown-item>
+              <sit-dropdown-item><a href="#">Item 2</a></sit-dropdown-item>
+              <sit-dropdown-item><a href="#">Item 3</a></sit-dropdown-item>
+            </sit-dropdown>
           </div>
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Step 2 — hover for tooltip</div>
-            <sgds-tooltip content="Tooltip (400) sits above the dropdown (200)" placement="top">
-              <sgds-button variant="outline">Hover for Tooltip</sgds-button>
-            </sgds-tooltip>
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Step 2 — hover for tooltip</div>
+            <sit-tooltip content="Tooltip (400) sits above the dropdown (200)" placement="top">
+              <sit-button variant="outline">Hover for Tooltip</sit-button>
+            </sit-tooltip>
           </div>
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Step 3 — show toast</div>
-            <sgds-button id="btn-combined-toast" variant="outline">Show Toast</sgds-button>
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Step 3 — show toast</div>
+            <sit-button id="btn-combined-toast" variant="outline">Show Toast</sit-button>
           </div>
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Step 4 — open drawer (hides toast)</div>
-            <sgds-button id="btn-combined-drawer" variant="outline">Open Drawer</sgds-button>
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Step 4 — open drawer (hides toast)</div>
+            <sit-button id="btn-combined-drawer" variant="outline">Open Drawer</sit-button>
           </div>
-          <div class="sgds:flex sgds:flex-col">
-            <div class="sgds:text-label-xs sgds:text-subtle sgds:mb-1">Step 5 — open modal (hides toast)</div>
-            <sgds-button id="btn-combined-modal">Open Modal</sgds-button>
+          <div class="sit:flex sit:flex-col">
+            <div class="sit:text-label-xs sit:text-subtle sit:mb-1">Step 5 — open modal (hides toast)</div>
+            <sit-button id="btn-combined-modal">Open Modal</sit-button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Toast containers -->
-    <sgds-toast-container position="top-end">
-      <sgds-toast id="toast-info" dismissible>
-        <sgds-icon slot="icon" name="info-circle-fill"></sgds-icon>
+    <sit-toast-container position="top-end">
+      <sit-toast id="toast-info" dismissible>
+        <sit-icon slot="icon" name="info-circle-fill"></sit-icon>
         Toast at z-index 400 — hidden behind modal and drawer (800)
-      </sgds-toast>
-      <sgds-toast id="toast-warning" dismissible variant="warning">
-        <sgds-icon slot="icon" name="exclamation-circle-fill"></sgds-icon>
+      </sit-toast>
+      <sit-toast id="toast-warning" dismissible variant="warning">
+        <sit-icon slot="icon" name="exclamation-circle-fill"></sit-icon>
         Warning toast — also z-index 400
-      </sgds-toast>
-    </sgds-toast-container>
+      </sit-toast>
+    </sit-toast-container>
 
-    <sgds-toast-container position="top-end">
-      <sgds-toast id="toast-combined" dismissible>
-        <sgds-icon slot="icon" name="info-circle-fill"></sgds-icon>
+    <sit-toast-container position="top-end">
+      <sit-toast id="toast-combined" dismissible>
+        <sit-icon slot="icon" name="info-circle-fill"></sit-icon>
         Combined scenario toast (400) — open a modal or drawer to hide me
-      </sgds-toast>
-    </sgds-toast-container>
+      </sit-toast>
+    </sit-toast-container>
 
     <!-- Modal with dropdown elements inside -->
-    <sgds-modal id="modal-dropdowns" size="lg">
+    <sit-modal id="modal-dropdowns" size="lg">
       <h2 slot="title">Dropdown Elements in Modal</h2>
       <p slot="description">Each component below opens a floating menu. Verify menus appear above the modal panel.</p>
-      <div class="sgds:flex sgds:flex-col sgds:gap-component-lg sgds:pt-component-xs">
-        <sgds-dropdown>
-          <sgds-button slot="toggler">
+      <div class="sit:flex sit:flex-col sit:gap-component-lg sit:pt-component-xs">
+        <sit-dropdown>
+          <sit-button slot="toggler">
             Dropdown
-            <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-          </sgds-button>
-          <sgds-dropdown-item><a href="#">Option A</a></sgds-dropdown-item>
-          <sgds-dropdown-item><a href="#">Option B</a></sgds-dropdown-item>
-          <sgds-dropdown-item><a href="#">Option C</a></sgds-dropdown-item>
-        </sgds-dropdown>
-        <sgds-select id="modal-select" label="Select" placeholder="Select an option">
-          <sgds-select-option value="1">Option 1</sgds-select-option>
-          <sgds-select-option value="2">Option 2</sgds-select-option>
-          <sgds-select-option value="3">Option 3</sgds-select-option>
-        </sgds-select>
-        <sgds-combo-box id="modal-combobox" label="Combo Box" placeholder="Search..."></sgds-combo-box>
-        <sgds-datepicker label="Date Picker"></sgds-datepicker>
-        <div class="sgds:flex sgds:items-center sgds:gap-component-xs">
-          <span class="sgds:text-body-md">Overflow Menu:</span>
-          <sgds-overflow-menu>
-            <sgds-dropdown-item>View</sgds-dropdown-item>
-            <sgds-dropdown-item>Edit</sgds-dropdown-item>
-            <sgds-dropdown-item>Delete</sgds-dropdown-item>
-          </sgds-overflow-menu>
+            <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+          </sit-button>
+          <sit-dropdown-item><a href="#">Option A</a></sit-dropdown-item>
+          <sit-dropdown-item><a href="#">Option B</a></sit-dropdown-item>
+          <sit-dropdown-item><a href="#">Option C</a></sit-dropdown-item>
+        </sit-dropdown>
+        <sit-select id="modal-select" label="Select" placeholder="Select an option">
+          <sit-select-option value="1">Option 1</sit-select-option>
+          <sit-select-option value="2">Option 2</sit-select-option>
+          <sit-select-option value="3">Option 3</sit-select-option>
+        </sit-select>
+        <sit-combo-box id="modal-combobox" label="Combo Box" placeholder="Search..."></sit-combo-box>
+        <sit-datepicker label="Date Picker"></sit-datepicker>
+        <div class="sit:flex sit:items-center sit:gap-component-xs">
+          <span class="sit:text-body-md">Overflow Menu:</span>
+          <sit-overflow-menu>
+            <sit-dropdown-item>View</sit-dropdown-item>
+            <sit-dropdown-item>Edit</sit-dropdown-item>
+            <sit-dropdown-item>Delete</sit-dropdown-item>
+          </sit-overflow-menu>
         </div>
       </div>
-      <div slot="footer" class="sgds:flex sgds:gap-component-xs sgds:justify-between sgds:w-full">
-        <div class="sgds:flex sgds:gap-component-xs">
-          <sgds-button id="btn-toast-from-modal">Show Toast</sgds-button>
-          <sgds-button id="btn-drawer-from-modal" variant="outline">Open Drawer</sgds-button>
+      <div slot="footer" class="sit:flex sit:gap-component-xs sit:justify-between sit:w-full">
+        <div class="sit:flex sit:gap-component-xs">
+          <sit-button id="btn-toast-from-modal">Show Toast</sit-button>
+          <sit-button id="btn-drawer-from-modal" variant="outline">Open Drawer</sit-button>
         </div>
-        <sgds-button variant="outline" id="btn-close-modal-dropdowns">Close</sgds-button>
+        <sit-button variant="outline" id="btn-close-modal-dropdowns">Close</sit-button>
       </div>
-    </sgds-modal>
+    </sit-modal>
 
     <!-- Drawer with dropdown elements inside -->
-    <sgds-drawer id="drawer-dropdowns" placement="end">
+    <sit-drawer id="drawer-dropdowns" placement="end">
       <h2 slot="title">Dropdown Elements in Drawer</h2>
       <p slot="description">Each component below opens a floating menu. Verify menus appear above the drawer panel.</p>
-      <div class="sgds:flex sgds:flex-col sgds:gap-component-lg sgds:pt-component-xs">
-        <sgds-dropdown>
-          <sgds-button slot="toggler">
+      <div class="sit:flex sit:flex-col sit:gap-component-lg sit:pt-component-xs">
+        <sit-dropdown>
+          <sit-button slot="toggler">
             Dropdown
-            <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-          </sgds-button>
-          <sgds-dropdown-item><a href="#">Option A</a></sgds-dropdown-item>
-          <sgds-dropdown-item><a href="#">Option B</a></sgds-dropdown-item>
-          <sgds-dropdown-item><a href="#">Option C</a></sgds-dropdown-item>
-        </sgds-dropdown>
-        <sgds-select id="drawer-select" label="Select" placeholder="Select an option">
-          <sgds-select-option value="1">Option 1</sgds-select-option>
-          <sgds-select-option value="2">Option 2</sgds-select-option>
-          <sgds-select-option value="3">Option 3</sgds-select-option>
-        </sgds-select>
-        <sgds-combo-box id="drawer-combobox" label="Combo Box" placeholder="Search..."></sgds-combo-box>
-        <sgds-datepicker label="Date Picker"></sgds-datepicker>
-        <div class="sgds:flex sgds:items-center sgds:gap-component-xs">
-          <span class="sgds:text-body-md">Overflow Menu:</span>
-          <sgds-overflow-menu>
-            <sgds-dropdown-item>View</sgds-dropdown-item>
-            <sgds-dropdown-item>Edit</sgds-dropdown-item>
-            <sgds-dropdown-item>Delete</sgds-dropdown-item>
-          </sgds-overflow-menu>
+            <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+          </sit-button>
+          <sit-dropdown-item><a href="#">Option A</a></sit-dropdown-item>
+          <sit-dropdown-item><a href="#">Option B</a></sit-dropdown-item>
+          <sit-dropdown-item><a href="#">Option C</a></sit-dropdown-item>
+        </sit-dropdown>
+        <sit-select id="drawer-select" label="Select" placeholder="Select an option">
+          <sit-select-option value="1">Option 1</sit-select-option>
+          <sit-select-option value="2">Option 2</sit-select-option>
+          <sit-select-option value="3">Option 3</sit-select-option>
+        </sit-select>
+        <sit-combo-box id="drawer-combobox" label="Combo Box" placeholder="Search..."></sit-combo-box>
+        <sit-datepicker label="Date Picker"></sit-datepicker>
+        <div class="sit:flex sit:items-center sit:gap-component-xs">
+          <span class="sit:text-body-md">Overflow Menu:</span>
+          <sit-overflow-menu>
+            <sit-dropdown-item>View</sit-dropdown-item>
+            <sit-dropdown-item>Edit</sit-dropdown-item>
+            <sit-dropdown-item>Delete</sit-dropdown-item>
+          </sit-overflow-menu>
         </div>
       </div>
-      <div slot="footer" class="sgds:flex sgds:gap-component-xs sgds:justify-end">
-        <sgds-button variant="outline" id="btn-close-drawer-dropdowns">Close</sgds-button>
+      <div slot="footer" class="sit:flex sit:gap-component-xs sit:justify-end">
+        <sit-button variant="outline" id="btn-close-drawer-dropdowns">Close</sit-button>
       </div>
-    </sgds-drawer>
+    </sit-drawer>
 
     <!-- Modal with tooltip inside -->
-    <sgds-modal id="modal-with-tooltip">
+    <sit-modal id="modal-with-tooltip">
       <h2 slot="title">Modal with Tooltip</h2>
-      <p slot="description">z-index: --sgds-z-index-modal (800)</p>
+      <p slot="description">z-index: --sit-z-index-modal (800)</p>
       <p>Hover the button below. Does the tooltip (z=400) appear above the modal panel (z=2 within modal)?</p>
-      <div class="sgds:mt-component-md">
-        <sgds-tooltip content="Tooltip inside modal — z-index 400" placement="top">
-          <sgds-button variant="outline">Hover for Tooltip</sgds-button>
-        </sgds-tooltip>
+      <div class="sit:mt-component-md">
+        <sit-tooltip content="Tooltip inside modal — z-index 400" placement="top">
+          <sit-button variant="outline">Hover for Tooltip</sit-button>
+        </sit-tooltip>
       </div>
       <div slot="footer">
-        <sgds-button id="btn-close-modal-tooltip">Close</sgds-button>
+        <sit-button id="btn-close-modal-tooltip">Close</sit-button>
       </div>
-    </sgds-modal>
+    </sit-modal>
 
     <!-- Drawer with tooltip inside -->
-    <sgds-drawer id="drawer-with-tooltip" placement="end">
+    <sit-drawer id="drawer-with-tooltip" placement="end">
       <h2 slot="title">Drawer with Tooltip</h2>
-      <p slot="description">z-index: --sgds-z-index-modal (800)</p>
+      <p slot="description">z-index: --sit-z-index-modal (800)</p>
       <p>Hover the button below. Does the tooltip (z=400) appear above the drawer panel (z=2 within drawer)?</p>
-      <div class="sgds:mt-component-md">
-        <sgds-tooltip content="Tooltip inside drawer — z-index 400" placement="top">
-          <sgds-button variant="outline">Hover for Tooltip</sgds-button>
-        </sgds-tooltip>
+      <div class="sit:mt-component-md">
+        <sit-tooltip content="Tooltip inside drawer — z-index 400" placement="top">
+          <sit-button variant="outline">Hover for Tooltip</sit-button>
+        </sit-tooltip>
       </div>
-      <div slot="footer" class="sgds:flex sgds:gap-component-xs sgds:justify-end">
-        <sgds-button variant="outline" id="btn-close-drawer-tooltip">Close</sgds-button>
+      <div slot="footer" class="sit:flex sit:gap-component-xs sit:justify-end">
+        <sit-button variant="outline" id="btn-close-drawer-tooltip">Close</sit-button>
       </div>
-    </sgds-drawer>
+    </sit-drawer>
 
     <!-- Toast triggered from inside modal -->
-    <sgds-toast-container position="top-end">
-      <sgds-toast id="toast-from-modal" dismissible>
-        <sgds-icon slot="icon" name="info-circle-fill"></sgds-icon>
+    <sit-toast-container position="top-end">
+      <sit-toast id="toast-from-modal" dismissible>
+        <sit-icon slot="icon" name="info-circle-fill"></sit-icon>
         Toast (z=400) — am I visible above the modal (z=800)?
-      </sgds-toast>
-    </sgds-toast-container>
+      </sit-toast>
+    </sit-toast-container>
 
     <!-- Toast for tooltip-vs-toast test -->
-    <sgds-toast-container position="top-end">
-      <sgds-toast id="toast-vs-tooltip" dismissible>
-        <sgds-icon slot="icon" name="info-circle-fill"></sgds-icon>
+    <sit-toast-container position="top-end">
+      <sit-toast id="toast-vs-tooltip" dismissible>
+        <sit-icon slot="icon" name="info-circle-fill"></sit-icon>
         Toast (z=400) —
-        <sgds-tooltip content="Tooltip inside toast (z=400)" placement="top">
-          <sgds-button variant="outline" size="sm">hover me</sgds-button>
-        </sgds-tooltip>
-      </sgds-toast>
-    </sgds-toast-container>
+        <sit-tooltip content="Tooltip inside toast (z=400)" placement="top">
+          <sit-button variant="outline" size="sm">hover me</sit-button>
+        </sit-tooltip>
+      </sit-toast>
+    </sit-toast-container>
 
     <!-- Drawer -->
-    <sgds-drawer id="drawer-end" placement="end">
+    <sit-drawer id="drawer-end" placement="end">
       <h2 slot="title">Drawer</h2>
-      <p slot="description">z-index: --sgds-z-index-modal (800)</p>
+      <p slot="description">z-index: --sit-z-index-modal (800)</p>
       <p>This drawer covers toast, tooltip, and dropdowns. It shares z-index 800 with the modal — if both are open, DOM order decides which is on top.</p>
-      <p class="sgds:mt-component-md">Try opening the modal while this drawer is open to see them at the same level.</p>
-      <div slot="footer" class="sgds:flex sgds:gap-component-xs sgds:justify-end">
-        <sgds-button id="btn-modal-from-drawer">Also open Modal</sgds-button>
-        <sgds-button variant="outline" id="btn-close-drawer">Close Drawer</sgds-button>
+      <p class="sit:mt-component-md">Try opening the modal while this drawer is open to see them at the same level.</p>
+      <div slot="footer" class="sit:flex sit:gap-component-xs sit:justify-end">
+        <sit-button id="btn-modal-from-drawer">Also open Modal</sit-button>
+        <sit-button variant="outline" id="btn-close-drawer">Close Drawer</sit-button>
       </div>
-    </sgds-drawer>
+    </sit-drawer>
 
     <!-- Combined drawer -->
-    <sgds-drawer id="drawer-combined" placement="end">
+    <sit-drawer id="drawer-combined" placement="end">
       <h2 slot="title">Drawer (Combined)</h2>
       <p slot="description">z-index: 800</p>
       <p>The toast (z=400) is now hidden behind this drawer (z=800).</p>
-      <div slot="footer" class="sgds:flex sgds:gap-component-xs sgds:justify-end">
-        <sgds-button variant="outline" id="btn-close-drawer-combined">Close</sgds-button>
+      <div slot="footer" class="sit:flex sit:gap-component-xs sit:justify-end">
+        <sit-button variant="outline" id="btn-close-drawer-combined">Close</sit-button>
       </div>
-    </sgds-drawer>
+    </sit-drawer>
 
     <!-- Modal -->
-    <sgds-modal id="modal-main">
+    <sit-modal id="modal-main">
       <h2 slot="title">Modal</h2>
-      <p slot="description">z-index: --sgds-z-index-modal (800)</p>
+      <p slot="description">z-index: --sit-z-index-modal (800)</p>
       <p>This modal shares z-index 800 with the drawer. Both cover everything at 400 and below. When both modal and drawer are open, the one that appears later in the DOM (or is opened later) is on top.</p>
       <div slot="footer">
-        <sgds-button id="btn-close-modal">Close Modal</sgds-button>
+        <sit-button id="btn-close-modal">Close Modal</sit-button>
       </div>
-    </sgds-modal>
+    </sit-modal>
 
     <!-- Combined modal -->
-    <sgds-modal id="modal-combined">
+    <sit-modal id="modal-combined">
       <h2 slot="title">Modal (Combined Scenario)</h2>
       <p slot="description">z-index: 800</p>
       <p>The toast (z=400) is hidden behind this modal (z=800). The dropdown and tooltip are also hidden. The mainnav and subnav (z=200) are also covered.</p>
       <div slot="footer">
-        <sgds-button id="btn-close-modal-combined">Close Modal</sgds-button>
+        <sit-button id="btn-close-modal-combined">Close Modal</sit-button>
       </div>
-    </sgds-modal>
+    </sit-modal>
 
     <script>
       // Dropdown elements inside Modal

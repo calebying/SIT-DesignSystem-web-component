@@ -5,144 +5,144 @@
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
 <body>
-  <sgds-masthead></sgds-masthead>
+  <sit-masthead></sit-masthead>
 
-  <sgds-mainnav>
-    <sgds-mainnav-item slot="start">
+  <sit-mainnav>
+    <sit-mainnav-item slot="start">
       <a href="/">My Application</a>
-    </sgds-mainnav-item>
-  </sgds-mainnav>
+    </sit-mainnav-item>
+  </sit-mainnav>
 
-  <div class="sgds:bg-surface-default sgds:min-h-screen">
-    <div class="sgds:w-container sgds:mx-auto sgds:py-layout-md">
+  <div class="sit:bg-surface-default sit:min-h-screen">
+    <div class="sit:w-container sit:mx-auto sit:py-layout-md">
 
       <!-- Page header -->
-      <div class="sgds:flex sgds:items-start sgds:justify-between sgds:mb-layout-md">
+      <div class="sit:flex sit:items-start sit:justify-between sit:mb-layout-md">
         <div>
-          <h1 class="sgds:text-2xl sgds:font-semibold sgds:text-default">Records</h1>
-          <p class="sgds:text-sm sgds:text-body-subtle sgds:mt-1" id="record-count">Showing 10 records</p>
+          <h1 class="sit:text-2xl sit:font-semibold sit:text-default">Records</h1>
+          <p class="sit:text-sm sit:text-body-subtle sit:mt-1" id="record-count">Showing 10 records</p>
         </div>
-        <sgds-button variant="primary">
-          <sgds-icon slot="leftIcon" name="plus"></sgds-icon>
+        <sit-button variant="primary">
+          <sit-icon slot="leftIcon" name="plus"></sit-icon>
           New record
-        </sgds-button>
+        </sit-button>
       </div>
 
         <!-- Search & filter bar -->
-        <div class="sgds:flex sgds:flex-wrap sgds:gap-component-sm sgds:mb-component-md">
-          <div class="sgds:flex-1 sgds:min-w-48">
-            <sgds-input
+        <div class="sit:flex sit:flex-wrap sit:gap-component-sm sit:mb-component-md">
+          <div class="sit:flex-1 sit:min-w-48">
+            <sit-input
               placeholder="Search by name or ID…"
               id="search-input"
             >
-              <sgds-icon slot="prefix" name="search"></sgds-icon>
-            </sgds-input>
+              <sit-icon slot="prefix" name="search"></sit-icon>
+            </sit-input>
           </div>
 
-            <sgds-select id="status-filter" placeholder="All statuses">
-              <sgds-select-option value="">All statuses</sgds-select-option>
-              <sgds-select-option value="active">Active</sgds-select-option>
-              <sgds-select-option value="inactive">Inactive</sgds-select-option>
-              <sgds-select-option value="pending">Pending</sgds-select-option>
-            </sgds-select>
+            <sit-select id="status-filter" placeholder="All statuses">
+              <sit-select-option value="">All statuses</sit-select-option>
+              <sit-select-option value="active">Active</sit-select-option>
+              <sit-select-option value="inactive">Inactive</sit-select-option>
+              <sit-select-option value="pending">Pending</sit-select-option>
+            </sit-select>
 
-            <sgds-select id="type-filter" placeholder="All types">
-              <sgds-select-option value="">All types</sgds-select-option>
-              <sgds-select-option value="typeA">Type A</sgds-select-option>
-              <sgds-select-option value="typeB">Type B</sgds-select-option>
-            </sgds-select>
+            <sit-select id="type-filter" placeholder="All types">
+              <sit-select-option value="">All types</sit-select-option>
+              <sit-select-option value="typeA">Type A</sit-select-option>
+              <sit-select-option value="typeB">Type B</sit-select-option>
+            </sit-select>
         </div>
 
         <!-- Data table -->
-        <div class="sgds:rounded-lg sgds:border sgds:border-muted sgds:overflow-hidden">
-          <sgds-table headerBackground responsive="md">
-          <sgds-table-row>
-            <sgds-table-head>Name</sgds-table-head>
-            <sgds-table-head>Status</sgds-table-head>
-            <sgds-table-head>Date</sgds-table-head>
-            <sgds-table-head></sgds-table-head>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Lim Ah Kow</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="success">Active</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>01 Jan 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Tan Bee Choo</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="warning">Pending</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>05 Feb 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Mohamed Razif</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="neutral">Inactive</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>12 Mar 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Priya Nair</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="success">Active</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>20 Mar 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Chen Wei Ling</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="success">Active</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>25 Mar 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Ravi Shankar</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="neutral">Inactive</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>28 Mar 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Nur Aisyah</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="warning">Pending</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>30 Mar 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>David Chua</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="danger">Rejected</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>02 Apr 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Siti Rahmah</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="success">Active</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>08 Apr 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          <sgds-table-row>
-            <sgds-table-cell>Kevin Ong</sgds-table-cell>
-            <sgds-table-cell><sgds-badge variant="warning">Pending</sgds-badge></sgds-table-cell>
-            <sgds-table-cell>10 Apr 2025</sgds-table-cell>
-            <sgds-table-cell><sgds-button variant="ghost" size="sm">View</sgds-button></sgds-table-cell>
-          </sgds-table-row>
-          </sgds-table>
+        <div class="sit:rounded-lg sit:border sit:border-muted sit:overflow-hidden">
+          <sit-table headerBackground responsive="md">
+          <sit-table-row>
+            <sit-table-head>Name</sit-table-head>
+            <sit-table-head>Status</sit-table-head>
+            <sit-table-head>Date</sit-table-head>
+            <sit-table-head></sit-table-head>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Lim Ah Kow</sit-table-cell>
+            <sit-table-cell><sit-badge variant="success">Active</sit-badge></sit-table-cell>
+            <sit-table-cell>01 Jan 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Tan Bee Choo</sit-table-cell>
+            <sit-table-cell><sit-badge variant="warning">Pending</sit-badge></sit-table-cell>
+            <sit-table-cell>05 Feb 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Mohamed Razif</sit-table-cell>
+            <sit-table-cell><sit-badge variant="neutral">Inactive</sit-badge></sit-table-cell>
+            <sit-table-cell>12 Mar 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Priya Nair</sit-table-cell>
+            <sit-table-cell><sit-badge variant="success">Active</sit-badge></sit-table-cell>
+            <sit-table-cell>20 Mar 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Chen Wei Ling</sit-table-cell>
+            <sit-table-cell><sit-badge variant="success">Active</sit-badge></sit-table-cell>
+            <sit-table-cell>25 Mar 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Ravi Shankar</sit-table-cell>
+            <sit-table-cell><sit-badge variant="neutral">Inactive</sit-badge></sit-table-cell>
+            <sit-table-cell>28 Mar 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Nur Aisyah</sit-table-cell>
+            <sit-table-cell><sit-badge variant="warning">Pending</sit-badge></sit-table-cell>
+            <sit-table-cell>30 Mar 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>David Chua</sit-table-cell>
+            <sit-table-cell><sit-badge variant="danger">Rejected</sit-badge></sit-table-cell>
+            <sit-table-cell>02 Apr 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Siti Rahmah</sit-table-cell>
+            <sit-table-cell><sit-badge variant="success">Active</sit-badge></sit-table-cell>
+            <sit-table-cell>08 Apr 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          <sit-table-row>
+            <sit-table-cell>Kevin Ong</sit-table-cell>
+            <sit-table-cell><sit-badge variant="warning">Pending</sit-badge></sit-table-cell>
+            <sit-table-cell>10 Apr 2025</sit-table-cell>
+            <sit-table-cell><sit-button variant="ghost" size="sm">View</sit-button></sit-table-cell>
+          </sit-table-row>
+          </sit-table>
         </div>
 
         <!-- Empty state (show instead of table when no results) -->
-        <div id="empty-state" class="sgds:hidden sgds:py-layout-xl sgds:text-center">
-          <sgds-icon name="in-box" size="3-xl" class="sgds:text-body-subtle sgds:mx-auto sgds:mb-3"></sgds-icon>
-          <h3 class="sgds:text-base sgds:font-semibold sgds:text-default">No records found</h3>
-          <p class="sgds:text-sm sgds:text-body-subtle sgds:mt-1 sgds:mb-layout-sm">
+        <div id="empty-state" class="sit:hidden sit:py-layout-xl sit:text-center">
+          <sit-icon name="in-box" size="3-xl" class="sit:text-body-subtle sit:mx-auto sit:mb-3"></sit-icon>
+          <h3 class="sit:text-base sit:font-semibold sit:text-default">No records found</h3>
+          <p class="sit:text-sm sit:text-body-subtle sit:mt-1 sit:mb-layout-sm">
             Try changing your search or filter, or add a new record.
           </p>
-          <sgds-button variant="outline">Clear filters</sgds-button>
+          <sit-button variant="outline">Clear filters</sit-button>
         </div>
 
         <!-- Pagination footer -->
-        <div class="sgds:flex sgds:items-center sgds:justify-between sgds:mt-component-lg">
-          <p class="sgds:text-sm sgds:text-body-subtle">Showing 1–10 of 10</p>
-          <sgds-pagination dataLength="10" itemsPerPage="10" currentPage="1" limit="5"></sgds-pagination>
+        <div class="sit:flex sit:items-center sit:justify-between sit:mt-component-lg">
+          <p class="sit:text-sm sit:text-body-subtle">Showing 1–10 of 10</p>
+          <sit-pagination dataLength="10" itemsPerPage="10" currentPage="1" limit="5"></sit-pagination>
         </div>
 
       </div>
     </div>
 
-    <sgds-footer></sgds-footer>
+    <sit-footer></sit-footer>
 </body>

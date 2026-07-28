@@ -19,14 +19,14 @@
     <div class="container">
       <div>
         <h2>Single File Upload</h2>
-        <sgds-file-upload label="Upload Document" hintText="PDF only, max 10MB" name="document" accept=".pdf">
+        <sit-file-upload label="Upload Document" hintText="PDF only, max 10MB" name="document" accept=".pdf">
           Choose File
-        </sgds-file-upload>
+        </sit-file-upload>
       </div>
 
       <div>
         <h2>Multiple Files (Images)</h2>
-        <sgds-file-upload
+        <sit-file-upload
           label="Upload Images"
           hintText="JPEG or PNG"
           name="photos"
@@ -34,12 +34,12 @@
           multiple
         >
           Choose Files
-        </sgds-file-upload>
+        </sit-file-upload>
       </div>
 
       <div>
         <h2>With Validation</h2>
-        <sgds-file-upload
+        <sit-file-upload
           label="Proof of Identity"
           name="id"
           accept=".pdf,.jpg,.png"
@@ -48,22 +48,22 @@
           invalidFeedback="Please upload a valid document"
         >
           Upload Document
-        </sgds-file-upload>
+        </sit-file-upload>
       </div>
 
       <div>
         <h2>Disabled</h2>
-        <sgds-file-upload label="Disabled Upload" name="disabled" disabled> Choose File </sgds-file-upload>
+        <sit-file-upload label="Disabled Upload" name="disabled" disabled> Choose File </sit-file-upload>
       </div>
 
       <div>
         <h2>Drag and Drop Variant</h2>
-        <sgds-file-upload label="Drop Files Here" variant="drag-and-drop" name="dragdrop" multiple>Choose Files</sgds-file-upload>
+        <sit-file-upload label="Drop Files Here" variant="drag-and-drop" name="dragdrop" multiple>Choose Files</sit-file-upload>
       </div>
 
       <div>
         <h2>Drag and Drop with Validation</h2>
-        <sgds-file-upload
+        <sit-file-upload
           label="Upload Documents"
           variant="drag-and-drop"
           name="dragdrop-required"
@@ -71,17 +71,17 @@
           required
           hasFeedback
           invalidFeedback="Please upload at least one document"
-        >Choose Files</sgds-file-upload>
+        >Choose Files</sit-file-upload>
       </div>
 
       <div>
         <h2>Drag and Drop Disabled</h2>
-        <sgds-file-upload label="Disabled Drag Zone" variant="drag-and-drop" name="dragdrop-disabled" disabled multiple>Choose Files</sgds-file-upload>
+        <sit-file-upload label="Disabled Drag Zone" variant="drag-and-drop" name="dragdrop-disabled" disabled multiple>Choose Files</sit-file-upload>
       </div>
 
       <div>
         <h2>With Upload State (Simulate Server Upload)</h2>
-        <sgds-file-upload
+        <sit-file-upload
           id="uploadStateDemo"
           label="Upload to Server"
           name="upload-demo"
@@ -89,12 +89,12 @@
           hintText="Select files to automatically simulate upload to server"
         >
           Choose Files
-        </sgds-file-upload>
+        </sit-file-upload>
       </div>
 
       <div>
         <h2>Drag and Drop with Upload State (Simulate Server Upload)</h2>
-        <sgds-file-upload
+        <sit-file-upload
           id="uploadStateDragDropDemo"
           label="Upload to Server"
           variant="drag-and-drop"
@@ -102,12 +102,12 @@
           multiple
         >
           Choose Files
-        </sgds-file-upload>
+        </sit-file-upload>
       </div>
 
       <div>
         <h2>With Error State (Simulate Upload Failure)</h2>
-        <sgds-file-upload
+        <sit-file-upload
           id="uploadStateErrorDemo"
           label="Upload to Server"
           name="upload-demo-error"
@@ -115,12 +115,12 @@
           hintText="Select files to simulate upload with errors on even-indexed files"
         >
           Choose Files
-        </sgds-file-upload>
+        </sit-file-upload>
       </div>
 
       <div>
         <h2>Custom Validation with noValidate (Max 2 files, PDF only)</h2>
-        <sgds-file-upload
+        <sit-file-upload
           id="customValidationDemo"
           label="Upload Documents"
           name="documents"
@@ -129,13 +129,13 @@
           noValidate
           multiple
           accept=".pdf"
-          hintText="Max 2 PDF files. SGDS validation is disabled, using custom validation instead"
+          hintText="Max 2 PDF files. Canvas validation is disabled, using custom validation instead"
         >
           Choose Files
-        </sgds-file-upload>
+        </sit-file-upload>
       </div>
 
-      <sgds-file-upload variant="drag-and-drop" multiple hasfeedback="" invalid="" invalidfeedback="Please upload at least one file" required="">Choose file</sgds-file-upload>
+      <sit-file-upload variant="drag-and-drop" multiple hasfeedback="" invalid="" invalidfeedback="Please upload at least one file" required="">Choose file</sit-file-upload>
 
     </div>
 
@@ -150,7 +150,7 @@
         // Wait for component to update and reflect new files
         await fileUploadEl.updateComplete;
 
-        // newFiles now contains ONLY the newly-added files from sgds-add-files event
+        // newFiles now contains ONLY the newly-added files from sit-add-files event
         const allFiles = fileUploadEl.files;
         const startIndex = allFiles.length - newFiles.length;
 
@@ -172,7 +172,7 @@
         // Wait for component to update and reflect new files
         await fileUploadEl.updateComplete;
 
-        // newFiles now contains ONLY the newly-added files from sgds-add-files event
+        // newFiles now contains ONLY the newly-added files from sit-add-files event
         const allFiles = fileUploadEl.files;
         const startIndex = allFiles.length - newFiles.length;
 
@@ -195,16 +195,16 @@
         }
       }
 
-      fileUpload.addEventListener('sgds-files-selected', async (e) => {
-        console.log('📤 sgds-files-selected (Upload State Demo) - Any file change:', e.detail);
+      fileUpload.addEventListener('sit-files-selected', async (e) => {
+        console.log('📤 sit-files-selected (Upload State Demo) - Any file change:', e.detail);
         console.log('File count:', e.detail.length);
         Array.from(e.detail).forEach((file, index) => {
           console.log(`  [${index}] ${file.name} (${file.size} bytes)`);
         });
       });
 
-      fileUpload.addEventListener('sgds-add-files', async (e) => {
-        console.log('✅ sgds-add-files (Upload State Demo) - NEW files added:', e.detail);
+      fileUpload.addEventListener('sit-add-files', async (e) => {
+        console.log('✅ sit-add-files (Upload State Demo) - NEW files added:', e.detail);
         console.log('File count:', e.detail.length);
         Array.from(e.detail).forEach((file, index) => {
           console.log(`  [${index}] ${file.name} (${file.size} bytes)`);
@@ -212,8 +212,8 @@
         handleFileUpload(fileUpload, e.detail);
       });
 
-      fileUpload.addEventListener('sgds-remove-file', async (e) => {
-        console.log('❌ sgds-remove-file (Upload State Demo) - File deleted:', e.detail.file.name);
+      fileUpload.addEventListener('sit-remove-file', async (e) => {
+        console.log('❌ sit-remove-file (Upload State Demo) - File deleted:', e.detail.file.name);
         console.log('Remaining files:', e.detail.files);
         console.log('Remaining file count:', e.detail.files.length);
         Array.from(e.detail.files).forEach((file, index) => {
@@ -221,18 +221,18 @@
         });
       });
 
-      fileUpload.addEventListener('sgds-change', async (e) => {
-        console.log('🔄 sgds-change (Upload State Demo) - Current file set:', e.detail);
+      fileUpload.addEventListener('sit-change', async (e) => {
+        console.log('🔄 sit-change (Upload State Demo) - Current file set:', e.detail);
         console.log('File count:', e.detail.length);
       });
 
-      fileUploadDragDrop.addEventListener('sgds-files-selected', async (e) => {
-        console.log('📤 sgds-files-selected (Drag and Drop Upload State Demo) - Any file change:', e.detail);
+      fileUploadDragDrop.addEventListener('sit-files-selected', async (e) => {
+        console.log('📤 sit-files-selected (Drag and Drop Upload State Demo) - Any file change:', e.detail);
         console.log('File count:', e.detail.length);
       });
 
-      fileUploadDragDrop.addEventListener('sgds-add-files', async (e) => {
-        console.log('✅ sgds-add-files (Drag and Drop Upload State Demo) - NEW files added:', e.detail);
+      fileUploadDragDrop.addEventListener('sit-add-files', async (e) => {
+        console.log('✅ sit-add-files (Drag and Drop Upload State Demo) - NEW files added:', e.detail);
         console.log('File count:', e.detail.length);
         Array.from(e.detail).forEach((file, index) => {
           console.log(`  [${index}] ${file.name} (${file.size} bytes)`);
@@ -240,8 +240,8 @@
         handleFileUpload(fileUploadDragDrop, e.detail);
       });
 
-      fileUploadDragDrop.addEventListener('sgds-remove-file', async (e) => {
-        console.log('❌ sgds-remove-file (Drag and Drop Upload State Demo) - File deleted:', e.detail.file.name);
+      fileUploadDragDrop.addEventListener('sit-remove-file', async (e) => {
+        console.log('❌ sit-remove-file (Drag and Drop Upload State Demo) - File deleted:', e.detail.file.name);
         console.log('Remaining files:', e.detail.files);
         console.log('Remaining file count:', e.detail.files.length);
         Array.from(e.detail.files).forEach((file, index) => {
@@ -249,18 +249,18 @@
         });
       });
 
-      fileUploadDragDrop.addEventListener('sgds-change', async (e) => {
-        console.log('🔄 sgds-change (Drag and Drop Upload State Demo) - Current file set:', e.detail);
+      fileUploadDragDrop.addEventListener('sit-change', async (e) => {
+        console.log('🔄 sit-change (Drag and Drop Upload State Demo) - Current file set:', e.detail);
         console.log('File count:', e.detail.length);
       });
 
-      fileUploadError.addEventListener('sgds-files-selected', async (e) => {
-        console.log('📤 sgds-files-selected (Error State Demo) - Any file change:', e.detail);
+      fileUploadError.addEventListener('sit-files-selected', async (e) => {
+        console.log('📤 sit-files-selected (Error State Demo) - Any file change:', e.detail);
         console.log('File count:', e.detail.length);
       });
 
-      fileUploadError.addEventListener('sgds-add-files', async (e) => {
-        console.log('✅ sgds-add-files (Error State Demo) - NEW files added:', e.detail);
+      fileUploadError.addEventListener('sit-add-files', async (e) => {
+        console.log('✅ sit-add-files (Error State Demo) - NEW files added:', e.detail);
         console.log('File count:', e.detail.length);
         Array.from(e.detail).forEach((file, index) => {
           console.log(`  [${index}] ${file.name} (${file.size} bytes)`);
@@ -268,8 +268,8 @@
         handleFileUploadWithErrors(fileUploadError, e.detail);
       });
 
-      fileUploadError.addEventListener('sgds-remove-file', async (e) => {
-        console.log('❌ sgds-remove-file (Error State Demo) - File deleted:', e.detail.file.name);
+      fileUploadError.addEventListener('sit-remove-file', async (e) => {
+        console.log('❌ sit-remove-file (Error State Demo) - File deleted:', e.detail.file.name);
         console.log('Remaining files:', e.detail.files);
         console.log('Remaining file count:', e.detail.files.length);
         Array.from(e.detail.files).forEach((file, index) => {
@@ -277,15 +277,15 @@
         });
       });
 
-      fileUploadError.addEventListener('sgds-change', async (e) => {
-        console.log('🔄 sgds-change (Error State Demo) - Current file set:', e.detail);
+      fileUploadError.addEventListener('sit-change', async (e) => {
+        console.log('🔄 sit-change (Error State Demo) - Current file set:', e.detail);
         console.log('File count:', e.detail.length);
       });
 
       // Custom validation example with noValidate
       const customValidationEl = document.getElementById('customValidationDemo');
 
-      customValidationEl.addEventListener('sgds-add-files', async (e) => {
+      customValidationEl.addEventListener('sit-add-files', async (e) => {
         console.log('📋 Custom validation triggered for new files:', e.detail);
         const files = e.detail;
 
@@ -321,7 +321,7 @@
         }
       });
 
-      customValidationEl.addEventListener('sgds-remove-file', async (e) => {
+      customValidationEl.addEventListener('sit-remove-file', async (e) => {
         console.log('🗑️ File removed:', e.detail.file.name);
         // Re-validate remaining files
         const remaining = e.detail.files;

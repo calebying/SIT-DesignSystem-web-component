@@ -19,52 +19,52 @@
     <div class="container">
       <div>
         <h2>Checkbox Group</h2>
-        <sgds-checkbox-group label="Dietary Requirements" hintText="Check all that apply">
-          <sgds-checkbox value="vegetarian">Vegetarian</sgds-checkbox>
-          <sgds-checkbox value="halal">Halal</sgds-checkbox>
-          <sgds-checkbox value="vegan">Vegan</sgds-checkbox>
-          <sgds-checkbox value="gluten-free">Gluten-free</sgds-checkbox>
-        </sgds-checkbox-group>
+        <sit-checkbox-group label="Dietary Requirements" hintText="Check all that apply">
+          <sit-checkbox value="vegetarian">Vegetarian</sit-checkbox>
+          <sit-checkbox value="halal">Halal</sit-checkbox>
+          <sit-checkbox value="vegan">Vegan</sit-checkbox>
+          <sit-checkbox value="gluten-free">Gluten-free</sit-checkbox>
+        </sit-checkbox-group>
       </div>
 
       <div>
         <h2>Standalone Checkbox</h2>
-        <sgds-checkbox name="agree" value="yes" required>I agree to the Terms and Conditions</sgds-checkbox>
+        <sit-checkbox name="agree" value="yes" required>I agree to the Terms and Conditions</sit-checkbox>
       </div>
 
       <div>
         <h2>Pre-checked</h2>
-        <sgds-checkbox name="newsletter" value="yes" checked>Subscribe to newsletter</sgds-checkbox>
+        <sit-checkbox name="newsletter" value="yes" checked>Subscribe to newsletter</sit-checkbox>
       </div>
 
       <div>
         <h2>Indeterminate</h2>
-        <sgds-checkbox indeterminate>Select All</sgds-checkbox>
+        <sit-checkbox indeterminate>Select All</sit-checkbox>
       </div>
 
       <div>
         <h2>Disabled</h2>
-        <sgds-checkbox disabled>Disabled checkbox</sgds-checkbox>
-        <sgds-checkbox disabled checked>Disabled checked</sgds-checkbox>
+        <sit-checkbox disabled>Disabled checkbox</sit-checkbox>
+        <sit-checkbox disabled checked>Disabled checked</sit-checkbox>
       </div>
 
       <div>
         <h2>Group with Validation</h2>
-        <sgds-checkbox-group
+        <sit-checkbox-group
           label="Required Group"
           required
           hasFeedback
           invalidFeedback="Please select at least one option"
         >
-          <sgds-checkbox value="a">Option A</sgds-checkbox>
-          <sgds-checkbox value="b">Option B</sgds-checkbox>
-          <sgds-checkbox value="c">Option C</sgds-checkbox>
-        </sgds-checkbox-group>
+          <sit-checkbox value="a">Option A</sit-checkbox>
+          <sit-checkbox value="b">Option B</sit-checkbox>
+          <sit-checkbox value="c">Option C</sit-checkbox>
+        </sit-checkbox-group>
       </div>
       <div>
         <h2>Custom Validation with noValidate (Checkbox Group)</h2>
         <form id="custom-validation-checkbox-form">
-          <sgds-checkbox-group
+          <sit-checkbox-group
             noValidate
             required
             label="Interests"
@@ -73,18 +73,18 @@
             hasFeedback
             id="custom-validation-checkbox-group"
           >
-            <sgds-checkbox value="sports">Sports</sgds-checkbox>
-            <sgds-checkbox value="music">Music</sgds-checkbox>
-            <sgds-checkbox value="reading">Reading</sgds-checkbox>
-          </sgds-checkbox-group>
-          <sgds-button type="submit">Submit</sgds-button>
-          <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+            <sit-checkbox value="sports">Sports</sit-checkbox>
+            <sit-checkbox value="music">Music</sit-checkbox>
+            <sit-checkbox value="reading">Reading</sit-checkbox>
+          </sit-checkbox-group>
+          <sit-button type="submit">Submit</sit-button>
+          <sit-button type="reset" variant="ghost">Reset</sit-button>
         </form>
         <script>
           const checkboxGroup = document.getElementById("custom-validation-checkbox-group");
           const checkboxForm = document.getElementById("custom-validation-checkbox-form");
 
-          checkboxGroup.addEventListener("sgds-change", e => {
+          checkboxGroup.addEventListener("sit-change", e => {
             if (!e.target.value) {
               e.target.setInvalid(true);
               e.target.invalidFeedback = "Please select at least one interest";
@@ -109,7 +109,7 @@
       <div>
         <h2>Custom Validation with noValidate (Standalone Checkbox)</h2>
         <form id="custom-validation-standalone-form">
-          <sgds-checkbox
+          <sit-checkbox
             noValidate
             required
             hasFeedback="both"
@@ -118,9 +118,9 @@
             id="custom-validation-standalone-checkbox"
           >
             I agree to the Terms and Conditions
-          </sgds-checkbox>
-          <sgds-button type="submit">Submit</sgds-button>
-          <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+          </sit-checkbox>
+          <sit-button type="submit">Submit</sit-button>
+          <sit-button type="reset" variant="ghost">Reset</sit-button>
         </form>
         <script>
           const standaloneCheckbox = document.getElementById("custom-validation-standalone-checkbox");

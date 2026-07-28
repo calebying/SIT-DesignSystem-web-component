@@ -54,8 +54,8 @@
       }
       .toggle {
         padding: 8px 16px;
-        background-color: var(--sgds-surface-raised);
-        border-bottom: 1px solid var(--sgds-border-default);
+        background-color: var(--sit-surface-raised);
+        border-bottom: 1px solid var(--sit-border-default);
         display: flex;
         gap: 8px;
         align-items: center;
@@ -71,148 +71,148 @@
       .toggle-label {
         font-size: 13px;
         font-weight: 500;
-        color: var(--sgds-text-default);
+        color: var(--sit-text-default);
         margin-right: 4px;
       }
     </style>
   </head>
 
   <body>
-    <sgds-masthead fluid></sgds-masthead>
+    <sit-masthead fluid></sit-masthead>
     <div class="toggle">
       <div class="toggle-section">
-        <sgds-icon-button
+        <sit-icon-button
           data-sidebar-toggler="true"
           size="xs"
           variant="ghost"
           name="sidebar-expand"
           onclick="handleToggle()"
-        ></sgds-icon-button>
+        ></sit-icon-button>
       </div>
 
       <div class="toggle-section">
         <span class="toggle-label">Theme:</span>
-        <sgds-icon-button
+        <sit-icon-button
           id="theme-toggler"
           size="xs"
           variant="ghost"
           name="moon"
           onclick="toggleTheme()"
           aria-label="Toggle dark mode"
-        ></sgds-icon-button>
+        ></sit-icon-button>
       </div>
 
       <div class="toggle-section">
         <span class="toggle-label">Set Active:</span>
-        <sgds-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('dashboard')"
-          >Dashboard</sgds-button
+        <sit-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('dashboard')"
+          >Dashboard</sit-button
         >
-        <sgds-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('meetings')"
-          >Meetings</sgds-button
+        <sit-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('meetings')"
+          >Meetings</sit-button
         >
-        <sgds-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('settings')"
-          >Settings</sgds-button
+        <sit-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('settings')"
+          >Settings</sit-button
         >
-        <sgds-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('team-management')"
-          >Team</sgds-button
+        <sit-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('team-management')"
+          >Team</sit-button
         >
-        <sgds-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('refunds')"
-          >Refunds</sgds-button
+        <sit-button data-sidebar-toggler="true" size="sm" variant="ghost" onclick="setActive('refunds')"
+          >Refunds</sit-button
         >
       </div>
     </div>
     <div class="container">
       <div class="sidebar-wrapper">
-                <sgds-sidebar active="meetings" scrim variant="overlay">
+                <sit-sidebar active="meetings" scrim variant="overlay">
           <div slot="upper">brand-name</div>
 
-          <sgds-sidebar-section title="Main" name="main">
-            <sgds-sidebar-group title="Dashboard" name="dashboard">
-              <sgds-icon name="house" slot="icon"></sgds-icon>
-              <sgds-icon name="placeholder" slot="indicator"></sgds-icon>
-              <sgds-sidebar-group title="Summary" name="summary">
-                <sgds-icon name="building" slot="icon"></sgds-icon>
-                <sgds-sidebar-item title="Latest Sales" name="latest-sales">
-                  <sgds-icon name="building" slot="icon"></sgds-icon>
-                  <sgds-icon name="placeholder" slot="indicator"></sgds-icon>
+          <sit-sidebar-section title="Main" name="main">
+            <sit-sidebar-group title="Dashboard" name="dashboard">
+              <sit-icon name="house" slot="icon"></sit-icon>
+              <sit-icon name="placeholder" slot="indicator"></sit-icon>
+              <sit-sidebar-group title="Summary" name="summary">
+                <sit-icon name="building" slot="icon"></sit-icon>
+                <sit-sidebar-item title="Latest Sales" name="latest-sales">
+                  <sit-icon name="building" slot="icon"></sit-icon>
+                  <sit-icon name="placeholder" slot="indicator"></sit-icon>
                   <a href="#"></a>
-                </sgds-sidebar-item>
-                <sgds-sidebar-item title="Refunds" name="refunds"> </sgds-sidebar-item>
-              </sgds-sidebar-group>
+                </sit-sidebar-item>
+                <sit-sidebar-item title="Refunds" name="refunds"> </sit-sidebar-item>
+              </sit-sidebar-group>
 
-              <sgds-sidebar-item title="Meetings" name="meetings">
-                <sgds-icon name="calendar" slot="icon"></sgds-icon>
+              <sit-sidebar-item title="Meetings" name="meetings">
+                <sit-icon name="calendar" slot="icon"></sit-icon>
                 <a href="#"></a>
-              </sgds-sidebar-item>
-              <sgds-sidebar-item title="Gallery" name="gallery">
-                <sgds-icon name="camera" slot="icon"></sgds-icon>
+              </sit-sidebar-item>
+              <sit-sidebar-item title="Gallery" name="gallery">
+                <sit-icon name="camera" slot="icon"></sit-icon>
                 <a href="/playground/combobox.html"></a>
-              </sgds-sidebar-item>
-            </sgds-sidebar-group>
+              </sit-sidebar-item>
+            </sit-sidebar-group>
 
-            <sgds-sidebar-group title="Reports" name="reports">
-              <sgds-icon name="file-text" slot="icon"></sgds-icon>
-              <sgds-sidebar-item title="Yearly" name="yearly">
-                <sgds-icon name="house" slot="icon"></sgds-icon>
-              </sgds-sidebar-item>
-              <sgds-sidebar-item title="Monthly" name="monthly">
-                <sgds-icon name="house" slot="icon"></sgds-icon>
-              </sgds-sidebar-item>
-            </sgds-sidebar-group>
+            <sit-sidebar-group title="Reports" name="reports">
+              <sit-icon name="file-text" slot="icon"></sit-icon>
+              <sit-sidebar-item title="Yearly" name="yearly">
+                <sit-icon name="house" slot="icon"></sit-icon>
+              </sit-sidebar-item>
+              <sit-sidebar-item title="Monthly" name="monthly">
+                <sit-icon name="house" slot="icon"></sit-icon>
+              </sit-sidebar-item>
+            </sit-sidebar-group>
 
-            <sgds-sidebar-item title="Public Members" name="public-members">
-              <sgds-icon name="user-circle" slot="icon"></sgds-icon>
-              <sgds-icon slot="indicator" name="summary"></sgds-icon>
-            </sgds-sidebar-item>
-          </sgds-sidebar-section>
+            <sit-sidebar-item title="Public Members" name="public-members">
+              <sit-icon name="user-circle" slot="icon"></sit-icon>
+              <sit-icon slot="indicator" name="summary"></sit-icon>
+            </sit-sidebar-item>
+          </sit-sidebar-section>
 
-          <sgds-sidebar-section title="Organization" name="organization" separator>
-            <sgds-sidebar-item
+          <sit-sidebar-section title="Organization" name="organization" separator>
+            <sit-sidebar-item
               title="Team Management Team Management Team Management Team Management"
               name="team-management"
             >
-              <sgds-icon name="users" slot="icon"></sgds-icon>
-            </sgds-sidebar-item>
+              <sit-icon name="users" slot="icon"></sit-icon>
+            </sit-sidebar-item>
 
-            <sgds-sidebar-item title="Projects" name="projects">
-              <sgds-icon name="layers" slot="icon"></sgds-icon>
-            </sgds-sidebar-item>
-          </sgds-sidebar-section>
+            <sit-sidebar-item title="Projects" name="projects">
+              <sit-icon name="layers" slot="icon"></sit-icon>
+            </sit-sidebar-item>
+          </sit-sidebar-section>
 
-          <sgds-sidebar-section title="Configuration" name="configuration" collapsible>
-            <sgds-sidebar-item title="Settings" name="settings">
-              <sgds-icon name="gear" slot="icon"></sgds-icon>
-            </sgds-sidebar-item>
-          </sgds-sidebar-section>
+          <sit-sidebar-section title="Configuration" name="configuration" collapsible>
+            <sit-sidebar-item title="Settings" name="settings">
+              <sit-icon name="gear" slot="icon"></sit-icon>
+            </sit-sidebar-item>
+          </sit-sidebar-section>
 
-          <sgds-sidebar-section name="support">
-            <sgds-sidebar-item title="Help & Support" name="help-support">
-              <sgds-icon name="question-circle" slot="icon"></sgds-icon>
+          <sit-sidebar-section name="support">
+            <sit-sidebar-item title="Help & Support" name="help-support">
+              <sit-icon name="question-circle" slot="icon"></sit-icon>
               <span
                 slot="indicator"
-                class="sgds:bg-danger-surface-emphasis sgds:text-fixed-light sgds:rounded-full sgds:w-5 sgds:h-5 sgds:flex sgds:items-center sgds:justify-center sgds:text-label-xs sgds:font-semibold"
+                class="sit:bg-danger-surface-emphasis sit:text-fixed-light sit:rounded-full sit:w-5 sit:h-5 sit:flex sit:items-center sit:justify-center sit:text-label-xs sit:font-semibold"
                 >3</span
               >
-            </sgds-sidebar-item>
+            </sit-sidebar-item>
 
-            <sgds-sidebar-item title="Premium Features" name="premium-features">
-              <sgds-icon name="star" slot="icon"></sgds-icon>
-              <sgds-badge slot="indicator" outlined="" variant="white">3</sgds-badge>
-            </sgds-sidebar-item>
-          </sgds-sidebar-section>
+            <sit-sidebar-item title="Premium Features" name="premium-features">
+              <sit-icon name="star" slot="icon"></sit-icon>
+              <sit-badge slot="indicator" outlined="" variant="white">3</sit-badge>
+            </sit-sidebar-item>
+          </sit-sidebar-section>
 
-          <sgds-sidebar-section slot="lower">
-            <sgds-sidebar-group title="Settings" name="settings-footer">
-              <sgds-icon name="gear" slot="icon"></sgds-icon>
-            </sgds-sidebar-group>
-            <sgds-sidebar-group title="Account" name="account-footer">
-              <sgds-icon name="user-circle" slot="icon"></sgds-icon>
-            </sgds-sidebar-group>
-            <sgds-sidebar-group title="Logout" name="logout">
-              <sgds-icon name="box-arrow-right" slot="icon"></sgds-icon>
-            </sgds-sidebar-group>
-          </sgds-sidebar-section>
-        </sgds-sidebar>
+          <sit-sidebar-section slot="lower">
+            <sit-sidebar-group title="Settings" name="settings-footer">
+              <sit-icon name="gear" slot="icon"></sit-icon>
+            </sit-sidebar-group>
+            <sit-sidebar-group title="Account" name="account-footer">
+              <sit-icon name="user-circle" slot="icon"></sit-icon>
+            </sit-sidebar-group>
+            <sit-sidebar-group title="Logout" name="logout">
+              <sit-icon name="box-arrow-right" slot="icon"></sit-icon>
+            </sit-sidebar-group>
+          </sit-sidebar-section>
+        </sit-sidebar>
       </div>
 
       <div class="content">
@@ -234,9 +234,9 @@
         <div class="example-section">
           <div class="example-title">Components</div>
           <ul style="color: #4b5563; line-height: 1.8">
-            <li><strong>sgds-sidebar</strong> - Main container component</li>
-            <li><strong>sgds-sidebar-section</strong> - Organizes and groups options (NEW!)</li>
-            <li><strong>sgds-sidebar-item</strong> - Individual navigation items</li>
+            <li><strong>sit-sidebar</strong> - Main container component</li>
+            <li><strong>sit-sidebar-section</strong> - Organizes and groups options (NEW!)</li>
+            <li><strong>sit-sidebar-item</strong> - Individual navigation items</li>
           </ul>
         </div>
 
@@ -249,7 +249,7 @@
             <li>Organize items with sidebar sections for better structure</li>
             <li>Supports up to 3 levels of nesting</li>
             <li>Selected state for active item (Meetings)</li>
-            <li>Custom icons using sgds-icon component</li>
+            <li>Custom icons using sit-icon component</li>
             <li>Smooth animations and transitions</li>
           </ul>
         </div>
@@ -266,7 +266,7 @@
         </div>
 
         <div class="example-section">
-          <div class="example-title">sgds-sidebar-section Properties</div>
+          <div class="example-title">sit-sidebar-section Properties</div>
           <ul style="color: #4b5563; line-height: 2; font-family: monospace; font-size: 13px">
             <li><strong>title</strong> (string) - The section header text displayed above the options</li>
             <li><strong>collapsed</strong> (boolean, default: false) - Whether the section is in collapsed state</li>
@@ -275,15 +275,15 @@
             </li>
           </ul>
           <p style="color: #6b7280; margin-top: 12px; font-size: 13px">
-            Example: &lt;sgds-sidebar-section title="Organization" collapsible
-            collapsed="true"&gt;...&lt;/sgds-sidebar-section&gt;
+            Example: &lt;sit-sidebar-section title="Organization" collapsible
+            collapsed="true"&gt;...&lt;/sit-sidebar-section&gt;
           </p>
         </div>
 
         <div class="example-section">
           <div class="example-title">Slot Features</div>
           <ul style="color: #4b5563; line-height: 1.8">
-            <li><strong>Default slot</strong> - Nested sgds-sidebar-item / sgds-sidebar-group children (group only)</li>
+            <li><strong>Default slot</strong> - Nested sit-sidebar-item / sit-sidebar-group children (group only)</li>
             <li><strong>icon slot</strong> - Icon displayed before the label (required at levels 1 &amp; 2)</li>
             <li><strong>indicator slot</strong> - Badge, icon, or any element up to 24×24 px displayed after the label</li>
           </ul>
@@ -307,17 +307,17 @@
     </div>
     <script>
       function handleToggle() {
-        const sidebar = document.querySelector("sgds-sidebar");
+        const sidebar = document.querySelector("sit-sidebar");
         sidebar.toggleCollapsed();
       }
 
       function toggleTheme() {
-        const isDark = document.documentElement.classList.toggle("sgds-night-theme");
+        const isDark = document.documentElement.classList.toggle("sit-night-theme");
         document.getElementById("theme-toggler").name = isDark ? "sun" : "moon";
       }
 
       function setActive(itemName) {
-        const sidebar = document.querySelector("sgds-sidebar");
+        const sidebar = document.querySelector("sit-sidebar");
         if (sidebar) {
           sidebar.active = itemName;
         }

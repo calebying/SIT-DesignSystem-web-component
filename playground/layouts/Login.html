@@ -5,72 +5,72 @@
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
 <body>
-    <sgds-masthead></sgds-masthead>
+    <sit-masthead></sit-masthead>
 
-    <sgds-mainnav>
+    <sit-mainnav>
       <strong slot="brand">My Application</strong>
-    </sgds-mainnav>
+    </sit-mainnav>
 
-    <div class="sgds:flex sgds:items-center sgds:justify-center sgds:bg-surface-default sgds:p-layout-md sgds:py-layout-xl">
-      <div class="sgds:max-w-container-md sgds:w-full">
+    <div class="sit:flex sit:items-center sit:justify-center sit:bg-surface-default sit:p-layout-md sit:py-layout-xl">
+      <div class="sit:max-w-container-md sit:w-full">
 
         <!-- App branding -->
-        <div class="sgds:text-center sgds:mb-layout-sm">
-          <img src="/logo.svg" alt="App logo" class="sgds:h-10 sgds:mx-auto sgds:mb-3" />
-          <h1 class="sgds:text-xl sgds:font-semibold sgds:text-default">My Application</h1>
+        <div class="sit:text-center sit:mb-layout-sm">
+          <img src="/logo.svg" alt="App logo" class="sit:h-10 sit:mx-auto sit:mb-3" />
+          <h1 class="sit:text-xl sit:font-semibold sit:text-default">My Application</h1>
         </div>
 
         <!-- Auth card -->
-        <div class="sgds:bg-surface-raised sgds:rounded-xl sgds:shadow-card sgds:p-component-xl">
-          <div class="sgds:mb-layout-sm">
-            <h2 class="sgds:text-lg sgds:font-semibold sgds:text-default">Welcome back</h2>
-            <p class="sgds:text-sm sgds:text-body-subtle sgds:mt-1">Sign in to your account to continue</p>
+        <div class="sit:bg-surface-raised sit:rounded-xl sit:shadow-card sit:p-component-xl">
+          <div class="sit:mb-layout-sm">
+            <h2 class="sit:text-lg sit:font-semibold sit:text-default">Welcome back</h2>
+            <p class="sit:text-sm sit:text-body-subtle sit:mt-1">Sign in to your account to continue</p>
           </div>
 
-          <form class="sgds:flex sgds:flex-col sgds:gap-component-sm">
-            <sgds-input
+          <form class="sit:flex sit:flex-col sit:gap-component-sm">
+            <sit-input
               label="Email address"
               type="email"
               name="email"
               placeholder="you@agency.gov.sg"
               required
               hasFeedback
-            ></sgds-input>
+            ></sit-input>
 
             <div>
-              <sgds-input
+              <sit-input
                 label="Password"
                 type="password"
                 name="password"
                 required
                 hasFeedback
-              ></sgds-input>
-              <div class="sgds:flex sgds:justify-end sgds:mt-1">
-                <sgds-link size="sm"><a href="/forgot-password">Forgot password?</a></sgds-link>
+              ></sit-input>
+              <div class="sit:flex sit:justify-end sit:mt-1">
+                <sit-link size="sm"><a href="/forgot-password">Forgot password?</a></sit-link>
               </div>
             </div>
 
-            <sgds-button type="submit" variant="primary" fullWidth>
+            <sit-button type="submit" variant="primary" fullWidth>
               Sign in
-            </sgds-button>
+            </sit-button>
 
           </form>
 
           <!-- Divider -->
-          <div class="sgds:flex sgds:items-center sgds:gap-3 sgds:my-component-lg">
-            <sgds-divider></sgds-divider>
-            <span class="sgds:text-xs sgds:text-body-subtle sgds:whitespace-nowrap">or sign in with</span>
-            <sgds-divider></sgds-divider>
+          <div class="sit:flex sit:items-center sit:gap-3 sit:my-component-lg">
+            <sit-divider></sit-divider>
+            <span class="sit:text-xs sit:text-body-subtle sit:whitespace-nowrap">or sign in with</span>
+            <sit-divider></sit-divider>
           </div>
 
           <!-- SSO option -->
-          <sgds-button variant="outline" fullWidth>
-            <sgds-icon slot="leftIcon" name="user-circle"></sgds-icon>
+          <sit-button variant="outline" fullWidth>
+            <sit-icon slot="leftIcon" name="user-circle"></sit-icon>
             Singpass
-          </sgds-button>
+          </sit-button>
 
           <!-- Footer link -->
-          <p class="sgds:text-sm sgds:text-center sgds:text-body-subtle sgds:mt-layout-xs">
+          <p class="sit:text-sm sit:text-center sit:text-body-subtle sit:mt-layout-xs">
             Don't have an account?
             <a href="/register">Sign up</a>
           </p>
@@ -80,5 +80,5 @@
       </div>
     </div>
 
-    <sgds-footer></sgds-footer>
+    <sit-footer></sit-footer>
 </body>

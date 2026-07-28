@@ -10,7 +10,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
-    gap: var(--sgds-gap-md);
+    gap: var(--sit-gap-md);
   }
   .container{
     width: 500px;
@@ -22,7 +22,7 @@
 
 <div class="container">
   <h2>Drawer</h2>
-  <sgds-drawer size="md" placement="start">
+  <sit-drawer size="md" placement="start">
     <h1 slot="title">Title</h1>
     <p slot="description">Description</p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum est vitae erat molestie blandit.
@@ -96,20 +96,20 @@
       Vestibulum porttitor mi nec quam dignissim suscipit. Aenean eu dui a felis interdum eleifend ut non nibh.
       Proin at molestie ante. Etiam vel ipsum vitae nunc porta fermentum.
     <div class="button-group" slot="footer">
-      <sgds-button>Button 1</sgds-button>
-      <sgds-button>Button 2</sgds-button>
+      <sit-button>Button 1</sit-button>
+      <sit-button>Button 2</sit-button>
     </div>
-  </sgds-drawer>
-  <sgds-button>Open Drawer</sgds-button>
+  </sit-drawer>
+  <sit-button>Open Drawer</sit-button>
 </div>
 
 <script>
-  const drawer = document.querySelector('sgds-drawer');
+  const drawer = document.querySelector('sit-drawer');
   const openButton = drawer.nextElementSibling;
   openButton.addEventListener('click', () => drawer.show());
 
-  const checkbox = document.querySelector("sgds-checkbox")
-  checkbox.addEventListener("sgds-check", () => {
+  const checkbox = document.querySelector("sit-checkbox")
+  checkbox.addEventListener("sit-check", () => {
 
   })
 </script>

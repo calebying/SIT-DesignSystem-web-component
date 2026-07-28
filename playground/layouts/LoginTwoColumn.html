@@ -5,43 +5,43 @@
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
 <body>
-  <sgds-masthead></sgds-masthead>
+  <sit-masthead></sit-masthead>
 
-  <sgds-mainnav>
+  <sit-mainnav>
     <strong slot="brand">My Application</strong>
-  </sgds-mainnav>
+  </sit-mainnav>
 
-    <div class="sgds:flex sgds:flex-col lg:sgds:flex-row sgds:bg-surface-default">
+    <div class="sit:flex sit:flex-col lg:sit:flex-row sit:bg-surface-default">
 
       <!-- Left: brand panel (hidden on mobile) -->
-      <div class="sgds:hidden lg:sgds:flex lg:sgds:w-1/2 sgds:flex-col sgds:justify-between sgds:bg-primary-default sgds:p-layout-lg">
+      <div class="sit:hidden lg:sit:flex lg:sit:w-1/2 sit:flex-col sit:justify-between sit:bg-primary-default sit:p-layout-lg">
         <div>
-          <img src="/logo-white.svg" alt="App logo" class="sgds:h-8" />
+          <img src="/logo-white.svg" alt="App logo" class="sit:h-8" />
         </div>
-        <blockquote class="sgds:text-white">
-          <p class="sgds:text-xl sgds:font-medium sgds:leading-relaxed">
+        <blockquote class="sit:text-white">
+          <p class="sit:text-xl sit:font-medium sit:leading-relaxed">
             "Serving citizens with speed and integrity."
           </p>
-          <footer class="sgds:mt-4 sgds:text-sm sgds:opacity-75">— Your Agency Name</footer>
+          <footer class="sit:mt-4 sit:text-sm sit:opacity-75">— Your Agency Name</footer>
         </blockquote>
       </div>
 
       <!-- Right: form panel -->
-      <div class="sgds:flex sgds:w-full lg:sgds:w-1/2 sgds:items-center sgds:justify-center sgds:p-layout-md">
-        <div class="sgds:max-w-container-md sgds:w-full">
-          <div class="sgds:mb-layout-sm">
-            <h2 class="sgds:text-xl sgds:font-semibold sgds:text-default">Sign in</h2>
-            <p class="sgds:text-sm sgds:text-body-subtle sgds:mt-1">Enter your credentials to access the portal</p>
+      <div class="sit:flex sit:w-full lg:sit:w-1/2 sit:items-center sit:justify-center sit:p-layout-md">
+        <div class="sit:max-w-container-md sit:w-full">
+          <div class="sit:mb-layout-sm">
+            <h2 class="sit:text-xl sit:font-semibold sit:text-default">Sign in</h2>
+            <p class="sit:text-sm sit:text-body-subtle sit:mt-1">Enter your credentials to access the portal</p>
           </div>
-          <form class="sgds:flex sgds:flex-col sgds:gap-component-sm">
-            <sgds-input label="Email" type="email" name="email" required hasFeedback></sgds-input>
-            <sgds-input label="Password" type="password" name="password" required hasFeedback></sgds-input>
-            <sgds-button type="submit" variant="primary" fullWidth>Sign in</sgds-button>
+          <form class="sit:flex sit:flex-col sit:gap-component-sm">
+            <sit-input label="Email" type="email" name="email" required hasFeedback></sit-input>
+            <sit-input label="Password" type="password" name="password" required hasFeedback></sit-input>
+            <sit-button type="submit" variant="primary" fullWidth>Sign in</sit-button>
           </form>
         </div>
       </div>
 
     </div>
 
-    <sgds-footer></sgds-footer>
+    <sit-footer></sit-footer>
 </body>

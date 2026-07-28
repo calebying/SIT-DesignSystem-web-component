@@ -4,555 +4,555 @@
 <link href="../../src/css/canvas.css" rel="stylesheet" type="text/css" />
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
-<body class="sgds:p-2-xl sgds:bg-default sgds:text-default">
-  <div class="sgds:sticky sgds:top-0 sgds:flex sgds:justify-between sgds:items-center sgds:mb-2-xl sgds:bg-default sgds:py-2-xl">
+<body class="sit:p-2-xl sit:bg-default sit:text-default">
+  <div class="sit:sticky sit:top-0 sit:flex sit:justify-between sit:items-center sit:mb-2-xl sit:bg-default sit:py-2-xl">
     <h1>Text Colors</h1>
-    <sgds-button id="night-theme" variant="ghost">
-      <sgds-icon name="lightbulb"></sgds-icon>
+    <sit-button id="night-theme" variant="ghost">
+      <sit-icon name="lightbulb"></sit-icon>
       Toggle Theme
-    </sgds-button>
+    </sit-button>
   </div>
   
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Basic Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-default">Standard text color that adapts to theme</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-subtle</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-color-subtle</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-subtle">De-emphasized text for secondary information</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-muted">Further de-emphasized text for tertiary content</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-inverse</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-color-inverse</code></sgds-table-cell>
-        <sgds-table-cell><div class="sgds:bg-surface-inverse sgds:p-md"><span class="sgds:text-inverse">Text that contrasts with inverted backgrounds</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-transparent</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-color-transparent</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-transparent">Fully transparent text (invisible)</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-default">Standard text color that adapts to theme</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-subtle</code></sit-table-cell>
+        <sit-table-cell><code>--sit-color-subtle</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-subtle">De-emphasized text for secondary information</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-color-muted</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-muted">Further de-emphasized text for tertiary content</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-inverse</code></sit-table-cell>
+        <sit-table-cell><code>--sit-color-inverse</code></sit-table-cell>
+        <sit-table-cell><div class="sit:bg-surface-inverse sit:p-md"><span class="sit:text-inverse">Text that contrasts with inverted backgrounds</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-transparent</code></sit-table-cell>
+        <sit-table-cell><code>--sit-color-transparent</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-transparent">Fully transparent text (invisible)</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Fixed Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-fixed-light">Always light text (shown on dark background)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-fixed-dark">Always dark text (shown on light background)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-fixed-light">Always light text (shown on dark background)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-fixed-dark">Always dark text (shown on light background)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Primary Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-primary-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-primary-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-primary-default">Standard primary text color</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-primary-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-primary-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-primary-emphasis">Emphasized primary text</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-primary-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-primary-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-primary-fixed-light">Always light primary text (on dark bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-primary-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-primary-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-primary-fixed-dark">Always dark primary text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-primary-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-primary-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-primary-default">Standard primary text color</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-primary-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-primary-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-primary-emphasis">Emphasized primary text</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-primary-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-primary-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-primary-fixed-light">Always light primary text (on dark bg)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-primary-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-primary-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-primary-fixed-dark">Always dark primary text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Accent Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-accent-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-accent-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-accent-default">Standard accent text color</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-accent-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-accent-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-accent-emphasis">Emphasized accent text</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-accent-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-accent-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-accent-fixed-light">Always light accent text (on dark bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-accent-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-accent-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-accent-fixed-dark">Always dark accent text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-accent-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-accent-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-accent-default">Standard accent text color</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-accent-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-accent-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-accent-emphasis">Emphasized accent text</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-accent-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-accent-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-accent-fixed-light">Always light accent text (on dark bg)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-accent-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-accent-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-accent-fixed-dark">Always dark accent text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Success Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-success-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-success-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-success-default">Standard success text color</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-success-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-success-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-success-emphasis">Emphasized success text</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-success-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-success-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-success-fixed-light">Always light success text (on dark bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-success-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-success-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-success-fixed-dark">Always dark success text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-success-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-success-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-success-default">Standard success text color</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-success-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-success-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-success-emphasis">Emphasized success text</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-success-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-success-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-success-fixed-light">Always light success text (on dark bg)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-success-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-success-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-success-fixed-dark">Always dark success text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Danger Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-danger-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-danger-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-danger-default">Standard danger text color</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-danger-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-danger-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-danger-emphasis">Emphasized danger text</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-danger-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-danger-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-danger-fixed-light">Always light danger text (on dark bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-danger-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-danger-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-danger-fixed-dark">Always dark danger text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-danger-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-danger-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-danger-default">Standard danger text color</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-danger-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-danger-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-danger-emphasis">Emphasized danger text</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-danger-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-danger-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-danger-fixed-light">Always light danger text (on dark bg)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-danger-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-danger-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-danger-fixed-dark">Always dark danger text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Warning Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-warning-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-warning-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-warning-default">Standard warning text color</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-warning-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-warning-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-warning-emphasis">Emphasized warning text</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-warning-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-warning-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-warning-fixed-light">Always light warning text (on dark bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-warning-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-warning-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-warning-fixed-dark">Always dark warning text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-warning-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-warning-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-warning-default">Standard warning text color</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-warning-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-warning-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-warning-emphasis">Emphasized warning text</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-warning-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-warning-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-warning-fixed-light">Always light warning text (on dark bg)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-warning-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-warning-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-warning-fixed-dark">Always dark warning text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Purple Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-purple-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-purple-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-purple-default">Standard purple text color</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-purple-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-purple-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-purple-emphasis">Emphasized purple text</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-purple-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-purple-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-purple-fixed-light">Always light purple text (on dark bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-purple-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-purple-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-purple-fixed-dark">Always dark purple text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-purple-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-purple-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-purple-default">Standard purple text color</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-purple-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-purple-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-purple-emphasis">Emphasized purple text</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-purple-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-purple-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-purple-fixed-light">Always light purple text (on dark bg)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-purple-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-purple-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-purple-fixed-dark">Always dark purple text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Cyan Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-cyan-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-cyan-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-cyan-default">Standard cyan text color</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-cyan-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-cyan-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-cyan-emphasis">Emphasized cyan text</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-cyan-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-cyan-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-cyan-fixed-light">Always light cyan text (on dark bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-cyan-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-cyan-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-cyan-fixed-dark">Always dark cyan text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-cyan-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-cyan-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-cyan-default">Standard cyan text color</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-cyan-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-cyan-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-cyan-emphasis">Emphasized cyan text</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-cyan-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-cyan-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-cyan-fixed-light">Always light cyan text (on dark bg)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-cyan-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-cyan-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-cyan-fixed-dark">Always dark cyan text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Neutral Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-neutral-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-neutral-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-neutral-default">Standard neutral text color</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-neutral-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-neutral-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-neutral-emphasis">Emphasized neutral text</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-neutral-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-neutral-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-neutral-fixed-light">Always light neutral text (on dark bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-neutral-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-neutral-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-neutral-fixed-dark">Always dark neutral text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-neutral-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-neutral-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-neutral-default">Standard neutral text color</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-neutral-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-neutral-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-neutral-emphasis">Emphasized neutral text</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-neutral-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-neutral-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-neutral-fixed-light">Always light neutral text (on dark bg)</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-neutral-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-neutral-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-neutral-fixed-dark">Always dark neutral text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Display Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-display-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-display-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-display-default">Display text default</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-display-subtle</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-display-color-subtle</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-display-subtle">Display text subtle</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-display-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-display-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-display-default">Display text default</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-display-subtle</code></sit-table-cell>
+        <sit-table-cell><code>--sit-display-color-subtle</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-display-subtle">Display text subtle</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Heading Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-heading-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-heading-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-heading-default">Heading text default</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-heading-subtle</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-heading-color-subtle</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-heading-subtle">Heading text subtle</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-heading-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-heading-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-heading-default">Heading text default</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-heading-subtle</code></sit-table-cell>
+        <sit-table-cell><code>--sit-heading-color-subtle</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-heading-subtle">Heading text subtle</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Body Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-body-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-body-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-body-default">Body text default</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-body-subtle</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-body-color-subtle</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-body-subtle">Body text subtle</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-body-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-body-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-body-default">Body text default</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-body-subtle</code></sit-table-cell>
+        <sit-table-cell><code>--sit-body-color-subtle</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-body-subtle">Body text subtle</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Label Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-label-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-label-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-label-default">Label text default</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-label-subtle</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-label-color-subtle</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-label-subtle">Label text subtle</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-label-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-label-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-label-default">Label text default</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-label-subtle</code></sit-table-cell>
+        <sit-table-cell><code>--sit-label-color-subtle</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-label-subtle">Label text subtle</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Link Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-link-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-link-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-link-default">Link text default</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-link-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-link-color-emphasis</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-link-emphasis">Link text emphasis</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-link-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-link-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-link-default">Link text default</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-link-emphasis</code></sit-table-cell>
+        <sit-table-cell><code>--sit-link-color-emphasis</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-link-emphasis">Link text emphasis</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Form Text Colors</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-form-default">Form text default</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-subtle</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-color-subtle</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-form-subtle">Form text subtle</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-muted</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-color-muted</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-form-muted">Form text muted</span></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-inverse</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-color-inverse</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-form-inverse">Form text inverse</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-color-fixed-light</code></sgds-table-cell>
-        <sgds-table-cell><div class="dark-bg"><span class="sgds:text-form-fixed-light">Form text fixed-light</span></div></sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-form-fixed-dark">Form text fixed-dark</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-form-default">Form text default</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-subtle</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-color-subtle</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-form-subtle">Form text subtle</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-muted</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-color-muted</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-form-muted">Form text muted</span></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-inverse</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-color-inverse</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-form-inverse">Form text inverse</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-fixed-light</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-color-fixed-light</code></sit-table-cell>
+        <sit-table-cell><div class="dark-bg"><span class="sit:text-form-fixed-light">Form text fixed-light</span></div></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-form-fixed-dark">Form text fixed-dark</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Form Primary Text Color</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-primary-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-primary-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-form-primary-default">Form primary text</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-primary-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-primary-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-form-primary-default">Form primary text</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Form Success Text Color</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-success-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-success-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-form-success-default">Form success text</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-success-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-success-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-form-success-default">Form success text</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Form Danger Text Color</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-form-danger-default</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-form-danger-color-default</code></sgds-table-cell>
-        <sgds-table-cell><span class="sgds:text-form-danger-default">Form danger text</span></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-form-danger-default</code></sit-table-cell>
+        <sit-table-cell><code>--sit-form-danger-color-default</code></sit-table-cell>
+        <sit-table-cell><span class="sit:text-form-danger-default">Form danger text</span></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code>sgds:text-primary-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><code>--sgds-primary-color-fixed-dark</code></sgds-table-cell>
-        <sgds-table-cell><div class="light-bg"><span class="sgds:text-primary-fixed-dark">Always dark primary text (on light bg)</span></div></sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:text-primary-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><code>--sit-primary-color-fixed-dark</code></sit-table-cell>
+        <sit-table-cell><div class="light-bg"><span class="sit:text-primary-fixed-dark">Always dark primary text (on light bg)</span></div></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
   <section>
     <h2>Combined Examples</h2>
     
-    <div class="sgds:bg-surface-raised sgds:p-lg sgds:mb-md">
-      <h3 class="sgds:text-default sgds:mb-sm">Card with Default Text</h3>
-      <p class="sgds:text-subtle sgds:mb-sm">This is subtle text for secondary information like descriptions or metadata.</p>
-      <p class="sgds:text-muted">This is muted text for tertiary content or less important details.</p>
+    <div class="sit:bg-surface-raised sit:p-lg sit:mb-md">
+      <h3 class="sit:text-default sit:mb-sm">Card with Default Text</h3>
+      <p class="sit:text-subtle sit:mb-sm">This is subtle text for secondary information like descriptions or metadata.</p>
+      <p class="sit:text-muted">This is muted text for tertiary content or less important details.</p>
     </div>
 
-    <div class="sgds:bg-surface-inverse sgds:p-lg sgds:mb-md">
-      <h3 class="sgds:text-inverse sgds:mb-sm">Inverse Surface with Inverse Text</h3>
-      <p class="sgds:text-fixed-light">Fixed light text ensures readability on dark surfaces regardless of theme.</p>
+    <div class="sit:bg-surface-inverse sit:p-lg sit:mb-md">
+      <h3 class="sit:text-inverse sit:mb-sm">Inverse Surface with Inverse Text</h3>
+      <p class="sit:text-fixed-light">Fixed light text ensures readability on dark surfaces regardless of theme.</p>
     </div>
 
-    <div class="sgds:bg-surface-raised sgds:p-lg sgds:mb-md">
-      <h3 class="sgds:text-default sgds:mb-sm">Text Hierarchy Example</h3>
-      <p class="sgds:text-default sgds:mb-sm">
+    <div class="sit:bg-surface-raised sit:p-lg sit:mb-md">
+      <h3 class="sit:text-default sit:mb-sm">Text Hierarchy Example</h3>
+      <p class="sit:text-default sit:mb-sm">
         <strong>Primary content</strong> uses default text color for maximum readability.
       </p>
-      <p class="sgds:text-subtle sgds:mb-sm">
+      <p class="sit:text-subtle sit:mb-sm">
         Secondary information uses subtle text to create visual hierarchy.
       </p>
-      <p class="sgds:text-muted">
+      <p class="sit:text-muted">
         Tertiary or supplementary details use muted text.
       </p>
     </div>
 
-    <div class="sgds:mb-md">
-      <h3 class="sgds:mb-sm">Alert-like Component</h3>
-      <div class="sgds:bg-surface-raised sgds:p-lg">
-        <h4 class="sgds:text-default">Alert Title</h4>
-        <p class="sgds:text-subtle sgds:mb-sm">This is the main alert message using subtle text.</p>
-        <p class="sgds:text-muted">Additional context or details in muted text.</p>
+    <div class="sit:mb-md">
+      <h3 class="sit:mb-sm">Alert-like Component</h3>
+      <div class="sit:bg-surface-raised sit:p-lg">
+        <h4 class="sit:text-default">Alert Title</h4>
+        <p class="sit:text-subtle sit:mb-sm">This is the main alert message using subtle text.</p>
+        <p class="sit:text-muted">Additional context or details in muted text.</p>
       </div>
     </div>
   </section>
@@ -562,10 +562,10 @@
     nightBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const html = document.querySelector("html");
-      if (html.classList.contains("sgds-night-theme")) {
-        html.classList.remove("sgds-night-theme");
+      if (html.classList.contains("sit-night-theme")) {
+        html.classList.remove("sit-night-theme");
       } else {
-        html.classList.add("sgds-night-theme");
+        html.classList.add("sit-night-theme");
       }
     });
   </script>

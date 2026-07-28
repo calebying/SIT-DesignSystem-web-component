@@ -4,11 +4,11 @@
 <link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
 <style>
   body {
-    padding: var(--sgds-padding-lg);
+    padding: var(--sit-padding-lg);
   }
 
   body > div {
-    max-width: var(--sgds-dimension-768);
+    max-width: var(--sit-dimension-768);
     margin: 0 auto;
   }
 </style>
@@ -17,7 +17,7 @@
   <!-- Modal Example -->
 
   <!-- <h2> Select populated by menuList prop</h2>
-  <sgds-select
+  <sit-select
     id="select-example"
     label="Select label"
     hinttext="Select an option"
@@ -25,11 +25,11 @@
     required
     hasFeedback
     value="1"
-  ></sgds-select> -->
+  ></sit-select> -->
 
   <h2> Select populated by slots</h2>
   <form>
-  <sgds-select
+  <sit-select
     label="Select label"
     hinttext="Select an option"
     placeholder="Select an option"
@@ -37,24 +37,24 @@
     hasFeedback
     menuIsOpen
 
-  >  <sgds-select-option  value="1">Option 1</sgds-select-option>
-  <sgds-select-option  value="2">Option 2</sgds-select-option>
-  <sgds-select-option value="3">Option 3</sgds-select-option></sgds-select>
+  >  <sit-select-option  value="1">Option 1</sit-select-option>
+  <sit-select-option  value="2">Option 2</sit-select-option>
+  <sit-select-option value="3">Option 3</sit-select-option></sit-select>
 <button type="submit">Sub</button>
 <button type="reset">reset</button>
  </form>
 
  <h4>Loading state</h4>
- <sgds-select loading>
-  <sgds-select-option  value="1">Option 1</sgds-select-option>
-  <sgds-select-option  value="2">Option 2</sgds-select-option>
-  <sgds-select-option value="3">Option 3</sgds-select-option>
- </sgds-select>
+ <sit-select loading>
+  <sit-select-option  value="1">Option 1</sit-select-option>
+  <sit-select-option  value="2">Option 2</sit-select-option>
+  <sit-select-option value="3">Option 3</sit-select-option>
+ </sit-select>
 
   <h2>Custom Validation with noValidate</h2>
   <p>Set <code>noValidate</code> to disable built-in constraint validation. Use <code>setInvalid(bool)</code> and <code>invalidFeedback</code> to control the state programmatically.</p>
   <form id="custom-validation-form">
-    <sgds-select
+    <sit-select
       id="custom-validation-select"
       noValidate
       hasFeedback
@@ -62,11 +62,11 @@
       hintText="Must select a fruit starting with 'A'"
       placeholder="Select a fruit"
     >
-      <sgds-select-option value="apple">Apple</sgds-select-option>
-      <sgds-select-option value="apricot">Apricot</sgds-select-option>
-      <sgds-select-option value="banana">Banana</sgds-select-option>
-      <sgds-select-option value="durian">Durian</sgds-select-option>
-    </sgds-select>
+      <sit-select-option value="apple">Apple</sit-select-option>
+      <sit-select-option value="apricot">Apricot</sit-select-option>
+      <sit-select-option value="banana">Banana</sit-select-option>
+      <sit-select-option value="durian">Durian</sit-select-option>
+    </sit-select>
     <div style="margin-top: 1rem; display: flex; gap: 0.5rem;">
       <button type="submit">Submit</button>
       <button type="reset">Reset</button>
@@ -76,7 +76,7 @@
     const select = document.querySelector("#custom-validation-select");
     const form = document.querySelector("#custom-validation-form");
 
-    select.addEventListener("sgds-change", e => {
+    select.addEventListener("sit-change", e => {
       if (!e.target.value) {
         e.target.setInvalid(false);
         return;
@@ -101,32 +101,32 @@
     });
   </script>
 
-  <!-- <sgds-select
+  <!-- <sit-select
     label="Using slots with some disabled options"
     hinttext="Select an option"
     placeholder="Select an option"
     value="1"
   >
-  <sgds-select-option  value="1">Option 1</sgds-select-option>
-  <sgds-select-option  value="2">Option 2</sgds-select-option>
-  <sgds-select-option value="3">Option 3</sgds-select-option>
-</sgds-select>
-  <sgds-select
+  <sit-select-option  value="1">Option 1</sit-select-option>
+  <sit-select-option  value="2">Option 2</sit-select-option>
+  <sit-select-option value="3">Option 3</sit-select-option>
+</sit-select>
+  <sit-select
     label="Readonly select"
     hinttext="Select an option"
     placeholder="Select an option"
     value="1"
     readonly
   >
-  <sgds-select-option  value="1">Option 1</sgds-select-option>
-  <sgds-select-option  value="2">Option 2</sgds-select-option>
-  <sgds-select-option value="3">Option 3</sgds-select-option>
-</sgds-select>
- <sgds-select
+  <sit-select-option  value="1">Option 1</sit-select-option>
+  <sit-select-option  value="2">Option 2</sit-select-option>
+  <sit-select-option value="3">Option 3</sit-select-option>
+</sit-select>
+ <sit-select
     label="Empty menu (slot)"
     hinttext="Select an option"
     placeholder="Select an option"
-  ></sgds-select> -->
+  ></sit-select> -->
 
 </div>
 <!-- 
@@ -343,7 +343,7 @@
 </script> -->
 
 <script>
-  window.addEventListener("sgds-change", () => console.log("sgds-change"));
-  window.addEventListener("sgds-blur", () => console.log("sgds-blur"));
-  window.addEventListener("sgds-focus", () => console.log("sgds-focus"));
+  window.addEventListener("sit-change", () => console.log("sit-change"));
+  window.addEventListener("sit-blur", () => console.log("sit-blur"));
+  window.addEventListener("sit-focus", () => console.log("sit-focus"));
 </script>

@@ -4,91 +4,91 @@
 <link href="../../src/css/canvas.css" rel="stylesheet" type="text/css" />
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
-<body class="sgds:p-2-xl sgds:bg-default sgds:text-default">
-  <div class="sgds:sticky sgds:top-0 sgds:flex sgds:justify-between sgds:items-center sgds:mb-2-xl sgds:bg-default sgds:py-2-xl">
+<body class="sit:p-2-xl sit:bg-default sit:text-default">
+  <div class="sit:sticky sit:top-0 sit:flex sit:justify-between sit:items-center sit:mb-2-xl sit:bg-default sit:py-2-xl">
     <h1>Component Padding</h1>
-    <sgds-button id="night-theme" variant="ghost">
-      <sgds-icon name="lightbulb"></sgds-icon>
+    <sit-button id="night-theme" variant="ghost">
+      <sit-icon name="lightbulb"></sit-icon>
       Toggle Theme
-    </sgds-button>
+    </sit-button>
   </div>
 
-  <p class="sgds:mb-2-xl sgds:text-subtle">Component padding tokens control inset spacing within individual UI components (buttons, cards, badges, list items). Values scale across breakpoints: mobile / tablet (≥ 1024px) / desktop (≥ 1440px).</p>
+  <p class="sit:mb-2-xl sit:text-subtle">Component padding tokens control inset spacing within individual UI components (buttons, cards, badges, list items). Values scale across breakpoints: mobile / tablet (≥ 1024px) / desktop (≥ 1440px).</p>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Component Padding</h2>
-    <sgds-table>
-      <sgds-table-row>
-        <sgds-table-head>SGDS Tailwind Token</sgds-table-head>
-        <sgds-table-head>CSS Variable</sgds-table-head>
-        <sgds-table-head>Mobile / Tablet / Desktop</sgds-table-head>
-        <sgds-table-head>Preview</sgds-table-head>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:p-component-xs</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-component-padding-xs</code></sgds-table-cell>
-        <sgds-table-cell>16px / 20px / 24px</sgds-table-cell>
-        <sgds-table-cell>
-          <div class="sgds:bg-accent-surface-muted sgds:border sgds:border-accent-default sgds:rounded-sm sgds:inline-block">
-            <div class="sgds:p-component-xs sgds:bg-accent-default sgds:text-fixed-light sgds:rounded-sm sgds:text-label-sm">Button</div>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Mobile / Tablet / Desktop</sit-table-head>
+        <sit-table-head>Preview</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:p-component-xs</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-component-padding-xs</code></sit-table-cell>
+        <sit-table-cell>16px / 20px / 24px</sit-table-cell>
+        <sit-table-cell>
+          <div class="sit:bg-accent-surface-muted sit:border sit:border-accent-default sit:rounded-sm sit:inline-block">
+            <div class="sit:p-component-xs sit:bg-accent-default sit:text-fixed-light sit:rounded-sm sit:text-label-sm">Button</div>
           </div>
-        </sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:p-component-sm</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-component-padding-sm</code></sgds-table-cell>
-        <sgds-table-cell>20px / 24px / 32px</sgds-table-cell>
-        <sgds-table-cell>
-          <div class="sgds:bg-accent-surface-muted sgds:border sgds:border-accent-default sgds:rounded-sm sgds:inline-block">
-            <div class="sgds:p-component-sm sgds:bg-accent-default sgds:text-fixed-light sgds:rounded-sm sgds:text-label-sm">Button</div>
+        </sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:p-component-sm</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-component-padding-sm</code></sit-table-cell>
+        <sit-table-cell>20px / 24px / 32px</sit-table-cell>
+        <sit-table-cell>
+          <div class="sit:bg-accent-surface-muted sit:border sit:border-accent-default sit:rounded-sm sit:inline-block">
+            <div class="sit:p-component-sm sit:bg-accent-default sit:text-fixed-light sit:rounded-sm sit:text-label-sm">Button</div>
           </div>
-        </sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:p-component-md</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-component-padding-md</code></sgds-table-cell>
-        <sgds-table-cell>24px / 32px / 48px</sgds-table-cell>
-        <sgds-table-cell>
-          <div class="sgds:bg-accent-surface-muted sgds:border sgds:border-accent-default sgds:rounded-sm sgds:inline-block">
-            <div class="sgds:p-component-md sgds:bg-accent-default sgds:text-fixed-light sgds:rounded-sm sgds:text-label-sm">Button</div>
+        </sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:p-component-md</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-component-padding-md</code></sit-table-cell>
+        <sit-table-cell>24px / 32px / 48px</sit-table-cell>
+        <sit-table-cell>
+          <div class="sit:bg-accent-surface-muted sit:border sit:border-accent-default sit:rounded-sm sit:inline-block">
+            <div class="sit:p-component-md sit:bg-accent-default sit:text-fixed-light sit:rounded-sm sit:text-label-sm">Button</div>
           </div>
-        </sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:p-component-lg</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-component-padding-lg</code></sgds-table-cell>
-        <sgds-table-cell>32px / 48px / 64px</sgds-table-cell>
-        <sgds-table-cell>
-          <div class="sgds:bg-accent-surface-muted sgds:border sgds:border-accent-default sgds:rounded-sm sgds:inline-block">
-            <div class="sgds:p-component-lg sgds:bg-accent-default sgds:text-fixed-light sgds:rounded-sm sgds:text-label-sm">Button</div>
+        </sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:p-component-lg</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-component-padding-lg</code></sit-table-cell>
+        <sit-table-cell>32px / 48px / 64px</sit-table-cell>
+        <sit-table-cell>
+          <div class="sit:bg-accent-surface-muted sit:border sit:border-accent-default sit:rounded-sm sit:inline-block">
+            <div class="sit:p-component-lg sit:bg-accent-default sit:text-fixed-light sit:rounded-sm sit:text-label-sm">Button</div>
           </div>
-        </sgds-table-cell>
-      </sgds-table-row>
-      <sgds-table-row>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">sgds:p-component-xl</code></sgds-table-cell>
-        <sgds-table-cell><code class="sgds:bg-surface-raised sgds:px-xs sgds:py-3-xs sgds:rounded-sm sgds:font-mono">--sgds-component-padding-xl</code></sgds-table-cell>
-        <sgds-table-cell>48px / 64px / 96px</sgds-table-cell>
-        <sgds-table-cell>
-          <div class="sgds:bg-accent-surface-muted sgds:border sgds:border-accent-default sgds:rounded-sm sgds:inline-block">
-            <div class="sgds:p-component-xl sgds:bg-accent-default sgds:text-fixed-light sgds:rounded-sm sgds:text-label-sm">Button</div>
+        </sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">sit:p-component-xl</code></sit-table-cell>
+        <sit-table-cell><code class="sit:bg-surface-raised sit:px-xs sit:py-3-xs sit:rounded-sm sit:font-mono">--sit-component-padding-xl</code></sit-table-cell>
+        <sit-table-cell>48px / 64px / 96px</sit-table-cell>
+        <sit-table-cell>
+          <div class="sit:bg-accent-surface-muted sit:border sit:border-accent-default sit:rounded-sm sit:inline-block">
+            <div class="sit:p-component-xl sit:bg-accent-default sit:text-fixed-light sit:rounded-sm sit:text-label-sm">Button</div>
           </div>
-        </sgds-table-cell>
-      </sgds-table-row>
-    </sgds-table>
+        </sit-table-cell>
+      </sit-table-row>
+    </sit-table>
   </section>
 
-  <section class="sgds:mb-2-xl">
+  <section class="sit:mb-2-xl">
     <h2>Example: Component Size Variants</h2>
-    <p class="sgds:mb-md sgds:text-subtle">Applying different component padding tokens to produce small, medium, and large button-like elements.</p>
-    <div class="sgds:flex sgds:items-end sgds:gap-layout-sm">
-      <div class="sgds:bg-primary-default sgds:text-fixed-light sgds:rounded-md sgds:py-component-xs sgds:px-layout-xs">
-        <span class="sgds:text-label-sm">Small</span>
+    <p class="sit:mb-md sit:text-subtle">Applying different component padding tokens to produce small, medium, and large button-like elements.</p>
+    <div class="sit:flex sit:items-end sit:gap-layout-sm">
+      <div class="sit:bg-primary-default sit:text-fixed-light sit:rounded-md sit:py-component-xs sit:px-layout-xs">
+        <span class="sit:text-label-sm">Small</span>
       </div>
-      <div class="sgds:bg-primary-default sgds:text-fixed-light sgds:rounded-md sgds:py-component-sm sgds:px-layout-sm">
-        <span class="sgds:text-label-md">Medium</span>
+      <div class="sit:bg-primary-default sit:text-fixed-light sit:rounded-md sit:py-component-sm sit:px-layout-sm">
+        <span class="sit:text-label-md">Medium</span>
       </div>
-      <div class="sgds:bg-primary-default sgds:text-fixed-light sgds:rounded-md sgds:py-component-md sgds:px-layout-md">
-        <span class="sgds:text-label-lg">Large</span>
+      <div class="sit:bg-primary-default sit:text-fixed-light sit:rounded-md sit:py-component-md sit:px-layout-md">
+        <span class="sit:text-label-lg">Large</span>
       </div>
     </div>
   </section>
@@ -98,10 +98,10 @@
     nightBtn.addEventListener("click", (e) => {
       e.preventDefault();
       const html = document.querySelector("html");
-      if (html.classList.contains("sgds-night-theme")) {
-        html.classList.remove("sgds-night-theme");
+      if (html.classList.contains("sit-night-theme")) {
+        html.classList.remove("sit-night-theme");
       } else {
-        html.classList.add("sgds-night-theme");
+        html.classList.add("sit-night-theme");
       }
     });
   </script>

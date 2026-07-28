@@ -25,68 +25,68 @@
 <h2>States</h2>
 
 <h3>Default</h3>
-<sgds-input label="Default" value="Normal input"></sgds-input>
+<sit-input label="Default" value="Normal input"></sit-input>
 
 <h3>Disabled</h3>
-<sgds-input label="Disabled" value="Disabled input" disabled></sgds-input>
+<sit-input label="Disabled" value="Disabled input" disabled></sit-input>
 
 <h3>Readonly</h3>
-<sgds-input label="Readonly" value="Readonly input" readonly></sgds-input>
+<sit-input label="Readonly" value="Readonly input" readonly></sit-input>
 
 <h3>Invalid</h3>
-<sgds-input
+<sit-input
   label="Invalid"
   value="Bad value"
   invalid
   hasFeedback="both"
   invalidFeedback="This field has an error"
-></sgds-input>
+></sit-input>
 
 <h3>Valid</h3>
-<sgds-input label="Valid" value="Good value" valid></sgds-input>
+<sit-input label="Valid" value="Good value" valid></sit-input>
 
 <h2>Prefix / Suffix Permutations</h2>
 
 <h3>Short prefix only</h3>
-<sgds-input label="Amount" prefix="$" value="100"></sgds-input>
+<sit-input label="Amount" prefix="$" value="100"></sit-input>
 
 <h3>Short suffix only</h3>
-<sgds-input label="Weight" suffix="kg" value="75"></sgds-input>
+<sit-input label="Weight" suffix="kg" value="75"></sit-input>
 
 <h3>Short prefix + short suffix</h3>
-<sgds-input label="Price" prefix="$" suffix=".00" value="50"></sgds-input>
+<sit-input label="Price" prefix="$" suffix=".00" value="50"></sit-input>
 
 <h3>Long prefix (URL) - THE BUG CASE</h3>
-<sgds-input
+<sit-input
   label="Endpoint"
   prefix="http://localhost:3000/core-sec/product-management/sample-app/edit"
   value="test"
-></sgds-input>
+></sit-input>
 
 <h3>Long prefix (URL) + readonly</h3>
-<sgds-input
+<sit-input
   label="Endpoint"
   prefix="http://localhost:3000/core-sec/product-management/sample-app/edit"
   value="Readonly value"
   readonly
-></sgds-input>
+></sit-input>
 
 <h3>Long prefix + disabled</h3>
-<sgds-input
+<sit-input
   label="Endpoint"
   prefix="http://localhost:3000/core-sec/product-management/sample-app/edit"
   value="Disabled"
   disabled
-></sgds-input>
+></sit-input>
 
 <h3>Long suffix</h3>
-<sgds-input label="Domain" suffix="@government.gov.sg" value="user.name"></sgds-input>
+<sit-input label="Domain" suffix="@government.gov.sg" value="user.name"></sit-input>
 
 <h3>Long prefix + long suffix</h3>
-<sgds-input label="Full URL" prefix="https://api.gov.sg/" suffix="/v2/endpoint" value="service-name"></sgds-input>
+<sit-input label="Full URL" prefix="https://api.gov.sg/" suffix="/v2/endpoint" value="service-name"></sit-input>
 
 <h3>Prefix + suffix + invalid</h3>
-<sgds-input
+<sit-input
   label="Amount"
   prefix="$"
   suffix=".00"
@@ -94,144 +94,144 @@
   invalid
   hasFeedback="both"
   invalidFeedback="Amount is required"
-></sgds-input>
+></sit-input>
 
 <h2>Loading State</h2>
 
 <h3>Loading (no prefix/suffix)</h3>
-<sgds-input label="Lookup" value="Searching..." loading></sgds-input>
+<sit-input label="Lookup" value="Searching..." loading></sit-input>
 
 <h3>Loading + prefix</h3>
-<sgds-input label="Amount" prefix="$" value="100" loading></sgds-input>
+<sit-input label="Amount" prefix="$" value="100" loading></sit-input>
 
 <h3>Loading + suffix</h3>
-<sgds-input label="Weight" suffix="kg" value="75" loading></sgds-input>
+<sit-input label="Weight" suffix="kg" value="75" loading></sit-input>
 
 <h3>Loading + prefix + suffix</h3>
-<sgds-input label="Price" prefix="$" suffix=".00" value="50" loading></sgds-input>
+<sit-input label="Price" prefix="$" suffix=".00" value="50" loading></sit-input>
 
 <h3>Loading + long prefix</h3>
-<sgds-input label="Endpoint" prefix="http://localhost:3000/api" value="loading" loading></sgds-input>
+<sit-input label="Endpoint" prefix="http://localhost:3000/api" value="loading" loading></sit-input>
 
 <h2>Action Slot</h2>
 
 <h3>Action button only</h3>
-<sgds-input label="Search" value="query">
-  <sgds-icon-button slot="action" variant="ghost" name="search"></sgds-icon-button>
-</sgds-input>
+<sit-input label="Search" value="query">
+  <sit-icon-button slot="action" variant="ghost" name="search"></sit-icon-button>
+</sit-input>
 
 <h3>Action button + prefix</h3>
-<sgds-input label="URL" prefix="https://" value="example.com">
-  <sgds-icon-button slot="action" variant="ghost" name="link"></sgds-icon-button>
-</sgds-input>
+<sit-input label="URL" prefix="https://" value="example.com">
+  <sit-icon-button slot="action" variant="ghost" name="link"></sit-icon-button>
+</sit-input>
 
 <h3>Action button + suffix</h3>
-<sgds-input label="Email" suffix="@gov.sg" value="user">
-  <sgds-icon-button slot="action" variant="ghost" name="mail"></sgds-icon-button>
-</sgds-input>
+<sit-input label="Email" suffix="@gov.sg" value="user">
+  <sit-icon-button slot="action" variant="ghost" name="mail"></sit-icon-button>
+</sit-input>
 
 <h3>Action button + prefix + suffix</h3>
-<sgds-input label="Price" prefix="$" suffix=".00" value="99">
-  <sgds-icon-button slot="action" variant="ghost" name="check"></sgds-icon-button>
-</sgds-input>
+<sit-input label="Price" prefix="$" suffix=".00" value="99">
+  <sit-icon-button slot="action" variant="ghost" name="check"></sit-icon-button>
+</sit-input>
 
 <h3>Action button + loading</h3>
-<sgds-input label="Validating" value="checking..." loading>
-  <sgds-icon-button slot="action" variant="ghost" name="refresh-cw"></sgds-icon-button>
-</sgds-input>
+<sit-input label="Validating" value="checking..." loading>
+  <sit-icon-button slot="action" variant="ghost" name="refresh-cw"></sit-icon-button>
+</sit-input>
 
 <h3>Action button + long prefix + loading</h3>
-<sgds-input label="Full combo" prefix="http://localhost:3000/" value="path" loading>
-  <sgds-icon-button slot="action" variant="ghost" name="copy"></sgds-icon-button>
-</sgds-input>
+<sit-input label="Full combo" prefix="http://localhost:3000/" value="path" loading>
+  <sit-icon-button slot="action" variant="ghost" name="copy"></sit-icon-button>
+</sit-input>
 
 <h2>Password Type</h2>
 
 <h3>Password default</h3>
-<sgds-input type="password" label="Password" value="secret123"></sgds-input>
+<sit-input type="password" label="Password" value="secret123"></sit-input>
 
 <h3>Password + action (toggle visibility)</h3>
-<sgds-input type="password" label="Password" value="secret123">
-  <sgds-icon-button slot="action" variant="ghost" name="eye"></sgds-icon-button>
-</sgds-input>
+<sit-input type="password" label="Password" value="secret123">
+  <sit-icon-button slot="action" variant="ghost" name="eye"></sit-icon-button>
+</sit-input>
 
 <h3>Password + prefix + action</h3>
-<sgds-input type="password" label="Password" prefix="🔒" value="secret123">
-  <sgds-icon-button slot="action" variant="ghost" name="eye"></sgds-icon-button>
-</sgds-input>
+<sit-input type="password" label="Password" prefix="🔒" value="secret123">
+  <sit-icon-button slot="action" variant="ghost" name="eye"></sit-icon-button>
+</sit-input>
 
 <h2>Number Type</h2>
 
 <h3>Number basic</h3>
-<sgds-input type="number" label="Quantity" value="5" min="0" max="100" step="1"></sgds-input>
+<sit-input type="number" label="Quantity" value="5" min="0" max="100" step="1"></sit-input>
 
 <h3>Number + prefix + suffix</h3>
-<sgds-input type="number" label="Temperature" prefix="Min" suffix="°C" value="25"></sgds-input>
+<sit-input type="number" label="Temperature" prefix="Min" suffix="°C" value="25"></sit-input>
 
 <h2>Empty / Placeholder States</h2>
 
 <h3>Empty with placeholder</h3>
-<sgds-input label="Name" placeholder="Enter your name"></sgds-input>
+<sit-input label="Name" placeholder="Enter your name"></sit-input>
 
 <h3>Empty with placeholder + prefix</h3>
-<sgds-input label="Amount" prefix="$" placeholder="0.00"></sgds-input>
+<sit-input label="Amount" prefix="$" placeholder="0.00"></sit-input>
 
 <h3>Empty with placeholder + prefix + suffix</h3>
-<sgds-input label="Range" prefix="Min:" suffix="Max: 100" placeholder="Enter value"></sgds-input>
+<sit-input label="Range" prefix="Min:" suffix="Max: 100" placeholder="Enter value"></sit-input>
 
 <h3>Autocomplete example</h3>
-<sgds-input
+<sit-input
   name="name"
   label="Name(autocomplete OFF)"
   placeholder="Enter your Name"
   autocomplete="off"
   hintText="Browser may suggest previously entered emails"
-></sgds-input>
-<sgds-input
+></sit-input>
+<sit-input
   name="name"
   label="Name (autocomplete ON)"
   placeholder="Enter your Name"
   hintText="Browser may suggest previously entered emails"
-></sgds-input>
+></sit-input>
 
 <h2>Width Constraints</h2>
 
 <h3>Inside a narrow container (200px)</h3>
 <div style="width: 200px; border: 1px dashed #ccc; padding: 8px">
-  <sgds-input label="Narrow" prefix="$" suffix=".00" value="123"></sgds-input>
+  <sit-input label="Narrow" prefix="$" suffix=".00" value="123"></sit-input>
 </div>
 
 <h3>Inside a narrow container (200px) + long prefix</h3>
 <div style="width: 200px; border: 1px dashed #ccc; padding: 8px">
-  <sgds-input label="Narrow + long prefix" prefix="https://api.gov.sg" value="test"></sgds-input>
+  <sit-input label="Narrow + long prefix" prefix="https://api.gov.sg" value="test"></sit-input>
 </div>
 
 <h3>Inside a narrow container (150px) + action</h3>
 <div style="width: 150px; border: 1px dashed #ccc; padding: 8px">
-  <sgds-input label="Tiny" prefix="$" value="99">
-    <sgds-icon-button slot="action" variant="ghost" name="check"></sgds-icon-button>
-  </sgds-input>
+  <sit-input label="Tiny" prefix="$" value="99">
+    <sit-icon-button slot="action" variant="ghost" name="check"></sit-icon-button>
+  </sit-input>
 </div>
 
 <h2>Validation Feedback Variants</h2>
 
 <h3>hasFeedback="style" (border only)</h3>
-<sgds-input label="Style only" value="bad" invalid hasFeedback="style" invalidFeedback="Error"></sgds-input>
+<sit-input label="Style only" value="bad" invalid hasFeedback="style" invalidFeedback="Error"></sit-input>
 
 <h3>hasFeedback="text" (message only)</h3>
-<sgds-input
+<sit-input
   label="Text only"
   value="bad"
   invalid
   hasFeedback="text"
   invalidFeedback="Please fix this error"
-></sgds-input>
+></sit-input>
 
 <h3>hasFeedback="both" (border + message)</h3>
-<sgds-input label="Both" value="bad" invalid hasFeedback="both" invalidFeedback="This field is invalid"></sgds-input>
+<sit-input label="Both" value="bad" invalid hasFeedback="both" invalidFeedback="This field is invalid"></sit-input>
 
 <h3>Invalid + prefix + suffix</h3>
-<sgds-input
+<sit-input
   label="Amount"
   prefix="$"
   suffix=".00"
@@ -239,24 +239,24 @@
   invalid
   hasFeedback="both"
   invalidFeedback="Amount is required"
-></sgds-input>
+></sit-input>
 
 <h2>With Hint Text</h2>
 
 <h3>Hint text + prefix</h3>
-<sgds-input
+<sit-input
   label="NRIC"
   prefix="S"
   hintText="Enter last 7 digits and checksum letter"
   placeholder="1234567A"
-></sgds-input>
+></sit-input>
 
 <h3>Hint text + invalid (hint replaced by error)</h3>
-<sgds-input
+<sit-input
   label="Email"
   hintText="We'll never share your email"
   value="not-an-email"
   invalid
   hasFeedback="both"
   invalidFeedback="Please enter a valid email"
-></sgds-input>
+></sit-input>

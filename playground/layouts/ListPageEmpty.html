@@ -5,66 +5,66 @@
 <link href="../css/utility.css" rel="stylesheet" type="text/css" />
 
 <body>
-    <sgds-masthead></sgds-masthead>
+    <sit-masthead></sit-masthead>
 
-    <sgds-mainnav>
-      <sgds-mainnav-item slot="start">
+    <sit-mainnav>
+      <sit-mainnav-item slot="start">
         <a href="/">My Application</a>
-      </sgds-mainnav-item>
-    </sgds-mainnav>
+      </sit-mainnav-item>
+    </sit-mainnav>
 
-  <div class="sgds:bg-surface-default sgds:min-h-screen">
-    <div class="sgds:w-container sgds:mx-auto sgds:py-layout-md">
+  <div class="sit:bg-surface-default sit:min-h-screen">
+    <div class="sit:w-container sit:mx-auto sit:py-layout-md">
 
       <!-- Page header -->
-      <div class="sgds:flex sgds:items-start sgds:justify-between sgds:mb-layout-md">
+      <div class="sit:flex sit:items-start sit:justify-between sit:mb-layout-md">
         <div>
-          <h1 class="sgds:text-2xl sgds:font-semibold sgds:text-default">Records</h1>
-          <p class="sgds:text-sm sgds:text-body-subtle sgds:mt-1">No records found</p>
+          <h1 class="sit:text-2xl sit:font-semibold sit:text-default">Records</h1>
+          <p class="sit:text-sm sit:text-body-subtle sit:mt-1">No records found</p>
         </div>
-        <sgds-button variant="primary">
-          <sgds-icon slot="leftIcon" name="plus"></sgds-icon>
+        <sit-button variant="primary">
+          <sit-icon slot="leftIcon" name="plus"></sit-icon>
           New record
-        </sgds-button>
+        </sit-button>
       </div>
 
         <!-- Search & filter bar -->
-        <div class="sgds:flex sgds:flex-wrap sgds:gap-component-sm sgds:mb-component-md">
-          <div class="sgds:flex-1 sgds:min-w-48">
-            <sgds-input
+        <div class="sit:flex sit:flex-wrap sit:gap-component-sm sit:mb-component-md">
+          <div class="sit:flex-1 sit:min-w-48">
+            <sit-input
               placeholder="Search by name or ID…"
               id="search-input"
             >
-              <sgds-icon slot="prefix" name="search"></sgds-icon>
-            </sgds-input>
+              <sit-icon slot="prefix" name="search"></sit-icon>
+            </sit-input>
           </div>
 
-            <sgds-select id="status-filter" placeholder="All statuses">
-              <sgds-select-option value="">All statuses</sgds-select-option>
-              <sgds-select-option value="active">Active</sgds-select-option>
-              <sgds-select-option value="inactive">Inactive</sgds-select-option>
-              <sgds-select-option value="pending">Pending</sgds-select-option>
-            </sgds-select>
+            <sit-select id="status-filter" placeholder="All statuses">
+              <sit-select-option value="">All statuses</sit-select-option>
+              <sit-select-option value="active">Active</sit-select-option>
+              <sit-select-option value="inactive">Inactive</sit-select-option>
+              <sit-select-option value="pending">Pending</sit-select-option>
+            </sit-select>
 
-            <sgds-select id="type-filter" placeholder="All types">
-              <sgds-select-option value="">All types</sgds-select-option>
-              <sgds-select-option value="typeA">Type A</sgds-select-option>
-              <sgds-select-option value="typeB">Type B</sgds-select-option>
-            </sgds-select>
+            <sit-select id="type-filter" placeholder="All types">
+              <sit-select-option value="">All types</sit-select-option>
+              <sit-select-option value="typeA">Type A</sit-select-option>
+              <sit-select-option value="typeB">Type B</sit-select-option>
+            </sit-select>
         </div>
 
         <!-- Empty state (show instead of table when no results) -->
-        <div id="empty-state" class="sgds:py-layout-xl sgds:text-center">
-          <sgds-icon name="in-box" size="3-xl" class="sgds:text-body-subtle sgds:mx-auto sgds:mb-3"></sgds-icon>
-          <h3 class="sgds:text-base sgds:font-semibold sgds:text-default">No records found</h3>
-          <p class="sgds:text-sm sgds:text-body-subtle sgds:mt-1 sgds:mb-layout-sm">
+        <div id="empty-state" class="sit:py-layout-xl sit:text-center">
+          <sit-icon name="in-box" size="3-xl" class="sit:text-body-subtle sit:mx-auto sit:mb-3"></sit-icon>
+          <h3 class="sit:text-base sit:font-semibold sit:text-default">No records found</h3>
+          <p class="sit:text-sm sit:text-body-subtle sit:mt-1 sit:mb-layout-sm">
             Try changing your search or filter, or add a new record.
           </p>
-          <sgds-button variant="outline">Clear filters</sgds-button>
+          <sit-button variant="outline">Clear filters</sit-button>
         </div>
 
       </div>
     </div>
 
-    <sgds-footer></sgds-footer>
+    <sit-footer></sit-footer>
 </body>

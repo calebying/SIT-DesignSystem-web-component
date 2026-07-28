@@ -28,30 +28,30 @@
 
 <div class="playground-section">
   <h2>Default</h2>
-  <sgds-datepicker label="Single date" noFlip></sgds-datepicker>
+  <sit-datepicker label="Single date" noFlip></sit-datepicker>
 </div>
 
 <div class="playground-section">
   <h2>Pre-filled value</h2>
   <div class="row">
-    <sgds-datepicker label="Single" value="18/07/2025" noFlip></sgds-datepicker>
-    <sgds-datepicker label="Range" mode="range" value="07/08/2024 - 09/08/2024" noFlip></sgds-datepicker>
+    <sit-datepicker label="Single" value="18/07/2025" noFlip></sit-datepicker>
+    <sit-datepicker label="Range" mode="range" value="07/08/2024 - 09/08/2024" noFlip></sit-datepicker>
   </div>
 </div>
 
 <div class="playground-section">
   <h2>Hint text</h2>
   <div class="row">
-    <sgds-datepicker label="Single date" hintText="Select a date in DD/MM/YYYY format" noFlip></sgds-datepicker>
-    <sgds-datepicker label="Date range" mode="range" hintText="Select a start and end date" noFlip></sgds-datepicker>
+    <sit-datepicker label="Single date" hintText="Select a date in DD/MM/YYYY format" noFlip></sit-datepicker>
+    <sit-datepicker label="Date range" mode="range" hintText="Select a start and end date" noFlip></sit-datepicker>
   </div>
 </div>
 
 <div class="playground-section">
   <h2>States</h2>
   <div class="row">
-    <sgds-datepicker label="Disabled" value="18/07/2025" disabled noFlip></sgds-datepicker>
-    <sgds-datepicker label="Readonly" value="18/07/2025" readonly noFlip></sgds-datepicker>
+    <sit-datepicker label="Disabled" value="18/07/2025" disabled noFlip></sit-datepicker>
+    <sit-datepicker label="Readonly" value="18/07/2025" readonly noFlip></sit-datepicker>
   </div>
 </div>
 
@@ -59,8 +59,8 @@
   <h2>Validation feedback</h2>
   <form>
     <div class="row">
-      <sgds-datepicker label="Required (single)" name="date1" required hasFeedback noFlip></sgds-datepicker>
-      <sgds-datepicker
+      <sit-datepicker label="Required (single)" name="date1" required hasFeedback noFlip></sit-datepicker>
+      <sit-datepicker
         hintText="Select a start and end date"
         label="Required (range)"
         name="date2"
@@ -68,11 +68,11 @@
         required
         hasFeedback
         noFlip
-      ></sgds-datepicker>
+      ></sit-datepicker>
     </div>
     <div style="margin-top: 1rem; display: flex; gap: 0.5rem">
-      <sgds-button type="submit">Submit</sgds-button>
-      <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+      <sit-button type="submit">Submit</sit-button>
+      <sit-button type="reset" variant="ghost">Reset</sit-button>
     </div>
   </form>
 </div>
@@ -81,7 +81,7 @@
   <h2>Custom validation (noValidate + setInvalid)</h2>
   <p>Select a past or today's date to see the custom error message.</p>
   <form id="custom-form">
-    <sgds-datepicker
+    <sit-datepicker
       noValidate
       id="appt-date"
       name="appointmentDate"
@@ -90,10 +90,10 @@
       hasFeedback
       invalidFeedback="error"
       invalid
-    ></sgds-datepicker>
+    ></sit-datepicker>
     <div style="margin-top: 1rem; display: flex; gap: 0.5rem">
-      <sgds-button type="submit">Submit</sgds-button>
-      <sgds-button type="reset" variant="ghost">Reset</sgds-button>
+      <sit-button type="submit">Submit</sit-button>
+      <sit-button type="reset" variant="ghost">Reset</sit-button>
     </div>
   </form>
 </div>
@@ -108,7 +108,7 @@
 
   const picker = document.getElementById("appt-date");
 
-  picker.addEventListener("sgds-change-date", e => {
+  picker.addEventListener("sit-change-date", e => {
     const val = e.target.value;
     if (!val || val === "DD/MM/YYYY") return;
 

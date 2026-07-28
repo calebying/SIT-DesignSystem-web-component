@@ -19,109 +19,109 @@
   <body>
     <div class="container">
       <div>
-        <sgds-stepper
+        <sit-stepper
           steps='[{"stepHeader":"Personal Details","component":"1 test"},{"stepHeader":"Address and Contact Information","component":"2 test"},{"stepHeader":"Review","component":"3 test"}]'
-        ></sgds-stepper>
+        ></sit-stepper>
 
-        <h2>Horizontal (default) - Using sgds-step Non-linear and has completed steps</h2>
-        <sgds-stepper
+        <h2>Horizontal (default) - Using sit-step Non-linear and has completed steps</h2>
+        <sit-stepper
           activeStep="0"
           clickable
           steps='[{"stepHeader":"Personal Details","component":"1 test"},{"stepHeader":"Address and Contact Information","component":"2 test"},{"stepHeader":"Review","component":"3 test"}]'
         >
-          <sgds-step stepHeader="Step 1">
+          <sit-step stepHeader="Step 1">
             <span>helloworld</span>
             <span>line 2</span>
             <span>line 3</span>
-          </sgds-step>
-          <sgds-step stepHeader="Step 2" completed>
+          </sit-step>
+          <sit-step stepHeader="Step 2" completed>
             <span>helloworld</span>
-            <span><sgds-badge>status</sgds-badge></span>
+            <span><sit-badge>status</sit-badge></span>
             <span>helloworld</span>
-          </sgds-step>
-          <sgds-step stepHeader="Step 3" completed>
+          </sit-step>
+          <sit-step stepHeader="Step 3" completed>
             <span>helloworld</span>
             <span>helloworld</span>
             <span>helloworld</span>
-          </sgds-step>
-        </sgds-stepper>
+          </sit-step>
+        </sit-stepper>
       </div>
 
       <div>
-        <h2>Vertical - Using sgds-step</h2>
-        <sgds-stepper orientation="vertical" activeStep="1" clickable="true">
-          <sgds-step stepHeader="Personal Details">
+        <h2>Vertical - Using sit-step</h2>
+        <sit-stepper orientation="vertical" activeStep="1" clickable="true">
+          <sit-step stepHeader="Personal Details">
             <span>helloworld</span>
-            <span><sgds-badge>status</sgds-badge></span>
+            <span><sit-badge>status</sit-badge></span>
             <span>helloworld</span>
-          </sgds-step>
-          <sgds-step stepHeader="Address Information">
+          </sit-step>
+          <sit-step stepHeader="Address Information">
             <span>helloworld</span>
             <span>helloworld</span>
-          </sgds-step>
-          <sgds-step stepHeader="Review">
+          </sit-step>
+          <sit-step stepHeader="Review">
             <span>helloworld</span>
             <span>
-              <sgds-link data-clickable>
+              <sit-link data-clickable>
                 <a href="#" data-clickable>download</a>
-              </sgds-link>
+              </sit-link>
               this link for a comprehensive make up tutorial for free
             </span>
-            <sgds-button size="xs" data-clickable>ss</sgds-button>
-          </sgds-step>
-        </sgds-stepper>
+            <sit-button size="xs" data-clickable>ss</sit-button>
+          </sit-step>
+        </sit-stepper>
       </div>
 
       <div>
-        <h2>With Icons - Using sgds-step</h2>
-        <sgds-stepper activeStep="0">
-          <sgds-step stepHeader="Account" iconName="person"> slot </sgds-step>
-          <sgds-step stepHeader="Profile" iconName="users"> slot </sgds-step>
-          <sgds-step stepHeader="Review" iconName="check-circle"> slot </sgds-step>
-        </sgds-stepper>
+        <h2>With Icons - Using sit-step</h2>
+        <sit-stepper activeStep="0">
+          <sit-step stepHeader="Account" iconName="person"> slot </sit-step>
+          <sit-step stepHeader="Profile" iconName="users"> slot </sit-step>
+          <sit-step stepHeader="Review" iconName="check-circle"> slot </sit-step>
+        </sit-stepper>
       </div>
 
       <div>
-        <h2>Clickable Steps - Using sgds-step</h2>
-        <sgds-stepper activeStep="0" clickable>
-          <sgds-step stepHeader="Account"> slot </sgds-step>
-          <sgds-step stepHeader="Profile"> slot </sgds-step>
-          <sgds-step stepHeader="Review"> slot </sgds-step>
-          <sgds-step stepHeader="Submit"> slot </sgds-step>
-        </sgds-stepper>
+        <h2>Clickable Steps - Using sit-step</h2>
+        <sit-stepper activeStep="0" clickable>
+          <sit-step stepHeader="Account"> slot </sit-step>
+          <sit-step stepHeader="Profile"> slot </sit-step>
+          <sit-step stepHeader="Review"> slot </sit-step>
+          <sit-step stepHeader="Submit"> slot </sit-step>
+        </sit-stepper>
       </div>
 
       <div>
-        <h2>With Slot Content - Using sgds-step</h2>
-        <sgds-stepper activeStep="0">
-          <sgds-step stepHeader="Personal Details">
+        <h2>With Slot Content - Using sit-step</h2>
+        <sit-stepper activeStep="0">
+          <sit-step stepHeader="Personal Details">
             <p style="margin-top: 16px; font-size: 14px; color: #666">Enter your personal information here</p>
-          </sgds-step>
-          <sgds-step stepHeader="Address Information">
+          </sit-step>
+          <sit-step stepHeader="Address Information">
             <p style="margin-top: 16px; font-size: 14px; color: #666">Enter your address details here</p>
-          </sgds-step>
-          <sgds-step stepHeader="Review">
+          </sit-step>
+          <sit-step stepHeader="Review">
             <p style="margin-top: 16px; font-size: 14px; color: #666">Review all your information before submitting</p>
-          </sgds-step>
-        </sgds-stepper>
+          </sit-step>
+        </sit-stepper>
       </div>
 
       <div>
-        <h2>With Navigation Buttons - Using sgds-step linear</h2>
-        <sgds-stepper orientation="vertical" id="nav-stepper" activeStep="0" clickable linear>
-          <sgds-step stepHeader="Details"> slot </sgds-step>
-          <sgds-step stepHeader="Verification"> slot </sgds-step>
-          <sgds-step stepHeader="Confirmation" disabled> slot </sgds-step>
-        </sgds-stepper>
+        <h2>With Navigation Buttons - Using sit-step linear</h2>
+        <sit-stepper orientation="vertical" id="nav-stepper" activeStep="0" clickable linear>
+          <sit-step stepHeader="Details"> slot </sit-step>
+          <sit-step stepHeader="Verification"> slot </sit-step>
+          <sit-step stepHeader="Confirmation" disabled> slot </sit-step>
+        </sit-stepper>
 
         <div style="display: flex; gap: 8px; margin-top: 16px">
-          <sgds-button id="prev-btn" variant="outlined" disabled>Previous</sgds-button>
-          <sgds-button id="next-btn">Next</sgds-button>
+          <sit-button id="prev-btn" variant="outlined" disabled>Previous</sit-button>
+          <sit-button id="next-btn">Next</sit-button>
         </div>
 
         <script>
           const stepper = document.getElementById("nav-stepper");
-          stepper.addEventListener("sgds-arrived", () => {
+          stepper.addEventListener("sit-arrived", () => {
             updateButtons();
           });
 
