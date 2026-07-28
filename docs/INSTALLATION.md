@@ -1,21 +1,21 @@
-# Install SGDS web components
+# Install Canvas web components
 
 ## Method 1: Local installation
 
 ### Step 1: Install library
 
-Install SGDS web components locally with the following command
+Install Canvas web components locally with the following command
 
 ```js
 
-npm install @govtechsg/sgds-web-component@3.24.0
+npm install @sit-canvas/canvas-web-component@3.25.0
 
 ```
 
 ```js
-import "@govtechsg/sgds-web-component/themes/day.css";
-import "@govtechsg/sgds-web-component/css/sgds.css";
-import "@govtechsg/sgds-web-component";
+import "@sit-canvas/canvas-web-component/themes/day.css";
+import "@sit-canvas/canvas-web-component/css/sgds.css";
+import "@sit-canvas/canvas-web-component";
 ```
 
 ### Step 2: Framework specific setup
@@ -36,16 +36,16 @@ Once imported, the web components can be used throughout the project. You may im
 Are you a react user? If so, skip to the <a href="/docs/frameworks-react--docs#importing-the-library" target="_self">react import instructions </a>
 
 ```js
-import "@govtechsg/sgds-web-component/themes/day.css";
-import "@govtechsg/sgds-web-component/css/sgds.css";
-import "@govtechsg/sgds-web-component";
+import "@sit-canvas/canvas-web-component/themes/day.css";
+import "@sit-canvas/canvas-web-component/css/sgds.css";
+import "@sit-canvas/canvas-web-component";
 ```
 
 ## Method 2: Using CDN
 
-This method registers all SGDS elements up front in the Custom Elements Registry.
+This method registers all Canvas elements up front in the Custom Elements Registry.
 
-> When using CDN, it is recommended to version control. On initial usage, pick the latest version of the library. See list of available npm versions [here](https://www.npmjs.com/package/@govtechsg/sgds-web-component?activeTab=versions)
+> When using CDN, it is recommended to version control. On initial usage, pick the latest version of the library. See list of available npm versions [here](https://www.npmjs.com/package/@sit-canvas/canvas-web-component?activeTab=versions)
 
 > Stick to the version that works for you and make intentional updates on your end when you need the latest library updates. Versions are immutable and thus, stable.
 
@@ -53,14 +53,14 @@ This method registers all SGDS elements up front in the Custom Elements Registry
 
 ```js
 // Load global css file
-<link href='https://cdn.jsdelivr.net/npm/@govtechsg/sgds-web-component@3.24.0/themes/day.css' rel='stylesheet' type='text/css' />
-<link href='https://cdn.jsdelivr.net/npm/@govtechsg/sgds-web-component@3.24.0/css/sgds.css' rel='stylesheet' type='text/css' />
+<link href='https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0/themes/day.css' rel='stylesheet' type='text/css' />
+<link href='https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0/css/sgds.css' rel='stylesheet' type='text/css' />
 
-// it is recommended to load a particular version when using cdn e.g. https://cdn.jsdelivr.net/npm/@govtechsg/sgds-web-component@1.0.2
-<script src="https://cdn.jsdelivr.net/npm/@govtechsg/sgds-web-component@3.24.0" async crossorigin="anonymous" integrity="sha384-0IbDwSCllExx40+Q7OoTDrsMEmmH15nhyjZMpSNmMfH6OeIAhr3wrwRAiPVw7Jjz"></script>
+// it is recommended to load a particular version when using cdn e.g. https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@1.0.2
+<script src="https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0" async crossorigin="anonymous"></script>
 
 //or load a single component e.g. Masthead
-<script src="https://cdn.jsdelivr.net/npm/@govtechsg/sgds-web-component@3.24.0/components/Masthead/index.umd.min.js" async crossorigin="anonymous" integrity="sha384-vvllpLfJY3jG+vowUWZOJHnvtDTTdaSUOYGbiozHEq4+HESmYu0i/b2r616QoDly"></script>
+<script src="https://cdn.jsdelivr.net/npm/@sit-canvas/canvas-web-component@3.25.0/components/Masthead/index.umd.min.js" async crossorigin="anonymous"></script>
 
 ```
 
