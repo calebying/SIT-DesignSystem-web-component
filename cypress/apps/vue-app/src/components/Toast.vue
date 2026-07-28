@@ -1,13 +1,13 @@
 <template>
-    <sgds-toast show dismissible>
-        <sgds-icon slot="icon" name="info-circle-fill"></sgds-icon>
+    <sit-toast show dismissible>
+        <sit-icon slot="icon" name="info-circle-fill"></sit-icon>
         This is a toast notifications helklo world
-    </sgds-toast>
-    <sgds-toast-container position="bottom-start">
-        <sgds-toast show dismissible variant="warning">
-            <sgds-icon slot="icon" name="exclamation-triangle-fill"></sgds-icon>
-            <sgds-link slot="action" href="#" target="_blank">Action</sgds-link>
+    </sit-toast>
+    <sit-toast-container position="bottom-start">
+        <sit-toast show dismissible variant="warning">
+            <sit-icon slot="icon" name="exclamation-triangle-fill"></sit-icon>
+            <sit-link slot="action" href="#" target="_blank">Action</sit-link>
             This is a toast notifications
-        </sgds-toast>
-    </sgds-toast-container>
+        </sit-toast>
+    </sit-toast-container>
 </template>

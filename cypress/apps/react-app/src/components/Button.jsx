@@ -1,16 +1,16 @@
-import SgdsButton from "@govtechsg/sgds-web-component/react/button";
+import SitButton from "@sit-canvas/canvas-web-component/react/button";
 
 export const Button = () => {
     return (
         <>
-            <SgdsButton variant="primary"> primary </SgdsButton>
-            <SgdsButton variant="secondary"> secondary </SgdsButton>
-            <SgdsButton variant="success"> success </SgdsButton>
-            <SgdsButton variant="danger"> danger </SgdsButton>
-            <SgdsButton variant="warning"> warning </SgdsButton>
-            <SgdsButton variant="info"> info </SgdsButton>
-            <SgdsButton variant="light"> light </SgdsButton>
-            <SgdsButton variant="dark"> dark </SgdsButton>
+            <SitButton variant="primary"> primary </SitButton>
+            <SitButton variant="secondary"> secondary </SitButton>
+            <SitButton variant="success"> success </SitButton>
+            <SitButton variant="danger"> danger </SitButton>
+            <SitButton variant="warning"> warning </SitButton>
+            <SitButton variant="info"> info </SitButton>
+            <SitButton variant="light"> light </SitButton>
+            <SitButton variant="dark"> dark </SitButton>
         </>
     )
 }

@@ -1,4 +1,4 @@
 
 export const Divider = () => {
-    return <sgds-divider />
+    return <sit-divider />
 }

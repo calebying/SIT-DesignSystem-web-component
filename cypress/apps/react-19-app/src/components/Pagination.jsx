@@ -1,7 +1,7 @@
 
 export const Pagination = () => {
     return (
-        <sgds-pagination datalength="50"></sgds-pagination>
+        <sit-pagination datalength="50"></sit-pagination>
 
     )
 }

@@ -1,3 +1,3 @@
 <template>
-    <sgds-masthead></sgds-masthead>
+    <sit-masthead></sit-masthead>
 </template>

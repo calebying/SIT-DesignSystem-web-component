@@ -1,5 +1,5 @@
-import "@govtechsg/sgds-web-component/themes/day.css";
-import "@govtechsg/sgds-web-component";
+import "@sit-canvas/canvas-web-component/themes/day.css";
+import "@sit-canvas/canvas-web-component";
 
 import "./index.css";
 import { Accordion } from "./components/Accordion";
@@ -34,32 +34,32 @@ import { Textarea } from "./components/Textarea";
 import { Toast } from "./components/Toast";
 import { Tooltip } from "./components/Tooltip";
 import { IconButton } from "./components/IconButton";
-import { SgdsTokensShowcase } from "./components/SgdsTokensShowcase";
+import { SitTokensShowcase } from "./components/SitTokensShowcase";
 
-import { SgdsIcon, SgdsSidebar, SgdsSidebarItem } from "@govtechsg/sgds-web-component/react";
+import { SitIcon, SitSidebar, SitSidebarItem } from "@sit-canvas/canvas-web-component/react";
 
 function App() {
   return (
     <>
-      <SgdsSidebar active={"risk-controls"}>
-        <SgdsSidebarItem title="SSP Management" name="ssp-management">
-          <SgdsIcon name="file-earmark-text" slot="icon"></SgdsIcon>
-        </SgdsSidebarItem>
-        <SgdsSidebarItem title="Waviers" name="waviers">
-          <SgdsIcon name="window-stack" slot="icon"></SgdsIcon>
-        </SgdsSidebarItem>
-        <SgdsSidebarItem title="Decision Records" name="decision-records">
-          <SgdsIcon name="user-square" slot="icon"></SgdsIcon>
-        </SgdsSidebarItem>
-        <SgdsSidebarItem title="Risk Controls" name="risk-controls">
-          <SgdsIcon name="exclamation" slot="icon"></SgdsIcon>
-        </SgdsSidebarItem>
-        <SgdsSidebarItem title="Analytics" name="analytics">
-          <SgdsIcon name="share" slot="icon"></SgdsIcon>
-        </SgdsSidebarItem>
-      </SgdsSidebar>
+      <SitSidebar active={"risk-controls"}>
+        <SitSidebarItem title="SSP Management" name="ssp-management">
+          <SitIcon name="file-earmark-text" slot="icon"></SitIcon>
+        </SitSidebarItem>
+        <SitSidebarItem title="Waviers" name="waviers">
+          <SitIcon name="window-stack" slot="icon"></SitIcon>
+        </SitSidebarItem>
+        <SitSidebarItem title="Decision Records" name="decision-records">
+          <SitIcon name="user-square" slot="icon"></SitIcon>
+        </SitSidebarItem>
+        <SitSidebarItem title="Risk Controls" name="risk-controls">
+          <SitIcon name="exclamation" slot="icon"></SitIcon>
+        </SitSidebarItem>
+        <SitSidebarItem title="Analytics" name="analytics">
+          <SitIcon name="share" slot="icon"></SitIcon>
+        </SitSidebarItem>
+      </SitSidebar>
 
-      <SgdsTokensShowcase />
+      <SitTokensShowcase />
       <Select />
       <Masthead />
       <Mainnav />

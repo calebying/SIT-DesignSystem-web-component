@@ -1,24 +1,24 @@
 
 export const Dropdown = () => {
     return (
-      <sgds-dropdown variant="secondary">
-      <sgds-button slot="toggler" role="button">
+      <sit-dropdown variant="secondary">
+      <sit-button slot="toggler" role="button">
         Dropdown
-        <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-      </sgds-button>
-      <sgds-dropdown-item>
+        <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+      </sit-button>
+      <sit-dropdown-item>
         <a href="#">item #1 (argsTable controlled) </a>
-      </sgds-dropdown-item>
-      <sgds-dropdown-item><a href="https://google.com">item #2</a></sgds-dropdown-item>
-      <sgds-dropdown-item disabled="">item #3</sgds-dropdown-item>
-      <sgds-dropdown-item>item #4</sgds-dropdown-item>
-      <sgds-dropdown-item>item #5</sgds-dropdown-item>
-      <sgds-dropdown-item>item #6</sgds-dropdown-item>
-      <sgds-dropdown-item>item #7</sgds-dropdown-item>
-      <sgds-dropdown-item>item #8</sgds-dropdown-item>
-      <sgds-dropdown-item>item #9</sgds-dropdown-item>
-      <sgds-dropdown-item>item #10</sgds-dropdown-item>
-      <sgds-dropdown-item>item #11</sgds-dropdown-item>
-    </sgds-dropdown>
+      </sit-dropdown-item>
+      <sit-dropdown-item><a href="https://google.com">item #2</a></sit-dropdown-item>
+      <sit-dropdown-item disabled="">item #3</sit-dropdown-item>
+      <sit-dropdown-item>item #4</sit-dropdown-item>
+      <sit-dropdown-item>item #5</sit-dropdown-item>
+      <sit-dropdown-item>item #6</sit-dropdown-item>
+      <sit-dropdown-item>item #7</sit-dropdown-item>
+      <sit-dropdown-item>item #8</sit-dropdown-item>
+      <sit-dropdown-item>item #9</sit-dropdown-item>
+      <sit-dropdown-item>item #10</sit-dropdown-item>
+      <sit-dropdown-item>item #11</sit-dropdown-item>
+    </sit-dropdown>
     )
 }

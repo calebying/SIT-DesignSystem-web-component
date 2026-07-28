@@ -1,5 +1,5 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, ViewChild } from "@angular/core";
-import SgdsAlert from "@govtechsg/sgds-web-component/components/Alert/sgds-alert.js";
+import SitAlert from "@sit-canvas/canvas-web-component/components/Alert/sit-alert.js";
 
 @Component({
   selector: "alert-component",
@@ -8,7 +8,7 @@ import SgdsAlert from "@govtechsg/sgds-web-component/components/Alert/sgds-alert
 })
 export class Alert {
   @ViewChild("alert")
-  alert?: ElementRef<SgdsAlert>;
+  alert?: ElementRef<SitAlert>;
 
   showAlert() {
     if (this.alert) {

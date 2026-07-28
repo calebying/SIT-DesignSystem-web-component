@@ -1,8 +1,8 @@
-import SgdsTable from "@govtechsg/sgds-web-component/react/table";
+import SitTable from "@sit-canvas/canvas-web-component/react/table";
 
 export const Table = () => {
   return (
-    <SgdsTable
+    <SitTable
       rowheader='["#", "First Names", "Last Name", "Username"]'
       tabledata='[
         ["1", "John", "Doe", "@johndoe"],

@@ -1,25 +1,25 @@
-import SgdsButton from "@govtechsg/sgds-web-component/react/button";
-import SgdsMainnav from "@govtechsg/sgds-web-component/react/mainnav";
-import SgdsMainnavItem from "@govtechsg/sgds-web-component/react/mainnav-item";
-import SgdsMainnavDropdown from "@govtechsg/sgds-web-component/react/mainnav-dropdown";
-import SgdsDropdownItem from "@govtechsg/sgds-web-component/react/dropdown-item";
+import SitButton from "@sit-canvas/canvas-web-component/react/button";
+import SitMainnav from "@sit-canvas/canvas-web-component/react/mainnav";
+import SitMainnavItem from "@sit-canvas/canvas-web-component/react/mainnav-item";
+import SitMainnavDropdown from "@sit-canvas/canvas-web-component/react/mainnav-dropdown";
+import SitDropdownItem from "@sit-canvas/canvas-web-component/react/dropdown-item";
 
 export const Mainnav = () => {
   return (
-    <SgdsMainnav>
-      <img width="130" src="https://www.designsystem.tech.gov.sg/assets/img/logo-sgds.svg" slot="brand" />
-      <SgdsMainnavItem>ArgsTable Controlled </SgdsMainnavItem>
-      <SgdsMainnavDropdown close="default">
+    <SitMainnav>
+      <img width="130" src="https://example.com/logo.svg" slot="brand" />
+      <SitMainnavItem>ArgsTable Controlled </SitMainnavItem>
+      <SitMainnavDropdown close="default">
         <span slot="toggler">Dropdown</span>
-        <SgdsDropdownItem href="https://google.com">Item 1</SgdsDropdownItem>
-        <SgdsDropdownItem href="#">Item 2</SgdsDropdownItem>
-        <SgdsDropdownItem href="#">Item 3</SgdsDropdownItem>
-      </SgdsMainnavDropdown>
-      <SgdsMainnavItem href="#">About</SgdsMainnavItem>
-      <SgdsMainnavItem href="#" slot="end">
+        <SitDropdownItem href="https://google.com">Item 1</SitDropdownItem>
+        <SitDropdownItem href="#">Item 2</SitDropdownItem>
+        <SitDropdownItem href="#">Item 3</SitDropdownItem>
+      </SitMainnavDropdown>
+      <SitMainnavItem href="#">About</SitMainnavItem>
+      <SitMainnavItem href="#" slot="end">
         Contact Us
-      </SgdsMainnavItem>
-      <SgdsButton slot="end">Login</SgdsButton>
-    </SgdsMainnav>
+      </SitMainnavItem>
+      <SitButton slot="end">Login</SitButton>
+    </SitMainnav>
   );
 };

@@ -1,34 +1,34 @@
 <template>
     <div>
-        <sgds-dropdown menuVariant="default" drop="down">
-            <sgds-button slot="toggler" role="button">
+        <sit-dropdown menuVariant="default" drop="down">
+            <sit-button slot="toggler" role="button">
             Dropdown
-            <sgds-icon name="chevron-down" slot="rightIcon"></sgds-icon>
-            </sgds-button>
-            <sgds-dropdown-item active>
+            <sit-icon name="chevron-down" slot="rightIcon"></sit-icon>
+            </sit-button>
+            <sit-dropdown-item active>
             sdfjhskfjhs ksljdhfskljdfh sdkljfhasdasdasdasdsadasdasd sdf
-            </sgds-dropdown-item>
-            <sgds-dropdown-item>
+            </sit-dropdown-item>
+            <sit-dropdown-item>
             <div href="#">Home</div>
-            </sgds-dropdown-item>
-            <sgds-dropdown-item>
-            <sgds-checkbox>Hello</sgds-checkbox>
-            </sgds-dropdown-item>
-            <sgds-dropdown-item active>
-            <a href="https://google.com" target="_blank"><sgds-icon name="placeholder"></sgds-icon>Option target
+            </sit-dropdown-item>
+            <sit-dropdown-item>
+            <sit-checkbox>Hello</sit-checkbox>
+            </sit-dropdown-item>
+            <sit-dropdown-item active>
+            <a href="https://google.com" target="_blank"><sit-icon name="placeholder"></sit-icon>Option target
                 blank</a>
-            </sgds-dropdown-item>
-            <sgds-dropdown-item disabled>
-            <a href="#"><sgds-icon name="placeholder"></sgds-icon>Option disabled</a>
-            </sgds-dropdown-item>
-            <sgds-dropdown-item>
-            <a href="#"><sgds-icon name="placeholder"></sgds-icon>Option label</a>
-            </sgds-dropdown-item>
-            <sgds-dropdown-item disabled><sgds-icon name="placeholder"></sgds-icon>Option label</sgds-dropdown-item>
-            <sgds-dropdown-item><sgds-icon name="placeholder"></sgds-icon>Option label</sgds-dropdown-item>
-            <sgds-dropdown-item><sgds-icon name="placeholder"></sgds-icon>Option label</sgds-dropdown-item>
-            <sgds-dropdown-item><sgds-icon name="placeholder"></sgds-icon>Option label</sgds-dropdown-item>
-            <sgds-dropdown-item><sgds-icon name="placeholder"></sgds-icon>Option label</sgds-dropdown-item>
-        </sgds-dropdown>
+            </sit-dropdown-item>
+            <sit-dropdown-item disabled>
+            <a href="#"><sit-icon name="placeholder"></sit-icon>Option disabled</a>
+            </sit-dropdown-item>
+            <sit-dropdown-item>
+            <a href="#"><sit-icon name="placeholder"></sit-icon>Option label</a>
+            </sit-dropdown-item>
+            <sit-dropdown-item disabled><sit-icon name="placeholder"></sit-icon>Option label</sit-dropdown-item>
+            <sit-dropdown-item><sit-icon name="placeholder"></sit-icon>Option label</sit-dropdown-item>
+            <sit-dropdown-item><sit-icon name="placeholder"></sit-icon>Option label</sit-dropdown-item>
+            <sit-dropdown-item><sit-icon name="placeholder"></sit-icon>Option label</sit-dropdown-item>
+            <sit-dropdown-item><sit-icon name="placeholder"></sit-icon>Option label</sit-dropdown-item>
+        </sit-dropdown>
     </div>
 </template>

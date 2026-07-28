@@ -1,5 +1,5 @@
-import SgdsButton from "@govtechsg/sgds-web-component/react/button";
-import SgdsDrawer from "@govtechsg/sgds-web-component/react/drawer";
+import SitButton from "@sit-canvas/canvas-web-component/react/button";
+import SitDrawer from "@sit-canvas/canvas-web-component/react/drawer";
 import { useRef } from "react";
 
 export const Drawer = () => {
@@ -14,12 +14,12 @@ export const Drawer = () => {
 
     return (
         <>
-            <SgdsButton onClick={showDrawer}>Open end Drawer</SgdsButton>
-            <SgdsDrawer ref={drawerRef} label="" placement="end">
+            <SitButton onClick={showDrawer}>Open end Drawer</SitButton>
+            <SitDrawer ref={drawerRef} label="" placement="end">
                 This is a Drawer
-                <SgdsButton onClick={closeDrawer} slot="footer" variant="link" class="close-drawer">Close</SgdsButton>
-                <SgdsButton slot="footer" variant="primary" type="submit" form="formA">Submit</SgdsButton>
-            </SgdsDrawer>
+                <SitButton onClick={closeDrawer} slot="footer" variant="link" class="close-drawer">Close</SitButton>
+                <SitButton slot="footer" variant="primary" type="submit" form="formA">Submit</SitButton>
+            </SitDrawer>
         </>
     )
 }

@@ -4,12 +4,12 @@ export const Combobox = () => {
    console.log(e.detail)
   }
     return (
-      <sgds-combo-box onsgds-input={inputHandler} placeholder="Single select combo box with default filter">
-      <sgds-combo-box-option value="apple">Apple</sgds-combo-box-option>
-      <sgds-combo-box-option value="banana">Banana</sgds-combo-box-option>
-      <sgds-combo-box-option value="carrot">Carrot</sgds-combo-box-option>
-      <sgds-combo-box-option value="durian">Durian</sgds-combo-box-option>
-      <sgds-combo-box-option value="eggplant">Eggplant</sgds-combo-box-option>
-    </sgds-combo-box>
+      <sit-combo-box onsit-input={inputHandler} placeholder="Single select combo box with default filter">
+      <sit-combo-box-option value="apple">Apple</sit-combo-box-option>
+      <sit-combo-box-option value="banana">Banana</sit-combo-box-option>
+      <sit-combo-box-option value="carrot">Carrot</sit-combo-box-option>
+      <sit-combo-box-option value="durian">Durian</sit-combo-box-option>
+      <sit-combo-box-option value="eggplant">Eggplant</sit-combo-box-option>
+    </sit-combo-box>
     )
 }

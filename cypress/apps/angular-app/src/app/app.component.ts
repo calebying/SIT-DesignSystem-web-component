@@ -1,6 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
-import "@govtechsg/sgds-web-component/themes/day.css";
-import "@govtechsg/sgds-web-component";
+import "@sit-canvas/canvas-web-component/themes/day.css";
+import "@sit-canvas/canvas-web-component";
 import { Accordion } from "../components/accordion/accordion.component";
 import { Alert } from "../components/alert/alert.component";
 import { Badge } from "../components/badge/badge.component";
@@ -86,5 +86,5 @@ import { Tooltip } from "../components/tooltip/tooltip.component";
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent {
-  title = "sgds-wc-angular-app";
+  title = "sit-wc-angular-app";
 }

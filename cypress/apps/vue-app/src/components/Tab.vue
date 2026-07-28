@@ -1,62 +1,62 @@
 <template>
-    <sgds-tab-group variant="underlined" orientation="horizontal">
-        <sgds-tab slot="nav" state="active" panel="one">
-            <sgds-icon slot="icon" name="map"></sgds-icon>
+    <sit-tab-group variant="underlined" orientation="horizontal">
+        <sit-tab slot="nav" state="active" panel="one">
+            <sit-icon slot="icon" name="map"></sit-icon>
             <span>hellotab</span>
-        </sgds-tab>
-        <sgds-tab slot="nav" panel="two">
+        </sit-tab>
+        <sit-tab slot="nav" panel="two">
             two
-        </sgds-tab>
-        <sgds-tab slot="nav" state="active" panel="three">
+        </sit-tab>
+        <sit-tab slot="nav" state="active" panel="three">
             three
-        </sgds-tab>
-        <sgds-tab-panel name="one">one</sgds-tab-panel>
-        <sgds-tab-panel name="two">two</sgds-tab-panel>
-        <sgds-tab-panel name="three">three</sgds-tab-panel>
-        </sgds-tab-group>
-        <sgds-tab-group orientation="horizontal" density="compact">
-        <sgds-tab slot="nav" state="active" panel="one">
+        </sit-tab>
+        <sit-tab-panel name="one">one</sit-tab-panel>
+        <sit-tab-panel name="two">two</sit-tab-panel>
+        <sit-tab-panel name="three">three</sit-tab-panel>
+        </sit-tab-group>
+        <sit-tab-group orientation="horizontal" density="compact">
+        <sit-tab slot="nav" state="active" panel="one">
             hellotab
-        </sgds-tab>
-        <sgds-tab slot="nav" panel="two">
+        </sit-tab>
+        <sit-tab slot="nav" panel="two">
             two
-        </sgds-tab>
-        <sgds-tab slot="nav" state="active" panel="three">
+        </sit-tab>
+        <sit-tab slot="nav" state="active" panel="three">
             three
-        </sgds-tab>
-        <sgds-tab-panel name="one">one</sgds-tab-panel>
-        <sgds-tab-panel name="two">two</sgds-tab-panel>
-        <sgds-tab-panel name="three">three</sgds-tab-panel>
-    </sgds-tab-group>
-    <sgds-tab-group id="tabs-lukhei-test" orientation="horizontal">
-        <sgds-tab slot="nav" panel="one">
+        </sit-tab>
+        <sit-tab-panel name="one">one</sit-tab-panel>
+        <sit-tab-panel name="two">two</sit-tab-panel>
+        <sit-tab-panel name="three">three</sit-tab-panel>
+    </sit-tab-group>
+    <sit-tab-group id="tabs-lukhei-test" orientation="horizontal">
+        <sit-tab slot="nav" panel="one">
           lukhei testing
-        </sgds-tab>
-        <sgds-tab slot="nav" panel="two">
+        </sit-tab>
+        <sit-tab slot="nav" panel="two">
           disabled
-        </sgds-tab>
-        <sgds-tab slot="nav" panel="three">
-          <sgds-icon slot="icon" name="placeholder"></sgds-icon>
+        </sit-tab>
+        <sit-tab slot="nav" panel="three">
+          <sit-icon slot="icon" name="placeholder"></sit-icon>
           three
-        </sgds-tab>
+        </sit-tab>
 
-        <sgds-tab-panel name="one">one</sgds-tab-panel>
-        <sgds-tab-panel name="two">two</sgds-tab-panel>
-        <sgds-tab-panel name="three">three</sgds-tab-panel>
-    </sgds-tab-group>
-    <sgds-tab-group variant="underlined" orientation="vertical" density="compact">
-        <sgds-tab slot="nav" panel="one" variant="solid">
+        <sit-tab-panel name="one">one</sit-tab-panel>
+        <sit-tab-panel name="two">two</sit-tab-panel>
+        <sit-tab-panel name="three">three</sit-tab-panel>
+    </sit-tab-group>
+    <sit-tab-group variant="underlined" orientation="vertical" density="compact">
+        <sit-tab slot="nav" panel="one" variant="solid">
           lukhei test
-        </sgds-tab>
-        <sgds-tab slot="nav" disabled panel="two">
+        </sit-tab>
+        <sit-tab slot="nav" disabled panel="two">
           cdisabled
-        </sgds-tab>
-        <sgds-tab slot="nav" panel="three">
-          <sgds-icon slot="icon" name="placeholder"></sgds-icon>
+        </sit-tab>
+        <sit-tab slot="nav" panel="three">
+          <sit-icon slot="icon" name="placeholder"></sit-icon>
           three
-        </sgds-tab>
-        <sgds-tab-panel name="one">one</sgds-tab-panel>
-        <sgds-tab-panel name="two">two</sgds-tab-panel>
-        <sgds-tab-panel name="three">three</sgds-tab-panel>
-    </sgds-tab-group>
+        </sit-tab>
+        <sit-tab-panel name="one">one</sit-tab-panel>
+        <sit-tab-panel name="two">two</sit-tab-panel>
+        <sit-tab-panel name="three">three</sit-tab-panel>
+    </sit-tab-group>
 </template>

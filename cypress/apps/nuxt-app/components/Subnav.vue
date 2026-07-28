@@ -1,19 +1,19 @@
 <script lang="ts" setup>
-import "@govtechsg/sgds-web-component/components/Subnav/index.js"
+import "@sit-canvas/canvas-web-component/components/Subnav/index.js"
 </script>
 
 <template>
-  <sgds-subnav>
+  <sit-subnav>
     <h5 slot="header">STACKx Cybersecurity</h5>
-    <sgds-subnav-item active><a href="#">Overview</a></sgds-subnav-item>
-    <sgds-subnav-item><a href="#">On-site Activites</a></sgds-subnav-item>
-    <sgds-subnav-item><a href="#">Programme</a></sgds-subnav-item>
-    <sgds-subnav-item><a href="#">Speakers</a></sgds-subnav-item>
-    <sgds-subnav-item><a href="#">Partners</a></sgds-subnav-item>
-    <sgds-subnav-item><a href="#">Recordings</a></sgds-subnav-item>
-    <sgds-subnav-item><a href="#">FAQ</a></sgds-subnav-item>
-    <sgds-button slot="actions" size="sm" fullWidth>Register</sgds-button>
-    <sgds-button slot="actions" size="sm" fullWidth>Exhibit</sgds-button>
-    <sgds-button slot="actions" size="sm" fullWidth>Exhibit</sgds-button>
-  </sgds-subnav>
+    <sit-subnav-item active><a href="#">Overview</a></sit-subnav-item>
+    <sit-subnav-item><a href="#">On-site Activites</a></sit-subnav-item>
+    <sit-subnav-item><a href="#">Programme</a></sit-subnav-item>
+    <sit-subnav-item><a href="#">Speakers</a></sit-subnav-item>
+    <sit-subnav-item><a href="#">Partners</a></sit-subnav-item>
+    <sit-subnav-item><a href="#">Recordings</a></sit-subnav-item>
+    <sit-subnav-item><a href="#">FAQ</a></sit-subnav-item>
+    <sit-button slot="actions" size="sm" fullWidth>Register</sit-button>
+    <sit-button slot="actions" size="sm" fullWidth>Exhibit</sit-button>
+    <sit-button slot="actions" size="sm" fullWidth>Exhibit</sit-button>
+  </sit-subnav>
 </template>

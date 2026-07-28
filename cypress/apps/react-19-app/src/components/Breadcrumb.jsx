@@ -2,16 +2,16 @@
 
 export const Breadcrumb = () => {
     return (
-        <sgds-breadcrumb arialabel="breadcrumb">
-            <sgds-breadcrumb-item>
+        <sit-breadcrumb arialabel="breadcrumb">
+            <sit-breadcrumb-item>
             <a href="https://www.google.com/">Home</a>
-            </sgds-breadcrumb-item>
-            <sgds-breadcrumb-item>
+            </sit-breadcrumb-item>
+            <sit-breadcrumb-item>
             <a href="https://www.google.com/">Home</a>
-            </sgds-breadcrumb-item>
-            <sgds-breadcrumb-item><a href="https://www.google.com/">Home</a></sgds-breadcrumb-item>
-            <sgds-breadcrumb-item ><a href="https://www.google.com/">Home</a></sgds-breadcrumb-item>
-            <sgds-breadcrumb-item>Last Item</sgds-breadcrumb-item>
-        </sgds-breadcrumb>
+            </sit-breadcrumb-item>
+            <sit-breadcrumb-item><a href="https://www.google.com/">Home</a></sit-breadcrumb-item>
+            <sit-breadcrumb-item ><a href="https://www.google.com/">Home</a></sit-breadcrumb-item>
+            <sit-breadcrumb-item>Last Item</sit-breadcrumb-item>
+        </sit-breadcrumb>
     )
 }

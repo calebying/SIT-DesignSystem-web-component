@@ -1,8 +1,8 @@
-import SgdsPagination from "@govtechsg/sgds-web-component/react/pagination";
+import SitPagination from "@sit-canvas/canvas-web-component/react/pagination";
 
 export const Pagination = () => {
     return (
-        <SgdsPagination
+        <SitPagination
             datalength="50"
             currentpage="1"
             itemsperpage="5"

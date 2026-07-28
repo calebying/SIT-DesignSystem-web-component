@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import "@govtechsg/sgds-web-component/components/Drawer/index.js"
-import type SgdsButton from "@govtechsg/sgds-web-component/components/Button/sgds-button.js";
-import type SgdsDrawer from "@govtechsg/sgds-web-component/components/Drawer/sgds-drawer.js";
+import "@sit-canvas/canvas-web-component/components/Drawer/index.js"
+import type SitButton from "@sit-canvas/canvas-web-component/components/Button/sit-button.js";
+import type SitDrawer from "@sit-canvas/canvas-web-component/components/Drawer/sit-drawer.js";
 
 const variant = 'primary';
 const openDrawer = () => {
-  const drawer = document.querySelector('sgds-drawer');
+  const drawer = document.querySelector('sit-drawer');
   drawer?.show();
 }
 </script>
 
 <template>
-  <sgds-drawer size="lg">
+  <sit-drawer size="lg">
     <h1 slot="title">Title</h1>
     <p slot="description">Description</p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam dictum est vitae erat molestie blandit.
@@ -85,9 +85,9 @@ const openDrawer = () => {
       Vestibulum porttitor mi nec quam dignissim suscipit. Aenean eu dui a felis interdum eleifend ut non nibh.
       Proin at molestie ante. Etiam vel ipsum vitae nunc porta fermentum.
     <div class="button-group" slot="footer">
-      <sgds-button>Button 1</sgds-button>
-      <sgds-button>Button 2</sgds-button>
+      <sit-button>Button 1</sit-button>
+      <sit-button>Button 2</sit-button>
     </div>
-  </sgds-drawer>
-  <sgds-button :variant @click="openDrawer">Open Drawer</sgds-button>
+  </sit-drawer>
+  <sit-button :variant @click="openDrawer">Open Drawer</sit-button>
 </template>

@@ -9,8 +9,8 @@ export default defineConfig({
     vue({
       template: {
         compilerOptions: {
-          // treat all tags that starts with sgds as custom elements
-          isCustomElement: tag => tag.includes("sgds-")
+          // treat all tags that starts with sit as custom elements
+          isCustomElement: tag => tag.includes("sit-")
         }
       }
     })

@@ -1,47 +1,47 @@
 <template>
-    <sgds-sidenav class="mt-3" id="test-id">
-    <sgds-sidenav-item>
-      <sgds-icon name="placeholder" slot="icon"></sgds-icon>
+    <sit-sidenav class="mt-3" id="test-id">
+    <sit-sidenav-item>
+      <sit-icon name="placeholder" slot="icon"></sit-icon>
       <span slot="title">
         Title
       </span>
-      <sgds-sidenav-link disabled>
+      <sit-sidenav-link disabled>
         <a href="#"> disbaED-test</a>
-      </sgds-sidenav-link>
-      <sgds-sidenav-link active>
+      </sit-sidenav-link>
+      <sit-sidenav-link active>
         <a href="#"> first-test</a>
-      </sgds-sidenav-link>
-      <sgds-sidenav-item>
+      </sit-sidenav-link>
+      <sit-sidenav-item>
         <span slot="title">
           Title level 2 very long so just wrap
         </span>
-        <sgds-sidenav-link>
+        <sit-sidenav-link>
           <a href="#"> first-test</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-link>
+        </sit-sidenav-link>
+        <sit-sidenav-link>
           <a href="#"> first-test</a>
-        </sgds-sidenav-link>
+        </sit-sidenav-link>
 
-      </sgds-sidenav-item>
-    </sgds-sidenav-item >
-    <sgds-sidenav-item disabled>
-      <sgds-icon slot="icon" name="placeholder"></sgds-icon>
+      </sit-sidenav-item>
+    </sit-sidenav-item >
+    <sit-sidenav-item disabled>
+      <sit-icon slot="icon" name="placeholder"></sit-icon>
       <span slot="title">
         Title
       </span>
-      <sgds-sidenav-link>
+      <sit-sidenav-link>
         <a href="#"> first-test</a>
-      </sgds-sidenav-link>
-      <sgds-sidenav-link>
+      </sit-sidenav-link>
+      <sit-sidenav-link>
         <a href="#"> first-test</a>
-      </sgds-sidenav-link>
+      </sit-sidenav-link>
 
-    </sgds-sidenav-item>
-    <sgds-sidenav-item active >
-      <a href="#"> <sgds-icon slot="icon" name="placeholder"></sgds-icon>anchor</a>
-    </sgds-sidenav-item>
-    <sgds-sidenav-item >
-      <a href="https://www.google.com"><sgds-icon slot="icon" name="placeholder"></sgds-icon> Google</a>
-    </sgds-sidenav-item>
-  </sgds-sidenav>
+    </sit-sidenav-item>
+    <sit-sidenav-item active >
+      <a href="#"> <sit-icon slot="icon" name="placeholder"></sit-icon>anchor</a>
+    </sit-sidenav-item>
+    <sit-sidenav-item >
+      <a href="https://www.google.com"><sit-icon slot="icon" name="placeholder"></sit-icon> Google</a>
+    </sit-sidenav-item>
+  </sit-sidenav>
 </template>

@@ -1,5 +1,5 @@
-import SgdsMasthead from "@govtechsg/sgds-web-component/react/masthead";
+import SitMasthead from "@sit-canvas/canvas-web-component/react/masthead";
 
 export const Masthead = () => {
-    return <SgdsMasthead />
+    return <SitMasthead />
 }

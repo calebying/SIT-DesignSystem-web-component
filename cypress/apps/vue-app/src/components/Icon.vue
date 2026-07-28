@@ -1,3 +1,3 @@
 <template>
-	<sgds-icon name="arrow-bar-down"></sgds-icon>
+	<sit-icon name="arrow-bar-down"></sit-icon>
 </template>

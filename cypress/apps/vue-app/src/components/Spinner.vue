@@ -1,3 +1,3 @@
 <template>
-    <sgds-spinner type="border" color="primary" spinnerclasses="undefined"> </sgds-spinner>
+    <sit-spinner type="border" color="primary" spinnerclasses="undefined"> </sit-spinner>
 </template>

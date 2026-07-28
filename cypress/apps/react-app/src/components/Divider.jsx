@@ -1,5 +1,5 @@
-import SgdsDivider from "@govtechsg/sgds-web-component/react/divider";
+import SitDivider from "@sit-canvas/canvas-web-component/react/divider";
 
 export const Divider = () => {
-    return <SgdsDivider />
+    return <SitDivider />
 }

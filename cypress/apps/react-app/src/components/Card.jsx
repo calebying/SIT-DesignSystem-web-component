@@ -1,9 +1,9 @@
-import SgdsCard from "@govtechsg/sgds-web-component/react/card";
+import SitCard from "@sit-canvas/canvas-web-component/react/card";
 
 export const Card = () => {
   return (
     <>
-      <SgdsCard>
+      <SitCard>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -16,7 +16,7 @@ export const Card = () => {
         <a slot="link" href="https://google.com">
           Go somewhere
         </a>
-      </SgdsCard>
+      </SitCard>
     </>
   );
 };

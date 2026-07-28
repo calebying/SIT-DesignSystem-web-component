@@ -2,7 +2,7 @@
 export const Card = () => {
   return (
     <>
-      <sgds-card>
+      <sit-card>
         <img
           slot="image"
           alt="img alternate text goes here"
@@ -15,7 +15,7 @@ export const Card = () => {
         <a slot="link" href="https://google.com">
           Go somewhere
         </a>
-      </sgds-card>
+      </sit-card>
     </>
   );
 };

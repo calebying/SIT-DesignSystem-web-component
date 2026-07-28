@@ -1,5 +1,5 @@
-import IButton from "@govtechsg/sgds-web-component/react/icon-button";
-import Icon from "@govtechsg/sgds-web-component/react/icon"
+import IButton from "@sit-canvas/canvas-web-component/react/icon-button";
+import Icon from "@sit-canvas/canvas-web-component/react/icon"
 export const IconButton = () => {
     return (
         <>

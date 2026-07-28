@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@govtechsg/sgds-web-component": "file:../../../lib",
+    "@sit-canvas/canvas-web-component": "file:../../../lib",
     "@tailwindcss/vite": "^4.1.18",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",

@@ -1,13 +1,13 @@
 <script lang="ts" setup>
-import "@govtechsg/sgds-web-component/components/Icon/index.js"
+import "@sit-canvas/canvas-web-component/components/Icon/index.js"
 </script>
 
 <template>
-	<sgds-icon name="arrow-bar-down"></sgds-icon>
-  <sgds-icon name="arrow-bar-left"></sgds-icon>
-  <sgds-icon name="arrow-bar-up"></sgds-icon>
-  <sgds-icon name="arrow-circle-down"></sgds-icon>
-  <sgds-icon name="arrow-circle-left"></sgds-icon>
-  <sgds-icon name="arrow-circle-up"></sgds-icon>
-  <sgds-icon name="arrow-clockwise"></sgds-icon>
+	<sit-icon name="arrow-bar-down"></sit-icon>
+  <sit-icon name="arrow-bar-left"></sit-icon>
+  <sit-icon name="arrow-bar-up"></sit-icon>
+  <sit-icon name="arrow-circle-down"></sit-icon>
+  <sit-icon name="arrow-circle-left"></sit-icon>
+  <sit-icon name="arrow-circle-up"></sit-icon>
+  <sit-icon name="arrow-clockwise"></sit-icon>
 </template>

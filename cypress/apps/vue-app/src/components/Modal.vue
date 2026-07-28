@@ -1,17 +1,17 @@
 <script setup lang="ts">
 const showModal = () => {
-  const modal = document.querySelector("sgds-modal");
+  const modal = document.querySelector("sit-modal");
   modal?.show();
 };
 const closeModal = () => {
-  const modal = document.querySelector("sgds-modal");
+  const modal = document.querySelector("sit-modal");
   modal?.hide();
 };
 </script>
 
 <template>
-    <sgds-button @click="showModal">Open Modal</sgds-button>
-    <sgds-modal>
+    <sit-button @click="showModal">Open Modal</sit-button>
+    <sit-modal>
       <h2 slot="title">Modal title</h2>
       <p slot="description">Modal description</p>
       <p>
@@ -86,7 +86,7 @@ const closeModal = () => {
         Vestibulum porttitor mi nec quam dignissim suscipit. Aenean eu dui a felis interdum eleifend ut non nibh.
         Proin at molestie ante. Etiam vel ipsum vitae nunc porta fermentum.</p>
       </p>
-      <sgds-button slot="footer" variant="link" class="close-modal">Close</sgds-button>
-      <sgds-button slot="footer" variant="primary" type="submit" form="formA">Submit</sgds-button>
-    </sgds-modal>
+      <sit-button slot="footer" variant="link" class="close-modal">Close</sit-button>
+      <sit-button slot="footer" variant="primary" type="submit" form="formA">Submit</sit-button>
+    </sit-modal>
 </template>

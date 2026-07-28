@@ -13,12 +13,12 @@ export const Drawer = () => {
 
     return (
         <>
-            <sgds-button onClick={showDrawer}>Open end Drawer</sgds-button>
-            <sgds-drawer ref={drawerRef} label="" placement="end">
+            <sit-button onClick={showDrawer}>Open end Drawer</sit-button>
+            <sit-drawer ref={drawerRef} label="" placement="end">
                 This is a Drawer
-                <sgds-button onClick={closeDrawer} slot="footer" variant="link" class="close-drawer">Close</sgds-button>
-                <sgds-button slot="footer" variant="primary" type="submit" form="formA">Submit</sgds-button>
-            </sgds-drawer>
+                <sit-button onClick={closeDrawer} slot="footer" variant="link" class="close-drawer">Close</sit-button>
+                <sit-button slot="footer" variant="primary" type="submit" form="formA">Submit</sit-button>
+            </sit-drawer>
         </>
     )
 }

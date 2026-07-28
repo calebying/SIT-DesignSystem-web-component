@@ -10,7 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@govtechsg/sgds-web-component": "file:../../../lib",
+    "@sit-canvas/canvas-web-component": "file:../../../lib",
     "nuxt": "^3.13.0",
     "nuxt-ssr-lit": "^1.6.30",
     "vue": "latest",

@@ -1,7 +1,7 @@
-import SgdsTextarea from "@govtechsg/sgds-web-component/react/textarea";
+import SitTextarea from "@sit-canvas/canvas-web-component/react/textarea";
 
 export const Textarea = () => {
-    return <SgdsTextarea
+    return <SitTextarea
         label="Label" 
         name="textarea"
         rows="4" 

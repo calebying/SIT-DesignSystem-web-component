@@ -1,30 +1,30 @@
 import React from "react";
 
-import SgdsSelect from "@govtechsg/sgds-web-component/react/select/index.js"
-import SgdsSelectOption from "@govtechsg/sgds-web-component/react/select-option/index.js"
-// import "@govtechsg/sgds-web-component/components/Select"
+import SitSelect from "@sit-canvas/canvas-web-component/react/select/index.js"
+import SitSelectOption from "@sit-canvas/canvas-web-component/react/select-option/index.js"
+// import "@sit-canvas/canvas-web-component/components/Select"
 export const Select = () => {
     return (
       <div>
-      <SgdsSelect
+      <SitSelect
         label="Fruits" 
         hintText="single select" 
         name="combobox" 
         placeholder="ComboBox" 
         value="1"
         >
-            <SgdsSelectOption value="1">One</SgdsSelectOption>
-      </SgdsSelect>
+            <SitSelectOption value="1">One</SitSelectOption>
+      </SitSelect>
      
-      {/* <sgds-select
+      {/* <sit-select
         label="Fruits" 
         hintText="single select" 
         name="combobox" 
         placeholder="ComboBox" 
         value="1"
         >
-            <sgds-select-option value="1">One</sgds-select-option>
-      </sgds-select> */}
+            <sit-select-option value="1">One</sit-select-option>
+      </sit-select> */}
      
       </div>
     )

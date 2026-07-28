@@ -1,4 +1,4 @@
 <template>
-    <sgds-datepicker dateformat="DD/MM/YYYY" mode="single">
-    </sgds-datepicker>
+    <sit-datepicker dateformat="DD/MM/YYYY" mode="single">
+    </sit-datepicker>
 </template>

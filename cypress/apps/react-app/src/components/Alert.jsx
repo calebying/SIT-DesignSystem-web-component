@@ -1,10 +1,10 @@
-import SgdsAlert from "@govtechsg/sgds-web-component/react/alert";
-import SgdsAlertLink from "@govtechsg/sgds-web-component/react/alert-link";
+import SitAlert from "@sit-canvas/canvas-web-component/react/alert";
+import SitAlertLink from "@sit-canvas/canvas-web-component/react/alert-link";
 
 export const Alert = () => {
   return (
     <>
-      <SgdsAlert variant="primary" show>
+      <SitAlert variant="primary" show>
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +18,8 @@ export const Alert = () => {
           <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"></path>
         </svg>
         This is an Alert component. You may add the dismissible option
-      </SgdsAlert>
-      <SgdsAlert variant="success" show>
+      </SitAlert>
+      <SitAlert variant="success" show>
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -35,16 +35,16 @@ export const Alert = () => {
         <div>
           <p>
             Aww yeah, you successfully read this important
-            <SgdsAlertLink href="#" target="undefined">
+            <SitAlertLink href="#" target="undefined">
               alert message
-            </SgdsAlertLink>
+            </SitAlertLink>
             . This example text is going to run a bit longer so that you can see how spacing within an alert works with
             this kind of content.
           </p>
           <hr />
           <p>Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
         </div>
-      </SgdsAlert>
+      </SitAlert>
     </>
   );
 };

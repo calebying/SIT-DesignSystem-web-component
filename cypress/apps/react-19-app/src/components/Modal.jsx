@@ -12,8 +12,8 @@ export const Modal = () => {
 
   return (
     <>
-      <sgds-button onClick={showModal}>Open Modal</sgds-button>
-      <sgds-modal>
+      <sit-button onClick={showModal}>Open Modal</sit-button>
+      <sit-modal>
         <h2 slot="title">Modal title</h2>
         <p slot="description">Modal description</p>
         <p>
@@ -22,13 +22,13 @@ export const Modal = () => {
           gravida, congue sapien eu, rhoncus ante. Quisque velit est, sodales vitae turpis vitae, hendrerit facilisis
           nulla. Suspendisse potenti. Nulla hendrerit enim sed leo rutrum auctor. Praesent volutpat rutrum purus in
         </p>
-        <sgds-button slot="footer" variant="link" class="close-modal" onClick={closeModal}>
+        <sit-button slot="footer" variant="link" class="close-modal" onClick={closeModal}>
           Close
-        </sgds-button>
-        <sgds-button slot="footer" variant="primary" type="submit" form="formA">
+        </sit-button>
+        <sit-button slot="footer" variant="primary" type="submit" form="formA">
           Submit
-        </sgds-button>
-      </sgds-modal>
+        </sit-button>
+      </sit-modal>
     </>
   );
 };

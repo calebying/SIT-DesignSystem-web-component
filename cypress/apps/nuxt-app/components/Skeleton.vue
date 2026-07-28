@@ -1,37 +1,37 @@
 <script lang="ts" setup>
-import "@govtechsg/sgds-web-component/components/Skeleton/index.js"
-import "@govtechsg/sgds-web-component/components/ThumbnailCard/index.js"
+import "@sit-canvas/canvas-web-component/components/Skeleton/index.js"
+import "@sit-canvas/canvas-web-component/components/ThumbnailCard/index.js"
 </script>
 
 <template>
-  <div class="sgds-container">
-    <div class="sgds-grid">
+  <div class="sit-container">
+    <div class="sit-grid">
       <div class="col-4">
-        <sgds-thumbnail-card>
+        <sit-thumbnail-card>
           <!-- skeleton for product card image -->
-          <sgds-skeleton
+          <sit-skeleton
             slot="thumbnail"
             sheen
-            width="var(--sgds-dimension-128)"
-            height="var(--sgds-dimension-64)"
+            width="var(--sit-dimension-128)"
+            height="var(--sit-dimension-64)"
           />
 
           <!-- skeleton for product card name -->
-          <sgds-skeleton
+          <sit-skeleton
             slot="title"
             sheen
-            width="var(--sgds-dimension-224)"
-            height="var(--sgds-dimension-32)"
+            width="var(--sit-dimension-224)"
+            height="var(--sit-dimension-32)"
           />
 
           <!-- skeleton for product card status -->
-          <sgds-skeleton
+          <sit-skeleton
             sheen
-            width="var(--sgds-dimension-96)"
-            height="var(--sgds-dimension-24)"
+            width="var(--sit-dimension-96)"
+            height="var(--sit-dimension-24)"
           />
 
-          <sgds-skeleton
+          <sit-skeleton
             slot="description"
             :rows="3"
             sheen
@@ -40,13 +40,13 @@ import "@govtechsg/sgds-web-component/components/ThumbnailCard/index.js"
           />
 
           <div slot="lower">
-            <sgds-skeleton
+            <sit-skeleton
               sheen
-              width="var(--sgds-dimension-96)"
-              height="var(--sgds-dimension-24)"
+              width="var(--sit-dimension-96)"
+              height="var(--sit-dimension-24)"
             />
           </div>
-        </sgds-thumbnail-card>
+        </sit-thumbnail-card>
       </div>
     </div>
   </div>

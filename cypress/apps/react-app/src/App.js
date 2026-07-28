@@ -1,4 +1,4 @@
-import "@govtechsg/sgds-web-component/themes/day.css";
+import "@sit-canvas/canvas-web-component/themes/day.css";
 import "./index.css";
 import { Accordion } from "./components/Accordion";
 import { Alert } from "./components/Alert";

@@ -1,4 +1,4 @@
-import SgdsStepper from "@govtechsg/sgds-web-component/react/stepper";
+import SitStepper from "@sit-canvas/canvas-web-component/react/stepper";
 import { useMemo } from "react"
 
 export const Stepper = () => {
@@ -17,5 +17,5 @@ export const Stepper = () => {
         }
     ], [])
 
-    return <SgdsStepper steps={steps} activeStep={1} />
+    return <SitStepper steps={steps} activeStep={1} />
 }

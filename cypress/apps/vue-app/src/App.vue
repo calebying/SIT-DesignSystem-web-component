@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import "@webcomponents/scoped-custom-element-registry"
-import "@govtechsg/sgds-web-component/themes/day.css";
-import "@govtechsg/sgds-web-component"
+import "@sit-canvas/canvas-web-component/themes/day.css";
+import "@sit-canvas/canvas-web-component"
 import Accordion from './components/Accordion.vue'
 import Alert from './components/Alert.vue'
 import Badge from './components/Badge.vue'
@@ -47,9 +47,9 @@ import Trigger from './components/Trigger.vue'
   <Mainnav />
 
   <body>
-    <sgds-template-grid>
-      <sgds-content-area>
-        <sgds-content-body>
+    <sit-template-grid>
+      <sit-content-area>
+        <sit-content-body>
           <Accordion />
           <Alert />
           <Badge />
@@ -85,9 +85,9 @@ import Trigger from './components/Trigger.vue'
           <Textarea />
           <Toast />
           <Trigger />
-        </sgds-content-body>
-      </sgds-content-area>
-    </sgds-template-grid>
+        </sit-content-body>
+      </sit-content-area>
+    </sit-template-grid>
   </body>
   <Footer />
 </template>

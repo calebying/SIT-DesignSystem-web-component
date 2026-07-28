@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import "@govtechsg/sgds-web-component/components/ComboBox/index.js";
+import "@sit-canvas/canvas-web-component/components/ComboBox/index.js";
 
 const open = false;
 </script>
 
 <template>
-    <sgds-combo-box
+    <sit-combo-box
         label="Fruits" 
         hintText="single select" 
         name="combobox" 
@@ -13,7 +13,7 @@ const open = false;
         value="1"
         multiselect
         >
-            <sgds-combo-box-option value="1">One</sgds-combo-box-option>
-            <sgds-combo-box-option value="2">Two</sgds-combo-box-option>
-      </sgds-combo-box>
+            <sit-combo-box-option value="1">One</sit-combo-box-option>
+            <sit-combo-box-option value="2">Two</sit-combo-box-option>
+      </sit-combo-box>
 </template>

@@ -1,6 +1,6 @@
 
 export const FileUpload = () => {
     return (
-        <sgds-file-upload>Choose a File</sgds-file-upload>
+        <sit-file-upload>Choose a File</sit-file-upload>
     )
 }

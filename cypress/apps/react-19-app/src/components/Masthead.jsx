@@ -1,5 +1,5 @@
 
 export const Masthead = () => {
-    return <sgds-masthead></sgds-masthead>
+    return <sit-masthead></sit-masthead>
 
 }

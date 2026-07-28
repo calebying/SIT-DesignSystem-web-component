@@ -1,8 +1,8 @@
-import SgdsCombobox from "@govtechsg/sgds-web-component/react/combo-box";
+import SitCombobox from "@sit-canvas/canvas-web-component/react/combo-box";
 
 export const Combobox = () => {
     return (
-      <SgdsCombobox 
+      <SitCombobox 
         label="Items" 
         hinttext="" 
         name="undefined" 
@@ -10,6 +10,6 @@ export const Combobox = () => {
         value="" 
         close="default"
         menuList={["apple", "orange", "pear"]}>
-      </SgdsCombobox>
+      </SitCombobox>
     )
 }

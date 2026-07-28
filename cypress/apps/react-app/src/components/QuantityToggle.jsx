@@ -1,7 +1,7 @@
-import SgdsQuantityToggle from "@govtechsg/sgds-web-component/react/quantity-toggle";
+import SitQuantityToggle from "@sit-canvas/canvas-web-component/react/quantity-toggle";
 
 export const QuantityToggle = () => {
-    return <SgdsQuantityToggle
+    return <SitQuantityToggle
         step="1"
         size="sm"
         buttonvariant="primary"

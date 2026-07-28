@@ -1,5 +1,5 @@
 <template>
-  <sgds-link>
-    <a href="#"><sgds-icon name="placeholder"></sgds-icon> light dom anchor</a>
-  </sgds-link>
+  <sit-link>
+    <a href="#"><sit-icon name="placeholder"></sit-icon> light dom anchor</a>
+  </sit-link>
 </template>

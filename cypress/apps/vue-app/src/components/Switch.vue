@@ -1,6 +1,6 @@
 <template>
-  <sgds-switch>Switch</sgds-switch>
-  <sgds-switch icon>Switch with icon</sgds-switch>
-  <sgds-switch icon size="sm">Switch with icon</sgds-switch>
-  <sgds-switch icon size="lg">Switch with icon</sgds-switch>
+  <sit-switch>Switch</sit-switch>
+  <sit-switch icon>Switch with icon</sit-switch>
+  <sit-switch icon size="sm">Switch with icon</sit-switch>
+  <sit-switch icon size="lg">Switch with icon</sit-switch>
 </template>

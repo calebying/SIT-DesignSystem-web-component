@@ -1,5 +1,5 @@
 <template>
-  <sgds-divider></sgds-divider>
-  <sgds-divider thickness="thick"></sgds-divider>
-  <sgds-divider thickness="thicker"></sgds-divider>
+  <sit-divider></sit-divider>
+  <sit-divider thickness="thick"></sit-divider>
+  <sit-divider thickness="thicker"></sit-divider>
 </template>

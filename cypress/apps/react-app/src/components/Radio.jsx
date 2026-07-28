@@ -1,13 +1,13 @@
-import SgdsRadio from "@govtechsg/sgds-web-component/react/radio";
-import SgdsRadioGroup from "@govtechsg/sgds-web-component/react/radio-group";
+import SitRadio from "@sit-canvas/canvas-web-component/react/radio";
+import SitRadioGroup from "@sit-canvas/canvas-web-component/react/radio-group";
 
 export const Radio = () => {
     return (
-        <SgdsRadioGroup>
+        <SitRadioGroup>
             <span slot="label">Select an option</span>
-            <SgdsRadio>Option 1</SgdsRadio>
-            <SgdsRadio value="2">Option 2</SgdsRadio>
-            <SgdsRadio value="3">Option 3</SgdsRadio>
-        </SgdsRadioGroup>
+            <SitRadio>Option 1</SitRadio>
+            <SitRadio value="2">Option 2</SitRadio>
+            <SitRadio value="3">Option 3</SitRadio>
+        </SitRadioGroup>
     )
 }

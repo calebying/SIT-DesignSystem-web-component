@@ -1,7 +1,7 @@
 export const Alert = () => {
   return (
     <>
-      <sgds-alert variant="primary" show>
+      <sit-alert variant="primary" show>
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -15,8 +15,8 @@ export const Alert = () => {
           <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"></path>
         </svg>
         This is an Alert component. You may add the dismissible option
-      </sgds-alert>
-      <sgds-alert variant="success" show>
+      </sit-alert>
+      <sit-alert variant="success" show>
         <svg
           slot="icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@ export const Alert = () => {
           <hr />
           <p>Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
         </div>
-      </sgds-alert>
+      </sit-alert>
     </>
   );
 };

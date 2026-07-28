@@ -1,8 +1,8 @@
-import SgdsDatepicker from "@govtechsg/sgds-web-component/react/datepicker";
+import SitDatepicker from "@sit-canvas/canvas-web-component/react/datepicker";
 
 export const Datepicker = () => {
     return (
-        <SgdsDatepicker dateformat="DD/MM/YYYY" mode="single">
-        </SgdsDatepicker>
+        <SitDatepicker dateformat="DD/MM/YYYY" mode="single">
+        </SitDatepicker>
     )
 }

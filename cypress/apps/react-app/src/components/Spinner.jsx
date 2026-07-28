@@ -1,5 +1,5 @@
-import SgdsSpinner from "@govtechsg/sgds-web-component/react/spinner";
+import SitSpinner from "@sit-canvas/canvas-web-component/react/spinner";
 
 export const Spinner = () => {
-    return <SgdsSpinner type="border" color="primary" />
+    return <SitSpinner type="border" color="primary" />
 }

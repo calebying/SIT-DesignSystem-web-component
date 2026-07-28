@@ -16,5 +16,5 @@ const steps = [
 </script>
 
 <template>
-    <sgds-stepper .steps="steps" .activeStep="1"></sgds-stepper>
+    <sit-stepper .steps="steps" .activeStep="1"></sit-stepper>
 </template>

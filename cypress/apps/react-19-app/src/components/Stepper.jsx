@@ -16,5 +16,5 @@ export const Stepper = () => {
         }
     ], [])
 
-    return <sgds-stepper steps={steps} activeStep={1} ></sgds-stepper>
+    return <sit-stepper steps={steps} activeStep={1} ></sit-stepper>
 }

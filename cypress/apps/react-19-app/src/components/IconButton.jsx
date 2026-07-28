@@ -1,6 +1,6 @@
 
 export const IconButton = () => {
     return (
-<sgds-icon-button name="plus"></sgds-icon-button>
+<sit-icon-button name="plus"></sit-icon-button>
     )
 }
