@@ -63,6 +63,8 @@ const reactBuildPlugins = [
   }),
   litcss(),
   typescript({
+    tsconfig: "tsconfig.json",
+    tsconfigOverride: { exclude: ["node_modules", "lib", "test", "test-outdir", "cypress", "cypress.config.ts", "scripts", "mocks"] },
     useTsconfigDeclarationDir: true
   }),
   preserveDirectives()

@@ -148,7 +148,7 @@
     "rollup-plugin-postcss": "^4.0.0",
     "rollup-plugin-postcss-lit": "^2.1.0",
     "rollup-plugin-preserve-directives": "^0.4.0",
-    "rollup-plugin-typescript2": "^0.33.0",
+    "rollup-plugin-typescript2": "^0.37.0",
     "rollup-plugin-visualizer": "^5.9.2",
     "sinon": "^21.0.1",
     "storybook": "^8.6.15",

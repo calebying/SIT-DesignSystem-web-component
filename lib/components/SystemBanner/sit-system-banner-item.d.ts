@@ -1,0 +1,27 @@
+import SitElement from "../../base/sit-element";
+/**
+ * @slot icon - The slot to pass in an icon element. Either use a badge or a icon, but not both, to avoid layout issues.
+ * @slot action - The slot to pass in an action element such as a button or link
+ * @slot default - The slot to pass in the message content of the banner item. Text will be clamped at 2 lines in desktop view and 5 lines in mobile view
+ * @slot badge - The slot to pass in a badge element. Either use a badge or a icon, but not both, to avoid layout issues.
+ *
+ * @event sit-show-more - The event emitted when user clicks on "show more" in the banner text message
+ */
+export declare class SitSystemBannerItem extends SitElement {
+    static styles: import("lit").CSSResult[];
+    /** Used only for SSR to indicate the presence of the `action` slot. */
+    hasActionSlot: boolean;
+    /** Disables the action link that appears when text content is clamped */
+    noClampAction: boolean;
+    private clamped;
+    private siblingsCount;
+    private readonly hasSlotController;
+    private _resizeObserver;
+    firstUpdated(_changedProperties: any): Promise<void>;
+    disconnectedCallback(): void;
+    updated(): void;
+    private _clampCheck;
+    private _handleShowMoreClick;
+    render(): import("lit-html").TemplateResult<1>;
+}
+export default SitSystemBannerItem;

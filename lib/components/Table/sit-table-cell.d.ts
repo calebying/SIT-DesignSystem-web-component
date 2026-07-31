@@ -1,0 +1,12 @@
+import SitElement from "../../base/sit-element";
+/**
+ * @summary Table cell is used for presenting individual data values, interactive elements, or custom content within a table row.
+ *
+ * @slot default - Insert any elements to be rendered as the cell’s content.
+ */
+export declare class SitTableCell extends SitElement {
+    static styles: import("lit").CSSResult[];
+    connectedCallback(): void;
+    render(): import("lit-html").TemplateResult<1>;
+}
+export default SitTableCell;

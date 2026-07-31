@@ -1,0 +1,294 @@
+:root {
+  /* Font Size - Display */
+  --sit-font-size-display-sm: var(--sit-font-size-32);
+  --sit-font-size-display-md: var(--sit-font-size-36);
+  --sit-font-size-display-lg: var(--sit-font-size-40);
+
+  /* Font Size - Heading */
+  --sit-font-size-heading-sm: var(--sit-font-size-20);
+  --sit-font-size-heading-md: var(--sit-font-size-24);
+  --sit-font-size-heading-lg: var(--sit-font-size-28);
+  --sit-font-size-heading-xl: var(--sit-font-size-32);
+
+  /* Font Size - Subtitle */
+  --sit-font-size-subtitle-sm: var(--sit-font-size-16);
+  --sit-font-size-subtitle-md: var(--sit-font-size-18);
+
+  /* Font Size - Body */
+  --sit-font-size-body-sm: var(--sit-font-size-14);
+  --sit-font-size-body-md: var(--sit-font-size-16);
+  --sit-font-size-body-lg: var(--sit-font-size-18);
+
+  /* Font Size - Label */
+  --sit-font-size-label-xs: var(--sit-font-size-12);
+  --sit-font-size-label-sm: var(--sit-font-size-14);
+  --sit-font-size-label-md: var(--sit-font-size-16);
+  --sit-font-size-label-lg: var(--sit-font-size-18);
+
+  /* Font Size - List */
+  --sit-font-size-list-sm: var(--sit-font-size-14);
+  --sit-font-size-list-md: var(--sit-font-size-16);
+  --sit-font-size-list-lg: var(--sit-font-size-18);
+
+  /* Font Size - Caption */
+  --sit-font-size-caption-md: var(--sit-font-size-14);
+
+  /* Font Size - Overline */
+  --sit-font-size-overline-md: var(--sit-font-size-14);
+
+  /* Font Size - Link */
+  --sit-font-size-link-xs: var(--sit-font-size-12);
+  --sit-font-size-link-sm: var(--sit-font-size-14);
+  --sit-font-size-link-md: var(--sit-font-size-16);
+  --sit-font-size-link-lg: var(--sit-font-size-18);
+
+  /* Line Height */
+  --sit-line-height-3-xs: var(--sit-line-height-16);
+  --sit-line-height-2-xs: var(--sit-line-height-20);
+  --sit-line-height-xs: var(--sit-line-height-24);
+  --sit-line-height-sm: var(--sit-line-height-24);
+  --sit-line-height-md: var(--sit-line-height-28);
+  --sit-line-height-lg: var(--sit-line-height-32);
+  --sit-line-height-xl: var(--sit-line-height-40);
+  --sit-line-height-2-xl: var(--sit-line-height-44);
+  --sit-line-height-3-xl: var(--sit-line-height-48);
+
+  /* Text - Gap */
+  --sit-text-gap-2-xs: var(--sit-spacer-2);
+  --sit-text-gap-xs: var(--sit-spacer-3);
+  --sit-text-gap-sm: var(--sit-spacer-3);
+  --sit-text-gap-md: var(--sit-spacer-4);
+  --sit-text-gap-lg: var(--sit-spacer-5);
+  --sit-text-gap-xl: var(--sit-spacer-6);
+  --sit-text-gap-2-xl: var(--sit-spacer-7);
+
+  /* Layout - Gap */
+  --sit-layout-gap-2-xs: var(--sit-spacer-2);
+  --sit-layout-gap-xs: var(--sit-spacer-3);
+  --sit-layout-gap-sm: var(--sit-spacer-4);
+  --sit-layout-gap-md: var(--sit-spacer-5);
+  --sit-layout-gap-lg: var(--sit-spacer-6);
+  --sit-layout-gap-xl: var(--sit-spacer-7);
+
+  /* Layout - Padding */
+  --sit-layout-padding-xs: var(--sit-spacer-5);
+  --sit-layout-padding-sm: var(--sit-spacer-6);
+  --sit-layout-padding-md: var(--sit-spacer-7);
+  --sit-layout-padding-lg: var(--sit-spacer-8);
+  --sit-layout-padding-xl: var(--sit-spacer-9);
+
+  /* Component - Gap */
+  --sit-component-gap-xs: var(--sit-spacer-3);
+  --sit-component-gap-sm: var(--sit-spacer-4);
+  --sit-component-gap-md: var(--sit-spacer-5);
+  --sit-component-gap-lg: var(--sit-spacer-6);
+  --sit-component-gap-xl: var(--sit-spacer-7);
+
+  /* Component - Padding */
+  --sit-component-padding-xs: var(--sit-spacer-5);
+  --sit-component-padding-sm: var(--sit-spacer-6);
+  --sit-component-padding-md: var(--sit-spacer-7);
+  --sit-component-padding-lg: var(--sit-spacer-8);
+  --sit-component-padding-xl: var(--sit-spacer-9);
+
+  /* Container - Width */
+  --sit-container-width: var(--sit-dimension-360);
+}
+
+@media screen and (min-width: 1024px) { /* For tablets and larger screens */
+  :root {
+    /* Font Size - Display */
+    --sit-font-size-display-sm: var(--sit-font-size-36);
+    --sit-font-size-display-md: var(--sit-font-size-44);
+    --sit-font-size-display-lg: var(--sit-font-size-52);
+
+    /* Font Size - Heading */
+    --sit-font-size-heading-sm: var(--sit-font-size-22);
+    --sit-font-size-heading-md: var(--sit-font-size-26);
+    --sit-font-size-heading-lg: var(--sit-font-size-30);
+    --sit-font-size-heading-xl: var(--sit-font-size-36);
+
+    /* Font Size - Subtitle */
+    --sit-font-size-subtitle-sm: var(--sit-font-size-16);
+    --sit-font-size-subtitle-md: var(--sit-font-size-20);
+
+    /* Font Size - Body */
+    --sit-font-size-body-sm: var(--sit-font-size-14);
+    --sit-font-size-body-md: var(--sit-font-size-16);
+    --sit-font-size-body-lg: var(--sit-font-size-20);
+
+    /* Font Size - Label */
+    --sit-font-size-label-xs: var(--sit-font-size-12);
+    --sit-font-size-label-sm: var(--sit-font-size-14);
+    --sit-font-size-label-md: var(--sit-font-size-16);
+    --sit-font-size-label-lg: var(--sit-font-size-20);
+
+    /* Font Size - List */
+    --sit-font-size-list-sm: var(--sit-font-size-14);
+    --sit-font-size-list-md: var(--sit-font-size-16);
+    --sit-font-size-list-lg: var(--sit-font-size-20);
+
+    /* Font Size - Caption */
+    --sit-font-size-caption-md: var(--sit-font-size-14);
+
+    /* Font Size - Overline */
+    --sit-font-size-overline-md: var(--sit-font-size-14);
+
+    /* Font Size - Link */
+    --sit-font-size-link-xs: var(--sit-font-size-12);
+    --sit-font-size-link-sm: var(--sit-font-size-14);
+    --sit-font-size-link-md: var(--sit-font-size-16);
+    --sit-font-size-link-lg: var(--sit-font-size-20);
+
+    /* Line Height */
+    --sit-line-height-3-xs: var(--sit-line-height-16);
+    --sit-line-height-2-xs: var(--sit-line-height-20);
+    --sit-line-height-xs: var(--sit-line-height-24);
+    --sit-line-height-sm: var(--sit-line-height-28);
+    --sit-line-height-md: var(--sit-line-height-32);
+    --sit-line-height-lg: var(--sit-line-height-36);
+    --sit-line-height-xl: var(--sit-line-height-44);
+    --sit-line-height-2-xl: var(--sit-line-height-52);
+    --sit-line-height-3-xl: var(--sit-line-height-60);
+
+    /* Text - Gap */
+    --sit-text-gap-2-xs: var(--sit-spacer-2);
+    --sit-text-gap-xs: var(--sit-spacer-3);
+    --sit-text-gap-sm: var(--sit-spacer-4);
+    --sit-text-gap-md: var(--sit-spacer-5);
+    --sit-text-gap-lg: var(--sit-spacer-6);
+    --sit-text-gap-xl: var(--sit-spacer-7);
+    --sit-text-gap-2-xl: var(--sit-spacer-8);
+
+    /* Layout - Gap */
+    --sit-layout-gap-2-xs: var(--sit-spacer-4);
+    --sit-layout-gap-xs: var(--sit-spacer-5);
+    --sit-layout-gap-sm: var(--sit-spacer-6);
+    --sit-layout-gap-md: var(--sit-spacer-7);
+    --sit-layout-gap-lg: var(--sit-spacer-8);
+    --sit-layout-gap-xl: var(--sit-spacer-9);
+
+    /* Layout - Padding */
+    --sit-layout-padding-xs: var(--sit-spacer-6);
+    --sit-layout-padding-sm: var(--sit-spacer-7);
+    --sit-layout-padding-md: var(--sit-spacer-8);
+    --sit-layout-padding-lg: var(--sit-spacer-9);
+    --sit-layout-padding-xl: var(--sit-spacer-10);
+    
+    /* Component - Gap */
+    --sit-component-gap-xs: var(--sit-spacer-5);
+    --sit-component-gap-sm: var(--sit-spacer-6);
+    --sit-component-gap-md: var(--sit-spacer-7);
+    --sit-component-gap-lg: var(--sit-spacer-8);
+    --sit-component-gap-xl: var(--sit-spacer-9);
+
+    /* Component - Padding */
+    --sit-component-padding-xs: var(--sit-spacer-6);
+    --sit-component-padding-sm: var(--sit-spacer-7);
+    --sit-component-padding-md: var(--sit-spacer-8);
+    --sit-component-padding-lg: var(--sit-spacer-9);
+    --sit-component-padding-xl: var(--sit-spacer-10);
+
+    /* Container - Width */
+    --sit-container-width: var(--sit-dimension-888);
+  }
+}
+
+@media screen and (min-width: 1440px) { /* For desktops */
+  :root {
+    /* Font Size - Display */
+    --sit-font-size-display-sm: var(--sit-font-size-40);
+    --sit-font-size-display-md: var(--sit-font-size-48);
+    --sit-font-size-display-lg: var(--sit-font-size-56);
+
+    /* Font Size - Heading */
+    --sit-font-size-heading-sm: var(--sit-font-size-24);
+    --sit-font-size-heading-md: var(--sit-font-size-28);
+    --sit-font-size-heading-lg: var(--sit-font-size-32);
+    --sit-font-size-heading-xl: var(--sit-font-size-40);
+
+    /* Font Size - Subtitle */
+    --sit-font-size-subtitle-sm: var(--sit-font-size-16);
+    --sit-font-size-subtitle-md: var(--sit-font-size-20);
+
+    /* Font Size - Body */
+    --sit-font-size-body-sm: var(--sit-font-size-14);
+    --sit-font-size-body-md: var(--sit-font-size-16);
+    --sit-font-size-body-lg: var(--sit-font-size-20);
+
+    /* Font Size - Label */
+    --sit-font-size-label-xs: var(--sit-font-size-12);
+    --sit-font-size-label-sm: var(--sit-font-size-14);
+    --sit-font-size-label-md: var(--sit-font-size-16);
+    --sit-font-size-label-lg: var(--sit-font-size-20);
+
+    /* Font Size - List */
+    --sit-font-size-list-sm: var(--sit-font-size-14);
+    --sit-font-size-list-md: var(--sit-font-size-16);
+    --sit-font-size-list-lg: var(--sit-font-size-20);
+
+    /* Font Size - Caption */
+    --sit-font-size-caption-md: var(--sit-font-size-14);
+
+    /* Font Size - Overline */
+    --sit-font-size-overline-md: var(--sit-font-size-14);
+
+    /* Font Size - Link */
+    --sit-font-size-link-xs: var(--sit-font-size-12);
+    --sit-font-size-link-sm: var(--sit-font-size-14);
+    --sit-font-size-link-md: var(--sit-font-size-16);
+    --sit-font-size-link-lg: var(--sit-font-size-20);
+
+    /* Line Height */
+    --sit-line-height-3-xs: var(--sit-line-height-16);
+    --sit-line-height-2-xs: var(--sit-line-height-20);
+    --sit-line-height-xs: var(--sit-line-height-24);
+    --sit-line-height-sm: var(--sit-line-height-28);
+    --sit-line-height-md: var(--sit-line-height-32);
+    --sit-line-height-lg: var(--sit-line-height-40);
+    --sit-line-height-xl: var(--sit-line-height-48);
+    --sit-line-height-2-xl: var(--sit-line-height-56);
+    --sit-line-height-3-xl: var(--sit-line-height-64);
+
+    /* Text - Gap */
+    --sit-text-gap-2-xs: var(--sit-spacer-2);
+    --sit-text-gap-xs: var(--sit-spacer-3);
+    --sit-text-gap-sm: var(--sit-spacer-4);
+    --sit-text-gap-md: var(--sit-spacer-5);
+    --sit-text-gap-lg: var(--sit-spacer-6);
+    --sit-text-gap-xl: var(--sit-spacer-7);
+    --sit-text-gap-2-xl: var(--sit-spacer-8);
+
+    /* Layout - Gap */
+    --sit-layout-gap-2-xs: var(--sit-spacer-5);
+    --sit-layout-gap-xs: var(--sit-spacer-6);
+    --sit-layout-gap-sm: var(--sit-spacer-7);
+    --sit-layout-gap-md: var(--sit-spacer-8);
+    --sit-layout-gap-lg: var(--sit-spacer-9);
+    --sit-layout-gap-xl: var(--sit-spacer-10);
+
+    /* Layout - Padding */
+    --sit-layout-padding-xs: var(--sit-spacer-7);
+    --sit-layout-padding-sm: var(--sit-spacer-8);
+    --sit-layout-padding-md: var(--sit-spacer-9);
+    --sit-layout-padding-lg: var(--sit-spacer-10);
+    --sit-layout-padding-xl: var(--sit-spacer-11);
+
+    /* Component - Gap */
+    --sit-component-gap-xs: var(--sit-spacer-6);
+    --sit-component-gap-sm: var(--sit-spacer-7);
+    --sit-component-gap-md: var(--sit-spacer-8);
+    --sit-component-gap-lg: var(--sit-spacer-9);
+    --sit-component-gap-xl: var(--sit-spacer-10);
+
+    /* Component - Padding */
+    --sit-component-padding-xs: var(--sit-spacer-7);
+    --sit-component-padding-sm: var(--sit-spacer-8);
+    --sit-component-padding-md: var(--sit-spacer-9);
+    --sit-component-padding-lg: var(--sit-spacer-10);
+    --sit-component-padding-xl: var(--sit-spacer-11);
+
+    /* Container - Width */
+    --sit-container-width: var(--sit-dimension-1312);
+  }
+}

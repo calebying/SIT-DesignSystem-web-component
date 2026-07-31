@@ -1,0 +1,100 @@
+import { SitFormControl } from "../utils/formSubmitController";
+import { DropdownListElement } from "./dropdown-list-element";
+import { OptionElement } from "./option-element";
+declare abstract class AbstractSelectBase {
+    static childName: string;
+}
+declare const SelectElement_base: (new (...args: any[]) => import("../utils/validatorMixin").ToBeValidatedElementInterface) & typeof DropdownListElement;
+export declare class SelectElement extends SelectElement_base implements SitFormControl, AbstractSelectBase {
+    static styles: import("lit").CSSResult[];
+    /** The input's label  */
+    label: string;
+    /** The input's hint text below the label */
+    hintText: string;
+    /** The input's name attribute */
+    name: string;
+    /** The input's placeholder text. */
+    placeholder: string;
+    /** Autofocus the input */
+    autofocus: boolean;
+    /** Disables the input. */
+    disabled: boolean;
+    /** Makes the input a required field. */
+    required: boolean;
+    /** Sets the loading state of the component */
+    loading: boolean;
+    /**
+     * IMPORTANT:
+     * We still expose `.value` externally, but this is now the underlying ID or data
+     * (e.g. 1, 2, 'abc', ...), not the label that appears in the input box.
+     */
+    value: string;
+    displayValue: string;
+    /** @internal Gets or sets the default value used to reset this element. */
+    defaultValue: string;
+    /** Allows invalidFeedback, invalid and valid styles to be visible with the input */
+    hasFeedback: boolean;
+    /** Feedback text for error state when validated */
+    invalidFeedback: string;
+    /** Marks the component as invalid. Replace the pseudo :invalid selector. */
+    invalid: boolean;
+    /** Controlling of autocomplete behaviour */
+    autocomplete: string;
+    /** Programatically sets the invalid state of the component. Pass in boolean value in the argument */
+    setInvalid(bool: boolean): void;
+    /** The list of items to display in the dropdown.
+     * `interface SitComboBoxItemData {
+     * label: string;
+     * value: string;
+     * }`
+     * @deprecated
+     * Deprecated in favour of slots
+     */
+    menuList: SitOptionData[];
+    /** Track selected items (even for single-select, but it will have at most one). */
+    protected selectedItems: SitOptionData[];
+    /** @internal Managed filtered menu on the fly with input change*/
+    protected filteredList: SitOptionData[];
+    protected _isTouched: boolean;
+    constructor();
+    protected _input: Promise<HTMLInputElement>;
+    connectedCallback(): void;
+    /**
+     * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
+     * Note that the native error popup is prevented for Canvas form components by default. Instead the validation message shows up in the feedback container of SitInput
+     */
+    reportValidity(): boolean;
+    /**
+     * Sets the validity state of the element
+     */
+    setValidity(flags?: ValidityStateFlags, message?: string, anchor?: HTMLElement): void;
+    /**
+     * Checks for validity without any native error popup message
+     */
+    checkValidity(): boolean;
+    /**
+     * Returns the ValidityState object
+     */
+    get validity(): ValidityState;
+    /**
+     * Returns the validation message based on the ValidityState
+     */
+    get validationMessage(): string;
+    protected _controlId: string;
+    protected _renderFeedback(): import("lit-html").TemplateResult<1>;
+    protected _renderHintText(): import("lit-html").TemplateResult<1>;
+    protected _labelId: string;
+    protected _renderLabel(): import("lit-html").TemplateResult<1>;
+    protected _handleClick(): any;
+    protected _getMenuListFromOptions(assignedElements: Element[]): Promise<SitOptionData[]>;
+    protected _renderEmptyMenu(): import("lit-html").TemplateResult<1>;
+    protected _renderLoadingMenu(): import("lit-html").TemplateResult<1>;
+    protected options: OptionElement[];
+    static childName: string;
+}
+export interface SitOptionData {
+    label: string;
+    value: string;
+    disabled?: boolean;
+}
+export {};

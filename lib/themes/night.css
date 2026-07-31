@@ -1,0 +1,198 @@
+@import "./root.css";
+:root.sit-night-theme {
+  color-scheme: only dark;
+  --sit-color-scheme: only dark;
+
+  /* Semantic - Default Colors */
+  --sit-bg-default: var(--sit-gray-1100);
+  --sit-bg-alternate: var(--sit-gray-1000);
+  --sit-bg-fixed-light: var(--sit-gray-000);
+  --sit-bg-fixed-dark: var(--sit-gray-1100);
+  --sit-bg-overlay: oklch(from var(--sit-gray-1100) l c h / 0.5);
+  --sit-bg-translucent: oklch(from var(--sit-gray-000) l c h / 0.1);
+  --sit-bg-translucent-subtle: oklch(from var(--sit-gray-000) l c h / 0.1);
+  --sit-bg-transparent: transparent;
+  --sit-bg-translucent-inverse: oklch(from var(--sit-gray-1100) l c h / 0.2);
+  --sit-bg-translucent-fixed-dark: oklch(from var(--sit-gray-1100) l c h / 0.2);
+  --sit-bg-translucent-fixed-light: oklch(from var(--sit-gray-000) l c h / 0.2);
+  --sit-surface-default: var(--sit-gray-900);
+  --sit-surface-raised: var(--sit-gray-800);
+  --sit-surface-inverse: var(--sit-gray-000);
+  --sit-surface-fixed-light: var(--sit-gray-000);
+  --sit-surface-fixed-dark: var(--sit-gray-900);
+  --sit-color-default: var(--sit-gray-100);
+  --sit-color-subtle: var(--sit-gray-400);
+  --sit-color-muted: var(--sit-gray-800);
+  --sit-color-inverse: var(--sit-gray-1000);
+  --sit-color-fixed-light: var(--sit-gray-100);
+  --sit-color-fixed-dark: var(--sit-gray-1000);
+  --sit-color-transparent: transparent;
+  --sit-border-color-default: var(--sit-gray-500);
+  --sit-border-color-emphasis: var(--sit-gray-200);
+  --sit-border-color-muted: var(--sit-gray-800);
+  --sit-border-color-fixed-light: var(--sit-gray-000);
+  --sit-border-color-fixed-dark: var(--sit-gray-1000);
+  --sit-border-color-translucent: oklch(from var(--sit-gray-000) l c h / 0.1);
+  --sit-border-color-transparent: transparent;
+
+  /* Semantic - Primary Colors */
+  --sit-primary-bg-default: var(--sit-product-primary-600);
+  --sit-primary-bg-muted: var(--sit-product-primary-200);
+  --sit-primary-bg-translucent: oklch(from var(--sit-product-primary-100) l c h / 0.05);
+  --sit-primary-surface-default: var(--sit-product-primary-600);
+  --sit-primary-surface-emphasis: var(--sit-product-primary-700);
+  --sit-primary-surface-muted: var(--sit-product-primary-100);
+  --sit-primary-surface-translucent: oklch(from var(--sit-product-primary-100) l c h / 0.1);
+  --sit-primary-color-default: var(--sit-product-primary-400);
+  --sit-primary-color-emphasis: var(--sit-product-primary-300);
+  --sit-primary-color-fixed-light: var(--sit-product-primary-400);
+  --sit-primary-color-fixed-dark: var(--sit-product-primary-600);
+  --sit-primary-border-color-default: var(--sit-product-primary-400);
+  --sit-primary-border-color-emphasis: var(--sit-product-primary-200);
+  --sit-primary-border-color-muted: var(--sit-product-primary-700);
+
+  /* Semantic - Accent Colors */
+  --sit-accent-bg-default: var(--sit-blue-600);
+  --sit-accent-bg-muted: var(--sit-blue-200);
+  --sit-accent-surface-default: var(--sit-blue-600);
+  --sit-accent-surface-emphasis: var(--sit-blue-700);
+  --sit-accent-surface-muted: var(--sit-blue-100);
+  --sit-accent-color-default: var(--sit-blue-400);
+  --sit-accent-color-emphasis: var(--sit-blue-300);
+  --sit-accent-color-fixed-light: var(--sit-blue-400);
+  --sit-accent-color-fixed-dark: var(--sit-blue-600);
+  --sit-accent-border-color-default: var(--sit-blue-500);
+  --sit-accent-border-color-emphasis: var(--sit-blue-200);
+  --sit-accent-border-color-muted: var(--sit-blue-700);
+
+  /* Semantic - Success Colors */
+  --sit-success-bg-default: var(--sit-green-600);
+  --sit-success-bg-muted: var(--sit-green-200);
+  --sit-success-surface-default: var(--sit-green-600);
+  --sit-success-surface-emphasis: var(--sit-green-700);
+  --sit-success-surface-muted: var(--sit-green-100);
+  --sit-success-color-default: var(--sit-green-400);
+  --sit-success-color-emphasis: var(--sit-green-300);
+  --sit-success-color-fixed-light: var(--sit-green-400);
+  --sit-success-color-fixed-dark: var(--sit-green-600);
+  --sit-success-border-color-default: var(--sit-green-400);
+  --sit-success-border-color-emphasis: var(--sit-green-200);
+  --sit-success-border-color-muted: var(--sit-green-700);
+
+  /* Semantic - Danger Colors */
+  --sit-danger-bg-default: var(--sit-red-600);
+  --sit-danger-bg-muted: var(--sit-red-200);
+  --sit-danger-surface-default: var(--sit-red-600);
+  --sit-danger-surface-emphasis: var(--sit-red-700);
+  --sit-danger-surface-muted: var(--sit-red-100);
+  --sit-danger-surface-translucent: oklch(from var(--sit-red-100) l c h / 0.08);
+  --sit-danger-color-default: var(--sit-red-400);
+  --sit-danger-color-emphasis: var(--sit-red-300);
+  --sit-danger-color-fixed-light: var(--sit-red-400);
+  --sit-danger-color-fixed-dark: var(--sit-red-600);
+  --sit-danger-border-color-default: var(--sit-red-400);
+  --sit-danger-border-color-emphasis: var(--sit-red-200);
+  --sit-danger-border-color-muted: var(--sit-red-700);
+
+  /* Semantic - Warning Colors */
+  --sit-warning-bg-default: var(--sit-yellow-300);
+  --sit-warning-bg-muted: var(--sit-yellow-200);
+  --sit-warning-surface-default: var(--sit-yellow-200);
+  --sit-warning-surface-emphasis: var(--sit-yellow-600);
+  --sit-warning-surface-muted: var(--sit-yellow-100);
+  --sit-warning-color-default: var(--sit-yellow-300);
+  --sit-warning-color-emphasis: var(--sit-yellow-200);
+  --sit-warning-color-fixed-light: var(--sit-yellow-300);
+  --sit-warning-color-fixed-dark: var(--sit-yellow-600);
+  --sit-warning-border-color-default: var(--sit-yellow-400);
+  --sit-warning-border-color-emphasis: var(--sit-yellow-200);
+  --sit-warning-border-color-muted: var(--sit-yellow-700);
+  
+  /* Semantic - Purple Colors */
+  --sit-purple-bg-default: var(--sit-purple-600);
+  --sit-purple-bg-muted: var(--sit-purple-200);
+  --sit-purple-surface-default: var(--sit-purple-600);
+  --sit-purple-surface-emphasis: var(--sit-purple-700);
+  --sit-purple-surface-muted: var(--sit-purple-100);
+  --sit-purple-color-default: var(--sit-purple-400);
+  --sit-purple-color-emphasis: var(--sit-purple-300);
+  --sit-purple-color-fixed-light: var(--sit-purple-400);
+  --sit-purple-color-fixed-dark: var(--sit-purple-600);
+  --sit-purple-border-color-default: var(--sit-purple-500);
+  --sit-purple-border-color-emphasis: var(--sit-purple-200);
+  --sit-purple-border-color-muted: var(--sit-purple-700);
+  
+  /* Semantic - Cyan Colors */
+  --sit-cyan-bg-default: var(--sit-cyan-600);
+  --sit-cyan-bg-muted: var(--sit-cyan-200);
+  --sit-cyan-surface-default: var(--sit-cyan-600);
+  --sit-cyan-surface-emphasis: var(--sit-cyan-700);
+  --sit-cyan-surface-muted: var(--sit-cyan-100);
+  --sit-cyan-color-default: var(--sit-cyan-400);
+  --sit-cyan-color-emphasis: var(--sit-cyan-300);
+  --sit-cyan-color-fixed-light: var(--sit-cyan-400);
+  --sit-cyan-color-fixed-dark: var(--sit-cyan-600);
+  --sit-cyan-border-color-default: var(--sit-cyan-500);
+  --sit-cyan-border-color-emphasis: var(--sit-cyan-200);
+  --sit-cyan-border-color-muted: var(--sit-cyan-700);
+
+  /* Semantic - Neutral Colors */
+  --sit-neutral-bg-default: var(--sit-gray-600);
+  --sit-neutral-bg-muted: var(--sit-gray-200);
+  --sit-neutral-surface-default: var(--sit-gray-600);
+  --sit-neutral-surface-emphasis: var(--sit-gray-700);
+  --sit-neutral-surface-muted: var(--sit-gray-200);
+  --sit-neutral-surface-translucent: oklch(from var(--sit-gray-000) l c h / 0.15);
+  --sit-neutral-color-default: var(--sit-gray-400);
+  --sit-neutral-color-emphasis: var(--sit-gray-300);
+  --sit-neutral-color-fixed-light: var(--sit-gray-400);
+  --sit-neutral-color-fixed-dark: var(--sit-gray-600);
+  --sit-neutral-border-color-default: var(--sit-gray-400);
+  --sit-neutral-border-color-emphasis: var(--sit-gray-200);
+  --sit-neutral-border-color-muted: var(--sit-gray-700);
+
+  /* Semantic - Display Colors */
+  --sit-display-color-default: var(--sit-gray-000);
+  --sit-display-color-subtle: var(--sit-gray-200);
+
+  /* Semantic - Heading Colors */
+  --sit-heading-color-default: var(--sit-gray-100);
+  --sit-heading-color-subtle: var(--sit-gray-200);
+
+  /* Semantic - Body Colors */
+  --sit-body-color-default: var(--sit-gray-000);
+  --sit-body-color-subtle: var(--sit-gray-300);
+
+  /* Semantic - Label Colors */
+  --sit-label-color-default: var(--sit-gray-100);
+  --sit-label-color-subtle: var(--sit-gray-300);
+
+  /* Semantic - Link Color */
+  --sit-link-color-default: var(--sit-blue-400);
+  --sit-link-color-emphasis: var(--sit-blue-300);
+
+  /* Semantic - Form Color */
+  --sit-form-surface-default: var(--sit-gray-900);
+  --sit-form-surface-raised: var(--sit-gray-800);
+  --sit-form-surface-emphasis: var(--sit-gray-200);
+  --sit-form-surface-subtle: var(--sit-gray-500);
+  --sit-form-surface-muted: var(--sit-gray-700);
+  --sit-form-surface-inverse: var(--sit-gray-000);
+  --sit-form-surface-fixed-light: var(--sit-gray-000);
+  --sit-form-surface-fixed-dark: var(--sit-gray-900);
+  --sit-form-color-default: var(--sit-gray-100);
+  --sit-form-color-subtle: var(--sit-gray-300);
+  --sit-form-color-muted: var(--sit-gray-700);
+  --sit-form-color-inverse: var(--sit-gray-900);
+  --sit-form-color-fixed-light: var(--sit-gray-000);
+  --sit-form-color-fixed-dark: var(--sit-gray-1100);
+  --sit-form-primary-surface-default: var(--sit-product-primary-600);
+  --sit-form-primary-surface-emphasis: var(--sit-product-primary-700);
+  --sit-form-primary-color-default: var(--sit-product-primary-400);
+  --sit-form-success-surface-default: var(--sit-green-600);
+  --sit-form-success-color-default: var(--sit-green-500);
+  --sit-form-success-border-color-default: var(--sit-green-500);
+  --sit-form-danger-surface-default: var(--sit-red-600);
+  --sit-form-danger-color-default: var(--sit-red-500);
+  --sit-form-danger-border-color-default: var(--sit-red-500);
+}

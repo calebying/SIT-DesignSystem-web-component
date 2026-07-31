@@ -1,0 +1,22 @@
+import SitElement from "../../base/sit-element";
+/**
+ * @summary Spinners notify the users that their request is being processed.
+ *
+ */
+export declare class SitSpinner extends SitElement {
+    static styles: import("lit").CSSResult[];
+    /** The variant of spinner. Deprecated in favor of `tone` @deprecated */
+    variant: SpinnerVariant;
+    /** The color tones of spinner, replaces variant prop */
+    tone: SpinnerTone;
+    /** Specifies a small, medium or large button, the size is medium by default. */
+    size: "xs" | "sm" | "md" | "lg" | "xl";
+    /** Text label of the spinner */
+    label: string;
+    /** Orientation of label relative to the spinner */
+    orientation: "horizontal" | "vertical";
+    render(): import("lit-html").TemplateResult;
+}
+export type SpinnerTone = "brand" | "neutral" | "inverse" | "fixed-light" | "fixed-dark";
+export type SpinnerVariant = "primary" | "neutral";
+export default SitSpinner;

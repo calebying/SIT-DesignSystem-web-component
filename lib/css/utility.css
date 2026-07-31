@@ -1,0 +1,469 @@
+@layer theme, utilities;
+@import "tailwindcss/theme.css" layer(theme) prefix(sit);
+@import "tailwindcss/utilities.css" layer(utilities) prefix(sit);
+
+@theme {
+  --*: initial;
+  --spacing: 4px;
+
+  /* Breakpoints (raw values required) */
+  --breakpoint-xs: 320px;
+  --breakpoint-sm: 512px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2-xl: 1440px;
+  --breakpoint-3-xl: 1680px;
+
+  /* Margin and Padding */
+  --spacing-none: var(--sit-spacer-0);
+  --spacing-3-xs: var(--sit-spacer-1);
+  --spacing-2-xs: var(--sit-spacer-2);
+  --spacing-xs: var(--sit-spacer-3);
+  --spacing-sm: var(--sit-spacer-4);
+  --spacing-md: var(--sit-spacer-5);
+  --spacing-lg: var(--sit-spacer-6);
+  --spacing-xl: var(--sit-spacer-7);
+  --spacing-2-xl: var(--sit-spacer-8);
+  --spacing-3-xl: var(--sit-spacer-9);
+  --spacing-4-xl: var(--sit-spacer-10);
+  --spacing-5-xl: var(--sit-spacer-11);
+
+  /* Semantic background colors */
+  --background-color-default: var(--sit-bg-default);
+  --background-color-alternate: var(--sit-bg-alternate);
+  --background-color-fixed-light: var(--sit-bg-fixed-light);
+  --background-color-fixed-dark: var(--sit-bg-fixed-dark);
+  --background-color-overlay: var(--sit-bg-overlay);
+  --background-color-translucent: var(--sit-bg-translucent);
+  --background-color-translucent-subtle: var(--sit-bg-translucent-subtle);
+  --background-color-transparent: var(--sit-bg-transparent);
+  --background-color-translucent-inverse: var(--sit-bg-translucent-inverse);
+  --background-color-translucent-fixed-dark: var(--sit-bg-translucent-fixed-dark);
+  --background-color-translucent-fixed-light: var(--sit-bg-translucent-fixed-light);
+  --background-color-surface-default: var(--sit-surface-default);
+  --background-color-surface-raised: var(--sit-surface-raised);
+  --background-color-surface-inverse: var(--sit-surface-inverse);
+  --background-color-surface-fixed-light: var(--sit-surface-fixed-light);
+  --background-color-surface-fixed-dark: var(--sit-surface-fixed-dark);
+
+  /* Semantic text colors */
+  --text-color-default: var(--sit-color-default);
+  --text-color-subtle: var(--sit-color-subtle);
+  --text-color-muted: var(--sit-color-muted);
+  --text-color-inverse: var(--sit-color-inverse);
+  --text-color-fixed-light: var(--sit-color-fixed-light);
+  --text-color-fixed-dark: var(--sit-color-fixed-dark);
+  --text-color-transparent: var(--sit-color-transparent);
+
+  /* Semantic border colors */
+  --border-color-default: var(--sit-border-color-default);
+  --border-color-emphasis: var(--sit-border-color-emphasis);
+  --border-color-muted: var(--sit-border-color-muted);
+  --border-color-fixed-light: var(--sit-border-color-fixed-light);
+  --border-color-fixed-dark: var(--sit-border-color-fixed-dark);
+  --border-color-translucent: var(--sit-border-color-translucent);
+  --border-color-transparent: var(--sit-border-color-transparent);
+
+  /* Semantic - Primary Colors */
+  --background-color-primary-default: var(--sit-primary-bg-default);
+  --background-color-primary-muted: var(--sit-primary-bg-muted);
+  --background-color-primary-translucent: var(--sit-primary-bg-translucent);
+  --background-color-primary-surface-default: var(--sit-primary-surface-default);
+  --background-color-primary-surface-emphasis: var(--sit-primary-surface-emphasis);
+  --background-color-primary-surface-muted: var(--sit-primary-surface-muted);
+  --background-color-primary-surface-translucent: var(--sit-primary-surface-translucent);
+  --text-color-primary-default: var(--sit-primary-color-default);
+  --text-color-primary-emphasis: var(--sit-primary-color-emphasis);
+  --text-color-primary-fixed-light: var(--sit-primary-color-fixed-light);
+  --text-color-primary-fixed-dark: var(--sit-primary-color-fixed-dark);
+  --border-color-primary-default: var(--sit-primary-border-color-default);
+  --border-color-primary-emphasis: var(--sit-primary-border-color-emphasis);
+  --border-color-primary-muted: var(--sit-primary-border-color-muted);
+
+  /* Semantic - Accent Colors */
+  --background-color-accent-default: var(--sit-accent-bg-default);
+  --background-color-accent-muted: var(--sit-accent-bg-muted);
+  --background-color-accent-surface-default: var(--sit-accent-surface-default);
+  --background-color-accent-surface-emphasis: var(--sit-accent-surface-emphasis);
+  --background-color-accent-surface-muted: var(--sit-accent-surface-muted);
+  --text-color-accent-default: var(--sit-accent-color-default);
+  --text-color-accent-emphasis: var(--sit-accent-color-emphasis);
+  --text-color-accent-fixed-light: var(--sit-accent-color-fixed-light);
+  --text-color-accent-fixed-dark: var(--sit-accent-color-fixed-dark);
+  --border-color-accent-default: var(--sit-accent-border-color-default);
+  --border-color-accent-emphasis: var(--sit-accent-border-color-emphasis);
+  --border-color-accent-muted: var(--sit-accent-border-color-muted);
+
+  /* Semantic - Success Colors */
+  --background-color-success-default: var(--sit-success-bg-default);
+  --background-color-success-muted: var(--sit-success-bg-muted);
+  --background-color-success-surface-default: var(--sit-success-surface-default);
+  --background-color-success-surface-emphasis: var(--sit-success-surface-emphasis);
+  --background-color-success-surface-muted: var(--sit-success-surface-muted);
+  --text-color-success-default: var(--sit-success-color-default);
+  --text-color-success-emphasis: var(--sit-success-color-emphasis);
+  --text-color-success-fixed-light: var(--sit-success-color-fixed-light);
+  --text-color-success-fixed-dark: var(--sit-success-color-fixed-dark);
+  --border-color-success-default: var(--sit-success-border-color-default);
+  --border-color-success-emphasis: var(--sit-success-border-color-emphasis);
+  --border-color-success-muted: var(--sit-success-border-color-muted);
+
+  /* Semantic - Danger Colors */
+  --background-color-danger-default: var(--sit-danger-bg-default);
+  --background-color-danger-muted: var(--sit-danger-bg-muted);
+  --background-color-danger-surface-default: var(--sit-danger-surface-default);
+  --background-color-danger-surface-emphasis: var(--sit-danger-surface-emphasis);
+  --background-color-danger-surface-muted: var(--sit-danger-surface-muted);
+  --background-color-danger-surface-translucent: var(--sit-danger-surface-translucent);
+  --text-color-danger-default: var(--sit-danger-color-default);
+  --text-color-danger-emphasis: var(--sit-danger-color-emphasis);
+  --text-color-danger-fixed-light: var(--sit-danger-color-fixed-light);
+  --text-color-danger-fixed-dark: var(--sit-danger-color-fixed-dark);
+  --border-color-danger-default: var(--sit-danger-border-color-default);
+  --border-color-danger-emphasis: var(--sit-danger-border-color-emphasis);
+  --border-color-danger-muted: var(--sit-danger-border-color-muted);
+
+  /* Semantic - Warning Colors */
+  --background-color-warning-default: var(--sit-warning-bg-default);
+  --background-color-warning-muted: var(--sit-warning-bg-muted);
+  --background-color-warning-surface-default: var(--sit-warning-surface-default);
+  --background-color-warning-surface-emphasis: var(--sit-warning-surface-emphasis);
+  --background-color-warning-surface-muted: var(--sit-warning-surface-muted);
+  --text-color-warning-default: var(--sit-warning-color-default);
+  --text-color-warning-emphasis: var(--sit-warning-color-emphasis);
+  --text-color-warning-fixed-light: var(--sit-warning-color-fixed-light);
+  --text-color-warning-fixed-dark: var(--sit-warning-color-fixed-dark);
+  --border-color-warning-default: var(--sit-warning-border-color-default);
+  --border-color-warning-emphasis: var(--sit-warning-border-color-emphasis);
+  --border-color-warning-muted: var(--sit-warning-border-color-muted);
+
+  /* Semantic - Purple Colors */
+  --background-color-purple-default: var(--sit-purple-bg-default);
+  --background-color-purple-muted: var(--sit-purple-bg-muted);
+  --background-color-purple-surface-default: var(--sit-purple-surface-default);
+  --background-color-purple-surface-emphasis: var(--sit-purple-surface-emphasis);
+  --background-color-purple-surface-muted: var(--sit-purple-surface-muted);
+  --text-color-purple-default: var(--sit-purple-color-default);
+  --text-color-purple-emphasis: var(--sit-purple-color-emphasis);
+  --text-color-purple-fixed-light: var(--sit-purple-color-fixed-light);
+  --text-color-purple-fixed-dark: var(--sit-purple-color-fixed-dark);
+  --border-color-purple-default: var(--sit-purple-border-color-default);
+  --border-color-purple-emphasis: var(--sit-purple-border-color-emphasis);
+  --border-color-purple-muted: var(--sit-purple-border-color-muted);
+
+  /* Semantic - Cyan Colors */
+  --background-color-cyan-default: var(--sit-cyan-bg-default);
+  --background-color-cyan-muted: var(--sit-cyan-bg-muted);
+  --background-color-cyan-surface-default: var(--sit-cyan-surface-default);
+  --background-color-cyan-surface-emphasis: var(--sit-cyan-surface-emphasis);
+  --background-color-cyan-surface-muted: var(--sit-cyan-surface-muted);
+  --text-color-cyan-default: var(--sit-cyan-color-default);
+  --text-color-cyan-emphasis: var(--sit-cyan-color-emphasis);
+  --text-color-cyan-fixed-light: var(--sit-cyan-color-fixed-light);
+  --text-color-cyan-fixed-dark: var(--sit-cyan-color-fixed-dark);
+  --border-color-cyan-default: var(--sit-cyan-border-color-default);
+  --border-color-cyan-emphasis: var(--sit-cyan-border-color-emphasis);
+  --border-color-cyan-muted: var(--sit-cyan-border-color-muted);
+
+  /* Semantic - Neutral Colors */
+  --background-color-neutral-default: var(--sit-neutral-bg-default);
+  --background-color-neutral-muted: var(--sit-neutral-bg-muted);
+  --background-color-neutral-surface-default: var(--sit-neutral-surface-default);
+  --background-color-neutral-surface-emphasis: var(--sit-neutral-surface-emphasis);
+  --background-color-neutral-surface-muted: var(--sit-neutral-surface-muted);
+  --text-color-neutral-default: var(--sit-neutral-color-default);
+  --text-color-neutral-emphasis: var(--sit-neutral-color-emphasis);
+  --text-color-neutral-fixed-light: var(--sit-neutral-color-fixed-light);
+  --text-color-neutral-fixed-dark: var(--sit-neutral-color-fixed-dark);
+  --border-color-neutral-default: var(--sit-neutral-border-color-default);
+  --border-color-neutral-emphasis: var(--sit-neutral-border-color-emphasis);
+  --border-color-neutral-muted: var(--sit-neutral-border-color-muted);
+
+  /* Typography - Display Colors */
+  --text-color-display-default: var(--sit-display-color-default);
+  --text-color-display-subtle: var(--sit-display-color-subtle);
+
+  /* Typography - Heading Colors */
+  --text-color-heading-default: var(--sit-heading-color-default);
+  --text-color-heading-subtle: var(--sit-heading-color-subtle);
+
+  /* Typography - Body Colors */
+  --text-color-body-default: var(--sit-body-color-default);
+  --text-color-body-subtle: var(--sit-body-color-subtle);
+
+  /* Typography - Label Colors */
+  --text-color-label-default: var(--sit-label-color-default);
+  --text-color-label-subtle: var(--sit-label-color-subtle);
+
+  /* Typography - Link Colors */
+  --text-color-link-default: var(--sit-link-color-default);
+  --text-color-link-emphasis: var(--sit-link-color-emphasis);
+
+  /* Form - Surface/Background Colors */
+  --background-color-form-surface-default: var(--sit-form-surface-default);
+  --background-color-form-surface-raised: var(--sit-form-surface-raised);
+  --background-color-form-surface-emphasis: var(--sit-form-surface-emphasis);
+  --background-color-form-surface-subtle: var(--sit-form-surface-subtle);
+  --background-color-form-surface-muted: var(--sit-form-surface-muted);
+  --background-color-form-surface-inverse: var(--sit-form-surface-inverse);
+  --background-color-form-surface-fixed-light: var(--sit-form-surface-fixed-light);
+  --background-color-form-surface-fixed-dark: var(--sit-form-surface-fixed-dark);
+
+  /* Form - Text Colors */
+  --text-color-form-default: var(--sit-form-color-default);
+  --text-color-form-subtle: var(--sit-form-color-subtle);
+  --text-color-form-muted: var(--sit-form-color-muted);
+  --text-color-form-inverse: var(--sit-form-color-inverse);
+  --text-color-form-fixed-light: var(--sit-form-color-fixed-light);
+  --text-color-form-fixed-dark: var(--sit-form-color-fixed-dark);
+
+  /* Form - Primary Colors */
+  --background-color-form-primary-surface-default: var(--sit-form-primary-surface-default);
+  --background-color-form-primary-surface-emphasis: var(--sit-form-primary-surface-emphasis);
+  --text-color-form-primary-default: var(--sit-form-primary-color-default);
+
+  /* Form - Success Colors */
+  --background-color-form-success-surface-default: var(--sit-form-success-surface-default);
+  --text-color-form-success-default: var(--sit-form-success-color-default);
+  --border-color-form-success-default: var(--sit-form-success-border-color-default);
+
+  /* Form - Danger Colors */
+  --background-color-form-danger-surface-default: var(--sit-form-danger-surface-default);
+  --text-color-form-danger-default: var(--sit-form-danger-color-default);
+  --border-color-form-danger-default: var(--sit-form-danger-border-color-default);
+
+  /* Border Width */
+  --border-width-0: var(--sit-border-width-0);
+  --border-width-1: var(--sit-border-width-1);
+  --border-width-2: var(--sit-border-width-2);
+  --border-width-3: var(--sit-border-width-3);
+  --border-width-4: var(--sit-border-width-4);
+
+  /* Form Border Width */
+  --border-width-form-default: var(--sit-form-border-width-default);
+  --border-width-form-thick: var(--sit-form-border-width-thick);
+
+
+  /* Font Family */
+  --font-display: var(--sit-font-family-brand);
+
+  /* Font Weight */
+  --font-weight-light: var(--sit-font-weight-light);
+  --font-weight-regular: var(--sit-font-weight-regular);
+  --font-weight-semibold: var(--sit-font-weight-semibold);
+  --font-weight-bold: var(--sit-font-weight-bold);
+
+  /* Font Size - Primitive */
+  --text-12: var(--sit-font-size-12);
+  --text-14: var(--sit-font-size-14);
+  --text-16: var(--sit-font-size-16);
+  --text-18: var(--sit-font-size-18);
+  --text-20: var(--sit-font-size-20);
+  --text-22: var(--sit-font-size-22);
+  --text-24: var(--sit-font-size-24);
+  --text-26: var(--sit-font-size-26);
+  --text-28: var(--sit-font-size-28);
+  --text-30: var(--sit-font-size-30);
+  --text-32: var(--sit-font-size-32);
+  --text-36: var(--sit-font-size-36);
+  --text-40: var(--sit-font-size-40);
+  --text-44: var(--sit-font-size-44);
+  --text-48: var(--sit-font-size-48);
+  --text-52: var(--sit-font-size-52);
+  --text-56: var(--sit-font-size-56);
+
+  /* Font Size - Semantic Responsive */
+  --text-display-sm: var(--sit-font-size-display-sm);
+  --text-display-md: var(--sit-font-size-display-md);
+  --text-display-lg: var(--sit-font-size-display-lg);
+  --text-heading-sm: var(--sit-font-size-heading-sm);
+  --text-heading-md: var(--sit-font-size-heading-md);
+  --text-heading-lg: var(--sit-font-size-heading-lg);
+  --text-heading-xl: var(--sit-font-size-heading-xl);
+  --text-subtitle-sm: var(--sit-font-size-subtitle-sm);
+  --text-subtitle-md: var(--sit-font-size-subtitle-md);
+  --text-body-sm: var(--sit-font-size-body-sm);
+  --text-body-md: var(--sit-font-size-body-md);
+  --text-body-lg: var(--sit-font-size-body-lg);
+  --text-list-sm: var(--sit-font-size-list-sm);
+  --text-list-md: var(--sit-font-size-list-md);
+  --text-list-lg: var(--sit-font-size-list-lg);
+  --text-label-xs: var(--sit-font-size-label-xs);
+  --text-label-sm: var(--sit-font-size-label-sm);
+  --text-label-md: var(--sit-font-size-label-md);
+  --text-label-lg: var(--sit-font-size-label-lg);
+  --text-caption-md: var(--sit-font-size-caption-md);
+  --text-overline-md: var(--sit-font-size-overline-md);
+  --text-link-xs: var(--sit-font-size-link-xs);
+  --text-link-sm: var(--sit-font-size-link-sm);
+  --text-link-md: var(--sit-font-size-link-md);
+  --text-link-lg: var(--sit-font-size-link-lg);
+
+  /* Letter Spacing */
+  --tracking-tighter: var(--sit-letter-spacing-tighter);
+  --tracking-tight: var(--sit-letter-spacing-tight);
+  --tracking-normal: var(--sit-letter-spacing-normal);
+  --tracking-wide: var(--sit-letter-spacing-wide);
+  --tracking-wider: var(--sit-letter-spacing-wider);
+
+  /* Line Height */
+  --leading-16: var(--sit-line-height-16);
+  --leading-20: var(--sit-line-height-20);
+  --leading-24: var(--sit-line-height-24);
+  --leading-28: var(--sit-line-height-28);
+  --leading-32: var(--sit-line-height-32);
+  --leading-36: var(--sit-line-height-36);
+  --leading-40: var(--sit-line-height-40);
+  --leading-44: var(--sit-line-height-44);
+  --leading-48: var(--sit-line-height-48);
+  --leading-52: var(--sit-line-height-52);
+  --leading-56: var(--sit-line-height-56);
+  --leading-60: var(--sit-line-height-60);
+  --leading-64: var(--sit-line-height-64);
+  --leading-3-xs: var(--sit-line-height-3-xs);
+  --leading-2-xs: var(--sit-line-height-2-xs);
+  --leading-xs: var(--sit-line-height-xs);
+  --leading-sm: var(--sit-line-height-sm);
+  --leading-md: var(--sit-line-height-md);
+  --leading-lg: var(--sit-line-height-lg);
+  --leading-xl: var(--sit-line-height-xl);
+  --leading-2-xl: var(--sit-line-height-2-xl);
+  --leading-3-xl: var(--sit-line-height-3-xl);
+
+  /* Opacity */
+  --opacity-0: var(--sit-opacity-0);
+  --opacity-3: var(--sit-opacity-3);
+  --opacity-5: var(--sit-opacity-5);
+  --opacity-10: var(--sit-opacity-10);
+  --opacity-20: var(--sit-opacity-20);
+  --opacity-30: var(--sit-opacity-30);
+  --opacity-40: var(--sit-opacity-40);
+  --opacity-50: var(--sit-opacity-50);
+  --opacity-60: var(--sit-opacity-60);
+  --opacity-70: var(--sit-opacity-70);
+  --opacity-80: var(--sit-opacity-80);
+  --opacity-90: var(--sit-opacity-90);
+  --opacity-100: var(--sit-opacity-100);
+
+  /* Gap */
+  --gap-none: var(--sit-gap-none);
+  --gap-2-xs: var(--sit-gap-2-xs);
+  --gap-xs: var(--sit-gap-xs);
+  --gap-sm: var(--sit-gap-sm);
+  --gap-md: var(--sit-gap-md);
+  --gap-lg: var(--sit-gap-lg);
+  --gap-xl: var(--sit-gap-xl);
+  --gap-2-xl: var(--sit-gap-2-xl);
+  --gap-3-xl: var(--sit-gap-3-xl);
+
+  /* Form Gap */
+  --gap-form-sm: var(--sit-form-gap-sm);
+  --gap-form-md: var(--sit-form-gap-md);
+  --gap-form-lg: var(--sit-form-gap-lg);
+  --gap-form-xl: var(--sit-form-gap-xl);
+  --gap-form-2-xl: var(--sit-form-gap-2-xl);
+
+  /* Text Gap */
+  --gap-text-2-xs: var(--sit-text-gap-2-xs);
+  --gap-text-xs: var(--sit-text-gap-xs);
+  --gap-text-sm: var(--sit-text-gap-sm);
+  --gap-text-md: var(--sit-text-gap-md);
+  --gap-text-lg: var(--sit-text-gap-lg);
+  --gap-text-xl: var(--sit-text-gap-xl);
+  --gap-text-2-xl: var(--sit-text-gap-2-xl);
+
+  /* Layout Gap */
+  --gap-layout-2-xs: var(--sit-layout-gap-2-xs);
+  --gap-layout-xs: var(--sit-layout-gap-xs);
+  --gap-layout-sm: var(--sit-layout-gap-sm);
+  --gap-layout-md: var(--sit-layout-gap-md);
+  --gap-layout-lg: var(--sit-layout-gap-lg);
+  --gap-layout-xl: var(--sit-layout-gap-xl);
+
+  /* Layout Padding and Margin */
+  --spacing-layout-xs: var(--sit-layout-padding-xs);
+  --spacing-layout-sm: var(--sit-layout-padding-sm);
+  --spacing-layout-md: var(--sit-layout-padding-md);
+  --spacing-layout-lg: var(--sit-layout-padding-lg);
+  --spacing-layout-xl: var(--sit-layout-padding-xl);
+
+  /* Component Gap */
+  --gap-component-xs: var(--sit-component-gap-xs);
+  --gap-component-sm: var(--sit-component-gap-sm);
+  --gap-component-md: var(--sit-component-gap-md);
+  --gap-component-lg: var(--sit-component-gap-lg);
+  --gap-component-xl: var(--sit-component-gap-xl);
+
+  /* Component Padding and Margin */
+  --spacing-component-xs: var(--sit-component-padding-xs);
+  --spacing-component-sm: var(--sit-component-padding-sm);
+  --spacing-component-md: var(--sit-component-padding-md);
+  --spacing-component-lg: var(--sit-component-padding-lg);
+  --spacing-component-xl: var(--sit-component-padding-xl);
+
+  /* Container Width */
+  --width-container: var(--sit-container-width);
+
+  /* Container Max Width */
+  --max-width-container-md: var(--sit-container-max-width-md);
+  --max-width-container-lg: var(--sit-container-max-width-lg);
+  --max-width-container-xl: var(--sit-container-max-width-xl);
+  --max-width-container-2-xl: var(--sit-container-max-width-2-xl);
+  --max-width-container-3-xl: var(--sit-container-max-width-3-xl);
+
+  /* Border Radius */
+  --radius-none: var(--sit-border-radius-none);
+  --radius-xs: var(--sit-border-radius-xs);
+  --radius-sm: var(--sit-border-radius-sm);
+  --radius-md: var(--sit-border-radius-md);
+  --radius-lg: var(--sit-border-radius-lg);
+  --radius-xl: var(--sit-border-radius-xl);
+  --radius-2-xl: var(--sit-border-radius-2-xl);
+  --radius-3-xl: var(--sit-border-radius-3-xl);
+  --radius-full: var(--sit-border-radius-full);
+
+  /* Form Border Radius */
+  --radius-form-none: var(--sit-form-border-radius-none);
+  --radius-form-xs: var(--sit-form-border-radius-xs);
+  --radius-form-sm: var(--sit-form-border-radius-sm);
+  --radius-form-md: var(--sit-form-border-radius-md);
+  --radius-form-full: var(--sit-form-border-radius-full);
+
+  /* Paragraph Margins */
+  --margin-paragraph-none: var(--sit-paragraph-spacing-none);
+  --margin-paragraph-sm: var(--sit-paragraph-spacing-sm);
+  --margin-paragraph-md: var(--sit-paragraph-spacing-md);
+  --margin-paragraph-lg: var(--sit-paragraph-spacing-lg);
+  --margin-paragraph-xl: var(--sit-paragraph-spacing-xl);
+
+  /* List Spacing */
+  --margin-list-sm: var(--sit-list-spacing-sm);
+  --margin-list-md: var(--sit-list-spacing-md);
+  --margin-list-lg: var(--sit-list-spacing-lg);
+
+  /* Z-Index - Primitive */
+  --z-0: var(--sit-z-index-0);
+  --z-100: var(--sit-z-index-100);
+  --z-200: var(--sit-z-index-200);
+  --z-400: var(--sit-z-index-400);
+  --z-800: var(--sit-z-index-800);
+  --z-1600: var(--sit-z-index-1600);
+
+  /* Z-Index - Semantic */
+  --z-base: var(--sit-z-index-base);
+  --z-raised: var(--sit-z-index-raised);
+  --z-sticky: var(--sit-z-index-sticky);
+  --z-floating: var(--sit-z-index-floating);
+  --z-overlay: var(--sit-z-index-overlay);
+  --z-modal: var(--sit-z-index-modal);
+
+  /* Elevation - Box Shadows */
+  --shadow-1: var(--sit-elevation-surface-1);
+  --shadow-2: var(--sit-elevation-surface-2);
+  --shadow-3: var(--sit-elevation-surface-3);
+  --shadow-4: var(--sit-elevation-surface-4);
+  --shadow-5: var(--sit-elevation-surface-5);
+  --shadow-edge-top: var(--sit-elevation-edge-top);
+  --shadow-edge-bottom: var(--sit-elevation-edge-bottom);
+}
