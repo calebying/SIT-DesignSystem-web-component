@@ -56,9 +56,7 @@ export class SitBreadcrumb extends SitElement {
   private _handleSlotChange(e: Event) {
     const items = (e.target as HTMLSlotElement)
       .assignedElements({ flatten: true })
-      .filter(
-        (item: SitBreadcrumbItem) => item.tagName.toLowerCase() === "sit-breadcrumb-item"
-      ) as SitBreadcrumbItem[];
+      .filter((item: SitBreadcrumbItem) => item.tagName.toLowerCase() === "sit-breadcrumb-item") as SitBreadcrumbItem[];
     items.forEach((item, index) => {
       if (index === items.length - 1) {
         item.setAttribute("aria-current", "page");

@@ -17,7 +17,7 @@ export function getAllComponents(metadata) {
   return allComponents;
 }
 
-export function getSgdsComponents(allComponents) {
+export function getSitComponents(allComponents) {
   const srcComponents = allComponents.filter(component => component.modulePath.startsWith('src/components'))
   return srcComponents
 }

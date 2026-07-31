@@ -122,7 +122,9 @@ const Template = () => html`
         <div class="sit-col-4 sit-col-sm-8 sit-col-md-4 sit-col-lg-4 sit:flex sit:flex-col">
           <sit-card stretchedLink class="sit:h-full">
             <sit-badge slot="upper" outlined>Keynote</sit-badge>
-            <span slot="title" class="sit:line-clamp-2">The Future of Digital Learning: People, Process and Platform</span>
+            <span slot="title" class="sit:line-clamp-2"
+              >The Future of Digital Learning: People, Process and Platform</span
+            >
             <span slot="description"
               >How people-centred design and agile delivery are shaping the next wave of government technology.</span
             >

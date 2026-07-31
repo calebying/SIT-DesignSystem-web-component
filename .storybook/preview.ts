@@ -4,9 +4,9 @@ import customElements from "../custom-elements.json";
 import "../lib/index.js";
 import "../lib/themes/day.css";
 import "../lib/themes/night.css";
-import "../lib/css/sgds.css";
+import "../lib/css/sit-canvas.css";
 import "./utility.css";
-import "./gt-themes.css";
+import "./sit-themes.css";
 import "./global.css";
 import sitTheme from "./sitTheme";
 

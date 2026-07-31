@@ -157,9 +157,7 @@ export class SitFooter extends SitElement {
                 </sit-link>
               </li>
               <li>
-                <sit-link size="sm" tone=${this._linkTone}
-                  ><a href=${this.privacyHref}>Privacy Statement</a></sit-link
-                >
+                <sit-link size="sm" tone=${this._linkTone}><a href=${this.privacyHref}>Privacy Statement</a></sit-link>
               </li>
               <li>
                 <sit-link size="sm" tone=${this._linkTone}><a href=${this.termsOfUseHref}>Terms of use</a></sit-link>

@@ -1,0 +1,91 @@
+/* Alternate brand colour palettes scoped to per-class selectors */
+
+.sit-blue-theme {
+  --sit-color-100: #EFF5FC;
+  --sit-color-200: #CEE1F6;
+  --sit-color-300: #A0C5EE;
+  --sit-color-400: #73A9E5;
+  --sit-color-500: #4288D6;
+  --sit-color-600: #356DAC;
+  --sit-color-700: #285483;
+  --sit-color-800: #1E3E62;
+  --sit-color-900: #152B44;
+}
+
+.sit-cyan-theme {
+  --sit-color-100: #E0F7FE;
+  --sit-color-200: #A7E9FB;
+  --sit-color-300: #47D1F6;
+  --sit-color-400: #00B3E2;
+  --sit-color-500: #0091B8;
+  --sit-color-600: #007493;
+  --sit-color-700: #005971;
+  --sit-color-800: #004355;
+  --sit-color-900: #002E3B;
+}
+
+.sit-magenta-theme {
+  --sit-color-100: #FBF2F9;
+  --sit-color-200: #F2D8ED;
+  --sit-color-300: #E5B2DC;
+  --sit-color-400: #D98BCB;
+  --sit-color-500: #C95EB7;
+  --sit-color-600: #B82EA0;
+  --sit-color-700: #8E247B;
+  --sit-color-800: #6A1B5D;
+  --sit-color-900: #4A1341;
+}
+
+.sit-pink-theme {
+  --sit-color-100: #FDF0F6;
+  --sit-color-200: #F9D6E4;
+  --sit-color-300: #F3AECB;
+  --sit-color-400: #ED84AF;
+  --sit-color-500: #E54D8C;
+  --sit-color-600: #C7286A;
+  --sit-color-700: #991F52;
+  --sit-color-800: #74173D;
+  --sit-color-900: #51102B;
+}
+
+.sit-purple-theme {
+  --sit-color-100: #F6F3FB;
+  --sit-color-200: #E5DBF2;
+  --sit-color-300: #CEBAE7;
+  --sit-color-400: #B598DC;
+  --sit-color-500: #9A74CF;
+  --sit-color-600: #8055BB;
+  --sit-color-700: #634190;
+  --sit-color-800: #49306B;
+  --sit-color-900: #33214A;
+}
+
+.sit-red-theme {
+  --sit-color-100: #FEF0F1;
+  --sit-color-200: #FDD6D8;
+  --sit-color-300: #FBADB1;
+  --sit-color-400: #F88289;
+  --sit-color-500: #F5424B;
+  --sit-color-600: #CB2B33;
+  --sit-color-700: #9E2127;
+  --sit-color-800: #76191E;
+  --sit-color-900: #531115;
+}
+
+/* Map --sit-color-* to --sit-product-primary-* for all alternate themes */
+.sit-blue-theme,
+.sit-cyan-theme,
+.sit-magenta-theme,
+.sit-pink-theme,
+.sit-purple-theme,
+.sit-red-theme {
+  --sit-product-primary-100: var(--sit-color-100);
+  --sit-product-primary-200: var(--sit-color-200);
+  --sit-product-primary-300: var(--sit-color-300);
+  --sit-product-primary-400: var(--sit-color-400);
+  --sit-product-primary-500: var(--sit-color-500);
+  --sit-product-primary-600: var(--sit-color-600);
+  --sit-product-primary-700: var(--sit-color-700);
+  --sit-product-primary-800: var(--sit-color-800);
+  --sit-product-primary-900: var(--sit-color-900);
+}

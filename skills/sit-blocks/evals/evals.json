@@ -1,0 +1,191 @@
+{
+  "skill_name": "sit-blocks",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I'm building a STACK-X conference programme page with Canvas. I need a block for each session that shows: the time slot, the session title with an expand/collapse toggle, the speaker's name and organisation, outlined badges for type and hall, and a full abstract. Below the abstract, show the speaker's circular photo, name, job title, and a 'View profile' link. Output the block as an HTML snippet — no masthead, nav, or footer needed.",
+      "expected_output": "An HTML block using sit-badge (outlined), sit-divider, sit-link, sit-icon. Time slot uses sit:text-overline-md with sit:text-primary-default. Session title uses sit:text-heading-md sit:font-semibold. Body text uses sit:text-body-md. Text colours use sit:text-heading-default, sit:text-body-default, sit:text-body-subtle. Speaker avatar is 88x88px circular. No masthead/mainnav/footer.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "uses-sit-badge-outlined",
+          "description": "Output includes sit-badge elements with the outlined attribute",
+          "type": "contains",
+          "value": "outlined"
+        },
+        {
+          "id": "uses-sit-divider",
+          "description": "Output includes sit-divider",
+          "type": "contains",
+          "value": "sit-divider"
+        },
+        {
+          "id": "uses-sit-link",
+          "description": "Output includes sit-link for the View profile link",
+          "type": "contains",
+          "value": "sit-link"
+        },
+        {
+          "id": "uses-overline-typography",
+          "description": "Time slot uses sit:text-overline-md",
+          "type": "contains",
+          "value": "text-overline-md"
+        },
+        {
+          "id": "uses-heading-md-typography",
+          "description": "Session title uses sit:text-heading-md",
+          "type": "contains",
+          "value": "text-heading-md"
+        },
+        {
+          "id": "uses-body-md-typography",
+          "description": "Body text uses sit:text-body-md not sit:text-base",
+          "type": "contains",
+          "value": "text-body-md"
+        },
+        {
+          "id": "no-text-base",
+          "description": "Does not use raw sit:text-base (wrong token)",
+          "type": "not_contains",
+          "value": "sit:text-base"
+        },
+        {
+          "id": "uses-text-primary-default",
+          "description": "Uses sit:text-primary-default for the time slot colour",
+          "type": "contains",
+          "value": "text-primary-default"
+        },
+        {
+          "id": "uses-text-heading-default",
+          "description": "Uses sit:text-heading-default for heading colour",
+          "type": "contains",
+          "value": "text-heading-default"
+        },
+        {
+          "id": "uses-text-body-subtle",
+          "description": "Uses sit:text-body-subtle for secondary text",
+          "type": "contains",
+          "value": "text-body-subtle"
+        },
+        {
+          "id": "circular-avatar",
+          "description": "Speaker avatar has border-radius for circular style",
+          "type": "contains",
+          "value": "border-radius"
+        },
+        {
+          "id": "no-page-chrome",
+          "description": "Output does not include sit-masthead or sit-mainnav",
+          "type": "not_contains",
+          "value": "sit-masthead"
+        },
+        {
+          "id": "no-text-color-tokens",
+          "description": "Does not use wrong sit:text-color-* tokens",
+          "type": "not_contains",
+          "value": "text-color-default"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "I'm building an events website using Canvas web components. Can you give me a session listing item that shows an event talk's details? I need: the time of day as a small label, the talk title (with a collapse/expand chevron button), the presenter's name and their organisation, description text of the talk, tags for session type and venue, and a speaker card with their photo (circular), name, role, and a profile link.",
+      "expected_output": "An HTML block using Canvas components and correct typography tokens. Same requirements as eval 0 — correct semantic typography tokens, sit-badge with outlined, sit-divider at the bottom, sit-link for profile. No page chrome.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "uses-sit-badge-outlined",
+          "description": "Output includes sit-badge elements with the outlined attribute",
+          "type": "contains",
+          "value": "outlined"
+        },
+        {
+          "id": "uses-sit-divider",
+          "description": "Output includes sit-divider",
+          "type": "contains",
+          "value": "sit-divider"
+        },
+        {
+          "id": "uses-body-md-typography",
+          "description": "Body text uses sit:text-body-md not sit:text-base",
+          "type": "contains",
+          "value": "text-body-md"
+        },
+        {
+          "id": "no-text-base",
+          "description": "Does not use raw sit:text-base (wrong token)",
+          "type": "not_contains",
+          "value": "sit:text-base"
+        },
+        {
+          "id": "no-text-color-tokens",
+          "description": "Does not use wrong sit:text-color-* pattern",
+          "type": "not_contains",
+          "value": "text-color-default"
+        },
+        {
+          "id": "uses-overline-typography",
+          "description": "Time slot uses sit:text-overline-md",
+          "type": "contains",
+          "value": "text-overline-md"
+        },
+        {
+          "id": "no-page-chrome",
+          "description": "Output does not include sit-masthead",
+          "type": "not_contains",
+          "value": "sit-masthead"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My conference site needs a programme listing page built with Canvas. On the left I want a filter sidebar with checkboxes for: programme type (Keynote, Panel Discussion, Presentation), session time (Morning, Afternoon), and event hall (Hall A, Hall B, Hall C). On the right, show session results — each one should be a full session detail block with the time slot, title, speaker byline, outlined category badges, description, and a speaker profile card with circular photo and profile link. Give me the HTML for both the filter sidebar and one session detail block.",
+      "expected_output": "HTML containing both a filter sidebar (using sit-checkbox-group and sit-checkbox) and a session detail block (sit-badge outlined, sit-divider, sit-link, correct typography tokens). No page chrome.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "uses-sit-checkbox-group",
+          "description": "Filter sidebar uses sit-checkbox-group",
+          "type": "contains",
+          "value": "sit-checkbox-group"
+        },
+        {
+          "id": "uses-sit-badge-outlined",
+          "description": "Session detail uses sit-badge with outlined",
+          "type": "contains",
+          "value": "outlined"
+        },
+        {
+          "id": "uses-sit-divider",
+          "description": "Session detail has sit-divider",
+          "type": "contains",
+          "value": "sit-divider"
+        },
+        {
+          "id": "uses-body-md-typography",
+          "description": "Body text uses sit:text-body-md not sit:text-base",
+          "type": "contains",
+          "value": "text-body-md"
+        },
+        {
+          "id": "no-text-base",
+          "description": "Does not use raw sit:text-base",
+          "type": "not_contains",
+          "value": "sit:text-base"
+        },
+        {
+          "id": "uses-sit-link",
+          "description": "Profile link uses sit-link",
+          "type": "contains",
+          "value": "sit-link"
+        },
+        {
+          "id": "no-page-chrome",
+          "description": "Output does not include sit-masthead",
+          "type": "not_contains",
+          "value": "sit-masthead"
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import prettier from "prettier";
 import cem from "../custom-elements.json" with { type: "json" };
-import { getAllComponents, getSgdsComponents } from "./shared.mjs";
+import { getAllComponents, getSitComponents } from "./shared.mjs";
 import fs from 'fs';
 import path from 'path';
 
-const components = getSgdsComponents(getAllComponents(cem))
+const components = getSitComponents(getAllComponents(cem))
 const directory = path.join('lib/css');
 const cssSelector = components.map(com => {
     const tagName = com.tagName
