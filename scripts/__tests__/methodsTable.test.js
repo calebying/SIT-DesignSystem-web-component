@@ -5,7 +5,7 @@ const metadata = [
   {
     kind: "class",
     description: "",
-    name: "SgdsTabPanel",
+    name: "SitTabPanel",
     cssProperties: [[Object]],
     cssParts: [[Object]],
     slots: [[Object]],

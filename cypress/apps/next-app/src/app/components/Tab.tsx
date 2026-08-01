@@ -3,50 +3,50 @@
 export const Tab = () => {
   return (
     <>
-      <sgds-tab-group variant="underlined" orientation="horizontal" suppressHydrationWarning>
-        <sgds-tab slot="nav" state="active" panel="one" suppressHydrationWarning>
-          <sgds-icon slot="icon" name="map" suppressHydrationWarning></sgds-icon>
+      <sit-tab-group variant="underlined" orientation="horizontal" suppressHydrationWarning>
+        <sit-tab slot="nav" state="active" panel="one" suppressHydrationWarning>
+          <sit-icon slot="icon" name="map" suppressHydrationWarning></sit-icon>
           <span>hellotab</span>
-        </sgds-tab>
-        <sgds-tab slot="nav" panel="two" suppressHydrationWarning>two</sgds-tab>
-        <sgds-tab slot="nav" state="active" panel="three" suppressHydrationWarning>three</sgds-tab>
-        <sgds-tab-panel name="one" suppressHydrationWarning>one</sgds-tab-panel>
-        <sgds-tab-panel name="two" suppressHydrationWarning>two</sgds-tab-panel>
-        <sgds-tab-panel name="three" suppressHydrationWarning>three</sgds-tab-panel>
-      </sgds-tab-group>
+        </sit-tab>
+        <sit-tab slot="nav" panel="two" suppressHydrationWarning>two</sit-tab>
+        <sit-tab slot="nav" state="active" panel="three" suppressHydrationWarning>three</sit-tab>
+        <sit-tab-panel name="one" suppressHydrationWarning>one</sit-tab-panel>
+        <sit-tab-panel name="two" suppressHydrationWarning>two</sit-tab-panel>
+        <sit-tab-panel name="three" suppressHydrationWarning>three</sit-tab-panel>
+      </sit-tab-group>
 
-      <sgds-tab-group orientation="horizontal" density="compact" suppressHydrationWarning>
-        <sgds-tab slot="nav" state="active" panel="one" suppressHydrationWarning>hellotab</sgds-tab>
-        <sgds-tab slot="nav" panel="two" suppressHydrationWarning>two</sgds-tab>
-        <sgds-tab slot="nav" state="active" panel="three" suppressHydrationWarning>three</sgds-tab>
-        <sgds-tab-panel name="one" suppressHydrationWarning>one</sgds-tab-panel>
-        <sgds-tab-panel name="two" suppressHydrationWarning>two</sgds-tab-panel>
-        <sgds-tab-panel name="three" suppressHydrationWarning>three</sgds-tab-panel>
-      </sgds-tab-group>
+      <sit-tab-group orientation="horizontal" density="compact" suppressHydrationWarning>
+        <sit-tab slot="nav" state="active" panel="one" suppressHydrationWarning>hellotab</sit-tab>
+        <sit-tab slot="nav" panel="two" suppressHydrationWarning>two</sit-tab>
+        <sit-tab slot="nav" state="active" panel="three" suppressHydrationWarning>three</sit-tab>
+        <sit-tab-panel name="one" suppressHydrationWarning>one</sit-tab-panel>
+        <sit-tab-panel name="two" suppressHydrationWarning>two</sit-tab-panel>
+        <sit-tab-panel name="three" suppressHydrationWarning>three</sit-tab-panel>
+      </sit-tab-group>
 
-      <sgds-tab-group id="tabs-lukhei-test" orientation="horizontal" suppressHydrationWarning>
-        <sgds-tab slot="nav" panel="one" suppressHydrationWarning>lukhei testing</sgds-tab>
-        <sgds-tab slot="nav" panel="two" suppressHydrationWarning>disabled</sgds-tab>
-        <sgds-tab slot="nav" panel="three" suppressHydrationWarning>
-          <sgds-icon slot="icon" name="placeholder" suppressHydrationWarning></sgds-icon>
+      <sit-tab-group id="tabs-lukhei-test" orientation="horizontal" suppressHydrationWarning>
+        <sit-tab slot="nav" panel="one" suppressHydrationWarning>lukhei testing</sit-tab>
+        <sit-tab slot="nav" panel="two" suppressHydrationWarning>disabled</sit-tab>
+        <sit-tab slot="nav" panel="three" suppressHydrationWarning>
+          <sit-icon slot="icon" name="placeholder" suppressHydrationWarning></sit-icon>
           three
-        </sgds-tab>
-        <sgds-tab-panel name="one" suppressHydrationWarning>one</sgds-tab-panel>
-        <sgds-tab-panel name="two" suppressHydrationWarning>two</sgds-tab-panel>
-        <sgds-tab-panel name="three" suppressHydrationWarning>three</sgds-tab-panel>
-      </sgds-tab-group>
+        </sit-tab>
+        <sit-tab-panel name="one" suppressHydrationWarning>one</sit-tab-panel>
+        <sit-tab-panel name="two" suppressHydrationWarning>two</sit-tab-panel>
+        <sit-tab-panel name="three" suppressHydrationWarning>three</sit-tab-panel>
+      </sit-tab-group>
 
-      <sgds-tab-group variant="underlined" orientation="vertical" density="compact" suppressHydrationWarning>
-        <sgds-tab slot="nav" panel="one" variant="solid" suppressHydrationWarning>lukhei test</sgds-tab>
-        <sgds-tab slot="nav" disabled panel="two" suppressHydrationWarning>cdisabled</sgds-tab>
-        <sgds-tab slot="nav" panel="three" suppressHydrationWarning>
-          <sgds-icon slot="icon" name="placeholder" suppressHydrationWarning></sgds-icon>
+      <sit-tab-group variant="underlined" orientation="vertical" density="compact" suppressHydrationWarning>
+        <sit-tab slot="nav" panel="one" variant="solid" suppressHydrationWarning>lukhei test</sit-tab>
+        <sit-tab slot="nav" disabled panel="two" suppressHydrationWarning>cdisabled</sit-tab>
+        <sit-tab slot="nav" panel="three" suppressHydrationWarning>
+          <sit-icon slot="icon" name="placeholder" suppressHydrationWarning></sit-icon>
           three
-        </sgds-tab>
-        <sgds-tab-panel name="one" suppressHydrationWarning>one</sgds-tab-panel>
-        <sgds-tab-panel name="two" suppressHydrationWarning>two</sgds-tab-panel>
-        <sgds-tab-panel name="three" suppressHydrationWarning>three</sgds-tab-panel>
-      </sgds-tab-group>
+        </sit-tab>
+        <sit-tab-panel name="one" suppressHydrationWarning>one</sit-tab-panel>
+        <sit-tab-panel name="two" suppressHydrationWarning>two</sit-tab-panel>
+        <sit-tab-panel name="three" suppressHydrationWarning>three</sit-tab-panel>
+      </sit-tab-group>
     </>
   );
 };

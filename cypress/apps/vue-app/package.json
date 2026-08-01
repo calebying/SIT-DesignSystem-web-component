@@ -10,7 +10,7 @@
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
   },
   "dependencies": {
-    "@govtechsg/sgds": "^2.1.1",
+    "@sit-canvas/canvas-web-component": "https://github.com/calebying/SIT-DesignSystem-web-component/archive/5f4e2ae3a80766d08c55bf68a0c2b1fd1ef874e8.tar.gz",
     "@sit-canvas/canvas-web-component": "file:../../../lib",
     "@webcomponents/scoped-custom-element-registry": "^0.0.9",
     "vue": "^3.5.34"

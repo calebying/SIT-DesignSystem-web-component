@@ -35,116 +35,116 @@ export default function FormPreviewPage() {
     const el = fullNameRef.current;
     if (!el) return;
     const handler = (e: Event) => setFullName((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = emailRef.current;
     if (!el) return;
     const handler = (e: Event) => setEmail((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = ageRef.current;
     if (!el) return;
     const handler = (e: Event) => setAge((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = feedbackRef.current;
     if (!el) return;
     const handler = (e: Event) => setFeedback((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = countryRef.current;
     if (!el) return;
     const handler = (e: Event) => setCountry((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = departmentRef.current;
     if (!el) return;
     const handler = (e: Event) => setDepartment((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = skillsRef.current;
     if (!el) return;
     const handler = (e: Event) => setSkills((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = dietaryRef.current;
     if (!el) return;
     const handler = (e: Event) => setDietary((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = priorityRef.current;
     if (!el) return;
     const handler = (e: Event) => setPriority((e as CustomEvent).detail.value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = datepickerRef.current;
     if (!el) return;
     const handler = (e: Event) => setAppointmentDate((e.target as any).value);
-    el.addEventListener("sgds-change-date", handler);
-    return () => el.removeEventListener("sgds-change-date", handler);
+    el.addEventListener("sit-change-date", handler);
+    return () => el.removeEventListener("sit-change-date", handler);
   }, []);
 
   useEffect(() => {
     const el = fileUploadRef.current;
     if (!el) return;
     const handler = (e: Event) => setFileName((e.target as any).files?.[0]?.name ?? "");
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = quantityRef.current;
     if (!el) return;
     const handler = (e: Event) => setQuantity((e.target as any).value);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   useEffect(() => {
     const el = switchRef.current;
     if (!el) return;
     const handler = (e: Event) => setNotifications((e as CustomEvent).detail.checked);
-    el.addEventListener("sgds-change", handler);
-    return () => el.removeEventListener("sgds-change", handler);
+    el.addEventListener("sit-change", handler);
+    return () => el.removeEventListener("sit-change", handler);
   }, []);
 
   return (
     <main>
       <h1>Form Components Preview</h1>
-      <p>All SGDS form components rendered with a default value. Change any field to see the value update below it.</p>
+      <p>All Canvas form components rendered with a default value. Change any field to see the value update below it.</p>
 
       <hr />
 
       <section>
         <h2>Input — Text</h2>
-        <sgds-input
+        <sit-input
           ref={fullNameRef}
           type="text"
           label="Full Name"
@@ -153,13 +153,13 @@ export default function FormPreviewPage() {
           value="John Doe"
           placeholder="e.g. Tan Ah Kow"
           suppressHydrationWarning
-        ></sgds-input>
+        ></sit-input>
         <div>Value: {fullName}</div>
       </section>
 
       <section>
         <h2>Input — Email</h2>
-        <sgds-input
+        <sit-input
           ref={emailRef}
           type="email"
           label="Email Address"
@@ -168,13 +168,13 @@ export default function FormPreviewPage() {
           value="john.doe@example.com"
           placeholder="you@example.com"
           suppressHydrationWarning
-        ></sgds-input>
+        ></sit-input>
         <div>Value: {email}</div>
       </section>
 
       <section>
         <h2>Input — Number</h2>
-        <sgds-input
+        <sit-input
           ref={ageRef}
           type="number"
           label="Age"
@@ -184,13 +184,13 @@ export default function FormPreviewPage() {
           max="120"
           placeholder="0"
           suppressHydrationWarning
-        ></sgds-input>
+        ></sit-input>
         <div>Value: {age}</div>
       </section>
 
       <section>
         <h2>Textarea</h2>
-        <sgds-textarea
+        <sit-textarea
           ref={feedbackRef}
           label="Feedback"
           hintText="Tell us what you think"
@@ -200,13 +200,13 @@ export default function FormPreviewPage() {
           placeholder="Enter your feedback here"
           maxlength="500"
           suppressHydrationWarning
-        ></sgds-textarea>
+        ></sit-textarea>
         <div>Value: {feedback}</div>
       </section>
 
       <section>
         <h2>Select</h2>
-        <sgds-select
+        <sit-select
           ref={countryRef}
           label="Country"
           hintText="Select your country of residence"
@@ -215,17 +215,17 @@ export default function FormPreviewPage() {
           value="sg"
           suppressHydrationWarning
         >
-          <sgds-select-option value="sg" suppressHydrationWarning>Singapore</sgds-select-option>
-          <sgds-select-option value="my" suppressHydrationWarning>Malaysia</sgds-select-option>
-          <sgds-select-option value="au" suppressHydrationWarning>Australia</sgds-select-option>
-          <sgds-select-option value="uk" suppressHydrationWarning>United Kingdom</sgds-select-option>
-        </sgds-select>
+          <sit-select-option value="sg" suppressHydrationWarning>Singapore</sit-select-option>
+          <sit-select-option value="my" suppressHydrationWarning>Malaysia</sit-select-option>
+          <sit-select-option value="au" suppressHydrationWarning>Australia</sit-select-option>
+          <sit-select-option value="uk" suppressHydrationWarning>United Kingdom</sit-select-option>
+        </sit-select>
         <div>Value: {country}</div>
       </section>
 
       <section>
         <h2>Combo Box — Single Select</h2>
-        <sgds-combo-box
+        <sit-combo-box
           ref={departmentRef}
           label="Department"
           hintText="Select your department"
@@ -234,17 +234,17 @@ export default function FormPreviewPage() {
           value="design"
           suppressHydrationWarning
         >
-          <sgds-combo-box-option value="engineering" suppressHydrationWarning>Engineering</sgds-combo-box-option>
-          <sgds-combo-box-option value="design" suppressHydrationWarning>Design</sgds-combo-box-option>
-          <sgds-combo-box-option value="product" suppressHydrationWarning>Product</sgds-combo-box-option>
-          <sgds-combo-box-option value="operations" suppressHydrationWarning>Operations</sgds-combo-box-option>
-        </sgds-combo-box>
+          <sit-combo-box-option value="engineering" suppressHydrationWarning>Engineering</sit-combo-box-option>
+          <sit-combo-box-option value="design" suppressHydrationWarning>Design</sit-combo-box-option>
+          <sit-combo-box-option value="product" suppressHydrationWarning>Product</sit-combo-box-option>
+          <sit-combo-box-option value="operations" suppressHydrationWarning>Operations</sit-combo-box-option>
+        </sit-combo-box>
         <div>Value: {department}</div>
       </section>
 
       <section>
         <h2>Combo Box — Multi Select</h2>
-        <sgds-combo-box
+        <sit-combo-box
           ref={skillsRef}
           label="Skills"
           hintText="Select all that apply"
@@ -255,34 +255,34 @@ export default function FormPreviewPage() {
           clearable
           suppressHydrationWarning
         >
-          <sgds-combo-box-option value="engineering" suppressHydrationWarning>Engineering</sgds-combo-box-option>
-          <sgds-combo-box-option value="design" suppressHydrationWarning>Design</sgds-combo-box-option>
-          <sgds-combo-box-option value="product" suppressHydrationWarning>Product</sgds-combo-box-option>
-          <sgds-combo-box-option value="operations" suppressHydrationWarning>Operations</sgds-combo-box-option>
-        </sgds-combo-box>
+          <sit-combo-box-option value="engineering" suppressHydrationWarning>Engineering</sit-combo-box-option>
+          <sit-combo-box-option value="design" suppressHydrationWarning>Design</sit-combo-box-option>
+          <sit-combo-box-option value="product" suppressHydrationWarning>Product</sit-combo-box-option>
+          <sit-combo-box-option value="operations" suppressHydrationWarning>Operations</sit-combo-box-option>
+        </sit-combo-box>
         <div>Value: {skills}</div>
       </section>
 
       <section>
         <h2>Checkbox Group</h2>
-        <sgds-checkbox-group
+        <sit-checkbox-group
           ref={dietaryRef}
           label="Dietary Requirements"
           hintText="Check all that apply"
           name="dietary"
           suppressHydrationWarning
         >
-          <sgds-checkbox value="vegetarian" checked suppressHydrationWarning>Vegetarian</sgds-checkbox>
-          <sgds-checkbox value="halal" suppressHydrationWarning>Halal</sgds-checkbox>
-          <sgds-checkbox value="vegan" checked suppressHydrationWarning>Vegan</sgds-checkbox>
-          <sgds-checkbox value="gluten-free" suppressHydrationWarning>Gluten-free</sgds-checkbox>
-        </sgds-checkbox-group>
+          <sit-checkbox value="vegetarian" checked suppressHydrationWarning>Vegetarian</sit-checkbox>
+          <sit-checkbox value="halal" suppressHydrationWarning>Halal</sit-checkbox>
+          <sit-checkbox value="vegan" checked suppressHydrationWarning>Vegan</sit-checkbox>
+          <sit-checkbox value="gluten-free" suppressHydrationWarning>Gluten-free</sit-checkbox>
+        </sit-checkbox-group>
         <div>Value: {dietary}</div>
       </section>
 
       <section>
         <h2>Radio Group</h2>
-        <sgds-radio-group
+        <sit-radio-group
           ref={priorityRef}
           label="Priority"
           hintText="Select one option"
@@ -290,16 +290,16 @@ export default function FormPreviewPage() {
           value="medium"
           suppressHydrationWarning
         >
-          <sgds-radio value="low" suppressHydrationWarning>Low</sgds-radio>
-          <sgds-radio value="medium" suppressHydrationWarning>Medium</sgds-radio>
-          <sgds-radio value="high" suppressHydrationWarning>High</sgds-radio>
-        </sgds-radio-group>
+          <sit-radio value="low" suppressHydrationWarning>Low</sit-radio>
+          <sit-radio value="medium" suppressHydrationWarning>Medium</sit-radio>
+          <sit-radio value="high" suppressHydrationWarning>High</sit-radio>
+        </sit-radio-group>
         <div>Value: {priority}</div>
       </section>
 
       <section>
         <h2>Datepicker</h2>
-        <sgds-datepicker
+        <sit-datepicker
           ref={datepickerRef}
           label="Appointment Date"
           hintText="Select your preferred date"
@@ -308,13 +308,13 @@ export default function FormPreviewPage() {
           mode="single"
           value="06/04/2026"
           suppressHydrationWarning
-        ></sgds-datepicker>
+        ></sit-datepicker>
         <div>Value: {appointmentDate}</div>
       </section>
 
       <section>
         <h2>File Upload</h2>
-        <sgds-file-upload
+        <sit-file-upload
           ref={fileUploadRef}
           name="attachment"
           accept=".pdf,.jpg,.png"
@@ -325,13 +325,13 @@ export default function FormPreviewPage() {
             <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
           </svg>
           Choose a file
-        </sgds-file-upload>
+        </sit-file-upload>
         <div>Value: {fileName || "(no file selected)"}</div>
       </section>
 
       <section>
         <h2>Quantity Toggle</h2>
-        <sgds-quantity-toggle
+        <sit-quantity-toggle
           ref={quantityRef}
           label="Quantity"
           name="quantity"
@@ -341,13 +341,13 @@ export default function FormPreviewPage() {
           defaultValue="5"
           buttonVariant="primary"
           suppressHydrationWarning
-        ></sgds-quantity-toggle>
+        ></sit-quantity-toggle>
         <div>Value: {quantity}</div>
       </section>
 
       <section>
         <h2>Switch</h2>
-        <sgds-switch
+        <sit-switch
           ref={switchRef}
           name="notifications"
           value="on"
@@ -355,7 +355,7 @@ export default function FormPreviewPage() {
           suppressHydrationWarning
         >
           Enable email notifications
-        </sgds-switch>
+        </sit-switch>
         <div>Value: {notifications ? "on" : "off"}</div>
       </section>
     </main>

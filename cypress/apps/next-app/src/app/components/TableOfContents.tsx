@@ -2,20 +2,20 @@
 
 export const TableOfContents = () => {
   return (
-    <sgds-table-of-contents suppressHydrationWarning>
+    <sit-table-of-contents suppressHydrationWarning>
       <h2>Header</h2>
       <li slot="contents">
-        <sgds-link suppressHydrationWarning><a href="#">Link</a></sgds-link>
+        <sit-link suppressHydrationWarning><a href="#">Link</a></sit-link>
       </li>
       <li slot="contents">
-        <sgds-link suppressHydrationWarning><a href="#">Link</a></sgds-link>
+        <sit-link suppressHydrationWarning><a href="#">Link</a></sit-link>
       </li>
       <li slot="contents">
-        <sgds-link suppressHydrationWarning><a href="#">Link</a></sgds-link>
+        <sit-link suppressHydrationWarning><a href="#">Link</a></sit-link>
       </li>
       <li slot="contents">
-        <sgds-link suppressHydrationWarning><a href="#">Link</a></sgds-link>
+        <sit-link suppressHydrationWarning><a href="#">Link</a></sit-link>
       </li>
-    </sgds-table-of-contents>
+    </sit-table-of-contents>
   );
 };

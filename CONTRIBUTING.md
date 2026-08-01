@@ -99,7 +99,7 @@ Do not edit README.md file directly. Instead edit the markdown files in docs fol
 
 - React users should import as such :
   named exports when importing from whole library entry point
-  `import {SgdsMasthead} from 'clk-web-components/react';`
+  `import {CanvasMasthead} from '@sit-canvas/canvas-web-component/react';`
 
 - All steps in this section are included in `npm run build:lib`
 

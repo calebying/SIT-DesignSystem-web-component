@@ -2,10 +2,10 @@
 
 export const Link = () => {
   return (
-    <sgds-link suppressHydrationWarning>
+    <sit-link suppressHydrationWarning>
       <a href="#">
-        <sgds-icon name="placeholder" suppressHydrationWarning></sgds-icon> light dom anchor
+        <sit-icon name="placeholder" suppressHydrationWarning></sit-icon> light dom anchor
       </a>
-    </sgds-link>
+    </sit-link>
   );
 };

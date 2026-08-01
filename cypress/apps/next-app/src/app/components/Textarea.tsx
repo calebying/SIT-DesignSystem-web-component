@@ -2,7 +2,7 @@
 
 export const Textarea = () => {
   return (
-    <sgds-textarea
+    <sit-textarea
       label="Label"
       name="textarea"
       rows="4"
@@ -10,6 +10,6 @@ export const Textarea = () => {
       maxlength="100"
       resize="vertical"
       suppressHydrationWarning
-    ></sgds-textarea>
+    ></sit-textarea>
   );
 };

@@ -7,8 +7,8 @@ export const Modal = () => {
 
   return (
     <>
-      <sgds-button onClick={() => setOpen(true)} suppressHydrationWarning>Open Modal</sgds-button>
-      <sgds-modal open={open ? "" : undefined} suppressHydrationWarning>
+      <sit-button onClick={() => setOpen(true)} suppressHydrationWarning>Open Modal</sit-button>
+      <sit-modal open={open ? "" : undefined} suppressHydrationWarning>
         <h2 slot="title">Modal title</h2>
         <p slot="description">Modal description</p>
         <p>
@@ -17,13 +17,13 @@ export const Modal = () => {
           commodo velit, pretium dictum quam nibh et ex. Suspendisse eu dignissim libero. Donec aliquam, lacus eu
           pellentesque interdum, arcu nisl blandit turpis, at tincidunt purus orci ut dolor.
         </p>
-        <sgds-button slot="footer" variant="link" className="close-modal" onClick={() => setOpen(false)} suppressHydrationWarning>
+        <sit-button slot="footer" variant="link" className="close-modal" onClick={() => setOpen(false)} suppressHydrationWarning>
           Close
-        </sgds-button>
-        <sgds-button slot="footer" variant="primary" type="submit" form="formA" suppressHydrationWarning>
+        </sit-button>
+        <sit-button slot="footer" variant="primary" type="submit" form="formA" suppressHydrationWarning>
           Submit
-        </sgds-button>
-      </sgds-modal>
+        </sit-button>
+      </sit-modal>
     </>
   );
 };

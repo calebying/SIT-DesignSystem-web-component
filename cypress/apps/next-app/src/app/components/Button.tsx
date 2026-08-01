@@ -3,14 +3,14 @@
 export const Button = () => {
   return (
     <>
-      <sgds-button variant="primary" suppressHydrationWarning>primary</sgds-button>
-      <sgds-button variant="secondary" suppressHydrationWarning>secondary</sgds-button>
-      <sgds-button variant="success" suppressHydrationWarning>success</sgds-button>
-      <sgds-button variant="danger" suppressHydrationWarning>danger</sgds-button>
-      <sgds-button variant="warning" suppressHydrationWarning>warning</sgds-button>
-      <sgds-button variant="info" suppressHydrationWarning>info</sgds-button>
-      <sgds-button variant="light" suppressHydrationWarning>light</sgds-button>
-      <sgds-button variant="dark" suppressHydrationWarning>dark</sgds-button>
+      <sit-button variant="primary" suppressHydrationWarning>primary</sit-button>
+      <sit-button variant="secondary" suppressHydrationWarning>secondary</sit-button>
+      <sit-button variant="success" suppressHydrationWarning>success</sit-button>
+      <sit-button variant="danger" suppressHydrationWarning>danger</sit-button>
+      <sit-button variant="warning" suppressHydrationWarning>warning</sit-button>
+      <sit-button variant="info" suppressHydrationWarning>info</sit-button>
+      <sit-button variant="light" suppressHydrationWarning>light</sit-button>
+      <sit-button variant="dark" suppressHydrationWarning>dark</sit-button>
     </>
   );
 };

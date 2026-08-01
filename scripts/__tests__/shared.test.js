@@ -5,7 +5,7 @@ import { fixture, expect, waitUntil } from "@open-wc/testing";
  * {
   kind: 'class',
   description: '',
-  name: 'SgdsTooltip',
+  name: 'SitTooltip',
   members: [
     { kind: 'field', name: 'myTooltip', type: [Object] },
     {

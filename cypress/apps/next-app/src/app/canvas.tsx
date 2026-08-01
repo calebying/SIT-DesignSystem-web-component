@@ -2,15 +2,15 @@
 
 import { useEffect } from 'react';
 
-const SgdsLibraryLoader = ({ nonce }: { nonce?: string }) => {
+const CanvasLibraryLoader = ({ nonce }: { nonce?: string }) => {
   useEffect(() => {
     (async () => {
       await import('@webcomponents/scoped-custom-element-registry');
-      await import('@govtechsg/sgds-web-component');
+      await import('@sit-canvas/canvas-web-component');
     })();
   }, []);
 
   return null;
 };
 
-export default SgdsLibraryLoader;
+export default CanvasLibraryLoader;

@@ -2,16 +2,16 @@
 
 export const IconList = () => {
   return (
-    <sgds-icon-list size="sm" suppressHydrationWarning>
+    <sit-icon-list size="sm" suppressHydrationWarning>
       <div role="listitem">
-        <sgds-icon size="sm" name="placeholder" suppressHydrationWarning></sgds-icon>item one
+        <sit-icon size="sm" name="placeholder" suppressHydrationWarning></sit-icon>item one
       </div>
       <div role="listitem">
-        <sgds-icon name="placeholder" size="sm" suppressHydrationWarning></sgds-icon>item one
+        <sit-icon name="placeholder" size="sm" suppressHydrationWarning></sit-icon>item one
       </div>
       <div role="listitem">
-        <sgds-icon name="placeholder" size="sm" suppressHydrationWarning></sgds-icon>item one
+        <sit-icon name="placeholder" size="sm" suppressHydrationWarning></sit-icon>item one
       </div>
-    </sgds-icon-list>
+    </sit-icon-list>
   );
 };

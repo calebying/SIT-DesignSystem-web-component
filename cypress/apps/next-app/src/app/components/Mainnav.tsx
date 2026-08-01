@@ -2,29 +2,29 @@
 
 export const Mainnav = () => {
   return (
-    <sgds-mainnav suppressHydrationWarning>
-      <sgds-mainnav-item suppressHydrationWarning>
+    <sit-mainnav suppressHydrationWarning>
+      <sit-mainnav-item suppressHydrationWarning>
         <a href="#">ArgsTable Controlled</a>
-      </sgds-mainnav-item>
-      <sgds-mainnav-dropdown close="default" suppressHydrationWarning>
+      </sit-mainnav-item>
+      <sit-mainnav-dropdown close="default" suppressHydrationWarning>
         <span slot="toggler">Dropdown</span>
-        <sgds-dropdown-item disabled suppressHydrationWarning>
+        <sit-dropdown-item disabled suppressHydrationWarning>
           <a href="https://google.com">Item 1</a>
-        </sgds-dropdown-item>
-        <sgds-dropdown-item suppressHydrationWarning>
+        </sit-dropdown-item>
+        <sit-dropdown-item suppressHydrationWarning>
           <a href="#">Item 2</a>
-        </sgds-dropdown-item>
-        <sgds-dropdown-item suppressHydrationWarning>
+        </sit-dropdown-item>
+        <sit-dropdown-item suppressHydrationWarning>
           <a href="#">Item 3</a>
-        </sgds-dropdown-item>
-      </sgds-mainnav-dropdown>
-      <sgds-mainnav-item suppressHydrationWarning>
+        </sit-dropdown-item>
+      </sit-mainnav-dropdown>
+      <sit-mainnav-item suppressHydrationWarning>
         <a href="#">About</a>
-      </sgds-mainnav-item>
-      <sgds-mainnav-item slot="end" suppressHydrationWarning>
+      </sit-mainnav-item>
+      <sit-mainnav-item slot="end" suppressHydrationWarning>
         <a href="#">Contact Us</a>
-      </sgds-mainnav-item>
-      <sgds-button slot="end" suppressHydrationWarning>Login</sgds-button>
-    </sgds-mainnav>
+      </sit-mainnav-item>
+      <sit-button slot="end" suppressHydrationWarning>Login</sit-button>
+    </sit-mainnav>
   );
 };

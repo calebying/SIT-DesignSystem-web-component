@@ -28,8 +28,8 @@ export const Table = () => {
 
   return (
     <>
-      <sgds-table ref={rowHeaderRef} suppressHydrationWarning></sgds-table>
-      <sgds-table ref={colHeaderRef} suppressHydrationWarning></sgds-table>
+      <sit-table ref={rowHeaderRef} suppressHydrationWarning></sit-table>
+      <sit-table ref={colHeaderRef} suppressHydrationWarning></sit-table>
     </>
   );
 };

@@ -17,5 +17,5 @@ export const Pagination = () => {
     }
   }, []);
 
-  return <sgds-pagination ref={ref} suppressHydrationWarning></sgds-pagination>;
+  return <sit-pagination ref={ref} suppressHydrationWarning></sit-pagination>;
 };

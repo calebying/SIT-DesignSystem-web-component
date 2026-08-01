@@ -3,16 +3,16 @@
 export const Switch = () => {
   return (
     <>
-      <sgds-switch suppressHydrationWarning>Switch</sgds-switch>
-      <sgds-switch icon suppressHydrationWarning>Switch with icon</sgds-switch>
-      <sgds-switch icon size="sm" suppressHydrationWarning>Switch with icon</sgds-switch>
-      <sgds-switch icon size="lg" suppressHydrationWarning>Switch with icon</sgds-switch>
-      <sgds-switch disabled suppressHydrationWarning>Switch</sgds-switch>
-      <sgds-switch size="sm" suppressHydrationWarning>Switch</sgds-switch>
-      <sgds-switch size="lg" suppressHydrationWarning>Switch</sgds-switch>
-      <sgds-switch size="lg" suppressHydrationWarning>
+      <sit-switch suppressHydrationWarning>Switch</sit-switch>
+      <sit-switch icon suppressHydrationWarning>Switch with icon</sit-switch>
+      <sit-switch icon size="sm" suppressHydrationWarning>Switch with icon</sit-switch>
+      <sit-switch icon size="lg" suppressHydrationWarning>Switch with icon</sit-switch>
+      <sit-switch disabled suppressHydrationWarning>Switch</sit-switch>
+      <sit-switch size="sm" suppressHydrationWarning>Switch</sit-switch>
+      <sit-switch size="lg" suppressHydrationWarning>Switch</sit-switch>
+      <sit-switch size="lg" suppressHydrationWarning>
         <span slot="leftLabel">Switch</span>
-      </sgds-switch>
+      </sit-switch>
     </>
   );
 };

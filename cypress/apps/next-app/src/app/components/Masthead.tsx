@@ -1,5 +1,5 @@
 'use client';
 
 export const Masthead = () => {
-  return <sgds-masthead suppressHydrationWarning />;
+  return <sit-masthead suppressHydrationWarning />;
 };

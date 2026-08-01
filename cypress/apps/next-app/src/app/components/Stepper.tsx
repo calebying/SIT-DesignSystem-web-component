@@ -21,5 +21,5 @@ export const Stepper = () => {
     }
   }, [steps]);
 
-  return <sgds-stepper ref={ref} suppressHydrationWarning></sgds-stepper>;
+  return <sit-stepper ref={ref} suppressHydrationWarning></sit-stepper>;
 };

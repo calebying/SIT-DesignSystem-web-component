@@ -1,5 +1,5 @@
 'use client';
 
 export const Spinner = () => {
-  return <sgds-spinner suppressHydrationWarning />;
+  return <sit-spinner suppressHydrationWarning />;
 };

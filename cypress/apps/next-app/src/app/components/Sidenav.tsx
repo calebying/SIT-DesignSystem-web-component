@@ -2,47 +2,47 @@
 
 export const Sidenav = () => {
   return (
-    <sgds-sidenav className="mt-3" id="test-id" suppressHydrationWarning>
-      <sgds-sidenav-item suppressHydrationWarning>
-        <sgds-icon name="placeholder" slot="icon" suppressHydrationWarning></sgds-icon>
+    <sit-sidenav className="mt-3" id="test-id" suppressHydrationWarning>
+      <sit-sidenav-item suppressHydrationWarning>
+        <sit-icon name="placeholder" slot="icon" suppressHydrationWarning></sit-icon>
         <span slot="title">Title</span>
-        <sgds-sidenav-link disabled suppressHydrationWarning>
+        <sit-sidenav-link disabled suppressHydrationWarning>
           <a href="#"> disabled-test</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-link active suppressHydrationWarning>
+        </sit-sidenav-link>
+        <sit-sidenav-link active suppressHydrationWarning>
           <a href="#"> first-test</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-item suppressHydrationWarning>
+        </sit-sidenav-link>
+        <sit-sidenav-item suppressHydrationWarning>
           <span slot="title">Title level 2 very long so just wrap</span>
-          <sgds-sidenav-link suppressHydrationWarning>
+          <sit-sidenav-link suppressHydrationWarning>
             <a href="#"> first-test</a>
-          </sgds-sidenav-link>
-          <sgds-sidenav-link suppressHydrationWarning>
+          </sit-sidenav-link>
+          <sit-sidenav-link suppressHydrationWarning>
             <a href="#"> first-test</a>
-          </sgds-sidenav-link>
-        </sgds-sidenav-item>
-      </sgds-sidenav-item>
-      <sgds-sidenav-item disabled suppressHydrationWarning>
-        <sgds-icon slot="icon" name="placeholder" suppressHydrationWarning></sgds-icon>
+          </sit-sidenav-link>
+        </sit-sidenav-item>
+      </sit-sidenav-item>
+      <sit-sidenav-item disabled suppressHydrationWarning>
+        <sit-icon slot="icon" name="placeholder" suppressHydrationWarning></sit-icon>
         <span slot="title">Title</span>
-        <sgds-sidenav-link suppressHydrationWarning>
+        <sit-sidenav-link suppressHydrationWarning>
           <a href="#"> first-test</a>
-        </sgds-sidenav-link>
-        <sgds-sidenav-link suppressHydrationWarning>
+        </sit-sidenav-link>
+        <sit-sidenav-link suppressHydrationWarning>
           <a href="#"> first-test</a>
-        </sgds-sidenav-link>
-      </sgds-sidenav-item>
-      <sgds-sidenav-item active suppressHydrationWarning>
+        </sit-sidenav-link>
+      </sit-sidenav-item>
+      <sit-sidenav-item active suppressHydrationWarning>
         <a href="#">
           {" "}
-          <sgds-icon slot="icon" name="placeholder" suppressHydrationWarning></sgds-icon>anchor
+          <sit-icon slot="icon" name="placeholder" suppressHydrationWarning></sit-icon>anchor
         </a>
-      </sgds-sidenav-item>
-      <sgds-sidenav-item suppressHydrationWarning>
+      </sit-sidenav-item>
+      <sit-sidenav-item suppressHydrationWarning>
         <a href="https://www.google.com">
-          <sgds-icon slot="icon" name="placeholder" suppressHydrationWarning></sgds-icon> Google
+          <sit-icon slot="icon" name="placeholder" suppressHydrationWarning></sit-icon> Google
         </a>
-      </sgds-sidenav-item>
-    </sgds-sidenav>
+      </sit-sidenav-item>
+    </sit-sidenav>
   );
 };
