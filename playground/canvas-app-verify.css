@@ -1,0 +1,132 @@
+/**
+ * @sit-canvas/canvas-app — compact-spacing density theme
+ *
+ * Mirrors the exact mechanism SIT-DesignSystem-web-component already uses for
+ * day/night mode (see themes/night.css in that repo): re-declare the same
+ * SEMANTIC tokens components already consume, scoped to a toggle class on
+ * :root, so no component markup or component CSS needs to change — every
+ * Lit component reads spacing/font-size via var(--sit-*) already (confirmed
+ * directly in Button/Card source: zero hardcoded rem/px values found).
+ *
+ * Usage:
+ *   import "@sit-canvas/canvas-web-component/themes/day.css";
+ *   import "@sit-canvas/canvas-app/themes/canvas-app.css";
+ *   document.documentElement.classList.add("sit-canvas-app-theme");
+ *
+ * No new primitives are introduced here — every value below re-aliases an
+ * EXISTING primitive from SIT-DesignSystem-web-component's root.css onto a
+ * tighter step. The existing --sit-spacer-*/--sit-font-size-*/
+ * --sit-line-height-* scales already have close-enough granularity at the
+ * low end; this file only changes which step each semantic name points to.
+ *
+ * Values below are a first-pass design, validated against CET-Superagent's
+ * app/globals.css usage inventory (82x text-xs/12px dominant, gap-2/gap-3
+ * dominant at 8px/12px, p-5/20px kept for outer containers, p-3-p-4/12-16px
+ * for nested content, rounded-lg/rounded-full only — never rounded-2xl+).
+ * Confirm visually in step 4 (Storybook/playground) before treating as final.
+ */
+
+:root.sit-canvas-app-theme {
+  /* ---- Font size — pin to the "app" compact scale, not just mobile-xs ---- */
+  /* Canvas default (mobile): body-md=16px, body-sm=14px, label-md=16px.
+     CET app: text-xs(12px) is the dominant workhorse size, text-sm(14px) is
+     reserved for emphasis only — shift the *base* body size down a full step. */
+  --sit-font-size-body-md: var(--sit-font-size-12);
+  --sit-font-size-body-sm: var(--sit-font-size-12);
+  --sit-font-size-body-lg: var(--sit-font-size-14);
+  --sit-font-size-label-xs: var(--sit-font-size-12);
+  --sit-font-size-label-sm: var(--sit-font-size-12);
+  --sit-font-size-label-md: var(--sit-font-size-12);
+  --sit-font-size-label-lg: var(--sit-font-size-14);
+  --sit-font-size-list-sm: var(--sit-font-size-12);
+  --sit-font-size-list-md: var(--sit-font-size-14);
+  --sit-font-size-caption-md: var(--sit-font-size-12);
+  --sit-font-size-overline-md: var(--sit-font-size-12);
+  --sit-font-size-link-xs: var(--sit-font-size-12);
+  --sit-font-size-link-sm: var(--sit-font-size-12);
+  --sit-font-size-link-md: var(--sit-font-size-14);
+  --sit-font-size-subtitle-sm: var(--sit-font-size-14);
+  --sit-font-size-subtitle-md: var(--sit-font-size-16);
+  /* Headings shift down one step too, but stay legibly larger than body —
+     CET app reserves text-base/16px for section headings only. */
+  --sit-font-size-heading-sm: var(--sit-font-size-16);
+  --sit-font-size-heading-md: var(--sit-font-size-18);
+  --sit-font-size-heading-lg: var(--sit-font-size-20);
+  --sit-font-size-heading-xl: var(--sit-font-size-24);
+
+  /* ---- Line height — tightened proportionally so text doesn't look
+     loose relative to its new (smaller) font-size ---- */
+  --sit-line-height-3-xs: var(--sit-line-height-16);
+  --sit-line-height-2-xs: var(--sit-line-height-16);
+  --sit-line-height-xs: var(--sit-line-height-20);
+  --sit-line-height-sm: var(--sit-line-height-20);
+  --sit-line-height-md: var(--sit-line-height-24);
+  --sit-line-height-lg: var(--sit-line-height-28);
+  --sit-line-height-xl: var(--sit-line-height-32);
+
+  /* ---- Component gap — the tightest tier; matches CET's dominant
+     gap-2/gap-3 (8px/12px) instead of Canvas's 16-24px default ---- */
+  --sit-component-gap-xs: var(--sit-spacer-2);  /* 4px  (was spacer-3 /  8px) */
+  --sit-component-gap-sm: var(--sit-spacer-2);  /* 4px  (was spacer-4 / 12px) */
+  --sit-component-gap-md: var(--sit-spacer-3);  /* 8px  (was spacer-5 / 16px) */
+  --sit-component-gap-lg: var(--sit-spacer-4);  /* 12px (was spacer-6 / 20px) */
+  --sit-component-gap-xl: var(--sit-spacer-5);  /* 16px (was spacer-7 / 24px) */
+
+  /* ---- Component padding — nested/inner content, matches CET's p-3/p-4 ---- */
+  --sit-component-padding-xs: var(--sit-spacer-3); /* 8px  (was spacer-5 / 16px) */
+  --sit-component-padding-sm: var(--sit-spacer-3); /* 8px  (was spacer-6 / 20px) */
+  --sit-component-padding-md: var(--sit-spacer-4); /* 12px (was spacer-7 / 24px) */
+  --sit-component-padding-lg: var(--sit-spacer-5); /* 16px (was spacer-8 / 32px) */
+  --sit-component-padding-xl: var(--sit-spacer-6); /* 20px (was spacer-9 / 48px) */
+
+  /* ---- Layout gap — spacing between major regions/sections ---- */
+  --sit-layout-gap-2-xs: var(--sit-spacer-2); /* 4px  (was spacer-2 / 4px, unchanged) */
+  --sit-layout-gap-xs: var(--sit-spacer-3);   /* 8px  (was spacer-3 / 8px, unchanged) */
+  --sit-layout-gap-sm: var(--sit-spacer-3);   /* 8px  (was spacer-4 / 12px) */
+  --sit-layout-gap-md: var(--sit-spacer-4);   /* 12px (was spacer-5 / 16px) */
+  --sit-layout-gap-lg: var(--sit-spacer-5);   /* 16px (was spacer-6 / 20px) */
+  --sit-layout-gap-xl: var(--sit-spacer-6);   /* 20px (was spacer-7 / 24px) */
+
+  /* ---- Layout padding — outer container/page padding. CET keeps this
+     ROOMIER than nested content (p-5/20px) — do not flatten to one tiny
+     value like component-padding above. ---- */
+  --sit-layout-padding-xs: var(--sit-spacer-4); /* 12px (was spacer-5 / 16px) */
+  --sit-layout-padding-sm: var(--sit-spacer-5); /* 16px (was spacer-6 / 20px) */
+  --sit-layout-padding-md: var(--sit-spacer-6); /* 20px (was spacer-7 / 24px) */
+  --sit-layout-padding-lg: var(--sit-spacer-7); /* 24px (was spacer-8 / 32px) */
+  --sit-layout-padding-xl: var(--sit-spacer-8); /* 32px (was spacer-9 / 48px) */
+
+  /* ---- Generic padding/gap/margin aliases (root.css's semantic layer,
+     used directly by some components alongside the layout-*/component-*
+     tokens above) — same re-aliasing approach ---- */
+  --sit-padding-sm: var(--sit-spacer-3);  /* 8px  (was spacer-4 / 12px) */
+  --sit-padding-md: var(--sit-spacer-4);  /* 12px (was spacer-5 / 16px) */
+  --sit-padding-lg: var(--sit-spacer-5);  /* 16px (was spacer-6 / 20px) */
+  --sit-padding-xl: var(--sit-spacer-6);  /* 20px (was spacer-7 / 24px) */
+  --sit-margin-sm: var(--sit-spacer-3);
+  --sit-margin-md: var(--sit-spacer-4);
+  --sit-margin-lg: var(--sit-spacer-5);
+  --sit-margin-xl: var(--sit-spacer-6);
+  --sit-gap-sm: var(--sit-spacer-3);
+  --sit-gap-md: var(--sit-spacer-4);
+  --sit-gap-lg: var(--sit-spacer-5);
+  --sit-gap-xl: var(--sit-spacer-6);
+
+  /* ---- Border radius — shift the whole scale down one step. CET app never
+     uses radius beyond rounded-xl; the softer -2-xl/-3-xl tiers are
+     intentionally left untouched (out of scope) rather than removed.
+     Components read --sit-border-radius-{xs,sm,md,lg,xl,...} DIRECTLY
+     (confirmed: Badge's badge.css uses `border-radius: var(--sit-border-radius-sm)`
+     verbatim) — so those are the exact names to override, not invented
+     per-component tokens.
+     NOTE: because -md/-lg/-xl are all being redefined in this SAME
+     :root.sit-canvas-app-theme block, chaining var(--sit-border-radius-sm)
+     etc. between these lines would resolve to each other's NEW cascaded
+     value (not root.css's original) and collapse every tier to the same
+     pixel value — caught this while authoring. Using literal px values
+     below instead keeps each tier's source unambiguous. */
+  --sit-border-radius-sm: 2px;  /* was 4px */
+  --sit-border-radius-md: 4px;  /* was 8px */
+  --sit-border-radius-lg: 8px;  /* was 12px */
+  --sit-border-radius-xl: 12px; /* was 16px */
+}

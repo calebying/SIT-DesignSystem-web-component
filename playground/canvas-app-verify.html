@@ -1,0 +1,37 @@
+<script type="module" src="../src/index.ts"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<!--
+  Verification-only playground page for SIT-Canvas-App (step 4 of the
+  switch-to-design-language plan). NOT part of the shipped playground set --
+  delete after visual confirmation, or leave as a reference if useful.
+
+  canvas-app.css's tokens are scoped to :root.sit-canvas-app-theme (matching
+  the exact mechanism themes/night.css uses for .sit-night-theme), so the
+  class must be on the document root -- it cannot be scoped to a descendant
+  div for an in-page split comparison, since CSS custom properties simply
+  inherit down from wherever :root's matched styles apply. True side-by-side
+  needs TWO documents: this page (compact ON) and canvas-app-verify-default.html
+  (compact OFF), opened in two tabs.
+-->
+<link href="./canvas-app-verify.css" rel="stylesheet" type="text/css" />
+
+<style>
+  body { padding: 32px; font-family: var(--sit-font-family-brand); }
+  h1 { font-size: 18px; margin-bottom: 16px; }
+  .stack { display: flex; flex-direction: column; gap: var(--sit-component-gap-md, 16px); max-width: 420px; }
+</style>
+
+<h1>SIT-Canvas-App — compact (.sit-canvas-app-theme ON)</h1>
+<div class="stack">
+  <sit-card orientation="vertical">
+    <span slot="title">Compact card title</span>
+    <p slot="description">Body copy at the compact scale — twelve pixel base font, tighter gap and padding, matching CET-Superagent's density.</p>
+  </sit-card>
+  <sit-button variant="primary">Primary button</sit-button>
+  <sit-badge variant="primary">Primary badge</sit-badge>
+</div>
+
+<script>
+  document.documentElement.classList.add("sit-canvas-app-theme");
+</script>

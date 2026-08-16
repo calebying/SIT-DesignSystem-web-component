@@ -1,0 +1,23 @@
+<script type="module" src="../src/index.ts"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<!--
+  Companion to canvas-app-verify.html — same markup, default Canvas (no
+  .sit-canvas-app-theme class), for a true side-by-side (two-tab) comparison.
+-->
+
+<style>
+  body { padding: 32px; font-family: var(--sit-font-family-brand); }
+  h1 { font-size: 18px; margin-bottom: 16px; }
+  .stack { display: flex; flex-direction: column; gap: var(--sit-component-gap-md, 16px); max-width: 420px; }
+</style>
+
+<h1>Default Canvas (.sit-canvas-app-theme OFF)</h1>
+<div class="stack">
+  <sit-card orientation="vertical">
+    <span slot="title">Default card title</span>
+    <p slot="description">Body copy at the default Canvas scale — sixteen pixel base font, roomier gap and padding.</p>
+  </sit-card>
+  <sit-button variant="primary">Primary button</sit-button>
+  <sit-badge variant="primary">Primary badge</sit-badge>
+</div>

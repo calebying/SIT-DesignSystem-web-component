@@ -1,0 +1,76 @@
+<script type="module" src="../src/index.ts"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./css/utility.css" rel="stylesheet" type="text/css" />
+<!--
+  Real-content sample: sit-superagent1-ui.html's Stage 1 card + KPI strip,
+  retrofitted from hardcoded Tailwind-CDN/hex onto real SIT Canvas tokens
+  (sit: utility classes + --sit-* custom properties), so
+  .sit-canvas-app-theme has real tokens to override. Companion to
+  canvas-app-cet-sample-compact.html (same markup, theme class ON).
+
+  Original source: C:\Users\A103605\Downloads\sit-superagent1-ui.html
+  lines 145-198 (KPI strip + Stage 1 "Market Intelligence" card).
+  Content/copy ported verbatim; only the styling mechanism changed
+  (hardcoded hex + raw Tailwind spacing -> --sit-* semantic tokens).
+-->
+<style>
+  body { padding: 32px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
+  h1 { font-size: var(--sit-font-size-heading-sm, 20px); margin-bottom: var(--sit-component-gap-md, 16px); }
+</style>
+
+<h1>Default Canvas</h1>
+
+<!-- KPI Strip -->
+<div class="sit:grid" style="grid-template-columns: repeat(5, 1fr); gap: var(--sit-component-gap-sm);">
+  <div class="sit:bg-default sit:rounded-lg sit:border sit:border-color-muted" style="padding: var(--sit-component-padding-sm);">
+    <div style="font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-default);">7</div>
+    <div style="font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted);">Pipeline Stages</div>
+  </div>
+  <div class="sit:bg-default sit:rounded-lg sit:border" style="padding: var(--sit-component-padding-sm); border-color: var(--sit-green-200);">
+    <div style="font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-green-600);">2</div>
+    <div style="font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted);">Stages Completed</div>
+  </div>
+  <div class="sit:bg-default sit:rounded-lg sit:border" style="padding: var(--sit-component-padding-sm); border-color: var(--sit-yellow-200);">
+    <div style="font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-yellow-600);">1</div>
+    <div style="font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted);">Active (AI Working)</div>
+  </div>
+  <div class="sit:bg-default sit:rounded-lg sit:border" style="padding: var(--sit-component-padding-sm); border-color: var(--sit-yellow-200);">
+    <div style="font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-yellow-600);">1</div>
+    <div style="font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted);">Gate Pending</div>
+  </div>
+  <div class="sit:bg-default sit:rounded-lg sit:border sit:border-color-muted" style="padding: var(--sit-component-padding-sm);">
+    <div style="font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-product-primary-600);">3</div>
+    <div style="font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted);">AI Agents Running</div>
+  </div>
+</div>
+
+<!-- Stage 1 card -->
+<div style="max-width: 260px; margin-top: var(--sit-layout-gap-md);">
+  <div class="sit:rounded-lg sit:border sit:border-color-muted" style="overflow: hidden; border-top: 4px solid var(--sit-blue-800); background: var(--sit-bg-default);">
+    <div style="background: var(--sit-blue-800); color: var(--sit-color-fixed-light); padding: var(--sit-component-padding-sm);">
+      <div style="display: flex; align-items: center; gap: var(--sit-component-gap-xs); margin-bottom: var(--sit-component-gap-xs);">
+        <span style="width: 24px; height: 24px; border-radius: 999px; background: var(--sit-bg-fixed-light); color: var(--sit-blue-800); font-weight: var(--sit-font-weight-bold); font-size: var(--sit-font-size-label-xs); display: flex; align-items: center; justify-content: center;">1</span>
+        <span style="font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); line-height: var(--sit-line-height-xs);">Market Intelligence, Demand &amp; Opportunity</span>
+      </div>
+    </div>
+    <div style="padding: var(--sit-component-padding-sm);">
+      <div style="display: flex; align-items: center; gap: var(--sit-component-gap-xs); margin-bottom: var(--sit-component-gap-sm);">
+        <span style="width: 8px; height: 8px; border-radius: 999px; background: var(--sit-green-400);"></span>
+        <span style="font-size: var(--sit-font-size-label-xs); color: var(--sit-green-600); font-weight: var(--sit-font-weight-semibold);">Completed</span>
+      </div>
+      <ul style="font-size: var(--sit-font-size-label-xs); color: var(--sit-color-subtle); display: flex; flex-direction: column; gap: var(--sit-spacer-2);">
+        <li>✓ Scan market signals</li>
+        <li>✓ Synthesise employer evidence</li>
+        <li>✓ Assess need, fit &amp; scalability</li>
+      </ul>
+      <div style="margin-top: var(--sit-component-gap-sm); background: var(--sit-bg-alternate); border-radius: var(--sit-border-radius-md); padding: var(--sit-spacer-3);">
+        <div style="font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-bottom: 2px;">OUTPUT</div>
+        <div style="font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle);">Market evidence pack + opportunity record</div>
+      </div>
+      <button style="width: 100%; margin-top: var(--sit-component-gap-sm); background: var(--sit-blue-800); color: var(--sit-color-fixed-light); font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); padding: var(--sit-spacer-2) 0; border-radius: var(--sit-border-radius-md); border: none;">
+        A · Accept / Hold / Reject
+      </button>
+    </div>
+  </div>
+</div>

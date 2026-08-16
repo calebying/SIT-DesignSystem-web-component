@@ -1,0 +1,135 @@
+<script type="module" src="../src/index.ts"></script>
+<script type="module" src="./vendor/canvas-app/index.js"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./css/utility.css" rel="stylesheet" type="text/css" />
+<!--
+  Full view-pipeline retrofit: KPI strip + all 7 stage cards, ported
+  from sit-superagent1-ui.html lines 145-386 onto real SIT Canvas
+  tokens (sit: utility classes + --sit-* custom properties) and the
+  new sit-stage-card composite component (../../SIT-Canvas-App).
+
+  This is the COMPACT variant — .sit-canvas-app-theme toggled ON via
+  the script at the bottom. Companion to canvas-app-pipeline.html
+  (identical markup, theme OFF) for a true two-tab side-by-side.
+-->
+<link href="../../SIT-Canvas-App/themes/canvas-app.css" rel="stylesheet" type="text/css" />
+
+<style>
+  body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
+  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: var(--sit-component-gap-md); }
+  .kpi-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sit-component-gap-sm); margin-bottom: var(--sit-layout-gap-md); }
+  .kpi-card { background: var(--sit-bg-default); border-radius: var(--sit-border-radius-lg); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); padding: var(--sit-component-padding-sm); }
+  .kpi-value { font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-default); }
+  .kpi-label { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+  .stage-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--sit-component-gap-xs); margin-bottom: var(--sit-layout-gap-md); }
+  .backbone-footer { background: var(--sit-gray-1000); color: var(--sit-color-fixed-light); font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); text-align: center; padding: var(--sit-component-padding-sm); border-radius: var(--sit-border-radius-lg); letter-spacing: 0.05em; }
+  .in-progress-note { font-size: var(--sit-font-size-label-xs); color: var(--sit-yellow-600); margin-bottom: 2px; }
+  .in-progress-track { background: var(--sit-yellow-200); border-radius: var(--sit-border-radius-full); height: 6px; margin: var(--sit-spacer-1) 0; }
+  .in-progress-fill { background: #E86C1A; height: 100%; border-radius: var(--sit-border-radius-full); }
+</style>
+
+<h1>Pipeline Overview — retrofitted onto SIT Canvas</h1>
+
+<!-- KPI Strip -->
+<div class="kpi-strip">
+  <div class="kpi-card"><div class="kpi-value">7</div><div class="kpi-label">Pipeline Stages</div></div>
+  <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-green-600)">2</div><div class="kpi-label">Stages Completed</div></div>
+  <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-yellow-600)">1</div><div class="kpi-label">Active (AI Working)</div></div>
+  <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-yellow-600)">1</div><div class="kpi-label">Gate Pending</div></div>
+  <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-product-primary-600)">3</div><div class="kpi-label">AI Agents Running</div></div>
+</div>
+
+<!-- Stage cards -->
+<div class="stage-grid">
+  <sit-stage-card
+    stage-number="1" stage-title="Market Intelligence, Demand & Opportunity"
+    stage-color="var(--sit-blue-800)" status="completed" status-label="Completed"
+    gate-label="A · Accept / Hold / Reject" gate="A">
+    <li slot="checklist">✓ Scan market signals</li>
+    <li slot="checklist">✓ Synthesise employer evidence</li>
+    <li slot="checklist">✓ Assess need, fit &amp; scalability</li>
+    <span slot="output">Market evidence pack + opportunity record</span>
+  </sit-stage-card>
+
+  <sit-stage-card
+    stage-number="2" stage-title="Solution Architecture & Routing"
+    stage-color="#009B8E" status="completed" status-label="Completed"
+    gate-label="B · Invest in Development" gate="B">
+    <li slot="checklist">✓ Search approved assets</li>
+    <li slot="checklist">✓ Route reuse / build</li>
+    <li slot="checklist">✓ Frame proposition</li>
+    <span slot="output">Proposed solution brief + recommended route</span>
+  </sit-stage-card>
+
+  <sit-stage-card
+    active
+    stage-number="3" stage-title="Programme & Pathway Design"
+    stage-color="#E86C1A" status="active" status-label="Active · AI Working"
+    output-label="IN PROGRESS"
+    gate-label="C · Endorse Design" gate="C">
+    <li slot="checklist">⟳ Map roles &amp; competencies</li>
+    <li slot="checklist">◷ Design outcomes &amp; modules</li>
+    <li slot="checklist">◷ Assessment lineage</li>
+    <span slot="output">
+      Versioned design objects + traceability graph
+      <div class="in-progress-track"><div class="in-progress-fill" style="width:45%"></div></div>
+      <div class="in-progress-note">45% complete</div>
+    </span>
+  </sit-stage-card>
+
+  <sit-stage-card
+    inactive
+    stage-number="4" stage-title="Parallel Feasibility & Demand Validation"
+    stage-color="#1E6BA8" status="pending" status-label="Pending Gate C"
+    gate-label="D · Confirm Viability" gate="D" gate-disabled>
+    <li slot="checklist">Run evidence workstreams in parallel</li>
+    <li slot="checklist">Test academic &amp; delivery fit</li>
+    <li slot="checklist">Model commercial viability</li>
+    <span slot="output">Integrated evidence pack + assumptions</span>
+  </sit-stage-card>
+
+  <sit-stage-card
+    inactive
+    stage-number="5" stage-title="Assurance & Formal Approval"
+    stage-color="#3A8C49" status="not-started" status-label="Not Started"
+    gate-label="E · Authorised Approvals" gate="E" gate-disabled>
+    <li slot="checklist">Assemble approval packs</li>
+    <li slot="checklist">Check completeness &amp; alignment</li>
+    <li slot="checklist">Surface conflicts &amp; gaps</li>
+    <span slot="output">Human-approved baseline + conditions</span>
+  </sit-stage-card>
+
+  <sit-stage-card
+    inactive
+    stage-number="6" stage-title="Build, Market & Launch Readiness"
+    stage-color="#7B5EA7" status="not-started" status-label="Not Started"
+    gate-label="F · Launch Go / No-Go" gate="F" gate-disabled>
+    <li slot="checklist">Coordinate materials &amp; trainers</li>
+    <li slot="checklist">Activate acquisition &amp; grants</li>
+    <li slot="checklist">Track dependencies</li>
+    <span slot="output">Launch Control Tower + readiness summary</span>
+  </sit-stage-card>
+
+  <sit-stage-card
+    inactive
+    stage-number="7" stage-title="Delivery, Outcomes & Renewal"
+    stage-color="#C89A00" status="not-started" status-label="Not Started"
+    gate-label="G · Next-Run Decision" gate="G" gate-disabled>
+    <li slot="checklist">Monitor delivery &amp; outcomes</li>
+    <li slot="checklist">Compare assumptions vs actuals</li>
+    <li slot="checklist">Recommend refresh / sunset</li>
+    <span slot="output">Outcome brief + improvement backlog</span>
+  </sit-stage-card>
+</div>
+
+<div class="backbone-footer">
+  SHARED DIGITAL BACKBONE &nbsp;·&nbsp; STRUCTURED RECORDS &nbsp;·&nbsp; EVIDENCE &amp; ASSUMPTIONS &nbsp;·&nbsp; DECISION LOG
+</div>
+
+<script>
+  document.documentElement.classList.add("sit-canvas-app-theme");
+  document.addEventListener("sit-gate-decision", (e) => {
+    console.log("Gate decision requested:", e.detail.gate);
+  });
+</script>
