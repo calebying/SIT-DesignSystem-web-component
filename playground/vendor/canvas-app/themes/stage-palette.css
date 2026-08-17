@@ -1,0 +1,53 @@
+/**
+ * @sit-canvas/canvas-app — CET pipeline stage palette
+ *
+ * A 7-colour categorical palette for the CET-Superagent pipeline stages,
+ * ported from sit-superagent1-ui.html's per-stage hex values.
+ *
+ * WHY THIS FILE EXISTS SEPARATELY FROM canvas-app.css:
+ *
+ * canvas-app.css is strictly a re-valuing layer — every property it sets
+ * already exists upstream, which is exactly why it needs none of the three
+ * deliverables token-workflow/SKILL.md mandates for new --sit-* tokens.
+ * These stage colours ARE new names, so mixing them into that file would
+ * muddy that claim. They live here instead, and are opt-in.
+ *
+ * WHY NOT MAP THEM ONTO CANVAS PRIMITIVES:
+ *
+ * Only two of the seven have a genuine Canvas match. Canvas has no teal or
+ * orange primitive at all (documented during the earlier CET-Superagent
+ * build), and substituting "nearest cyan/yellow" would silently shift the
+ * stage identity colours the mockup relies on for at-a-glance stage
+ * recognition. Where a real Canvas token matches, it is referenced; where
+ * none exists, the literal hex is kept and flagged.
+ *
+ * These are NOT density-dependent, so this file is deliberately unscoped
+ * (plain :root) — it applies with or without .sit-canvas-app-theme.
+ *
+ * Usage:
+ *   import "@sit-canvas/canvas-app/themes/stage-palette.css";
+ *   <sit-stage-card stage-color="var(--sit-stage-3)">
+ */
+
+:root {
+  /* Stage 1 — Market Intelligence, Demand & Opportunity */
+  --sit-stage-1: var(--sit-blue-800); /* exact Canvas match */
+
+  /* Stage 2 — Solution Architecture & Routing */
+  --sit-stage-2: #009b8e; /* teal — NO Canvas primitive exists (nearest is cyan-600 #00758d, visibly different) */
+
+  /* Stage 3 — Programme & Pathway Design */
+  --sit-stage-3: #e86c1a; /* orange — NO Canvas primitive exists (nearest is yellow-300 #e5bf29, visibly different) */
+
+  /* Stage 4 — Parallel Feasibility & Demand Validation */
+  --sit-stage-4: #1e6ba8; /* mid blue — close to blue-700 #0151a0 but not equal; kept literal for fidelity */
+
+  /* Stage 5 — Assurance & Formal Approval */
+  --sit-stage-5: #3a8c49; /* green — close to green-600 #0e7c3d but not equal; kept literal for fidelity */
+
+  /* Stage 6 — Build, Market & Launch Readiness */
+  --sit-stage-6: #7b5ea7; /* purple — close to purple-700 #8516a9 but less saturated; kept literal */
+
+  /* Stage 7 — Delivery, Outcomes & Renewal */
+  --sit-stage-7: #c89a00; /* gold — closest is yellow-500 #9d841c; kept literal for fidelity */
+}

@@ -1,6 +1,7 @@
 <script type="module" src="../src/index.ts"></script>
 <link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
 <link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./vendor/canvas-app/themes/stage-palette.css" rel="stylesheet" type="text/css" />
 <link href="./css/utility.css" rel="stylesheet" type="text/css" />
 <!--
   Full view-evidence retrofit: Evidence Hub -- Market Signals +
@@ -12,11 +13,11 @@
   at the bottom). Companion to canvas-app-evidence.html (identical
   markup, theme OFF) for a true two-tab side-by-side.
 -->
-<link href="../../SIT-Canvas-App/themes/canvas-app.css" rel="stylesheet" type="text/css" />
+<link href="./vendor/canvas-app/themes/canvas-app.css" rel="stylesheet" type="text/css" />
 
 <style>
   body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
-  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: 2px; }
+  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: var(--sit-spacer-1); }
   .subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-bottom: var(--sit-layout-gap-md); }
 
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sit-layout-gap-md); }
@@ -84,17 +85,17 @@
       <span class="link-status" style="color: var(--sit-green-400);">✓</span>
     </div>
     <div class="link-row">
-      <span class="link-dot" style="color: #009B8E;">●</span>
+      <span class="link-dot" style="color: var(--sit-stage-2);">●</span>
       <span class="link-text">Employer Notes + Module Inventory → <strong>Solution Brief</strong></span>
       <span class="link-status" style="color: var(--sit-green-400);">✓</span>
     </div>
     <div class="link-row in-progress">
-      <span class="link-dot" style="color: #E86C1A;">●</span>
+      <span class="link-dot" style="color: var(--sit-stage-3);">●</span>
       <span class="link-text">Employer Notes → <strong>Competency Map</strong> → Module Design</span>
-      <span class="link-status" style="color: #E86C1A;">⟳</span>
+      <span class="link-status" style="color: var(--sit-stage-3);">⟳</span>
     </div>
     <div class="link-row queued">
-      <span class="link-dot" style="color: #1E6BA8;">●</span>
+      <span class="link-dot" style="color: var(--sit-stage-4);">●</span>
       <span class="link-text">Module Design → <strong>Feasibility Evidence Pack</strong></span>
       <span class="link-status" style="color: var(--sit-color-muted);">◷</span>
     </div>

@@ -2,6 +2,7 @@
 <script type="module" src="./vendor/canvas-app/index.js"></script>
 <link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
 <link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./vendor/canvas-app/themes/stage-palette.css" rel="stylesheet" type="text/css" />
 <link href="./css/utility.css" rel="stylesheet" type="text/css" />
 <!--
   Full app-shell retrofit: sidebar + top header + human-gate banner +
@@ -19,7 +20,7 @@
   at the bottom). Companion to canvas-app-shell.html (identical
   markup, theme OFF) for a true two-tab side-by-side.
 -->
-<link href="../../SIT-Canvas-App/themes/canvas-app.css" rel="stylesheet" type="text/css" />
+<link href="./vendor/canvas-app/themes/canvas-app.css" rel="stylesheet" type="text/css" />
 
 <style>
   html, body { height: 100%; margin: 0; font-family: var(--sit-font-family-brand); }
@@ -31,7 +32,7 @@
   .brand-subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-fixed-light); opacity: 0.5; }
 
   .user-block { display: flex; align-items: center; gap: var(--sit-component-gap-sm); }
-  .user-avatar { width: 32px; height: 32px; border-radius: 999px; background: var(--sit-product-primary-600); color: var(--sit-color-fixed-light); display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); }
+  .user-avatar { width: var(--sit-dimension-32); height: var(--sit-dimension-32); border-radius: 999px; background: var(--sit-product-primary-600); color: var(--sit-color-fixed-light); display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); }
   .user-name { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-fixed-light); }
   .user-role { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-fixed-light); opacity: 0.4; }
 
@@ -39,10 +40,10 @@
   .top-header { background: var(--sit-bg-default); border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted); padding: var(--sit-component-padding-sm) var(--sit-layout-padding-md); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
   .header-title-row { display: flex; align-items: center; gap: var(--sit-component-gap-xs); }
   .header-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-subtle); }
-  .header-badge { font-size: var(--sit-font-size-label-xs); background: var(--sit-gray-100); color: var(--sit-color-muted); padding: 2px var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); }
-  .header-subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-top: 2px; }
+  .header-badge { font-size: var(--sit-font-size-label-xs); background: var(--sit-gray-100); color: var(--sit-color-muted); padding: var(--sit-spacer-1) var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); }
+  .header-subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-top: var(--sit-spacer-1); }
   .agents-active-pill { display: inline-flex; align-items: center; gap: var(--sit-spacer-1); font-size: var(--sit-font-size-label-xs); background: var(--sit-green-100); color: var(--sit-green-700); border: var(--sit-border-width-1) solid var(--sit-green-200); padding: var(--sit-spacer-1) var(--sit-component-padding-sm); border-radius: var(--sit-border-radius-full); }
-  .pulse-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--sit-green-500); animation: pulse 2s infinite; }
+  .pulse-dot { width: var(--sit-dimension-8); height: var(--sit-dimension-8); border-radius: 999px; background: var(--sit-green-500); animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
 
   .gate-banner { background: var(--sit-gray-1000); color: var(--sit-color-fixed-light); font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); text-align: center; padding: var(--sit-spacer-2) 0; letter-spacing: 0.1em; flex-shrink: 0; }
@@ -54,9 +55,9 @@
   .kpi-value { font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-default); }
   .kpi-label { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
   .stage-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--sit-component-gap-xs); }
-  .in-progress-note { font-size: var(--sit-font-size-label-xs); color: var(--sit-yellow-600); margin-bottom: 2px; }
-  .in-progress-track { background: var(--sit-yellow-200); border-radius: var(--sit-border-radius-full); height: 6px; margin: var(--sit-spacer-1) 0; }
-  .in-progress-fill { background: #E86C1A; height: 100%; border-radius: var(--sit-border-radius-full); }
+  .in-progress-note { font-size: var(--sit-font-size-label-xs); color: var(--sit-yellow-600); margin-bottom: var(--sit-spacer-1); }
+  .in-progress-track { background: var(--sit-yellow-200); border-radius: var(--sit-border-radius-full); height: var(--sit-dimension-8); margin: var(--sit-spacer-1) 0; }
+  .in-progress-fill { background: var(--sit-stage-3); height: 100%; border-radius: var(--sit-border-radius-full); }
 
   .modal-summary { background: var(--sit-bg-alternate); border-radius: var(--sit-border-radius-lg); padding: var(--sit-component-padding-sm); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); margin-bottom: var(--sit-component-gap-md); }
   .modal-summary-label { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--sit-spacer-2); }
@@ -147,7 +148,7 @@
       <div class="stage-grid">
         <sit-stage-card
           stage-number="1" stage-title="Market Intelligence, Demand & Opportunity"
-          stage-color="var(--sit-blue-800)" status="completed" status-label="Completed"
+          stage-color="var(--sit-stage-1)" status="completed" status-label="Completed"
           gate-label="A · Accept / Hold / Reject" gate="A">
           <li slot="checklist">✓ Scan market signals</li>
           <li slot="checklist">✓ Synthesise employer evidence</li>
@@ -157,7 +158,7 @@
 
         <sit-stage-card
           stage-number="2" stage-title="Solution Architecture & Routing"
-          stage-color="#009B8E" status="completed" status-label="Completed"
+          stage-color="var(--sit-stage-2)" status="completed" status-label="Completed"
           gate-label="B · Invest in Development" gate="B">
           <li slot="checklist">✓ Search approved assets</li>
           <li slot="checklist">✓ Route reuse / build</li>
@@ -168,7 +169,7 @@
         <sit-stage-card
           active
           stage-number="3" stage-title="Programme & Pathway Design"
-          stage-color="#E86C1A" status="active" status-label="Active · AI Working"
+          stage-color="var(--sit-stage-3)" status="active" status-label="Active · AI Working"
           output-label="IN PROGRESS"
           gate-label="C · Endorse Design" gate="C">
           <li slot="checklist">⟳ Map roles &amp; competencies</li>
@@ -184,7 +185,7 @@
         <sit-stage-card
           inactive
           stage-number="4" stage-title="Parallel Feasibility & Demand Validation"
-          stage-color="#1E6BA8" status="pending" status-label="Pending Gate C"
+          stage-color="var(--sit-stage-4)" status="pending" status-label="Pending Gate C"
           gate-label="D · Confirm Viability" gate="D" gate-disabled>
           <li slot="checklist">Run evidence workstreams in parallel</li>
           <li slot="checklist">Test academic &amp; delivery fit</li>
@@ -195,7 +196,7 @@
         <sit-stage-card
           inactive
           stage-number="5" stage-title="Assurance & Formal Approval"
-          stage-color="#3A8C49" status="not-started" status-label="Not Started"
+          stage-color="var(--sit-stage-5)" status="not-started" status-label="Not Started"
           gate-label="E · Authorised Approvals" gate="E" gate-disabled>
           <li slot="checklist">Assemble approval packs</li>
           <li slot="checklist">Check completeness &amp; alignment</li>
@@ -206,7 +207,7 @@
         <sit-stage-card
           inactive
           stage-number="6" stage-title="Build, Market & Launch Readiness"
-          stage-color="#7B5EA7" status="not-started" status-label="Not Started"
+          stage-color="var(--sit-stage-6)" status="not-started" status-label="Not Started"
           gate-label="F · Launch Go / No-Go" gate="F" gate-disabled>
           <li slot="checklist">Coordinate materials &amp; trainers</li>
           <li slot="checklist">Activate acquisition &amp; grants</li>
@@ -217,7 +218,7 @@
         <sit-stage-card
           inactive
           stage-number="7" stage-title="Delivery, Outcomes & Renewal"
-          stage-color="#C89A00" status="not-started" status-label="Not Started"
+          stage-color="var(--sit-stage-7)" status="not-started" status-label="Not Started"
           gate-label="G · Next-Run Decision" gate="G" gate-disabled>
           <li slot="checklist">Monitor delivery &amp; outcomes</li>
           <li slot="checklist">Compare assumptions vs actuals</li>

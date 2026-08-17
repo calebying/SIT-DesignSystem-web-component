@@ -73,10 +73,27 @@ export class SitStageCard extends LitElement {
             composed: true
         }));
     }
+    /**
+     * --stage-color must live on the HOST, not an inner wrapper: :host's
+     * border-top-color reads it, and CSS custom properties only inherit
+     * downward — setting it on a child would leave the host's 4px top accent
+     * border falling back to SIT Red on every card. (This was a real bug
+     * caught in review: all 7 stage cards rendered a red top border while
+     * only their header bands picked up the stage color.)
+     */
+    willUpdate(changed) {
+        if (changed.has("stageColor")) {
+            if (this.stageColor) {
+                this.style.setProperty("--stage-color", this.stageColor);
+            }
+            else {
+                this.style.removeProperty("--stage-color");
+            }
+        }
+    }
     render() {
-        const hostStyle = this.stageColor ? `--stage-color: ${this.stageColor}` : "";
         return html `
-      <div style=${hostStyle}>
+      <div class="stage-inner">
         <div class="stage-header">
           <span class="stage-number">${this.stageNumber}</span>
           <span class="stage-title">${this.stageTitle}</span>
@@ -115,7 +132,7 @@ SitStageCard.styles = css `
       background-color: var(--sit-surface-default);
       border: var(--sit-border-width-1) solid var(--sit-border-color-muted);
       border-radius: var(--sit-border-radius-lg);
-      border-top-width: 4px;
+      border-top-width: var(--sit-border-width-4);
       border-top-color: var(--stage-color, var(--sit-product-primary-600));
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -133,6 +150,18 @@ SitStageCard.styles = css `
 
     :host([inactive]) {
       opacity: var(--sit-opacity-60);
+    }
+
+    /* The host is the flex column; this inner wrapper must stretch and
+       re-establish the column so .stage-body's flex:1 can fill the card.
+       Without it, cards in a grid row don't equalise height (the mockup
+       relies on all 7 cards matching height with the gate button pinned
+       to the bottom). */
+    .stage-inner {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
     }
 
     .stage-header {
@@ -219,7 +248,7 @@ SitStageCard.styles = css `
     .output-label {
       font-size: var(--sit-font-size-label-xs);
       color: var(--sit-color-muted);
-      margin-bottom: 2px;
+      margin-bottom: var(--sit-spacer-1);
     }
 
     .output-value {

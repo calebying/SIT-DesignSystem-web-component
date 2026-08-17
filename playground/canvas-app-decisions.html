@@ -16,7 +16,7 @@
 <style>
   body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
   .header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sit-layout-gap-md); }
-  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: 2px; }
+  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: var(--sit-spacer-1); }
   .subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
   .export-btn { font-size: var(--sit-font-size-label-xs); color: var(--sit-blue-600); border: var(--sit-border-width-1) solid var(--sit-blue-200); background: none; padding: var(--sit-spacer-2) var(--sit-component-padding-sm); border-radius: var(--sit-border-radius-md); cursor: pointer; font-family: inherit; }
 
@@ -25,9 +25,9 @@
   .decision-row:last-of-type { border-bottom: none; }
   .decision-row.pending { background: var(--sit-yellow-50); }
 
-  .gate-badge { width: 36px; height: 36px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); flex-shrink: 0; }
+  .gate-badge { width: 36px; height: 36px; /* no exact --sit-dimension-* token between 32 and 40 */ border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); flex-shrink: 0; }
   .decision-body { flex: 1; }
-  .decision-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .decision-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sit-spacer-2); }
   .decision-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle); }
   .decision-date { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
   .decision-pending-note { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); color: var(--sit-yellow-500); }
@@ -36,12 +36,12 @@
   .actor { font-weight: var(--sit-font-weight-semibold); }
   .sep { color: var(--sit-border-color-default); }
   .ref { color: var(--sit-color-muted); }
-  .outcome-badge { margin-left: auto; font-size: var(--sit-font-size-label-xs); padding: 2px var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); font-weight: var(--sit-font-weight-semibold); }
+  .outcome-badge { margin-left: auto; font-size: var(--sit-font-size-label-xs); padding: var(--sit-spacer-1) var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); font-weight: var(--sit-font-weight-semibold); }
   .take-decision-btn { margin-left: auto; font-size: var(--sit-font-size-label-xs); background: var(--sit-yellow-500); color: var(--sit-color-fixed-light); padding: var(--sit-spacer-1) var(--sit-component-padding-sm); border-radius: var(--sit-border-radius-md); border: none; font-weight: var(--sit-font-weight-semibold); cursor: pointer; font-family: inherit; }
 
   .future-gate-row { display: flex; align-items: center; gap: var(--sit-component-gap-md); padding: var(--sit-component-padding-sm); border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted); opacity: var(--sit-opacity-40); }
   .future-gate-row:last-child { border-bottom: none; }
-  .future-gate-badge { width: 36px; height: 36px; border-radius: 999px; background: var(--sit-gray-100); color: var(--sit-color-muted); display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); }
+  .future-gate-badge { width: 36px; height: 36px; /* no exact --sit-dimension-* token between 32 and 40 */ border-radius: 999px; background: var(--sit-gray-100); color: var(--sit-color-muted); display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); }
   .future-gate-label { font-size: var(--sit-font-size-label-sm); color: var(--sit-color-muted); }
   .future-gate-note { font-size: var(--sit-font-size-label-xs); }
 </style>

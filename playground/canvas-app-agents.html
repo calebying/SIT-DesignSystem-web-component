@@ -2,6 +2,7 @@
 <script type="module" src="./vendor/canvas-app/index.js"></script>
 <link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
 <link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./vendor/canvas-app/themes/stage-palette.css" rel="stylesheet" type="text/css" />
 <link href="./css/utility.css" rel="stylesheet" type="text/css" />
 <!--
   Full view-agents retrofit: Agent Monitor -- 3 agent status cards
@@ -15,7 +16,7 @@
 
 <style>
   body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
-  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: 2px; }
+  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: var(--sit-spacer-1); }
   .subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-bottom: var(--sit-layout-gap-md); }
 
   .agent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sit-component-gap-md); margin-bottom: var(--sit-layout-gap-md); }
@@ -65,9 +66,9 @@
     <span class="feed-title">🖥 Live Agent Activity Feed</span>
     <span class="feed-auto">Auto-refreshing</span>
   </div>
-  <div class="feed-row"><span class="feed-timestamp">12:54:03</span><span class="feed-channel" style="color: #E86C1A;">[DESIGN]</span><span class="feed-message">Generating CLOs for Module 3: AI Ethics &amp; Governance…</span></div>
+  <div class="feed-row"><span class="feed-timestamp">12:54:03</span><span class="feed-channel" style="color: var(--sit-stage-3);">[DESIGN]</span><span class="feed-message">Generating CLOs for Module 3: AI Ethics &amp; Governance…</span></div>
   <div class="feed-row"><span class="feed-timestamp">12:51:22</span><span class="feed-channel" style="color: var(--sit-green-400);">[DESIGN]</span><span class="feed-message">Competency mapping COMPLETE · 23 competencies · Awaiting SME review</span></div>
-  <div class="feed-row"><span class="feed-timestamp">12:49:10</span><span class="feed-channel" style="color: #E86C1A;">[DESIGN]</span><span class="feed-message">Mapped employer input #4 (IMDA) to 6 additional competencies</span></div>
+  <div class="feed-row"><span class="feed-timestamp">12:49:10</span><span class="feed-channel" style="color: var(--sit-stage-3);">[DESIGN]</span><span class="feed-message">Mapped employer input #4 (IMDA) to 6 additional competencies</span></div>
   <div class="feed-row"><span class="feed-timestamp">11:30:00</span><span class="feed-channel" style="color: var(--sit-blue-400);">[EVIDENCE]</span><span class="feed-message">Market signal scan complete · No new signals detected · Next scan: 13:30</span></div>
   <div class="feed-row"><span class="feed-timestamp">09:15:44</span><span class="feed-channel" style="color: var(--sit-color-muted);">[SYSTEM]</span><span class="feed-message">Gate B approved by Programme Committee · Stage 3 initiated · Design Agent spawned</span></div>
 </div>

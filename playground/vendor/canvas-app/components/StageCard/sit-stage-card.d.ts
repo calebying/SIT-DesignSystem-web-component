@@ -1,4 +1,4 @@
-import { LitElement } from "lit";
+import { LitElement, type PropertyValues } from "lit";
 export type StageStatus = "completed" | "active" | "pending" | "not-started";
 /**
  * @summary A composite pipeline-stage card: stage number + title, status
@@ -52,6 +52,15 @@ export declare class SitStageCard extends LitElement {
     inactive: boolean;
     private _statusColorVar;
     private _handleGateClick;
+    /**
+     * --stage-color must live on the HOST, not an inner wrapper: :host's
+     * border-top-color reads it, and CSS custom properties only inherit
+     * downward — setting it on a child would leave the host's 4px top accent
+     * border falling back to SIT Red on every card. (This was a real bug
+     * caught in review: all 7 stage cards rendered a red top border while
+     * only their header bands picked up the stage color.)
+     */
+    protected willUpdate(changed: PropertyValues): void;
     render(): import("lit-html").TemplateResult<1>;
 }
 export default SitStageCard;

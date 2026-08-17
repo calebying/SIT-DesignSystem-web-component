@@ -43,28 +43,18 @@ export class SitAgentStatusCard extends LitElement {
         /** Activation-condition note — only rendered when status is "idle" (e.g. "Activates after Gate C decision"). */
         this.activationNote = "";
     }
-    _defaults() {
-        switch (this.status) {
-            case "running":
-                return { bg: "var(--sit-yellow-100)", color: "var(--sit-yellow-500)" };
-            case "monitoring":
-                return { bg: "var(--sit-blue-100)", color: "var(--sit-blue-500)" };
-            default:
-                return { bg: "var(--sit-gray-100)", color: "var(--sit-gray-500)" };
-        }
-    }
-    _statusPillVars() {
-        const { bg, color } = this.status === "running"
-            ? { bg: "var(--sit-yellow-100)", color: "var(--sit-yellow-600)" }
-            : this.status === "monitoring"
-                ? { bg: "var(--sit-green-100)", color: "var(--sit-green-600)" }
-                : { bg: "var(--sit-gray-50)", color: "var(--sit-gray-500)" };
-        return `--status-bg: ${bg}; --status-color: ${color}`;
+    get _theme() {
+        var _a;
+        return (_a = SitAgentStatusCard._statusTheme[this.status]) !== null && _a !== void 0 ? _a : SitAgentStatusCard._statusTheme.idle;
     }
     render() {
-        const accent = this.accentColor || this._defaults().color;
-        const accentBg = this._defaults().bg;
-        const hostVars = `--accent-color: ${accent}; --accent-bg: ${accentBg}`;
+        const theme = this._theme;
+        // accentColor overrides the icon/progress colour only; the icon background
+        // stays on its status default (an explicit accent with no matching tint is
+        // better than silently pairing a custom colour with a mismatched bg).
+        const accent = this.accentColor || theme.iconColor;
+        const hostVars = `--accent-color: ${accent}; --accent-bg: ${theme.iconBg}`;
+        const pillVars = `--status-bg: ${theme.pillBg}; --status-color: ${theme.pillColor}`;
         return html `
       <div class="card" part="card" style=${hostVars}>
         <div class="header-row">
@@ -77,7 +67,7 @@ export class SitAgentStatusCard extends LitElement {
               <div class="agent-scope">${this.scope}</div>
             </div>
           </div>
-          <span class="status-pill" style=${this._statusPillVars()}>
+          <span class="status-pill" style=${pillVars}>
             ${this.status !== "idle" ? html `<span class="status-dot pulse"></span>` : nothing}
             ${this.statusLabel}
           </span>
@@ -169,10 +159,11 @@ SitAgentStatusCard.styles = css `
     }
 
     .status-dot {
-      width: 6px;
-      height: 6px;
+      width: var(--sit-dimension-8);
+      height: var(--sit-dimension-8);
       border-radius: var(--sit-border-radius-full);
       background-color: var(--status-color, var(--sit-gray-400));
+      flex-shrink: 0;
     }
 
     .status-dot.pulse {
@@ -204,7 +195,7 @@ SitAgentStatusCard.styles = css `
     .progress-track {
       background-color: var(--sit-gray-100);
       border-radius: var(--sit-border-radius-full);
-      height: 8px;
+      height: var(--sit-dimension-8);
       margin-bottom: var(--sit-spacer-2);
       overflow: hidden;
     }
@@ -233,6 +224,37 @@ SitAgentStatusCard.styles = css `
       color: var(--sit-color-muted);
     }
   `;
+/**
+ * Single source of truth for the status -> colour mapping. Both the icon
+ * accent and the status pill derive from this one table, so they can't
+ * drift apart (an earlier version had two separate switch/ternary blocks
+ * that already disagreed: monitoring was blue in one and green in the
+ * other).
+ *
+ * The icon accent and pill genuinely differ per the source mockup — the
+ * Evidence Agent has a blue icon badge but a green "Monitoring" pill — so
+ * they're distinct fields here rather than one shared colour.
+ */
+SitAgentStatusCard._statusTheme = {
+    running: {
+        iconBg: "var(--sit-yellow-100)",
+        iconColor: "var(--sit-yellow-500)",
+        pillBg: "var(--sit-yellow-100)",
+        pillColor: "var(--sit-yellow-600)"
+    },
+    monitoring: {
+        iconBg: "var(--sit-blue-100)",
+        iconColor: "var(--sit-blue-500)",
+        pillBg: "var(--sit-green-100)",
+        pillColor: "var(--sit-green-600)"
+    },
+    idle: {
+        iconBg: "var(--sit-gray-100)",
+        iconColor: "var(--sit-gray-500)",
+        pillBg: "var(--sit-gray-50)",
+        pillColor: "var(--sit-gray-500)"
+    }
+};
 __decorate([
     property({ type: String })
 ], SitAgentStatusCard.prototype, "agentName", void 0);

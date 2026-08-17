@@ -40,8 +40,19 @@ export declare class SitAgentStatusCard extends LitElement {
     scanNote: string;
     /** Activation-condition note — only rendered when status is "idle" (e.g. "Activates after Gate C decision"). */
     activationNote: string;
-    private _defaults;
-    private _statusPillVars;
+    /**
+     * Single source of truth for the status -> colour mapping. Both the icon
+     * accent and the status pill derive from this one table, so they can't
+     * drift apart (an earlier version had two separate switch/ternary blocks
+     * that already disagreed: monitoring was blue in one and green in the
+     * other).
+     *
+     * The icon accent and pill genuinely differ per the source mockup — the
+     * Evidence Agent has a blue icon badge but a green "Monitoring" pill — so
+     * they're distinct fields here rather than one shared colour.
+     */
+    private static _statusTheme;
+    private get _theme();
     render(): import("lit-html").TemplateResult<1>;
 }
 export default SitAgentStatusCard;
