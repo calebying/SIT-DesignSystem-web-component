@@ -1,0 +1,203 @@
+<script type="module" src="../src/index.ts"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./css/utility.css" rel="stylesheet" type="text/css" />
+<!--
+  Full view-stage retrofit: Stage Detail drill-down (breadcrumb, AI
+  agent activity timeline, stage outputs list, human-review panel,
+  right sidebar with stage info / evidence / assumptions), ported from
+  sit-superagent1-ui.html lines 393-571 onto real SIT Canvas tokens.
+
+  No new component needed here -- entirely Card/Badge/plain utility
+  classes, unlike view-pipeline (which needed sit-stage-card).
+
+  This is the DEFAULT variant (.sit-canvas-app-theme OFF). See
+  canvas-app-stage-detail-compact.html for the compact companion.
+-->
+
+<style>
+  body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
+  .breadcrumb { display: flex; align-items: center; gap: var(--sit-component-gap-xs); margin-bottom: var(--sit-layout-gap-md); font-size: var(--sit-font-size-label-xs); }
+  .breadcrumb .back-link { color: var(--sit-color-muted); background: none; border: none; cursor: pointer; display: flex; align-items: center; gap: 4px; font-family: inherit; font-size: inherit; }
+  .breadcrumb .sep { color: var(--sit-border-color-default); }
+  .breadcrumb .current { font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle); }
+
+  .layout { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sit-layout-gap-md); }
+  .stack { display: flex; flex-direction: column; gap: var(--sit-component-gap-md); }
+
+  .panel { background: var(--sit-bg-default); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); border-radius: var(--sit-border-radius-lg); padding: var(--sit-component-padding-md); }
+  .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sit-component-gap-md); }
+  .panel-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-subtle); display: flex; align-items: center; gap: var(--sit-component-gap-xs); }
+
+  .status-pill { display: inline-flex; align-items: center; gap: var(--sit-spacer-1); font-size: var(--sit-font-size-label-xs); padding: var(--sit-spacer-1) var(--sit-padding-xs); border-radius: var(--sit-border-radius-full); }
+  .pulse-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--sit-yellow-400); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+
+  .activity-row { display: flex; gap: var(--sit-component-gap-sm); }
+  .activity-icon { width: 28px; height: 28px; border-radius: 999px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: var(--sit-font-size-label-xs); }
+  .activity-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-semibold); }
+  .activity-detail { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+
+  .output-row { display: flex; align-items: center; justify-content: space-between; padding: var(--sit-component-padding-xs); border-radius: var(--sit-border-radius-md); border: var(--sit-border-width-1) solid transparent; }
+  .output-name { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle); }
+  .output-meta { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+  .output-badge { font-size: var(--sit-font-size-label-xs); padding: 2px var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); font-weight: var(--sit-font-weight-semibold); }
+
+  .human-review-panel { border-width: var(--sit-border-width-2); border-color: var(--sit-yellow-300); }
+  .human-review-badge { margin-left: auto; font-size: var(--sit-font-size-label-xs); background: var(--sit-yellow-100); color: var(--sit-yellow-700); border: var(--sit-border-width-1) solid var(--sit-yellow-200); padding: 2px var(--sit-padding-xs); border-radius: var(--sit-border-radius-full); font-weight: var(--sit-font-weight-semibold); }
+  .review-actions { display: flex; gap: var(--sit-component-gap-sm); }
+  .review-actions button { flex: 1; font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-semibold); padding: var(--sit-spacer-3) 0; border-radius: var(--sit-border-radius-lg); border: none; cursor: pointer; }
+
+  .info-panel-title { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--sit-component-gap-sm); }
+  .info-row { display: flex; justify-content: space-between; font-size: var(--sit-font-size-label-xs); }
+  .info-label { color: var(--sit-color-muted); }
+  .info-value { font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle); }
+
+  .side-item { font-size: var(--sit-font-size-label-xs); padding: var(--sit-spacer-3); border-radius: var(--sit-border-radius-md); }
+  .side-item-title { font-weight: var(--sit-font-weight-semibold); }
+  .side-item-detail { margin-top: 2px; }
+</style>
+
+<div class="breadcrumb">
+  <button class="back-link">← Pipeline</button>
+  <span class="sep">/</span>
+  <span class="current">Stage 3 — Programme & Pathway Design</span>
+</div>
+
+<div class="layout">
+  <!-- LEFT COLUMN -->
+  <div class="stack">
+    <!-- AI Agent Activity -->
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">🤖 AI Agent Activity</h2>
+        <span class="status-pill" style="background: var(--sit-yellow-50); color: var(--sit-yellow-600); border: var(--sit-border-width-1) solid var(--sit-yellow-200);">
+          <span class="pulse-dot"></span> Design Agent Running
+        </span>
+      </div>
+      <div class="stack" style="gap: var(--sit-component-gap-md);">
+        <div class="activity-row">
+          <div class="activity-icon" style="background: var(--sit-green-100); color: var(--sit-green-500);">✓</div>
+          <div>
+            <div class="activity-title">Competency mapping complete</div>
+            <div class="activity-detail">23 competencies mapped from 4 employer consultations · Awaiting human review</div>
+          </div>
+        </div>
+        <div class="activity-row">
+          <div class="activity-icon" style="background: var(--sit-yellow-100); color: var(--sit-yellow-400);">⟳</div>
+          <div>
+            <div class="activity-title">Generating module structure…</div>
+            <div class="activity-detail">Module outcomes, assessment mapping and contact hours in progress · Active now</div>
+          </div>
+        </div>
+        <div class="activity-row">
+          <div class="activity-icon" style="background: var(--sit-gray-100); color: var(--sit-gray-300);">◷</div>
+          <div>
+            <div class="activity-title" style="color: var(--sit-color-muted);">Traceability graph generation</div>
+            <div class="activity-detail">Queued — waiting for module structure completion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stage Outputs -->
+    <div class="panel">
+      <div class="panel-header">
+        <h2 class="panel-title">📄 Stage 3 Outputs</h2>
+        <span class="activity-detail">Version 1.3 · Draft</span>
+      </div>
+      <div class="stack" style="gap: var(--sit-component-gap-xs);">
+        <div class="output-row" style="background: var(--sit-green-100); border-color: var(--sit-green-200);">
+          <div>
+            <div class="output-name">Competency Map v1.3</div>
+            <div class="output-meta">23 competencies · 4 employer sources</div>
+          </div>
+          <div style="display:flex; align-items:center; gap: var(--sit-component-gap-xs);">
+            <span class="output-badge" style="background: var(--sit-green-200); color: var(--sit-green-700);">Ready for Review</span>
+            <button style="font-size: var(--sit-font-size-label-xs); color: var(--sit-blue-600); background: none; border: none; cursor: pointer; font-weight: 600;">View →</button>
+          </div>
+        </div>
+        <div class="output-row" style="background: var(--sit-yellow-50); border-color: var(--sit-yellow-100);">
+          <div>
+            <div class="output-name">Module Structure Draft</div>
+            <div class="output-meta">6 modules planned · In generation</div>
+          </div>
+          <span class="output-badge" style="background: var(--sit-yellow-100); color: var(--sit-yellow-700);">In Progress</span>
+        </div>
+        <div class="output-row" style="background: var(--sit-bg-alternate); border-color: var(--sit-border-color-muted);">
+          <div>
+            <div class="output-name" style="color: var(--sit-color-muted);">Traceability Graph</div>
+            <div class="output-meta">Market → Competency → Module → Assessment</div>
+          </div>
+          <span class="activity-detail">Queued</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Human Review Panel -->
+    <div class="panel human-review-panel">
+      <div class="panel-header" style="margin-bottom: var(--sit-component-gap-sm);">
+        <h2 class="panel-title">✅ Human Review Required</h2>
+        <span class="human-review-badge">SME Action Needed</span>
+      </div>
+      <p style="font-size: var(--sit-font-size-label-sm); color: var(--sit-color-subtle); margin-bottom: var(--sit-component-gap-md);">
+        The AI agent has completed competency mapping (v1.3) and requires Subject Matter Expert review before proceeding to module design. Please validate the competency framework and provide approval or revision instructions.
+      </p>
+      <div class="review-actions">
+        <button style="background: var(--sit-green-600); color: var(--sit-color-fixed-light);">✓ Approve &amp; Continue</button>
+        <button style="background: var(--sit-bg-default); border: var(--sit-border-width-1) solid var(--sit-border-color-default); color: var(--sit-color-subtle);">✎ Request Revision</button>
+        <button style="background: var(--sit-red-100); border: var(--sit-border-width-1) solid var(--sit-red-200); color: var(--sit-red-600); flex: none; padding-left: var(--sit-component-padding-md); padding-right: var(--sit-component-padding-md);">↺ Return to Stage 2</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="stack">
+    <div class="panel">
+      <h3 class="info-panel-title">Stage Information</h3>
+      <div class="stack" style="gap: var(--sit-spacer-2);">
+        <div class="info-row"><span class="info-label">Programme</span><span class="info-value">AI for Business Leaders</span></div>
+        <div class="info-row"><span class="info-label">Started</span><span class="info-value">8 Aug 2026</span></div>
+        <div class="info-row"><span class="info-label">Est. Completion</span><span class="info-value" style="color: var(--sit-yellow-600);">12 Aug 2026</span></div>
+        <div class="info-row"><span class="info-label">Stage Owner</span><span class="info-value">Dr. Lee Wei Ming</span></div>
+        <div class="info-row"><span class="info-label">Next Gate</span><span class="info-value" style="color: var(--sit-yellow-600);">C · Endorse Design</span></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3 class="info-panel-title">Evidence Referenced</h3>
+      <div class="stack" style="gap: var(--sit-spacer-2);">
+        <div class="side-item" style="background: var(--sit-bg-alternate);">
+          <div class="side-item-title">SkillsFuture Demand Report Q2 2026</div>
+          <div class="side-item-detail" style="color: var(--sit-color-muted);">From Stage 1 · Verified ✓</div>
+        </div>
+        <div class="side-item" style="background: var(--sit-bg-alternate);">
+          <div class="side-item-title">4 Employer Consultation Notes</div>
+          <div class="side-item-detail" style="color: var(--sit-color-muted);">Collected 5 Aug 2026 · Verified ✓</div>
+        </div>
+        <div class="side-item" style="background: var(--sit-bg-alternate);">
+          <div class="side-item-title">Existing Module Inventory (Stage 2)</div>
+          <div class="side-item-detail" style="color: var(--sit-color-muted);">Approved · Build new recommended</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3 class="info-panel-title">Open Assumptions</h3>
+      <div class="stack" style="gap: var(--sit-spacer-2);">
+        <div class="side-item" style="background: var(--sit-yellow-50); border: var(--sit-border-width-1) solid var(--sit-yellow-100);">
+          <div class="side-item-title" style="color: var(--sit-yellow-700);">Cohort: 25 pax</div>
+          <div class="side-item-detail" style="color: var(--sit-yellow-500);">Validate in Stage 4</div>
+        </div>
+        <div class="side-item" style="background: var(--sit-yellow-50); border: var(--sit-border-width-1) solid var(--sit-yellow-100);">
+          <div class="side-item-title" style="color: var(--sit-yellow-700);">SSG funding eligible</div>
+          <div class="side-item-detail" style="color: var(--sit-yellow-500);">Pending SSG confirmation</div>
+        </div>
+        <div class="side-item" style="background: var(--sit-yellow-50); border: var(--sit-border-width-1) solid var(--sit-yellow-100);">
+          <div class="side-item-title" style="color: var(--sit-yellow-700);">60% online delivery</div>
+          <div class="side-item-detail" style="color: var(--sit-yellow-500);">Learner survey needed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

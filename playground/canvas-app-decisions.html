@@ -1,0 +1,129 @@
+<script type="module" src="../src/index.ts"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./css/utility.css" rel="stylesheet" type="text/css" />
+<!--
+  Full view-decisions retrofit: Decision Log -- gate history A through
+  G (A/B decided, C pending with a "Take Decision" action, D-G dimmed
+  "not reached"), ported from sit-superagent1-ui.html lines 800-887
+  onto real SIT Canvas tokens. Entirely Card/row pattern -- no new
+  component needed.
+
+  This is the DEFAULT variant (.sit-canvas-app-theme OFF). See
+  canvas-app-decisions-compact.html for the compact companion.
+-->
+
+<style>
+  body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
+  .header-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sit-layout-gap-md); }
+  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: 2px; }
+  .subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+  .export-btn { font-size: var(--sit-font-size-label-xs); color: var(--sit-blue-600); border: var(--sit-border-width-1) solid var(--sit-blue-200); background: none; padding: var(--sit-spacer-2) var(--sit-component-padding-sm); border-radius: var(--sit-border-radius-md); cursor: pointer; font-family: inherit; }
+
+  .log-panel { background: var(--sit-bg-default); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); border-radius: var(--sit-border-radius-lg); overflow: hidden; }
+  .decision-row { display: flex; align-items: flex-start; gap: var(--sit-component-gap-md); padding: var(--sit-component-padding-md); border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted); }
+  .decision-row:last-of-type { border-bottom: none; }
+  .decision-row.pending { background: var(--sit-yellow-50); }
+
+  .gate-badge { width: 36px; height: 36px; border-radius: 999px; display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); flex-shrink: 0; }
+  .decision-body { flex: 1; }
+  .decision-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .decision-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle); }
+  .decision-date { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+  .decision-pending-note { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); color: var(--sit-yellow-500); }
+  .decision-text { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-bottom: var(--sit-component-gap-sm); }
+  .decision-footer { display: flex; align-items: center; gap: var(--sit-component-gap-xs); font-size: var(--sit-font-size-label-xs); }
+  .actor { font-weight: var(--sit-font-weight-semibold); }
+  .sep { color: var(--sit-border-color-default); }
+  .ref { color: var(--sit-color-muted); }
+  .outcome-badge { margin-left: auto; font-size: var(--sit-font-size-label-xs); padding: 2px var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); font-weight: var(--sit-font-weight-semibold); }
+  .take-decision-btn { margin-left: auto; font-size: var(--sit-font-size-label-xs); background: var(--sit-yellow-500); color: var(--sit-color-fixed-light); padding: var(--sit-spacer-1) var(--sit-component-padding-sm); border-radius: var(--sit-border-radius-md); border: none; font-weight: var(--sit-font-weight-semibold); cursor: pointer; font-family: inherit; }
+
+  .future-gate-row { display: flex; align-items: center; gap: var(--sit-component-gap-md); padding: var(--sit-component-padding-sm); border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted); opacity: var(--sit-opacity-40); }
+  .future-gate-row:last-child { border-bottom: none; }
+  .future-gate-badge { width: 36px; height: 36px; border-radius: 999px; background: var(--sit-gray-100); color: var(--sit-color-muted); display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); }
+  .future-gate-label { font-size: var(--sit-font-size-label-sm); color: var(--sit-color-muted); }
+  .future-gate-note { font-size: var(--sit-font-size-label-xs); }
+</style>
+
+<div class="header-row">
+  <div>
+    <h1>Decision Log</h1>
+    <p class="subtitle">All human gate decisions, conditions, and approvals — fully auditable.</p>
+  </div>
+  <button type="button" class="export-btn">⬇ Export Log</button>
+</div>
+
+<div class="log-panel">
+  <!-- Gate A -->
+  <div class="decision-row">
+    <div class="gate-badge" style="background: var(--sit-green-100); color: var(--sit-green-600);">A</div>
+    <div class="decision-body">
+      <div class="decision-header">
+        <span class="decision-title">Gate A – Accept: AI for Business Leaders Programme</span>
+        <span class="decision-date">7 Aug 2026 · 14:32</span>
+      </div>
+      <div class="decision-text"><strong>Decision:</strong> Accept with conditions. Proceed to Stage 2. Additional employer validation required on financial services sub-sector demand.</div>
+      <div class="decision-footer">
+        <span class="actor" style="color: var(--sit-green-600);">👤 Dr. Tan Hui Ling, CET Dean</span>
+        <span class="sep">·</span>
+        <span class="ref">Ref: DEC-2026-001</span>
+        <span class="outcome-badge" style="background: var(--sit-green-100); color: var(--sit-green-700);">Accepted</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gate B -->
+  <div class="decision-row">
+    <div class="gate-badge" style="background: var(--sit-green-100); color: var(--sit-green-600);">B</div>
+    <div class="decision-body">
+      <div class="decision-header">
+        <span class="decision-title">Gate B – Invest in Development</span>
+        <span class="decision-date">8 Aug 2026 · 09:15</span>
+      </div>
+      <div class="decision-text"><strong>Decision:</strong> Invest — Build new. No suitable existing modules identified for reuse from asset search. Full curriculum development approved.</div>
+      <div class="decision-footer">
+        <span class="actor" style="color: var(--sit-green-600);">👥 Programme Committee</span>
+        <span class="sep">·</span>
+        <span class="ref">Ref: DEC-2026-002</span>
+        <span class="outcome-badge" style="background: var(--sit-green-100); color: var(--sit-green-700);">Approved</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gate C — Pending -->
+  <div class="decision-row pending">
+    <div class="gate-badge" style="background: var(--sit-yellow-100); color: var(--sit-yellow-600);">C</div>
+    <div class="decision-body">
+      <div class="decision-header">
+        <span class="decision-title">Gate C – Endorse Design for Validation</span>
+        <span class="decision-pending-note">Pending · Awaiting Stage 3 completion</span>
+      </div>
+      <div class="decision-text">AI Design Agent is currently generating module structure. Human SME review of Competency Map v1.3 required before gate decision can proceed.</div>
+      <div class="decision-footer">
+        <span class="ref">👤 Assignee: Dr. Lee Wei Ming</span>
+        <span class="sep">·</span>
+        <span class="ref">Ref: DEC-2026-003 (Pending)</span>
+        <button type="button" class="take-decision-btn">Take Decision →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Future gates — dimmed -->
+  <div class="future-gate-row">
+    <div class="future-gate-badge">D</div>
+    <span class="future-gate-label">Gate D – Confirm Viability &nbsp;&nbsp; <span class="future-gate-note">Not reached</span></span>
+  </div>
+  <div class="future-gate-row">
+    <div class="future-gate-badge">E</div>
+    <span class="future-gate-label">Gate E – Authorised Approvals &nbsp;&nbsp; <span class="future-gate-note">Not reached</span></span>
+  </div>
+  <div class="future-gate-row">
+    <div class="future-gate-badge">F</div>
+    <span class="future-gate-label">Gate F – Launch Go / No-Go &nbsp;&nbsp; <span class="future-gate-note">Not reached</span></span>
+  </div>
+  <div class="future-gate-row">
+    <div class="future-gate-badge">G</div>
+    <span class="future-gate-label">Gate G – Next-Run and Portfolio Decision &nbsp;&nbsp; <span class="future-gate-note">Not reached</span></span>
+  </div>
+</div>

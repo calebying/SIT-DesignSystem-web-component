@@ -1,0 +1,100 @@
+<script type="module" src="../src/index.ts"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./css/utility.css" rel="stylesheet" type="text/css" />
+<!--
+  Full view-evidence retrofit: Evidence Hub -- Market Signals +
+  Evidence Linkage Map, ported from sit-superagent1-ui.html lines
+  742-794 onto real SIT Canvas tokens. Entirely Card-shaped content --
+  no new component needed.
+
+  This is the DEFAULT variant (.sit-canvas-app-theme OFF). See
+  canvas-app-evidence-compact.html for the compact companion.
+-->
+
+<style>
+  body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
+  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: 2px; }
+  .subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-bottom: var(--sit-layout-gap-md); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sit-layout-gap-md); }
+  .panel { background: var(--sit-bg-default); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); border-radius: var(--sit-border-radius-lg); padding: var(--sit-component-padding-md); }
+  .panel h3 { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-subtle); margin-bottom: var(--sit-component-gap-md); }
+
+  .signal-card { padding: var(--sit-component-padding-sm); background: var(--sit-blue-100); border: var(--sit-border-width-1) solid var(--sit-blue-200); border-radius: var(--sit-border-radius-lg); margin-bottom: var(--sit-component-gap-sm); }
+  .signal-card:last-child { margin-bottom: 0; }
+  .signal-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle); }
+  .signal-detail { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-top: var(--sit-spacer-1); }
+  .signal-meta { display: flex; align-items: center; gap: var(--sit-spacer-2); margin-top: var(--sit-component-gap-xs); font-size: var(--sit-font-size-label-xs); }
+  .signal-verified { color: var(--sit-green-600); font-weight: var(--sit-font-weight-semibold); }
+  .signal-sep { color: var(--sit-border-color-default); }
+  .signal-usage { color: var(--sit-color-muted); }
+
+  .link-row { display: flex; align-items: center; gap: var(--sit-component-gap-sm); padding: var(--sit-component-padding-sm); background: var(--sit-bg-alternate); border-radius: var(--sit-border-radius-lg); margin-bottom: var(--sit-component-gap-sm); font-size: var(--sit-font-size-label-xs); }
+  .link-row:last-child { margin-bottom: 0; }
+  .link-row.in-progress { background: var(--sit-yellow-50); border: var(--sit-border-width-1) solid var(--sit-yellow-100); }
+  .link-row.queued { opacity: var(--sit-opacity-50); }
+  .link-dot { flex-shrink: 0; }
+  .link-text { color: var(--sit-color-muted); flex: 1; }
+  .link-status { flex-shrink: 0; margin-left: auto; }
+</style>
+
+<h1>Evidence Hub</h1>
+<p class="subtitle">All evidence, signals, and source documents powering the programme pipeline.</p>
+
+<div class="cols">
+  <div class="panel">
+    <h3>📶 Market Signals</h3>
+    <div class="signal-card">
+      <div class="signal-title">SkillsFuture Q2 2026 Demand Report</div>
+      <div class="signal-detail">AI &amp; Data roles projected +34% growth. 3,200 pax demand pipeline identified.</div>
+      <div class="signal-meta">
+        <span class="signal-verified">✓ Verified</span>
+        <span class="signal-sep">·</span>
+        <span class="signal-usage">Used in Stage 1 &amp; 3</span>
+      </div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-title">4 Employer Consultation Notes</div>
+      <div class="signal-detail">Accenture, DBS, EDB, IMDA — consensus on AI governance and responsible AI skills gaps.</div>
+      <div class="signal-meta">
+        <span class="signal-verified">✓ Verified</span>
+        <span class="signal-sep">·</span>
+        <span class="signal-usage">Used in Stage 1, 2 &amp; 3</span>
+      </div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-title">Portfolio Learner Profile Data 2025</div>
+      <div class="signal-detail">78% mid-career professionals; prefer evening &amp; weekend delivery options.</div>
+      <div class="signal-meta">
+        <span class="signal-verified">✓ Verified</span>
+        <span class="signal-sep">·</span>
+        <span class="signal-usage">Used in Stage 2</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>🔗 Evidence Linkage Map</h3>
+    <div class="link-row">
+      <span class="link-dot" style="color: var(--sit-blue-800);">●</span>
+      <span class="link-text">SkillsFuture Report → Market Evidence Pack → <strong>Opportunity Record</strong></span>
+      <span class="link-status" style="color: var(--sit-green-400);">✓</span>
+    </div>
+    <div class="link-row">
+      <span class="link-dot" style="color: #009B8E;">●</span>
+      <span class="link-text">Employer Notes + Module Inventory → <strong>Solution Brief</strong></span>
+      <span class="link-status" style="color: var(--sit-green-400);">✓</span>
+    </div>
+    <div class="link-row in-progress">
+      <span class="link-dot" style="color: #E86C1A;">●</span>
+      <span class="link-text">Employer Notes → <strong>Competency Map</strong> → Module Design</span>
+      <span class="link-status" style="color: #E86C1A;">⟳</span>
+    </div>
+    <div class="link-row queued">
+      <span class="link-dot" style="color: #1E6BA8;">●</span>
+      <span class="link-text">Module Design → <strong>Feasibility Evidence Pack</strong></span>
+      <span class="link-status" style="color: var(--sit-color-muted);">◷</span>
+    </div>
+  </div>
+</div>

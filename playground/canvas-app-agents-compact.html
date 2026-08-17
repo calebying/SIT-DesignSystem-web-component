@@ -1,0 +1,79 @@
+<script type="module" src="../src/index.ts"></script>
+<script type="module" src="./vendor/canvas-app/index.js"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./css/utility.css" rel="stylesheet" type="text/css" />
+<!--
+  Full view-agents retrofit: Agent Monitor -- 3 agent status cards
+  (Design/running, Evidence/monitoring, Compliance/idle) + live
+  activity feed, ported from sit-superagent1-ui.html lines 893-1004
+  onto the new sit-agent-status-card component (../../SIT-Canvas-App).
+
+  This is the COMPACT variant (.sit-canvas-app-theme ON via the script
+  at the bottom). Companion to canvas-app-agents.html (identical
+  markup, theme OFF) for a true two-tab side-by-side.
+-->
+<link href="../../SIT-Canvas-App/themes/canvas-app.css" rel="stylesheet" type="text/css" />
+
+<style>
+  body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
+  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: 2px; }
+  .subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-bottom: var(--sit-layout-gap-md); }
+
+  .agent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sit-component-gap-md); margin-bottom: var(--sit-layout-gap-md); }
+
+  .feed-panel { background: var(--sit-bg-default); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); border-radius: var(--sit-border-radius-lg); padding: var(--sit-component-padding-md); }
+  .feed-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--sit-component-gap-md); }
+  .feed-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-subtle); }
+  .feed-auto { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+  .feed-row { display: flex; gap: var(--sit-component-gap-sm); font-family: monospace; font-size: var(--sit-font-size-label-xs); margin-bottom: var(--sit-component-gap-sm); }
+  .feed-row:last-child { margin-bottom: 0; }
+  .feed-timestamp { width: 64px; flex-shrink: 0; color: var(--sit-border-color-default); }
+  .feed-channel { flex-shrink: 0; }
+  .feed-message { color: var(--sit-color-muted); }
+</style>
+
+<h1>Agent Monitor</h1>
+<p class="subtitle">Real-time oversight of all AI agents, tasks, and outputs across the pipeline.</p>
+
+<div class="agent-grid">
+  <sit-agent-status-card
+    agent-name="Design Agent" scope="Stage 3"
+    status="running" status-label="Running"
+    current="Module structure generation"
+    detail="Generating module outcomes, CLOs and assessment for 6-module AI programme"
+    progress-percent="45" eta="~18 min remaining">
+  </sit-agent-status-card>
+
+  <sit-agent-status-card
+    agent-name="Evidence Agent" scope="Background"
+    status="monitoring" status-label="Monitoring"
+    current="Continuous market signal watching"
+    detail="Scanning SkillsFuture, industry reports, employer signals. No new action required."
+    scan-note="✓ Last scan: 11:30 AM · No new signals">
+  </sit-agent-status-card>
+
+  <sit-agent-status-card
+    agent-name="Compliance Agent" scope="Stage 5 Pre-flight"
+    status="idle" status-label="Idle"
+    current="Waiting for Gate C"
+    detail="Will activate to pre-check completeness, version alignment and missing evidence when Gate C is approved."
+    activation-note="Activates after Gate C decision">
+  </sit-agent-status-card>
+</div>
+
+<div class="feed-panel">
+  <div class="feed-header">
+    <span class="feed-title">🖥 Live Agent Activity Feed</span>
+    <span class="feed-auto">Auto-refreshing</span>
+  </div>
+  <div class="feed-row"><span class="feed-timestamp">12:54:03</span><span class="feed-channel" style="color: #E86C1A;">[DESIGN]</span><span class="feed-message">Generating CLOs for Module 3: AI Ethics &amp; Governance…</span></div>
+  <div class="feed-row"><span class="feed-timestamp">12:51:22</span><span class="feed-channel" style="color: var(--sit-green-400);">[DESIGN]</span><span class="feed-message">Competency mapping COMPLETE · 23 competencies · Awaiting SME review</span></div>
+  <div class="feed-row"><span class="feed-timestamp">12:49:10</span><span class="feed-channel" style="color: #E86C1A;">[DESIGN]</span><span class="feed-message">Mapped employer input #4 (IMDA) to 6 additional competencies</span></div>
+  <div class="feed-row"><span class="feed-timestamp">11:30:00</span><span class="feed-channel" style="color: var(--sit-blue-400);">[EVIDENCE]</span><span class="feed-message">Market signal scan complete · No new signals detected · Next scan: 13:30</span></div>
+  <div class="feed-row"><span class="feed-timestamp">09:15:44</span><span class="feed-channel" style="color: var(--sit-color-muted);">[SYSTEM]</span><span class="feed-message">Gate B approved by Programme Committee · Stage 3 initiated · Design Agent spawned</span></div>
+</div>
+
+<script>
+  document.documentElement.classList.add("sit-canvas-app-theme");
+</script>

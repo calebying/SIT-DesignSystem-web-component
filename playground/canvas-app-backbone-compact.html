@@ -1,0 +1,215 @@
+<script type="module" src="../src/index.ts"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./css/utility.css" rel="stylesheet" type="text/css" />
+<!--
+  Full view-backbone retrofit: Shared Digital Backbone -- 4 tabs
+  (Structured Records, Evidence Traceability, Assumptions, Audit
+  Trail), ported from sit-superagent1-ui.html lines 577-736 onto real
+  SIT Canvas components: sit-tab-group/sit-tab/sit-tab-panel for the
+  tab nav, sit-table/sit-table-row/sit-table-head/sit-table-cell for
+  the records table.
+
+  This is the COMPACT variant (.sit-canvas-app-theme ON via the script
+  at the bottom). Companion to canvas-app-backbone.html (identical
+  markup, theme OFF) for a true two-tab side-by-side.
+-->
+<link href="../../SIT-Canvas-App/themes/canvas-app.css" rel="stylesheet" type="text/css" />
+
+<style>
+  body { padding: 24px; font-family: var(--sit-font-family-brand); background: var(--sit-bg-alternate); }
+  h1 { font-size: var(--sit-font-size-heading-sm); margin-bottom: 2px; }
+  .subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-bottom: var(--sit-layout-gap-md); }
+
+  .kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sit-component-gap-sm); margin-bottom: var(--sit-layout-gap-md); }
+  .kpi-card { background: var(--sit-bg-default); border-radius: var(--sit-border-radius-lg); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); padding: var(--sit-component-padding-sm); }
+  .kpi-value { font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); }
+  .kpi-label { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+
+  .panel { background: var(--sit-bg-default); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); border-radius: var(--sit-border-radius-lg); padding: var(--sit-component-padding-md); }
+  .panel h3 { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-subtle); margin-bottom: var(--sit-component-gap-md); }
+
+  .stage-pill { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); padding: 2px var(--sit-spacer-2); border-radius: var(--sit-border-radius-sm); }
+  .status-pill { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); padding: 2px var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); }
+  .view-action { font-size: var(--sit-font-size-label-xs); color: var(--sit-blue-600); background: none; border: none; cursor: pointer; }
+
+  .trace-chain { display: flex; flex-direction: column; }
+  .trace-row { display: flex; align-items: flex-start; gap: var(--sit-component-gap-md); }
+  .trace-node { display: flex; flex-direction: column; align-items: center; }
+  .trace-dot { width: 32px; height: 32px; border-radius: 999px; display: flex; align-items: center; justify-content: center; color: var(--sit-color-fixed-light); font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); flex-shrink: 0; }
+  .trace-line { width: 2px; flex: 1; background: var(--sit-border-color-muted); margin-top: 4px; min-height: 24px; }
+  .trace-content { flex: 1; padding-bottom: var(--sit-component-gap-md); border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted); }
+  .trace-content.last { border-bottom: none; padding-bottom: 0; }
+  .trace-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle); }
+  .trace-path { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+  .trace-status { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); }
+
+  .assumption-card { padding: var(--sit-component-padding-sm); background: var(--sit-yellow-50); border: var(--sit-border-width-1) solid var(--sit-yellow-200); border-radius: var(--sit-border-radius-lg); margin-bottom: var(--sit-component-gap-sm); }
+  .assumption-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .assumption-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-subtle); }
+  .assumption-tag { font-size: var(--sit-font-size-label-xs); background: var(--sit-yellow-100); color: var(--sit-yellow-600); padding: 2px var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); }
+  .assumption-detail { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-bottom: var(--sit-spacer-2); }
+  .assumption-owner { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+
+  .audit-row { display: flex; gap: var(--sit-component-gap-sm); font-size: var(--sit-font-size-label-xs); margin-bottom: var(--sit-component-gap-sm); }
+  .audit-timestamp { width: 150px; flex-shrink: 0; color: var(--sit-border-color-default); }
+  .audit-detail { color: var(--sit-color-muted); }
+</style>
+
+<h1>Shared Digital Backbone</h1>
+<p class="subtitle">Single source of truth — structured records, evidence, assumptions and decisions across all stages.</p>
+
+<sit-tab-group>
+  <sit-tab slot="nav" panel="records">Structured Records</sit-tab>
+  <sit-tab slot="nav" panel="evidence-trace">Evidence Traceability</sit-tab>
+  <sit-tab slot="nav" panel="assumptions">Assumptions</sit-tab>
+  <sit-tab slot="nav" panel="audit">Audit Trail</sit-tab>
+
+  <!-- Records Tab -->
+  <sit-tab-panel name="records">
+    <div class="kpi-strip">
+      <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-blue-600)">47</div><div class="kpi-label">Total Records</div></div>
+      <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-green-600)">12</div><div class="kpi-label">Verified</div></div>
+      <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-yellow-500)">5</div><div class="kpi-label">Under Review</div></div>
+      <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-yellow-600)">2</div><div class="kpi-label">In Progress</div></div>
+    </div>
+
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Document</sit-table-head>
+        <sit-table-head>Stage</sit-table-head>
+        <sit-table-head>Type</sit-table-head>
+        <sit-table-head>Status</sit-table-head>
+        <sit-table-head>Updated</sit-table-head>
+        <sit-table-head>Actions</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell>Market Evidence Pack v2.1</sit-table-cell>
+        <sit-table-cell><span class="stage-pill" style="background: var(--sit-blue-100); color: var(--sit-blue-800);">Stage 1</span></sit-table-cell>
+        <sit-table-cell>Evidence</sit-table-cell>
+        <sit-table-cell><span class="status-pill" style="background: var(--sit-green-100); color: var(--sit-green-700);">Approved</span></sit-table-cell>
+        <sit-table-cell>7 Aug 2026</sit-table-cell>
+        <sit-table-cell><button type="button" class="view-action">View</button></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell>Opportunity Record – AI for Business Leaders</sit-table-cell>
+        <sit-table-cell><span class="stage-pill" style="background: var(--sit-blue-100); color: var(--sit-blue-800);">Stage 1</span></sit-table-cell>
+        <sit-table-cell>Record</sit-table-cell>
+        <sit-table-cell><span class="status-pill" style="background: var(--sit-green-100); color: var(--sit-green-700);">Approved</span></sit-table-cell>
+        <sit-table-cell>7 Aug 2026</sit-table-cell>
+        <sit-table-cell><button type="button" class="view-action">View</button></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell>Solution Brief – Recommended Route</sit-table-cell>
+        <sit-table-cell><span class="stage-pill" style="background: #009B8E1a; color: #009B8E;">Stage 2</span></sit-table-cell>
+        <sit-table-cell>Brief</sit-table-cell>
+        <sit-table-cell><span class="status-pill" style="background: var(--sit-green-100); color: var(--sit-green-700);">Approved</span></sit-table-cell>
+        <sit-table-cell>8 Aug 2026</sit-table-cell>
+        <sit-table-cell><button type="button" class="view-action">View</button></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell>Competency Map v1.3</sit-table-cell>
+        <sit-table-cell><span class="stage-pill" style="background: #E86C1A1a; color: #E86C1A;">Stage 3</span></sit-table-cell>
+        <sit-table-cell>Design</sit-table-cell>
+        <sit-table-cell><span class="status-pill" style="background: var(--sit-yellow-100); color: var(--sit-yellow-700);">Under Review</span></sit-table-cell>
+        <sit-table-cell>11 Aug 2026</sit-table-cell>
+        <sit-table-cell><button type="button" class="view-action">Review</button></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell>Module Structure Draft v0.1</sit-table-cell>
+        <sit-table-cell><span class="stage-pill" style="background: #E86C1A1a; color: #E86C1A;">Stage 3</span></sit-table-cell>
+        <sit-table-cell>Design</sit-table-cell>
+        <sit-table-cell><span class="status-pill" style="background: var(--sit-yellow-100); color: var(--sit-yellow-700);">In Progress</span></sit-table-cell>
+        <sit-table-cell>11 Aug 2026</sit-table-cell>
+        <sit-table-cell style="color: var(--sit-color-muted)">—</sit-table-cell>
+      </sit-table-row>
+    </sit-table>
+  </sit-tab-panel>
+
+  <!-- Evidence Traceability Tab -->
+  <sit-tab-panel name="evidence-trace">
+    <div class="panel">
+      <h3>Evidence Traceability Chain</h3>
+      <div class="trace-chain">
+        <div class="trace-row">
+          <div class="trace-node">
+            <div class="trace-dot" style="background: var(--sit-blue-800)">1</div>
+            <div class="trace-line"></div>
+          </div>
+          <div class="trace-content">
+            <div class="trace-title">SkillsFuture Q2 2026 Demand Report</div>
+            <div class="trace-path">→ Market Evidence Pack v2.1 → Opportunity Record</div>
+            <div class="trace-status" style="color: var(--sit-green-600)">✓ Fully Traced</div>
+          </div>
+        </div>
+        <div class="trace-row">
+          <div class="trace-node">
+            <div class="trace-dot" style="background: var(--sit-blue-800)">1</div>
+            <div class="trace-line"></div>
+          </div>
+          <div class="trace-content">
+            <div class="trace-title">4 Employer Consultation Notes</div>
+            <div class="trace-path">→ Competency Map v1.3 (Stage 3, in progress)</div>
+            <div class="trace-status" style="color: var(--sit-green-600)">✓ Traced</div>
+          </div>
+        </div>
+        <div class="trace-row">
+          <div class="trace-node">
+            <div class="trace-dot" style="background: #E86C1A">3</div>
+          </div>
+          <div class="trace-content last">
+            <div class="trace-title">Competency Map → Module Design → Assessment → Traceability Graph</div>
+            <div class="trace-status" style="color: var(--sit-yellow-500)">→ Pending Stage 3 completion</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sit-tab-panel>
+
+  <!-- Assumptions Tab -->
+  <sit-tab-panel name="assumptions">
+    <div class="panel">
+      <h3>Open Assumptions Register</h3>
+      <div class="assumption-card">
+        <div class="assumption-header">
+          <span class="assumption-title">Cohort size: 25 pax per run</span>
+          <span class="assumption-tag">Stage 4 to validate</span>
+        </div>
+        <div class="assumption-detail">Based on 2025 employer interest signals and SkillsFuture pipeline data. To be confirmed via employer demand survey in Stage 4.</div>
+        <div class="assumption-owner">Owner: Dr. Tan Hui Ling · Logged: 8 Aug 2026</div>
+      </div>
+      <div class="assumption-card">
+        <div class="assumption-header">
+          <span class="assumption-title">SSG funding eligibility assumed</span>
+          <span class="assumption-tag">Stage 5 to validate</span>
+        </div>
+        <div class="assumption-detail">Programme assumed SkillsFuture Credit and MCES-eligible. Requires SSG formal confirmation before Stage 5 approval.</div>
+        <div class="assumption-owner">Owner: SSG Liaison · Logged: 9 Aug 2026</div>
+      </div>
+      <div class="assumption-card" style="margin-bottom: 0;">
+        <div class="assumption-header">
+          <span class="assumption-title">Blended delivery: 60% online / 40% F2F</span>
+          <span class="assumption-tag">Stage 4 to validate</span>
+        </div>
+        <div class="assumption-detail">Assumed based on employer preference from consultations. Learner preference survey to confirm.</div>
+        <div class="assumption-owner">Owner: Dr. Lee Wei Ming · Logged: 9 Aug 2026</div>
+      </div>
+    </div>
+  </sit-tab-panel>
+
+  <!-- Audit Trail Tab -->
+  <sit-tab-panel name="audit">
+    <div class="panel">
+      <h3>Audit Trail</h3>
+      <div class="audit-row"><span class="audit-timestamp">11 Aug 2026 12:54</span><span class="audit-detail"><strong>Design Agent</strong> generating Module 3 outcomes – AI Ethics &amp; Governance</span></div>
+      <div class="audit-row"><span class="audit-timestamp">11 Aug 2026 12:51</span><span class="audit-detail"><strong>Design Agent</strong> completed competency mapping v1.3 · Awaiting human SME review</span></div>
+      <div class="audit-row"><span class="audit-timestamp">8 Aug 2026 09:15</span><span class="audit-detail"><strong>Dr. Tan Hui Ling</strong> approved Gate B · Stage 3 initiated</span></div>
+      <div class="audit-row"><span class="audit-timestamp">8 Aug 2026 08:50</span><span class="audit-detail"><strong>Architecture Agent</strong> completed Stage 2 · Solution Brief generated v1.0</span></div>
+      <div class="audit-row" style="margin-bottom: 0;"><span class="audit-timestamp">7 Aug 2026 14:32</span><span class="audit-detail"><strong>CET Dean</strong> approved Gate A with conditions · Proceed to Stage 2</span></div>
+    </div>
+  </sit-tab-panel>
+</sit-tab-group>
+
+<script>
+  document.documentElement.classList.add("sit-canvas-app-theme");
+</script>

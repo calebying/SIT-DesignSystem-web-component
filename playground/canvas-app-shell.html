@@ -1,0 +1,280 @@
+<script type="module" src="../src/index.ts"></script>
+<script type="module" src="./vendor/canvas-app/index.js"></script>
+<link href="../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="./css/utility.css" rel="stylesheet" type="text/css" />
+<!--
+  Full app-shell retrofit: sidebar + top header + human-gate banner +
+  gate decision modal, ported from sit-superagent1-ui.html lines 39-127
+  (shell) and 1014-1088 (gate modal) onto real SIT Canvas components:
+  sit-sidebar/sit-sidebar-section/sit-sidebar-item for nav,
+  sit-modal/sit-checkbox/sit-textarea for the gate decision modal.
+
+  Wraps the already-built view-pipeline retrofit as the demo content
+  (same content as canvas-app-pipeline.html) to show the shell +
+  a real view together, plus the gate modal opened via the Stage 3
+  card's gate button (listens for sit-gate-decision).
+
+  This is the DEFAULT variant (.sit-canvas-app-theme OFF). See
+  canvas-app-shell-compact.html for the compact companion.
+-->
+
+<style>
+  html, body { height: 100%; margin: 0; font-family: var(--sit-font-family-brand); }
+  .app-shell { display: flex; height: 100vh; }
+
+  .brand-block { display: flex; align-items: center; gap: var(--sit-component-gap-sm); padding: var(--sit-component-padding-sm); }
+  .brand-mark { background: var(--sit-product-primary-600); color: var(--sit-color-fixed-light); font-weight: var(--sit-font-weight-bold); font-size: var(--sit-font-size-label-xs); padding: 4px var(--sit-spacer-2); border-radius: var(--sit-border-radius-sm); }
+  .brand-title { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-fixed-light); }
+  .brand-subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-fixed-light); opacity: 0.5; }
+
+  .user-block { display: flex; align-items: center; gap: var(--sit-component-gap-sm); }
+  .user-avatar { width: 32px; height: 32px; border-radius: 999px; background: var(--sit-product-primary-600); color: var(--sit-color-fixed-light); display: flex; align-items: center; justify-content: center; font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); }
+  .user-name { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-fixed-light); }
+  .user-role { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-fixed-light); opacity: 0.4; }
+
+  .main-area { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .top-header { background: var(--sit-bg-default); border-bottom: var(--sit-border-width-1) solid var(--sit-border-color-muted); padding: var(--sit-component-padding-sm) var(--sit-layout-padding-md); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
+  .header-title-row { display: flex; align-items: center; gap: var(--sit-component-gap-xs); }
+  .header-title { font-size: var(--sit-font-size-label-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-subtle); }
+  .header-badge { font-size: var(--sit-font-size-label-xs); background: var(--sit-gray-100); color: var(--sit-color-muted); padding: 2px var(--sit-spacer-2); border-radius: var(--sit-border-radius-full); }
+  .header-subtitle { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); margin-top: 2px; }
+  .agents-active-pill { display: inline-flex; align-items: center; gap: var(--sit-spacer-1); font-size: var(--sit-font-size-label-xs); background: var(--sit-green-100); color: var(--sit-green-700); border: var(--sit-border-width-1) solid var(--sit-green-200); padding: var(--sit-spacer-1) var(--sit-component-padding-sm); border-radius: var(--sit-border-radius-full); }
+  .pulse-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--sit-green-500); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+
+  .gate-banner { background: var(--sit-gray-1000); color: var(--sit-color-fixed-light); font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); text-align: center; padding: var(--sit-spacer-2) 0; letter-spacing: 0.1em; flex-shrink: 0; }
+
+  .view-scroll { flex: 1; overflow-y: auto; padding: var(--sit-layout-padding-md); background: var(--sit-bg-alternate); }
+
+  .kpi-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sit-component-gap-sm); margin-bottom: var(--sit-layout-gap-md); }
+  .kpi-card { background: var(--sit-bg-default); border-radius: var(--sit-border-radius-lg); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); padding: var(--sit-component-padding-sm); }
+  .kpi-value { font-size: var(--sit-font-size-heading-sm); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-default); }
+  .kpi-label { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); }
+  .stage-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--sit-component-gap-xs); }
+  .in-progress-note { font-size: var(--sit-font-size-label-xs); color: var(--sit-yellow-600); margin-bottom: 2px; }
+  .in-progress-track { background: var(--sit-yellow-200); border-radius: var(--sit-border-radius-full); height: 6px; margin: var(--sit-spacer-1) 0; }
+  .in-progress-fill { background: #E86C1A; height: 100%; border-radius: var(--sit-border-radius-full); }
+
+  .modal-summary { background: var(--sit-bg-alternate); border-radius: var(--sit-border-radius-lg); padding: var(--sit-component-padding-sm); border: var(--sit-border-width-1) solid var(--sit-border-color-muted); margin-bottom: var(--sit-component-gap-md); }
+  .modal-summary-label { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-semibold); color: var(--sit-color-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--sit-spacer-2); }
+  .modal-summary-text { font-size: var(--sit-font-size-label-sm); color: var(--sit-color-subtle); }
+  .checklist-label { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--sit-component-gap-sm); }
+  .checklist-items { display: flex; flex-direction: column; gap: var(--sit-component-gap-sm); margin-bottom: var(--sit-component-gap-md); }
+  .notes-label { font-size: var(--sit-font-size-label-xs); font-weight: var(--sit-font-weight-bold); color: var(--sit-color-muted); text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: var(--sit-component-gap-xs); }
+  .decision-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sit-component-gap-xs); margin-top: var(--sit-component-gap-md); }
+  .decision-buttons button { padding: var(--sit-component-padding-sm) 0; border-radius: var(--sit-border-radius-lg); font-weight: var(--sit-font-weight-bold); font-size: var(--sit-font-size-label-sm); border: none; cursor: pointer; }
+  .audit-note { font-size: var(--sit-font-size-label-xs); color: var(--sit-color-muted); text-align: center; margin-top: var(--sit-component-gap-sm); }
+</style>
+
+<div class="app-shell">
+  <sit-sidebar active="pipeline" ariaLabel="CET Platform navigation" style="width: 240px; flex-shrink: 0; background: var(--sit-gray-1000);">
+    <div slot="upper" class="brand-block">
+      <span class="brand-mark">SiT</span>
+      <div>
+        <div class="brand-title">CET Platform</div>
+        <div class="brand-subtitle">Superagent 1</div>
+      </div>
+    </div>
+
+    <sit-sidebar-section title="Platform">
+      <sit-sidebar-item name="pipeline" title="Pipeline Overview">
+        <span slot="icon">📊</span>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="backbone" title="Digital Backbone">
+        <span slot="icon">🗄</span>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="evidence" title="Evidence Hub">
+        <span slot="icon">📚</span>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="decisions" title="Decision Log">
+        <span slot="icon">⚖</span>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="agents" title="Agent Monitor">
+        <span slot="icon">🤖</span>
+      </sit-sidebar-item>
+    </sit-sidebar-section>
+
+    <sit-sidebar-section title="Programme">
+      <sit-sidebar-item name="all-programmes" title="All Programmes">
+        <span slot="icon">📋</span>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="market-signals" title="Market Signals">
+        <span slot="icon">📈</span>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="stakeholders" title="Stakeholders">
+        <span slot="icon">👥</span>
+      </sit-sidebar-item>
+      <sit-sidebar-item name="settings" title="Settings">
+        <span slot="icon">⚙</span>
+      </sit-sidebar-item>
+    </sit-sidebar-section>
+
+    <div slot="lower" class="user-block">
+      <span class="user-avatar">CY</span>
+      <div>
+        <div class="user-name">Caleb Yee</div>
+        <div class="user-role">Director, AI Platform</div>
+      </div>
+    </div>
+  </sit-sidebar>
+
+  <div class="main-area">
+    <header class="top-header">
+      <div>
+        <div class="header-title-row">
+          <span class="header-title">Superagent 1: Opportunity to Programme to Impact</span>
+          <span class="header-badge">CET Lifecycle</span>
+        </div>
+        <p class="header-subtitle">One persistent operating system — orchestrates AI work, evidence, workflow and human decisions</p>
+      </div>
+      <span class="agents-active-pill"><span class="pulse-dot"></span> 3 Agents Active</span>
+    </header>
+
+    <div class="gate-banner">🔒 &nbsp; HUMANS VALIDATE, DECIDE AND APPROVE AT EVERY GATE</div>
+
+    <div class="view-scroll">
+      <div class="kpi-strip">
+        <div class="kpi-card"><div class="kpi-value">7</div><div class="kpi-label">Pipeline Stages</div></div>
+        <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-green-600)">2</div><div class="kpi-label">Stages Completed</div></div>
+        <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-yellow-600)">1</div><div class="kpi-label">Active (AI Working)</div></div>
+        <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-yellow-600)">1</div><div class="kpi-label">Gate Pending</div></div>
+        <div class="kpi-card"><div class="kpi-value" style="color: var(--sit-product-primary-600)">3</div><div class="kpi-label">AI Agents Running</div></div>
+      </div>
+
+      <div class="stage-grid">
+        <sit-stage-card
+          stage-number="1" stage-title="Market Intelligence, Demand & Opportunity"
+          stage-color="var(--sit-blue-800)" status="completed" status-label="Completed"
+          gate-label="A · Accept / Hold / Reject" gate="A">
+          <li slot="checklist">✓ Scan market signals</li>
+          <li slot="checklist">✓ Synthesise employer evidence</li>
+          <li slot="checklist">✓ Assess need, fit &amp; scalability</li>
+          <span slot="output">Market evidence pack + opportunity record</span>
+        </sit-stage-card>
+
+        <sit-stage-card
+          stage-number="2" stage-title="Solution Architecture & Routing"
+          stage-color="#009B8E" status="completed" status-label="Completed"
+          gate-label="B · Invest in Development" gate="B">
+          <li slot="checklist">✓ Search approved assets</li>
+          <li slot="checklist">✓ Route reuse / build</li>
+          <li slot="checklist">✓ Frame proposition</li>
+          <span slot="output">Proposed solution brief + recommended route</span>
+        </sit-stage-card>
+
+        <sit-stage-card
+          active
+          stage-number="3" stage-title="Programme & Pathway Design"
+          stage-color="#E86C1A" status="active" status-label="Active · AI Working"
+          output-label="IN PROGRESS"
+          gate-label="C · Endorse Design" gate="C">
+          <li slot="checklist">⟳ Map roles &amp; competencies</li>
+          <li slot="checklist">◷ Design outcomes &amp; modules</li>
+          <li slot="checklist">◷ Assessment lineage</li>
+          <span slot="output">
+            Versioned design objects + traceability graph
+            <div class="in-progress-track"><div class="in-progress-fill" style="width:45%"></div></div>
+            <div class="in-progress-note">45% complete</div>
+          </span>
+        </sit-stage-card>
+
+        <sit-stage-card
+          inactive
+          stage-number="4" stage-title="Parallel Feasibility & Demand Validation"
+          stage-color="#1E6BA8" status="pending" status-label="Pending Gate C"
+          gate-label="D · Confirm Viability" gate="D" gate-disabled>
+          <li slot="checklist">Run evidence workstreams in parallel</li>
+          <li slot="checklist">Test academic &amp; delivery fit</li>
+          <li slot="checklist">Model commercial viability</li>
+          <span slot="output">Integrated evidence pack + assumptions</span>
+        </sit-stage-card>
+
+        <sit-stage-card
+          inactive
+          stage-number="5" stage-title="Assurance & Formal Approval"
+          stage-color="#3A8C49" status="not-started" status-label="Not Started"
+          gate-label="E · Authorised Approvals" gate="E" gate-disabled>
+          <li slot="checklist">Assemble approval packs</li>
+          <li slot="checklist">Check completeness &amp; alignment</li>
+          <li slot="checklist">Surface conflicts &amp; gaps</li>
+          <span slot="output">Human-approved baseline + conditions</span>
+        </sit-stage-card>
+
+        <sit-stage-card
+          inactive
+          stage-number="6" stage-title="Build, Market & Launch Readiness"
+          stage-color="#7B5EA7" status="not-started" status-label="Not Started"
+          gate-label="F · Launch Go / No-Go" gate="F" gate-disabled>
+          <li slot="checklist">Coordinate materials &amp; trainers</li>
+          <li slot="checklist">Activate acquisition &amp; grants</li>
+          <li slot="checklist">Track dependencies</li>
+          <span slot="output">Launch Control Tower + readiness summary</span>
+        </sit-stage-card>
+
+        <sit-stage-card
+          inactive
+          stage-number="7" stage-title="Delivery, Outcomes & Renewal"
+          stage-color="#C89A00" status="not-started" status-label="Not Started"
+          gate-label="G · Next-Run Decision" gate="G" gate-disabled>
+          <li slot="checklist">Monitor delivery &amp; outcomes</li>
+          <li slot="checklist">Compare assumptions vs actuals</li>
+          <li slot="checklist">Recommend refresh / sunset</li>
+          <span slot="output">Outcome brief + improvement backlog</span>
+        </sit-stage-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Gate Decision Modal -->
+<sit-modal id="gate-modal" size="md">
+  <span slot="title">Gate C – Endorse Design for Validation</span>
+  <span slot="description">Programme: AI for Business Leaders · Stage 3</span>
+
+  <div class="modal-summary">
+    <div class="modal-summary-label">🤖 AI-Generated Summary</div>
+    <p class="modal-summary-text">Stage 3 is 45% complete. Competency Map v1.3 (23 competencies) is ready for review. Module structure is in progress — 6 modules planned. All Stage 1 &amp; 2 evidence has been traced and linked. 3 open assumptions flagged for Stage 4 validation.</p>
+  </div>
+
+  <div class="checklist-label">Pre-Gate Checklist</div>
+  <div class="checklist-items">
+    <sit-checkbox checked>Competency map reviewed by SME</sit-checkbox>
+    <sit-checkbox>Module structure endorsed</sit-checkbox>
+    <sit-checkbox checked>Evidence traceability confirmed</sit-checkbox>
+    <sit-checkbox>Assumptions logged and assigned for Stage 4</sit-checkbox>
+  </div>
+
+  <label class="notes-label" for="decision-notes">Decision Notes / Conditions</label>
+  <sit-textarea id="decision-notes" rows="3" placeholder="Add conditions, notes, or instructions for the next stage…"></sit-textarea>
+
+  <div class="decision-buttons">
+    <button style="background: var(--sit-green-500); color: var(--sit-color-fixed-light);" data-decision="endorse">👍 Endorse</button>
+    <button style="background: var(--sit-yellow-50); border: var(--sit-border-width-1) solid var(--sit-yellow-300); color: var(--sit-yellow-700);" data-decision="hold">⏸ Hold</button>
+    <button style="background: var(--sit-red-100); border: var(--sit-border-width-1) solid var(--sit-red-200); color: var(--sit-red-600);" data-decision="return">↺ Return</button>
+  </div>
+  <p class="audit-note">This decision will be recorded in the Decision Log and is fully auditable.</p>
+</sit-modal>
+
+<script>
+  const gateModal = document.getElementById("gate-modal");
+
+  document.addEventListener("sit-gate-decision", (e) => {
+    console.log("Gate decision requested:", e.detail.gate);
+    gateModal.open = true;
+  });
+
+  gateModal.querySelectorAll("[data-decision]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      console.log("Decision made:", btn.dataset.decision);
+      gateModal.open = false;
+    });
+  });
+
+  document.querySelectorAll("sit-sidebar-item").forEach((item) => {
+    item.addEventListener("click", () => {
+      const sidebar = document.querySelector("sit-sidebar");
+      sidebar.active = item.getAttribute("name");
+    });
+  });
+</script>
