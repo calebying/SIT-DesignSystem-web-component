@@ -14,7 +14,7 @@
   font-size: var(--sit-font-size-label-sm);
   max-width: var(--sit-dimension-320);
   padding: var(--sit-padding-xs) var(--sit-padding-sm);
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 8px 16px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: var(--sit-elevation-surface-4);
   word-wrap: break-word;
   display: block;
   line-break: auto;
