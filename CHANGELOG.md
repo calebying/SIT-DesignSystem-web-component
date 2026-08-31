@@ -1,3 +1,28 @@
+## Unreleased
+
+Commits merged to master since v3.25.0 (2026-07-21) that have not yet been rolled into a
+version bump/tag. Listed here now so the changelog stays current; renumber into a proper
+version heading whenever the next release is cut.
+
+### BREAKING CHANGE
+
+- **components**: renamed every `sgds-*` component tag, source file, CSS custom property, and
+  JS API surface to `sit-*` as part of the rebrand from GovTech's SGDS to SIT Canvas (see
+  DEEP-RENAME-PLAN.md for the full phased plan)
+
+### Feat
+
+- **tokens**: rename sgds Tailwind/CSS token prefix to sit
+- **components**!: rename sgds-*.ts/css files and sgds-* tags to sit-*
+- **components**: rename Sgds* classes and sgds-* event names to Sit*/sit-*
+- **storybook**: update stories and config for sit-* rename
+- update test suite for sit-* rename
+
+### Fix
+
+- **storybook,test**: rename remaining sgds- refs and fix invalid SIT- casing
+- **theme**: correct product-primary token scale to SIT brand red
+
 ## v3.25.0 (2026-07-21)
 
 ### Feat

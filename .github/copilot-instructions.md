@@ -93,7 +93,7 @@ These skills cover two domains. Each domain uses a folder naming prefix so agent
 - [sit-utilities](../skills/sit-utilities/SKILL.md) — All Canvas utility classes (grid, spacing, dimension, color-semantics, background-color, text-color, border-color, border-width, border-radius, typography, opacity) plus Tailwind v4 setup, theme switching, and framework integration. Each utility category has a dedicated reference file in `skills/sit-utilities/reference/`.
 
 #### Component Skills — How to use Canvas web components
-- [sit-components](../skills/sit-components/SKILL.md) — All 46 `<sit-*>` components (accordion through tooltip) plus installation and framework integration for React, Vue, Angular, and Next.js. Each component has a dedicated reference file in `skills/sit-components/reference/`.
+- [sit-components](../skills/sit-components/SKILL.md) — All 47 `<sit-*>` components (accordion through tooltip) plus installation and framework integration for React, Vue, Angular, and Next.js. Each component has a dedicated reference file in `skills/sit-components/reference/`.
 
 #### Pattern Skills (`pattern-*`) — Cross-cutting implementation patterns
 - [sit-forms](../skills/sit-forms/SKILL.md) - Form validation using ElementInternals API, hasFeedback, constraint validation per component, FormData, custom validation with noValidate and setInvalid (Input/Textarea only)
