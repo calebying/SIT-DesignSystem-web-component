@@ -2,3 +2,11 @@
 
 For better SEO, anchor tags are to be passed by the user in the light dom. It is recommended to use `Sit-link` to wrap the anchor tags.
 Every `contents` slot requires an anchor element.
+
+## Without header
+
+The default slot (used for the header) is optional. When it is left empty, only the `contents` list renders.
+
+<Canvas of={TableOfContentsStories.WithoutHeader}>
+  <Story of={TableOfContentsStories.WithoutHeader} />
+</Canvas>
