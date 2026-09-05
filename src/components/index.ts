@@ -36,6 +36,7 @@ export * from "./Masthead/sit-masthead";
 export * from "./Modal/sit-modal";
 export * from "./OverflowMenu/sit-overflow-menu";
 export * from "./Pagination/sit-pagination";
+export * from "./Popover/sit-popover";
 export * from "./ProgressBar/sit-progress-bar";
 export * from "./QuantityToggle/sit-quantity-toggle";
 export * from "./Radio/sit-radio";
