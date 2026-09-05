@@ -40,6 +40,8 @@ export * from "./ProgressBar/sit-progress-bar";
 export * from "./QuantityToggle/sit-quantity-toggle";
 export * from "./Radio/sit-radio";
 export * from "./Radio/sit-radio-group";
+export * from "./SegmentedControl/sit-segment";
+export * from "./SegmentedControl/sit-segmented-control";
 export * from "./Select/sit-select";
 export * from "./Select/sit-select-option";
 export * from "./Sidebar/sit-sidebar";

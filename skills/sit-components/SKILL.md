@@ -1,6 +1,6 @@
 ---
 name: "sit-components"
-description: "Complete reference for all Canvas web components including installation and framework integration. Use when users ask about any <sit-*> component — accordion, alert, badge, breadcrumb, button, card, checkbox, close-button, combo-box, datepicker, description-list, divider, drawer, dropdown, file-upload, footer, icon, icon-button, icon-card, icon-list, image-card, input, link, mainnav, masthead, modal, overflow-menu, pagination, progress-bar, quantity-toggle, radio, select, sidebar, sidenav, skeleton, spinner, stepper, subnav, switch, system-banner, tab, table, table-of-contents, textarea, thumbnail-card, toast, or tooltip. Also covers React 19+, React ≤18, Vue, Angular, and Next.js integration."
+description: "Complete reference for all Canvas web components including installation and framework integration. Use when users ask about any <sit-*> component — accordion, alert, badge, breadcrumb, button, card, checkbox, close-button, combo-box, datepicker, description-list, divider, drawer, dropdown, file-upload, footer, icon, icon-button, icon-card, icon-list, image-card, input, link, mainnav, masthead, modal, overflow-menu, pagination, progress-bar, quantity-toggle, radio, segmented-control, select, sidebar, sidenav, skeleton, spinner, stepper, subnav, switch, system-banner, tab, table, table-of-contents, textarea, thumbnail-card, toast, or tooltip. Also covers React 19+, React ≤18, Vue, Angular, and Next.js integration."
 metadata:
   author: sit-canvas
   version: "0.0.0"
@@ -219,6 +219,7 @@ When a user reports unexpected component behaviour (wrong event, property not re
 | **Forms** | Select | [→ reference/select.md](reference/select.md) |
 | **Forms** | Checkbox | [→ reference/checkbox.md](reference/checkbox.md) |
 | **Forms** | Radio | [→ reference/radio.md](reference/radio.md) |
+| **Forms** | Segmented Control | [→ reference/segmented-control.md](reference/segmented-control.md) |
 | **Forms** | Combo Box | [→ reference/combo-box.md](reference/combo-box.md) |
 | **Forms** | Datepicker | [→ reference/datepicker.md](reference/datepicker.md) |
 | **Forms** | File Upload | [→ reference/file-upload.md](reference/file-upload.md) |
