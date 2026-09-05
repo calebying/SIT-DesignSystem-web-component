@@ -1,6 +1,6 @@
 ---
 name: "sit-components"
-description: "Complete reference for all Canvas web components including installation and framework integration. Use when users ask about any <sit-*> component — accordion, alert, badge, breadcrumb, button, card, checkbox, close-button, combo-box, datepicker, description-list, divider, drawer, dropdown, file-upload, footer, icon, icon-button, icon-card, icon-list, image-card, input, link, mainnav, masthead, modal, overflow-menu, pagination, progress-bar, quantity-toggle, radio, select, sidebar, sidenav, skeleton, spinner, stepper, subnav, switch, system-banner, tab, table, table-of-contents, textarea, thumbnail-card, toast, or tooltip. Also covers React 19+, React ≤18, Vue, Angular, and Next.js integration."
+description: "Complete reference for all Canvas web components including installation and framework integration. Use when users ask about any <sit-*> component — accordion, alert, avatar, badge, breadcrumb, button, card, checkbox, close-button, combo-box, datepicker, description-list, divider, drawer, dropdown, file-upload, footer, icon, icon-button, icon-card, icon-list, image-card, input, link, mainnav, masthead, modal, overflow-menu, pagination, progress-bar, quantity-toggle, radio, select, sidebar, sidenav, skeleton, spinner, stepper, subnav, switch, system-banner, tab, table, table-of-contents, textarea, thumbnail-card, toast, or tooltip. Also covers React 19+, React ≤18, Vue, Angular, and Next.js integration."
 metadata:
   author: sit-canvas
   version: "0.0.0"
@@ -204,6 +204,7 @@ When a user reports unexpected component behaviour (wrong event, property not re
 | **Layout** | Divider | [→ reference/divider.md](reference/divider.md) |
 | **Layout** | Drawer | [→ reference/drawer.md](reference/drawer.md) |
 | **Layout** | Modal | [→ reference/modal.md](reference/modal.md) |
+| **Content** | Avatar | [→ reference/avatar.md](reference/avatar.md) |
 | **Content** | Badge | [→ reference/badge.md](reference/badge.md) |
 | **Content** | Card | [→ reference/card.md](reference/card.md) |
 | **Content** | Icon Card | [→ reference/icon-card.md](reference/icon-card.md) |

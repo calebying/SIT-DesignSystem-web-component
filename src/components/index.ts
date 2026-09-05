@@ -2,6 +2,7 @@ export * from "./Accordion/sit-accordion";
 export * from "./Accordion/sit-accordion-item";
 export * from "./Alert/sit-alert";
 export * from "./Alert/sit-alert-link";
+export * from "./Avatar/sit-avatar";
 export * from "./Badge/sit-badge";
 export * from "./Breadcrumb/sit-breadcrumb";
 export * from "./Breadcrumb/sit-breadcrumb-item";
