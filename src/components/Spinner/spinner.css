@@ -19,16 +19,25 @@
   --sit-spinner-bg: var(--sit-surface-fixed-dark);
 }
 
-.spinner-wrapper {  
+/*
+ * BEM: .spinner-wrapper (block) / .spinner-wrapper__spinner,
+ * .spinner-wrapper__label (elements) / .spinner-wrapper--horizontal,
+ * .spinner-wrapper__spinner--xs|sm|lg|xl (modifiers, always combined with
+ * their base class in markup). See CODE_CONVENTIONS.md's "Naming CSS
+ * classes" section for the decision. `.sr-only` is left as-is -- it's a
+ * common utility class name shared across many components' shadow
+ * stylesheets, not part of this component's own BEM namespace.
+ */
+.spinner-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--sit-gap-2-xs);
 }
-.spinner-wrapper.horizontal{
+.spinner-wrapper.spinner-wrapper--horizontal {
   flex-direction: row;
 }
-.spinner {
+.spinner-wrapper__spinner {
   --border-thickness: 4px;
   display: inline-flex;
   border-radius: 50%;
@@ -40,36 +49,36 @@
   color: var(--sit-spinner-color);
 }
 
-.spinner-xs {
+.spinner-wrapper__spinner--xs {
   --border-thickness: 2px;
   width: var(--sit-dimension-16);
   height: var(--sit-dimension-16);
 }
 
-.spinner-sm {
+.spinner-wrapper__spinner--sm {
   --border-thickness: 3px;
   width: var(--sit-dimension-24);
   height: var(--sit-dimension-24);
 }
 
-.spinner-lg {
+.spinner-wrapper__spinner--lg {
   --border-thickness: 6px;
   width: var(--sit-dimension-48);
   height: var(--sit-dimension-48);
 }
-.spinner-xl {
+.spinner-wrapper__spinner--xl {
   --border-thickness: 8px;
   width: var(--sit-dimension-64);
   height: var(--sit-dimension-64);
 }
 
-.spinner-label {
+.spinner-wrapper__label {
   font-size: var(--sit-font-size-label-sm);
   color: var(--sit-neutral-color-default);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .spinner {
+  .spinner-wrapper__spinner {
     animation-duration: 1.5s;
   }
 }

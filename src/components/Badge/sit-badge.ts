@@ -100,7 +100,7 @@ export class SitBadge extends SitElement {
   @watch("text", { waitUntilFirstUpdate: true })
   _handleTruncation() {
     // check scroll width if its exceeding parent, it reflects truncation has happened
-    const badgeLabel = this.shadowRoot?.querySelector(".badge-label");
+    const badgeLabel = this.shadowRoot?.querySelector(".badge__label");
     if (badgeLabel) {
       this.truncated = badgeLabel.scrollWidth > badgeLabel.clientWidth;
     }
@@ -115,18 +115,18 @@ export class SitBadge extends SitElement {
     const isDarkCloseButton = this.outlined || this.variant === "warning" || this.variant === "white";
 
     return html`<div
-      class="  
+      class="
           ${classMap({
-        [`badge-dismissible`]: this.dismissible,
+        "badge--dismissible": this.dismissible,
         badge: true,
-        outlined: this.outlined,
-        "full-width": this.fullWidth
+        "badge--outlined": this.outlined,
+        "badge--full-width": this.fullWidth
       })}"
       aria-hidden=${this.show ? "false" : "true"}
     >
       ${!this.dismissible ? html`<slot name="icon"></slot>` : nothing}
 
-      <span class="badge-label">
+      <span class="badge__label">
         <slot @slotchange=${this._handleLabelSlotChange}></slot>
       </span>
 

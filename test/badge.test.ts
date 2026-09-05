@@ -44,16 +44,16 @@ describe("SitBadge component", () => {
     expect(el.shadowRoot?.querySelector("sit-close-button")).to.not.exist;
   });
 
-  it("should render with the 'outlined' class when outlined is true", async () => {
+  it("should render with the 'badge--outlined' class when outlined is true", async () => {
     const el = await fixture<SitBadge>(html`<sit-badge show outlined></sit-badge>`);
     await elementUpdated(el);
-    expect(el.shadowRoot?.querySelector(".badge")).to.have.class("outlined");
+    expect(el.shadowRoot?.querySelector(".badge")).to.have.class("badge--outlined");
   });
 
-  it("should not render with the 'outlined' class when outlined is false", async () => {
+  it("should not render with the 'badge--outlined' class when outlined is false", async () => {
     const el = await fixture<SitBadge>(html`<sit-badge show></sit-badge>`);
     await elementUpdated(el);
-    expect(el.shadowRoot?.querySelector(".badge")).to.not.have.class("outlined");
+    expect(el.shadowRoot?.querySelector(".badge")).to.not.have.class("badge--outlined");
   });
 
   it("close public method invoke, removes badge from the document", async () => {

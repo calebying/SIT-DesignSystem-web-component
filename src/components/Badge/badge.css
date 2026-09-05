@@ -107,27 +107,41 @@ sit-tooltip {
   padding: var(--sit-padding-none) var(--sit-padding-xs);
 }
 
-.badge.outlined {
+/*
+ * BEM: .badge (block) / .badge__label (element) / .badge--outlined,
+ * .badge--full-width, .badge--dismissible (modifiers, always combined with
+ * the .badge block class in markup). See CODE_CONVENTIONS.md's "Naming CSS
+ * classes" section for the decision.
+ */
+.badge.badge--outlined {
   color: var(--sit-primary-color-fixed-dark);
   background-color: var(--sit-primary-surface-muted);
   border: var(--sit-border-width-1) solid var(--sit-primary-border-color-muted);
 }
-.badge.full-width {
+.badge.badge--full-width {
   max-width: 100%;
 }
 
-.badge-label {
+.badge__label {
   padding: var(--sit-padding-none) var(--sit-padding-3-xs);
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-.badge-dismissible {
+.badge--dismissible {
   padding-right: 0;
 }
 
-.badge-dimissible sit-close-button {
+/*
+ * Real, separate bug fixed incidentally while renaming this class: this
+ * selector was `.badge-dimissible` (missing the second "s"), so it never
+ * matched the actual `badge-dismissible` class the component template
+ * applies -- the close button's border-radius override below has been
+ * silently inert since it was written. Fixed as part of the BEM rename
+ * rather than left to keep drifting under a new name.
+ */
+.badge--dismissible sit-close-button {
   --sit-close-btn-border-radius: var(--sit-border-radius-sm);
 }
 
