@@ -178,8 +178,11 @@ nav > .navbar-body slot::slotted(:not(sit-mainnav-item):not(sit-mainnav-dropdown
   }
 
   .navbar-expand-xl .navbar-nav .nav-link {
-    padding-left: var(--mainnav-nav-link-padding-x);
-    padding-right: var(--mainnav-nav-link-padding-x);
+    /* RTL: was separate padding-left/padding-right at the same value --
+       padding-inline is the logical shorthand for "the same padding on both
+       inline-direction edges", correct in both LTR and RTL since it's
+       symmetric either way. */
+    padding-inline: var(--mainnav-nav-link-padding-x);
   }
 
   .navbar-expand-xl .navbar-nav-scroll {
@@ -244,11 +247,21 @@ nav > .navbar-body slot::slotted(:not(sit-mainnav-item):not(sit-mainnav-dropdown
 
 /* slot */
 
+/*
+ * RTL: `margin-left: auto` pushes the slot to the trailing edge in LTR (the
+ * physical right) by expanding the left margin to consume the remaining
+ * flex space. `margin-inline-start: auto` does the same thing but tracks
+ * the document's actual writing direction -- the auto margin lands on
+ * whichever side is the *start* edge, so the content still visually lands
+ * at the *end* edge in both LTR and RTL, matching the original LTR-only
+ * behaviour's real intent ("push to the end") rather than its literal
+ * left/right mechanics.
+ */
 slot[name="non-collapsible"] {
   display: flex;
   gap: var(--sit-spacer-4);
   align-items: center;
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 slot[name="non-collapsible"].non-collapsible-empty {
@@ -257,7 +270,7 @@ slot[name="non-collapsible"].non-collapsible-empty {
 
 .slot-end {
   display: flex;
-  margin-left: auto;
+  margin-inline-start: auto;
   align-items: stretch;
   gap: var(--sit-gap-xs);
 }

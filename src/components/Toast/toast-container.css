@@ -1,21 +1,35 @@
+/*
+ * RTL: these positions were hardcoded to physical left/right even though
+ * their own class names already use writing-direction-aware terminology
+ * (top-start/top-end, not top-left/top-right) -- meaning a "start"-named
+ * toast was actually pinned to the visual left even in an RTL document,
+ * silently contradicting its own name. Converted to inset-inline-start/
+ * inset-inline-end so "start"/"end" actually track the document's writing
+ * direction. `top`/`bottom` are untouched -- RTL only flips the inline
+ * (horizontal) axis, not the block (vertical) one. The `-center` variants'
+ * horizontal centering is direction-symmetric either way, but converted too
+ * for internal consistency (no functional difference either way, kept for
+ * uniform grep-ability of this file's positioning properties).
+ */
+
 /* Deprecated since 3.7.1: top-start, middle-start, middle-center, middle-end */
 .top-start {
   top: var(--toast-container-top);
-  left: var(--toast-container-left);
+  inset-inline-start: var(--toast-container-left);
 }
 .middle-start {
   top: 50%;
-  left: var(--toast-container-left);
+  inset-inline-start: var(--toast-container-left);
   transform: translateY(-50%);
 }
 .middle-center {
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   transform: translate(-50%, -50%);
 }
 .middle-end {
   top: 50%;
-  right: var(--toast-container-right);
+  inset-inline-end: var(--toast-container-right);
   transform: translateY(-50%);
 }
 
@@ -35,29 +49,29 @@
 
 .top-center {
   top: var(--toast-container-top);
-  left: 50%;
+  inset-inline-start: 50%;
   transform: translateX(-50%);
 }
 
 .top-end {
   top: var(--toast-container-top);
-  right: var(--toast-container-right);
+  inset-inline-end: var(--toast-container-right);
 }
 
 .bottom-start {
   bottom: var(--toast-container-bottom);
-  left: var(--toast-container-left);
+  inset-inline-start: var(--toast-container-left);
 }
 
 .bottom-center {
   bottom: var(--toast-container-bottom);
-  left: 50%;
+  inset-inline-start: 50%;
   transform: translateX(-50%);
 }
 
 .bottom-end {
   bottom: var(--toast-container-bottom);
-  right: var(--toast-container-right);
+  inset-inline-end: var(--toast-container-right);
 }
 
 slot {
@@ -71,6 +85,5 @@ slot {
 :host([position^="bottom"]) slot {
  flex-direction: column;
 }
-
 
 

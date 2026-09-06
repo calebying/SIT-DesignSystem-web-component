@@ -1,0 +1,123 @@
+<script type="module" src="../../src/index.ts"></script>
+<link href="../../src/themes/day.css" rel="stylesheet" type="text/css" />
+<link href="../../src/themes/night.css" rel="stylesheet" type="text/css" />
+<link href="../../src/css/canvas.css" rel="stylesheet" type="text/css" />
+<link href="../css/utility.css" rel="stylesheet" type="text/css" />
+
+<body class="sit:p-2-xl sit:bg-default sit:text-default">
+  <div
+    class="sit:sticky sit:top-0 sit:flex sit:justify-between sit:items-center sit:mb-2-xl sit:bg-default sit:py-2-xl"
+  >
+    <h1>Motion</h1>
+    <sit-button id="night-theme" variant="ghost">
+      <sit-icon name="lightbulb"></sit-icon>
+      Toggle Theme
+    </sit-button>
+  </div>
+
+  <section class="sit:mb-2-xl">
+    <h2>Duration</h2>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+        <sit-table-head>Value</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:duration-faster</code></sit-table-cell>
+        <sit-table-cell><code>--sit-motion-duration-faster</code></sit-table-cell>
+        <sit-table-cell><code>100ms</code></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:duration-fast</code></sit-table-cell>
+        <sit-table-cell><code>--sit-motion-duration-fast</code></sit-table-cell>
+        <sit-table-cell><code>200ms</code></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:duration-standard</code></sit-table-cell>
+        <sit-table-cell><code>--sit-motion-duration-standard</code></sit-table-cell>
+        <sit-table-cell><code>300ms</code></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:duration-slow</code></sit-table-cell>
+        <sit-table-cell><code>--sit-motion-duration-slow</code></sit-table-cell>
+        <sit-table-cell><code>400ms</code></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:duration-slower</code></sit-table-cell>
+        <sit-table-cell><code>--sit-motion-duration-slower</code></sit-table-cell>
+        <sit-table-cell><code>500ms</code></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
+  </section>
+
+  <section class="sit:mb-2-xl">
+    <h2>Easing</h2>
+    <sit-table>
+      <sit-table-row>
+        <sit-table-head>Canvas Tailwind Token</sit-table-head>
+        <sit-table-head>CSS Variable</sit-table-head>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:ease-enter</code></sit-table-cell>
+        <sit-table-cell><code>--sit-motion-easing-enter</code></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:ease-exit</code></sit-table-cell>
+        <sit-table-cell><code>--sit-motion-easing-exit</code></sit-table-cell>
+      </sit-table-row>
+      <sit-table-row>
+        <sit-table-cell><code>sit:ease-standard</code></sit-table-cell>
+        <sit-table-cell><code>--sit-motion-easing-standard</code></sit-table-cell>
+      </sit-table-row>
+    </sit-table>
+  </section>
+
+  <section class="sit:mb-2-xl">
+    <h2>Animations (click to replay)</h2>
+    <div class="sit:flex sit:gap-xl sit:items-center">
+      <div class="sit:text-center">
+        <div
+          id="fade-box"
+          class="sit:animate-fade-in sit:bg-primary sit:text-fixed-light sit:p-lg sit:rounded-sm sit:mb-xs"
+        >
+          fade-in
+        </div>
+        <code>sit:animate-fade-in</code>
+      </div>
+      <div class="sit:text-center">
+        <div
+          id="slide-box"
+          class="sit:animate-slide-in-start sit:bg-primary sit:text-fixed-light sit:p-lg sit:rounded-sm sit:mb-xs"
+        >
+          slide-in-start
+        </div>
+        <code>sit:animate-slide-in-start</code>
+      </div>
+      <div class="sit:text-center">
+        <div
+          id="scale-box"
+          class="sit:animate-scale-in sit:bg-primary sit:text-fixed-light sit:p-lg sit:rounded-sm sit:mb-xs"
+        >
+          scale-in
+        </div>
+        <code>sit:animate-scale-in</code>
+      </div>
+    </div>
+    <sit-button id="replay" variant="outline" class="sit:mt-lg">Replay animations</sit-button>
+  </section>
+
+  <script>
+    document.getElementById("night-theme").addEventListener("click", () => {
+      document.body.classList.toggle("sit-night");
+    });
+    document.getElementById("replay").addEventListener("click", () => {
+      ["fade-box", "slide-box", "scale-box"].forEach(id => {
+        const el = document.getElementById(id);
+        el.style.animation = "none";
+        void el.offsetWidth; // force reflow to restart the animation
+        el.style.animation = "";
+      });
+    });
+  </script>
+</body>
