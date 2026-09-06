@@ -35,6 +35,6 @@ export declare class SitAlert extends SitElement {
     close(): void;
     /**@internal */
     _handleShowChange(): void;
-    render(): import("lit-html").TemplateResult | typeof nothing;
+    render(): import("lit").TemplateResult | typeof nothing;
 }
 export default SitAlert;

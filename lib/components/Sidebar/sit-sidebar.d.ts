@@ -194,6 +194,6 @@ export declare class SitSidebar extends SitElement {
      * @returns {void}
      */
     private _handleClickOutOfElement;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSidebar;

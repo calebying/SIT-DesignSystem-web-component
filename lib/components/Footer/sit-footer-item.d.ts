@@ -13,6 +13,6 @@ export declare class SitFooterItem extends SitElement {
     /**@internal */
     _handleToneChange(): void;
     private _handleSlotChange;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitFooterItem;

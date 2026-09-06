@@ -22,6 +22,6 @@ export declare class SitSystemBannerItem extends SitElement {
     updated(): void;
     private _clampCheck;
     private _handleShowMoreClick;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSystemBannerItem;

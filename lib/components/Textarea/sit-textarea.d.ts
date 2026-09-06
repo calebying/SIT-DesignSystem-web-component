@@ -93,8 +93,8 @@ export declare class SitTextarea extends SitTextarea_base implements SitFormCont
     _handleDisabledChange(): void;
     /** @internal */
     _handleValueChange(): void;
-    protected _renderHintText(): import("lit-html").TemplateResult;
+    protected _renderHintText(): import("lit").TemplateResult;
     private _wordCount;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitTextarea;

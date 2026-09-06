@@ -76,9 +76,9 @@ export declare class SitQuantityToggle extends SitQuantityToggle_base implements
      * @param input native HTMLInputElement
      */
     private _validateOnClick;
-    protected _renderFeedback(): import("lit-html").TemplateResult;
-    protected _renderLabel(): import("lit-html").TemplateResult;
-    protected _renderHintText(): import("lit-html").TemplateResult;
-    render(): import("lit-html").TemplateResult;
+    protected _renderFeedback(): import("lit").TemplateResult;
+    protected _renderLabel(): import("lit").TemplateResult;
+    protected _renderHintText(): import("lit").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitQuantityToggle;

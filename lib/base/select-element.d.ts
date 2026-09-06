@@ -81,14 +81,14 @@ export declare class SelectElement extends SelectElement_base implements SitForm
      */
     get validationMessage(): string;
     protected _controlId: string;
-    protected _renderFeedback(): import("lit-html").TemplateResult<1>;
-    protected _renderHintText(): import("lit-html").TemplateResult<1>;
+    protected _renderFeedback(): import("lit").TemplateResult<1>;
+    protected _renderHintText(): import("lit").TemplateResult<1>;
     protected _labelId: string;
-    protected _renderLabel(): import("lit-html").TemplateResult<1>;
+    protected _renderLabel(): import("lit").TemplateResult<1>;
     protected _handleClick(): any;
     protected _getMenuListFromOptions(assignedElements: Element[]): Promise<SitOptionData[]>;
-    protected _renderEmptyMenu(): import("lit-html").TemplateResult<1>;
-    protected _renderLoadingMenu(): import("lit-html").TemplateResult<1>;
+    protected _renderEmptyMenu(): import("lit").TemplateResult<1>;
+    protected _renderLoadingMenu(): import("lit").TemplateResult<1>;
     protected options: OptionElement[];
     static childName: string;
 }

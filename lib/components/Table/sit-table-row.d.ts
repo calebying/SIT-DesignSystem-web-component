@@ -7,6 +7,6 @@ import SitElement from "../../base/sit-element";
 export declare class SitTableRow extends SitElement {
     static styles: import("lit").CSSResult[];
     connectedCallback(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitTableRow;

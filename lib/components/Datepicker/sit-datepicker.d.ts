@@ -152,6 +152,6 @@ export declare class SitDatepicker extends SitDatepicker_base implements SitForm
     private _mixinResetFormControl;
     private _handleInputMaskChange;
     private _dialogAriaLabels;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitDatepicker;

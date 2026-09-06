@@ -46,6 +46,6 @@ export declare class SitToast extends SitElement {
     handleShowChange(): Promise<void>;
     protected firstUpdated(changedProperties: PropertyValueMap<this>): void;
     private _actionNodes;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitToast;

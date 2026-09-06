@@ -25,6 +25,7 @@ import "./components/Masthead";
 import "./components/Modal";
 import "./components/OverflowMenu";
 import "./components/Pagination";
+import "./components/Popover";
 import "./components/ProgressBar";
 import "./components/QuantityToggle";
 import "./components/Radio";

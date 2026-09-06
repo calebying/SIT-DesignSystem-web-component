@@ -15,6 +15,6 @@ export declare class SitCloseButton extends SitElement {
     private _handleClick;
     private _clickHandler;
     firstUpdated(changedProperties: PropertyValueMap<this>): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitCloseButton;

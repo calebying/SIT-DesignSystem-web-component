@@ -28,6 +28,6 @@ export declare class SitTab extends SitElement {
     handleActiveChange(): void;
     /**@internal */
     handleDisabledChange(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitTab;

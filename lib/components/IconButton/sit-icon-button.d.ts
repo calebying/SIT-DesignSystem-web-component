@@ -17,6 +17,6 @@ export declare class SitIconButton extends ButtonElement {
     /** The name of the icon from sit icon library */
     name: string;
     private _assignIconSize;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitIconButton;

@@ -28,6 +28,6 @@ export declare class SitDropdown extends DropdownListElement {
     private _handleTogglerSlotChange;
     _handleMenuIsOpenChange(): void;
     _handleDisabled(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitDropdown;

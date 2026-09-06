@@ -38,6 +38,6 @@ export declare class SitAccordionItem extends SitElement {
     /** Hide the accordion */
     hide(): Promise<void>;
     firstUpdated(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitAccordionItem;

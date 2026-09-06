@@ -26,6 +26,6 @@ export declare class SitIconCard extends CardElement {
     private get linkSlotItems();
     private get footerSlotItems();
     protected firstUpdated(changedProperties: PropertyValueMap<this>): void;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitIconCard;

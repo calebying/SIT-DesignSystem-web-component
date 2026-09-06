@@ -20,6 +20,6 @@ export declare class SitSkeleton extends SitElement {
     rows: number;
     /** Adds a sheening animated effect to the skeleton  */
     sheen: boolean;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSkeleton;

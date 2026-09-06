@@ -1,6 +1,6 @@
 ---
 name: "sit-components"
-description: "Complete reference for all Canvas web components including installation and framework integration. Use when users ask about any <sit-*> component — accordion, alert, avatar, badge, breadcrumb, button, card, checkbox, close-button, combo-box, datepicker, description-list, divider, drawer, dropdown, file-upload, footer, icon, icon-button, icon-card, icon-list, image-card, input, link, mainnav, masthead, modal, overflow-menu, pagination, progress-bar, quantity-toggle, radio, select, sidebar, sidenav, skeleton, spinner, stepper, subnav, switch, system-banner, tab, table, table-of-contents, textarea, thumbnail-card, toast, or tooltip. Also covers React 19+, React ≤18, Vue, Angular, and Next.js integration."
+description: "Complete reference for all Canvas web components including installation and framework integration. Use when users ask about any <sit-*> component — accordion, alert, avatar, badge, breadcrumb, button, card, checkbox, close-button, combo-box, datepicker, description-list, divider, drawer, dropdown, file-upload, footer, icon, icon-button, icon-card, icon-list, image-card, input, link, mainnav, masthead, modal, overflow-menu, pagination, popover, progress-bar, quantity-toggle, radio, select, sidebar, sidenav, skeleton, spinner, stepper, subnav, switch, system-banner, tab, table, table-of-contents, textarea, thumbnail-card, toast, or tooltip. Also covers React 19+, React ≤18, Vue, Angular, and Next.js integration."
 metadata:
   author: sit-canvas
   version: "0.0.0"
@@ -213,6 +213,7 @@ When a user reports unexpected component behaviour (wrong event, property not re
 | **Content** | Description List | [→ reference/description-list.md](reference/description-list.md) |
 | **Content** | Icon | [→ reference/icon.md](reference/icon.md) |
 | **Content** | Icon List | [→ reference/icon-list.md](reference/icon-list.md) |
+| **Content** | Popover | [→ reference/popover.md](reference/popover.md) |
 | **Content** | Table | [→ reference/table.md](reference/table.md) |
 | **Content** | Tooltip | [→ reference/tooltip.md](reference/tooltip.md) |
 | **Forms** | Input | [→ reference/input.md](reference/input.md) |

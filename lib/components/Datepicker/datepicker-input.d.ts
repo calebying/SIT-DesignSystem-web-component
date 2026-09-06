@@ -23,6 +23,6 @@ export declare class DatepickerInput extends SitInput {
     destroyInputMask(): void;
     applyInputMask(): Promise<void>;
     focus(): Promise<void>;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default DatepickerInput;

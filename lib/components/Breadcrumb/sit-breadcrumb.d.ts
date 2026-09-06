@@ -25,6 +25,6 @@ export declare class SitBreadcrumb extends SitElement {
      */
     private _replaceExcessItemsWithDropdown;
     private _handleSlotChange;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitBreadcrumb;

@@ -9,6 +9,6 @@ export declare class SitTableHead extends SitElement {
     private _headerBackground;
     connectedCallback(): void;
     _handleHeaderBackground(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitTableHead;

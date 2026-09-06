@@ -1,0 +1,25 @@
+## Hover trigger
+
+Set `trigger="hover"` to open on mouse hover (and keyboard focus) instead of click.
+
+<Canvas of={PopoverStories.HoverTrigger}>
+  <Story of={PopoverStories.HoverTrigger} />
+</Canvas>
+
+## Rich content
+
+Unlike `sit-tooltip`'s text-only `content` prop, `sit-popover`'s `content` slot accepts arbitrary
+HTML — forms, buttons, other components.
+
+<Canvas of={PopoverStories.RichContent}>
+  <Story of={PopoverStories.RichContent} />
+</Canvas>
+
+## Placements
+
+`placement` accepts any Floating UI placement (`top`, `bottom`, `left`, `right`, and their
+`-start`/`-end` variants). The panel automatically flips/shifts to stay in the viewport.
+
+<Canvas of={PopoverStories.Placements}>
+  <Story of={PopoverStories.Placements} />
+</Canvas>
