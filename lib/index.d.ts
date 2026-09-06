@@ -29,6 +29,7 @@ import "./components/Popover";
 import "./components/ProgressBar";
 import "./components/QuantityToggle";
 import "./components/Radio";
+import "./components/SegmentedControl";
 import "./components/Sidenav";
 import "./components/Skeleton";
 import "./components/Spinner";
