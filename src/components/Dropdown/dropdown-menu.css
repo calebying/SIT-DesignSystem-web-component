@@ -15,14 +15,20 @@
   max-height: var(--sit-dimension-480);
   padding: var(--sit-padding-xs) 0;
   position: absolute;
-  text-align: left;
+  /* RTL: "start" is the logical equivalent of "left" -- text aligns to
+     whichever edge is the start of the writing direction. */
+  text-align: start;
   overflow-y: auto;
   z-index: var(--sit-z-index-floating);
 }
 
 .nav-tabs .dropdown-menu {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  /* RTL: border-start-start-radius/border-start-end-radius are the logical
+     equivalents of the top two corners (top-left/top-right in LTR, swapped
+     in RTL) -- both are 0 here so the choice is symmetric either way, kept
+     for consistency with the rest of this file's conversion. */
+  border-start-start-radius: 0;
+  border-start-end-radius: 0;
   margin-top: calc(var(--sit-nav-tabs-border-width) * -1);
 }
 
@@ -61,8 +67,10 @@
 }
 
 .sit.navbar .dropdown-menu.megamenu {
-  left: 0;
-  right: 0;
+  /* RTL: inset-inline is the logical shorthand for "pin both inline edges to
+     this value" -- spanning full-width symmetrically, correct in both
+     directions (was separate left:0/right:0). */
+  inset-inline: 0;
   width: 100%;
 }
 

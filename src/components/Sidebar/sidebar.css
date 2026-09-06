@@ -1,3 +1,12 @@
+/*
+ * RTL: this file's positioning was originally physical (`left`, `border-right`),
+ * which pins the sidebar to the visual left edge even when the page flips to
+ * RTL. Converted to logical properties (`inset-inline-start`,
+ * `border-inline-end`) so this sidebar correctly renders on the trailing/
+ * leading edge per the document's actual writing direction, not always the
+ * physical left. `top`/`bottom` are untouched -- RTL only flips the inline
+ * (horizontal) axis, not the block (vertical) one.
+ */
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -14,7 +23,7 @@
 
 .overlay {
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   top: 0;
 }
 
@@ -44,18 +53,18 @@
   height: 100%;
   padding: var(--sit-padding-lg) 0;
   background-color: var(--sit-surface-default);
-  border-right: var(--sit-border-width-1) solid var(--sit-border-color-muted);
+  border-inline-end: var(--sit-border-width-1) solid var(--sit-border-color-muted);
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .overlay .sidebar-main {
-  left: 0;
-  transition: left var(--sit-motion-duration-standard) var(--sit-motion-easing-standard);
+  inset-inline-start: 0;
+  transition: inset-inline-start var(--sit-motion-duration-standard) var(--sit-motion-easing-standard);
 }
 
 .overlay.sidebar--collapsed .sidebar-main {
-  left: calc(var(--sit-dimension-288) * -1);
+  inset-inline-start: calc(var(--sit-dimension-288) * -1);
 }
 
 .sidebar-wrapper {
@@ -86,11 +95,11 @@ slot[name="lower"]::slotted(*) {
   background-color: var(--sit-surface-raised);
   opacity: 0;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   bottom: 0;
   z-index: 0;
   transition: all var(--sit-motion-duration-standard) var(--sit-motion-easing-standard);
-  transition-property: opacity left;
+  transition-property: opacity inset-inline-start;
   overflow-y: auto;
 }
 
@@ -100,7 +109,7 @@ slot[name="lower"]::slotted(*) {
   width: 100vw;
   top: 0;
   bottom: 0;
-  left: 0;
+  inset-inline-start: 0;
   opacity: 0;
   pointer-events: none;
   background-color: var(--sit-bg-overlay);
@@ -115,12 +124,12 @@ slot[name="lower"]::slotted(*) {
 .sidebar-nested-overlay.show {
   pointer-events: auto;
   opacity: 1;
-  left: var(--sit-dimension-288);
-  border-right: var(--sit-border-width-1) solid var(--sit-border-color-muted);
+  inset-inline-start: var(--sit-dimension-288);
+  border-inline-end: var(--sit-border-width-1) solid var(--sit-border-color-muted);
 }
 
 :not(.overlay).sidebar--collapsed .sidebar-nested-overlay.show {
-  left: var(--sit-dimension-72);
+  inset-inline-start: var(--sit-dimension-72);
 }
 
 .sidebar-nested-overlay sit-icon-button {
@@ -156,11 +165,11 @@ slot[name="lower"]::slotted(*) {
 
   .sidebar-nested-overlay {
     width: var(--sit-dimension-256);
-    left: var(--sit-dimension-256);
+    inset-inline-start: var(--sit-dimension-256);
   }
 
   .sidebar-nested-overlay.show {
-    left: var(--sit-dimension-256);
+    inset-inline-start: var(--sit-dimension-256);
   }
 }
 
@@ -177,15 +186,15 @@ slot[name="lower"]::slotted(*) {
   .sidebar-nested-overlay {
     width: 100dvw;
     z-index: 2;
-    left: -100dvw;
+    inset-inline-start: -100dvw;
   }
 
   .sidebar-nested-overlay.show,
   :not(.overlay).sidebar--collapsed .sidebar-nested-overlay.show {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .overlay.sidebar--collapsed .sidebar-main {
-    left: calc(100dvw * -1);
+    inset-inline-start: calc(100dvw * -1);
   }
 }
