@@ -57,6 +57,6 @@ export declare class SitSidebarSection extends SidebarElement {
      * @returns {void}
      */
     protected _handleClick(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSidebarSection;

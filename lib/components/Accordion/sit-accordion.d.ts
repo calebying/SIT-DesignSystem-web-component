@@ -22,6 +22,6 @@ export declare class SitAccordion extends SitElement {
     private _handleSlotChange;
     private _onToggle;
     private _onKeyboardToggle;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitAccordion;

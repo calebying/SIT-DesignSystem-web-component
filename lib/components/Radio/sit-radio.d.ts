@@ -31,6 +31,6 @@ export declare class SitRadio extends SitElement {
     private handleFocus;
     private addEventListeners;
     private setInitialAttributes;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitRadio;

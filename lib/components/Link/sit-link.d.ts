@@ -21,6 +21,6 @@ export declare class SitLink extends SitElement {
     private _processIcon;
     private _handleSlotChange;
     firstUpdated(changedProperties: PropertyValueMap<this>): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitLink;

@@ -33,7 +33,7 @@ export declare class DatepickerHeader extends SitElement {
     private _ariaLabelForNextBtn;
     private _ariaLabelForPrevBtn;
     private _ariaLabelForHeaderBtn;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default DatepickerHeader;
 export declare const MONTH_LABELS: string[];

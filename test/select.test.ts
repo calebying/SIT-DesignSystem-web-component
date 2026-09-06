@@ -89,6 +89,10 @@ describe("<sit-select>", () => {
                 aria-invalid="false"
                   class="form-control"
                 type="text"
+                role="combobox"
+                aria-expanded="false"
+                aria-controls="id-7895-sit-dropdown-menu-div"
+                aria-haspopup="listbox"
               >
             <sit-icon
               name="chevron-down"
@@ -101,20 +105,22 @@ describe("<sit-select>", () => {
             id="id-7895-sit-dropdown-menu-div"
             part="menu"
             tabindex="-1"
-            role="menu"
+            role="listbox"
             aria-label="Options"
             >
             <slot>
             <sit-select-option
               aria-disabled="false"
-              role="menuitem"
+              aria-selected="false"
+              role="option"
               value="option1"
             >
               Option 1
             </sit-select-option>
             <sit-select-option
               aria-disabled="false"
-              role="menuitem"
+              aria-selected="false"
+              role="option"
               value="option2"
             >
               Option 2

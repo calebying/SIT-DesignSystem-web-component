@@ -41,7 +41,7 @@ export declare class SitCheckboxGroup extends SitCheckboxGroup_base {
     private _blurredCheckboxes;
     connectedCallback(): void;
     firstUpdated(changedProperties: PropertyValueMap<this>): void;
-    protected _renderHintText(): import("lit-html").TemplateResult<1>;
+    protected _renderHintText(): import("lit").TemplateResult<1>;
     private _checkboxes;
     private _addValue;
     private _removeValue;
@@ -77,6 +77,6 @@ export declare class SitCheckboxGroup extends SitCheckboxGroup_base {
      * In order to prevent race conditions and ensure sequence of events, set input's value here instead of binding to value prop of input
      */
     private _updateInputValue;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitCheckboxGroup;

@@ -101,48 +101,6 @@ interface ISitSwitchChangeEventDetail {
 // Component prop interfaces
 // ---------------------------------------------------------------------------
 
-// ── AlertLink ─────────────────────────────────────────────────────────────
-
-export interface SitAlertLinkProps extends SitBaseProps {
-  /** Forwards to href attribute of anchor element */
-  href?: string;
-  /** Tells the browser where to open the link */
-  target?: "_blank" | "_parent" | "_self" | "_top";
-}
-
-// ── Alert ─────────────────────────────────────────────────────────────
-
-export interface SitAlertProps extends SitBaseProps {
-  /** Controls the appearance of the alert */
-  show?: boolean;
-  /** Enables a close button that allows the user to dismiss the alert. */
-  dismissible?: boolean;
-  /** The alert's theme variant. */
-  variant?: "info" | "success" | "danger" | "warning" | "neutral";
-  /** Controls the alert visual between a lighter outline and a solid darker variant. */
-  outlined?: boolean;
-  /** The title of the alert. Only text is allowed */
-  title?: string;
-  "onsit-show"?: SitEventHandler;
-  onSitShow?: SitEventHandler;
-  "onsit-hide"?: SitEventHandler;
-  onSitHide?: SitEventHandler;
-}
-
-// ── BreadcrumbItem ─────────────────────────────────────────────────────────────
-
-export interface SitBreadcrumbItemProps extends SitBaseProps {
-  /** Indicates the link matches the current location of the page. Programmatically handled by SitBreadcrumb to set this prop to true for the last breadcrumb item */
-  active?: boolean;
-}
-
-// ── Breadcrumb ─────────────────────────────────────────────────────────────
-
-export interface SitBreadcrumbProps extends SitBaseProps {
-  /** The aria-label of nav element within breadcrumb component. */
-  ariaLabel?: string;
-}
-
 // ── AccordionItem ─────────────────────────────────────────────────────────────
 
 export interface SitAccordionItemProps extends SitBaseProps {
@@ -175,6 +133,51 @@ export interface SitAccordionProps extends SitBaseProps {
   density?: "default" | "compact" | "spacious";
 }
 
+// ── AlertLink ─────────────────────────────────────────────────────────────
+
+export interface SitAlertLinkProps extends SitBaseProps {
+  /** Forwards to href attribute of anchor element */
+  href?: string;
+  /** Tells the browser where to open the link */
+  target?: "_blank" | "_parent" | "_self" | "_top";
+}
+
+// ── Alert ─────────────────────────────────────────────────────────────
+
+export interface SitAlertProps extends SitBaseProps {
+  /** Controls the appearance of the alert */
+  show?: boolean;
+  /** Enables a close button that allows the user to dismiss the alert. */
+  dismissible?: boolean;
+  /** The alert's theme variant. */
+  variant?: "info" | "success" | "danger" | "warning" | "neutral";
+  /** Controls the alert visual between a lighter outline and a solid darker variant. */
+  outlined?: boolean;
+  /** The title of the alert. Only text is allowed */
+  title?: string;
+  "onsit-show"?: SitEventHandler;
+  onSitShow?: SitEventHandler;
+  "onsit-hide"?: SitEventHandler;
+  onSitHide?: SitEventHandler;
+}
+
+// ── Avatar ─────────────────────────────────────────────────────────────
+
+export interface SitAvatarProps extends SitBaseProps {
+  /** Image URL. Falls back to `initials`, then a generic person icon, if unset or if the image fails to load. */
+  src?: string;
+  /** Accessible alt text for the image. Also used (with `initials`) as the seed for the deterministic fallback-colour hash when `initials` is unset. */
+  alt?: string;
+  /** 1-2 letters shown when there's no image (or the image fails to load). Longer strings are used as-is -- truncate before setting this if needed. */
+  initials?: string;
+  /** Avatar diameter. Matches this library's xs/sm/md/lg/xl size-tier convention (see sit-icon, sit-spinner). */
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  /** Status-dot state. Omit to render no dot at all. */
+  status?: "online" | "away" | "offline" | undefined;
+  "onsit-error"?: SitEventHandler;
+  onSitError?: SitEventHandler;
+}
+
 // ── Badge ─────────────────────────────────────────────────────────────
 
 export interface SitBadgeProps extends SitBaseProps {
@@ -199,6 +202,20 @@ Variants include: `primary`, `accent`, `success`, `danger`, `warning`, `cyan`, `
   onSitAfterShow?: SitEventHandler;
   "onsit-after-hide"?: SitEventHandler;
   onSitAfterHide?: SitEventHandler;
+}
+
+// ── BreadcrumbItem ─────────────────────────────────────────────────────────────
+
+export interface SitBreadcrumbItemProps extends SitBaseProps {
+  /** Indicates the link matches the current location of the page. Programmatically handled by SitBreadcrumb to set this prop to true for the last breadcrumb item */
+  active?: boolean;
+}
+
+// ── Breadcrumb ─────────────────────────────────────────────────────────────
+
+export interface SitBreadcrumbProps extends SitBaseProps {
+  /** The aria-label of nav element within breadcrumb component. */
+  ariaLabel?: string;
 }
 
 // ── Button ─────────────────────────────────────────────────────────────
@@ -255,33 +272,6 @@ value of this attribute must be an id of a form in the same document or shadow r
   onSitBlur?: SitEventHandler;
   "onsit-focus"?: SitEventHandler;
   onSitFocus?: SitEventHandler;
-}
-
-// ── Card ─────────────────────────────────────────────────────────────
-
-export interface SitCardProps extends SitBaseProps {
-  /** Sets the image position of the card. Available options: `before`, `after` */
-  imagePosition?: CardImagePosition;
-  /** Controls how the image is sized and aligned within the card. Available options: `default`, `padding around`, `aspect ratio` */
-  imageAdjustment?: CardImageAdjustment;
-  /** Used only for SSR to indicate the presence of the `image` slot. */
-  hasImageSlot?: boolean;
-  /** Used only for SSR to indicate the presence of the `icon` slot. */
-  hasIconSlot?: boolean;
-  /** Used only for SSR to indicate the presence of the `upper` slot. */
-  hasUpperSlot?: boolean;
-  /** Removes the card's internal padding when set to true. */
-  noPadding?: boolean;
-  /** Extends the link passed in either `footer` or `link`(deprecated) slot. */
-  stretchedLink?: boolean;
-  /** Disables the card */
-  disabled?: boolean;
-  /** When true, hides the default border of the card. */
-  hideBorder?: boolean;
-  /** When true, applies a tinted background color to the card. */
-  tinted?: boolean;
-  /** Sets the orientation of the card. Available options: `vertical`, `horizontal` */
-  orientation?: CardOrientation;
 }
 
 // ── CheckboxGroup ─────────────────────────────────────────────────────────────
@@ -366,6 +356,33 @@ export interface SitCheckboxProps extends SitBaseProps {
   onSitValid?: SitEventHandler;
 }
 
+// ── Card ─────────────────────────────────────────────────────────────
+
+export interface SitCardProps extends SitBaseProps {
+  /** Sets the image position of the card. Available options: `before`, `after` */
+  imagePosition?: CardImagePosition;
+  /** Controls how the image is sized and aligned within the card. Available options: `default`, `padding around`, `aspect ratio` */
+  imageAdjustment?: CardImageAdjustment;
+  /** Used only for SSR to indicate the presence of the `image` slot. */
+  hasImageSlot?: boolean;
+  /** Used only for SSR to indicate the presence of the `icon` slot. */
+  hasIconSlot?: boolean;
+  /** Used only for SSR to indicate the presence of the `upper` slot. */
+  hasUpperSlot?: boolean;
+  /** Removes the card's internal padding when set to true. */
+  noPadding?: boolean;
+  /** Extends the link passed in either `footer` or `link`(deprecated) slot. */
+  stretchedLink?: boolean;
+  /** Disables the card */
+  disabled?: boolean;
+  /** When true, hides the default border of the card. */
+  hideBorder?: boolean;
+  /** When true, applies a tinted background color to the card. */
+  tinted?: boolean;
+  /** Sets the orientation of the card. Available options: `vertical`, `horizontal` */
+  orientation?: CardOrientation;
+}
+
 // ── CloseButton ─────────────────────────────────────────────────────────────
 
 export interface SitCloseButtonProps extends SitBaseProps {
@@ -375,98 +392,6 @@ export interface SitCloseButtonProps extends SitBaseProps {
   tone?: "default" | "fixed-dark" | "fixed-light";
   /** Disables the close button, preventing click events */
   disabled?: boolean;
-}
-
-// ── DescriptionListGroup ─────────────────────────────────────────────────────────────
-
-export interface SitDescriptionListGroupProps extends SitBaseProps {
-  /** When true, adds a border around the entire group. */
-  bordered?: boolean;
-  /** When true, the description lists are displayed in a stacked layout. */
-  stacked?: boolean;
-  /** Used only for SSR to indicate the presence of the `title` slot. */
-  hasTitleSlot?: boolean;
-  /** Used only for SSR to indicate the presence of the `description` slot. */
-  hasDescriptionSlot?: boolean;
-}
-
-// ── DescriptionList ─────────────────────────────────────────────────────────────
-
-export interface SitDescriptionListProps extends SitBaseProps {
-  /** Makes the label and the data stacked */
-  stacked?: boolean;
-  /** Changes the border bottom styles for bordered description list group */
-  bordered?: boolean;
-}
-
-// ── Datepicker ─────────────────────────────────────────────────────────────
-
-export interface SitDatepickerProps extends SitBaseProps {
-  /** When true, adds required attribute to input element */
-  required?: boolean;
-  /** The datepicker input's name attribute */
-  name?: string;
-  /** When true, adds disabled attribute to input and button element */
-  disabled?: boolean;
-  /** Disables native and sit validation for the datepicker. */
-  noValidate?: boolean;
-  /** Sets the initial value of the datepicker. Replaces deprecated `initialValue`.
-Pass in dates in this format `dd/mm/yyyy` for single mode and  `dd/mm/yyyy - dd/mm/yyyy` for range mode
-For example, `value="22/12/2023"` for single mode or `value="22/12/2023 - 25/12/2023"` for range mode */
-  value?: string;
-  /** Deprecated since v3.3.0 in favour of `value`.
-The initial value of DatePicker on first load for single &
-range mode as array of string. eg.'["22/12/2023"]' for single &
-'["22/12/2023","25/12/2023"]' for range respectively @deprecated */
-  initialValue?: string[];
-  /** ISO date string to set the lowest allowable date value. e.g. "2016-05-19T12:00:00.000Z" */
-  minDate?: string;
-  /** ISO date string to set the highest allowable date value. e.g. "2016-05-19T12:00:00.000Z" */
-  maxDate?: string;
-  /** Changes DatePicker to single date selection or range date selection */
-  mode?: "single" | "range";
-  /** Feedback text for error state when date input is invalid */
-  invalidFeedback?: string;
-  /** Allows invalidFeedback and invalid styles to be visible with the input */
-  hasFeedback?: boolean;
-  /** The datepicker input's label */
-  label?: string;
-  /** The datepicker input's hint text below the label */
-  hintText?: string;
-  /** Controls auto-flipping of menu */
-  noFlip?: boolean;
-  /** The drop position of menu relative to the toggle button */
-  drop?: "up" | "down";
-  /** Provides the date context for Calendar to present the appropriate view. Defaults to today's date */
-  displayDate?: Date;
-  /** Gets or sets the default value used to reset this element. The initial value corresponds to the one originally specified in the HTML that created this element. */
-  defaultValue?: string;
-  /** Marks the component as invalid. Replace the pseudo :invalid selector. */
-  invalid?: boolean;
-  /** Returns the ValidityState object */
-  validity?: ValidityState;
-  /** Returns the validation message based on the ValidityState */
-  validationMessage?: unknown;
-  /** Additional configuration to pass to Floating UI. */
-  floatingOpts?: { placement?: Placement; middleware?: Array<Middleware> };
-  /** When true, dropdown menu shows on first load */
-  menuIsOpen?: boolean;
-  /** Makes the input readonly. */
-  readonly?: boolean;
-  "onsit-change-date"?: SitEventHandler;
-  onSitChangeDate?: SitEventHandler;
-  "onsit-invalid"?: SitEventHandler;
-  onSitInvalid?: SitEventHandler;
-  "onsit-valid"?: SitEventHandler;
-  onSitValid?: SitEventHandler;
-  "onsit-show"?: SitEventHandler;
-  onSitShow?: SitEventHandler;
-  "onsit-after-show"?: SitEventHandler;
-  onSitAfterShow?: SitEventHandler;
-  "onsit-hide"?: SitEventHandler;
-  onSitHide?: SitEventHandler;
-  "onsit-after-hide"?: SitEventHandler;
-  onSitAfterHide?: SitEventHandler;
 }
 
 // ── ComboBoxOption ─────────────────────────────────────────────────────────────
@@ -569,15 +494,6 @@ value: string;
   onSitAfterHide?: SitEventHandler;
 }
 
-// ── Divider ─────────────────────────────────────────────────────────────
-
-export interface SitDividerProps extends SitBaseProps {
-  /** Sets the orientation of divider to vertical. Defaults to horizontal */
-  orientation?: "horizontal" | "vertical";
-  /** Sets the orientation of divider to vertical. Defaults to false */
-  thickness?: "thin" | "thick" | "thicker";
-}
-
 // ── Drawer ─────────────────────────────────────────────────────────────
 
 export interface SitDrawerProps extends SitBaseProps {
@@ -608,6 +524,107 @@ its parent element, set this attribute and add `position: relative` to the paren
   onSitInitialFocus?: SitEventHandler;
   "onsit-request-close"?: SitEventHandler;
   onSitRequestClose?: SitEventHandler;
+}
+
+// ── Datepicker ─────────────────────────────────────────────────────────────
+
+export interface SitDatepickerProps extends SitBaseProps {
+  /** When true, adds required attribute to input element */
+  required?: boolean;
+  /** The datepicker input's name attribute */
+  name?: string;
+  /** When true, adds disabled attribute to input and button element */
+  disabled?: boolean;
+  /** Disables native and sit validation for the datepicker. */
+  noValidate?: boolean;
+  /** Sets the initial value of the datepicker. Replaces deprecated `initialValue`.
+Pass in dates in this format `dd/mm/yyyy` for single mode and  `dd/mm/yyyy - dd/mm/yyyy` for range mode
+For example, `value="22/12/2023"` for single mode or `value="22/12/2023 - 25/12/2023"` for range mode */
+  value?: string;
+  /** Deprecated since v3.3.0 in favour of `value`.
+The initial value of DatePicker on first load for single &
+range mode as array of string. eg.'["22/12/2023"]' for single &
+'["22/12/2023","25/12/2023"]' for range respectively @deprecated */
+  initialValue?: string[];
+  /** ISO date string to set the lowest allowable date value. e.g. "2016-05-19T12:00:00.000Z" */
+  minDate?: string;
+  /** ISO date string to set the highest allowable date value. e.g. "2016-05-19T12:00:00.000Z" */
+  maxDate?: string;
+  /** Changes DatePicker to single date selection or range date selection */
+  mode?: "single" | "range";
+  /** Feedback text for error state when date input is invalid */
+  invalidFeedback?: string;
+  /** Allows invalidFeedback and invalid styles to be visible with the input */
+  hasFeedback?: boolean;
+  /** The datepicker input's label */
+  label?: string;
+  /** The datepicker input's hint text below the label */
+  hintText?: string;
+  /** Controls auto-flipping of menu */
+  noFlip?: boolean;
+  /** The drop position of menu relative to the toggle button */
+  drop?: "up" | "down";
+  /** Provides the date context for Calendar to present the appropriate view. Defaults to today's date */
+  displayDate?: Date;
+  /** Gets or sets the default value used to reset this element. The initial value corresponds to the one originally specified in the HTML that created this element. */
+  defaultValue?: string;
+  /** Marks the component as invalid. Replace the pseudo :invalid selector. */
+  invalid?: boolean;
+  /** Returns the ValidityState object */
+  validity?: ValidityState;
+  /** Returns the validation message based on the ValidityState */
+  validationMessage?: unknown;
+  /** Additional configuration to pass to Floating UI. */
+  floatingOpts?: { placement?: Placement; middleware?: Array<Middleware> };
+  /** When true, dropdown menu shows on first load */
+  menuIsOpen?: boolean;
+  /** Makes the input readonly. */
+  readonly?: boolean;
+  "onsit-change-date"?: SitEventHandler;
+  onSitChangeDate?: SitEventHandler;
+  "onsit-invalid"?: SitEventHandler;
+  onSitInvalid?: SitEventHandler;
+  "onsit-valid"?: SitEventHandler;
+  onSitValid?: SitEventHandler;
+  "onsit-show"?: SitEventHandler;
+  onSitShow?: SitEventHandler;
+  "onsit-after-show"?: SitEventHandler;
+  onSitAfterShow?: SitEventHandler;
+  "onsit-hide"?: SitEventHandler;
+  onSitHide?: SitEventHandler;
+  "onsit-after-hide"?: SitEventHandler;
+  onSitAfterHide?: SitEventHandler;
+}
+
+// ── Divider ─────────────────────────────────────────────────────────────
+
+export interface SitDividerProps extends SitBaseProps {
+  /** Sets the orientation of divider to vertical. Defaults to horizontal */
+  orientation?: "horizontal" | "vertical";
+  /** Sets the orientation of divider to vertical. Defaults to false */
+  thickness?: "thin" | "thick" | "thicker";
+}
+
+// ── DescriptionListGroup ─────────────────────────────────────────────────────────────
+
+export interface SitDescriptionListGroupProps extends SitBaseProps {
+  /** When true, adds a border around the entire group. */
+  bordered?: boolean;
+  /** When true, the description lists are displayed in a stacked layout. */
+  stacked?: boolean;
+  /** Used only for SSR to indicate the presence of the `title` slot. */
+  hasTitleSlot?: boolean;
+  /** Used only for SSR to indicate the presence of the `description` slot. */
+  hasDescriptionSlot?: boolean;
+}
+
+// ── DescriptionList ─────────────────────────────────────────────────────────────
+
+export interface SitDescriptionListProps extends SitBaseProps {
+  /** Makes the label and the data stacked */
+  stacked?: boolean;
+  /** Changes the border bottom styles for bordered description list group */
+  bordered?: boolean;
 }
 
 // ── DropdownItem ─────────────────────────────────────────────────────────────
@@ -734,43 +751,6 @@ export interface SitFooterProps extends SitBaseProps {
   hasItemsSlot?: boolean;
 }
 
-// ── IconCard ─────────────────────────────────────────────────────────────
-
-export interface SitIconCardProps extends SitBaseProps {
-  /** Removes the card's internal padding when set to true. */
-  noPadding?: boolean;
-  /** Extends the link passed in either `footer` or `link`(deprecated) slot. */
-  stretchedLink?: boolean;
-  /** Disables the card */
-  disabled?: boolean;
-  /** When true, hides the default border of the card. */
-  hideBorder?: boolean;
-  /** When true, applies a tinted background color to the card. */
-  tinted?: boolean;
-  /** Sets the orientation of the card. Available options: `vertical`, `horizontal` */
-  orientation?: CardOrientation;
-}
-
-// ── Icon ─────────────────────────────────────────────────────────────
-
-export interface SitIconProps extends SitBaseProps {
-  /** The name of the icon from sit icon library */
-  name?: string;
-  /** Specifies a small, medium or large icon, the size is medium by default. */
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2-xl" | "3-xl";
-  /** An accessible label for the icon. When set, the SVG is treated as informative. When omitted, the SVG is marked as decorative with aria-hidden="true". */
-  ariaLabel?: string;
-}
-
-// ── IconList ─────────────────────────────────────────────────────────────
-
-export interface SitIconListProps extends SitBaseProps {
-  /** Sets the aria-role of the sit-icon-list */
-  role?: string;
-  /** The size of icon list. Changes the font-size the list items */
-  size?: "sm" | "md" | "lg";
-}
-
 // ── IconButton ─────────────────────────────────────────────────────────────
 
 export interface SitIconButtonProps extends SitBaseProps {
@@ -802,60 +782,32 @@ export interface SitIconButtonProps extends SitBaseProps {
   onSitFocus?: SitEventHandler;
 }
 
-// ── MainnavDropdown ─────────────────────────────────────────────────────────────
+// ── IconCard ─────────────────────────────────────────────────────────────
 
-export interface SitMainnavDropdownProps extends SitBaseProps {
-  /** When true,  applies active styles on the dropdown button */
-  active?: boolean;
-  /** When true,  applies active styles on the dropdown button */
+export interface SitIconCardProps extends SitBaseProps {
+  /** Removes the card's internal padding when set to true. */
+  noPadding?: boolean;
+  /** Extends the link passed in either `footer` or `link`(deprecated) slot. */
+  stretchedLink?: boolean;
+  /** Disables the card */
   disabled?: boolean;
-  /** Accessible label for the dropdown's toggle button. Forwarded to the button's aria-label attribute. */
+  /** When true, hides the default border of the card. */
+  hideBorder?: boolean;
+  /** When true, applies a tinted background color to the card. */
+  tinted?: boolean;
+  /** Sets the orientation of the card. Available options: `vertical`, `horizontal` */
+  orientation?: CardOrientation;
+}
+
+// ── Icon ─────────────────────────────────────────────────────────────
+
+export interface SitIconProps extends SitBaseProps {
+  /** The name of the icon from sit icon library */
+  name?: string;
+  /** Specifies a small, medium or large icon, the size is medium by default. */
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2-xl" | "3-xl";
+  /** An accessible label for the icon. When set, the SVG is treated as informative. When omitted, the SVG is marked as decorative with aria-hidden="true". */
   ariaLabel?: string;
-}
-
-// ── MainnavItem ─────────────────────────────────────────────────────────────
-
-export interface SitMainnavItemProps extends SitBaseProps {
-  /** when true, sets the active stylings of the navigation item */
-  active?: boolean;
-  /** Disables the SitMainnavItem */
-  disabled?: boolean;
-}
-
-// ── Mainnav ─────────────────────────────────────────────────────────────
-
-export interface SitMainnavProps extends SitBaseProps {
-  /** Used only for SSR to indicate the presence of the `non-collapsible` slot. */
-  hasNonCollapsibleSlot?: boolean;
-  /** The href link for brand logo */
-  brandHref?: string;
-  /** The breakpoint, below which, the Navbar will collapse. When always the Navbar will always be expanded regardless of screen size. When never, the Navbar will always be collapsed */
-  expand?: "sm" | "md" | "lg" | "xl" | "xxl" | "always" | "never";
-  /** When true, removes max-width constraint to allow content to stretch full screen width */
-  fluid?: boolean;
-  "onsit-show"?: SitEventHandler;
-  onSitShow?: SitEventHandler;
-  "onsit-after-show"?: SitEventHandler;
-  onSitAfterShow?: SitEventHandler;
-  "onsit-hide"?: SitEventHandler;
-  onSitHide?: SitEventHandler;
-  "onsit-after-hide"?: SitEventHandler;
-  onSitAfterHide?: SitEventHandler;
-}
-
-// ── Link ─────────────────────────────────────────────────────────────
-
-export interface SitLinkProps extends SitBaseProps {
-  /** Determines the size of the link */
-  size?: "xs" | "sm" | "md" | "lg";
-  /** Sets the colour of the link @deprecated since 3.6.0 */
-  variant?: "primary" | "danger" | "neutral" | "light" | "dark";
-  /** Sets the colour of the link, replaces variant prop */
-  tone?: "primary" | "danger" | "neutral" | "fixed-light" | "fixed-dark";
-  /** When true, sets the active stylings of the link */
-  active?: boolean;
-  /** Disables the link */
-  disabled?: boolean;
 }
 
 // ── ImageCard ─────────────────────────────────────────────────────────────
@@ -960,6 +912,78 @@ implied, allowing any numeric value. Only applies to number input types. */
   onSitValid?: SitEventHandler;
 }
 
+// ── IconList ─────────────────────────────────────────────────────────────
+
+export interface SitIconListProps extends SitBaseProps {
+  /** Sets the aria-role of the sit-icon-list */
+  role?: string;
+  /** The size of icon list. Changes the font-size the list items */
+  size?: "sm" | "md" | "lg";
+}
+
+// ── Link ─────────────────────────────────────────────────────────────
+
+export interface SitLinkProps extends SitBaseProps {
+  /** Determines the size of the link */
+  size?: "xs" | "sm" | "md" | "lg";
+  /** Sets the colour of the link @deprecated since 3.6.0 */
+  variant?: "primary" | "danger" | "neutral" | "light" | "dark";
+  /** Sets the colour of the link, replaces variant prop */
+  tone?: "primary" | "danger" | "neutral" | "fixed-light" | "fixed-dark";
+  /** When true, sets the active stylings of the link */
+  active?: boolean;
+  /** Disables the link */
+  disabled?: boolean;
+}
+
+// ── MainnavDropdown ─────────────────────────────────────────────────────────────
+
+export interface SitMainnavDropdownProps extends SitBaseProps {
+  /** When true,  applies active styles on the dropdown button */
+  active?: boolean;
+  /** When true,  applies active styles on the dropdown button */
+  disabled?: boolean;
+  /** Accessible label for the dropdown's toggle button. Forwarded to the button's aria-label attribute. */
+  ariaLabel?: string;
+}
+
+// ── MainnavItem ─────────────────────────────────────────────────────────────
+
+export interface SitMainnavItemProps extends SitBaseProps {
+  /** when true, sets the active stylings of the navigation item */
+  active?: boolean;
+  /** Disables the SitMainnavItem */
+  disabled?: boolean;
+}
+
+// ── Mainnav ─────────────────────────────────────────────────────────────
+
+export interface SitMainnavProps extends SitBaseProps {
+  /** Used only for SSR to indicate the presence of the `non-collapsible` slot. */
+  hasNonCollapsibleSlot?: boolean;
+  /** The href link for brand logo */
+  brandHref?: string;
+  /** The breakpoint, below which, the Navbar will collapse. When always the Navbar will always be expanded regardless of screen size. When never, the Navbar will always be collapsed */
+  expand?: "sm" | "md" | "lg" | "xl" | "xxl" | "always" | "never";
+  /** When true, removes max-width constraint to allow content to stretch full screen width */
+  fluid?: boolean;
+  "onsit-show"?: SitEventHandler;
+  onSitShow?: SitEventHandler;
+  "onsit-after-show"?: SitEventHandler;
+  onSitAfterShow?: SitEventHandler;
+  "onsit-hide"?: SitEventHandler;
+  onSitHide?: SitEventHandler;
+  "onsit-after-hide"?: SitEventHandler;
+  onSitAfterHide?: SitEventHandler;
+}
+
+// ── Masthead ─────────────────────────────────────────────────────────────
+
+export interface SitMastheadProps extends SitBaseProps {
+  /** When true, removes max-width constraint to allow content to stretch full screen width */
+  fluid?: boolean;
+}
+
 // ── OverflowMenu ─────────────────────────────────────────────────────────────
 
 export interface SitOverflowMenuProps extends SitBaseProps {
@@ -992,13 +1016,6 @@ export interface SitModalProps extends SitBaseProps {
   onSitAfterHide?: SitEventHandler;
 }
 
-// ── Masthead ─────────────────────────────────────────────────────────────
-
-export interface SitMastheadProps extends SitBaseProps {
-  /** When true, removes max-width constraint to allow content to stretch full screen width */
-  fluid?: boolean;
-}
-
 // ── Pagination ─────────────────────────────────────────────────────────────
 
 export interface SitPaginationProps extends SitBaseProps {
@@ -1018,26 +1035,34 @@ export interface SitPaginationProps extends SitBaseProps {
   onSitPageChange?: (event: CustomEvent<ISitPaginationPageChangeEventDetail>) => void;
 }
 
-// ── ProgressBar ─────────────────────────────────────────────────────────────
+// ── Popover ─────────────────────────────────────────────────────────────
 
-export interface SitProgressBarProps extends SitBaseProps {
-  /** The background color of the progress bar. Available options: `primary`, `neutral` */
-  variant?: "primary" | "neutral";
-  /** The current progress as a percentage, from 0 to 100. */
-  value?: number;
-  /** Sets the minimun aria range for assistive devices.
-
-The aria-valuemin attribute defines the minimun allowed value for a range widget. */
-  ariamin?: number;
-  /** Sets the maximum aria range for assistive devices.
-
-The aria-valuemax attribute defines the maximum allowed value for a range widget. */
-  ariamax?: number;
-  /** Sets the aria label for assistive devices. */
+export interface SitPopoverProps extends SitBaseProps {
+  /** How the popover opens: on trigger click, or on trigger hover (mouseenter/mouseleave). */
+  trigger?: "click" | "hover";
+  /** Placement relative to the trigger. Inherited from FloatingElement; re-declared here only for its own default. */
+  placement?: Placement;
+  /** Prevents the popover from opening. */
+  disabled?: boolean;
+  /** Whether the popover is open. Reflects, so it can be read/set like `sit-modal`'s `open`. */
+  open?: boolean;
+  /** Accessible name for the panel (role="dialog" requires one -- axe-core's
+aria-dialog-name rule caught this as a real violation when the panel had
+none). Defaults to a generic but valid label rather than shipping an
+accessibility violation out of the box; override with something specific
+(e.g. "Account menu") whenever the trigger's own visible text doesn't
+already make the panel's purpose obvious. */
   ariaLabel?: string;
-  arialabel?: string;
-  /** Add label on top of progress bar */
-  label?: string;
+  /** Additional configuration to pass to Floating UI, merged over this base's defaults. */
+  floatingOpts?: { placement?: Placement; middleware?: Array<Middleware> };
+  "onsit-show"?: SitEventHandler;
+  onSitShow?: SitEventHandler;
+  "onsit-after-show"?: SitEventHandler;
+  onSitAfterShow?: SitEventHandler;
+  "onsit-hide"?: SitEventHandler;
+  onSitHide?: SitEventHandler;
+  "onsit-after-hide"?: SitEventHandler;
+  onSitAfterHide?: SitEventHandler;
 }
 
 // ── QuantityToggle ─────────────────────────────────────────────────────────────
@@ -1077,6 +1102,28 @@ export interface SitQuantityToggleProps extends SitBaseProps {
   onSitChange?: SitEventHandler;
   "onsit-input"?: SitEventHandler;
   onSitInput?: SitEventHandler;
+}
+
+// ── ProgressBar ─────────────────────────────────────────────────────────────
+
+export interface SitProgressBarProps extends SitBaseProps {
+  /** The background color of the progress bar. Available options: `primary`, `neutral` */
+  variant?: "primary" | "neutral";
+  /** The current progress as a percentage, from 0 to 100. */
+  value?: number;
+  /** Sets the minimun aria range for assistive devices.
+
+The aria-valuemin attribute defines the minimun allowed value for a range widget. */
+  ariamin?: number;
+  /** Sets the maximum aria range for assistive devices.
+
+The aria-valuemax attribute defines the maximum allowed value for a range widget. */
+  ariamax?: number;
+  /** Sets the aria label for assistive devices. */
+  ariaLabel?: string;
+  arialabel?: string;
+  /** Add label on top of progress bar */
+  label?: string;
 }
 
 // ── RadioGroup ─────────────────────────────────────────────────────────────
@@ -1133,123 +1180,6 @@ export interface SitRadioProps extends SitBaseProps {
   onSitFocus?: SitEventHandler;
   "onsit-blur"?: SitEventHandler;
   onSitBlur?: SitEventHandler;
-}
-
-// ── SidenavItem ─────────────────────────────────────────────────────────────
-
-export interface SitSidenavItemProps extends SitBaseProps {
-  body?: HTMLElement;
-  /** when true, toggles the sidenav-item to open on first load and set the active stylings. */
-  active?: boolean;
-  /** Disables the SitSidenavItem */
-  disabled?: boolean;
-  /** Accessible label for the sidenav item's menu button. Forwarded to the button's aria-label attribute. */
-  ariaLabel?: string;
-  "onsit-toggle"?: SitEventHandler;
-  onSitToggle?: SitEventHandler;
-  "onsit-show"?: SitEventHandler;
-  onSitShow?: SitEventHandler;
-  "onsit-after-show"?: SitEventHandler;
-  onSitAfterShow?: SitEventHandler;
-  "onsit-hide"?: SitEventHandler;
-  onSitHide?: SitEventHandler;
-  "onsit-after-hide"?: SitEventHandler;
-  onSitAfterHide?: SitEventHandler;
-}
-
-// ── SidenavLink ─────────────────────────────────────────────────────────────
-
-export interface SitSidenavLinkProps extends SitBaseProps {
-  /** when true, sets the active stylings of .nav-link */
-  active?: boolean;
-  /** Disables the SitMainnavItem */
-  disabled?: boolean;
-}
-
-// ── Sidenav ─────────────────────────────────────────────────────────────
-
-export interface SitSidenavProps extends SitBaseProps {
-  /** Apply position sticky to the sidenav */
-  sticky?: boolean;
-}
-
-// ── SidebarGroup ─────────────────────────────────────────────────────────────
-
-export interface SitSidebarGroupProps extends SitBaseProps {
-  /** Reports the visibility state of the submenu for nested groups.
-Returns true when the submenu is displayed showing child items, false when hidden.
-Only applicable for nested groups (level 2+). Root-level groups use drawer overlay instead. */
-  showMenu?: boolean;
-  /** The display title/label for the sidebar element.
-Shown in the UI and used for accessibility labels (aria-label). */
-  title?: string;
-  /** The unique name identifier for the sidebar element.
-Used to identify selections in sit-select events and manage active states.
-Should be unique among siblings in the same navigation level. */
-  name?: string;
-}
-
-// ── SidebarItem ─────────────────────────────────────────────────────────────
-
-export interface SitSidebarItemProps extends SitBaseProps {
-  /** The display title/label for the sidebar element.
-Shown in the UI and used for accessibility labels (aria-label). */
-  title?: string;
-  /** The unique name identifier for the sidebar element.
-Used to identify selections in sit-select events and manage active states.
-Should be unique among siblings in the same navigation level. */
-  name?: string;
-}
-
-// ── SidebarSection ─────────────────────────────────────────────────────────────
-
-export interface SitSidebarSectionProps extends SitBaseProps {
-  /** The display title/label for the sidebar section header.
-Always visible in the sidebar, used to group related items. */
-  title?: string;
-  /** Controls whether the section content is expanded or collapsed.
-When true, the section content is hidden but the section header remains visible.
-Only applicable when the section is collapsible. */
-  collapsed?: boolean;
-  /** Enables a collapsible section header with expand/collapse toggle functionality.
-When true, users can click the header to toggle section visibility.
-When false, the section header is display-only and not interactive. */
-  collapsible?: boolean;
-  /** When true, renders a divider below the section content to visually separate it from the next section. */
-  separator?: boolean;
-  /** The unique name identifier for the sidebar element.
-Used to identify selections in sit-select events and manage active states.
-Should be unique among siblings in the same navigation level. */
-  name?: string;
-}
-
-// ── Sidebar ─────────────────────────────────────────────────────────────
-
-export interface SitSidebarProps extends SitBaseProps {
-  /** Controls whether the sidebar is collapsed or expanded to save screen space.
-When true, sidebar displays icon-only mode for root items. When false, full labels and content are shown.
-On mobile devices (width <= 576px), this is automatically toggled based on screen size.
-Collapsing propagates to child items, affecting label visibility and spacing. */
-  collapsed?: boolean;
-  /** The name of the currently active sidebar item or group for programmatic control.
-Setting this property programmatically selects the item with the matching `name` attribute.
-Automatically expands parent groups to reveal nested items and syncs the active state throughout the hierarchy.
-Clearing this property (setting to empty string) deselects all items. */
-  active?: string;
-  /** Shows a scrim/overlay background behind the drawer or sidebar in overlay mode.
-When true, displays a semi-transparent dark overlay behind the drawer to focus user attention.
-Only visible when drawer is open or in overlay mode with sidebar not collapsed. */
-  scrim?: boolean;
-  /** Controls the sidebar's collapse behaviour.
-- `"collapsible"` (default): shows a toggle button that collapses/expands the sidebar.
-- `"persistent"`: sidebar is always visible and cannot be collapsed.
-- `"overlay"`: sidebar slides over the content as a drawer on smaller viewports. */
-  variant?: "collapsible" | "persistent" | "overlay";
-  /** Accessible label for the sidebar navigation landmark.
-Passed to the `<nav>` element's `aria-label` attribute so screen readers can distinguish
-this sidebar from other navigation regions on the page (e.g. a top mainnav).
-Override when your page uses a more specific term (e.g. `"Dashboard navigation"`). */
-  ariaLabel?: string;
 }
 
 // ── SelectOption ─────────────────────────────────────────────────────────────
@@ -1334,6 +1264,123 @@ value: string;
   onSitAfterHide?: SitEventHandler;
 }
 
+// ── SidebarGroup ─────────────────────────────────────────────────────────────
+
+export interface SitSidebarGroupProps extends SitBaseProps {
+  /** Reports the visibility state of the submenu for nested groups.
+Returns true when the submenu is displayed showing child items, false when hidden.
+Only applicable for nested groups (level 2+). Root-level groups use drawer overlay instead. */
+  showMenu?: boolean;
+  /** The display title/label for the sidebar element.
+Shown in the UI and used for accessibility labels (aria-label). */
+  title?: string;
+  /** The unique name identifier for the sidebar element.
+Used to identify selections in sit-select events and manage active states.
+Should be unique among siblings in the same navigation level. */
+  name?: string;
+}
+
+// ── SidebarItem ─────────────────────────────────────────────────────────────
+
+export interface SitSidebarItemProps extends SitBaseProps {
+  /** The display title/label for the sidebar element.
+Shown in the UI and used for accessibility labels (aria-label). */
+  title?: string;
+  /** The unique name identifier for the sidebar element.
+Used to identify selections in sit-select events and manage active states.
+Should be unique among siblings in the same navigation level. */
+  name?: string;
+}
+
+// ── SidebarSection ─────────────────────────────────────────────────────────────
+
+export interface SitSidebarSectionProps extends SitBaseProps {
+  /** The display title/label for the sidebar section header.
+Always visible in the sidebar, used to group related items. */
+  title?: string;
+  /** Controls whether the section content is expanded or collapsed.
+When true, the section content is hidden but the section header remains visible.
+Only applicable when the section is collapsible. */
+  collapsed?: boolean;
+  /** Enables a collapsible section header with expand/collapse toggle functionality.
+When true, users can click the header to toggle section visibility.
+When false, the section header is display-only and not interactive. */
+  collapsible?: boolean;
+  /** When true, renders a divider below the section content to visually separate it from the next section. */
+  separator?: boolean;
+  /** The unique name identifier for the sidebar element.
+Used to identify selections in sit-select events and manage active states.
+Should be unique among siblings in the same navigation level. */
+  name?: string;
+}
+
+// ── Sidebar ─────────────────────────────────────────────────────────────
+
+export interface SitSidebarProps extends SitBaseProps {
+  /** Controls whether the sidebar is collapsed or expanded to save screen space.
+When true, sidebar displays icon-only mode for root items. When false, full labels and content are shown.
+On mobile devices (width <= 576px), this is automatically toggled based on screen size.
+Collapsing propagates to child items, affecting label visibility and spacing. */
+  collapsed?: boolean;
+  /** The name of the currently active sidebar item or group for programmatic control.
+Setting this property programmatically selects the item with the matching `name` attribute.
+Automatically expands parent groups to reveal nested items and syncs the active state throughout the hierarchy.
+Clearing this property (setting to empty string) deselects all items. */
+  active?: string;
+  /** Shows a scrim/overlay background behind the drawer or sidebar in overlay mode.
+When true, displays a semi-transparent dark overlay behind the drawer to focus user attention.
+Only visible when drawer is open or in overlay mode with sidebar not collapsed. */
+  scrim?: boolean;
+  /** Controls the sidebar's collapse behaviour.
+- `"collapsible"` (default): shows a toggle button that collapses/expands the sidebar.
+- `"persistent"`: sidebar is always visible and cannot be collapsed.
+- `"overlay"`: sidebar slides over the content as a drawer on smaller viewports. */
+  variant?: "collapsible" | "persistent" | "overlay";
+  /** Accessible label for the sidebar navigation landmark.
+Passed to the `<nav>` element's `aria-label` attribute so screen readers can distinguish
+this sidebar from other navigation regions on the page (e.g. a top mainnav).
+Override when your page uses a more specific term (e.g. `"Dashboard navigation"`). */
+  ariaLabel?: string;
+}
+
+// ── SidenavItem ─────────────────────────────────────────────────────────────
+
+export interface SitSidenavItemProps extends SitBaseProps {
+  body?: HTMLElement;
+  /** when true, toggles the sidenav-item to open on first load and set the active stylings. */
+  active?: boolean;
+  /** Disables the SitSidenavItem */
+  disabled?: boolean;
+  /** Accessible label for the sidenav item's menu button. Forwarded to the button's aria-label attribute. */
+  ariaLabel?: string;
+  "onsit-toggle"?: SitEventHandler;
+  onSitToggle?: SitEventHandler;
+  "onsit-show"?: SitEventHandler;
+  onSitShow?: SitEventHandler;
+  "onsit-after-show"?: SitEventHandler;
+  onSitAfterShow?: SitEventHandler;
+  "onsit-hide"?: SitEventHandler;
+  onSitHide?: SitEventHandler;
+  "onsit-after-hide"?: SitEventHandler;
+  onSitAfterHide?: SitEventHandler;
+}
+
+// ── SidenavLink ─────────────────────────────────────────────────────────────
+
+export interface SitSidenavLinkProps extends SitBaseProps {
+  /** when true, sets the active stylings of .nav-link */
+  active?: boolean;
+  /** Disables the SitMainnavItem */
+  disabled?: boolean;
+}
+
+// ── Sidenav ─────────────────────────────────────────────────────────────
+
+export interface SitSidenavProps extends SitBaseProps {
+  /** Apply position sticky to the sidenav */
+  sticky?: boolean;
+}
+
 // ── Skeleton ─────────────────────────────────────────────────────────────
 
 export interface SitSkeletonProps extends SitBaseProps {
@@ -1350,45 +1397,6 @@ taking into account that there is a gap set by root css variable `--sit-gap-xs` 
   rows?: number;
   /** Adds a sheening animated effect to the skeleton */
   sheen?: boolean;
-}
-
-// ── Spinner ─────────────────────────────────────────────────────────────
-
-export interface SitSpinnerProps extends SitBaseProps {
-  /** The variant of spinner. Deprecated in favor of `tone` @deprecated */
-  variant?: "primary" | "neutral";
-  /** The color tones of spinner, replaces variant prop */
-  tone?: "brand" | "neutral" | "inverse" | "fixed-light" | "fixed-dark";
-  /** Specifies a small, medium or large button, the size is medium by default. */
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
-  /** Text label of the spinner */
-  label?: string;
-  /** Orientation of label relative to the spinner */
-  orientation?: "horizontal" | "vertical";
-}
-
-// ── SubnavItem ─────────────────────────────────────────────────────────────
-
-export interface SitSubnavItemProps extends SitBaseProps {
-  /** when true, sets the active stylings of the navigation item */
-  active?: boolean;
-  /** Disables the SitSubnavItem */
-  disabled?: boolean;
-}
-
-// ── Subnav ─────────────────────────────────────────────────────────────
-
-export interface SitSubnavProps extends SitBaseProps {
-  /** Used only for SSR to indicate the presence of the `actions` slot. */
-  hasActionsSlot?: boolean;
-  "onsit-show"?: SitEventHandler;
-  onSitShow?: SitEventHandler;
-  "onsit-after-show"?: SitEventHandler;
-  onSitAfterShow?: SitEventHandler;
-  "onsit-hide"?: SitEventHandler;
-  onSitHide?: SitEventHandler;
-  "onsit-after-hide"?: SitEventHandler;
-  onSitAfterHide?: SitEventHandler;
 }
 
 // ── Step ─────────────────────────────────────────────────────────────
@@ -1435,6 +1443,64 @@ export interface SitStepperProps extends SitBaseProps {
   onSitArrived?: SitEventHandler;
   "onsit-reset"?: SitEventHandler;
   onSitReset?: SitEventHandler;
+}
+
+// ── Spinner ─────────────────────────────────────────────────────────────
+
+export interface SitSpinnerProps extends SitBaseProps {
+  /** The variant of spinner. Deprecated in favor of `tone` @deprecated */
+  variant?: "primary" | "neutral";
+  /** The color tones of spinner, replaces variant prop */
+  tone?: "brand" | "neutral" | "inverse" | "fixed-light" | "fixed-dark";
+  /** Specifies a small, medium or large button, the size is medium by default. */
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  /** Text label of the spinner */
+  label?: string;
+  /** Orientation of label relative to the spinner */
+  orientation?: "horizontal" | "vertical";
+}
+
+// ── SubnavItem ─────────────────────────────────────────────────────────────
+
+export interface SitSubnavItemProps extends SitBaseProps {
+  /** when true, sets the active stylings of the navigation item */
+  active?: boolean;
+  /** Disables the SitSubnavItem */
+  disabled?: boolean;
+}
+
+// ── Subnav ─────────────────────────────────────────────────────────────
+
+export interface SitSubnavProps extends SitBaseProps {
+  /** Used only for SSR to indicate the presence of the `actions` slot. */
+  hasActionsSlot?: boolean;
+  "onsit-show"?: SitEventHandler;
+  onSitShow?: SitEventHandler;
+  "onsit-after-show"?: SitEventHandler;
+  onSitAfterShow?: SitEventHandler;
+  "onsit-hide"?: SitEventHandler;
+  onSitHide?: SitEventHandler;
+  "onsit-after-hide"?: SitEventHandler;
+  onSitAfterHide?: SitEventHandler;
+}
+
+// ── Switch ─────────────────────────────────────────────────────────────
+
+export interface SitSwitchProps extends SitBaseProps {
+  /** The size of the switch. By default, it is small size */
+  size?: "sm" | "md" | "lg";
+  /** When enabled, icon appears in the switch */
+  icon?: boolean;
+  /** Draws the switch in a checked state. */
+  checked?: boolean;
+  /** Disables the switch (so the user can't check / uncheck it). */
+  disabled?: boolean;
+  /** Used only for SSR to indicate the presence of the `default` slot. */
+  hasDefaultSlot?: boolean;
+  /** Used only for SSR to indicate the presence of the `leftLabel` slot. */
+  hasLeftLabelSlot?: boolean;
+  "onsit-change"?: (event: CustomEvent<ISitSwitchChangeEventDetail>) => void;
+  onSitChange?: (event: CustomEvent<ISitSwitchChangeEventDetail>) => void;
 }
 
 // ── SystemBannerItem ─────────────────────────────────────────────────────────────
@@ -1500,25 +1566,6 @@ export interface SitTabProps extends SitBaseProps {
   disabled?: boolean;
   /** An accessible label for the tab. Use this when the tab's text content does not adequately describe its purpose. */
   ariaLabel?: string;
-}
-
-// ── Switch ─────────────────────────────────────────────────────────────
-
-export interface SitSwitchProps extends SitBaseProps {
-  /** The size of the switch. By default, it is small size */
-  size?: "sm" | "md" | "lg";
-  /** When enabled, icon appears in the switch */
-  icon?: boolean;
-  /** Draws the switch in a checked state. */
-  checked?: boolean;
-  /** Disables the switch (so the user can't check / uncheck it). */
-  disabled?: boolean;
-  /** Used only for SSR to indicate the presence of the `default` slot. */
-  hasDefaultSlot?: boolean;
-  /** Used only for SSR to indicate the presence of the `leftLabel` slot. */
-  hasLeftLabelSlot?: boolean;
-  "onsit-change"?: (event: CustomEvent<ISitSwitchChangeEventDetail>) => void;
-  onSitChange?: (event: CustomEvent<ISitSwitchChangeEventDetail>) => void;
 }
 
 // ── TableCell ─────────────────────────────────────────────────────────────
@@ -1641,6 +1688,23 @@ export interface SitTextareaProps extends SitBaseProps {
   onSitValid?: SitEventHandler;
 }
 
+// ── ThumbnailCard ─────────────────────────────────────────────────────────────
+
+export interface SitThumbnailCardProps extends SitBaseProps {
+  /** Removes the card's internal padding when set to true. */
+  noPadding?: boolean;
+  /** Extends the link passed in either `footer` or `link`(deprecated) slot. */
+  stretchedLink?: boolean;
+  /** Disables the card */
+  disabled?: boolean;
+  /** When true, hides the default border of the card. */
+  hideBorder?: boolean;
+  /** When true, applies a tinted background color to the card. */
+  tinted?: boolean;
+  /** Sets the orientation of the card. Available options: `vertical`, `horizontal` */
+  orientation?: CardOrientation;
+}
+
 // ── ToastContainer ─────────────────────────────────────────────────────────────
 
 export interface SitToastContainerProps extends SitBaseProps {
@@ -1676,23 +1740,6 @@ export interface SitToastProps extends SitBaseProps {
   onSitAfterHide?: SitEventHandler;
 }
 
-// ── ThumbnailCard ─────────────────────────────────────────────────────────────
-
-export interface SitThumbnailCardProps extends SitBaseProps {
-  /** Removes the card's internal padding when set to true. */
-  noPadding?: boolean;
-  /** Extends the link passed in either `footer` or `link`(deprecated) slot. */
-  stretchedLink?: boolean;
-  /** Disables the card */
-  disabled?: boolean;
-  /** When true, hides the default border of the card. */
-  hideBorder?: boolean;
-  /** When true, applies a tinted background color to the card. */
-  tinted?: boolean;
-  /** Sets the orientation of the card. Available options: `vertical`, `horizontal` */
-  orientation?: CardOrientation;
-}
-
 // ── Tooltip ─────────────────────────────────────────────────────────────
 
 export interface SitTooltipProps extends SitBaseProps {
@@ -1719,78 +1766,80 @@ export interface SitTooltipProps extends SitBaseProps {
 declare module "react" {
   namespace JSX {
     interface IntrinsicElements {
-      "sit-alert-link": React.DetailedHTMLProps<SitAlertLinkProps, HTMLElement>;
-      "sit-alert": React.DetailedHTMLProps<SitAlertProps, HTMLElement>;
-      "sit-breadcrumb-item": React.DetailedHTMLProps<SitBreadcrumbItemProps, HTMLElement>;
-      "sit-breadcrumb": React.DetailedHTMLProps<SitBreadcrumbProps, HTMLElement>;
       "sit-accordion-item": React.DetailedHTMLProps<SitAccordionItemProps, HTMLElement>;
       "sit-accordion": React.DetailedHTMLProps<SitAccordionProps, HTMLElement>;
+      "sit-alert-link": React.DetailedHTMLProps<SitAlertLinkProps, HTMLElement>;
+      "sit-alert": React.DetailedHTMLProps<SitAlertProps, HTMLElement>;
+      "sit-avatar": React.DetailedHTMLProps<SitAvatarProps, HTMLElement>;
       "sit-badge": React.DetailedHTMLProps<SitBadgeProps, HTMLElement>;
+      "sit-breadcrumb-item": React.DetailedHTMLProps<SitBreadcrumbItemProps, HTMLElement>;
+      "sit-breadcrumb": React.DetailedHTMLProps<SitBreadcrumbProps, HTMLElement>;
       "sit-button": React.DetailedHTMLProps<SitButtonProps, HTMLElement>;
-      "sit-card": React.DetailedHTMLProps<SitCardProps, HTMLElement>;
       "sit-checkbox-group": React.DetailedHTMLProps<SitCheckboxGroupProps, HTMLElement>;
       "sit-checkbox": React.DetailedHTMLProps<SitCheckboxProps, HTMLElement>;
+      "sit-card": React.DetailedHTMLProps<SitCardProps, HTMLElement>;
       "sit-close-button": React.DetailedHTMLProps<SitCloseButtonProps, HTMLElement>;
-      "sit-description-list-group": React.DetailedHTMLProps<SitDescriptionListGroupProps, HTMLElement>;
-      "sit-description-list": React.DetailedHTMLProps<SitDescriptionListProps, HTMLElement>;
-      "sit-datepicker": React.DetailedHTMLProps<SitDatepickerProps, HTMLElement>;
       "sit-combo-box-option": React.DetailedHTMLProps<SitComboBoxOptionProps, HTMLElement>;
       "sit-combo-box": React.DetailedHTMLProps<SitComboBoxProps, HTMLElement>;
-      "sit-divider": React.DetailedHTMLProps<SitDividerProps, HTMLElement>;
       "sit-drawer": React.DetailedHTMLProps<SitDrawerProps, HTMLElement>;
+      "sit-datepicker": React.DetailedHTMLProps<SitDatepickerProps, HTMLElement>;
+      "sit-divider": React.DetailedHTMLProps<SitDividerProps, HTMLElement>;
+      "sit-description-list-group": React.DetailedHTMLProps<SitDescriptionListGroupProps, HTMLElement>;
+      "sit-description-list": React.DetailedHTMLProps<SitDescriptionListProps, HTMLElement>;
       "sit-dropdown-item": React.DetailedHTMLProps<SitDropdownItemProps, HTMLElement>;
       "sit-dropdown": React.DetailedHTMLProps<SitDropdownProps, HTMLElement>;
       "sit-file-upload": React.DetailedHTMLProps<SitFileUploadProps, HTMLElement>;
       "sit-footer-item": React.DetailedHTMLProps<SitFooterItemProps, HTMLElement>;
       "sit-footer": React.DetailedHTMLProps<SitFooterProps, HTMLElement>;
+      "sit-icon-button": React.DetailedHTMLProps<SitIconButtonProps, HTMLElement>;
       "sit-icon-card": React.DetailedHTMLProps<SitIconCardProps, HTMLElement>;
       "sit-icon": React.DetailedHTMLProps<SitIconProps, HTMLElement>;
+      "sit-image-card": React.DetailedHTMLProps<SitImageCardProps, HTMLElement>;
+      "sit-input": React.DetailedHTMLProps<SitInputProps, HTMLElement>;
       "sit-icon-list": React.DetailedHTMLProps<SitIconListProps, HTMLElement>;
-      "sit-icon-button": React.DetailedHTMLProps<SitIconButtonProps, HTMLElement>;
+      "sit-link": React.DetailedHTMLProps<SitLinkProps, HTMLElement>;
       "sit-mainnav-dropdown": React.DetailedHTMLProps<SitMainnavDropdownProps, HTMLElement>;
       "sit-mainnav-item": React.DetailedHTMLProps<SitMainnavItemProps, HTMLElement>;
       "sit-mainnav": React.DetailedHTMLProps<SitMainnavProps, HTMLElement>;
-      "sit-link": React.DetailedHTMLProps<SitLinkProps, HTMLElement>;
-      "sit-image-card": React.DetailedHTMLProps<SitImageCardProps, HTMLElement>;
-      "sit-input": React.DetailedHTMLProps<SitInputProps, HTMLElement>;
+      "sit-masthead": React.DetailedHTMLProps<SitMastheadProps, HTMLElement>;
       "sit-overflow-menu": React.DetailedHTMLProps<SitOverflowMenuProps, HTMLElement>;
       "sit-modal": React.DetailedHTMLProps<SitModalProps, HTMLElement>;
-      "sit-masthead": React.DetailedHTMLProps<SitMastheadProps, HTMLElement>;
       "sit-pagination": React.DetailedHTMLProps<SitPaginationProps, HTMLElement>;
-      "sit-progress-bar": React.DetailedHTMLProps<SitProgressBarProps, HTMLElement>;
+      "sit-popover": React.DetailedHTMLProps<SitPopoverProps, HTMLElement>;
       "sit-quantity-toggle": React.DetailedHTMLProps<SitQuantityToggleProps, HTMLElement>;
+      "sit-progress-bar": React.DetailedHTMLProps<SitProgressBarProps, HTMLElement>;
       "sit-radio-group": React.DetailedHTMLProps<SitRadioGroupProps, HTMLElement>;
       "sit-radio": React.DetailedHTMLProps<SitRadioProps, HTMLElement>;
-      "sit-sidenav-item": React.DetailedHTMLProps<SitSidenavItemProps, HTMLElement>;
-      "sit-sidenav-link": React.DetailedHTMLProps<SitSidenavLinkProps, HTMLElement>;
-      "sit-sidenav": React.DetailedHTMLProps<SitSidenavProps, HTMLElement>;
+      "sit-select-option": React.DetailedHTMLProps<SitSelectOptionProps, HTMLElement>;
+      "sit-select": React.DetailedHTMLProps<SitSelectProps, HTMLElement>;
       "sit-sidebar-group": React.DetailedHTMLProps<SitSidebarGroupProps, HTMLElement>;
       "sit-sidebar-item": React.DetailedHTMLProps<SitSidebarItemProps, HTMLElement>;
       "sit-sidebar-section": React.DetailedHTMLProps<SitSidebarSectionProps, HTMLElement>;
       "sit-sidebar": React.DetailedHTMLProps<SitSidebarProps, HTMLElement>;
-      "sit-select-option": React.DetailedHTMLProps<SitSelectOptionProps, HTMLElement>;
-      "sit-select": React.DetailedHTMLProps<SitSelectProps, HTMLElement>;
+      "sit-sidenav-item": React.DetailedHTMLProps<SitSidenavItemProps, HTMLElement>;
+      "sit-sidenav-link": React.DetailedHTMLProps<SitSidenavLinkProps, HTMLElement>;
+      "sit-sidenav": React.DetailedHTMLProps<SitSidenavProps, HTMLElement>;
       "sit-skeleton": React.DetailedHTMLProps<SitSkeletonProps, HTMLElement>;
+      "sit-step": React.DetailedHTMLProps<SitStepProps, HTMLElement>;
+      "sit-stepper": React.DetailedHTMLProps<SitStepperProps, HTMLElement>;
       "sit-spinner": React.DetailedHTMLProps<SitSpinnerProps, HTMLElement>;
       "sit-subnav-item": React.DetailedHTMLProps<SitSubnavItemProps, HTMLElement>;
       "sit-subnav": React.DetailedHTMLProps<SitSubnavProps, HTMLElement>;
-      "sit-step": React.DetailedHTMLProps<SitStepProps, HTMLElement>;
-      "sit-stepper": React.DetailedHTMLProps<SitStepperProps, HTMLElement>;
+      "sit-switch": React.DetailedHTMLProps<SitSwitchProps, HTMLElement>;
       "sit-system-banner-item": React.DetailedHTMLProps<SitSystemBannerItemProps, HTMLElement>;
       "sit-system-banner": React.DetailedHTMLProps<SitSystemBannerProps, HTMLElement>;
       "sit-tab-group": React.DetailedHTMLProps<SitTabGroupProps, HTMLElement>;
       "sit-tab-panel": React.DetailedHTMLProps<SitTabPanelProps, HTMLElement>;
       "sit-tab": React.DetailedHTMLProps<SitTabProps, HTMLElement>;
-      "sit-switch": React.DetailedHTMLProps<SitSwitchProps, HTMLElement>;
       "sit-table-cell": React.DetailedHTMLProps<SitTableCellProps, HTMLElement>;
       "sit-table-head": React.DetailedHTMLProps<SitTableHeadProps, HTMLElement>;
       "sit-table-row": React.DetailedHTMLProps<SitTableRowProps, HTMLElement>;
       "sit-table": React.DetailedHTMLProps<SitTableProps, HTMLElement>;
       "sit-table-of-contents": React.DetailedHTMLProps<SitTableOfContentsProps, HTMLElement>;
       "sit-textarea": React.DetailedHTMLProps<SitTextareaProps, HTMLElement>;
+      "sit-thumbnail-card": React.DetailedHTMLProps<SitThumbnailCardProps, HTMLElement>;
       "sit-toast-container": React.DetailedHTMLProps<SitToastContainerProps, HTMLElement>;
       "sit-toast": React.DetailedHTMLProps<SitToastProps, HTMLElement>;
-      "sit-thumbnail-card": React.DetailedHTMLProps<SitThumbnailCardProps, HTMLElement>;
       "sit-tooltip": React.DetailedHTMLProps<SitTooltipProps, HTMLElement>;
     }
   }
@@ -1802,78 +1851,80 @@ declare module "react" {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "sit-alert-link": HTMLElement;
-    "sit-alert": HTMLElement;
-    "sit-breadcrumb-item": HTMLElement;
-    "sit-breadcrumb": HTMLElement;
     "sit-accordion-item": HTMLElement;
     "sit-accordion": HTMLElement;
+    "sit-alert-link": HTMLElement;
+    "sit-alert": HTMLElement;
+    "sit-avatar": HTMLElement;
     "sit-badge": HTMLElement;
+    "sit-breadcrumb-item": HTMLElement;
+    "sit-breadcrumb": HTMLElement;
     "sit-button": HTMLElement;
-    "sit-card": HTMLElement;
     "sit-checkbox-group": HTMLElement;
     "sit-checkbox": HTMLElement;
+    "sit-card": HTMLElement;
     "sit-close-button": HTMLElement;
-    "sit-description-list-group": HTMLElement;
-    "sit-description-list": HTMLElement;
-    "sit-datepicker": HTMLElement;
     "sit-combo-box-option": HTMLElement;
     "sit-combo-box": HTMLElement;
-    "sit-divider": HTMLElement;
     "sit-drawer": HTMLElement;
+    "sit-datepicker": HTMLElement;
+    "sit-divider": HTMLElement;
+    "sit-description-list-group": HTMLElement;
+    "sit-description-list": HTMLElement;
     "sit-dropdown-item": HTMLElement;
     "sit-dropdown": HTMLElement;
     "sit-file-upload": HTMLElement;
     "sit-footer-item": HTMLElement;
     "sit-footer": HTMLElement;
+    "sit-icon-button": HTMLElement;
     "sit-icon-card": HTMLElement;
     "sit-icon": HTMLElement;
+    "sit-image-card": HTMLElement;
+    "sit-input": HTMLElement;
     "sit-icon-list": HTMLElement;
-    "sit-icon-button": HTMLElement;
+    "sit-link": HTMLElement;
     "sit-mainnav-dropdown": HTMLElement;
     "sit-mainnav-item": HTMLElement;
     "sit-mainnav": HTMLElement;
-    "sit-link": HTMLElement;
-    "sit-image-card": HTMLElement;
-    "sit-input": HTMLElement;
+    "sit-masthead": HTMLElement;
     "sit-overflow-menu": HTMLElement;
     "sit-modal": HTMLElement;
-    "sit-masthead": HTMLElement;
     "sit-pagination": HTMLElement;
-    "sit-progress-bar": HTMLElement;
+    "sit-popover": HTMLElement;
     "sit-quantity-toggle": HTMLElement;
+    "sit-progress-bar": HTMLElement;
     "sit-radio-group": HTMLElement;
     "sit-radio": HTMLElement;
-    "sit-sidenav-item": HTMLElement;
-    "sit-sidenav-link": HTMLElement;
-    "sit-sidenav": HTMLElement;
+    "sit-select-option": HTMLElement;
+    "sit-select": HTMLElement;
     "sit-sidebar-group": HTMLElement;
     "sit-sidebar-item": HTMLElement;
     "sit-sidebar-section": HTMLElement;
     "sit-sidebar": HTMLElement;
-    "sit-select-option": HTMLElement;
-    "sit-select": HTMLElement;
+    "sit-sidenav-item": HTMLElement;
+    "sit-sidenav-link": HTMLElement;
+    "sit-sidenav": HTMLElement;
     "sit-skeleton": HTMLElement;
+    "sit-step": HTMLElement;
+    "sit-stepper": HTMLElement;
     "sit-spinner": HTMLElement;
     "sit-subnav-item": HTMLElement;
     "sit-subnav": HTMLElement;
-    "sit-step": HTMLElement;
-    "sit-stepper": HTMLElement;
+    "sit-switch": HTMLElement;
     "sit-system-banner-item": HTMLElement;
     "sit-system-banner": HTMLElement;
     "sit-tab-group": HTMLElement;
     "sit-tab-panel": HTMLElement;
     "sit-tab": HTMLElement;
-    "sit-switch": HTMLElement;
     "sit-table-cell": HTMLElement;
     "sit-table-head": HTMLElement;
     "sit-table-row": HTMLElement;
     "sit-table": HTMLElement;
     "sit-table-of-contents": HTMLElement;
     "sit-textarea": HTMLElement;
+    "sit-thumbnail-card": HTMLElement;
     "sit-toast-container": HTMLElement;
     "sit-toast": HTMLElement;
-    "sit-thumbnail-card": HTMLElement;
     "sit-tooltip": HTMLElement;
   }
 }

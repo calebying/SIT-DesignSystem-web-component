@@ -106,14 +106,14 @@ export declare class SitFileUpload extends SitFileUpload_base {
     _handleDisabledChange(): void;
     protected _handleBlur(): void;
     _handleIsTouched(): void;
-    protected _renderLabel(): import("lit-html").TemplateResult<1>;
-    protected _renderHintText(): import("lit-html").TemplateResult<1>;
-    protected _renderFeedback(): import("lit-html").TemplateResult<1>;
+    protected _renderLabel(): import("lit").TemplateResult<1>;
+    protected _renderHintText(): import("lit").TemplateResult<1>;
+    protected _renderFeedback(): import("lit").TemplateResult<1>;
     private _handleDragEnter;
     private _handleDragOver;
     private _handleDragLeave;
     private _handleDrop;
     private _renderUploadZone;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitFileUpload;

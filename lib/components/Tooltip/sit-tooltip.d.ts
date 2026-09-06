@@ -26,10 +26,14 @@ export declare class SitTooltip extends SitElement {
     private open;
     private _tooltipTargetElements;
     private _cleanupAutoUpdate?;
+    /** @internal Id applied to the tooltip bubble and referenced via aria-describedby on the target element(s) */
+    private _tooltipId;
     connectedCallback(): void;
     disconnectedCallback(): void;
     firstUpdated(changedProperties: PropertyValueMap<this>): void;
     private _handleClickOutOfElement;
+    /** Dismisses the tooltip on Escape, per WCAG 1.4.13 (Content on Hover or Focus). */
+    private _handleKeyDown;
     private _handleSlotChange;
     private updateFloatingPosition;
     /** Show tooltip */
@@ -38,6 +42,6 @@ export declare class SitTooltip extends SitElement {
     hide(): void;
     /** Toggle tooltip */
     toggle(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitTooltip;

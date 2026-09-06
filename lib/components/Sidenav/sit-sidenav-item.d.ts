@@ -70,6 +70,6 @@ export declare class SitSidenavItem extends SitElement {
     _handleOpenChange(): Promise<void>;
     private _items;
     private _handleSlotChange;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSidenavItem;

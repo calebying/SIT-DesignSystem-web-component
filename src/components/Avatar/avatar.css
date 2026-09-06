@@ -1,0 +1,104 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  border-radius: var(--sit-border-radius-full);
+  vertical-align: middle;
+}
+
+:host([size="xs"]) {
+  width: var(--sit-dimension-24);
+  height: var(--sit-dimension-24);
+}
+:host([size="sm"]) {
+  width: var(--sit-dimension-32);
+  height: var(--sit-dimension-32);
+}
+:host([size="md"]) {
+  width: var(--sit-dimension-40);
+  height: var(--sit-dimension-40);
+}
+:host([size="lg"]) {
+  width: var(--sit-dimension-48);
+  height: var(--sit-dimension-48);
+}
+:host([size="xl"]) {
+  width: var(--sit-dimension-64);
+  height: var(--sit-dimension-64);
+}
+
+.avatar-image,
+.avatar-fallback {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--sit-border-radius-full);
+}
+
+.avatar-image {
+  object-fit: cover;
+  display: block;
+}
+
+.avatar-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--avatar-fallback-bg, var(--sit-neutral-surface-default));
+  color: var(--avatar-fallback-color, var(--sit-color-fixed-light));
+}
+
+.avatar-initials {
+  font-weight: var(--sit-font-weight-semibold);
+  line-height: 1;
+  text-transform: uppercase;
+  /* Scales with the host's own font-size, which callers set per --sit-font-size-*
+     the same way they would for any inline content -- no fixed px value here
+     so a consumer's own text-size override (e.g. a bigger custom size) keeps
+     initials legible instead of clipping/overflowing a hardcoded font-size. */
+  font-size: 0.4em;
+}
+
+:host([size="xs"]) .avatar-initials,
+:host([size="sm"]) .avatar-initials {
+  font-size: 0.38em;
+}
+
+.avatar-fallback sit-icon {
+  width: 65%;
+  height: 65%;
+}
+
+.status-dot {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 30%;
+  height: 30%;
+  min-width: var(--sit-dimension-8);
+  min-height: var(--sit-dimension-8);
+  border-radius: var(--sit-border-radius-full);
+  border: var(--sit-border-width-2) solid var(--sit-surface-default);
+  background-color: var(--sit-gray-400);
+}
+
+.status-dot.status-online {
+  background-color: var(--sit-success-surface-default);
+}
+
+.status-dot.status-away {
+  background-color: var(--sit-warning-surface-default);
+}
+
+.status-dot.status-offline {
+  background-color: var(--sit-gray-400);
+}
+
+.status-dot ::slotted(*) {
+  width: 100%;
+  height: 100%;
+}

@@ -126,6 +126,9 @@ describe("sit-combo-box ", () => {
               autocomplete="on"
                 class="form-control"
               type="text"
+              role="combobox"
+              aria-expanded="false"
+              aria-haspopup="listbox"
             >
           </div>
           <sit-icon
@@ -139,7 +142,7 @@ describe("sit-combo-box ", () => {
           id="id-7895-sit-dropdown-menu-div"
           part="menu"
           tabindex="-1"
-          role="menu"
+          role="listbox"
           aria-label="Options"
           >
               <slot></slot>
@@ -2033,7 +2036,7 @@ describe("sit-scroll-end event", () => {
     const el = await fixture<SitComboBox>(manyOptionsFixture());
     await el.updateComplete;
 
-    const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
+    const menu = el.shadowRoot?.querySelector("[role='listbox']") as HTMLElement;
     const handler = sinon.spy();
     el.addEventListener("sit-scroll-end", handler);
 
@@ -2048,7 +2051,7 @@ describe("sit-scroll-end event", () => {
     const el = await fixture<SitComboBox>(manyOptionsFixture());
     await el.updateComplete;
 
-    const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
+    const menu = el.shadowRoot?.querySelector("[role='listbox']") as HTMLElement;
     const handler = sinon.spy();
     el.addEventListener("sit-scroll-end", handler);
 
@@ -2065,7 +2068,7 @@ describe("sit-scroll-end event", () => {
     const el = await fixture<SitComboBox>(manyOptionsFixture());
     await el.updateComplete;
 
-    const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
+    const menu = el.shadowRoot?.querySelector("[role='listbox']") as HTMLElement;
     const handler = sinon.spy();
     el.addEventListener("sit-scroll-end", handler);
 
@@ -2101,7 +2104,7 @@ describe("sit-scroll-end event", () => {
     `);
     await el.updateComplete;
 
-    const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
+    const menu = el.shadowRoot?.querySelector("[role='listbox']") as HTMLElement;
     const handler = sinon.spy();
     el.addEventListener("sit-scroll-end", handler);
 
@@ -2130,7 +2133,7 @@ describe("sit-scroll-end event", () => {
     `);
     await el.updateComplete;
 
-    const menu = el.shadowRoot?.querySelector("[role='menu']") as HTMLElement;
+    const menu = el.shadowRoot?.querySelector("[role='listbox']") as HTMLElement;
     const handler = sinon.spy();
     el.addEventListener("sit-scroll-end", handler);
 

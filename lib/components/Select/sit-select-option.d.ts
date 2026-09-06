@@ -10,6 +10,6 @@ export declare class SitSelectOption extends OptionElement {
     static dependencies: {
         "sit-icon": typeof SitIcon;
     };
-    protected _renderItemContent: () => import("lit-html").TemplateResult<1>;
+    protected _renderItemContent: () => import("lit").TemplateResult<1>;
 }
 export default SitSelectOption;

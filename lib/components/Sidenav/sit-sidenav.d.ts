@@ -17,6 +17,6 @@ export declare class SitSidenav extends SitElement {
     /** @internal */
     get items(): SitSidenavItem[];
     onToggle(event: Event): Promise<void>;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSidenav;

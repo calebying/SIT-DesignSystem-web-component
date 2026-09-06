@@ -1,4 +1,4 @@
-import { html, TemplateResult } from "lit";
+import { html, PropertyValueMap, TemplateResult } from "lit";
 import { property } from "lit/decorators.js";
 import { classMap } from "lit/directives/class-map.js";
 import optionStyles from "./option.css";
@@ -20,9 +20,23 @@ export class OptionElement extends SitElement {
 
   connectedCallback(): void {
     super.connectedCallback();
-    this.setAttribute("role", "menuitem");
+    // Follows the W3C APG listbox pattern: Select/ComboBox render their menu as
+    // role="listbox", so each option must be role="option" (not "menuitem").
+    this.setAttribute("role", "option");
     this.setAttribute("aria-disabled", `${this.disabled}`);
+    this.setAttribute("aria-selected", `${this.active}`);
   }
+
+  updated(changedProperties: PropertyValueMap<this>) {
+    super.updated(changedProperties);
+    if (changedProperties.has("active")) {
+      this.setAttribute("aria-selected", `${this.active}`);
+    }
+    if (changedProperties.has("disabled")) {
+      this.setAttribute("aria-disabled", `${this.disabled}`);
+    }
+  }
+
   render() {
     const classes = {
       disabled: this.disabled,

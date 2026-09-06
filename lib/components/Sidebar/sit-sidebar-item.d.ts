@@ -12,6 +12,6 @@ import { SidebarElement } from "./sidebar-element";
  */
 export declare class SitSidebarItem extends SidebarElement {
     static styles: import("lit").CSSResult[];
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSidebarItem;

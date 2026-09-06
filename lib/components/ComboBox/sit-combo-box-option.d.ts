@@ -20,6 +20,6 @@ export declare class SitComboBoxOption extends OptionElement {
     checkbox: boolean;
     connectedCallback(): void;
     firstUpdated(changedProperties: PropertyValueMap<this>): void;
-    protected _renderItemContent: () => import("lit-html").TemplateResult<1>;
+    protected _renderItemContent: () => import("lit").TemplateResult<1>;
 }
 export default SitComboBoxOption;

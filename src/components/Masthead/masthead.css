@@ -7,6 +7,8 @@ b {
 }
 
 a {
+  /* No --sit-* token matches this exactly (nearest is --sit-blue-800/#013c77) — this is the
+     standard gov.sg link blue, intentionally the same in both light and dark. */
   color: #0049dc;
   text-decoration: none !important;
 }
@@ -19,6 +21,7 @@ a[target="_blank"]::after {
 }
 
 a:hover {
+  /* Same rationale as the `a` rule above: no token match, intentionally theme-invariant. */
   color: #0022b9;
 }
 
@@ -30,7 +33,7 @@ a:hover {
 }
 
 .banner {
-  background-color: light-dark(#f7f7f7, #1a1a1a);
+  background-color: var(--sit-bg-alternate);
 }
 
 .container {
@@ -52,6 +55,9 @@ a:hover {
 }
 
 .sg-crest path {
+  /* No --sit-* token matches this exactly (nearest is --sit-red-600/#cf2323) — this is the
+     official Singapore crest/flag red, a fixed national-emblem colour that must not shift
+     with theme, so it is intentionally left as a literal. */
   fill: #db0000;
 }
 
@@ -84,17 +90,17 @@ a:hover {
 .sit-masthead-button {
   display: flex;
   gap: 4px;
-  color: light-dark(#0269d0, #60aaf4);
+  color: var(--sit-link-color-default);
   align-items: center;
   cursor: pointer;
 }
 
 .sit-masthead-button:hover {
-  color: light-dark(#0151a0, #96c7f7);
+  color: var(--sit-link-color-emphasis);
 }
 
 .panel {
-  background-color: light-dark(#f7f7f7, #1a1a1a);
+  background-color: var(--sit-bg-alternate);
 }
 
 .sit-masthead .sit-masthead-content {
@@ -133,7 +139,7 @@ a:hover {
 }
 
 .content article {
-  color: light-dark(#525252, #a5a5a5);
+  color: var(--sit-color-subtle);
 }
 
 .banner-icon, .banner-icon-inline {
@@ -143,22 +149,23 @@ a:hover {
 
 .banner-icon path,
 .banner-icon-inline path {
-  fill: light-dark(#1a1a1a, #f3f3f3);
+  fill: var(--sit-color-default);
 }
 
 a.trusted-websites-link {
-  color: light-dark(#0269d0, #60aaf4);
+  color: var(--sit-link-color-default);
   width: fit-content;
   text-decoration: underline;
 }
 
 a.trusted-websites-link:hover {
-  color: light-dark(#0151a0, #96c7f7);
+  color: var(--sit-link-color-emphasis);
 }
 
 a.trusted-websites-link:focus-visible,
 .sit-masthead-button:focus-visible {
-  outline: 4px solid #60aaf4;
+  outline: var(--sit-outline-focus);
+  outline-offset: var(--sit-outline-offset-focus);
 }
 
 @media screen and (min-width: 768px) {

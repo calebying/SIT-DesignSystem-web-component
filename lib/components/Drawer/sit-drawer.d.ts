@@ -71,6 +71,6 @@ export declare class SitDrawer extends SitElement {
     show(): Promise<void>;
     /** Hides the drawer */
     hide(): Promise<void>;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitDrawer;

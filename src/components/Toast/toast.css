@@ -27,7 +27,7 @@
   pointer-events: auto;
   min-width: var(--sit-dimension-280);
   max-width: var(--sit-dimension-480);
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 8px 16px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: var(--sit-elevation-surface-4);
 }
 
 .toast-content {

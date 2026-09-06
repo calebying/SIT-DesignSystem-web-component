@@ -38,6 +38,6 @@ export declare class SitCard extends CardElement {
     protected firstUpdated(changedProperties: PropertyValueMap<this>): void;
     updated(): void;
     handleImgSlotChange(e: Event): void;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitCard;

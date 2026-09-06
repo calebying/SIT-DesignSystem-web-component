@@ -1,4 +1,4 @@
-import { TemplateResult } from "lit";
+import { PropertyValueMap, TemplateResult } from "lit";
 import SitElement from "./sit-element";
 export declare class OptionElement extends SitElement {
     static styles: import("lit").CSSResult[];
@@ -12,6 +12,7 @@ export declare class OptionElement extends SitElement {
     /** The value of the option item */
     value: string;
     connectedCallback(): void;
+    updated(changedProperties: PropertyValueMap<this>): void;
     render(): TemplateResult<1>;
     protected _renderItemContent: () => TemplateResult<1>;
 }

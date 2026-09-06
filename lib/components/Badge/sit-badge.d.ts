@@ -47,6 +47,6 @@ export declare class SitBadge extends SitElement {
     _handleTruncation(): void;
     private _handleLabelSlotChange;
     private _renderBadge;
-    render(): import("lit-html").TemplateResult<1> | typeof nothing;
+    render(): import("lit").TemplateResult<1> | typeof nothing;
 }
 export default SitBadge;

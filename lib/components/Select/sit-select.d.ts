@@ -40,8 +40,8 @@ export declare class SitSelect extends SelectElement {
     protected _mixinResetFormControl(): Promise<void>;
     private _blockInputKeydown;
     /** Applicable for menuList prop only */
-    protected _renderMenu(): import("lit-html").TemplateResult<1> | import("lit-html").TemplateResult<1>[];
-    protected _renderInput(): import("lit-html").TemplateResult<1>;
-    render(): import("lit-html").TemplateResult<1>;
+    protected _renderMenu(): import("lit").TemplateResult<1> | import("lit").TemplateResult<1>[];
+    protected _renderInput(): import("lit").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSelect;

@@ -18,6 +18,6 @@ export declare class SitDropdownItem extends SitElement {
     /** Forwards aria-label to the inner clickable element for accessibility */
     ariaLabel: string;
     connectedCallback(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitDropdownItem;

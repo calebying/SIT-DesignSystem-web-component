@@ -10,6 +10,6 @@ export declare class SitIconList extends SitElement {
     role: string;
     /** The size of icon list. Changes the font-size the list items */
     size: "sm" | "md" | "lg";
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitIconList;

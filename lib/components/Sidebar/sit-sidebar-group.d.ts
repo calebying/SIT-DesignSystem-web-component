@@ -51,6 +51,6 @@ export declare class SitSidebarGroup extends SidebarElement {
      * @returns {string} Icon name to display
      */
     private _getIcon;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSidebarGroup;
