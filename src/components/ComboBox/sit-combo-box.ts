@@ -515,6 +515,10 @@ export class SitComboBox extends SelectElement {
             id=${this._controlId}
             name=${ifDefined(this.name)}
             placeholder=${ifDefined(this.placeholder)}
+            role="combobox"
+            aria-expanded=${this.menuIsOpen ? "true" : "false"}
+            aria-controls=${this.dropdownMenuId}
+            aria-haspopup="listbox"
             aria-invalid=${this.invalid ? "true" : "false"}
             ?autofocus=${this.autofocus}
             ?disabled=${this.disabled}
@@ -588,7 +592,7 @@ export class SitComboBox extends SelectElement {
           class="dropdown-menu"
           part="menu"
           tabindex="-1"
-          role="menu"
+          role="listbox"
           aria-label=${this.label || "Options"}
           ${ref(this.menuRef)}
           @scroll=${this._handleScroll}
