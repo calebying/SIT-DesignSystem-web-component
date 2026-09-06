@@ -466,4 +466,99 @@
   --shadow-5: var(--sit-elevation-surface-5);
   --shadow-edge-top: var(--sit-elevation-edge-top);
   --shadow-edge-bottom: var(--sit-elevation-edge-bottom);
+
+  /*
+   * Motion - Duration & Easing
+   *
+   * NOTE: this reuses the --sit-motion-duration- and --sit-motion-easing-
+   * primitives that already exist in src/themes/root.css (already consumed
+   * directly by several components, e.g. Sidebar/sidebar.css). There is no
+   * separate --sit-transition- primitive family; this maps the existing
+   * motion primitives onto the reserved --transition-duration- and --ease-
+   * theme keys instead of inventing a parallel one, the same way --shadow-
+   * and --z- above map the elevation/z-index primitives onto reserved
+   * names rather than a separate parallel scale.
+   */
+  --transition-duration-faster: var(--sit-motion-duration-faster);
+  --transition-duration-fast: var(--sit-motion-duration-fast);
+  --transition-duration-standard: var(--sit-motion-duration-standard);
+  --transition-duration-slow: var(--sit-motion-duration-slow);
+  --transition-duration-slower: var(--sit-motion-duration-slower);
+
+  --ease-enter: var(--sit-motion-easing-enter);
+  --ease-exit: var(--sit-motion-easing-exit);
+  --ease-standard: var(--sit-motion-easing-standard);
+
+  /*
+   * Motion - Animations
+   *
+   * Tailwind v4 reserved --animate-* theme key: each entry below both
+   * documents a named animation AND auto-generates a `sit:animate-{key}`
+   * utility class (this file is imported with prefix(sit), see the top of
+   * this file) -- e.g. --animate-fade-in generates `sit:animate-fade-in`.
+   * The @keyframes each one references are defined right after this
+   * @theme block; the theme block does not generate keyframes itself.
+   */
+  --animate-fade-in: sit-fade-in var(--sit-motion-duration-standard) var(--sit-motion-easing-standard);
+  --animate-slide-in-start: sit-slide-in-start var(--sit-motion-duration-standard) var(--sit-motion-easing-standard);
+  --animate-scale-in: sit-scale-in var(--sit-motion-duration-fast) var(--sit-motion-easing-standard);
+}
+
+@keyframes sit-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * `transform: translateX()` is a physical property -- CSS has no logical
+ * equivalent for transforms the way margin-inline-start etc. exist for box
+ * properties, so a single @keyframes cannot be direction-aware by itself.
+ * This keyframe animates from the physical left; the :dir(rtl) override
+ * right after it flips the sign for a right-to-left document, so the
+ * *utility class* (sit:animate-slide-in-start) is direction-aware even
+ * though the underlying keyframe by itself is not.
+ */
+@keyframes sit-slide-in-start {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+:dir(rtl) .sit\:animate-slide-in-start {
+  animation-name: sit-slide-in-start-rtl;
+}
+
+@keyframes sit-slide-in-start-rtl {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sit-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sit\:animate-fade-in,
+  .sit\:animate-slide-in-start,
+  .sit\:animate-scale-in {
+    animation: none;
+  }
 }
