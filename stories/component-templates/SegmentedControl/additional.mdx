@@ -1,0 +1,32 @@
+## Sizes
+
+`size` accepts `sm`, `md` (default), or `lg`.
+
+<Canvas of={SegmentedControlStories.Sizes}>
+  <Story of={SegmentedControlStories.Sizes} />
+</Canvas>
+
+## One segment disabled
+
+Disable an individual `<sit-segment>` to make it unselectable while the rest of the group stays
+interactive. Arrow-key navigation skips disabled segments.
+
+<Canvas of={SegmentedControlStories.DisabledSegment}>
+  <Story of={SegmentedControlStories.DisabledSegment} />
+</Canvas>
+
+## Whole group disabled
+
+Set `disabled` on `<sit-segmented-control>` to disable every segment at once.
+
+<Canvas of={SegmentedControlStories.DisabledGroup}>
+  <Story of={SegmentedControlStories.DisabledGroup} />
+</Canvas>
+
+## `sit-change` event
+
+Listen for `sit-change` to react to selection changes (click or Arrow-key/Space navigation).
+
+<Canvas of={SegmentedControlStories.ChangeEvent}>
+  <Story of={SegmentedControlStories.ChangeEvent} />
+</Canvas>

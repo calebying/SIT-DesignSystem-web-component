@@ -18,44 +18,46 @@ import { property } from "lit/decorators.js";
  * @csspart card - the outer card container, for the "running" emphasis border
  */
 export class SitAgentStatusCard extends LitElement {
-    constructor() {
-        super(...arguments);
-        /** Agent name (e.g. "Design Agent"). */
-        this.agentName = "";
-        /** Scope label under the name (e.g. "Stage 3", "Background"). */
-        this.scope = "";
-        /** Drives the status pill color/pulse and which footer renders. */
-        this.status = "idle";
-        /** Status pill label text (e.g. "Running", "Monitoring", "Idle"). */
-        this.statusLabel = "";
-        /** Accent color for icon/status/progress — a --sit-* token reference. Defaults per status if unset. */
-        this.accentColor = "";
-        /** The bold "Current: ..." line. */
-        this.current = "";
-        /** The muted detail line under "Current". */
-        this.detail = "";
-        /** Progress percent (0-100) — only rendered when status is "running". */
-        this.progressPercent = 0;
-        /** ETA text shown opposite the percent (e.g. "~18 min remaining"). */
-        this.eta = "";
-        /** Last-scan note — only rendered when status is "monitoring" (e.g. "✓ Last scan: 11:30 AM · No new signals"). */
-        this.scanNote = "";
-        /** Activation-condition note — only rendered when status is "idle" (e.g. "Activates after Gate C decision"). */
-        this.activationNote = "";
-    }
-    get _theme() {
-        var _a;
-        return (_a = SitAgentStatusCard._statusTheme[this.status]) !== null && _a !== void 0 ? _a : SitAgentStatusCard._statusTheme.idle;
-    }
-    render() {
-        const theme = this._theme;
-        // accentColor overrides the icon/progress colour only; the icon background
-        // stays on its status default (an explicit accent with no matching tint is
-        // better than silently pairing a custom colour with a mismatched bg).
-        const accent = this.accentColor || theme.iconColor;
-        const hostVars = `--accent-color: ${accent}; --accent-bg: ${theme.iconBg}`;
-        const pillVars = `--status-bg: ${theme.pillBg}; --status-color: ${theme.pillColor}`;
-        return html `
+  constructor() {
+    super(...arguments);
+    /** Agent name (e.g. "Design Agent"). */
+    this.agentName = "";
+    /** Scope label under the name (e.g. "Stage 3", "Background"). */
+    this.scope = "";
+    /** Drives the status pill color/pulse and which footer renders. */
+    this.status = "idle";
+    /** Status pill label text (e.g. "Running", "Monitoring", "Idle"). */
+    this.statusLabel = "";
+    /** Accent color for icon/status/progress — a --sit-* token reference. Defaults per status if unset. */
+    this.accentColor = "";
+    /** The bold "Current: ..." line. */
+    this.current = "";
+    /** The muted detail line under "Current". */
+    this.detail = "";
+    /** Progress percent (0-100) — only rendered when status is "running". */
+    this.progressPercent = 0;
+    /** ETA text shown opposite the percent (e.g. "~18 min remaining"). */
+    this.eta = "";
+    /** Last-scan note — only rendered when status is "monitoring" (e.g. "✓ Last scan: 11:30 AM · No new signals"). */
+    this.scanNote = "";
+    /** Activation-condition note — only rendered when status is "idle" (e.g. "Activates after Gate C decision"). */
+    this.activationNote = "";
+  }
+  get _theme() {
+    var _a;
+    return (_a = SitAgentStatusCard._statusTheme[this.status]) !== null && _a !== void 0
+      ? _a
+      : SitAgentStatusCard._statusTheme.idle;
+  }
+  render() {
+    const theme = this._theme;
+    // accentColor overrides the icon/progress colour only; the icon background
+    // stays on its status default (an explicit accent with no matching tint is
+    // better than silently pairing a custom colour with a mismatched bg).
+    const accent = this.accentColor || theme.iconColor;
+    const hostVars = `--accent-color: ${accent}; --accent-bg: ${theme.iconBg}`;
+    const pillVars = `--status-bg: ${theme.pillBg}; --status-color: ${theme.pillColor}`;
+    return html`
       <div class="card" part="card" style=${hostVars}>
         <div class="header-row">
           <div class="name-group">
@@ -68,8 +70,7 @@ export class SitAgentStatusCard extends LitElement {
             </div>
           </div>
           <span class="status-pill" style=${pillVars}>
-            ${this.status !== "idle" ? html `<span class="status-dot pulse"></span>` : nothing}
-            ${this.statusLabel}
+            ${this.status !== "idle" ? html`<span class="status-dot pulse"></span>` : nothing} ${this.statusLabel}
           </span>
         </div>
 
@@ -77,7 +78,7 @@ export class SitAgentStatusCard extends LitElement {
         <div class="detail-line">${this.detail}</div>
 
         ${this.status === "running"
-            ? html `
+          ? html`
               <div class="progress-track">
                 <div class="progress-fill" style="width: ${this.progressPercent}%"></div>
               </div>
@@ -86,144 +87,144 @@ export class SitAgentStatusCard extends LitElement {
                 <span>${this.eta}</span>
               </div>
             `
-            : nothing}
-        ${this.status === "monitoring" ? html `<div class="scan-note">${this.scanNote}</div>` : nothing}
-        ${this.status === "idle" ? html `<div class="activation-note">${this.activationNote}</div>` : nothing}
+          : nothing}
+        ${this.status === "monitoring" ? html`<div class="scan-note">${this.scanNote}</div>` : nothing}
+        ${this.status === "idle" ? html`<div class="activation-note">${this.activationNote}</div>` : nothing}
       </div>
     `;
-    }
+  }
 }
-SitAgentStatusCard.styles = css `
-    :host {
-      display: block;
-    }
+SitAgentStatusCard.styles = css`
+  :host {
+    display: block;
+  }
 
-    .card {
-      background-color: var(--sit-surface-default);
-      border: var(--sit-border-width-1) solid var(--sit-border-color-muted);
-      border-radius: var(--sit-border-radius-lg);
-      padding: var(--sit-component-padding-md);
-    }
+  .card {
+    background-color: var(--sit-surface-default);
+    border: var(--sit-border-width-1) solid var(--sit-border-color-muted);
+    border-radius: var(--sit-border-radius-lg);
+    padding: var(--sit-component-padding-md);
+  }
 
-    :host([status="running"]) .card {
-      border-width: var(--sit-border-width-2);
-      border-color: var(--accent-color, var(--sit-yellow-200));
-    }
+  :host([status="running"]) .card {
+    border-width: var(--sit-border-width-2);
+    border-color: var(--accent-color, var(--sit-yellow-200));
+  }
 
-    .header-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: var(--sit-component-gap-sm);
-    }
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sit-component-gap-sm);
+  }
 
-    .name-group {
-      display: flex;
-      align-items: center;
-      gap: var(--sit-component-gap-xs);
-    }
+  .name-group {
+    display: flex;
+    align-items: center;
+    gap: var(--sit-component-gap-xs);
+  }
 
-    .icon-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: var(--sit-dimension-32);
-      height: var(--sit-dimension-32);
-      border-radius: var(--sit-border-radius-md);
-      background-color: var(--accent-bg, var(--sit-gray-100));
-      color: var(--accent-color, var(--sit-gray-500));
-      flex-shrink: 0;
-    }
+  .icon-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--sit-dimension-32);
+    height: var(--sit-dimension-32);
+    border-radius: var(--sit-border-radius-md);
+    background-color: var(--accent-bg, var(--sit-gray-100));
+    color: var(--accent-color, var(--sit-gray-500));
+    flex-shrink: 0;
+  }
 
-    .agent-name {
-      font-size: var(--sit-font-size-label-sm);
-      font-weight: var(--sit-font-weight-bold);
-      color: var(--sit-color-subtle);
-    }
+  .agent-name {
+    font-size: var(--sit-font-size-label-sm);
+    font-weight: var(--sit-font-weight-bold);
+    color: var(--sit-color-subtle);
+  }
 
-    .agent-scope {
-      font-size: var(--sit-font-size-label-xs);
-      color: var(--sit-color-muted);
-    }
+  .agent-scope {
+    font-size: var(--sit-font-size-label-xs);
+    color: var(--sit-color-muted);
+  }
 
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--sit-spacer-1);
-      font-size: var(--sit-font-size-label-xs);
-      font-weight: var(--sit-font-weight-semibold);
-      padding: var(--sit-spacer-1) var(--sit-padding-xs);
-      border-radius: var(--sit-border-radius-full);
-      background-color: var(--status-bg, var(--sit-gray-50));
-      color: var(--status-color, var(--sit-gray-500));
-    }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sit-spacer-1);
+    font-size: var(--sit-font-size-label-xs);
+    font-weight: var(--sit-font-weight-semibold);
+    padding: var(--sit-spacer-1) var(--sit-padding-xs);
+    border-radius: var(--sit-border-radius-full);
+    background-color: var(--status-bg, var(--sit-gray-50));
+    color: var(--status-color, var(--sit-gray-500));
+  }
 
-    .status-dot {
-      width: var(--sit-dimension-8);
-      height: var(--sit-dimension-8);
-      border-radius: var(--sit-border-radius-full);
-      background-color: var(--status-color, var(--sit-gray-400));
-      flex-shrink: 0;
-    }
+  .status-dot {
+    width: var(--sit-dimension-8);
+    height: var(--sit-dimension-8);
+    border-radius: var(--sit-border-radius-full);
+    background-color: var(--status-color, var(--sit-gray-400));
+    flex-shrink: 0;
+  }
 
-    .status-dot.pulse {
-      animation: sit-agent-pulse 2s infinite;
-    }
+  .status-dot.pulse {
+    animation: sit-agent-pulse 2s infinite;
+  }
 
-    @keyframes sit-agent-pulse {
-      0%,
-      100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.4;
-      }
+  @keyframes sit-agent-pulse {
+    0%,
+    100% {
+      opacity: 1;
     }
+    50% {
+      opacity: 0.4;
+    }
+  }
 
-    .current-line {
-      font-size: var(--sit-font-size-label-xs);
-      color: var(--sit-color-subtle);
-      margin-bottom: var(--sit-spacer-1);
-    }
+  .current-line {
+    font-size: var(--sit-font-size-label-xs);
+    color: var(--sit-color-subtle);
+    margin-bottom: var(--sit-spacer-1);
+  }
 
-    .detail-line {
-      font-size: var(--sit-font-size-label-xs);
-      color: var(--sit-color-muted);
-      margin-bottom: var(--sit-component-gap-sm);
-    }
+  .detail-line {
+    font-size: var(--sit-font-size-label-xs);
+    color: var(--sit-color-muted);
+    margin-bottom: var(--sit-component-gap-sm);
+  }
 
-    .progress-track {
-      background-color: var(--sit-gray-100);
-      border-radius: var(--sit-border-radius-full);
-      height: var(--sit-dimension-8);
-      margin-bottom: var(--sit-spacer-2);
-      overflow: hidden;
-    }
+  .progress-track {
+    background-color: var(--sit-gray-100);
+    border-radius: var(--sit-border-radius-full);
+    height: var(--sit-dimension-8);
+    margin-bottom: var(--sit-spacer-2);
+    overflow: hidden;
+  }
 
-    .progress-fill {
-      background-color: var(--accent-color, var(--sit-yellow-400));
-      height: 100%;
-      border-radius: var(--sit-border-radius-full);
-    }
+  .progress-fill {
+    background-color: var(--accent-color, var(--sit-yellow-400));
+    height: 100%;
+    border-radius: var(--sit-border-radius-full);
+  }
 
-    .progress-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: var(--sit-font-size-label-xs);
-      color: var(--sit-color-muted);
-    }
+  .progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--sit-font-size-label-xs);
+    color: var(--sit-color-muted);
+  }
 
-    .scan-note {
-      font-size: var(--sit-font-size-label-xs);
-      font-weight: var(--sit-font-weight-semibold);
-      color: var(--sit-green-600);
-    }
+  .scan-note {
+    font-size: var(--sit-font-size-label-xs);
+    font-weight: var(--sit-font-weight-semibold);
+    color: var(--sit-green-600);
+  }
 
-    .activation-note {
-      font-size: var(--sit-font-size-label-xs);
-      color: var(--sit-color-muted);
-    }
-  `;
+  .activation-note {
+    font-size: var(--sit-font-size-label-xs);
+    color: var(--sit-color-muted);
+  }
+`;
 /**
  * Single source of truth for the status -> colour mapping. Both the icon
  * accent and the status pill derive from this one table, so they can't
@@ -236,60 +237,38 @@ SitAgentStatusCard.styles = css `
  * they're distinct fields here rather than one shared colour.
  */
 SitAgentStatusCard._statusTheme = {
-    running: {
-        iconBg: "var(--sit-yellow-100)",
-        iconColor: "var(--sit-yellow-500)",
-        pillBg: "var(--sit-yellow-100)",
-        pillColor: "var(--sit-yellow-600)"
-    },
-    monitoring: {
-        iconBg: "var(--sit-blue-100)",
-        iconColor: "var(--sit-blue-500)",
-        pillBg: "var(--sit-green-100)",
-        pillColor: "var(--sit-green-600)"
-    },
-    idle: {
-        iconBg: "var(--sit-gray-100)",
-        iconColor: "var(--sit-gray-500)",
-        pillBg: "var(--sit-gray-50)",
-        pillColor: "var(--sit-gray-500)"
-    }
+  running: {
+    iconBg: "var(--sit-yellow-100)",
+    iconColor: "var(--sit-yellow-500)",
+    pillBg: "var(--sit-yellow-100)",
+    pillColor: "var(--sit-yellow-600)"
+  },
+  monitoring: {
+    iconBg: "var(--sit-blue-100)",
+    iconColor: "var(--sit-blue-500)",
+    pillBg: "var(--sit-green-100)",
+    pillColor: "var(--sit-green-600)"
+  },
+  idle: {
+    iconBg: "var(--sit-gray-100)",
+    iconColor: "var(--sit-gray-500)",
+    pillBg: "var(--sit-gray-50)",
+    pillColor: "var(--sit-gray-500)"
+  }
 };
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "agentName", void 0);
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "scope", void 0);
-__decorate([
-    property({ type: String, reflect: true })
-], SitAgentStatusCard.prototype, "status", void 0);
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "statusLabel", void 0);
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "accentColor", void 0);
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "current", void 0);
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "detail", void 0);
-__decorate([
-    property({ type: Number })
-], SitAgentStatusCard.prototype, "progressPercent", void 0);
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "eta", void 0);
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "scanNote", void 0);
-__decorate([
-    property({ type: String })
-], SitAgentStatusCard.prototype, "activationNote", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "agentName", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "scope", void 0);
+__decorate([property({ type: String, reflect: true })], SitAgentStatusCard.prototype, "status", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "statusLabel", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "accentColor", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "current", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "detail", void 0);
+__decorate([property({ type: Number })], SitAgentStatusCard.prototype, "progressPercent", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "eta", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "scanNote", void 0);
+__decorate([property({ type: String })], SitAgentStatusCard.prototype, "activationNote", void 0);
 export default SitAgentStatusCard;
 if (!customElements.get("sit-agent-status-card")) {
-    customElements.define("sit-agent-status-card", SitAgentStatusCard);
+  customElements.define("sit-agent-status-card", SitAgentStatusCard);
 }
 //# sourceMappingURL=sit-agent-status-card.js.map
