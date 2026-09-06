@@ -3,6 +3,7 @@ import { property, queryAssignedElements, state } from "lit/decorators.js";
 import { Ref, createRef, ref } from "lit/directives/ref.js";
 import { computePosition, offset, flip, shift, hide, autoUpdate, Strategy } from "@floating-ui/dom";
 import SitElement from "../../base/sit-element";
+import generateId from "../../utils/generateId";
 import tooltipStyle from "./tooltip.css";
 
 /**
@@ -41,17 +42,22 @@ export class SitTooltip extends SitElement {
 
   private _cleanupAutoUpdate?: () => void;
 
+  /** @internal Id applied to the tooltip bubble and referenced via aria-describedby on the target element(s) */
+  private _tooltipId = generateId("tooltip", "bubble");
+
   connectedCallback() {
     super.connectedCallback();
 
     if (this.trigger.includes("click")) {
       document.addEventListener("click", this._handleClickOutOfElement);
     }
+    document.addEventListener("keydown", this._handleKeyDown);
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     document.removeEventListener("click", this._handleClickOutOfElement);
+    document.removeEventListener("keydown", this._handleKeyDown);
 
     if (this._cleanupAutoUpdate) {
       this._cleanupAutoUpdate();
@@ -64,6 +70,7 @@ export class SitTooltip extends SitElement {
 
     this._tooltipTargetElements.forEach(el => {
       el.setAttribute("data-sit-tooltip", this.content);
+      el.setAttribute("aria-describedby", this._tooltipId);
 
       if (this.trigger.includes("hover")) {
         el.addEventListener("mouseenter", () => this.show());
@@ -86,8 +93,19 @@ export class SitTooltip extends SitElement {
     }
   };
 
+  /** Dismisses the tooltip on Escape, per WCAG 1.4.13 (Content on Hover or Focus). */
+  private _handleKeyDown = (e: KeyboardEvent) => {
+    if (!this.open) return;
+    if (e.key === "Escape") {
+      this.hide();
+    }
+  };
+
   private _handleSlotChange(): void {
-    this._tooltipTargetElements.forEach(el => el.setAttribute("data-sit-tooltip", this.content));
+    this._tooltipTargetElements.forEach(el => {
+      el.setAttribute("data-sit-tooltip", this.content);
+      el.setAttribute("aria-describedby", this._tooltipId);
+    });
   }
 
   private async updateFloatingPosition() {
@@ -161,7 +179,8 @@ export class SitTooltip extends SitElement {
       <div ${ref(this._myTooltip)} class="tooltip-placeholder">
         <slot @slotchange=${() => this._handleSlotChange()}></slot>
         ${this.open
-          ? html`<div ${ref(this._tooltipBubble)} class="tooltip" role="tooltip">${this.content}</div>`
+          ? html`<div ${ref(this._tooltipBubble)} id=${this._tooltipId} class="tooltip" role="tooltip">${this
+              .content}</div>`
           : null}
       </div>
     `;
