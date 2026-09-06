@@ -400,7 +400,7 @@ export class SitFileUpload extends SitFormValidatorMixin(FormControlElement) {
       return html`
         <div
           class="drag-drop-zone"
-          tabindex=${this.disabled ? "-1" : "0"}
+          tabindex="-1"
           ${ref(this._dragZoneRef)}
           @dragenter=${this._handleDragEnter}
           @dragover=${this._handleDragOver}
