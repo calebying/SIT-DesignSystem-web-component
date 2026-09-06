@@ -164,7 +164,6 @@ function generateReactTypes() {
  *   - CamelCase (@lit/react wrappers):          <SitInput onSitChange={handler} />
  */`);
   lines.push("");
-  // `export {}` makes this a module so `declare module "react"` is a proper augmentation
   lines.push("export {};");
   lines.push("");
   lines.push("// ---------------------------------------------------------------------------");
@@ -188,7 +187,16 @@ function generateReactTypes() {
   lines.push("// React JSX intrinsic element registrations");
   lines.push("// ---------------------------------------------------------------------------");
   lines.push("");
-  lines.push('declare module "react" {');
+  // Must be a true global augmentation, not `declare module "react" { namespace JSX {...} }`.
+  // The latter only creates an inert `JSX` member nested under the "react" module's own
+  // namespace -- disconnected from the actual ambient global `JSX` namespace that the
+  // TypeScript JSX checker resolves intrinsic elements against under classic/"preserve" jsx
+  // modes (as used by e.g. @types/react 17, still common in consumer apps). Empirically,
+  // merely importing a type from this file with that pattern was found to make the global
+  // JSX.IntrinsicElements interface stop resolving even plain HTML tags (div/h1/a/...) across
+  // the *entire* consuming program -- not just fail to add the sit-* tags. `declare global`
+  // is the correct, tsconfig-agnostic way to augment JSX.IntrinsicElements from a module file.
+  lines.push("declare global {");
   lines.push("  namespace JSX {");
   lines.push("    interface IntrinsicElements {");
 
