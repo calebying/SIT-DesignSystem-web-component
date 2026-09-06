@@ -404,6 +404,31 @@ describe("variant=description sit-pagination", () => {
 
     expect(pagesHandler).to.be.calledOnce;
   });
+  it("keyboard space will simulate a click behaviour on the pages, per the ARIA APG button pattern", async () => {
+    const el = (await fixture(
+      html`<sit-pagination dataLength="40" limit="3" itemsPerPage="5" currentPage="1"></sit-pagination> `
+    )) as SitPagination;
+
+    const pagesHandler = sinon.spy();
+    el.addEventListener("sit-page-change", pagesHandler);
+
+    const pageOne = el.shadowRoot?.querySelectorAll(".page-item")[0];
+    const pageTwo = el.shadowRoot?.querySelectorAll(".page-item")[1];
+
+    expect(pageOne?.classList.value).to.contain("active");
+    expect(pageTwo?.classList.value).to.not.contain("active");
+
+    await sendKeys({ press: "Tab" });
+    await sendKeys({ press: "Tab" });
+    await sendKeys({ press: " " });
+
+    await el.updateComplete;
+
+    expect(el.shadowRoot?.querySelectorAll(".page-item")[0]?.classList.value).to.not.contain("active");
+    expect(el.shadowRoot?.querySelectorAll(".page-item")[1]?.classList.value).to.contain("active");
+
+    expect(pagesHandler).to.be.calledOnce;
+  });
   it("keyboard enter on direction buttons will simulate a click behaviour on the pages", async () => {
     const el = (await fixture(
       html`<sit-pagination dataLength="40" itemsPerPage="5" currentPage="1"></sit-pagination> `

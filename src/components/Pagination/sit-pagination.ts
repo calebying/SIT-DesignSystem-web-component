@@ -106,7 +106,13 @@ export class SitPagination extends SitElement {
   }
 
   private _handleKeyDown(event: KeyboardEvent, action: string, number?: number, isPrevButton?: boolean) {
-    if (event.key === "Enter") {
+    // role="button" spans must activate on both Enter and Space per the ARIA APG button pattern.
+    // Space also needs preventDefault() so it does not scroll the page (the browser only skips
+    // that default action for real <button>/<input> elements, not ARIA-only buttons).
+    if (event.key === " ") {
+      event.preventDefault();
+    }
+    if (event.key === "Enter" || event.key === " ") {
       switch (action) {
         case "pageNumber":
           this.currentPage = number;
