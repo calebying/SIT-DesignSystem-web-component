@@ -37,7 +37,7 @@ No CSS styling modifications — custom properties and CSS parts are not exposed
 - **`headerBackground` and `tableBorder` cascade**: these attributes are set on `<sit-table>` only and automatically affect all descendant header and cell elements — do not set them on individual sub-components.
 - **`responsive` breakpoint behaviour**: a table with `responsive="md"` scrolls horizontally only on viewports narrower than the `md` breakpoint; on wider viewports it renders normally.
 - **Rich cell content**: `<sit-table-cell>` slots accept any HTML — placing interactive elements (buttons, links) inside cells is the supported pattern for action columns.
-- **No sorting or pagination built in**: `<sit-table>` is a presentational component — implement sorting, filtering, and pagination logic in your application layer.
+- **No sorting or pagination built in — a deliberate design decision, not a gap.** `<sit-table>` is intentionally presentational only: it renders whatever rows/cells it's given, in that order, with no built-in awareness of "columns" as sortable/filterable data (each `<sit-table-cell>` is opaque HTML content, not a typed value). Implement sorting, filtering, and pagination in your application layer — re-render `<sit-table>` with reordered/filtered `<sit-table-row>` children when the user changes sort/filter/page state. See "Client-side sorting example" below for the pattern.
 
 ## Edge Cases
 
@@ -122,6 +122,58 @@ No CSS styling modifications — custom properties and CSS parts are not exposed
   <!-- rows and cells -->
 </sit-table>
 ```
+
+## Client-side sorting example
+
+`<sit-table>` has no `sort` prop or sort event — sorting means re-rendering `<sit-table-row>`
+children yourself in the new order, using `<sit-table-head>`'s click as the trigger:
+
+```html
+<sit-table id="peopleTable" tableBorder headerBackground>
+  <sit-table-row>
+    <sit-table-head data-sort-key="name" style="cursor:pointer">Name ▲▼</sit-table-head>
+    <sit-table-head data-sort-key="department" style="cursor:pointer">Department ▲▼</sit-table-head>
+  </sit-table-row>
+  <!-- rows rendered from `people` below -->
+</sit-table>
+
+<script>
+  const people = [
+    { name: "Bob Lee", department: "Design" },
+    { name: "Alice Tan", department: "Engineering" }
+  ];
+  let sortKey = null;
+  let sortAsc = true;
+
+  function renderRows() {
+    const table = document.getElementById("peopleTable");
+    table.querySelectorAll("sit-table-row:not(:first-child)").forEach(r => r.remove());
+    const sorted = sortKey
+      ? [...people].sort((a, b) => (sortAsc ? 1 : -1) * a[sortKey].localeCompare(b[sortKey]))
+      : people;
+    for (const person of sorted) {
+      const row = document.createElement("sit-table-row");
+      row.innerHTML = `<sit-table-cell>${person.name}</sit-table-cell><sit-table-cell>${person.department}</sit-table-cell>`;
+      table.appendChild(row);
+    }
+  }
+
+  document.querySelectorAll("sit-table-head[data-sort-key]").forEach(head => {
+    head.addEventListener("click", () => {
+      const key = head.dataset.sortKey;
+      sortAsc = sortKey === key ? !sortAsc : true;
+      sortKey = key;
+      renderRows();
+    });
+  });
+
+  renderRows();
+</script>
+```
+
+The same pattern applies in a framework: keep the row data in your own reactive state, sort/filter
+it on the click handler, and let the framework re-render `<sit-table-row>`/`<sit-table-cell>`
+children from the updated array — `<sit-table>` itself never needs to know sorting happened.
 
 ## API Summary
 
