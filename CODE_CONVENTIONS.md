@@ -10,6 +10,7 @@
     - [Naming Methods](#naming-methods)
     - [Naming Events](#naming-events)
     - [Naming CSS custom variables](#naming-css-custom-variables)
+    - [Naming CSS classes](#naming-css-classes)
     - [Naming slots](#naming-slots)
   - [Typescript](#typescript)
   - [Jsdocs](#jsdoc)
@@ -347,6 +348,57 @@ Example with element state
 2. use of shortform for long words
 - background --> bg
 - button --> btn
+---
+
+---
+
+### Naming CSS classes
+
+**Decision: adopt BEM (`block__element--modifier`) consistently for new/touched component CSS.**
+This had never been documented before — a minority of files already used a BEM-like pattern
+(verified: 6 of this repo's 76 component `.css` files use a `block__element` shape today —
+`Accordion/accordion-item.css`, `Alert/alert.css`, `Modal/modal.css`, `Tab/tab-group.css`,
+`SystemBanner/system-banner-item.css`, `Toast/toast.css` — not the "9/74" figure sometimes quoted;
+re-verify with `grep -rlE "\.[a-zA-Z0-9-]+__[a-zA-Z0-9-]+" src/components/*/*.css` if this drifts
+again), while most files use flat, hyphen-joined class names with no explicit element/modifier
+grammar (`.spinner-label`, `.badge-dismissible`).
+
+These are Shadow DOM-scoped internal implementation classes, never part of any component's public
+API (consumers can't select into shadow DOM CSS — only `::part()` names are public, and those are
+unaffected by this decision), so renaming them for consistency is genuinely low-risk: no consumer
+markup or CSS ever references a component's internal class names directly.
+
+**Pattern:**
+
+```css
+/* Block: the component's own root element */
+.spinner { ... }
+
+/* Element: a piece that belongs to the block, joined with __ */
+.spinner__ring { ... }
+.spinner__label { ... }
+
+/* Modifier: a variant of the block or an element, joined with -- and always
+   combined with the base class in markup (never applied alone) */
+.spinner--horizontal { ... }
+.spinner__ring--lg { ... }
+```
+
+```html
+<!-- modifiers combine with the base class, they don't replace it -->
+<div class="spinner spinner--horizontal">
+  <div class="spinner__ring spinner__ring--lg"></div>
+  <span class="spinner__label">Loading…</span>
+</div>
+```
+
+**This is a partial, ongoing migration, not a completed rename.** 3 components were converted as a
+demonstrated pattern (`Skeleton`, `Spinner`, `Badge` — see their `.css`/`.ts` diffs for the exact
+before/after shape) plus every new component built after this decision (`Avatar`, `Popover`,
+`SegmentedControl`) already follows it. The remaining ~67 non-BEM files are tracked in
+`docs/css-naming-migration.md` — convert opportunistically when touching a component for other
+reasons, not as a dedicated sweep.
+
 ---
 
 ---

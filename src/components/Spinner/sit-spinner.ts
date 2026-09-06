@@ -26,18 +26,18 @@ export class SitSpinner extends SitElement {
     return html`
       <div
         class="spinner-wrapper ${classMap({
-          horizontal: this.orientation === "horizontal"
+          "spinner-wrapper--horizontal": this.orientation === "horizontal"
         })}"
       >
         <div
-          class="spinner ${classMap({
-            [`spinner-${this.size}`]: this.size
+          class="spinner-wrapper__spinner ${classMap({
+            [`spinner-wrapper__spinner--${this.size}`]: this.size
           })}"
           role="status"
         >
           ${this.label ? nothing : html`<span class="sr-only">Loading...</span>`}
         </div>
-        ${this.label ? html`<span class="spinner-label">${this.label}</span>` : nothing}
+        ${this.label ? html`<span class="spinner-wrapper__label">${this.label}</span>` : nothing}
       </div>
     `;
   }

@@ -18,10 +18,10 @@ describe("<sit-skeleton>", () => {
     assert.shadowDom.equal(
       el,
       `
-          <div class="skeleton skeleton-paragraph auto-size-rows" style="">
-          <div class="skeleton-row-0"></div>
-          <div class="skeleton-row-1"></div>
-          <div class="skeleton-row-2"></div>
+          <div class="skeleton skeleton--paragraph skeleton--auto-size-rows" style="">
+          <div class="skeleton__row"></div>
+          <div class="skeleton__row"></div>
+          <div class="skeleton__row"></div>
           </div>
         `
     );
@@ -31,7 +31,7 @@ describe("<sit-skeleton>", () => {
     assert.shadowDom.equal(
       el,
       `
-          <div class="skeleton sheen" style="">
+          <div class="skeleton skeleton__sheen" style="">
           </div>
         `
     );
@@ -41,10 +41,10 @@ describe("<sit-skeleton>", () => {
     assert.shadowDom.equal(
       el,
       `
-          <div class="skeleton auto-size-rows skeleton-paragraph" style="">
-          <div class="skeleton-row-0 sheen"></div>
-          <div class="skeleton-row-1 sheen"></div>
-          <div class="skeleton-row-2 sheen"></div>
+          <div class="skeleton skeleton--auto-size-rows skeleton--paragraph" style="">
+          <div class="skeleton__row skeleton__sheen"></div>
+          <div class="skeleton__row skeleton__sheen"></div>
+          <div class="skeleton__row skeleton__sheen"></div>
           </div>
         `
     );
@@ -57,17 +57,13 @@ describe("<sit-skeleton>", () => {
     expect(skeletonStyles?.[1]).to.contain("height: 100px");
     expect(skeletonStyles?.[2]).to.contain("border-radius: 5px");
   });
-  it("borderRadius is forwarded to style of .skeleton-row elements when row is defined", async () => {
+  it("borderRadius is forwarded to style of .skeleton__row elements when row is defined", async () => {
     const el = await fixture<SitSkeleton>(
       html`<sit-skeleton rows="3" width="100px" height="100px" borderRadius="5px"></sit-skeleton>`
     );
     await elementUpdated(el);
-    const skeletonRowDivs = [
-      el.shadowRoot?.querySelector(".skeleton-row-0"),
-      el.shadowRoot?.querySelector(".skeleton-row-1"),
-      el.shadowRoot?.querySelector(".skeleton-row-2")
-    ];
-    const skeletonRowStyles = skeletonRowDivs.map(s => s?.getAttribute("style"));
-    skeletonRowStyles.forEach(s => expect(s).to.contain("border-radius: 5px"));
+    const skeletonRowDivs = el.shadowRoot?.querySelectorAll(".skeleton__row");
+    expect(skeletonRowDivs?.length).to.equal(3);
+    skeletonRowDivs?.forEach(row => expect(row.getAttribute("style")).to.contain("border-radius: 5px"));
   });
 });

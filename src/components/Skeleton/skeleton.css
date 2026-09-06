@@ -1,3 +1,10 @@
+/*
+ * BEM: .skeleton (block) / .skeleton__row (element, one per row) /
+ * .skeleton__sheen (element, the shimmer overlay) /
+ * .skeleton--paragraph, .skeleton--auto-size-rows (modifiers, always
+ * combined with the .skeleton block class in markup, never applied alone).
+ * See CODE_CONVENTIONS.md's "Naming CSS classes" section for the decision.
+ */
 .skeleton {
   --bg: var(--sit-bg-translucent-subtle);
   background-color: var(--bg);
@@ -7,17 +14,17 @@
   border-radius: var(--sit-border-radius-sm);
   max-width: 100%;
 }
-.skeleton.skeleton-paragraph {
+.skeleton.skeleton--paragraph {
   background-color: transparent;
 }
 
-.skeleton.skeleton-paragraph.auto-size-rows > div[class*="skeleton-row"] {
+.skeleton.skeleton--paragraph.skeleton--auto-size-rows > .skeleton__row {
   height: -webkit-fill-available;
   background-color: var(--sit-bg-translucent);
   border-radius: var(--sit-border-radius-sm);
 }
 
-.sheen {
+.skeleton__sheen {
   --sheen-color: var(--sit-bg-translucent);
   background: linear-gradient(270deg, var(--bg) 0%, var(--sheen-color) 33.33%, var(--sheen-color) 66.67%, var(--bg) 100%);
   background-size: 400% 100%;
@@ -34,7 +41,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sheen {
+  .skeleton__sheen {
     animation: none;
   }
 }
