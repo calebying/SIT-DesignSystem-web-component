@@ -45,6 +45,6 @@ export declare class SitButton extends ButtonElement {
     updated(): void;
     protected _handleClick(event: MouseEvent): void;
     private _clickHandler;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitButton;

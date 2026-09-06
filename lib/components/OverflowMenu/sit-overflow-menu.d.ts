@@ -16,6 +16,6 @@ export declare class SitOverflowMenu extends SitElement {
     };
     /** Specifies a large or small button */
     size: "sm" | "md";
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitOverflowMenu;

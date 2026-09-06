@@ -53,7 +53,7 @@ export declare class SitRadioGroup extends SitRadioGroup_base {
     private _handleKeyDown;
     private _handleSlotChange;
     private _updateCheckedRadio;
-    protected _renderHintText(): import("lit-html").TemplateResult<1>;
+    protected _renderHintText(): import("lit").TemplateResult<1>;
     /**
      * Checks for validity. Under the hood, HTMLFormElement's reportValidity method calls this method to check for component's validity state
      * Note that the native error popup is prevented for Canvas form components by default. Instead the validation message shows up in the feedback container of SitInput
@@ -74,6 +74,6 @@ export declare class SitRadioGroup extends SitRadioGroup_base {
     _handleIsTouched(): void;
     _handleDisabledChange(): void;
     private _disabledChildRadios;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitRadioGroup;

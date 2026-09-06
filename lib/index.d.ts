@@ -1,5 +1,6 @@
 import "./components/Accordion";
 import "./components/Alert";
+import "./components/Avatar";
 import "./components/Badge";
 import "./components/Breadcrumb";
 import "./components/Button";
@@ -24,6 +25,7 @@ import "./components/Masthead";
 import "./components/Modal";
 import "./components/OverflowMenu";
 import "./components/Pagination";
+import "./components/Popover";
 import "./components/ProgressBar";
 import "./components/QuantityToggle";
 import "./components/Radio";

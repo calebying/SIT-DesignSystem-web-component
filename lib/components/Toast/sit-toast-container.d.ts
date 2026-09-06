@@ -12,7 +12,7 @@ export declare class SitToastContainer extends SitElement {
      * Since 3.7.1, the positions "top-start", "middle-start", "middle-center", and "middle-end" are deprecated.
      */
     position: ToastPosition;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export type ToastPosition = "top-start" | "top-center" | "top-end" | "middle-start" | "middle-center" | "middle-end" | "bottom-start" | "bottom-center" | "bottom-end";
 export default SitToastContainer;

@@ -14,6 +14,6 @@ export declare class SitTabPanel extends SitElement {
     active: boolean;
     connectedCallback(): void;
     _handleActiveChange(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitTabPanel;

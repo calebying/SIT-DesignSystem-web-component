@@ -39,3 +39,26 @@ Example with both header
 <Canvas of={TableStories.StructuredElementsBoth}>
   <Story of={TableStories.StructuredElementsBoth} />
 </Canvas>
+
+## Sorting and filtering are not built in — by design
+
+`<sit-table>` is intentionally a presentational component: it renders whatever
+`sit-table-row`/`sit-table-cell` content it's given, in that order, with no built-in concept of
+"columns" as sortable/filterable typed data. This is a deliberate scope decision, not a missing
+feature — implement sorting, filtering, and pagination in your own application state, then
+re-render the row/cell children in the new order.
+
+```js
+// Client-side sort on header click — re-render rows from your own sorted array,
+// <sit-table> never needs to know sorting happened.
+const sorted = [...people].sort((a, b) => a[sortKey].localeCompare(b[sortKey]));
+table.querySelectorAll("sit-table-row:not(:first-child)").forEach(r => r.remove());
+for (const person of sorted) {
+  const row = document.createElement("sit-table-row");
+  row.innerHTML = `<sit-table-cell>${person.name}</sit-table-cell><sit-table-cell>${person.department}</sit-table-cell>`;
+  table.appendChild(row);
+}
+```
+
+See the `sit-table` skill reference (`skills/sit-components/reference/table.md`) for the full
+worked example, including the header-click wiring.

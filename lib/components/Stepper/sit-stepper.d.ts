@@ -80,7 +80,7 @@ export declare class SitStepper extends SitElement {
     _handleKeyDown(event: KeyboardEvent, index: number): void;
     /**@internal */
     _handleStepClick(e: Event): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export type StepperOrientation = "horizontal" | "vertical";
 export default SitStepper;

@@ -31,7 +31,7 @@ export declare class SitStep extends SitElement {
     orientation: "horizontal" | "vertical";
     /** @internal Whether this step is the first sit-step of its type in the slot */
     isFirstOfType: boolean;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
     /**@internal */
     _handleClick(e?: PointerEvent): void;
     /**@internal */

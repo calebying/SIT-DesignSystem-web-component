@@ -1313,10 +1313,10 @@ describe("sit-file-upload drag-and-drop interactions", () => {
     return new DragEvent(type, { bubbles: true, cancelable: true, dataTransfer: dt });
   }
 
-  it("drag-drop zone has tabindex='0' to be focusable", async () => {
+  it("drag-drop zone has tabindex='-1': programmatically focusable (for the drag-hover outline) but not a Tab stop", async () => {
     const el = await fixture<SitFileUpload>(html`<sit-file-upload variant="drag-and-drop"></sit-file-upload>`);
     const zone = el.shadowRoot?.querySelector<HTMLElement>(".drag-drop-zone");
-    expect(zone?.getAttribute("tabindex")).to.equal("0");
+    expect(zone?.getAttribute("tabindex")).to.equal("-1");
   });
 
   it("dragenter focuses the drag-drop zone", async () => {

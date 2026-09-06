@@ -44,6 +44,6 @@ export declare class SitSwitch extends SitElement {
     private _inputId;
     /** @internal */
     _handleDisabledChange(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSwitch;

@@ -81,7 +81,7 @@ export declare class SitMainnav extends SitElement {
     hide(): Promise<void>;
     private _handleDefaultSlotChange;
     private _handleSlotChange;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
     _expandClass(): string;
 }
 export default SitMainnav;

@@ -32,6 +32,6 @@ export declare class SitImageCard extends CardElement {
     private get footerSlotItems();
     protected firstUpdated(changedProperties: PropertyValueMap<this>): void;
     handleImgSlotChange(e: Event): void;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitImageCard;

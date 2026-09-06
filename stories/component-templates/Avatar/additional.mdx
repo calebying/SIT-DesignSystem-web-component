@@ -1,0 +1,47 @@
+## Sizes
+
+`size` accepts `xs`, `sm`, `md` (default), `lg`, or `xl`, matching this library's usual size-tier
+convention (see `sit-icon`, `sit-spinner`).
+
+<Canvas of={AvatarStories.Sizes}>
+  <Story of={AvatarStories.Sizes} />
+</Canvas>
+
+## Image, with automatic fallback on load error
+
+Set `src` (and `alt`) to show a photo. If the image fails to load — a broken URL, a network
+error — the avatar automatically falls back to `initials` (or the generic person icon if
+`initials` is also unset), and emits `sit-error` once the fallback has happened.
+
+<Canvas of={AvatarStories.WithImage}>
+  <Story of={AvatarStories.WithImage} />
+</Canvas>
+
+## Deterministic fallback colours
+
+When there's no image, the fallback background colour is picked deterministically from a hash of
+`initials` (or `alt` if `initials` is unset) — the same person always gets the same colour across
+renders and page loads, the same way GitHub/Slack-style avatar colouring works. The hash picks
+from the 8 `--sit-{variant}-surface-default` colour families `sit-badge`'s `variant` prop also
+uses (`primary`, `accent`, `success`, `danger`, `warning`, `cyan`, `purple`, `neutral`).
+
+<Canvas of={AvatarStories.FallbackPalette}>
+  <Story of={AvatarStories.FallbackPalette} />
+</Canvas>
+
+## Icon fallback
+
+With no `src` and no `initials`, the avatar falls back to a generic person icon.
+
+<Canvas of={AvatarStories.IconFallback}>
+  <Story of={AvatarStories.IconFallback} />
+</Canvas>
+
+## Status dot
+
+Set `status` to `online`, `away`, or `offline` to show a small coloured dot. Pass custom content
+into the `status` slot instead (or alongside) for a fully custom indicator.
+
+<Canvas of={AvatarStories.Status}>
+  <Story of={AvatarStories.Status} />
+</Canvas>

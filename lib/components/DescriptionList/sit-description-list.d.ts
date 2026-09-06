@@ -15,6 +15,6 @@ export declare class SitDescriptionList extends SitElement {
     /** Changes the border bottom styles for bordered description list group */
     bordered: boolean;
     connectedCallback(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitDescriptionList;

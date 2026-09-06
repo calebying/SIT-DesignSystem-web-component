@@ -1,2 +1,2 @@
-declare const _default: import("lit-html").TemplateResult<1>;
+declare const _default: import("lit").TemplateResult<1>;
 export default _default;

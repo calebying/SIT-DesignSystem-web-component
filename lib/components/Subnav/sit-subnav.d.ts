@@ -50,6 +50,6 @@ export declare class SitSubnav extends SitElement {
     private _animateToHide;
     handleOpenChange(): Promise<void>;
     handleCollapsedChange(): Promise<void>;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSubnav;

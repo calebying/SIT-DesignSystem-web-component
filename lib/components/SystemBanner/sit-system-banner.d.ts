@@ -50,6 +50,6 @@ export declare class SitSystemBanner extends SitElement {
     private _resetAutoCycle;
     private _pauseAutoCycle;
     private _resumeAutoCycle;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitSystemBanner;

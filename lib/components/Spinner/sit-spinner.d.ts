@@ -15,7 +15,7 @@ export declare class SitSpinner extends SitElement {
     label: string;
     /** Orientation of label relative to the spinner */
     orientation: "horizontal" | "vertical";
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export type SpinnerTone = "brand" | "neutral" | "inverse" | "fixed-light" | "fixed-dark";
 export type SpinnerVariant = "primary" | "neutral";

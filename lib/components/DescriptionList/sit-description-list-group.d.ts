@@ -24,6 +24,6 @@ export declare class SitDescriptionListGroup extends SitElement {
     connectedCallback(): void;
     private _updateDescriptionLists;
     protected updated(_changedProperties: PropertyValues): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitDescriptionListGroup;

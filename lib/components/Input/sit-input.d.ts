@@ -103,12 +103,12 @@ export declare class SitInput extends SitInput_base implements SitFormControl {
     /** @internal */
     _handleIsTouched(): void;
     _handleDisabledChange(): void;
-    protected _renderInput(): import("lit-html").TemplateResult;
-    protected _renderPasswordToggle(): import("lit-html").TemplateResult;
+    protected _renderInput(): import("lit").TemplateResult;
+    protected _renderPasswordToggle(): import("lit").TemplateResult;
     protected _inputType(): "number" | "text" | "email" | "password" | "search" | "tel" | "time" | "url" | "datetime-local";
-    protected _renderFeedback(): import("lit-html").TemplateResult;
-    protected _renderLabel(): import("lit-html").TemplateResult;
-    protected _renderHintText(): import("lit-html").TemplateResult;
-    render(): import("lit-html").TemplateResult;
+    protected _renderFeedback(): import("lit").TemplateResult;
+    protected _renderLabel(): import("lit").TemplateResult;
+    protected _renderHintText(): import("lit").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitInput;

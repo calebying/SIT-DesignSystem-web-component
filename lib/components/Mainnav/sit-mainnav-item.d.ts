@@ -11,6 +11,6 @@ export declare class SitMainnavItem extends SitElement {
     disabled: boolean;
     _handleDisabled(): void;
     private _handleSlotChange;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitMainnavItem;

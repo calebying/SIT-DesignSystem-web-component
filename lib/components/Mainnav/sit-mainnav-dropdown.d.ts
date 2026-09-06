@@ -52,6 +52,6 @@ export declare class SitMainnavDropdown extends SitElement {
     private _openMenu;
     private _handleHeaderKeyboardEvent;
     private _closeMenu;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitMainnavDropdown;

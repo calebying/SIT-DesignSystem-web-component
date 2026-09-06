@@ -11,5 +11,5 @@ export default class LinkElement extends SitElement {
     /** Disables the SitMainnavItem */
     disabled: boolean;
     _handleDisabled(): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }

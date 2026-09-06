@@ -11,6 +11,6 @@ export declare class SitAlertLink extends SitElement {
     href: string;
     /** Tells the browser where to open the link */
     target: "_blank" | "_parent" | "_self" | "_top";
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitAlertLink;

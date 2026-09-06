@@ -22,6 +22,6 @@ export declare class SitThumbnailCard extends CardElement {
     private _handleThumbnailSlotChange;
     private _handleFooterSlotChange;
     private _handleLinkSlotChange;
-    render(): import("lit-html").TemplateResult;
+    render(): import("lit").TemplateResult;
 }
 export default SitThumbnailCard;

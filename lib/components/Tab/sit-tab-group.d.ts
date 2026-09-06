@@ -43,6 +43,6 @@ export declare class SitTabGroup extends SitElement {
     private _updateTabsAttribute;
     private _handleSlotChange;
     protected willUpdate(_changedProperties: PropertyValues): void;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitTabGroup;

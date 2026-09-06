@@ -68,6 +68,6 @@ export declare class SitModal extends SitElement {
     handleDocumentKeyDown(event: KeyboardEvent): void;
     private _overlayClickHandler;
     handleOpenChange(): Promise<void>;
-    render(): import("lit-html").TemplateResult<1>;
+    render(): import("lit").TemplateResult<1>;
 }
 export default SitModal;
